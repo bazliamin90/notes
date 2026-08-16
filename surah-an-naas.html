@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Say, I Seek Refuge — Surah an-Naas | Study Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --paper:#fbfbfd;
+    --ink:#14151a;
+    --ink-soft:#5a5d6b;
+    --line:#e7e7ee;
+    --line-soft:#f0f0f5;
+
+    --c-1:#7c3aed;  --c-1-tint:#f4edff;   /* violet */
+    --c-2:#0284c7;  --c-2-tint:#e8f6ff;   /* ocean */
+    --c-3:#ea580c;  --c-3-tint:#fff1e8;   /* coral */
+    --c-4:#db2777;  --c-4-tint:#ffe9f4;   /* magenta */
+    --c-5:#059669;  --c-5-tint:#e6faf2;   /* emerald */
+    --c-6:#0f766e;  --c-6-tint:#e6f8f6;   /* teal */
+
+    --accent: var(--c-1);
+    --accent-tint: var(--c-1-tint);
+
+    --radius: 18px;
+    --shadow: 0 1px 2px rgba(20,21,26,.04), 0 12px 32px -16px rgba(20,21,26,.14);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background: var(--accent); color:#fff; }
+
+  h1,h2,h3,h4{ font-family:'Space Grotesk', sans-serif; margin:0; letter-spacing:-.01em; }
+  code, .mono{ font-family:'IBM Plex Mono', monospace; }
+  a{ color:inherit; }
+  p{ margin:0; }
+  .arabic{ font-family:'Amiri', serif; direction:rtl; }
+
+  #progress{
+    position:fixed; top:0; left:0; height:3px; width:0%;
+    background: linear-gradient(90deg, var(--c-1), var(--c-2), var(--c-3), var(--c-4), var(--c-5), var(--c-6));
+    z-index:100; transition: width .1s linear;
+  }
+
+  .ref-bar{
+    background:var(--ink); color:#fff;
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    padding:9px 8vw; display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  }
+  .ref-bar .ref-label{ color:rgba(255,255,255,.55); text-transform:uppercase; letter-spacing:.08em; font-size:10.5px; }
+  .ref-bar .ref-txt{ opacity:.85; }
+
+  header.hero{
+    padding: 6px 8vw;
+    min-height:46px;
+    display:flex; align-items:center; gap:10px;
+    position:sticky; top:0; z-index:80;
+    border-bottom:1px solid var(--line);
+    background-color:#fff;
+    background-image:
+      radial-gradient(700px 340px at 8% -10%, var(--c-1-tint), transparent 60%),
+      radial-gradient(600px 300px at 95% 0%, var(--c-3-tint), transparent 55%);
+  }
+  header.hero .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:15px;
+  }
+  header.hero .brand .dot{ width:9px; height:9px; border-radius:3px; background: linear-gradient(135deg, var(--c-1), var(--c-4)); }
+
+  /* ---------- burger navigation ---------- */
+  .burger-wrap{ position:relative; display:flex; align-items:center; }
+  .burger-btn{
+    width:34px; height:34px; border-radius:10px; border:1.3px solid var(--line);
+    background:var(--paper); color:var(--ink); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: border-color .15s ease, background .15s ease, color .15s ease;
+  }
+  .burger-btn:hover{ border-color: var(--c-1); }
+  .burger-btn.open{ background: var(--c-1); border-color: var(--c-1); color:#fff; }
+  .burger-btn svg{ transition: opacity .15s ease; }
+  .burger-menu{
+    position:absolute; top:calc(100% + 10px); left:0; width:320px;
+    background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow);
+    padding:8px; opacity:0; transform: translateY(-6px); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease; z-index:120;
+    display:flex; flex-direction:column;
+  }
+  .burger-menu.open{ opacity:1; transform: translateY(0); pointer-events:auto; }
+  .burger-menu-home{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; margin:2px 2px 8px;
+    border-radius:10px; border-bottom:1px solid var(--line-soft);
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-home svg{ flex:none; color:var(--ink-soft); }
+  .burger-menu-home:hover{ background: var(--paper); }
+  .burger-menu-home.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-home.is-current .bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-search{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:10px; padding:8px 10px; margin:2px 2px 8px;
+    background:var(--paper); flex:none;
+  }
+  .burger-menu-search svg{ flex:none; opacity:.5; color:var(--ink-soft); }
+  .burger-menu-search input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13px; width:100%; color:var(--ink);
+  }
+  .burger-menu-list{ max-height:340px; overflow-y:auto; overscroll-behavior:contain; }
+  .burger-menu-list::-webkit-scrollbar{ width:6px; }
+  .burger-menu-list::-webkit-scrollbar-thumb{ background:var(--line); border-radius:10px; }
+  .burger-menu-group + .burger-menu-group{ margin-top:4px; }
+  .burger-menu-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); padding:8px 10px 4px;
+  }
+  .burger-menu-empty{
+    display:none; padding:18px 10px; text-align:center; font-size:12.5px; color:var(--ink-soft);
+  }
+  .burger-menu-item{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; border-radius:10px;
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-item span.bm-title{ display:block; }
+  .burger-menu-item span.bm-sub{ display:block; font-size:11.5px; color:var(--ink-soft); font-weight:400; margin-top:1px; }
+  .burger-menu-item:hover{ background: var(--paper); }
+  .burger-menu-item.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-item.is-current span.bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-dot{ width:9px; height:9px; border-radius:3px; flex:none; margin-top:3px; }
+
+
+  /* ---------- burger navigation ---------- */
+  .burger-wrap{ position:relative; display:flex; align-items:center; }
+  .burger-btn{
+    width:34px; height:34px; border-radius:10px; border:1.3px solid var(--line);
+    background:var(--paper); color:var(--ink); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: border-color .15s ease, background .15s ease, color .15s ease;
+  }
+  .burger-btn:hover{ border-color: var(--c-1); }
+  .burger-btn.open{ background: var(--c-1); border-color: var(--c-1); color:#fff; }
+  .burger-btn svg{ transition: opacity .15s ease; }
+  .burger-menu{
+    position:absolute; top:calc(100% + 10px); left:0; width:300px;
+    background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow);
+    padding:8px; opacity:0; transform: translateY(-6px); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease; z-index:120;
+    display:flex; flex-direction:column;
+  }
+  .burger-menu.open{ opacity:1; transform: translateY(0); pointer-events:auto; }
+  .burger-menu-home{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; margin:2px 2px 2px;
+    border-radius:10px;
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+    background: var(--accent-tint); cursor:default;
+  }
+  .burger-menu-home svg{ flex:none; color:var(--ink-soft); }
+  .burger-menu-home .bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-note{
+    padding:10px 10px 4px; font-size:11.5px; color:var(--ink-soft); line-height:1.5;
+  }
+
+  .page-title{ padding: 30px 8vw 6px; }
+  .page-title .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-soft); margin-bottom:10px; display:block;
+  }
+  .page-title h1{
+    font-size: clamp(26px, 5vw, 46px);
+    line-height:1.12;
+    font-weight:700;
+  }
+  .page-title h1 .accent-word{
+    background: linear-gradient(100deg, var(--c-1), var(--c-4) 55%, var(--c-3));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .page-title .sub{
+    margin-top:14px; max-width:66ch; color:var(--ink-soft); font-size:15px; line-height:1.6;
+  }
+  .page-title .tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+  .page-title .tag{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; border:1.3px solid var(--line);
+    color:var(--ink-soft); font-weight:500; background:var(--paper);
+  }
+
+  .layout{
+    display:grid;
+    grid-template-columns: 270px minmax(0,1fr);
+    gap:0;
+    max-width:1400px; margin:0 auto;
+  }
+  nav.sidebar{
+    position:sticky; top: var(--header-h, 0px); align-self:start;
+    height: calc(100vh - var(--header-h, 0px)); overflow-y:auto;
+    padding: 28px 18px 40px 8vw;
+    border-right:1px solid var(--line);
+    scrollbar-width: thin;
+  }
+  nav.sidebar::-webkit-scrollbar{ width:6px; }
+  nav.sidebar::-webkit-scrollbar-thumb{ background:var(--line); border-radius:10px; }
+
+  .search-box{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:12px; padding:10px 12px; margin-bottom:18px;
+    background:var(--paper);
+  }
+  .search-box input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13.5px; width:100%; color:var(--ink);
+  }
+  .search-box svg{ flex:none; opacity:.5; }
+
+  .nav-actions{ display:flex; gap:8px; margin-bottom:18px; }
+  .nav-actions button{
+    flex:1; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    border:1.3px solid var(--line); background:#fff; color:var(--ink-soft);
+    padding:7px 8px; border-radius:9px; cursor:pointer; transition:.15s ease;
+  }
+  .nav-actions button:hover{ border-color:var(--ink); color:var(--ink); }
+
+  .nav-group-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); margin: 18px 0 6px 2px;
+  }
+  .nav-group-label:first-of-type{ margin-top:0; }
+
+  nav.sidebar ul{ list-style:none; margin:0; padding:0; border-left:2px solid var(--line-soft); }
+  nav.sidebar li a{
+    display:flex; align-items:center; gap:9px;
+    text-decoration:none; font-size:13.5px; color:var(--ink-soft);
+    padding:7px 0 7px 14px; border-left:2px solid transparent; margin-left:-2px;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  nav.sidebar li a .sw{ width:8px; height:8px; border-radius:3px; flex:none; background:var(--g-color); }
+  nav.sidebar li a:hover{ color:var(--ink); }
+  nav.sidebar li a.active{ color:var(--g-color); border-left-color: var(--g-color); font-weight:600; }
+  nav.sidebar li a[data-hidden="1"]{ display:none; }
+
+  main{ min-width:0; padding: 0 8vw 140px; }
+
+  section.class-section{ padding-top:56px; scroll-margin-top: 24px; }
+  section.class-section:first-child{ padding-top:44px; }
+
+  .class-head{
+    display:flex; align-items:baseline; gap:16px; flex-wrap:wrap;
+    padding-bottom:14px; margin-bottom:22px; border-bottom:3px solid var(--g-color);
+    position:relative;
+  }
+  .class-head .idx{
+    font-family:'IBM Plex Mono',monospace; font-size:14px; font-weight:700; color:#fff;
+    background:var(--g-color); padding:5px 10px; border-radius:8px;
+  }
+  .class-head h2{ font-size: clamp(20px,2.4vw,28px); color:var(--ink); }
+  .collapse-toggle{
+    margin-left:auto; width:34px; height:34px; border-radius:9px; border:1.5px solid var(--line);
+    background:#fff; color:var(--g-color); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: transform .3s ease, background .15s ease, border-color .15s ease;
+  }
+  .collapse-toggle:hover{ background: var(--g-tint); border-color: var(--g-color); }
+  .collapse-toggle svg{ transition: transform .3s ease; }
+  .collapse-toggle[aria-expanded="false"] svg{ transform: rotate(-90deg); }
+
+  .class-body-outer{ display:grid; grid-template-rows: 0fr; transition: grid-template-rows .38s ease; }
+  .class-body-outer.collapsed{ grid-template-rows: 0fr; }
+  .class-body-outer:not(.collapsed){ grid-template-rows: 1fr; }
+  .class-body-inner{ overflow:hidden; min-height:0; opacity:0; transition: opacity .25s ease .1s; }
+  .class-body-outer.collapsed .class-body-inner{ opacity:0; transition: opacity .18s ease; }
+  .class-body-outer:not(.collapsed) .class-body-inner{ opacity:1; }
+
+  .card{
+    background:#fff; border:1px solid var(--line); border-radius: var(--radius);
+    padding: 28px 30px; margin-bottom: 22px; position:relative; overflow:hidden;
+    border-left: 5px solid var(--g-color);
+  }
+  .card .card-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap;
+    margin-bottom:14px;
+  }
+  .card h3{ font-size:19px; font-weight:600; color:var(--ink); }
+  .card h3 .alt{ font-weight:400; color:var(--ink-soft); font-size:14px; display:block; margin-top:3px;}
+  .code-badge{
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:12px; color:#fff;
+    background: var(--g-color); padding:6px 12px; border-radius:8px; white-space:nowrap;
+  }
+
+  ul.points{ list-style:none; margin:0; padding:0; }
+  ul.points > li{
+    position:relative; padding: 10px 0 10px 34px; font-size:14.8px; line-height:1.65; color:#2b2d36;
+    border-top:1px solid var(--line-soft);
+  }
+  ul.points > li:first-child{ border-top:none; }
+  ul.points > li::before{
+    content:"—";
+    position:absolute; left:0; top:10px; width:22px; height:22px; border-radius:7px;
+    background: var(--g-tint); color:var(--g-color); font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:13px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  ul.points > li b, ul.points > li strong{ color:var(--g-color); }
+  ul.points ul{ list-style:none; margin:8px 0 0; padding:0; }
+  ul.points ul li{
+    position:relative; padding:6px 0 6px 22px; font-size:14px; color:var(--ink-soft); border-top:none;
+  }
+  ul.points ul li::before{
+    content:"·"; position:absolute; left:0; top:4px; width:14px; height:14px; border-radius:0;
+    background:none; color:var(--g-color); font-size:20px; font-weight:700; display:flex; align-items:center; justify-content:center;
+  }
+
+  .ayah-block{
+    margin: 6px 0 18px; padding:20px 22px; border-radius:14px; background:var(--paper);
+    border:1px solid var(--line);
+  }
+  .ayah-block .ayah-ref{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--g-color); font-weight:700; margin-bottom:10px; display:block;
+  }
+  .ayah-block .ayah-ar{
+    font-size:24px; line-height:2; color:var(--ink); text-align:right; margin-bottom:12px;
+  }
+  .ayah-block .ayah-en{
+    font-size:14.5px; line-height:1.6; color:var(--ink-soft); font-style:italic;
+  }
+
+  .quote{
+    margin-top:16px; padding:16px 18px; border-radius:12px; background:var(--g-tint);
+    font-family:'Space Grotesk', sans-serif; font-size:16px; line-height:1.55; color:#20222a;
+    border-left:3px solid var(--g-color);
+  }
+  .quote footer{
+    margin-top:8px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    text-transform:uppercase; color:var(--ink-soft); font-style:normal;
+  }
+
+  .pill-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .pill-row .pill{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; background:#fff; border:1.3px solid var(--g-color);
+    color:var(--g-color); font-weight:600;
+  }
+
+  .lesson-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:6px; }
+  @media (max-width:640px){ .lesson-grid{ grid-template-columns:1fr; } }
+  .lesson-card{
+    border-radius:var(--radius); padding:22px 22px; border:1.3px solid var(--line);
+  }
+  .lesson-card .kicker{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .lesson-card h4{ margin-top:8px; font-size:17px; }
+  .lesson-card p{ margin-top:10px; font-size:14px; line-height:1.6; color:#2b2d36; }
+
+  #toTop{
+    position:fixed; right:26px; bottom:26px; width:46px; height:46px; border-radius:50%;
+    background:var(--ink); color:#fff; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,.22); opacity:0; pointer-events:none; transition: opacity .25s ease, transform .2s ease;
+    z-index:90;
+  }
+  #toTop.show{ opacity:1; pointer-events:auto; }
+  #toTop:hover{ transform: translateY(-3px); }
+
+  #quickFab{
+    position:fixed; left:26px; bottom:26px; width:52px; height:52px; border-radius:16px;
+    background: linear-gradient(135deg, var(--c-1), var(--c-4)); color:#fff; border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; z-index:95;
+    box-shadow:0 10px 28px -6px rgba(124,58,237,.5);
+    transition: transform .2s ease, border-radius .2s ease;
+  }
+  #quickFab:hover{ transform: translateY(-3px) scale(1.03); }
+  #quickFab.open{ border-radius:50%; }
+  #quickFab svg{ transition: transform .3s ease; }
+  #quickFab.open svg{ transform: rotate(45deg); }
+
+  #quickPanel{
+    position:fixed; left:26px; bottom:90px; width:290px; max-height:60vh; overflow-y:auto;
+    background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow);
+    z-index:94; padding:14px; opacity:0; transform: translateY(10px) scale(.97); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  #quickPanel.open{ opacity:1; transform: translateY(0) scale(1); pointer-events:auto; }
+  #quickPanel .qp-head{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--ink-soft); padding:4px 8px 10px;
+  }
+  #qpList{ list-style:none; margin:0; padding:0; }
+  #qpList li{
+    display:flex; align-items:center; gap:8px; border-radius:10px; padding:2px;
+  }
+  #qpList li a{
+    flex:1; display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--ink);
+    font-size:13px; padding:8px; border-radius:10px; transition:background .15s ease;
+  }
+  #qpList li a:hover{ background:var(--paper); }
+  .qp-idx{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:700; color:#fff;
+    background: var(--qc, var(--c-1)); padding:2px 6px; border-radius:6px;
+  }
+  .qp-toggle{ padding:8px; cursor:pointer; color:var(--ink-soft); opacity:.6; }
+  .qp-toggle:hover{ opacity:1; }
+  #qpList li.is-collapsed .qp-toggle svg{ transform: rotate(-90deg); }
+  #qpList li .qp-toggle svg{ transition: transform .3s ease; }
+
+  #empty-state{ display:none; padding:60px 0; text-align:center; color:var(--ink-soft); }
+  #empty-state.show{ display:block; }
+
+  footer.page-footer{
+    padding:30px 8vw 60px; color:var(--ink-soft); font-size:12.5px; font-family:'IBM Plex Mono',monospace;
+    border-top:1px solid var(--line); margin-top:30px; line-height:1.7;
+  }
+  footer.page-footer .foot-title{
+    font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:700; color:var(--ink); margin-bottom:6px;
+  }
+
+  @media (max-width: 980px){
+    .layout{ grid-template-columns: 1fr; }
+    nav.sidebar{ position:static; height:auto; border-right:none; border-bottom:1px solid var(--line); padding: 20px 6vw; }
+    main{ padding: 0 6vw 120px; }
+    .ayah-block .ayah-ar{ font-size:20px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001s !important; transition-duration:.001s !important; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body data-page="annaas">
+
+<div id="progress"></div>
+
+<header class="hero">
+  <div class="burger-wrap">
+    <button id="navBurger" class="burger-btn" aria-haspopup="true" aria-expanded="false" aria-label="Open navigation menu">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div id="navMenu" class="burger-menu"></div>
+  </div>
+</header>
+
+<div class="ref-bar">
+  <span class="ref-label">Source</span>
+  <a href="https://drive.google.com/file/d/1KDyes08HNfcJ_Lo8F5S7IQ9SVnsr46I8/view" target="_blank" rel="noopener" class="ref-txt" style="text-decoration:none; border-bottom:1px solid rgba(255,255,255,.35); padding-bottom:1px;">Nouman Ali Khan</a>
+</div>
+
+<a id="top"></a>
+<div class="page-title">
+  <span class="eyebrow">Tafsīr Notes · Sūrah an-Nās (114)</span>
+  <h1>Say, I Seek <span class="accent-word">Refuge</span> — Sūrah an-Nās</h1>
+  <div class="sub">A linguistic and thematic study of the Qur'an's final sūrah — six āyāt seeking Allah's protection from the whispering of shayṭān, and its deep echoes with Sūrah al-Fātiḥa.</div>
+  <div class="tag-row">
+    <span class="tag">Rabb · Malik · Ilāh</span>
+    <span class="tag">al-Waswās al-Khannās</span>
+    <span class="tag">Jinn &amp; Naas</span>
+    <span class="tag">Link to al-Fātiḥa</span>
+  </div>
+</div>
+
+<div class="layout">
+
+  <nav class="sidebar">
+    <div class="search-box">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="searchInput" type="text" placeholder="Search sections…">
+    </div>
+    <div class="nav-actions">
+      <button id="expandAll">Expand all</button>
+      <button id="collapseAll">Collapse all</button>
+    </div>
+
+    <div class="nav-group-label">Introduction</div>
+    <ul id="navList">
+      <li><a href="#s-01" data-key="falaq relationship envier waswasa bridge" style="--g-color:var(--c-1)"><span class="sw"></span>Bridge from Sūrah al-Falaq</a></li>
+      <li><a href="#s-02" data-key="qul say humility weakness command" style="--g-color:var(--c-2)"><span class="sw"></span>Ayah 1: "Qul" — Say It Aloud</a></li>
+      <li><a href="#s-03" data-key="rabb master owner murabbi tarbiyyah qayyim" style="--g-color:var(--c-3)"><span class="sw"></span>The Meaning of "Rabb"</a></li>
+    </ul>
+
+    <div class="nav-group-label">Ayah 2–3 · Who We Seek Refuge In</div>
+    <ul>
+      <li><a href="#s-04" data-key="malik king naas progression rabb malik ilah" style="--g-color:var(--c-4)"><span class="sw"></span>Ayah 2: Maliki an-Naas</a></li>
+      <li><a href="#s-05" data-key="ilah god firawn pharaoh dajjal claims" style="--g-color:var(--c-5)"><span class="sw"></span>Ayah 3: Ilāhi an-Naas &amp; Firʿawn</a></li>
+      <li><a href="#s-06" data-key="arrogance desires as god dajjal nasiya forgetful" style="--g-color:var(--c-6)"><span class="sw"></span>The Disease of Arrogance</a></li>
+    </ul>
+
+    <div class="nav-group-label">Ayah 4–6 · What We Seek Refuge From</div>
+    <ul>
+      <li><a href="#s-07" data-key="waswaas khannaas linguistic mubalaghah" style="--g-color:var(--c-1)"><span class="sw"></span>Ayah 4: al-Waswās al-Khannās</a></li>
+      <li><a href="#s-08" data-key="qareen hadith safiyya companion shaytan blood" style="--g-color:var(--c-2)"><span class="sw"></span>The Qarīn &amp; Hadīth of Ṣafiyyah</a></li>
+      <li><a href="#s-09" data-key="sudoor chest heart castle qalb" style="--g-color:var(--c-3)"><span class="sw"></span>Ayah 5: Whispers in the Chest</a></li>
+      <li><a href="#s-10" data-key="jinn mankind order naasiy forgetful" style="--g-color:var(--c-4)"><span class="sw"></span>Ayah 6: Jinn and Mankind</a></li>
+    </ul>
+
+    <div class="nav-group-label">Reflections</div>
+    <ul>
+      <li><a href="#s-11" data-key="adam iblees shamelessness fahsha jannah" style="--g-color:var(--c-5)"><span class="sw"></span>Adam, Iblees &amp; Shamelessness</a></li>
+      <li><a href="#s-12" data-key="fatiha parallels ten similarities comparison" style="--g-color:var(--c-6)"><span class="sw"></span>Ten Parallels with al-Fātiḥa</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- 01 -->
+    <section class="class-section" id="s-01" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">01</span>
+        <h2>Bridge from Sūrah al-Falaq</h2>
+        <button class="collapse-toggle" data-target="s-01" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-01">
+      <div class="class-body-inner">
+
+        <div class="quote">"Min sharri ḥāsidin idhā ḥasad" — from the evil of an envier when he envies.
+          <footer>al-Falaq 113:5</footer>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Why an-Naas follows al-Falaq</h3>
+            <span class="code-badge">Two Refuges</span>
+          </div>
+          <ul class="points">
+            <li>Sūrah an-Naas connects directly to the previous sūrah, al-Falaq, through its closing verse — "from the evil of an envier when he envies" (al-Falaq 113:5).</li>
+            <li>Of all creation, Iblees (shayṭān) is the most jealous of the believer; the Qur'an calls him "a clear enemy" of mankind (al-Baqarah 2:168).</li>
+            <li>An-Naas protects specifically from "the evil whisperer as he withdraws" — going deeper than al-Falaq into the root cause of envy: shayṭān's whisperings (waswasa) placed into people's hearts.</li>
+            <li>Al-Falaq protects from harms that strike a person from outside; an-Naas protects from evils operating inside the person — whisperings that can weaken emān through doubt or temptation.</li>
+            <li>In al-Falaq, the one who commits an evil (magic, envy) is the sinner. In an-Naas, if a person <em>acts</em> on the whisper, they themselves become the sinner — a more desperate, more dangerous situation for one's belief.</li>
+            <li>Al-Falaq deals with harms in worldly matters; an-Naas deals with harms in religious matters — which is why an-Naas invokes three of Allah's names, far more than al-Falaq's single mention of "Rabb."</li>
+            <li>Two forms of seeking refuge: <b>musta'ādh bihi</b> (Who is sought for refuge) and <b>musta'ādh minhu</b> (What refuge is sought from). Al-Falaq emphasizes the latter; an-Naas emphasizes the former.</li>
+            <li>A structural reciprocity results: al-Falaq names one "Rabb" and many evils, while an-Naas names one evil (waswasa) and many of Allah's names.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section class="class-section" id="s-02" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">02</span>
+        <h2>Ayah 1: "Qul" — Say It Aloud</h2>
+        <button class="collapse-toggle" data-target="s-02" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-02">
+      <div class="class-body-inner">
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Verse 1</span>
+          <p class="ayah-ar arabic">قُلْ أَعُوذُ بِرَبِّ ٱلنَّاسِ</p>
+          <p class="ayah-en">"Say, 'I seek refuge in the Lord of mankind.'"</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Announcing weakness on purpose</h3>
+            <span class="code-badge">Humility</span>
+          </div>
+          <ul class="points">
+            <li>"Qul" (Say) carries rhetorical weight in every place it appears in the Qur'an; here it is a command for the human to verbally announce his own weakness and need.</li>
+            <li>Vocalizing "I am weak and need help" is an act of humility — countering arrogance, which stops people from asking for help even when desperate.</li>
+            <li>The command "Qul" removes arrogance and <b>istighnā</b> — the false sense of self-sufficiency.</li>
+            <li>Allah warns of this delusion: "No! Surely the human transgresses because he sees himself as self-sufficient" (al-ʿAlaq 96:6-7). Believing one can protect oneself is a form of shirk.</li>
+            <li>By obeying the command to "say" it aloud, the believer has already fulfilled an act of obedience — and asking Allah for help while disobeying Him is contradictory; true refuge requires entering His obedience.</li>
+            <li>Prophet Mūsā (AS) modeled this: "Indeed, I have sought refuge in my Lord and your Lord from every arrogant one who does not believe in the Day of Account" (Ghāfir 40:27) — weak belief in the Last Day breeds the arrogance that blocks sincere refuge-seeking.</li>
+            <li>"Rabbi an-Naas" (Master of mankind) — "an-Naas" is used because it is people who need protection from shayṭān in this sūrah; refuge is sought in the One who holds power over all of humanity's affairs.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section class="class-section" id="s-03" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">03</span>
+        <h2>The Meaning of "Rabb"</h2>
+        <button class="collapse-toggle" data-target="s-03" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-03">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Master, Owner, Nurturer</h3>
+            <span class="code-badge">Rabb vs. Mālik</span>
+          </div>
+          <ul class="points">
+            <li>Rabb implies absolute ownership — e.g. "Rabb ʿabdin" (owner of a slave) or "Rabb al-bayt" (owner of a house).</li>
+            <li>Mālik also means "owner," but exclusively so. Rabb carries ownership <em>plus</em> several other attributes:
+              <ul>
+                <li>al-Munʿim — Giver of favours</li>
+                <li>al-Qayyim — Sustainer, the powerful maintainer</li>
+                <li>al-Murabbi — the One who ensures growth and maturity</li>
+                <li>Sayyid — Full authority</li>
+                <li>Murshid — Guide</li>
+                <li>Muʿṭī — the One who gives abundantly</li>
+              </ul>
+            </li>
+            <li>Distinction: one can own something (Mālik) without full authority over it (Sayyid) — e.g. owning a car doesn't mean driving however you like, due to traffic law. Allah has both complete ownership and complete authority.</li>
+            <li>"Murabbi" traces to a different root (r-b-w), as in "Rabbayāni ṣagheera" — "who raised me when I was small" (Sūrah al-Isrāʾ). Scholar Rāghib al-Iṣfahānī links this root closely to Rabb (r-b-b): Rabb is the broader concept, Murabbi (nurturer) a subset of it.</li>
+            <li><b>Tarbiyah</b> means ensuring something's growth to its full intended potential — like watering a plant until it flourishes — applied to raising a child with good manners and health.</li>
+            <li>It's possible to own something and have authority over it without caring for it (a neglected backyard, for instance) — but Allah as Rabb owns, has authority over, and nurtures/sustains simultaneously.</li>
+            <li><b>al-Qayyim</b>: the One who maintains a thing's continued existence — like a delicate plant that would die without constant care. Allah sustains humanity for millennia in a chaotic universe (even one asteroid could destroy the planet), and gives life until an appointed time.</li>
+            <li>Allah introduces Himself as "Rabb" even before His Name Allah — e.g. "Iqraʾ bismi Rabbika alladhī khalaq" (Read, in the name of your Lord who created, al-ʿAlaq 96:1) — establishing the master–caretaker relationship first.</li>
+            <li>This mirrors al-Fātiḥa's own opening (praise for Allah, then Rabb) and the closing message of the Qur'an: accept Allah as Master and accept yourself as His slave — guidance benefits only those who accept their servitude.</li>
+            <li>Those who obey the Master face a lifelong struggle followed by reward; those who reject Him face eventual punishment.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 04 -->
+    <section class="class-section" id="s-04" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">04</span>
+        <h2>Ayah 2: Maliki an-Naas</h2>
+        <button class="collapse-toggle" data-target="s-04" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-04">
+      <div class="class-body-inner">
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Verse 2</span>
+          <p class="ayah-ar arabic">مَلِكِ ٱلنَّاسِ</p>
+          <p class="ayah-en">"The Sovereign of mankind."</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A psychological progression</h3>
+            <span class="code-badge">Why "an-Naas" 3×</span>
+          </div>
+          <ul class="points">
+            <li>"Malik" also denotes ownership, but Rabb + Malik together point toward an even greater Ilāh (God) — Malik conveys wider, kingly authority beyond simple mastery.</li>
+            <li>Ownership (Mālik) and kingship (Malik) differ in scope: a king owns more broadly than an individual master.</li>
+            <li>The sūrah repeats "an-Naas" three times — with Rabb, Malik, and Ilāh — instead of using a pronoun ("them"). This reflects a deliberate psychological progression:
+              <ul>
+                <li>People first turn to a caretaker/master (Rabb) when in need — as a child turns to a nurturer, a slave to a master, an employee to a boss.</li>
+                <li>If the problem persists, people turn to a higher authority — the King (Malik), or the government.</li>
+                <li>If even the king cannot help, people finally turn to God (Ilāh) — no creation is left that can help.</li>
+              </ul>
+            </li>
+            <li>Allah is the true Rabb, the true Malik, and the true Ilāh — the full and true recourse for every level of need.</li>
+            <li>Prophet Ibrāhīm (AS) exemplified this fully internalized reliance, turning to Allah for everything as <b>Musabbib al-Asbāb</b> — the true Provider of all means.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 05 -->
+    <section class="class-section" id="s-05" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">05</span>
+        <h2>Ayah 3: Ilāhi an-Naas &amp; Firʿawn</h2>
+        <button class="collapse-toggle" data-target="s-05" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-05">
+      <div class="class-body-inner">
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Verse 3</span>
+          <p class="ayah-ar arabic">إِلَٰهِ ٱلنَّاسِ</p>
+          <p class="ayah-en">"The God of mankind."</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>From many owners to One God</h3>
+            <span class="code-badge">Numbers Decrease</span>
+          </div>
+          <ul class="points">
+            <li>Scholar Dr. Fāḍil Ḥassān ar-Rāʿī notes the āyāt move from "more" to "fewer": any society has many owners (Rabb-type figures), fewer kings (Malik), but only One true God (Ilāh) — "your god is one God; there is no deity except Him" (al-Baqarah 2:163).</li>
+            <li>Before reciting the Qur'an, Muslims seek refuge in Allah from shayṭān ("So when you recite the Qur'an, seek refuge in Allah from Satan, the expelled," an-Naḥl 16:98); fittingly, the Qur'an closes with Sūrah an-Naas — a final refuge from shayṭān the rejected.</li>
+            <li>Firʿawn (Pharaoh), described as second only to shayṭān in evil, claimed all three titles for himself:
+              <ul>
+                <li><b>Rabb</b>: "I am your Lord, most high" (an-Nāziʿāt 79:24).</li>
+                <li><b>Malik</b>: "Do I not own the kingdom of Egypt, and these rivers flowing beneath me?" (az-Zukhruf 43:51).</li>
+                <li><b>Ilāh</b>: "I know of no god for you other than myself," commanding Hāmān to build a tower to "look upon the god of Mūsā" (al-Qaṣaṣ 28:38).</li>
+              </ul>
+            </li>
+            <li>ad-Dajjāl is expected to make the same three claims in gradual stages as his power grows — the ultimate endpoint of shayṭān's whisperings.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 06 -->
+    <section class="class-section" id="s-06" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">06</span>
+        <h2>The Disease of Arrogance</h2>
+        <button class="collapse-toggle" data-target="s-06" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-06">
+      <div class="class-body-inner">
+
+        <div class="quote">"Have you seen he who has taken as his god his own desire, and Allah has sent him astray due to knowledge, and has set a seal upon his hearing and heart and put a veil over his sight?"
+          <footer>al-Jāthiyah 45:23</footer>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Mini-Pharaohs and the power to forget</h3>
+            <span class="code-badge">Ego &amp; Nisyān</span>
+          </div>
+          <ul class="points">
+            <li>Shayṭān's core fault is arrogance, which he seeks to instill in others — this is precisely what led Firʿawn astray.</li>
+            <li>Today's world is described as full of "mini Pharaohs" — people who effectively make themselves their own master, king, and god, deciding what is ḥalāl or ḥarām for themselves alone.</li>
+            <li>This ego problem is exactly why the sūrah opens with the command "Qul" — humbling oneself is the first line of defense.</li>
+            <li>Shayṭān acknowledges Allah as Creator ("You created me from fire") but works to make humans forget that Allah created <em>them</em> — Firʿawn is the clearest example.</li>
+            <li>One root meaning of "Naas" relates to <b>nasiya</b> — to forget. Humans (al-Naas / insān) are named this partly because they forget the covenant made with Allah at creation, where every soul testified "Yes" that Allah is their Lord (al-Aʿrāf 7:172).</li>
+            <li>Shayṭān's power is largely the power to make people forgetful — especially forgetful that Allah is watching: "Satan has overcome them and made them forget the remembrance of Allah... they are the losers" (al-Mujādilah 58:19).</li>
+            <li>Even a righteous companion can be momentarily forgetful, as in the story of Mūsā's companion who forgot the fish at the rock (al-Kahf 18:63) — "none made me forget it except Satan."</li>
+            <li>The strongest defense against waswasa is the remembrance of Allah — the more He is remembered, the weaker shayṭān's access becomes.</li>
+            <li>"Ilāh" derives from a root meaning to incline toward and become devoted to someone; "Maʿbūd" means worshipped, enslaved, and obeyed — Firʿawn invoked "Ilāh" specifically to command his generals' obedience as his authority weakened.</li>
+            <li>Scholars ar-Rāzī and az-Zamakhsharī note Allah honors humanity by placing His Name (an-Naas) directly beside Rabb, Malik, and Ilāh — showing His concern and readiness to protect whoever seeks refuge in Him.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 07 -->
+    <section class="class-section" id="s-07" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">07</span>
+        <h2>Ayah 4: al-Waswās al-Khannās</h2>
+        <button class="collapse-toggle" data-target="s-07" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-07">
+      <div class="class-body-inner">
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Verse 4</span>
+          <p class="ayah-ar arabic">مِن شَرِّ ٱلْوَسْوَاسِ ٱلْخَنَّاسِ</p>
+          <p class="ayah-en">"From the evil of the retreating whisperer —"</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The heart's field, and shayṭān's job title</h3>
+            <span class="code-badge">Linguistic Depth</span>
+          </div>
+          <ul class="points">
+            <li>Ibn ʿAbbās (via Saʿīd ibn Jubayr) explained that shayṭān sits directly above the human heart; when a person becomes forgetful and careless, he enters — but withdraws (khannasa) the moment Allah is remembered.</li>
+            <li>Shayṭān never rests from this task, working harder than any human to lead people to the Hellfire — demanding equally persistent remembrance of Allah in return.</li>
+            <li>Anger is a clear example of the whisper succeeding — anger stems from ego and arrogance. If a believer becomes angry and, out of pride, doesn't even say "aʿūdhu billāhi min ash-shayṭān ar-rajīm," shayṭān has succeeded twice.</li>
+            <li><b>Sharr</b> — opposite of khayr (good); related to "sharāra," a spark that jumps from fire and can burn — a universally recognized, harm-causing evil.</li>
+            <li><b>al-Waswās</b> — from "waswasah" (whispering), used only in negative contexts (unlike "hammās/hāmis," which can whisper good or bad).</li>
+            <li>The word's doubled structure (was-was) itself implies repetition — whisper, pause, whisper again — similar to "zalzalah" (repeated earthquake tremors) or "silsilah" (a mountain range/series).</li>
+            <li>Grammatically, Allah chose the strongest infinitive/hyperbolic (mubālaghah) noun form "al-Waswās" rather than a simple verb-agent form ("muwaswis," one who whispers) — emphasizing an extreme, obsessive, continuous whisperer.</li>
+            <li>The definite article "al" before Waswās makes it specific; near-consensus identifies this as Iblees himself, not whisperers in general.</li>
+            <li>Naming "the whisperer" (a person/agent) instead of "the whispering" (an act) widens the refuge sought — protection from all of Iblees's evils, not merely the act of whispering.</li>
+            <li><b>al-Khannās</b> (from "khunnas," also describing stars that twinkle and fade from view, at-Takwīr 81:15) means one who continuously retreats — implying he also continuously advances before stepping back at the remembrance of Allah.</li>
+            <li>The word pattern (like khabbāz "baker," Wahhāb "constant Giver," Ghaffār "constant Forgiver") signals an ongoing profession — shayṭān's offense is whispering (waswās), his defense/retreat is stepping back (khannās).</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 08 -->
+    <section class="class-section" id="s-08" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">08</span>
+        <h2>The Qarīn &amp; Hadīth of Ṣafiyyah</h2>
+        <button class="collapse-toggle" data-target="s-08" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-08">
+      <div class="class-body-inner">
+
+        <div class="quote">"Indeed, shayṭān runs through the son of Adam like blood."
+          <footer>The Prophet ﷺ, on the walk with Ṣafiyyah bint Ḥuyayy</footer>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Two hadith on shayṭān's access</h3>
+            <span class="code-badge">Sahih Muslim 2814</span>
+          </div>
+          <ul class="points">
+            <li>Hadīth (Ṣaḥīḥ Muslim 2814): the Prophet ﷺ said every child of Adam has an assigned <b>qarīn</b> (constant companion) from the jinn. Asked, "Even you, O Messenger of Allah?" he replied yes — "except that Allah has aided me against him, so he has submitted, and only commands me to good."</li>
+            <li>Qarīn typically refers to a devil-companion; the Prophet ﷺ was a unique exception whose qarīn no longer incited evil.</li>
+            <li>Second hadīth: while walking at night returning his wife Ṣafiyyah home, the Prophet ﷺ stopped two passing Anṣārī companions and clarified, "This is Ṣafiyyah bint Ḥuyayy," to which they responded with surprise that he'd think they'd suspect him.</li>
+            <li>The Prophet ﷺ explained: "Indeed shayṭān runs through the son of Adam like blood," and that he feared shayṭān might "throw something into your hearts" — i.e., plant doubt.</li>
+            <li>This illustrates the sūrah's theme: waswasa can create doubt even about the Messenger and his message when a person is not firmly remembering Allah — a pattern seen among earlier nations who doubted their own prophets.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 09 -->
+    <section class="class-section" id="s-09" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">09</span>
+        <h2>Ayah 5: Whispers in the Chest</h2>
+        <button class="collapse-toggle" data-target="s-09" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-09">
+      <div class="class-body-inner">
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Verse 5</span>
+          <p class="ayah-ar arabic">ٱلَّذِى يُوَسْوِسُ فِى صُدُورِ ٱلنَّاسِ</p>
+          <p class="ayah-en">"Who whispers [evil] into the breasts of mankind —"</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The castle and the field around it</h3>
+            <span class="code-badge">Ṣadr vs. Qalb</span>
+          </div>
+          <ul class="points">
+            <li>"Yuwaswisu" (present-future verb tense) shows shayṭān's whispering is ongoing and will continue indefinitely — there is no point at which refuge in Allah stops being needed.</li>
+            <li>Allah says "fī ṣudūri an-Naas" (in the chests), not "ilā" (to) or "ʿalā" (upon) — a deliberate choice of preposition.</li>
+            <li>Scholar ʿAbdur Raḥmān al-Kilānī (Mutarāddif al-Qurʾān) distinguishes <b>Ṣadr</b> (chest) as a location from <b>Qalb</b> (heart) as a "thing" — whispering in the chest differs from whispering directly in the heart.</li>
+            <li>Analogy: the heart is a locked castle; shayṭān waits in the surrounding field (the chest), trying to get in. He can only enter if the person "opens the door" through neglecting Allah's remembrance; seeking refuge (aʿūdhu billāh) makes him retreat and wait for another opportunity.</li>
+            <li>People with strong emān love the remembrance of Allah — "Allah has made belief beloved to you and beautified it in your hearts, and made disbelief, defiance, and disobedience hateful to you" (al-Ḥujurāt 49:7).</li>
+            <li>Conversely, when shayṭān enters the heart, evil deeds become beautified while good feels burdensome — as with those whose deeds shayṭān "made fair-seeming" to them (al-Anfāl 8:48).</li>
+            <li>It is a mercy that Allah placed the whispering in the "chest" (ṣudūr) rather than directly the "heart" (qalb) — leaving hope that the heart itself can remain protected through seeking refuge in Allah.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section class="class-section" id="s-10" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">10</span>
+        <h2>Ayah 6: Jinn and Mankind</h2>
+        <button class="collapse-toggle" data-target="s-10" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-10">
+      <div class="class-body-inner">
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Verse 6</span>
+          <p class="ayah-ar arabic">مِنَ ٱلْجِنَّةِ وَٱلنَّاسِ</p>
+          <p class="ayah-en">"From among the jinn and mankind."</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Why the jinn are named first</h3>
+            <span class="code-badge">Order &amp; Wordplay</span>
+          </div>
+          <ul class="points">
+            <li>Jinn are mentioned before mankind here — reversed from Sūrah al-Anʿām 6:112, where humans are named first among prophets' enemies, since humans were their clearest human opponents.</li>
+            <li>Reasoning for the jinn-first order: (1) jinn hold the primary/original role in waswasa; (2) when humans whisper evil to others, they are effectively imitating the jinn-shayṭān's original tactic.</li>
+            <li>Iblees channels his waswasa through both jinn and humans — often through non-Muslims or the non-practising — illustrated by an example of gradual attachment beginning with a casual conversation and escalating through unchecked whispering.</li>
+            <li>Linguistic note (al-Farrāʾ): "Nafar" (a group) typically describes humans but is applied to jinn in Sūrah al-Jinn (72:1); similarly "rijāl" (men) is applied to jinn in the same sūrah (72:6).</li>
+            <li>An account recorded by al-Baghawī describes Ṣaḥāba encountering strange beings who, when asked "who are you people?", replied "Unāsun min al-jinn" — "we are people from among the jinn," showing "Naas" can describe jinn too.</li>
+            <li>A minority of scholars read the final "an-Naas" in āyah 6 as clarifying the "an-Naas" of āyah 5 — meaning the whisperer works on the chests of both men and jinn.</li>
+            <li>Az-Zamakhsharī notes the word may originally have carried a final "yāʾ" (Nāsiy, meaning "the forgetful one," from "nasiya" — to forget) but is elided for ease of recitation, similar to "Nabghi" in Sūrah al-Kahf (18:64), where the expected letter is likewise dropped.</li>
+            <li>Under this reading, both men and jinn who forget Allah become vulnerable to shayṭān entering their chests.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 11 -->
+    <section class="class-section" id="s-11" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">11</span>
+        <h2>Adam, Iblees &amp; Shamelessness</h2>
+        <button class="collapse-toggle" data-target="s-11" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-11">
+      <div class="class-body-inner">
+
+        <div class="quote">"So shayṭān whispered to them both, that he might reveal to them what was concealed from them of their private parts."
+          <footer>al-Aʿrāf 7:20</footer>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Where the whole conflict began</h3>
+            <span class="code-badge">Origin Story</span>
+          </div>
+          <ul class="points">
+            <li>The story of Adam (AS) is repeated seven times across the Qur'an (al-Baqarah, al-Aʿrāf, al-Ḥijr, al-Isrāʾ, al-Kahf, Ṭā-Hā, Ṣād) — the origin point of the ongoing struggle between mankind and shayṭān.</li>
+            <li>After being expelled, Iblees asked Allah for respite "until the Day they are resurrected" and vowed to "sit in wait" on the straight path (aṣ-ṣirāṭ al-mustaqīm) for mankind (al-Aʿrāf 7:14-17) — directly opposing what believers ask for in al-Fātiḥa's "guide us to the straight path."</li>
+            <li>Iblees predicted most people would not be thankful (shākirīn) — countering al-Fātiḥa's opening theme of praise and gratitude (al-Ḥamd).</li>
+            <li>Shayṭān's chief tool against Adam and Ḥawwāʾ (Eve) was waswasa aimed at exposing their shame — "he whispered to them... that he might reveal to them what was concealed of their private parts" (al-Aʿrāf 7:20) — marking the start of the human–shayṭān conflict.</li>
+            <li>Shayṭān's ongoing tactic: "he promises you poverty and commands you to immorality" (al-Baqarah 2:268). The Prophet ﷺ is reported to have feared shamelessness (al-faḥshāʾ) for his ummah more than unjust rulers or massacres.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 12 -->
+    <section class="class-section" id="s-12" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">12</span>
+        <h2>Ten Parallels with al-Fātiḥa</h2>
+        <button class="collapse-toggle" data-target="s-12" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-12">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The Qur'an's opening and closing bookends</h3>
+            <span class="code-badge">Full Circle</span>
+          </div>
+          <ul class="points">
+            <li><b>1 — Help vs. Protection:</b> al-Fātiḥa asks for <em>istiʿānah</em> (help/guidance); an-Naas asks for <em>istiʿādhah</em> (protection) — offense (asking Allah to guide) and defense (asking Allah to protect from what blocks guidance).</li>
+            <li><b>2 — The Three Names, Same Order:</b> both sūrahs invoke Rabb, Malik, and Ilāh in identical sequence — Rabbil-ʿālamīn / Rabbi an-Naas, Māliki yawmid-dīn / Māliki an-Naas, iyyāka naʿbudu / Ilāhi an-Naas.</li>
+            <li><b>3 — Mercy Present, Then Absent:</b> al-Fātiḥa names Allah's Mercy (ar-Raḥmān ar-Raḥīm); an-Naas does not — mercy is central to al-Fātiḥa's theme but not to an-Naas's.</li>
+            <li><b>4 — Help at Start, Help at End:</b> an-Naas opens by seeking refuge/help; al-Fātiḥa closes with "iyyāka nastaʿīn" (You alone we ask for help).</li>
+            <li><b>5 — Singular vs. Plural:</b> an-Naas uses the singular "Aʿūdhu" (I seek refuge) — a personal plea; al-Fātiḥa uses the plural "Nastaʿīn" (we ask) — a collective plea so as not to repeat earlier nations' misguidance.</li>
+            <li><b>6 — Two Negative Influences:</b> an-Naas names whisperings from jinn and men; al-Fātiḥa names the paths of those who earned Allah's anger and those who went astray.</li>
+            <li><b>7 — Both Split in Half:</b> al-Fātiḥa pivots at "Iyyāka naʿbudu" (why Allah deserves worship, then the guidance sought); an-Naas pivots between who to seek refuge in (Allah) and what to seek refuge from (shayṭān's whispering).</li>
+            <li><b>8 — The Conflict's Origin:</b> the struggle between mankind and shayṭān began with Iblees's waswasa toward Adam and Ḥawwāʾ in Jannah — the reason refuge is commanded throughout the Qur'an, echoed at its very close.</li>
+            <li><b>9 — Shamelessness vs. Gratitude:</b> shayṭān's chief method is normalizing shamelessness (al-faḥshāʾ) and ingratitude — countering al-Fātiḥa's opening theme of praise and gratitude (al-Ḥamd).</li>
+            <li><b>10 — Duʿāʾ Opens and Closes the Qur'an:</b> al-Fātiḥa with "ihdinā aṣ-ṣirāṭ al-mustaqīm" (guide us to the straight path) and an-Naas with "Aʿūdhu bi Rabbi an-Naas" (I seek refuge in the Lord of mankind) — a reminder never to underestimate duʿāʾ against an enemy working mentally, psychologically, and emotionally to derail a person from that path.</li>
+          </ul>
+        </div>
+
+        <div class="lesson-grid">
+          <div class="lesson-card" style="border-left:4px solid var(--c-6);">
+            <span class="kicker">Takeaway</span>
+            <h4>Slavery and Guidance</h4>
+            <p>The Qur'an's message in one sentence: accept Allah as Master and yourself as His slave, and know that guidance benefits only those who accept this servitude.</p>
+          </div>
+          <div class="lesson-card" style="border-left:4px solid var(--c-1);">
+            <span class="kicker">Takeaway</span>
+            <h4>Remembrance is the Shield</h4>
+            <p>Shayṭān can only enter the chest when Allah is forgotten. Consistent dhikr is the practical, repeatable defense the sūrah points to.</p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<button id="toTop" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<div id="quickPanel">
+  <div class="qp-head">Jump to Section</div>
+  <ul id="qpList">
+    <li data-target="s-01"><a href="#s-01" style="--qc:var(--c-1)"><span class="qp-idx">01</span>Bridge from al-Falaq</a><span class="qp-toggle" data-target="s-01"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-02"><a href="#s-02" style="--qc:var(--c-2)"><span class="qp-idx">02</span>"Qul" — Say It Aloud</a><span class="qp-toggle" data-target="s-02"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-03"><a href="#s-03" style="--qc:var(--c-3)"><span class="qp-idx">03</span>Meaning of "Rabb"</a><span class="qp-toggle" data-target="s-03"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-04"><a href="#s-04" style="--qc:var(--c-4)"><span class="qp-idx">04</span>Maliki an-Naas</a><span class="qp-toggle" data-target="s-04"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-05"><a href="#s-05" style="--qc:var(--c-5)"><span class="qp-idx">05</span>Ilāhi an-Naas &amp; Firʿawn</a><span class="qp-toggle" data-target="s-05"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-06"><a href="#s-06" style="--qc:var(--c-6)"><span class="qp-idx">06</span>Disease of Arrogance</a><span class="qp-toggle" data-target="s-06"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-07"><a href="#s-07" style="--qc:var(--c-1)"><span class="qp-idx">07</span>al-Waswās al-Khannās</a><span class="qp-toggle" data-target="s-07"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-08"><a href="#s-08" style="--qc:var(--c-2)"><span class="qp-idx">08</span>Qarīn &amp; Ṣafiyyah Hadīth</a><span class="qp-toggle" data-target="s-08"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-09"><a href="#s-09" style="--qc:var(--c-3)"><span class="qp-idx">09</span>Whispers in the Chest</a><span class="qp-toggle" data-target="s-09"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-10"><a href="#s-10" style="--qc:var(--c-4)"><span class="qp-idx">10</span>Jinn and Mankind</a><span class="qp-toggle" data-target="s-10"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-11"><a href="#s-11" style="--qc:var(--c-5)"><span class="qp-idx">11</span>Adam, Iblees &amp; Shame</a><span class="qp-toggle" data-target="s-11"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-12"><a href="#s-12" style="--qc:var(--c-6)"><span class="qp-idx">12</span>Ten Parallels with al-Fātiḥa</a><span class="qp-toggle" data-target="s-12"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+  </ul>
+</div>
+
+<button id="quickFab" aria-label="Open quick navigation" aria-expanded="false">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+</button>
+
+<script>
+  const heroHeader = document.querySelector('header.hero');
+  function syncHeaderHeight(){
+    const refBar = document.querySelector('.ref-bar');
+    document.documentElement.style.setProperty('--header-h', (heroHeader.offsetHeight + refBar.offsetHeight) + 'px');
+  }
+  syncHeaderHeight();
+  window.addEventListener('resize', syncHeaderHeight);
+
+  const progress = document.getElementById('progress');
+  function updateProgress(){
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    progress.style.width = scrolled + '%';
+    document.getElementById('toTop').classList.toggle('show', h.scrollTop > 700);
+  }
+  document.addEventListener('scroll', updateProgress, {passive:true});
+  updateProgress();
+
+  document.getElementById('toTop').addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+  const navLinks = document.querySelectorAll('nav.sidebar li a');
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const id = entry.target.id;
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  document.querySelectorAll('main section.class-section').forEach(el => { if(el.id) sectionObserver.observe(el); });
+
+  const quickFab = document.getElementById('quickFab');
+  const quickPanel = document.getElementById('quickPanel');
+  function openQuickPanel(){ quickPanel.classList.add('open'); quickFab.classList.add('open'); quickFab.setAttribute('aria-expanded','true'); }
+  function closeQuickPanel(){ quickPanel.classList.remove('open'); quickFab.classList.remove('open'); quickFab.setAttribute('aria-expanded','false'); }
+  quickFab.addEventListener('click', () => { quickPanel.classList.contains('open') ? closeQuickPanel() : openQuickPanel(); });
+  document.addEventListener('click', (e) => {
+    if(quickPanel.classList.contains('open') && !quickPanel.contains(e.target) && !quickFab.contains(e.target)){ closeQuickPanel(); }
+  });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeQuickPanel(); });
+  quickPanel.querySelectorAll('a').forEach(a => { a.addEventListener('click', () => closeQuickPanel()); });
+
+  const ALL_SECTION_IDS = ['s-01','s-02','s-03','s-04','s-05','s-06','s-07','s-08','s-09','s-10','s-11','s-12'];
+
+  function setCollapsed(id, collapsed){
+    const body = document.getElementById('body-' + id);
+    const btn = document.querySelector('.collapse-toggle[data-target="' + id + '"]');
+    const qpItem = document.querySelector('#qpList li[data-target="' + id + '"]');
+    if(body) body.classList.toggle('collapsed', collapsed);
+    if(btn) btn.setAttribute('aria-expanded', String(!collapsed));
+    if(qpItem) qpItem.classList.toggle('is-collapsed', collapsed);
+  }
+  function isCollapsed(id){
+    const body = document.getElementById('body-' + id);
+    return body ? body.classList.contains('collapsed') : false;
+  }
+  function toggleCollapsed(id){ setCollapsed(id, !isCollapsed(id)); }
+
+  document.querySelectorAll('.collapse-toggle').forEach(btn => {
+    btn.addEventListener('click', () => toggleCollapsed(btn.dataset.target));
+  });
+  document.querySelectorAll('#qpList li').forEach(item => {
+    const id = item.dataset.target;
+    item.querySelector('.qp-toggle').addEventListener('click', (e) => { e.stopPropagation(); e.preventDefault(); toggleCollapsed(id); });
+  });
+
+  document.getElementById('expandAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, false)));
+  document.getElementById('collapseAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, true)));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href').slice(1);
+      if(!href) return;
+      const target = document.getElementById(href);
+      if(!target) return;
+      if(target.classList.contains('class-section')){ setCollapsed(href, false); }
+    });
+  });
+
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', () => {
+    const q = searchInput.value.trim().toLowerCase();
+    navLinks.forEach(a => {
+      const key = (a.dataset.key || a.textContent).toLowerCase();
+      const match = q === '' || key.includes(q);
+      a.dataset.hidden = match ? '0' : '1';
+      const section = document.querySelector(a.getAttribute('href'));
+      if(section){ section.style.display = match ? '' : 'none'; }
+    });
+  });
+</script>
+<script src="nav.js"></script>
+</body>
+</html>
