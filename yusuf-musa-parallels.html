@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yusuf (A.S) &amp; Musa (A.S) — Parallels Between the Two Sūrahs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --paper:#fbfbfd;
+    --ink:#14151a;
+    --ink-soft:#5a5d6b;
+    --line:#e7e7ee;
+    --line-soft:#f0f0f5;
+
+    --c-1:#7c3aed;  --c-1-tint:#f4edff;   /* violet */
+    --c-2:#0284c7;  --c-2-tint:#e8f6ff;   /* ocean */
+    --c-3:#ea580c;  --c-3-tint:#fff1e8;   /* coral */
+    --c-4:#db2777;  --c-4-tint:#ffe9f4;   /* magenta */
+    --c-5:#059669;  --c-5-tint:#e6faf2;   /* emerald */
+    --c-6:#0f766e;  --c-6-tint:#e6f8f6;   /* teal */
+
+    --accent: var(--c-1);
+    --accent-tint: var(--c-1-tint);
+
+    --radius: 18px;
+    --shadow: 0 1px 2px rgba(20,21,26,.04), 0 12px 32px -16px rgba(20,21,26,.14);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background: var(--accent); color:#fff; }
+
+  h1,h2,h3,h4{ font-family:'Space Grotesk', sans-serif; margin:0; letter-spacing:-.01em; }
+  code, .mono{ font-family:'IBM Plex Mono', monospace; }
+  a{ color:inherit; }
+  p{ margin:0; }
+
+  /* ---------- top progress rail ---------- */
+  #progress{
+    position:fixed; top:0; left:0; height:3px; width:0%;
+    background: linear-gradient(90deg, var(--c-1), var(--c-2), var(--c-3), var(--c-4), var(--c-5), var(--c-6));
+    z-index:100; transition: width .1s linear;
+  }
+
+  /* ---------- reference bar ---------- */
+  .ref-bar{
+    background:var(--ink); color:#fff;
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    padding:9px 8vw; display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  }
+  .ref-bar .ref-label{ color:rgba(255,255,255,.55); text-transform:uppercase; letter-spacing:.08em; font-size:10.5px; }
+  .ref-bar span.note{ color:rgba(255,255,255,.85); }
+
+  /* ---------- header ---------- */
+  header.hero{
+    padding: 6px 8vw;
+    min-height:46px;
+    display:flex; align-items:center;
+    position:sticky; top:0; z-index:80;
+    border-bottom:1px solid var(--line);
+    background-color:#fff;
+    background-image:
+      radial-gradient(700px 340px at 8% -10%, var(--c-1-tint), transparent 60%),
+      radial-gradient(600px 300px at 95% 0%, var(--c-3-tint), transparent 55%);
+  }
+  header.hero .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:15px;
+  }
+  header.hero .brand .dot{ width:9px; height:9px; border-radius:3px; background: linear-gradient(135deg, var(--c-1), var(--c-4)); }
+
+  /* ---------- burger navigation ---------- */
+  .burger-wrap{ position:relative; display:flex; align-items:center; }
+  .burger-btn{
+    width:34px; height:34px; border-radius:10px; border:1.3px solid var(--line);
+    background:var(--paper); color:var(--ink); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: border-color .15s ease, background .15s ease, color .15s ease;
+  }
+  .burger-btn:hover{ border-color: var(--c-1); }
+  .burger-btn.open{ background: var(--c-1); border-color: var(--c-1); color:#fff; }
+  .burger-btn svg{ transition: opacity .15s ease; }
+  .burger-menu{
+    position:absolute; top:calc(100% + 10px); left:0; width:320px;
+    background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow);
+    padding:8px; opacity:0; transform: translateY(-6px); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease; z-index:120;
+    display:flex; flex-direction:column;
+  }
+  .burger-menu.open{ opacity:1; transform: translateY(0); pointer-events:auto; }
+  .burger-menu-home{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; margin:2px 2px 8px;
+    border-radius:10px; border-bottom:1px solid var(--line-soft);
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-home svg{ flex:none; color:var(--ink-soft); }
+  .burger-menu-home:hover{ background: var(--paper); }
+  .burger-menu-home.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-home.is-current .bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-search{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:10px; padding:8px 10px; margin:2px 2px 8px;
+    background:var(--paper); flex:none;
+  }
+  .burger-menu-search svg{ flex:none; opacity:.5; color:var(--ink-soft); }
+  .burger-menu-search input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13px; width:100%; color:var(--ink);
+  }
+  .burger-menu-list{ max-height:340px; overflow-y:auto; overscroll-behavior:contain; }
+  .burger-menu-list::-webkit-scrollbar{ width:6px; }
+  .burger-menu-list::-webkit-scrollbar-thumb{ background:var(--line); border-radius:10px; }
+  .burger-menu-group + .burger-menu-group{ margin-top:4px; }
+  .burger-menu-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); padding:8px 10px 4px;
+  }
+  .burger-menu-empty{
+    display:none; padding:18px 10px; text-align:center; font-size:12.5px; color:var(--ink-soft);
+  }
+  .burger-menu-item{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; border-radius:10px;
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-item span.bm-title{ display:block; }
+  .burger-menu-item span.bm-sub{ display:block; font-size:11.5px; color:var(--ink-soft); font-weight:400; margin-top:1px; }
+  .burger-menu-item:hover{ background: var(--paper); }
+  .burger-menu-item.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-item.is-current span.bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-dot{ width:9px; height:9px; border-radius:3px; flex:none; margin-top:3px; }
+
+
+  /* ---------- page title ---------- */
+  .page-title{ padding: 30px 8vw 6px; }
+  .page-title .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-soft); margin-bottom:10px; display:block;
+  }
+  .page-title h1{
+    font-size: clamp(26px, 5vw, 46px);
+    line-height:1.12;
+    font-weight:700;
+  }
+  .page-title h1 .accent-word{
+    background: linear-gradient(100deg, var(--c-1), var(--c-4) 55%, var(--c-3));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .page-title .sub{
+    margin-top:14px; max-width:66ch; color:var(--ink-soft); font-size:15px; line-height:1.6;
+  }
+  .page-title .tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+  .page-title .tag{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; border:1.3px solid var(--line);
+    color:var(--ink-soft); font-weight:500; background:var(--paper);
+  }
+
+  /* ---------- layout ---------- */
+  .layout{
+    display:grid;
+    grid-template-columns: 260px minmax(0,1fr);
+    gap:0;
+    max-width:1400px; margin:0 auto;
+  }
+  nav.sidebar{
+    position:sticky; top: var(--header-h, 0px); align-self:start;
+    height: calc(100vh - var(--header-h, 0px)); overflow-y:auto;
+    padding: 28px 18px 40px 8vw;
+    border-right:1px solid var(--line);
+    scrollbar-width: thin;
+  }
+  nav.sidebar::-webkit-scrollbar{ width:6px; }
+  nav.sidebar::-webkit-scrollbar-thumb{ background:var(--line); border-radius:10px; }
+
+  .search-box{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:12px; padding:10px 12px; margin-bottom:18px;
+    background:var(--paper);
+  }
+  .search-box input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13.5px; width:100%; color:var(--ink);
+  }
+  .search-box svg{ flex:none; opacity:.5; }
+
+  .nav-actions{ display:flex; gap:8px; margin-bottom:18px; }
+  .nav-actions button{
+    flex:1; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    border:1.3px solid var(--line); background:#fff; color:var(--ink-soft);
+    padding:7px 8px; border-radius:9px; cursor:pointer; transition:.15s ease;
+  }
+  .nav-actions button:hover{ border-color:var(--ink); color:var(--ink); }
+
+  nav.sidebar ul{ list-style:none; margin:0; padding:0; border-left:2px solid var(--line-soft); }
+  nav.sidebar li a{
+    display:flex; align-items:center; gap:9px;
+    text-decoration:none; font-size:13.5px; color:var(--ink-soft);
+    padding:7px 0 7px 14px; border-left:2px solid transparent; margin-left:-2px;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  nav.sidebar li a .sw{ width:8px; height:8px; border-radius:3px; flex:none; background:var(--g-color); }
+  nav.sidebar li a:hover{ color:var(--ink); }
+  nav.sidebar li a.active{ color:var(--g-color); border-left-color: var(--g-color); font-weight:600; }
+  nav.sidebar li a[data-hidden="1"]{ display:none; }
+
+  main{ min-width:0; padding: 0 8vw 140px; }
+
+  section.class-section{ padding-top:56px; scroll-margin-top: 24px; }
+  section.class-section:first-child{ padding-top:44px; }
+
+  .class-head{
+    display:flex; align-items:baseline; gap:16px; flex-wrap:wrap;
+    padding-bottom:14px; margin-bottom:22px; border-bottom:3px solid var(--g-color);
+    position:relative;
+  }
+  .class-head .idx{
+    font-family:'IBM Plex Mono',monospace; font-size:14px; font-weight:700; color:#fff;
+    background:var(--g-color); padding:5px 10px; border-radius:8px;
+  }
+  .class-head h2{ font-size: clamp(20px,2.4vw,28px); color:var(--ink); }
+  .collapse-toggle{
+    margin-left:auto; width:34px; height:34px; border-radius:9px; border:1.5px solid var(--line);
+    background:#fff; color:var(--g-color); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: transform .3s ease, background .15s ease, border-color .15s ease;
+  }
+  .collapse-toggle:hover{ background: var(--g-tint); border-color: var(--g-color); }
+  .collapse-toggle svg{ transition: transform .3s ease; }
+  .collapse-toggle[aria-expanded="false"] svg{ transform: rotate(-90deg); }
+
+  .class-body-outer{ display:grid; grid-template-rows: 0fr; transition: grid-template-rows .38s ease; }
+  .class-body-outer.collapsed{ grid-template-rows: 0fr; }
+  .class-body-outer:not(.collapsed){ grid-template-rows: 1fr; }
+  .class-body-inner{ overflow:hidden; min-height:0; opacity:0; transition: opacity .25s ease .1s; }
+  .class-body-outer.collapsed .class-body-inner{ opacity:0; transition: opacity .18s ease; }
+  .class-body-outer:not(.collapsed) .class-body-inner{ opacity:1; }
+
+  /* content card */
+  .card{
+    background:#fff; border:1px solid var(--line); border-radius: var(--radius);
+    padding: 26px 28px; margin-bottom: 18px; position:relative; overflow:hidden;
+    border-left: 5px solid var(--g-color);
+  }
+  .card .card-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap;
+    margin-bottom:6px;
+  }
+  .card h3{ font-size:18px; font-weight:600; color:var(--ink); }
+  .code-badge{
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:12px; color:#fff;
+    background: var(--g-color); padding:6px 12px; border-radius:8px; white-space:nowrap;
+  }
+
+  /* two-column parallel comparison */
+  .lesson-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:16px; }
+  @media (max-width:640px){ .lesson-grid{ grid-template-columns:1fr; } }
+  .lesson-card{
+    border-radius:14px; padding:18px 20px; border:1.3px solid var(--line); background:var(--paper);
+  }
+  .lesson-card.yusuf{ border-left:4px solid var(--g-color); }
+  .lesson-card.musa{ border-left:4px solid var(--ink); background:#fff; }
+  .lesson-card .kicker{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); display:flex; align-items:center; gap:6px;
+  }
+  .lesson-card .kicker .kdot{ width:7px; height:7px; border-radius:2px; }
+  .lesson-card.yusuf .kicker .kdot{ background:var(--g-color); }
+  .lesson-card.musa .kicker .kdot{ background:var(--ink); }
+  .lesson-card p{ margin-top:8px; font-size:14.5px; line-height:1.6; color:#2b2d36; }
+
+  ul.points{ list-style:none; margin:0; padding:0; }
+  ul.points > li{
+    position:relative; padding: 8px 0 8px 30px; font-size:14.2px; line-height:1.6; color:#2b2d36;
+  }
+  ul.points > li::before{
+    content:"—";
+    position:absolute; left:0; top:8px; width:20px; height:20px; border-radius:6px;
+    background: var(--g-tint); color:var(--g-color); font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:12px;
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  .quote{
+    margin-top:16px; padding:16px 18px; border-radius:12px; background:var(--g-tint);
+    font-family:'Space Grotesk', sans-serif; font-size:15px; line-height:1.55; color:#20222a;
+    border-left:3px solid var(--g-color);
+  }
+  .quote footer{
+    margin-top:8px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    text-transform:uppercase; color:var(--ink-soft); font-style:normal;
+  }
+
+  /* back to top */
+  #toTop{
+    position:fixed; right:26px; bottom:26px; width:46px; height:46px; border-radius:50%;
+    background:var(--ink); color:#fff; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,.22); opacity:0; pointer-events:none; transition: opacity .25s ease, transform .2s ease;
+    z-index:90;
+  }
+  #toTop.show{ opacity:1; pointer-events:auto; }
+  #toTop:hover{ transform: translateY(-3px); }
+
+  #empty-state{ display:none; padding:60px 0; text-align:center; color:var(--ink-soft); }
+  #empty-state.show{ display:block; }
+
+  /* floating quick-access launcher */
+  #quickFab{
+    position:fixed; left:26px; bottom:26px; width:52px; height:52px; border-radius:16px;
+    background: linear-gradient(135deg, var(--c-1), var(--c-4)); color:#fff; border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; z-index:95;
+    box-shadow:0 10px 28px -6px rgba(124,58,237,.5);
+    transition: transform .2s ease, border-radius .2s ease;
+  }
+  #quickFab:hover{ transform: translateY(-3px) scale(1.03); }
+  #quickFab.open{ border-radius:50%; }
+  #quickFab svg{ transition: transform .3s ease; }
+  #quickFab.open svg{ transform: rotate(45deg); }
+
+  #quickPanel{
+    position:fixed; left:26px; bottom:90px; width:280px; max-height:60vh; overflow-y:auto;
+    background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow);
+    z-index:94; padding:14px; opacity:0; transform: translateY(10px) scale(.97); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  #quickPanel.open{ opacity:1; transform: translateY(0) scale(1); pointer-events:auto; }
+  #quickPanel .qp-head{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--ink-soft); padding:4px 8px 10px;
+  }
+  #qpList{ list-style:none; margin:0; padding:0; }
+  #qpList li{
+    display:flex; align-items:center; gap:8px; border-radius:10px; padding:2px;
+  }
+  #qpList li a{
+    flex:1; display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--ink);
+    font-size:13px; padding:8px; border-radius:10px; transition:background .15s ease;
+  }
+  #qpList li a:hover{ background:var(--paper); }
+  .qp-idx{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:700; color:#fff;
+    background: var(--qc, var(--c-1)); padding:2px 6px; border-radius:6px;
+  }
+  .qp-toggle{ padding:8px; cursor:pointer; color:var(--ink-soft); opacity:.6; }
+  .qp-toggle:hover{ opacity:1; }
+  #qpList li.is-collapsed .qp-toggle svg{ transform: rotate(-90deg); }
+  #qpList li .qp-toggle svg{ transition: transform .3s ease; }
+
+  .closing-line{
+    margin-top:28px; padding:22px 24px; border-radius:16px;
+    background: linear-gradient(100deg, var(--c-1-tint), var(--c-4-tint));
+    font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; text-align:center;
+    color:var(--ink); border:1px solid var(--line);
+  }
+
+  @media (max-width: 980px){
+    .layout{ grid-template-columns: 1fr; }
+    nav.sidebar{ position:static; height:auto; border-right:none; border-bottom:1px solid var(--line); padding: 20px 6vw; }
+    main{ padding: 0 6vw 120px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001s !important; transition-duration:.001s !important; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body data-page="yusufmusa">
+
+<div id="progress"></div>
+
+<header class="hero">
+  <div class="burger-wrap">
+    <button id="navBurger" class="burger-btn" aria-haspopup="true" aria-expanded="false" aria-label="Open navigation menu">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div id="navMenu" class="burger-menu"></div>
+  </div>
+</header>
+
+<div class="ref-bar">
+  <span class="ref-label">Source</span>
+  <a href="https://www.facebook.com/groups/noumanalikhanvideos/posts/2247217092080885/" target="_blank" rel="noopener" class="note" style="text-decoration:none; border-bottom:1px solid rgba(255,255,255,.35); padding-bottom:1px;">Nouman Ali Khan</a>
+</div>
+
+<div class="page-title">
+  <span class="eyebrow">Comparative Reflection · Sūrah Yūsuf &amp; Sūrah Al‑Qaṣaṣ</span>
+  <h1>Yūsuf <span class="accent-word">&amp;</span> Mūsā (ʿalayhimā as‑salām)</h1>
+  <p class="sub">Thirty‑two mirrored observations comparing the story of Prophet Yūsuf in Sūrah Yūsuf with the story of Prophet Mūsā in Sūrah Al‑Qaṣaṣ — where the two accounts run parallel, and where they run in opposite directions.</p>
+  <div class="tag-row">
+    <span class="tag">32 parallels</span>
+    <span class="tag">10 themes</span>
+    <span class="tag">Sūrah Yūsuf</span>
+    <span class="tag">Sūrah Al‑Qaṣaṣ</span>
+  </div>
+</div>
+
+<div class="layout">
+
+  <nav class="sidebar">
+    <div class="search-box">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="searchInput" type="text" placeholder="Search themes…">
+    </div>
+    <div class="nav-actions">
+      <button id="expandAll">Expand all</button>
+      <button id="collapseAll">Collapse all</button>
+    </div>
+    <ul id="navList">
+      <li><a href="#s-01" data-key="parents mother father missing" style="--g-color:var(--c-1)"><span class="sw"></span>1 · The Missing Parent</a></li>
+      <li><a href="#s-02" data-key="siblings separation reunion convince" style="--g-color:var(--c-2)"><span class="sw"></span>2 · Siblings' Role</a></li>
+      <li><a href="#s-03" data-key="reunion promise tears father mother" style="--g-color:var(--c-3)"><span class="sw"></span>3 · The Unspoken Promise</a></li>
+      <li><a href="#s-04" data-key="water well river new house minister pharaoh wife" style="--g-color:var(--c-4)"><span class="sw"></span>4 · Waters &amp; a New Home</a></li>
+      <li><a href="#s-05" data-key="dignity slavery wisdom knowledge trait looks strength" style="--g-color:var(--c-5)"><span class="sw"></span>5 · Status, Gifts &amp; Trials</a></li>
+      <li><a href="#s-06" data-key="crime private public zina murder refuge" style="--g-color:var(--c-6)"><span class="sw"></span>6 · The Crime</a></li>
+      <li><a href="#s-07" data-key="jail fleeing men women friend selfish selfless" style="--g-color:var(--c-1)"><span class="sw"></span>7 · Trial, Flight &amp; Help</a></li>
+      <li><a href="#s-08" data-key="dawah action favor expectation" style="--g-color:var(--c-2)"><span class="sw"></span>8 · Words &amp; Actions</a></li>
+      <li><a href="#s-09" data-key="king court confession honored humiliated" style="--g-color:var(--c-3)"><span class="sw"></span>9 · Before the King</a></li>
+      <li><a href="#s-10" data-key="brother sajdah israelites egypt" style="--g-color:var(--c-4)"><span class="sw"></span>10 · Reunion &amp; Legacy</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- 01 -->
+    <section class="class-section" id="s-01" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">01</span>
+        <h2>The Missing Parent</h2>
+        <button class="collapse-toggle" data-target="s-01" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-01">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>Each story begins by leaving one parent out</h3>
+            <span class="code-badge">Points 1–2</span>
+          </div>
+          <div class="lesson-grid">
+            <div class="lesson-card yusuf">
+              <div class="kicker"><span class="kdot"></span>Sūrah Yūsuf</div>
+              <p>Yūsuf's mother is never mentioned at all, and the story opens with an interaction between father and son.</p>
+            </div>
+            <div class="lesson-card musa">
+              <div class="kicker"><span class="kdot"></span>Sūrah Al‑Qaṣaṣ</div>
+              <p>Mūsā's father is never mentioned at all, and the story opens with an interaction between mother and son.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section class="class-section" id="s-02" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">02</span>
+        <h2>Siblings' Role</h2>
+        <button class="collapse-toggle" data-target="s-02" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-02">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>Brothers cause separation; a sister causes reunion</h3>
+            <span class="code-badge">Points 3–4</span>
+          </div>
+          <div class="lesson-grid">
+            <div class="lesson-card yusuf">
+              <div class="kicker"><span class="kdot"></span>Sūrah Yūsuf</div>
+              <p>Yūsuf's own siblings are the reason he becomes separated from his family, having intellectually persuaded their father to let him go.</p>
+            </div>
+            <div class="lesson-card musa">
+              <div class="kicker"><span class="kdot"></span>Sūrah Al‑Qaṣaṣ</div>
+              <p>Mūsā's sibling is the reason he is eventually reunited with his family; Allah, meanwhile, persuades Mūsā's mother emotionally to let him go.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section class="class-section" id="s-03" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">03</span>
+        <h2>The Unspoken Promise</h2>
+        <button class="collapse-toggle" data-target="s-03" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-03">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>A prophet left without assurance; a mother given one</h3>
+            <span class="code-badge">Points 5–6</span>
+          </div>
+          <div class="lesson-grid">
+            <div class="lesson-card yusuf">
+              <div class="kicker"><span class="kdot"></span>Sūrah Yūsuf</div>
+              <p>Yaʿqūb (A.S), a prophet, is never told whether he will ever be reunited with his son, and he weeps tears of sadness.</p>
+            </div>
+            <div class="lesson-card musa">
+              <div class="kicker"><span class="kdot"></span>Sūrah Al‑Qaṣaṣ</div>
+              <p>Mūsā's mother, who is not a prophet, is told directly that she will be reunited with her son, and she weeps tears of happiness.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 04 -->
+    <section class="class-section" id="s-04" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">04</span>
+        <h2>Waters &amp; a New Home</h2>
+        <button class="collapse-toggle" data-target="s-04" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-04">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>Standing water, flowing water — and a reversed decision</h3>
+            <span class="code-badge">Points 7–10</span>
+          </div>
+          <div class="lesson-grid">
+            <div class="lesson-card yusuf">
+              <div class="kicker"><span class="kdot"></span>Sūrah Yūsuf</div>
+              <p>Yūsuf is thrown into a well — standing water — and is brought into his new household by a male figure, Egypt's minister. The minister tells his wife to take him either as a slave or as an adopted son; though the couple were childless, they choose to keep him as a slave.</p>
+            </div>
+            <div class="lesson-card musa">
+              <div class="kicker"><span class="kdot"></span>Sūrah Al‑Qaṣaṣ</div>
+              <p>Mūsā is set adrift on a river — flowing water — and is brought into his new household by a female figure, Pharaoh's wife. She tells her husband to take him either as a slave or as an adopted son; though Mūsā was an Israelite, Pharaoh chooses to adopt him as a son.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 05 -->
+    <section class="class-section" id="s-05" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">05</span>
+        <h2>Status, Gifts &amp; Trials</h2>
+        <button class="collapse-toggle" data-target="s-05" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-05">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>Dignity and slavery trade places; each gift becomes a test</h3>
+            <span class="code-badge">Points 11–14</span>
+          </div>
+          <div class="lesson-grid">
+            <div class="lesson-card yusuf">
+              <div class="kicker"><span class="kdot"></span>Sūrah Yūsuf</div>
+              <p>Yūsuf's life moves from dignity to slavery. Allah grants him wisdom and knowledge, and also an exceptional trait — striking looks — which is exactly what draws him into trouble with the minister's wife.</p>
+            </div>
+            <div class="lesson-card musa">
+              <div class="kicker"><span class="kdot"></span>Sūrah Al‑Qaṣaṣ</div>
+              <p>Mūsā's life moves from slavery to dignity. Allah grants him wisdom and knowledge, and also an exceptional trait — physical strength — which is exactly what draws him into trouble with the authorities.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 06 -->
+    <section class="class-section" id="s-06" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">06</span>
+        <h2>The Crime</h2>
+        <button class="collapse-toggle" data-target="s-06" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-06">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>One crime prevented, one crime committed</h3>
+            <span class="code-badge">Points 15–18</span>
+          </div>
+          <div class="lesson-grid">
+            <div class="lesson-card yusuf">
+              <div class="kicker"><span class="kdot"></span>Sūrah Yūsuf</div>
+              <p>The near‑crime against Yūsuf is private in nature — an attempt at zinā, a killing of the soul. He seeks refuge in Allah before it happens, and — though innocent — ends up detained by the law.</p>
+            </div>
+            <div class="lesson-card musa">
+              <div class="kicker"><span class="kdot"></span>Sūrah Al‑Qaṣaṣ</div>
+              <p>The crime involving Mūsā is public in nature — a killing of the body, a manslaughter. He seeks refuge in Allah after it happens, and — though guilty — ends up fleeing the law.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 07 -->
+    <section class="class-section" id="s-07" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">07</span>
+        <h2>Trial, Flight &amp; Help</h2>
+        <button class="collapse-toggle" data-target="s-07" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-07">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>Two men, two women — and how a man and woman should meet</h3>
+            <span class="code-badge">Points 19–23</span>
+          </div>
+          <div class="lesson-grid">
+            <div class="lesson-card yusuf">
+              <div class="kicker"><span class="kdot"></span>Sūrah Yūsuf</div>
+              <p>In jail, Yūsuf is approached by two men, and the story then continues with only one of them. This episode shows how a man and woman should <em>not</em> come together. An expected friend eventually secures his release from the trial of prison — but only after years — and does so for a self‑interested reason: he wants recognition from the king for interpreting his dream.</p>
+            </div>
+            <div class="lesson-card musa">
+              <div class="kicker"><span class="kdot"></span>Sūrah Al‑Qaṣaṣ</div>
+              <p>While fleeing, Mūsā approaches two women, and the story then continues with only one of them. This episode shows how a man and woman <em>should</em> come together. An unexpected man saves him from the trial of being killed — but within days — and does so for a selfless reason: fear that Mūsā will be executed by the authorities.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 08 -->
+    <section class="class-section" id="s-08" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">08</span>
+        <h2>Words &amp; Actions</h2>
+        <button class="collapse-toggle" data-target="s-08" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-08">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>The power of speech versus the power of deeds</h3>
+            <span class="code-badge">Points 24–25</span>
+          </div>
+          <div class="lesson-grid">
+            <div class="lesson-card yusuf">
+              <div class="kicker"><span class="kdot"></span>Sūrah Yūsuf</div>
+              <p>Yūsuf helps his two cellmates through daʿwah — the power of words. He hopes for a favor in return from one of them, but it does not arrive right away.</p>
+            </div>
+            <div class="lesson-card musa">
+              <div class="kicker"><span class="kdot"></span>Sūrah Al‑Qaṣaṣ</div>
+              <p>Mūsā helps the two women by watering their flock — the power of action. He does not expect any favor in return, yet one comes to him immediately.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 09 -->
+    <section class="class-section" id="s-09" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">09</span>
+        <h2>Before the King</h2>
+        <button class="collapse-toggle" data-target="s-09" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-09">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>Both return to court; one is honored, one is humiliated</h3>
+            <span class="code-badge">Points 26–28</span>
+          </div>
+          <div class="lesson-grid">
+            <div class="lesson-card yusuf">
+              <div class="kicker"><span class="kdot"></span>Sūrah Yūsuf</div>
+              <p>Yūsuf returns to face the king. A confession takes place — the women who wronged him admit their fault — and Yūsuf is honored by the king.</p>
+            </div>
+            <div class="lesson-card musa">
+              <div class="kicker"><span class="kdot"></span>Sūrah Al‑Qaṣaṣ</div>
+              <p>Mūsā returns to face the king. A confession also takes place — but this time it is Mūsā himself admitting his own fault — and Mūsā is humiliated by the king.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section class="class-section" id="s-10" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">10</span>
+        <h2>Reunion &amp; Legacy</h2>
+        <button class="collapse-toggle" data-target="s-10" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-10">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>A silent brother, a shared sajdah, and Egypt entered and left</h3>
+            <span class="code-badge">Points 29–32</span>
+          </div>
+          <div class="lesson-grid">
+            <div class="lesson-card yusuf">
+              <div class="kicker"><span class="kdot"></span>Sūrah Yūsuf</div>
+              <p>Yūsuf is reunited with his brother Benjamin, who remains silent throughout. A sajdah occurs when Yūsuf's family prostrates after the reunion. Sūrah Yūsuf answers how the Israelites came to enter Egypt.</p>
+            </div>
+            <div class="lesson-card musa">
+              <div class="kicker"><span class="kdot"></span>Sūrah Al‑Qaṣaṣ</div>
+              <p>Mūsā is reunited with his brother Hārūn, who also remains silent. A sajdah occurs when the magicians who lose to Mūsā fall in prostration. Sūrah Al‑Qaṣaṣ answers how the Israelites came to leave Egypt.</p>
+            </div>
+          </div>
+          <div class="quote">
+            Two brothers, two journeys — one story closes with entry into Egypt, the other with exodus from it.
+            <footer>Allāhu Akbar</footer>
+          </div>
+        </div>
+        <div class="closing-line">"Allāhu Akbar" — subḥānAllāh, look at how precisely the two sūrahs mirror and complete one another.</div>
+      </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<button id="toTop" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<div id="quickPanel">
+  <div class="qp-head">Jump to theme</div>
+  <ul id="qpList">
+    <li data-target="s-01"><a href="#s-01" style="--qc:var(--c-1)"><span class="qp-idx">01</span>The Missing Parent</a></li>
+    <li data-target="s-02"><a href="#s-02" style="--qc:var(--c-2)"><span class="qp-idx">02</span>Siblings' Role</a></li>
+    <li data-target="s-03"><a href="#s-03" style="--qc:var(--c-3)"><span class="qp-idx">03</span>The Unspoken Promise</a></li>
+    <li data-target="s-04"><a href="#s-04" style="--qc:var(--c-4)"><span class="qp-idx">04</span>Waters &amp; a New Home</a></li>
+    <li data-target="s-05"><a href="#s-05" style="--qc:var(--c-5)"><span class="qp-idx">05</span>Status, Gifts &amp; Trials</a></li>
+    <li data-target="s-06"><a href="#s-06" style="--qc:var(--c-6)"><span class="qp-idx">06</span>The Crime</a></li>
+    <li data-target="s-07"><a href="#s-07" style="--qc:var(--c-1)"><span class="qp-idx">07</span>Trial, Flight &amp; Help</a></li>
+    <li data-target="s-08"><a href="#s-08" style="--qc:var(--c-2)"><span class="qp-idx">08</span>Words &amp; Actions</a></li>
+    <li data-target="s-09"><a href="#s-09" style="--qc:var(--c-3)"><span class="qp-idx">09</span>Before the King</a></li>
+    <li data-target="s-10"><a href="#s-10" style="--qc:var(--c-4)"><span class="qp-idx">10</span>Reunion &amp; Legacy</a></li>
+  </ul>
+</div>
+
+<button id="quickFab" aria-label="Open quick navigation" aria-expanded="false">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+</button>
+
+<script>
+  const heroHeader = document.querySelector('header.hero');
+  function syncHeaderHeight(){
+    const refBar = document.querySelector('.ref-bar');
+    document.documentElement.style.setProperty('--header-h', (heroHeader.offsetHeight + refBar.offsetHeight) + 'px');
+  }
+  syncHeaderHeight();
+  window.addEventListener('resize', syncHeaderHeight);
+
+  const progress = document.getElementById('progress');
+  function updateProgress(){
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    progress.style.width = scrolled + '%';
+    document.getElementById('toTop').classList.toggle('show', h.scrollTop > 700);
+  }
+  document.addEventListener('scroll', updateProgress, {passive:true});
+  updateProgress();
+
+  document.getElementById('toTop').addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+  const navLinks = document.querySelectorAll('nav.sidebar li a');
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const id = entry.target.id;
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  document.querySelectorAll('main section.class-section').forEach(el => { if(el.id) sectionObserver.observe(el); });
+
+  const quickFab = document.getElementById('quickFab');
+  const quickPanel = document.getElementById('quickPanel');
+  function openQuickPanel(){ quickPanel.classList.add('open'); quickFab.classList.add('open'); quickFab.setAttribute('aria-expanded','true'); }
+  function closeQuickPanel(){ quickPanel.classList.remove('open'); quickFab.classList.remove('open'); quickFab.setAttribute('aria-expanded','false'); }
+  quickFab.addEventListener('click', () => { quickPanel.classList.contains('open') ? closeQuickPanel() : openQuickPanel(); });
+  document.addEventListener('click', (e) => {
+    if(quickPanel.classList.contains('open') && !quickPanel.contains(e.target) && !quickFab.contains(e.target)){ closeQuickPanel(); }
+  });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeQuickPanel(); });
+  quickPanel.querySelectorAll('a').forEach(a => { a.addEventListener('click', () => closeQuickPanel()); });
+
+  const ALL_SECTION_IDS = ['s-01','s-02','s-03','s-04','s-05','s-06','s-07','s-08','s-09','s-10'];
+
+  function setCollapsed(id, collapsed){
+    const body = document.getElementById('body-' + id);
+    const btn = document.querySelector('.collapse-toggle[data-target="' + id + '"]');
+    const qpItem = document.querySelector('#qpList li[data-target="' + id + '"]');
+    if(body) body.classList.toggle('collapsed', collapsed);
+    if(btn) btn.setAttribute('aria-expanded', String(!collapsed));
+    if(qpItem) qpItem.classList.toggle('is-collapsed', collapsed);
+  }
+  function isCollapsed(id){
+    const body = document.getElementById('body-' + id);
+    return body ? body.classList.contains('collapsed') : false;
+  }
+  function toggleCollapsed(id){ setCollapsed(id, !isCollapsed(id)); }
+
+  document.querySelectorAll('.collapse-toggle').forEach(btn => {
+    btn.addEventListener('click', () => toggleCollapsed(btn.dataset.target));
+  });
+
+  document.getElementById('expandAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, false)));
+  document.getElementById('collapseAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, true)));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href').slice(1);
+      if(!href) return;
+      const target = document.getElementById(href);
+      if(!target) return;
+      if(target.classList.contains('class-section')){ setCollapsed(href, false); }
+    });
+  });
+
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', () => {
+    const q = searchInput.value.trim().toLowerCase();
+    navLinks.forEach(a => {
+      const key = (a.dataset.key || a.textContent).toLowerCase();
+      const match = q === '' || key.includes(q);
+      a.dataset.hidden = match ? '0' : '1';
+      const section = document.querySelector(a.getAttribute('href'));
+      if(section){ section.style.display = match ? '' : 'none'; }
+    });
+  });
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

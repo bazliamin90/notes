@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Flicker of Light — Surah Yusuf 80–82 | Study Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --paper:#fbfbfd;
+    --ink:#14151a;
+    --ink-soft:#5a5d6b;
+    --line:#e7e7ee;
+    --line-soft:#f0f0f5;
+
+    --c-1:#7c3aed;  --c-1-tint:#f4edff;   /* violet */
+    --c-2:#0284c7;  --c-2-tint:#e8f6ff;   /* ocean */
+    --c-3:#ea580c;  --c-3-tint:#fff1e8;   /* coral */
+    --c-4:#db2777;  --c-4-tint:#ffe9f4;   /* magenta */
+    --c-5:#059669;  --c-5-tint:#e6faf2;   /* emerald */
+    --c-6:#0f766e;  --c-6-tint:#e6f8f6;   /* teal */
+
+    --accent: var(--c-1);
+    --accent-tint: var(--c-1-tint);
+
+    --radius: 18px;
+    --shadow: 0 1px 2px rgba(20,21,26,.04), 0 12px 32px -16px rgba(20,21,26,.14);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background: var(--accent); color:#fff; }
+
+  h1,h2,h3,h4{ font-family:'Space Grotesk', sans-serif; margin:0; letter-spacing:-.01em; }
+  code, .mono{ font-family:'IBM Plex Mono', monospace; }
+  a{ color:inherit; }
+  p{ margin:0; }
+  .arabic{ font-family:'Amiri', serif; direction:rtl; }
+
+  #progress{
+    position:fixed; top:0; left:0; height:3px; width:0%;
+    background: linear-gradient(90deg, var(--c-1), var(--c-2), var(--c-3), var(--c-4), var(--c-5), var(--c-6));
+    z-index:100; transition: width .1s linear;
+  }
+
+  .ref-bar{
+    background:var(--ink); color:#fff;
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    padding:9px 8vw; display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  }
+  .ref-bar .ref-label{ color:rgba(255,255,255,.55); text-transform:uppercase; letter-spacing:.08em; font-size:10.5px; }
+  .ref-bar .ref-txt{ opacity:.85; }
+
+  header.hero{
+    padding: 6px 8vw;
+    min-height:46px;
+    display:flex; align-items:center; gap:10px;
+    position:sticky; top:0; z-index:80;
+    border-bottom:1px solid var(--line);
+    background-color:#fff;
+    background-image:
+      radial-gradient(700px 340px at 8% -10%, var(--c-1-tint), transparent 60%),
+      radial-gradient(600px 300px at 95% 0%, var(--c-3-tint), transparent 55%);
+  }
+  header.hero .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:15px;
+  }
+  header.hero .brand .dot{ width:9px; height:9px; border-radius:3px; background: linear-gradient(135deg, var(--c-1), var(--c-4)); }
+
+  /* ---------- burger navigation ---------- */
+  .burger-wrap{ position:relative; display:flex; align-items:center; }
+  .burger-btn{
+    width:34px; height:34px; border-radius:10px; border:1.3px solid var(--line);
+    background:var(--paper); color:var(--ink); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: border-color .15s ease, background .15s ease, color .15s ease;
+  }
+  .burger-btn:hover{ border-color: var(--c-1); }
+  .burger-btn.open{ background: var(--c-1); border-color: var(--c-1); color:#fff; }
+  .burger-btn svg{ transition: opacity .15s ease; }
+  .burger-menu{
+    position:absolute; top:calc(100% + 10px); left:0; width:320px;
+    background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow);
+    padding:8px; opacity:0; transform: translateY(-6px); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease; z-index:120;
+    display:flex; flex-direction:column;
+  }
+  .burger-menu.open{ opacity:1; transform: translateY(0); pointer-events:auto; }
+  .burger-menu-home{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; margin:2px 2px 8px;
+    border-radius:10px; border-bottom:1px solid var(--line-soft);
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-home svg{ flex:none; color:var(--ink-soft); }
+  .burger-menu-home:hover{ background: var(--paper); }
+  .burger-menu-home.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-home.is-current .bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-search{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:10px; padding:8px 10px; margin:2px 2px 8px;
+    background:var(--paper); flex:none;
+  }
+  .burger-menu-search svg{ flex:none; opacity:.5; color:var(--ink-soft); }
+  .burger-menu-search input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13px; width:100%; color:var(--ink);
+  }
+  .burger-menu-list{ max-height:340px; overflow-y:auto; overscroll-behavior:contain; }
+  .burger-menu-list::-webkit-scrollbar{ width:6px; }
+  .burger-menu-list::-webkit-scrollbar-thumb{ background:var(--line); border-radius:10px; }
+  .burger-menu-group + .burger-menu-group{ margin-top:4px; }
+  .burger-menu-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); padding:8px 10px 4px;
+  }
+  .burger-menu-empty{
+    display:none; padding:18px 10px; text-align:center; font-size:12.5px; color:var(--ink-soft);
+  }
+  .burger-menu-item{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; border-radius:10px;
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-item span.bm-title{ display:block; }
+  .burger-menu-item span.bm-sub{ display:block; font-size:11.5px; color:var(--ink-soft); font-weight:400; margin-top:1px; }
+  .burger-menu-item:hover{ background: var(--paper); }
+  .burger-menu-item.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-item.is-current span.bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-dot{ width:9px; height:9px; border-radius:3px; flex:none; margin-top:3px; }
+
+
+  .page-title{ padding: 30px 8vw 6px; }
+  .page-title .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-soft); margin-bottom:10px; display:block;
+  }
+  .page-title h1{
+    font-size: clamp(26px, 5vw, 46px);
+    line-height:1.12;
+    font-weight:700;
+  }
+  .page-title h1 .accent-word{
+    background: linear-gradient(100deg, var(--c-1), var(--c-4) 55%, var(--c-3));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .page-title .sub{
+    margin-top:14px; max-width:66ch; color:var(--ink-soft); font-size:15px; line-height:1.6;
+  }
+  .page-title .tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+  .page-title .tag{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; border:1.3px solid var(--line);
+    color:var(--ink-soft); font-weight:500; background:var(--paper);
+  }
+
+  .layout{
+    display:grid;
+    grid-template-columns: 260px minmax(0,1fr);
+    gap:0;
+    max-width:1400px; margin:0 auto;
+  }
+  nav.sidebar{
+    position:sticky; top: var(--header-h, 0px); align-self:start;
+    height: calc(100vh - var(--header-h, 0px)); overflow-y:auto;
+    padding: 28px 18px 40px 8vw;
+    border-right:1px solid var(--line);
+    scrollbar-width: thin;
+  }
+  nav.sidebar::-webkit-scrollbar{ width:6px; }
+  nav.sidebar::-webkit-scrollbar-thumb{ background:var(--line); border-radius:10px; }
+
+  .search-box{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:12px; padding:10px 12px; margin-bottom:18px;
+    background:var(--paper);
+  }
+  .search-box input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13.5px; width:100%; color:var(--ink);
+  }
+  .search-box svg{ flex:none; opacity:.5; }
+
+  .nav-actions{ display:flex; gap:8px; margin-bottom:18px; }
+  .nav-actions button{
+    flex:1; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    border:1.3px solid var(--line); background:#fff; color:var(--ink-soft);
+    padding:7px 8px; border-radius:9px; cursor:pointer; transition:.15s ease;
+  }
+  .nav-actions button:hover{ border-color:var(--ink); color:var(--ink); }
+
+  .nav-group-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); margin: 18px 0 6px 2px;
+  }
+  .nav-group-label:first-of-type{ margin-top:0; }
+
+  nav.sidebar ul{ list-style:none; margin:0; padding:0; border-left:2px solid var(--line-soft); }
+  nav.sidebar li a{
+    display:flex; align-items:center; gap:9px;
+    text-decoration:none; font-size:13.5px; color:var(--ink-soft);
+    padding:7px 0 7px 14px; border-left:2px solid transparent; margin-left:-2px;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  nav.sidebar li a .sw{ width:8px; height:8px; border-radius:3px; flex:none; background:var(--g-color); }
+  nav.sidebar li a:hover{ color:var(--ink); }
+  nav.sidebar li a.active{ color:var(--g-color); border-left-color: var(--g-color); font-weight:600; }
+  nav.sidebar li a[data-hidden="1"]{ display:none; }
+
+  main{ min-width:0; padding: 0 8vw 140px; }
+
+  section.class-section{ padding-top:56px; scroll-margin-top: 24px; }
+  section.class-section:first-child{ padding-top:44px; }
+
+  .class-head{
+    display:flex; align-items:baseline; gap:16px; flex-wrap:wrap;
+    padding-bottom:14px; margin-bottom:22px; border-bottom:3px solid var(--g-color);
+    position:relative;
+  }
+  .class-head .idx{
+    font-family:'IBM Plex Mono',monospace; font-size:14px; font-weight:700; color:#fff;
+    background:var(--g-color); padding:5px 10px; border-radius:8px;
+  }
+  .class-head h2{ font-size: clamp(20px,2.4vw,28px); color:var(--ink); }
+  .collapse-toggle{
+    margin-left:auto; width:34px; height:34px; border-radius:9px; border:1.5px solid var(--line);
+    background:#fff; color:var(--g-color); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: transform .3s ease, background .15s ease, border-color .15s ease;
+  }
+  .collapse-toggle:hover{ background: var(--g-tint); border-color: var(--g-color); }
+  .collapse-toggle svg{ transition: transform .3s ease; }
+  .collapse-toggle[aria-expanded="false"] svg{ transform: rotate(-90deg); }
+
+  .class-body-outer{ display:grid; grid-template-rows: 0fr; transition: grid-template-rows .38s ease; }
+  .class-body-outer.collapsed{ grid-template-rows: 0fr; }
+  .class-body-outer:not(.collapsed){ grid-template-rows: 1fr; }
+  .class-body-inner{ overflow:hidden; min-height:0; opacity:0; transition: opacity .25s ease .1s; }
+  .class-body-outer.collapsed .class-body-inner{ opacity:0; transition: opacity .18s ease; }
+  .class-body-outer:not(.collapsed) .class-body-inner{ opacity:1; }
+
+  .card{
+    background:#fff; border:1px solid var(--line); border-radius: var(--radius);
+    padding: 28px 30px; margin-bottom: 22px; position:relative; overflow:hidden;
+    border-left: 5px solid var(--g-color);
+  }
+  .card .card-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap;
+    margin-bottom:14px;
+  }
+  .card h3{ font-size:19px; font-weight:600; color:var(--ink); }
+  .card h3 .alt{ font-weight:400; color:var(--ink-soft); font-size:14px; display:block; margin-top:3px;}
+  .code-badge{
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:12px; color:#fff;
+    background: var(--g-color); padding:6px 12px; border-radius:8px; white-space:nowrap;
+  }
+
+  ul.points{ list-style:none; margin:0; padding:0; }
+  ul.points > li{
+    position:relative; padding: 10px 0 10px 34px; font-size:14.8px; line-height:1.65; color:#2b2d36;
+    border-top:1px solid var(--line-soft);
+  }
+  ul.points > li:first-child{ border-top:none; }
+  ul.points > li::before{
+    content:"—";
+    position:absolute; left:0; top:10px; width:22px; height:22px; border-radius:7px;
+    background: var(--g-tint); color:var(--g-color); font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:13px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  ul.points > li b, ul.points > li strong{ color:var(--g-color); }
+  ul.points ul{ list-style:none; margin:8px 0 0; padding:0; }
+  ul.points ul li{
+    position:relative; padding:6px 0 6px 22px; font-size:14px; color:var(--ink-soft); border-top:none;
+  }
+  ul.points ul li::before{
+    content:"·"; position:absolute; left:0; top:4px; width:14px; height:14px; border-radius:0;
+    background:none; color:var(--g-color); font-size:20px; font-weight:700; display:flex; align-items:center; justify-content:center;
+  }
+
+  .ayah-block{
+    margin: 6px 0 18px; padding:20px 22px; border-radius:14px; background:var(--paper);
+    border:1px solid var(--line);
+  }
+  .ayah-block .ayah-ref{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--g-color); font-weight:700; margin-bottom:10px; display:block;
+  }
+  .ayah-block .ayah-ar{
+    font-size:24px; line-height:2; color:var(--ink); text-align:right; margin-bottom:12px;
+  }
+  .ayah-block .ayah-en{
+    font-size:14.5px; line-height:1.6; color:var(--ink-soft); font-style:italic;
+  }
+
+  .quote{
+    margin-top:16px; padding:16px 18px; border-radius:12px; background:var(--g-tint);
+    font-family:'Space Grotesk', sans-serif; font-size:16px; line-height:1.55; color:#20222a;
+    border-left:3px solid var(--g-color);
+  }
+  .quote footer{
+    margin-top:8px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    text-transform:uppercase; color:var(--ink-soft); font-style:normal;
+  }
+
+  .pill-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .pill-row .pill{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; background:#fff; border:1.3px solid var(--g-color);
+    color:var(--g-color); font-weight:600;
+  }
+
+  .lesson-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:6px; }
+  @media (max-width:640px){ .lesson-grid{ grid-template-columns:1fr; } }
+  .lesson-card{
+    border-radius:var(--radius); padding:22px 22px; border:1.3px solid var(--line);
+  }
+  .lesson-card .kicker{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .lesson-card h4{ margin-top:8px; font-size:17px; }
+  .lesson-card p{ margin-top:10px; font-size:14px; line-height:1.6; color:#2b2d36; }
+
+  #toTop{
+    position:fixed; right:26px; bottom:26px; width:46px; height:46px; border-radius:50%;
+    background:var(--ink); color:#fff; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,.22); opacity:0; pointer-events:none; transition: opacity .25s ease, transform .2s ease;
+    z-index:90;
+  }
+  #toTop.show{ opacity:1; pointer-events:auto; }
+  #toTop:hover{ transform: translateY(-3px); }
+
+  #quickFab{
+    position:fixed; left:26px; bottom:26px; width:52px; height:52px; border-radius:16px;
+    background: linear-gradient(135deg, var(--c-1), var(--c-4)); color:#fff; border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; z-index:95;
+    box-shadow:0 10px 28px -6px rgba(124,58,237,.5);
+    transition: transform .2s ease, border-radius .2s ease;
+  }
+  #quickFab:hover{ transform: translateY(-3px) scale(1.03); }
+  #quickFab.open{ border-radius:50%; }
+  #quickFab svg{ transition: transform .3s ease; }
+  #quickFab.open svg{ transform: rotate(45deg); }
+
+  #quickPanel{
+    position:fixed; left:26px; bottom:90px; width:280px; max-height:60vh; overflow-y:auto;
+    background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow);
+    z-index:94; padding:14px; opacity:0; transform: translateY(10px) scale(.97); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  #quickPanel.open{ opacity:1; transform: translateY(0) scale(1); pointer-events:auto; }
+  #quickPanel .qp-head{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--ink-soft); padding:4px 8px 10px;
+  }
+  #qpList{ list-style:none; margin:0; padding:0; }
+  #qpList li{
+    display:flex; align-items:center; gap:8px; border-radius:10px; padding:2px;
+  }
+  #qpList li a{
+    flex:1; display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--ink);
+    font-size:13px; padding:8px; border-radius:10px; transition:background .15s ease;
+  }
+  #qpList li a:hover{ background:var(--paper); }
+  .qp-idx{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:700; color:#fff;
+    background: var(--qc, var(--c-1)); padding:2px 6px; border-radius:6px;
+  }
+  .qp-toggle{ padding:8px; cursor:pointer; color:var(--ink-soft); opacity:.6; }
+  .qp-toggle:hover{ opacity:1; }
+  #qpList li.is-collapsed .qp-toggle svg{ transform: rotate(-90deg); }
+  #qpList li .qp-toggle svg{ transition: transform .3s ease; }
+
+  #empty-state{ display:none; padding:60px 0; text-align:center; color:var(--ink-soft); }
+  #empty-state.show{ display:block; }
+
+  footer.page-footer{
+    padding:30px 8vw 60px; color:var(--ink-soft); font-size:12.5px; font-family:'IBM Plex Mono',monospace;
+    border-top:1px solid var(--line); margin-top:30px;
+  }
+
+  @media (max-width: 980px){
+    .layout{ grid-template-columns: 1fr; }
+    nav.sidebar{ position:static; height:auto; border-right:none; border-bottom:1px solid var(--line); padding: 20px 6vw; }
+    main{ padding: 0 6vw 120px; }
+    .ayah-block .ayah-ar{ font-size:20px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001s !important; transition-duration:.001s !important; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body data-page="yusuf8082">
+
+<div id="progress"></div>
+
+<header class="hero">
+  <div class="burger-wrap">
+    <button id="navBurger" class="burger-btn" aria-haspopup="true" aria-expanded="false" aria-label="Open navigation menu">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div id="navMenu" class="burger-menu"></div>
+  </div>
+</header>
+
+<div class="ref-bar">
+  <span class="ref-label">Source</span>
+  <a href="https://drive.google.com/file/d/1ZYB1TeE_B8SJCj8D1P20foM731xmqyd1/view?usp=sharing" target="_blank" rel="noopener" class="ref-txt" style="text-decoration:none; border-bottom:1px solid rgba(255,255,255,.35); padding-bottom:1px;">Nouman Ali Khan</a>
+</div>
+
+<div class="page-title">
+  <span class="eyebrow">Tafsīr Notes · Sūrah Yūsuf</span>
+  <h1>A <span class="accent-word">Flicker</span> of Light [Ayah 80-82]</h1>
+  <div class="sub">The brothers hold a secret council after losing all hope of bringing Binyāmīn home — and the eldest, weighed down by an old promise, has a quiet, private awakening.</div>
+  <div class="tag-row">
+    <span class="tag">Verse 80</span>
+    <span class="tag">Verse 81</span>
+    <span class="tag">Verse 82</span>
+    <span class="tag">Najiyya</span>
+    <span class="tag">Intertextuality</span>
+    <span class="tag">The Flicker</span>
+  </div>
+</div>
+
+<div class="layout">
+
+  <nav class="sidebar">
+    <div class="search-box">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="searchInput" type="text" placeholder="Search sections…">
+    </div>
+    <div class="nav-actions">
+      <button id="expandAll">Expand all</button>
+      <button id="collapseAll">Collapse all</button>
+    </div>
+
+    <div class="nav-group-label">Verse 80</div>
+    <ul id="navList">
+      <li><a href="#s-01" data-key="fa lamma istayasoo despair lost hope" style="--g-color:var(--c-1)"><span class="sw"></span>Losing All Hope</a></li>
+      <li><a href="#s-02" data-key="dawah character ma aathallah law of land" style="--g-color:var(--c-2)"><span class="sw"></span>Dawah Through Character</a></li>
+      <li><a href="#s-03" data-key="khalasoo seclusion reputation secret" style="--g-color:var(--c-3)"><span class="sw"></span>"Khalasoo": Seeking Seclusion</a></li>
+      <li><a href="#s-04" data-key="najiyya secret council mujadila najwa" style="--g-color:var(--c-4)"><span class="sw"></span>"Najiyya": The Secret Council</a></li>
+      <li><a href="#s-05" data-key="kabeeruhum eldest big one ahzab ibrahim" style="--g-color:var(--c-5)"><span class="sw"></span>"Kabeeruhum": The Eldest Speaks</a></li>
+      <li><a href="#s-06" data-key="intertextuality echo verse 66 64 mawthiqan" style="--g-color:var(--c-6)"><span class="sw"></span>Echoes of the Father</a></li>
+      <li><a href="#s-07" data-key="wa min qablu flicker light hand darkness noor" style="--g-color:var(--c-1)"><span class="sw"></span>The Flicker of Light</a></li>
+      <li><a href="#s-08" data-key="falan abraha al ard standing ground echo 66" style="--g-color:var(--c-2)"><span class="sw"></span>"Falan Abraha Al-Ard"</a></li>
+      <li><a href="#s-09" data-key="aw yahkuma allahu lee best of judges trust echo 67" style="--g-color:var(--c-3)"><span class="sw"></span>"Aw Yahkuma Allahu Lee"</a></li>
+      <li><a href="#s-10" data-key="grammar ala preposition ma farrattum three readings" style="--g-color:var(--c-4)"><span class="sw"></span>Grammar Notes: "Ala" & "Ma"</a></li>
+      <li><a href="#s-11" data-key="baraah root meaning shift place kahf" style="--g-color:var(--c-5)"><span class="sw"></span>"Baraah": Standing Firm</a></li>
+    </ul>
+
+    <div class="nav-group-label">Verse 81</div>
+    <ul>
+      <li><a href="#s-12" data-key="irjioo go back to father instructions honesty" style="--g-color:var(--c-6)"><span class="sw"></span>"Irjiʿoo": Go Back and Be Honest</a></li>
+      <li><a href="#s-13" data-key="your son has stolen blame not black and white" style="--g-color:var(--c-1)"><span class="sw"></span>"Your Son Has Stolen"</a></li>
+      <li><a href="#s-14" data-key="we did not testify except what we knew doubt ghayb night" style="--g-color:var(--c-2)"><span class="sw"></span>Witnesses of the Unseen</a></li>
+    </ul>
+
+    <div class="nav-group-label">Verse 82</div>
+    <ul>
+      <li><a href="#s-15" data-key="hafitheen guardian echo verse 63" style="--g-color:var(--c-3)"><span class="sw"></span>"Hafitheen": Echo of the Vow</a></li>
+      <li><a href="#s-16" data-key="ask the city aqbalna wa inna lasadiqoon truthful echo 17" style="--g-color:var(--c-4)"><span class="sw"></span>"Ask the City... We Are Truthful"</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- 01 -->
+    <section class="class-section" id="s-01" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">01</span>
+        <h2>Losing All Hope</h2>
+        <button class="collapse-toggle" data-target="s-01" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-01">
+      <div class="class-body-inner">
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Verse 80</span>
+          <p class="ayah-ar arabic">فَلَمَّا ٱسْتَيْـَٔسُوا۟ مِنْهُ خَلَصُوا۟ نَجِيًّۭا ۖ قَالَ كَبِيرُهُمْ أَلَمْ تَعْلَمُوٓا۟ أَنَّ أَبَاكُمْ قَدْ أَخَذَ عَلَيْكُم مَّوْثِقًۭا مِّنَ ٱللَّهِ وَمِن قَبْلُ مَا فَرَّطتُمْ فِى يُوسُفَ ۖ فَلَنْ أَبْرَحَ ٱلْأَرْضَ حَتَّىٰ يَأْذَنَ لِىٓ أَبِىٓ أَوْ يَحْكُمَ ٱللَّهُ لِى ۖ وَهُوَ خَيْرُ ٱلْحَٰكِمِينَ</p>
+          <p class="ayah-en">"So when they had despaired of him, they secluded themselves in private consultation. The eldest of them said, 'Do you not know that your father has taken upon you an oath by Allah and [that] before you failed in [your duty to] Joseph? So I will never leave [this] land until my father permits me or Allah decides for me, and He is the best of judges.'" — Sahih International</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>"Fa-Lamma" and "Istay-asoo"</h3>
+            <span class="code-badge">Turning point</span>
+          </div>
+          <ul class="points">
+            <li><b>"Fa-Lamma"</b> means "so eventually, when…" — the brothers had tried convincing Yūsuf (AS) one way or another, but he simply would not budge.</li>
+            <li><b>"Istay-asoo"</b> means they utterly lost hope in him.
+              <ul>
+                <li>Sometimes a "no" isn't an emphatic, absolute refusal — but this word conveys that they had no hope left whatsoever that Yūsuf (AS) would change his position.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section class="class-section" id="s-02" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">02</span>
+        <h2>Dawah Through Character</h2>
+        <button class="collapse-toggle" data-target="s-02" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-02">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>"Ma AathAllah" in a non-Muslim environment</h3>
+            <span class="code-badge">Character as invitation</span>
+          </div>
+          <ul class="points">
+            <li>In the previous ayah, Yūsuf (AS) openly says <b>"Ma AathAllah"</b> ("I cling to Allah") even while operating in a non-Muslim environment — he does daʿwah simply through the way he carries himself.
+              <ul>
+                <li>The only time Allah is mentioned in this environment is when Yūsuf (AS) says it — which naturally inspires curiosity in people.</li>
+              </ul>
+            </li>
+            <li>He did not invoke the law of the land, saying things like "I will not be breaking the country's laws," "How dare I defy the king," or "How dare I defy the law of the land."</li>
+            <li>Instead he said: <b>"I will not be violating Allah's command, I seek refuge in Allah."</b></li>
+            <li>So the objection isn't framed as a violation against the laws, but as a violation against Allah — his morality doesn't come from the laws, it comes from Allah.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section class="class-section" id="s-03" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">03</span>
+        <h2>"Khalasoo": Seeking Seclusion</h2>
+        <button class="collapse-toggle" data-target="s-03" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-03">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>Two layers of meaning</h3>
+            <span class="code-badge">"Khalasoo" · secluded</span>
+          </div>
+          <ul class="points">
+            <li><b>Meaning one:</b> they physically went somewhere to be alone — a separate room, a corner of the street — because they could no longer talk openly.
+              <ul>
+                <li>Why not openly? Because they had become a kind of celebrity: it was now known that one of them was a thief, so people suspected all of them of being in on it.</li>
+                <li>Their reputation had flipped from good to bad — if seen huddled in conversation, onlookers would assume they were scheming something else.</li>
+              </ul>
+            </li>
+            <li><b>Meaning two:</b> they freed themselves from every other concern — this was the only thing left on their minds.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 04 -->
+    <section class="class-section" id="s-04" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">04</span>
+        <h2>"Najiyya": The Secret Council</h2>
+        <button class="collapse-toggle" data-target="s-04" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-04">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>Secret meetings and their risk</h3>
+            <span class="code-badge">"Najiyya" · secret council</span>
+          </div>
+          <ul class="points">
+            <li>Sūrah Al-Mujādilah (Ch. 58) devotes an entire section to <b>"Najwa"</b> (secret council).
+              <ul>
+                <li>Allah says not to meet secretly for sinful purposes, but rather to hold secret meetings for good and to increase one another in taqwā.</li>
+                <li>Allah later mentions that such secret meetings are actually from Shayṭān — meaning they carry more potential for harm than for good.</li>
+              </ul>
+            </li>
+            <li>The word carries two possible meanings here:
+              <ul>
+                <li>They got together privately for the purpose of a secret meeting.</li>
+                <li>It could also function as a noun representing them — i.e. simply "they / them."</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 05 -->
+    <section class="class-section" id="s-05" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">05</span>
+        <h2>"Kabeeruhum": The Eldest Speaks</h2>
+        <button class="collapse-toggle" data-target="s-05" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-05">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>"Qala Kabeeruhum" — three possible senses</h3>
+            <span class="code-badge">The "big one"</span>
+          </div>
+          <ul class="points">
+            <li>Earlier, in a previous secret meeting, they had said things like "dad loves him more, we should kill him." This time, we're only told the tail end of the conversation.</li>
+            <li>"The big one among them said" could mean:
+              <ul>
+                <li><b>One:</b> the eldest among them.</li>
+                <li><b>Two:</b> someone who deserves respect — earlier their father Yaʿqūb (AS) was described as <b>"Shaykhan Kabeeran."</b></li>
+                <li><b>Three:</b> someone who commands authority — someone who is responsible.
+                  <ul>
+                    <li>In Sūrah Al-Aḥzāb, it is said that on Judgment Day people will come to Allah saying, "We followed our leaders and our big ones, and they made us lose the path."</li>
+                    <li>Ibrāhīm (AS), when he broke the idols, said "Go ask the big one."</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>This tells us that the one who was eldest or responsible (or both) spoke to his brothers because he knew he would be the one questioned when they returned home — not the others.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>"Do you not know that your father has taken an oath by Allah"</h3>
+            <span class="code-badge">Know vs. remember</span>
+          </div>
+          <ul class="points">
+            <li>What the eldest/responsible brother said is a response to things that were discussed in the meeting.</li>
+            <li>"Don't you <b>know</b>?" is more critical than "Don't you <b>remember</b>?"</li>
+            <li>Some of them in this private meeting were likely saying, "Well, we tried, but I'm not that broken up about it."</li>
+            <li>The other brothers weren't much concerned — but this one, the responsible one, had watched his father suffer for so long that guilt was catching up with him.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 06 -->
+    <section class="class-section" id="s-06" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">06</span>
+        <h2>Echoes of the Father</h2>
+        <button class="collapse-toggle" data-target="s-06" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-06">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Intertextuality: reading the text against itself</h3>
+            <span class="code-badge">Method note</span>
+          </div>
+          <ul class="points">
+            <li><b>Intertextuality</b> is when a passage later in a text is connected to something stated earlier in the same text.</li>
+            <li>There's a lot of intertextuality in this brother's words — it's as if his father's words have begun to affect him, like water dripping on rock: a small, continuous effect that eventually wears a hole through it.</li>
+          </ul>
+        </div>
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Verse 66</span>
+          <p class="ayah-ar arabic">قَالَ لَنْ أُرْسِلَهُۥ مَعَكُمْ حَتَّىٰ تُؤْتُونِ مَوْثِقًۭا مِّنَ ٱللَّهِ لَتَأْتُنَّنِى بِهِۦٓ إِلَّآ أَن يُحَاطَ بِكُمْ ۖ فَلَمَّآ ءَاتَوْهُ مَوْثِقَهُمْ قَالَ ٱللَّهُ عَلَىٰ مَا نَقُولُ وَكِيلٌۭ</p>
+          <p class="ayah-en">"[Jacob] said, 'Never will I send him with you until you give me a promise by Allah that you will bring him [back] to me, unless you should be surrounded by enemies.' And when they had given their promise, he said, 'Allah, over what we say, is Witness.'" — Sahih International</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>"Mawthiqan mina Allah" — the same phrase, now on the son's tongue</h3>
+            <span class="code-badge">"Promise of Allah"</span>
+          </div>
+          <ul class="points">
+            <li>Yaʿqūb (AS) said these very words in Verse 66, before they left on this trip — the same exact phrasing echoed by the father is now being echoed by the son.</li>
+            <li>Those words are still ringing in his own head, and now he's making his brothers' ears ring with them too.</li>
+            <li><b>Mention of the father, and also of Allah:</b> there's not only an emotional reconnection with his father here, but also a spiritual reconnection with Allah — an echo of Yaʿqūb's (AS) own words, "Allah is Witness over what they say."</li>
+          </ul>
+        </div>
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Verse 64</span>
+          <p class="ayah-ar arabic">قَالَ هَلْ ءَامَنُكُمْ عَلَيْهِ إِلَّا كَمَآ أَمِنتُكُمْ عَلَىٰٓ أَخِيهِ مِن قَبْلُ ۖ فَٱللَّهُ خَيْرٌ حَٰفِظًۭا ۖ وَهُوَ أَرْحَمُ ٱلرَّٰحِمِينَ</p>
+          <p class="ayah-en">"He said, 'Should I entrust you with him except [under coercion] as I entrusted you with his brother before? But Allah is the best guardian, and He is the most merciful of the merciful.'" — Sahih International</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>"Ma Farrat-tum Fee Yoosufa" — that you failed concerning Yūsuf (AS)</h3>
+            <span class="code-badge">Knowing = realizing</span>
+          </div>
+          <ul class="points">
+            <li>This can be read as, "Don't you know your transgressions — what lines you crossed with Yūsuf (AS)?"</li>
+            <li>He is reminding them not of Binyāmīn, but of Yūsuf (AS) from so long ago — meaning he had shelved that guilt for years but could no longer keep it there.</li>
+            <li>"Do you even <b>know</b> what you've done?" — here, knowing means realizing.</li>
+            <li>These words echo Yaʿqūb's (AS) own words from Verse 64.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 07 -->
+    <section class="class-section" id="s-07" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">07</span>
+        <h2>The Flicker of Light</h2>
+        <button class="collapse-toggle" data-target="s-07" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-07">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>"Wa-min-qablu Ma Farrat-tum Fee Yoosufa"</h3>
+            <span class="code-badge">Naming him directly</span>
+          </div>
+          <ul class="points">
+            <li><b>"Wa Min Qablu"</b> means "long ago, before."</li>
+            <li>Their father Yaʿqūb (AS) never mentioned the name — he only said "his brother" — but here the brother speaks of Yūsuf (AS) by name.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A profound moment of coming back to light</h3>
+            <span class="code-badge">The flicker</span>
+          </div>
+          <ul class="points">
+            <li>This brother is experiencing what could be called "the flicker" — a profound moment of returning toward light.</li>
+            <li>Sometimes people spiral into darkness for so long, going deeper and deeper — Allah compares this in Sūrah An-Nūr to someone drowning in the ocean.
+              <ul>
+                <li>There's less and less light the deeper one sinks — a massive wave, and above that wave, dark clouds through which the sun can't penetrate.</li>
+                <li>So there's a dark cloud, then wave upon wave, and the person is deep down inside it.</li>
+              </ul>
+            </li>
+            <li>If you held your hand out in that kind of darkness, you would expect not to see it at all — so the wording should logically be "When he takes his hand out, he couldn't see it."</li>
+            <li>Instead the wording is "When he takes his hand out, it's almost as if he couldn't see it" — meaning there's still a possibility of light.</li>
+            <li><b>Moral:</b> a person could be in the depths of sin, unrepentant for years, and there's still some light Allah placed inside them that refuses to give up — because that very light will testify against them on Judgment Day.</li>
+            <li>No matter how deep a person goes into sin, there's still hope for them — they aren't blind yet.</li>
+            <li>So here, the brother is finally seeing his own hand.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 08 -->
+    <section class="class-section" id="s-08" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">08</span>
+        <h2>"Falan Abraha Al-Ard"</h2>
+        <button class="collapse-toggle" data-target="s-08" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-08">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>"Never will I leave this land until my father gives me permission…"</h3>
+            <span class="code-badge">Echo of Verse 66</span>
+          </div>
+          <ul class="points">
+            <li>This too is an echo — Yaʿqūb (AS) said in Verse 66, "unless you bring him back to me."</li>
+            <li>The brother is effectively saying: "I don't know if dad will consider this a sufficient excuse — and if I can't justify it, then I'm not coming home."</li>
+            <li>Even though this time he has a legitimate excuse to go back, once your conscience has awakened, you become doubly cautious to ensure you're truly in the right.</li>
+            <li>There's a real difference between someone who just wants something to be permissible, and someone who wants to double- and triple-check that it's fully permissible before acting.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 09 -->
+    <section class="class-section" id="s-09" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">09</span>
+        <h2>"Aw Yahkuma Allahu Lee"</h2>
+        <button class="collapse-toggle" data-target="s-09" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-09">
+      <div class="class-body-inner">
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Verse 67</span>
+          <p class="ayah-ar arabic">وَقَالَ يَٰبَنِىَّ لَا تَدْخُلُوا۟ مِنۢ بَابٍۢ وَٰحِدٍۢ وَٱدْخُلُوا۟ مِنْ أَبْوَٰبٍۢ مُّتَفَرِّقَةٍۢ ۖ وَمَآ أُغْنِى عَنكُم مِّنَ ٱللَّهِ مِن شَىْءٍ ۖ إِنِ ٱلْحُكْمُ إِلَّا لِلَّهِ ۖ عَلَيْهِ تَوَكَّلْتُ ۖ وَعَلَيْهِ فَلْيَتَوَكَّلِ ٱلْمُتَوَكِّلُونَ</p>
+          <p class="ayah-en">"And he said, 'O my sons, do not enter from one gate but enter from different gates; and I cannot avail you against [the decree of] Allah at all. The decision is only for Allah; upon Him I have relied, and upon Him let those who would rely [indeed] rely.'" — Sahih International</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>"Or Allah decides for me" — "And He is the best of judges"</h3>
+            <span class="code-badge">Echo of Verse 67</span>
+          </div>
+          <ul class="points">
+            <li><b>"Aw Yahkuma Allahu lee"</b> means Allah decrees something — perhaps miraculously Binyāmīn is released, or perhaps Allah decides the brother will die there.</li>
+            <li><b>"And He is the best of judges"</b> — he's leaving the situation entirely in Allah's hand, which is unique coming from this brother.</li>
+            <li>This statement is again an echo of what the father said in Verse 67: "and upon Him let those who would rely, rely" — and here we have the son putting his own trust in Allah.</li>
+            <li>When someone finds their way back to Allah, they do right by the people they've hurt, and they do right by Allah — since he had violated both.</li>
+            <li><b>Allah does not consider people simply black and white, good or evil.</b> People can go through evil episodes — even ones lasting years — but as long as breath remains, judgment has not been passed on them.</li>
+            <li>There is a unique feature in the Qur'ān's language here that occurs only twice, and this ayah is one of those two occurrences.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section class="class-section" id="s-10" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">10</span>
+        <h2>Grammar Notes: "Ala" &amp; "Ma"</h2>
+        <button class="collapse-toggle" data-target="s-10" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-10">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>"Akhatha Mawthiqan ... Alaikum" — a covenant that hangs over you</h3>
+            <span class="code-badge">Preposition "Ala"</span>
+          </div>
+          <ul class="points">
+            <li>Ordinarily, "taking a promise" (Akhatha Mawthiqan) in Arabic comes with the preposition <b>"Minn"</b> ("from") — e.g. "Akhathna Minn Bani Israel Meethaqahum."</li>
+            <li>Here, however, the preposition used is <b>"Ala"</b> ("Alaikum") — a usage found only once elsewhere in the Qur'ān, in Sūrah Al-Aʿrāf.</li>
+            <li><i>Disclaimer noted in the source: this particular observation is not addressed in any tafsīr and is based only on studying the preposition "Ala."</i></li>
+            <li>Instead of "father took a covenant from you," the phrase reads more like "father took a covenant over you" — meaning it's hanging over your heads, something binding, not a promise that was simply made and then disappeared. It's like a cloud over you — an obligation.</li>
+            <li>This may be Allah directing special attention to this brother's awakening: when someone truly wakes up, they realize the promise isn't just something they once said to Allah — it's something that hangs over them, and they remain responsible for it even if they act otherwise.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Three grammatical readings of "Ma Farrat-tum"</h3>
+            <span class="code-badge">The particle "Ma"</span>
+          </div>
+          <ul class="points">
+            <li><b>Reading one</b> (Ālūsī's view): the particle <b>"Ma"</b> ("that / what") is grammatically extra ("zāʾid") and isn't translated on its own.
+              <ul>
+                <li>Translation: "Didn't you know that your father took a sacred promise from you by Allah that hangs over you — not to mention how much wrong you did to Yūsuf (AS) so long ago?"</li>
+                <li>The word "what" is left untranslated — but the presence of "Ma" signals that "Farrat-tum" carries an exclamatory force, as if there is yelling behind it.</li>
+              </ul>
+            </li>
+            <li><b>Reading two:</b> it could branch two ways under "Don't you know…" — (a) what promise you made to father, or (b) what you did to Yūsuf (AS).</li>
+            <li><b>Reading three:</b> "Don't you know that your father took a sacred promise from you by Allah that hangs over you…" as one sentence, followed by a new sentence: "…and by the way, so long ago, what did you do with Yūsuf (AS)?"</li>
+            <li>In summary:
+              <ul>
+                <li>1st meaning combines both into a single crime — wrong done to the father and wrong done to Yūsuf (AS).</li>
+                <li>2nd meaning keeps both separate: you're committing a crime now, and long ago you'd already done this to Yūsuf (AS).</li>
+                <li>3rd meaning reminds them of only the promise to the father, then adds a fresh sentence about Yūsuf (AS).</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 11 -->
+    <section class="class-section" id="s-11" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">11</span>
+        <h2>"Baraah": Standing Firm</h2>
+        <button class="collapse-toggle" data-target="s-11" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-11">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>The root behind "I will never leave"</h3>
+            <span class="code-badge">"Baraah" / "Bareeha"</span>
+          </div>
+          <ul class="points">
+            <li><b>"Bareeha"</b> or <b>"Baraah"</b> in Arabic describes soil or sand that the winds blow far and wide — something that moves far and wide is called "Baraah." (Even the sun's changing position was described this way in ancient Arabic.)</li>
+            <li>From this comes <b>"La Abrahu"</b> — "I will not shift from my place," a phrase also used in Sūrah Al-Kahf (in the story of the meeting of the two seas), meaning "I will stand my ground."</li>
+            <li>So here the brother is saying he will not budge from his position until his father gives him permission.</li>
+            <li>"Until father gives me permission" means until he explicitly gives permission — the brothers could claim, "Father said if you're surrounded, then it's fine," but he insists it must be given specifically to him, not folded into the general conversation they'd had.</li>
+            <li>Earlier they said "he has a father…"; now this brother says "<b>my</b> father."</li>
+            <li>"Until my father permits me" could also mean "until my father has told me this himself, directly" — because he knows his brothers are liars too.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 12 -->
+    <section class="class-section" id="s-12" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">12</span>
+        <h2>"Irjiʿoo": Go Back and Be Honest</h2>
+        <button class="collapse-toggle" data-target="s-12" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-12">
+      <div class="class-body-inner">
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Verse 81</span>
+          <p class="ayah-ar arabic">ٱرْجِعُوٓا۟ إِلَىٰٓ أَبِيكُمْ فَقُولُوا۟ يَـٰٓأَبَانَآ إِنَّ ٱبْنَكَ سَرَقَ وَمَا شَهِدْنَآ إِلَّا بِمَا عَلِمْنَا وَمَا كُنَّا لِلْغَيْبِ حَٰفِظِينَ</p>
+          <p class="ayah-en">"Return to your father and say, 'O our father, indeed your son has stolen, and we did not testify except to what we knew. And we were not witnesses of the unseen.'" — Sahih International</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Instructions to the brothers</h3>
+            <span class="code-badge">"Irjiʿoo" · Go back</span>
+          </div>
+          <ul class="points">
+            <li>In response to the eldest brother saying he will not go back until his father gives him permission, it's almost as if the others ask, "Then what are we going to do?" — so he gives them instructions.</li>
+            <li><b>"Go back to your father"</b> could mean either:
+              <ul>
+                <li>physically returning to their father, or</li>
+                <li>making things right — going back to him metaphorically.</li>
+              </ul>
+            </li>
+            <li>Before, they lied — this time, go back and be honest.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 13 -->
+    <section class="class-section" id="s-13" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">13</span>
+        <h2>"Your Son Has Stolen"</h2>
+        <button class="collapse-toggle" data-target="s-13" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-13">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>Still throwing him under the bus</h3>
+            <span class="code-badge">Not black and white</span>
+          </div>
+          <ul class="points">
+            <li>"O our father, there is no doubt about this, your son has stolen" — again, they don't say "our brother has stolen," they say <b>"your son"</b> has stolen, meaning: this isn't our fault, he did this.</li>
+            <li>Even though this brother has had a flicker of light, he's still throwing his own brother under the bus here — a reminder that the Qur'ān doesn't depict people in strict black and white.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 14 -->
+    <section class="class-section" id="s-14" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">14</span>
+        <h2>Witnesses of the Unseen</h2>
+        <button class="collapse-toggle" data-target="s-14" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-14">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>"And we did not testify except to what we knew"</h3>
+            <span class="code-badge">Doubt creeping in</span>
+          </div>
+          <ul class="points">
+            <li>All they actually know is that the cup was found in his bag, and that everyone saw it happen.</li>
+            <li>They don't know how the cup ended up there, when it was placed, when — or even whether — he stole it at all.</li>
+            <li>They opened by saying "there's no doubt about it, your son has stolen," but now it sounds as if doubt has crept back in, likely because their father isn't buying the story.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>"And we were not witnesses of the unseen"</h3>
+            <span class="code-badge">"Ghayb" · unseen</span>
+          </div>
+          <ul class="points">
+            <li>They didn't know he was going to steal, so how could they be expected to guard against it? They guarded him against thieves and robbers and everything else — but not against the possibility that he himself would be the thief.</li>
+            <li>One commentator, Zajjāj, suggests <b>"Ghayb"</b> could also mean "night time" here — meaning they couldn't guard against what happens at night; perhaps he stole while they were all asleep.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 15 -->
+    <section class="class-section" id="s-15" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">15</span>
+        <h2>"Hafitheen": Echo of the Vow</h2>
+        <button class="collapse-toggle" data-target="s-15" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-15">
+      <div class="class-body-inner">
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Verse 63</span>
+          <p class="ayah-ar arabic">فَلَمَّا رَجَعُوٓا۟ إِلَىٰٓ أَبِيهِمْ قَالُوا۟ يَـٰٓأَبَانَا مُنِعَ مِنَّا ٱلْكَيْلُ فَأَرْسِلْ مَعَنَآ أَخَانَا نَكْتَلْ وَإِنَّا لَهُۥ لَحَٰفِظُونَ</p>
+          <p class="ayah-en">"So when they returned to their father, they said, 'O our father, [further] measure has been denied to us, so send with us our brother [that] we will be given measure. And indeed, we will be his guardians.'" — Sahih International</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>"Guardian" — the very same word, again</h3>
+            <span class="code-badge">"Hafitheen"</span>
+          </div>
+          <ul class="points">
+            <li><b>"Hafitheen"</b> means guardian.</li>
+            <li>Earlier, in Verse 63, they promised, "And indeed, we will be guardians over him."</li>
+            <li>Now, in Verse 81, they use that same word again — an ironic echo, given how that earlier guardianship ended.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 16 -->
+    <section class="class-section" id="s-16" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">16</span>
+        <h2>"Ask the City... We Are Truthful"</h2>
+        <button class="collapse-toggle" data-target="s-16" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-16">
+      <div class="class-body-inner">
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Verse 82</span>
+          <p class="ayah-ar arabic">وَسْـَٔلِ ٱلْقَرْيَةَ ٱلَّتِى كُنَّا فِيهَا وَٱلْعِيرَ ٱلَّتِىٓ أَقْبَلْنَا فِيهَا ۖ وَإِنَّا لَصَٰدِقُونَ</p>
+          <p class="ayah-en">"And ask the city in which we were and the caravan in which we came — and indeed, we are truthful." — Sahih International</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Whose words are these — the brother's, or a scene switch?</h3>
+            <span class="code-badge">Two readings</span>
+          </div>
+          <ul class="points">
+            <li>This ayah can be understood in two ways:
+              <ul>
+                <li>as a continuation of the same brother's quote from the previous ayah, still speaking within the secret council; or</li>
+                <li>as a switch of scene, with the brothers now actually saying this to their father.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>"Ask the city" — appealing to outside witnesses</h3>
+            <span class="code-badge">"Aqbalna Feeha"</span>
+          </div>
+          <ul class="points">
+            <li>"And ask the city" could mean "ask the people" — or it could be dramatic flourish, as if to say "ask the city, ask the walls, they will testify."</li>
+            <li><b>"Aqbalna Feeha"</b> refers to the roughly hundred other people who were part of the caravan — "ask them."
+              <ul>
+                <li>This could mean either the caravan that turned back when the guards called them out, or the caravan that returned together with them.</li>
+              </ul>
+            </li>
+            <li>They say this because they know their own testimony isn't enough — their father doesn't trust them anymore.</li>
+            <li>The elder brother is telling them plainly that they have no credibility left — anything they say now must be corroborated by the city or by the people of the caravan.</li>
+          </ul>
+        </div>
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Verse 17 (earlier in the sūrah)</span>
+          <p class="ayah-en">"But you would not believe us, even if we were truthful."</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>"Wa-Inna Lasadiqoon" — "And indeed, we are truthful"</h3>
+            <span class="code-badge">Echo of Verse 17</span>
+          </div>
+          <ul class="points">
+            <li>Why say this now? Earlier in the sūrah they had said, "But you would not believe us, even if we were truthful" (Verse 17).</li>
+            <li>It's as if to say: "We lied before — but this time, we really are telling the truth."</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<button id="toTop" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<div id="quickPanel">
+  <div class="qp-head">Jump to Section</div>
+  <ul id="qpList">
+    <li data-target="s-01"><a href="#s-01" style="--qc:var(--c-1)"><span class="qp-idx">01</span>Losing All Hope</a><span class="qp-toggle" data-target="s-01"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-02"><a href="#s-02" style="--qc:var(--c-2)"><span class="qp-idx">02</span>Dawah Through Character</a><span class="qp-toggle" data-target="s-02"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-03"><a href="#s-03" style="--qc:var(--c-3)"><span class="qp-idx">03</span>"Khalasoo": Seclusion</a><span class="qp-toggle" data-target="s-03"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-04"><a href="#s-04" style="--qc:var(--c-4)"><span class="qp-idx">04</span>"Najiyya": Secret Council</a><span class="qp-toggle" data-target="s-04"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-05"><a href="#s-05" style="--qc:var(--c-5)"><span class="qp-idx">05</span>"Kabeeruhum": Eldest</a><span class="qp-toggle" data-target="s-05"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-06"><a href="#s-06" style="--qc:var(--c-6)"><span class="qp-idx">06</span>Echoes of the Father</a><span class="qp-toggle" data-target="s-06"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-07"><a href="#s-07" style="--qc:var(--c-1)"><span class="qp-idx">07</span>The Flicker of Light</a><span class="qp-toggle" data-target="s-07"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-08"><a href="#s-08" style="--qc:var(--c-2)"><span class="qp-idx">08</span>"Falan Abraha Al-Ard"</a><span class="qp-toggle" data-target="s-08"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-09"><a href="#s-09" style="--qc:var(--c-3)"><span class="qp-idx">09</span>"Aw Yahkuma Allahu Lee"</a><span class="qp-toggle" data-target="s-09"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-10"><a href="#s-10" style="--qc:var(--c-4)"><span class="qp-idx">10</span>Grammar: "Ala" &amp; "Ma"</a><span class="qp-toggle" data-target="s-10"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-11"><a href="#s-11" style="--qc:var(--c-5)"><span class="qp-idx">11</span>"Baraah": Standing Firm</a><span class="qp-toggle" data-target="s-11"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-12"><a href="#s-12" style="--qc:var(--c-6)"><span class="qp-idx">12</span>"Irjiʿoo": Go Back</a><span class="qp-toggle" data-target="s-12"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-13"><a href="#s-13" style="--qc:var(--c-1)"><span class="qp-idx">13</span>"Your Son Has Stolen"</a><span class="qp-toggle" data-target="s-13"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-14"><a href="#s-14" style="--qc:var(--c-2)"><span class="qp-idx">14</span>Witnesses of the Unseen</a><span class="qp-toggle" data-target="s-14"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-15"><a href="#s-15" style="--qc:var(--c-3)"><span class="qp-idx">15</span>"Hafitheen": Echo of Vow</a><span class="qp-toggle" data-target="s-15"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-16"><a href="#s-16" style="--qc:var(--c-4)"><span class="qp-idx">16</span>"Ask the City..."</a><span class="qp-toggle" data-target="s-16"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+  </ul>
+</div>
+
+<button id="quickFab" aria-label="Open quick navigation" aria-expanded="false">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+</button>
+
+<script>
+  const heroHeader = document.querySelector('header.hero');
+  function syncHeaderHeight(){
+    const refBar = document.querySelector('.ref-bar');
+    document.documentElement.style.setProperty('--header-h', (heroHeader.offsetHeight + refBar.offsetHeight) + 'px');
+  }
+  syncHeaderHeight();
+  window.addEventListener('resize', syncHeaderHeight);
+
+  const progress = document.getElementById('progress');
+  function updateProgress(){
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    progress.style.width = scrolled + '%';
+    document.getElementById('toTop').classList.toggle('show', h.scrollTop > 700);
+  }
+  document.addEventListener('scroll', updateProgress, {passive:true});
+  updateProgress();
+
+  document.getElementById('toTop').addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+  const navLinks = document.querySelectorAll('nav.sidebar li a');
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const id = entry.target.id;
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  document.querySelectorAll('main section.class-section').forEach(el => { if(el.id) sectionObserver.observe(el); });
+
+  const quickFab = document.getElementById('quickFab');
+  const quickPanel = document.getElementById('quickPanel');
+  function openQuickPanel(){ quickPanel.classList.add('open'); quickFab.classList.add('open'); quickFab.setAttribute('aria-expanded','true'); }
+  function closeQuickPanel(){ quickPanel.classList.remove('open'); quickFab.classList.remove('open'); quickFab.setAttribute('aria-expanded','false'); }
+  quickFab.addEventListener('click', () => { quickPanel.classList.contains('open') ? closeQuickPanel() : openQuickPanel(); });
+  document.addEventListener('click', (e) => {
+    if(quickPanel.classList.contains('open') && !quickPanel.contains(e.target) && !quickFab.contains(e.target)){ closeQuickPanel(); }
+  });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeQuickPanel(); });
+  quickPanel.querySelectorAll('a').forEach(a => { a.addEventListener('click', () => closeQuickPanel()); });
+
+  const ALL_SECTION_IDS = ['s-01','s-02','s-03','s-04','s-05','s-06','s-07','s-08','s-09','s-10','s-11','s-12','s-13','s-14','s-15','s-16'];
+
+  function setCollapsed(id, collapsed){
+    const body = document.getElementById('body-' + id);
+    const btn = document.querySelector('.collapse-toggle[data-target="' + id + '"]');
+    const qpItem = document.querySelector('#qpList li[data-target="' + id + '"]');
+    if(body) body.classList.toggle('collapsed', collapsed);
+    if(btn) btn.setAttribute('aria-expanded', String(!collapsed));
+    if(qpItem) qpItem.classList.toggle('is-collapsed', collapsed);
+  }
+  function isCollapsed(id){
+    const body = document.getElementById('body-' + id);
+    return body ? body.classList.contains('collapsed') : false;
+  }
+  function toggleCollapsed(id){ setCollapsed(id, !isCollapsed(id)); }
+
+  document.querySelectorAll('.collapse-toggle').forEach(btn => {
+    btn.addEventListener('click', () => toggleCollapsed(btn.dataset.target));
+  });
+  document.querySelectorAll('#qpList li').forEach(item => {
+    const id = item.dataset.target;
+    item.querySelector('.qp-toggle').addEventListener('click', (e) => { e.stopPropagation(); e.preventDefault(); toggleCollapsed(id); });
+  });
+
+  document.getElementById('expandAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, false)));
+  document.getElementById('collapseAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, true)));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href').slice(1);
+      if(!href) return;
+      const target = document.getElementById(href);
+      if(!target) return;
+      if(target.classList.contains('class-section')){ setCollapsed(href, false); }
+    });
+  });
+
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', () => {
+    const q = searchInput.value.trim().toLowerCase();
+    let anyVisible = false;
+    navLinks.forEach(a => {
+      const key = (a.dataset.key || a.textContent).toLowerCase();
+      const match = q === '' || key.includes(q);
+      a.dataset.hidden = match ? '0' : '1';
+      if(match) anyVisible = true;
+      const section = document.querySelector(a.getAttribute('href'));
+      if(section){ section.style.display = match ? '' : 'none'; }
+    });
+  });
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

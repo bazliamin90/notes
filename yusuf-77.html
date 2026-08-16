@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Pain Like No Other — Surah Yusuf, Verse 77</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --paper:#fbfbfd;
+    --ink:#14151a;
+    --ink-soft:#5a5d6b;
+    --line:#e7e7ee;
+    --line-soft:#f0f0f5;
+
+    /* category brights, cycled across the sections */
+    --c-1:#7c3aed;  --c-1-tint:#f4edff;   /* violet */
+    --c-2:#0284c7;  --c-2-tint:#e8f6ff;   /* ocean */
+    --c-3:#ea580c;  --c-3-tint:#fff1e8;   /* coral */
+    --c-4:#db2777;  --c-4-tint:#ffe9f4;   /* magenta */
+    --c-5:#059669;  --c-5-tint:#e6faf2;   /* emerald */
+    --c-6:#0f766e;  --c-6-tint:#e6f8f6;   /* teal */
+
+    --accent: var(--c-1);
+    --accent-tint: var(--c-1-tint);
+
+    --radius: 18px;
+    --shadow: 0 1px 2px rgba(20,21,26,.04), 0 12px 32px -16px rgba(20,21,26,.14);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background: var(--accent); color:#fff; }
+
+  h1,h2,h3,h4{ font-family:'Space Grotesk', sans-serif; margin:0; letter-spacing:-.01em; }
+  code, .mono{ font-family:'IBM Plex Mono', monospace; }
+  a{ color:inherit; }
+  p{ margin:0; }
+
+  /* ---------- top progress rail ---------- */
+  #progress{
+    position:fixed; top:0; left:0; height:3px; width:0%;
+    background: linear-gradient(90deg, var(--c-1), var(--c-2), var(--c-3), var(--c-4), var(--c-5), var(--c-6));
+    z-index:100; transition: width .1s linear;
+  }
+
+  /* ---------- reference bar (source) ---------- */
+  .ref-bar{
+    background:var(--ink); color:#fff;
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    padding:9px 8vw; display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  }
+  .ref-bar a{
+    color:#fff; text-decoration:none; display:flex; align-items:center; gap:7px;
+    border-bottom:1px solid rgba(255,255,255,.35); padding-bottom:1px;
+    transition:border-color .15s ease, opacity .15s ease;
+  }
+  .ref-bar a:hover{ border-color:#fff; opacity:.9; }
+  .ref-bar .ref-label{ color:rgba(255,255,255,.55); text-transform:uppercase; letter-spacing:.08em; font-size:10.5px; }
+
+  /* ---------- header ---------- */
+  header.hero{
+    padding: 6px 8vw;
+    min-height:46px;
+    display:flex; align-items:center;
+    position:sticky; top:0; z-index:80;
+    border-bottom:1px solid var(--line);
+    background-color:#fff;
+    background-image:
+      radial-gradient(700px 340px at 8% -10%, var(--c-1-tint), transparent 60%),
+      radial-gradient(600px 300px at 95% 0%, var(--c-3-tint), transparent 55%);
+  }
+  header.hero .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:15px;
+  }
+  header.hero .brand .dot{ width:9px; height:9px; border-radius:3px; background: linear-gradient(135deg, var(--c-1), var(--c-4)); }
+
+  /* ---------- burger navigation ---------- */
+  .burger-wrap{ position:relative; display:flex; align-items:center; }
+  .burger-btn{
+    width:34px; height:34px; border-radius:10px; border:1.3px solid var(--line);
+    background:var(--paper); color:var(--ink); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: border-color .15s ease, background .15s ease, color .15s ease;
+  }
+  .burger-btn:hover{ border-color: var(--c-1); }
+  .burger-btn.open{ background: var(--c-1); border-color: var(--c-1); color:#fff; }
+  .burger-btn svg{ transition: opacity .15s ease; }
+  .burger-menu{
+    position:absolute; top:calc(100% + 10px); left:0; width:320px;
+    background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow);
+    padding:8px; opacity:0; transform: translateY(-6px); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease; z-index:120;
+    display:flex; flex-direction:column;
+  }
+  .burger-menu.open{ opacity:1; transform: translateY(0); pointer-events:auto; }
+  .burger-menu-home{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; margin:2px 2px 8px;
+    border-radius:10px; border-bottom:1px solid var(--line-soft);
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-home svg{ flex:none; color:var(--ink-soft); }
+  .burger-menu-home:hover{ background: var(--paper); }
+  .burger-menu-home.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-home.is-current .bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-search{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:10px; padding:8px 10px; margin:2px 2px 8px;
+    background:var(--paper); flex:none;
+  }
+  .burger-menu-search svg{ flex:none; opacity:.5; color:var(--ink-soft); }
+  .burger-menu-search input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13px; width:100%; color:var(--ink);
+  }
+  .burger-menu-list{ max-height:340px; overflow-y:auto; overscroll-behavior:contain; }
+  .burger-menu-list::-webkit-scrollbar{ width:6px; }
+  .burger-menu-list::-webkit-scrollbar-thumb{ background:var(--line); border-radius:10px; }
+  .burger-menu-group + .burger-menu-group{ margin-top:4px; }
+  .burger-menu-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); padding:8px 10px 4px;
+  }
+  .burger-menu-empty{
+    display:none; padding:18px 10px; text-align:center; font-size:12.5px; color:var(--ink-soft);
+  }
+  .burger-menu-item{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; border-radius:10px;
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-item span.bm-title{ display:block; }
+  .burger-menu-item span.bm-sub{ display:block; font-size:11.5px; color:var(--ink-soft); font-weight:400; margin-top:1px; }
+  .burger-menu-item:hover{ background: var(--paper); }
+  .burger-menu-item.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-item.is-current span.bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-dot{ width:9px; height:9px; border-radius:3px; flex:none; margin-top:3px; }
+
+
+  /* ---------- page title ---------- */
+  .page-title{ padding: 30px 8vw 6px; }
+  .page-title .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-soft); margin-bottom:10px; display:block;
+  }
+  .page-title h1{
+    font-size: clamp(26px, 5vw, 46px);
+    line-height:1.12;
+    font-weight:700;
+  }
+  .page-title h1 .accent-word{
+    background: linear-gradient(100deg, var(--c-1), var(--c-4) 55%, var(--c-3));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .page-title .sub{
+    margin-top:14px; max-width:64ch; color:var(--ink-soft); font-size:15px; line-height:1.6;
+  }
+  .page-title .ayah-box{
+    margin-top:20px; padding:20px 22px; border-radius:16px; background:var(--paper);
+    border:1.3px solid var(--line);
+  }
+  .page-title .ayah-arabic{
+    font-size:22px; line-height:2; text-align:right; direction:rtl; color:var(--ink);
+    margin-bottom:12px;
+  }
+  .page-title .ayah-translation{
+    font-size:14px; line-height:1.65; color:var(--ink-soft); font-style:italic;
+  }
+  .page-title .tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+  .page-title .tag{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; border:1.3px solid var(--line);
+    color:var(--ink-soft); font-weight:500; background:var(--paper);
+  }
+  .page-title .tag.warn{ border-color: var(--c-3); color: var(--c-3); background: var(--c-3-tint); }
+
+  /* ---------- layout ---------- */
+  .layout{
+    display:grid;
+    grid-template-columns: 260px minmax(0,1fr);
+    gap:0;
+    max-width:1400px; margin:0 auto;
+  }
+  nav.sidebar{
+    position:sticky; top: var(--header-h, 0px); align-self:start;
+    height: calc(100vh - var(--header-h, 0px)); overflow-y:auto;
+    padding: 28px 18px 40px 8vw;
+    border-right:1px solid var(--line);
+    scrollbar-width: thin;
+  }
+  nav.sidebar::-webkit-scrollbar{ width:6px; }
+  nav.sidebar::-webkit-scrollbar-thumb{ background:var(--line); border-radius:10px; }
+
+  .search-box{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:12px; padding:10px 12px; margin-bottom:18px;
+    background:var(--paper);
+  }
+  .search-box input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13.5px; width:100%; color:var(--ink);
+  }
+  .search-box svg{ flex:none; opacity:.5; }
+
+  .nav-actions{ display:flex; gap:8px; margin-bottom:18px; }
+  .nav-actions button{
+    flex:1; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    border:1.3px solid var(--line); background:#fff; color:var(--ink-soft);
+    padding:7px 8px; border-radius:9px; cursor:pointer; transition:.15s ease;
+  }
+  .nav-actions button:hover{ border-color:var(--ink); color:var(--ink); }
+
+  nav.sidebar ul{ list-style:none; margin:0; padding:0; border-left:2px solid var(--line-soft); }
+  nav.sidebar li a{
+    display:flex; align-items:center; gap:9px;
+    text-decoration:none; font-size:13.5px; color:var(--ink-soft);
+    padding:7px 0 7px 14px; border-left:2px solid transparent; margin-left:-2px;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  nav.sidebar li a .sw{ width:8px; height:8px; border-radius:3px; flex:none; background:var(--g-color); }
+  nav.sidebar li a:hover{ color:var(--ink); }
+  nav.sidebar li a.active{ color:var(--g-color); border-left-color: var(--g-color); font-weight:600; }
+  nav.sidebar li a[data-hidden="1"]{ display:none; }
+
+  main{ min-width:0; padding: 0 8vw 140px; }
+
+  section.class-section{ padding-top:56px; scroll-margin-top: 24px; }
+  section.class-section:first-child{ padding-top:44px; }
+
+  .class-head{
+    display:flex; align-items:baseline; gap:16px; flex-wrap:wrap;
+    padding-bottom:14px; margin-bottom:22px; border-bottom:3px solid var(--g-color);
+    position:relative;
+  }
+  .class-head .idx{
+    font-family:'IBM Plex Mono',monospace; font-size:14px; font-weight:700; color:#fff;
+    background:var(--g-color); padding:5px 10px; border-radius:8px;
+  }
+  .class-head h2{ font-size: clamp(20px,2.4vw,28px); color:var(--ink); }
+  .collapse-toggle{
+    margin-left:auto; width:34px; height:34px; border-radius:9px; border:1.5px solid var(--line);
+    background:#fff; color:var(--g-color); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: transform .3s ease, background .15s ease, border-color .15s ease;
+  }
+  .collapse-toggle:hover{ background: var(--g-tint); border-color: var(--g-color); }
+  .collapse-toggle svg{ transition: transform .3s ease; }
+  .collapse-toggle[aria-expanded="false"] svg{ transform: rotate(-90deg); }
+
+  .class-body-outer{ display:grid; grid-template-rows: 0fr; transition: grid-template-rows .38s ease; }
+  .class-body-outer.collapsed{ grid-template-rows: 0fr; }
+  .class-body-outer:not(.collapsed){ grid-template-rows: 1fr; }
+  .class-body-inner{ overflow:hidden; min-height:0; opacity:0; transition: opacity .25s ease .1s; }
+  .class-body-outer.collapsed .class-body-inner{ opacity:0; transition: opacity .18s ease; }
+  .class-body-outer:not(.collapsed) .class-body-inner{ opacity:1; }
+
+  /* content card */
+  .card{
+    background:#fff; border:1px solid var(--line); border-radius: var(--radius);
+    padding: 28px 30px; margin-bottom: 22px; position:relative; overflow:hidden;
+    border-left: 5px solid var(--g-color);
+  }
+  .card .card-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap;
+    margin-bottom:14px;
+  }
+  .card h3{ font-size:19px; font-weight:600; color:var(--ink); }
+  .card h3 .alt{ font-weight:400; color:var(--ink-soft); font-size:14px; display:block; margin-top:3px;}
+  .code-badge{
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:12px; color:#fff;
+    background: var(--g-color); padding:6px 12px; border-radius:8px; white-space:nowrap;
+  }
+
+  /* bullet points */
+  ul.points{ list-style:none; margin:0; padding:0; }
+  ul.points > li{
+    position:relative; padding: 10px 0 10px 34px; font-size:14.8px; line-height:1.65; color:#2b2d36;
+    border-top:1px solid var(--line-soft);
+  }
+  ul.points > li:first-child{ border-top:none; }
+  ul.points > li::before{
+    content:"—";
+    position:absolute; left:0; top:10px; width:22px; height:22px; border-radius:7px;
+    background: var(--g-tint); color:var(--g-color); font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:13px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  ul.points > li b, ul.points > li strong{ color:var(--g-color); }
+  ul.points > li ul{ list-style:none; margin:8px 0 0; padding:0; }
+  ul.points > li ul li{
+    position:relative; padding: 6px 0 6px 20px; font-size:14px; color:#3a3c46; border-top:none;
+  }
+  ul.points > li ul li::before{
+    content:"·"; position:absolute; left:0; top:4px; color:var(--g-color); font-weight:700; font-size:18px;
+  }
+
+  .quote{
+    margin-top:16px; padding:16px 18px; border-radius:12px; background:var(--g-tint);
+    font-family:'Space Grotesk', sans-serif; font-size:16px; line-height:1.55; color:#20222a;
+    border-left:3px solid var(--g-color);
+  }
+  .quote footer{
+    margin-top:8px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    text-transform:uppercase; color:var(--ink-soft); font-style:normal;
+  }
+
+  .pill-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .pill-row .pill{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; background:#fff; border:1.3px solid var(--g-color);
+    color:var(--g-color); font-weight:600;
+  }
+
+  /* two-item comparison cards */
+  .lesson-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:6px; }
+  @media (max-width:640px){ .lesson-grid{ grid-template-columns:1fr; } }
+  .lesson-card{
+    border-radius:var(--radius); padding:24px 24px; border:1.3px solid var(--line);
+  }
+  .lesson-card .kicker{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .lesson-card h4{ margin-top:8px; font-size:18px; }
+  .lesson-card p{ margin-top:10px; font-size:14px; line-height:1.6; color:#2b2d36; }
+
+  /* back to top */
+  #toTop{
+    position:fixed; right:26px; bottom:26px; width:46px; height:46px; border-radius:50%;
+    background:var(--ink); color:#fff; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,.22); opacity:0; pointer-events:none; transition: opacity .25s ease, transform .2s ease;
+    z-index:90;
+  }
+  #toTop.show{ opacity:1; pointer-events:auto; }
+  #toTop:hover{ transform: translateY(-3px); }
+
+  /* floating quick-access launcher */
+  #quickFab{
+    position:fixed; left:26px; bottom:26px; width:52px; height:52px; border-radius:16px;
+    background: linear-gradient(135deg, var(--c-1), var(--c-4)); color:#fff; border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; z-index:95;
+    box-shadow:0 10px 28px -6px rgba(124,58,237,.5);
+    transition: transform .2s ease, border-radius .2s ease;
+  }
+  #quickFab:hover{ transform: translateY(-3px) scale(1.03); }
+  #quickFab.open{ border-radius:50%; }
+  #quickFab svg{ transition: transform .3s ease; }
+  #quickFab.open svg{ transform: rotate(45deg); }
+
+  #quickPanel{
+    position:fixed; left:26px; bottom:90px; width:280px; max-height:60vh; overflow-y:auto;
+    background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow);
+    z-index:94; padding:14px; opacity:0; transform: translateY(10px) scale(.97); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  #quickPanel.open{ opacity:1; transform: translateY(0) scale(1); pointer-events:auto; }
+  #qpList{ list-style:none; margin:0; padding:0; }
+  #qpList li{
+    display:flex; align-items:center; gap:8px; border-radius:10px; padding:2px;
+  }
+  #qpList li a{
+    flex:1; display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--ink);
+    font-size:13px; padding:8px; border-radius:10px; transition:background .15s ease;
+  }
+  #qpList li a:hover{ background:var(--paper); }
+  .qp-idx{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:700; color:#fff;
+    background: var(--qc, var(--c-1)); padding:2px 6px; border-radius:6px;
+  }
+  .qp-toggle{ padding:8px; cursor:pointer; color:var(--ink-soft); opacity:.6; }
+  .qp-toggle:hover{ opacity:1; }
+  #qpList li.is-collapsed .qp-toggle svg{ transform: rotate(-90deg); }
+  #qpList li .qp-toggle svg{ transition: transform .3s ease; }
+
+  @media (max-width: 980px){
+    .layout{ grid-template-columns: 1fr; }
+    nav.sidebar{ position:static; height:auto; border-right:none; border-bottom:1px solid var(--line); padding: 20px 6vw; }
+    main{ padding: 0 6vw 120px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001s !important; transition-duration:.001s !important; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body data-page="painlikenoother">
+
+<div id="progress"></div>
+
+<header class="hero">
+  <div class="burger-wrap">
+    <button id="navBurger" class="burger-btn" aria-haspopup="true" aria-expanded="false" aria-label="Open navigation menu">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div id="navMenu" class="burger-menu"></div>
+  </div>
+</header>
+
+<div class="ref-bar">
+  <span class="ref-label">Source</span>
+  <a href="https://drive.google.com/drive/folders/1NdnwWve1_wBqZEAn0DtGvW89dY9SYBiV" target="_blank" rel="noopener">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+    Nouman Ali Khan
+  </a>
+</div>
+
+<div class="page-title">
+  <span class="eyebrow">Tafsīr Reflection · Surah Yusuf, Āyah 77</span>
+  <h1>A Pain Like <span class="accent-word">No Other</span></h1>
+  <div class="ayah-box">
+    <div class="ayah-arabic">قَالُوٓا۟ إِن يَسْرِقْ فَقَدْ سَرَقَ أَخٌۭ لَّهُۥ مِن قَبْلُ ۚ فَأَسَرَّهَا يُوسُفُ فِى نَفْسِهِۦ وَلَمْ يُبْدِهَا لَهُمْ ۚ قَالَ أَنتُمْ شَرٌّۭ مَّكَانًۭا ۖ وَٱللَّهُ أَعْلَمُ بِمَا تَصِفُونَ</div>
+    <div class="ayah-translation">"They said, 'If he steals — a brother of his has stolen before.' But Joseph kept it within himself and did not reveal it to them. He said, 'You are worse in position, and Allah is most knowing of what you describe.'" — Sūrah Yūsuf, 12:77</div>
+  </div>
+  <div class="tag-row">
+    <span class="tag">Family cruelty</span>
+    <span class="tag">Arabic grammar</span>
+    <span class="tag">Sabr &amp; restraint</span>
+    <span class="tag">Tarbiyah</span>
+    <span class="tag warn">Isrāʾīliyyāt narrations</span>
+  </div>
+</div>
+
+<div class="layout">
+
+  <nav class="sidebar">
+    <div class="search-box">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="searchInput" type="text" placeholder="Search sections…">
+    </div>
+    <ul id="navList">
+      <li><a href="#s-01" data-key="accusation shifts distancing binyamin" style="--g-color:var(--c-1)"><span class="sw"></span>The Accusation Shifts</a></li>
+      <li><a href="#s-02" data-key="dad's side inherited sin christian islam ibrahim" style="--g-color:var(--c-2)"><span class="sw"></span>"It's From Your Dad's Side"</a></li>
+      <li><a href="#s-03" data-key="narrations brother stolen before rachel idols syriac" style="--g-color:var(--c-3)"><span class="sw"></span>The Narrations</a></li>
+      <li><a href="#s-04" data-key="quran alone sahaba tabiyeen first generation" style="--g-color:var(--c-4)"><span class="sw"></span>From the Qur'an Alone</a></li>
+      <li><a href="#s-05" data-key="in yasriq present tense past tense grammar" style="--g-color:var(--c-5)"><span class="sw"></span>Present Tense, Present Cruelty</a></li>
+      <li><a href="#s-06" data-key="no remorse shaytan yaqoob dream jealousy ibn qayyim" style="--g-color:var(--c-6)"><span class="sw"></span>No Remorse, No Limits</a></li>
+      <li><a href="#s-07" data-key="fa asarraha kept hidden silence sabr named twice" style="--g-color:var(--c-1)"><span class="sw"></span>The Silence That Screamed</a></li>
+      <li><a href="#s-08" data-key="antum sharrun makana you are worse position" style="--g-color:var(--c-2)"><span class="sw"></span>"You Are Worse in Position"</a></li>
+      <li><a href="#s-09" data-key="wallahu aalamu bima tasifoon allah knows best moral" style="--g-color:var(--c-3)"><span class="sw"></span>Allah Knows Best</a></li>
+      <li><a href="#s-10" data-key="verse 18 parallel echo father tarbiyah upbringing" style="--g-color:var(--c-4)"><span class="sw"></span>Echoes of the Father</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- 01 -->
+    <section class="class-section" id="s-01" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">01</span>
+        <h2>The Accusation Shifts</h2>
+        <button class="collapse-toggle" data-target="s-01" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-01">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>From "we are not thieves" to throwing him under the bus</h3>
+          </div>
+          <ul class="points">
+            <li>Just moments earlier, the brothers had insisted, <b>"Indeed, we are not thieves."</b> Now they speak as if BinYamin — and "his brother" (Yusuf) — are separate from the rest of them.
+              <ul>
+                <li>They are clearly not speaking for everyone, only for themselves.</li>
+                <li>The implication is: "it's in their blood."</li>
+              </ul>
+            </li>
+            <li>Part of the reasoning is that BinYamin and Yusuf share a different mother from the rest of the brothers.</li>
+            <li><b>Moral:</b> this shows how family can be cruel to their own family.</li>
+            <li>There are things kept hidden that only family knows — but when even family calls someone a thief, others assume it must be true, believing that a family member wouldn't say it unless it were safe to say.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section class="class-section" id="s-02" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">02</span>
+        <h2>"It's From Your Dad's Side"</h2>
+        <button class="collapse-toggle" data-target="s-02" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-02">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>Inherited character — a Christian idea, not an Islamic one</h3>
+            <span class="code-badge">Nature vs. Nurture</span>
+          </div>
+          <div class="quote">"This bad habit you have is from your dad's side."</div>
+          <ul class="points">
+            <li>Another dig folded into the accusation: bad character is treated as something passed down through bloodline.</li>
+            <li>This view resembles the Christian belief that humanity is sinful because a father figure's sin is inherited by all who come after him.</li>
+            <li>Islam takes a different view entirely: character is not a matter of bloodline inheritance — <b>one person can be an idol-worshipper while his own son becomes someone like Ibrahim (AS).</b></li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section class="class-section" id="s-03" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">03</span>
+        <h2>The Narrations</h2>
+        <button class="collapse-toggle" data-target="s-03" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-03">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>Where "a brother of his has stolen before" comes from</h3>
+            <span class="code-badge">Unverified origins</span>
+          </div>
+          <ul class="points">
+            <li>Several narrations attempt to explain this line, but they trace back to Sahaba who may have heard them from Jewish or Syriac traditions — meaning they are not considered authentic.</li>
+            <li>One narration in Muslim tradition holds that Yusuf's (AS) mother's father used to worship idols. She told young Yusuf (AS) to steal the idols so her father could no longer worship them — he was caught in the act, and that is why he was branded a thief.</li>
+            <li>A different narration from Syriac tradition instead says it was <b>the mother herself</b> who stole and was caught — making Yusuf "the son of a thief."</li>
+            <li>Also in the Syriac tradition, BinYamin was called "the brother of a liar" — because of the dreams he was said to have seen and described.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 04 -->
+    <section class="class-section" id="s-04" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">04</span>
+        <h2>From the Qur'an Alone</h2>
+        <button class="collapse-toggle" data-target="s-04" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-04">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>The first generation didn't need outside stories</h3>
+            <span class="code-badge">1st Generation Sahaba</span>
+          </div>
+          <ul class="points">
+            <li>The narrations above were passed down by the Tabi'un and Taba Tabi'in (the generations after the Sahaba) — but the first generation of Sahaba held no such views, since they relied on the Qur'an itself.</li>
+            <li>The likely explanation: the brothers simply seized an opportunity to further malign Yusuf (AS) in his absence — having already wronged him once, they threw in an accusation of theft as one more way to humiliate him without cause.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 05 -->
+    <section class="class-section" id="s-05" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">05</span>
+        <h2>Present Tense, Present Cruelty</h2>
+        <button class="collapse-toggle" data-target="s-05" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-05">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>Why "if he steals" is worse than "he stole"</h3>
+            <span class="code-badge">"In Yasriq"</span>
+          </div>
+          <ul class="points">
+            <li>The Arabic phrase used is "In yasriq" — "if he steals." "In" means "if," and the grammar of the clause that follows it matters.</li>
+            <li>An "if" clause paired with the <b>past tense</b> (e.g., "if I ate a burger") refers to a single, one-time occurrence.</li>
+            <li>An "if" clause paired with the <b>present tense</b> (e.g., "if I eat a burger [every day]") can carry the sense of a continuous, repeated action.</li>
+            <li>The brothers didn't say "he stole" — they chose the present tense, "if he steals," implying ongoing, habitual behavior rather than a single incident.</li>
+            <li>The unspoken accusation: "If he got caught this time, he's probably been stealing all along and usually gets away with it — no surprise, since it runs on the genetic side of that family."</li>
+            <li>This means they weren't only accusing BinYamin — they were insulting his mother and his entire lineage, without any real basis.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 06 -->
+    <section class="class-section" id="s-06" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">06</span>
+        <h2>No Remorse, No Limits</h2>
+        <button class="collapse-toggle" data-target="s-06" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-06">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>Stating an allegation as if it were fact</h3>
+          </div>
+          <ul class="points">
+            <li>The brothers show no remorse for what they had already done to Yusuf (AS) himself.</li>
+            <li>They present the allegation as though it were an established fact — a pattern some families fall into, speaking accusations with total certainty.</li>
+            <li>Earlier in the story, Yaqub (AS) had told Yusuf (AS) not to share his dream with his brothers, reminding him that Shaytan is an open enemy to mankind.</li>
+            <li>Shaytan's hatred of Adam (AS) drove him to get Adam and Hawwa expelled from Jannah, and to incite one of Adam's sons to kill the other — and his campaign against people has never stopped; he continues seizing every opportunity to lead people astray.</li>
+            <li>His deepest revenge against human beings is making them burn with the very fire he himself burns with — jealousy, hatred, and similar diseases of the heart.</li>
+          </ul>
+          <div class="quote">Ibn al-Qayyim, commenting on Surah al-Falaq, taught that every disease has a cure — except for a few, for which the only remedy is to ask Allah for protection from them. Jealousy is one of those diseases.</div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 07 -->
+    <section class="class-section" id="s-07" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">07</span>
+        <h2>The Silence That Screamed</h2>
+        <button class="collapse-toggle" data-target="s-07" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-07">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>"Fa-asarraha Yoosufu fee nafsihi" — a rage he refused to show</h3>
+            <span class="code-badge">The hardest Sabr</span>
+          </div>
+          <ul class="points">
+            <li>At this moment, Yusuf (AS) kept it hidden inside himself and did not reveal it to them.</li>
+            <li>What exactly he hid is left undescribed — as if no single word could capture it.</li>
+            <li>He had the absolute power to crush them right there, yet he let none of it show; he kept that extreme rage locked inside.</li>
+            <li>The phrase "did not reveal it to them" seems redundant — keeping something secret already implies not revealing it. So why mention it twice?</li>
+            <li>Because concealing it was that difficult — like a volcanic eruption forced to stay contained.</li>
+            <li>Some people take pleasure in seeing others visibly hurt, even just a flicker of anger — Yusuf (AS) denied them even that.</li>
+            <li>Some scholars suggest it was sadness he suppressed rather than rage. It's also possible he had a ready answer for them but chose not to give it.</li>
+            <li>Yusuf (AS) had already been named earlier in the surah, so a pronoun alone would have sufficed here — yet the Qur'an names him again, signalling how serious this moment truly is; this was not easy to hold back.</li>
+          </ul>
+          <div class="quote">This is the kind of ṣabr required when a person has the full power to take revenge — and still chooses restraint. This is the difficult kind of ṣabr. Patience combined with forgiveness and covering up wrongs is described in the Qur'an as one of the most remarkable things a person can achieve.</div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 08 -->
+    <section class="class-section" id="s-08" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">08</span>
+        <h2>"You Are Worse in Position"</h2>
+        <button class="collapse-toggle" data-target="s-08" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-08">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>"Antum sharrun makana"</h3>
+          </div>
+          <ul class="points">
+            <li>Yusuf (AS) finally responds, but only with this one line: "You are worse in position."</li>
+            <li>The implicit message: "You think he's in trouble for stealing? You are in far greater trouble than you could ever imagine."</li>
+            <li>Even if the accusation of theft against BinYamin were true, the brothers themselves are far more evil — they stole an actual child, and with him, a father's love.</li>
+            <li>Yusuf (AS) points out they are worse now than before: earlier, their wrongdoing at least had a motive — competing for their father's love. Now that motive is gone, and yet they continue insulting him regardless.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 09 -->
+    <section class="class-section" id="s-09" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">09</span>
+        <h2>Allah Knows Best</h2>
+        <button class="collapse-toggle" data-target="s-09" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-09">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>"Wallahu a'lamu bima tasifoon"</h3>
+            <span class="code-badge">Moral</span>
+          </div>
+          <ul class="points">
+            <li>Yusuf (AS) closes with: "Allah is most knowing of what you describe."</li>
+            <li>The stance here: he will not publicly declare that he knows better right now — but Allah knows.</li>
+            <li>After all these years, he still has no way to prove that he never stole.</li>
+          </ul>
+          <div class="quote">There are accusations made against you by your family, and maybe by others, that you'll never be able to do anything about to clear your name. But Allah knows better.</div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section class="class-section" id="s-10" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">10</span>
+        <h2>Echoes of the Father</h2>
+        <button class="collapse-toggle" data-target="s-10" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-10">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>The same words, decades apart</h3>
+            <span class="code-badge">Parallel with Verse 18</span>
+          </div>
+          <ul class="points">
+            <li>This exact phrase mirrors what Yaqub (AS) said decades earlier in Verse 18, when the brothers brought Yusuf's shirt stained with false blood: "And Allah is the one sought for help against that which you describe."</li>
+            <li>Here in Verse 77, Yusuf (AS) says essentially the same thing.</li>
+            <li>"Ma tasifoon" ("what [lies] you describe") first came from the father's mouth in response to his sons' lie — and decades later, the very same words come from the son's mouth in response to their lie once again.</li>
+            <li>As a child, Yusuf (AS) learned this language of describing liars from his father — and decades later, in a position of power, even his private thoughts mirror his father's words; he echoes his father without realizing it.</li>
+            <li>He remains connected to his father in spirit, even though they have been physically apart for years.</li>
+          </ul>
+          <div class="lesson-grid">
+            <div class="lesson-card" style="border-color:var(--c-1); background:var(--c-1-tint);">
+              <span class="kicker">Moral</span>
+              <h4>Family is a spiritual bond too</h4>
+              <p>Family connection isn't only about love, providing food, or paying the bills — there is a spiritual thread that runs through it as well, one that can surface decades later without a person even realizing it.</p>
+            </div>
+            <div class="lesson-card" style="border-color:var(--c-3); background:var(--c-3-tint);">
+              <span class="kicker">Lesson</span>
+              <h4>The imprint a parent leaves</h4>
+              <p>Don't underestimate the value of simply talking to your kids, especially about Allah's Dīn. Islamic school and good videos help, but nothing compares to the imprint a parent personally leaves on a child's psyche — even a small childhood conversation can go on to shape how a person thinks decades later.</p>
+            </div>
+          </div>
+          <ul class="points">
+            <li>This single ayah shows two opposites within one family: the deepest wounds and scars family can inflict, alongside the most beautiful remnants of a good upbringing.</li>
+            <li>Even Yusuf's (AS) private thoughts, many years later, were shaped by the tarbiyah (upbringing) his father gave him long before.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<button id="toTop" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<div id="quickPanel">
+  <div class="nav-actions">
+    <button id="expandAll">Expand all</button>
+    <button id="collapseAll">Collapse all</button>
+  </div>
+  <ul id="qpList">
+    <li data-target="s-01"><a href="#s-01" style="--qc:var(--c-1)"><span class="qp-idx">01</span>The Accusation Shifts</a><span class="qp-toggle" data-target="s-01"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-02"><a href="#s-02" style="--qc:var(--c-2)"><span class="qp-idx">02</span>"Dad's Side"</a><span class="qp-toggle" data-target="s-02"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-03"><a href="#s-03" style="--qc:var(--c-3)"><span class="qp-idx">03</span>The Narrations</a><span class="qp-toggle" data-target="s-03"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-04"><a href="#s-04" style="--qc:var(--c-4)"><span class="qp-idx">04</span>From the Qur'an Alone</a><span class="qp-toggle" data-target="s-04"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-05"><a href="#s-05" style="--qc:var(--c-5)"><span class="qp-idx">05</span>Present Tense</a><span class="qp-toggle" data-target="s-05"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-06"><a href="#s-06" style="--qc:var(--c-6)"><span class="qp-idx">06</span>No Remorse</a><span class="qp-toggle" data-target="s-06"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-07"><a href="#s-07" style="--qc:var(--c-1)"><span class="qp-idx">07</span>The Silence</a><span class="qp-toggle" data-target="s-07"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-08"><a href="#s-08" style="--qc:var(--c-2)"><span class="qp-idx">08</span>"You Are Worse"</a><span class="qp-toggle" data-target="s-08"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-09"><a href="#s-09" style="--qc:var(--c-3)"><span class="qp-idx">09</span>Allah Knows Best</a><span class="qp-toggle" data-target="s-09"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-10"><a href="#s-10" style="--qc:var(--c-4)"><span class="qp-idx">10</span>Echoes of the Father</a><span class="qp-toggle" data-target="s-10"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+  </ul>
+</div>
+
+<button id="quickFab" aria-label="Open quick navigation" aria-expanded="false">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+</button>
+
+<script>
+  const heroHeader = document.querySelector('header.hero');
+  function syncHeaderHeight(){
+    const refBar = document.querySelector('.ref-bar');
+    document.documentElement.style.setProperty('--header-h', (heroHeader.offsetHeight + refBar.offsetHeight) + 'px');
+  }
+  syncHeaderHeight();
+  window.addEventListener('resize', syncHeaderHeight);
+
+  const progress = document.getElementById('progress');
+  function updateProgress(){
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    progress.style.width = scrolled + '%';
+    document.getElementById('toTop').classList.toggle('show', h.scrollTop > 700);
+  }
+  document.addEventListener('scroll', updateProgress, {passive:true});
+  updateProgress();
+
+  document.getElementById('toTop').addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+  const navLinks = document.querySelectorAll('nav.sidebar li a');
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const id = entry.target.id;
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  document.querySelectorAll('main section.class-section').forEach(el => { if(el.id) sectionObserver.observe(el); });
+
+  const quickFab = document.getElementById('quickFab');
+  const quickPanel = document.getElementById('quickPanel');
+  function openQuickPanel(){ quickPanel.classList.add('open'); quickFab.classList.add('open'); quickFab.setAttribute('aria-expanded','true'); }
+  function closeQuickPanel(){ quickPanel.classList.remove('open'); quickFab.classList.remove('open'); quickFab.setAttribute('aria-expanded','false'); }
+  quickFab.addEventListener('click', () => { quickPanel.classList.contains('open') ? closeQuickPanel() : openQuickPanel(); });
+  document.addEventListener('click', (e) => {
+    if(quickPanel.classList.contains('open') && !quickPanel.contains(e.target) && !quickFab.contains(e.target)){ closeQuickPanel(); }
+  });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeQuickPanel(); });
+  quickPanel.querySelectorAll('a').forEach(a => { a.addEventListener('click', () => closeQuickPanel()); });
+
+  const ALL_SECTION_IDS = ['s-01','s-02','s-03','s-04','s-05','s-06','s-07','s-08','s-09','s-10'];
+
+  function setCollapsed(id, collapsed){
+    const body = document.getElementById('body-' + id);
+    const btn = document.querySelector('.collapse-toggle[data-target="' + id + '"]');
+    const qpItem = document.querySelector('#qpList li[data-target="' + id + '"]');
+    if(body) body.classList.toggle('collapsed', collapsed);
+    if(btn) btn.setAttribute('aria-expanded', String(!collapsed));
+    if(qpItem) qpItem.classList.toggle('is-collapsed', collapsed);
+  }
+  function isCollapsed(id){
+    const body = document.getElementById('body-' + id);
+    return body ? body.classList.contains('collapsed') : false;
+  }
+  function toggleCollapsed(id){ setCollapsed(id, !isCollapsed(id)); }
+
+  document.querySelectorAll('.collapse-toggle').forEach(btn => {
+    btn.addEventListener('click', () => toggleCollapsed(btn.dataset.target));
+  });
+  document.querySelectorAll('#qpList li').forEach(item => {
+    const id = item.dataset.target;
+    item.querySelector('.qp-toggle').addEventListener('click', (e) => { e.stopPropagation(); e.preventDefault(); toggleCollapsed(id); });
+  });
+
+  document.getElementById('expandAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, false)));
+  document.getElementById('collapseAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, true)));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href').slice(1);
+      if(!href) return;
+      const target = document.getElementById(href);
+      if(!target) return;
+      if(target.classList.contains('class-section')){ setCollapsed(href, false); }
+    });
+  });
+
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', () => {
+    const q = searchInput.value.trim().toLowerCase();
+    navLinks.forEach(a => {
+      const key = (a.dataset.key || a.textContent).toLowerCase();
+      const match = q === '' || key.includes(q);
+      a.dataset.hidden = match ? '0' : '1';
+      const section = document.querySelector(a.getAttribute('href'));
+      if(section){ section.style.display = match ? '' : 'none'; }
+    });
+  });
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

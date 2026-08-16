@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sūrah An-Nāzi'āt — Al-Sa'dī's Tafsīr &amp; the Angels</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --paper:#fbfbfd;
+    --ink:#14151a;
+    --ink-soft:#5a5d6b;
+    --line:#e7e7ee;
+    --line-soft:#f0f0f5;
+
+    --c-1:#7c3aed;  --c-1-tint:#f4edff;
+    --c-2:#0284c7;  --c-2-tint:#e8f6ff;
+    --c-3:#ea580c;  --c-3-tint:#fff1e8;
+    --c-4:#db2777;  --c-4-tint:#ffe9f4;
+    --c-5:#059669;  --c-5-tint:#e6faf2;
+    --c-6:#0f766e;  --c-6-tint:#e6f8f6;
+
+    --accent: var(--c-1);
+    --accent-tint: var(--c-1-tint);
+
+    --radius: 18px;
+    --shadow: 0 1px 2px rgba(20,21,26,.04), 0 12px 32px -16px rgba(20,21,26,.14);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background: var(--accent); color:#fff; }
+
+  h1,h2,h3,h4{ font-family:'Space Grotesk', sans-serif; margin:0; letter-spacing:-.01em; }
+  code, .mono{ font-family:'IBM Plex Mono', monospace; }
+  a{ color:inherit; }
+  p{ margin:0; }
+  .ar{ font-family:'Amiri', serif; direction:rtl; }
+
+  #progress{
+    position:fixed; top:0; left:0; height:3px; width:0%;
+    background: linear-gradient(90deg, var(--c-1), var(--c-2), var(--c-3), var(--c-4), var(--c-5), var(--c-6));
+    z-index:100; transition: width .1s linear;
+  }
+
+  .ref-bar{
+    background:var(--ink); color:#fff;
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    padding:9px 8vw; display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  }
+  .ref-bar span.ref-src{
+    color:#fff; display:flex; align-items:center; gap:7px; opacity:.9;
+  }
+  .ref-bar .ref-label{ color:rgba(255,255,255,.55); text-transform:uppercase; letter-spacing:.08em; font-size:10.5px; }
+
+  header.hero{
+    padding: 6px 8vw;
+    min-height:46px;
+    display:flex; align-items:center;
+    position:sticky; top:0; z-index:80;
+    border-bottom:1px solid var(--line);
+    background-color:#fff;
+    background-image:
+      radial-gradient(700px 340px at 8% -10%, var(--c-1-tint), transparent 60%),
+      radial-gradient(600px 300px at 95% 0%, var(--c-3-tint), transparent 55%);
+  }
+  header.hero .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:15px;
+  }
+  header.hero .brand .dot{ width:9px; height:9px; border-radius:3px; background: linear-gradient(135deg, var(--c-1), var(--c-4)); }
+
+  /* ---------- burger navigation ---------- */
+  .burger-wrap{ position:relative; display:flex; align-items:center; }
+  .burger-btn{
+    width:34px; height:34px; border-radius:10px; border:1.3px solid var(--line);
+    background:var(--paper); color:var(--ink); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: border-color .15s ease, background .15s ease, color .15s ease;
+  }
+  .burger-btn:hover{ border-color: var(--c-1); }
+  .burger-btn.open{ background: var(--c-1); border-color: var(--c-1); color:#fff; }
+  .burger-btn svg{ transition: opacity .15s ease; }
+  .burger-menu{
+    position:absolute; top:calc(100% + 10px); left:0; width:320px;
+    background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow);
+    padding:8px; opacity:0; transform: translateY(-6px); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease; z-index:120;
+    display:flex; flex-direction:column;
+  }
+  .burger-menu.open{ opacity:1; transform: translateY(0); pointer-events:auto; }
+  .burger-menu-home{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; margin:2px 2px 8px;
+    border-radius:10px; border-bottom:1px solid var(--line-soft);
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-home svg{ flex:none; color:var(--ink-soft); }
+  .burger-menu-home:hover{ background: var(--paper); }
+  .burger-menu-home.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-home.is-current .bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-search{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:10px; padding:8px 10px; margin:2px 2px 8px;
+    background:var(--paper); flex:none;
+  }
+  .burger-menu-search svg{ flex:none; opacity:.5; color:var(--ink-soft); }
+  .burger-menu-search input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13px; width:100%; color:var(--ink);
+  }
+  .burger-menu-list{ max-height:340px; overflow-y:auto; overscroll-behavior:contain; }
+  .burger-menu-list::-webkit-scrollbar{ width:6px; }
+  .burger-menu-list::-webkit-scrollbar-thumb{ background:var(--line); border-radius:10px; }
+  .burger-menu-group + .burger-menu-group{ margin-top:4px; }
+  .burger-menu-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); padding:8px 10px 4px;
+  }
+  .burger-menu-empty{
+    display:none; padding:18px 10px; text-align:center; font-size:12.5px; color:var(--ink-soft);
+  }
+  .burger-menu-item{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; border-radius:10px;
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-item span.bm-title{ display:block; }
+  .burger-menu-item span.bm-sub{ display:block; font-size:11.5px; color:var(--ink-soft); font-weight:400; margin-top:1px; }
+  .burger-menu-item:hover{ background: var(--paper); }
+  .burger-menu-item.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-item.is-current span.bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-dot{ width:9px; height:9px; border-radius:3px; flex:none; margin-top:3px; }
+
+
+  .page-title{ padding: 30px 8vw 6px; }
+  .page-title .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-soft); margin-bottom:10px; display:block;
+  }
+  .page-title h1{
+    font-size: clamp(26px, 5vw, 46px);
+    line-height:1.12;
+    font-weight:700;
+  }
+  .page-title h1 .accent-word{
+    background: linear-gradient(100deg, var(--c-1), var(--c-4) 55%, var(--c-3));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .page-title .sub{
+    margin-top:14px; max-width:66ch; color:var(--ink-soft); font-size:15px; line-height:1.6;
+  }
+  .page-title .ayah-block{
+    margin-top:18px; font-family:'Amiri', serif; direction:rtl; text-align:right; font-size:22px;
+    line-height:2; color:var(--ink); max-width:66ch;
+  }
+  .page-title .tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+  .page-title .tag{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; border:1.3px solid var(--line);
+    color:var(--ink-soft); font-weight:500; background:var(--paper);
+  }
+  .page-title .tag.warn{ border-color: var(--c-3); color: var(--c-3); background: var(--c-3-tint); }
+
+  .layout{
+    display:grid;
+    grid-template-columns: 260px minmax(0,1fr);
+    gap:0;
+    max-width:1400px; margin:0 auto;
+  }
+  nav.sidebar{
+    position:sticky; top: var(--header-h, 0px); align-self:start;
+    height: calc(100vh - var(--header-h, 0px)); overflow-y:auto;
+    padding: 28px 18px 40px 8vw;
+    border-right:1px solid var(--line);
+    scrollbar-width: thin;
+  }
+  nav.sidebar::-webkit-scrollbar{ width:6px; }
+  nav.sidebar::-webkit-scrollbar-thumb{ background:var(--line); border-radius:10px; }
+
+  .search-box{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:12px; padding:10px 12px; margin-bottom:18px;
+    background:var(--paper);
+  }
+  .search-box input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13.5px; width:100%; color:var(--ink);
+  }
+  .search-box svg{ flex:none; opacity:.5; }
+
+  .nav-actions{ display:flex; gap:8px; margin-bottom:18px; }
+  .nav-actions button{
+    flex:1; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    border:1.3px solid var(--line); background:#fff; color:var(--ink-soft);
+    padding:7px 8px; border-radius:9px; cursor:pointer; transition:.15s ease;
+  }
+  .nav-actions button:hover{ border-color:var(--ink); color:var(--ink); }
+
+  nav.sidebar ul{ list-style:none; margin:0; padding:0; border-left:2px solid var(--line-soft); }
+  nav.sidebar li a{
+    display:flex; align-items:center; gap:9px;
+    text-decoration:none; font-size:13.5px; color:var(--ink-soft);
+    padding:7px 0 7px 14px; border-left:2px solid transparent; margin-left:-2px;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  nav.sidebar li a .sw{ width:8px; height:8px; border-radius:3px; flex:none; background:var(--g-color); }
+  nav.sidebar li a:hover{ color:var(--ink); }
+  nav.sidebar li a.active{ color:var(--g-color); border-left-color: var(--g-color); font-weight:600; }
+  nav.sidebar li a[data-hidden="1"]{ display:none; }
+
+  main{ min-width:0; padding: 0 8vw 140px; }
+
+  section.class-section{ padding-top:56px; scroll-margin-top: 24px; }
+  section.class-section:first-child{ padding-top:44px; }
+
+  .class-head{
+    display:flex; align-items:baseline; gap:16px; flex-wrap:wrap;
+    padding-bottom:14px; margin-bottom:22px; border-bottom:3px solid var(--g-color);
+    position:relative;
+  }
+  .class-head .idx{
+    font-family:'IBM Plex Mono',monospace; font-size:14px; font-weight:700; color:#fff;
+    background:var(--g-color); padding:5px 10px; border-radius:8px;
+  }
+  .class-head h2{ font-size: clamp(20px,2.4vw,28px); color:var(--ink); }
+  .collapse-toggle{
+    margin-left:auto; width:34px; height:34px; border-radius:9px; border:1.5px solid var(--line);
+    background:#fff; color:var(--g-color); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: transform .3s ease, background .15s ease, border-color .15s ease;
+  }
+  .collapse-toggle:hover{ background: var(--g-tint); border-color: var(--g-color); }
+  .collapse-toggle svg{ transition: transform .3s ease; }
+  .collapse-toggle[aria-expanded="false"] svg{ transform: rotate(-90deg); }
+
+  .class-body-outer{ display:grid; grid-template-rows: 0fr; transition: grid-template-rows .38s ease; }
+  .class-body-outer.collapsed{ grid-template-rows: 0fr; }
+  .class-body-outer:not(.collapsed){ grid-template-rows: 1fr; }
+  .class-body-inner{ overflow:hidden; min-height:0; opacity:0; transition: opacity .25s ease .1s; }
+  .class-body-outer.collapsed .class-body-inner{ opacity:0; transition: opacity .18s ease; }
+  .class-body-outer:not(.collapsed) .class-body-inner{ opacity:1; }
+
+  .card{
+    background:#fff; border:1px solid var(--line); border-radius: var(--radius);
+    padding: 28px 30px; margin-bottom: 22px; position:relative; overflow:hidden;
+    border-left: 5px solid var(--g-color);
+  }
+  .card .card-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap;
+    margin-bottom:14px;
+  }
+  .card h3{ font-size:19px; font-weight:600; color:var(--ink); }
+  .card h3 .alt{ font-weight:400; color:var(--ink-soft); font-size:14px; display:block; margin-top:3px;}
+  .code-badge{
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:12px; color:#fff;
+    background: var(--g-color); padding:6px 12px; border-radius:8px; white-space:nowrap;
+  }
+
+  ul.points{ list-style:none; margin:0; padding:0; }
+  ul.points > li{
+    position:relative; padding: 10px 0 10px 34px; font-size:14.8px; line-height:1.65; color:#2b2d36;
+    border-top:1px solid var(--line-soft);
+  }
+  ul.points > li:first-child{ border-top:none; }
+  ul.points > li::before{
+    content:"—";
+    position:absolute; left:0; top:10px; width:22px; height:22px; border-radius:7px;
+    background: var(--g-tint); color:var(--g-color); font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:13px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  ul.points > li b, ul.points > li strong{ color:var(--g-color); }
+
+  .quote{
+    margin-top:16px; padding:16px 18px; border-radius:12px; background:var(--g-tint);
+    font-family:'Space Grotesk', sans-serif; font-size:16px; line-height:1.55; color:#20222a;
+    border-left:3px solid var(--g-color);
+  }
+  .quote footer{
+    margin-top:8px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    text-transform:uppercase; color:var(--ink-soft); font-style:normal;
+  }
+  .quote.ar-quote{ font-family:'Amiri', serif; direction:rtl; text-align:right; font-size:21px; line-height:2; }
+  .quote.hadith{ font-family:'IBM Plex Sans',sans-serif; font-style:italic; font-size:15px; line-height:1.7; }
+
+  .pill-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .pill-row .pill{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; background:#fff; border:1.3px solid var(--g-color);
+    color:var(--g-color); font-weight:600;
+  }
+
+  .lesson-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:6px; }
+  .lesson-grid.three{ grid-template-columns:1fr 1fr 1fr; }
+  @media (max-width:780px){ .lesson-grid, .lesson-grid.three{ grid-template-columns:1fr; } }
+  .lesson-card{
+    border-radius:var(--radius); padding:22px 22px; border:1.3px solid var(--line);
+  }
+  .lesson-card .kicker{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .lesson-card h4{ margin-top:8px; font-size:18px; }
+  .lesson-card p{ margin-top:10px; font-size:14px; line-height:1.6; color:#2b2d36; }
+
+  .table-wrap{
+    margin: 8px 0 40px; border:1px solid var(--line); border-radius:16px; overflow:auto; box-shadow:var(--shadow);
+  }
+  table.wordtable{ width:100%; border-collapse:collapse; font-size:13.6px; }
+  table.wordtable th{
+    background:var(--paper); text-align:left; font-family:'IBM Plex Mono',monospace; font-size:11px;
+    text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); padding:12px 16px; border-bottom:1px solid var(--line);
+  }
+  table.wordtable td{ padding:12px 16px; border-bottom:1px solid var(--line-soft); vertical-align:top; line-height:1.55; }
+  table.wordtable tr:last-child td{ border-bottom:none; }
+  table.wordtable td.word{ font-family:'Space Grotesk',sans-serif; font-weight:700; color:var(--g-color); white-space:nowrap; }
+
+  #toTop{
+    position:fixed; right:26px; bottom:26px; width:46px; height:46px; border-radius:50%;
+    background:var(--ink); color:#fff; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,.22); opacity:0; pointer-events:none; transition: opacity .25s ease, transform .2s ease;
+    z-index:90;
+  }
+  #toTop.show{ opacity:1; pointer-events:auto; }
+  #toTop:hover{ transform: translateY(-3px); }
+
+  #empty-state{ display:none; padding:60px 0; text-align:center; color:var(--ink-soft); }
+  #empty-state.show{ display:block; }
+
+  #quickFab{
+    position:fixed; left:26px; bottom:26px; width:52px; height:52px; border-radius:16px;
+    background: linear-gradient(135deg, var(--c-1), var(--c-4)); color:#fff; border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; z-index:95;
+    box-shadow:0 10px 28px -6px rgba(124,58,237,.5);
+    transition: transform .2s ease, border-radius .2s ease;
+  }
+  #quickFab:hover{ transform: translateY(-3px) scale(1.03); }
+  #quickFab.open{ border-radius:50%; }
+  #quickFab svg{ transition: transform .3s ease; }
+  #quickFab.open svg{ transform: rotate(45deg); }
+
+  #quickPanel{
+    position:fixed; left:26px; bottom:90px; width:280px; max-height:60vh; overflow-y:auto;
+    background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow);
+    z-index:94; padding:14px; opacity:0; transform: translateY(10px) scale(.97); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  #quickPanel.open{ opacity:1; transform: translateY(0) scale(1); pointer-events:auto; }
+  #qpList{ list-style:none; margin:0; padding:0; }
+  #qpList li{
+    display:flex; align-items:center; gap:8px; border-radius:10px; padding:2px;
+  }
+  #qpList li a{
+    flex:1; display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--ink);
+    font-size:13px; padding:8px; border-radius:10px; transition:background .15s ease;
+  }
+  #qpList li a:hover{ background:var(--paper); }
+  .qp-idx{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:700; color:#fff;
+    background: var(--qc, var(--c-1)); padding:2px 6px; border-radius:6px;
+  }
+  .qp-toggle{ padding:8px; cursor:pointer; color:var(--ink-soft); opacity:.6; }
+  .qp-toggle:hover{ opacity:1; }
+  #qpList li.is-collapsed .qp-toggle svg{ transform: rotate(-90deg); }
+  #qpList li .qp-toggle svg{ transition: transform .3s ease; }
+
+  @media (max-width: 980px){
+    .layout{ grid-template-columns: 1fr; }
+    nav.sidebar{ position:static; height:auto; border-right:none; border-bottom:1px solid var(--line); padding: 20px 6vw; }
+    main{ padding: 0 6vw 120px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001s !important; transition-duration:.001s !important; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body data-page="timhumble">
+
+<div id="progress"></div>
+
+<header class="hero">
+  <div class="burger-wrap">
+    <button id="navBurger" class="burger-btn" aria-haspopup="true" aria-expanded="false" aria-label="Open navigation menu">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div id="navMenu" class="burger-menu"></div>
+  </div>
+</header>
+
+<div class="ref-bar">
+  <span class="ref-label">Source</span>
+  <span class="ref-src">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+    <a href="https://www.youtube.com/watch?v=inB4oZlEtiM" target="_blank" rel="noopener" style="color:#fff; text-decoration:underline; text-underline-offset:2px;">Muhammad Tim Humble</a> on Sūrah An-Nāzi'āt (Ayāt 1–14)
+  </span>
+</div>
+
+<div class="page-title">
+  <span class="eyebrow">Tafsīr Notes · Al-Sa'dī's Approach</span>
+  <h1>Tafsir <span class="accent-word">An-Nāzi'āt</span> : 1–14</h1>
+  <div class="tag-row">
+    <span class="tag">Al-Aqsām — the oaths</span>
+    <span class="tag">Jawāb al-Qasam</span>
+    <span class="tag">The Angels' Roles</span>
+    <span class="tag">Ḥadīth of al-Barā' ibn ʿĀzib</span>
+    <span class="tag warn">Ayāt 1–14</span>
+  </div>
+</div>
+
+<div class="layout">
+
+  <nav class="sidebar">
+    <div class="search-box">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="searchInput" type="text" placeholder="Search sections…">
+    </div>
+    <ul id="navList">
+      <li><a href="#s-01" data-key="subject overview oath five things swear angels" style="--g-color:var(--c-1)"><span class="sw"></span>The Sūrah's Subject &amp; Oaths</a></li>
+      <li><a href="#s-02" data-key="oaths arabic jawab qasam wallahi swearing rule" style="--g-color:var(--c-2)"><span class="sw"></span>How Oaths Work in Arabic</a></li>
+      <li><a href="#s-03" data-key="two views missing jawab qasam implied ayah emphasis angels" style="--g-color:var(--c-3)"><span class="sw"></span>The Missing Jawāb al-Qasam</a></li>
+      <li><a href="#s-04" data-key="five oaths angels jumhur majority view" style="--g-color:var(--c-4)"><span class="sw"></span>Why All Five Point to Angels</a></li>
+      <li><a href="#s-05" data-key="ayah 1 naziat gharqa disbeliever soul hadith bara azib skewer wet wool" style="--g-color:var(--c-5)"><span class="sw"></span>Ayah 1 — The Disbeliever's Soul</a></li>
+      <li><a href="#s-06" data-key="ayah 2 nashitat nashta gentle believer soul hadith bara azib" style="--g-color:var(--c-6)"><span class="sw"></span>Ayah 2 — The Believer's Soul</a></li>
+      <li><a href="#s-07" data-key="ayah 3 sabihat sabha ascend descend heavens angels day night" style="--g-color:var(--c-1)"><span class="sw"></span>Ayah 3 — Ascending &amp; Descending</a></li>
+      <li><a href="#s-08" data-key="ayah 4 sabiqat sabqa race obey command shayateen shooting star fortune teller" style="--g-color:var(--c-2)"><span class="sw"></span>Ayah 4 — Racing the Shayāṭīn</a></li>
+      <li><a href="#s-09" data-key="ayah 5 mudabbirat amra responsibilities rain plants wind sea bait mamoor tawaf" style="--g-color:var(--c-3)"><span class="sw"></span>Ayah 5 — Countless Responsibilities</a></li>
+      <li><a href="#s-10" data-key="rajifah radifah horn trumpet blowing shaking earth forty" style="--g-color:var(--c-4)"><span class="sw"></span>Ayah 6-7 - The Two Blasts of the Horn</a></li>
+      <li><a href="#s-11" data-key="qulubun wajifah hearts pounding absaruha khashiah eyes downcast" style="--g-color:var(--c-5)"><span class="sw"></span>Ayah 8-9 - Trembling Hearts, Downcast Eyes</a></li>
+      <li><a href="#s-12" data-key="disbelievers mockery crumbling bones idhaman nakhirah karratun khasirah takdhib" style="--g-color:var(--c-6)"><span class="sw"></span>Ayah 10-12 - The Disbelievers' Mockery</a></li>
+      <li><a href="#s-13" data-key="single blast horn angel mouth throne standing judgment recompense" style="--g-color:var(--c-1)"><span class="sw"></span>Ayah 13-14 - Allah's Answer — One Single Blast</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- 01 -->
+    <section class="class-section" id="s-01" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">01</span>
+        <h2>The Sūrah's Subject &amp; Oaths</h2>
+        <button class="collapse-toggle" data-target="s-01" aria-expanded="false" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer collapsed" id="body-s-01">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>Al-Ba'th wan-Nushūr — the same core topic as An-Naba'</h3>
+            <span class="code-badge">Overview</span>
+          </div>
+          <ul class="points">
+            <li>Just like Sūrah An-Naba', this sūrah's overall subject is <i>al-ba'th wan-nushūr</i> — the resurrection, the Day of Resurrection, and mankind being brought back to life — as Shaykh as-Sa'dī raḥimahullāh explains.</li>
+            <li>The sūrah opens with a <i>qasam</i> (an oath), and Allah swears by five separate things in sequence: <i>Wan-Nāzi'āti Gharqā, wan-Nāshiṭāti Nashṭā, was-Sābiḥāti Sabḥā, fas-Sābiqāti Sabqā, fal-Mudabbirāti Amrā.</i></li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section class="class-section" id="s-02" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">02</span>
+        <h2>How Oaths Work in Arabic</h2>
+        <button class="collapse-toggle" data-target="s-02" aria-expanded="false" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer collapsed" id="body-s-02">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>We only swear by Allah — Allah swears by whatever He wills</h3>
+            <span class="code-badge">Principle</span>
+          </div>
+          <ul class="points">
+            <li>As people, we only ever swear oaths by Allah — <i>wallāhi, wa-rabbil Ka'bah, tallāhi</i>, and so on. We never swear an oath by anything other than Allah.</li>
+            <li>Allah Subḥānahu wa Ta'ālā, on the other hand, swears an oath by whatever He wishes, sometimes by things within His own creation.</li>
+            <li>There is a governing principle, though: Allah ʿAzza wa Jall only swears by something <i>muʿaẓẓam ʿindahu</i> — something extremely significant in His sight. Allah never swears by something insignificant or worthless.</li>
+            <li>The oath itself is therefore a proof (<i>dalīl</i>) of the importance and greatness of the thing sworn by — and the greatness of a creation points, in turn, to the greatness of its Creator.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3>Jawāb al-Qasam — the "answer" that follows an oath</h3>
+            <span class="code-badge">Grammar</span>
+          </div>
+          <ul class="points">
+            <li>Arabic oaths always come with what is called the <i>jawāb al-qasam</i> — the "answer" to the oath, i.e. what you're actually swearing about. If you say <i>wallāhi</i>, something must follow it: "<i>Wallāhi</i>, he spoke the truth." The oath (<i>wallāhi</i>) always needs a stated purpose after it — the <i>jawāb al-qasam</i>.</li>
+            <li>So the reader always asks two things: what is Allah swearing by, and which ayah tells us the purpose (the <i>jawāb</i>) of those oaths?</li>
+            <li>In this sūrah, there is no explicit ayah stating the purpose of the five oaths sworn in Ayāt 1–5 — no clear sentence marking the <i>jawāb al-qasam</i>.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section class="class-section" id="s-03" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">03</span>
+        <h2>The Missing Jawāb al-Qasam</h2>
+        <button class="collapse-toggle" data-target="s-03" aria-expanded="false" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer collapsed" id="body-s-03">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>As-Sa'dī brings two strong views</h3>
+            <span class="code-badge">Two views</span>
+          </div>
+          <ul class="points">
+            <li>As-Sa'dī raḥimahullāh Ta'ālā presents two strong possibilities for how to read the missing <i>jawāb al-qasam</i>.</li>
+          </ul>
+        </div>
+        <div class="lesson-grid">
+          <div class="lesson-card" style="border-color:var(--g-color); background:var(--g-tint)">
+            <span class="kicker">View 1</span>
+            <h4>An implied ayah (taqdīr al-jawāb)</h4>
+            <p>We understand an implied answer, as though an unwritten ayah sits between the oaths and what follows — something meaning "certainly the resurrection is true." The exact wording is <i>muqaddar</i> (estimated), not stated, but its meaning is clear from context: <i>bi-dalīl bi-aḥwāl al-qiyāmah ba'da dhālik</i> — because everything Allah describes right after the oaths is the state of the Qiyāmah itself, so the implied conclusion is understood.</p>
+          </div>
+          <div class="lesson-card">
+            <span class="kicker">View 2</span>
+            <h4>No jawāb — emphasis on the oath itself</h4>
+            <p>Sometimes Allah withholds the reason for an oath specifically to draw full attention onto the things sworn by. Here, no statement like "certainly the Day of Qiyāmah will happen" is given, because all five oaths relate to the angels — so the withheld <i>jawāb</i> throws the spotlight onto the importance of believing in the angels (<i>al-īmān bil-malā'ikah</i>) itself.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3>As-Sa'dī's own reconciliation</h3>
+            <span class="code-badge">Synthesis</span>
+          </div>
+          <ul class="points">
+            <li>As-Sa'dī notes a further possibility: that the thing Allah swears by and the thing Allah swears for could be the same thing — <i>wa annahu aqsama ʿalā al-malā'ikah</i>, that He swore by the angels for the very purpose of highlighting belief in the angels, one of the six pillars of īmān.</li>
+            <li>By describing the angels' actions, the oath also brings in the angels' role at the moment of death — and since angels are shown taking the soul at death, this itself signals that there is a <i>jazā'</i> (a recompense) and therefore a resurrection.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 04 -->
+    <section class="class-section" id="s-04" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">04</span>
+        <h2>Why All Five Oaths Point to the Angels</h2>
+        <button class="collapse-toggle" data-target="s-04" aria-expanded="false" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer collapsed" id="body-s-04">
+      <div class="class-body-inner">
+        <div class="quote ar-quote">وَٱلنَّـٰزِعَـٰتِ غَرۡقًا وَٱلنَّـٰشِطَـٰتِ نَشۡطًا وَٱلسَّـٰبِحَـٰتِ سَبۡحًا فَٱلسَّـٰبِقَـٰتِ سَبۡقًا فَٱلۡمُدَبِّرَٲتِ أَمۡرًا
+          <footer>All five relate to the angels — As-Sa'dī's stated view</footer>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3>The jumhūr position: five oaths, five angelic responsibilities</h3>
+            <span class="code-badge">Majority view</span>
+          </div>
+          <ul class="points">
+            <li>As-Sa'dī raḥimahullāh Ta'ālā states plainly regarding the first oath: <i>wa hum malā'ikah</i> — "they are the angels."</li>
+            <li>This is the stronger and more commonly held view — the view of the <i>jumhūr</i> (majority) — that each of the five oaths refers to the angels, each describing a different responsibility they carry.</li>
+            <li>Other views exist too — this is not the only opinion — but for clarity, this class follows the majority reading throughout.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 05 -->
+    <section class="class-section" id="s-05" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">05</span>
+        <h2>Ayah 1 — The Disbeliever's Soul</h2>
+        <button class="collapse-toggle" data-target="s-05" aria-expanded="false" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer collapsed" id="body-s-05">
+      <div class="class-body-inner">
+        <div class="quote ar-quote">وَٱلنَّـٰزِعَـٰتِ غَرۡقًا
+          <footer>Wan-Nāzi'āti Gharqā</footer>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3>An-Naz' — forcefully pulling something out</h3>
+            <span class="code-badge">Meaning</span>
+          </div>
+          <ul class="points">
+            <li><i>An-Naz'u</i> means to forcefully pull something out, so <i>an-nāzi'āt</i> are those who forcefully pull something out — and the question becomes: what do the angels forcefully pull out, and whose soul is it?</li>
+            <li>The answer given here: it is the soul of the <i>kāfir</i> — because, according to the lengthy ḥadīth of al-Barā' ibn ʿĀzib raḍiyallāhu ʿanhu, the disbeliever's soul breaks apart and scatters through the body, and is ripped out like a skewer pulled through wet wool.</li>
+            <li><i>Gharqā</i> here means the angels keep on immersing themselves in the process, pulling again and again, until the soul is completely separated from the body — not a single pull and release. Once separated, the soul is recompensed for its deeds.</li>
+          </ul>
+        </div>
+        <div class="quote hadith">
+          "When the disbelieving soul is about to leave this world and enter the ākhirah, angels with dark faces descend from the heavens, carrying with them a rough sackcloth. They sit as far as the eye can see. Then the angel of death sits at the person's head and says: 'O filthy soul, come out to anger from Allah and His fury.' The soul breaks up and scatters throughout the body, trying to escape, refusing to be taken — so the angel of death pulls it out violently, like a skewer pulled out of wet wool."
+          <footer>Ḥadīth of al-Barā' ibn ʿĀzib (paraphrased) — describing the disbeliever's soul</footer>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3>A painful, drawn-out separation</h3>
+            <span class="code-badge">Reflection</span>
+          </div>
+          <ul class="points">
+            <li>Some narrations add that the person's nerves — among the most painful sensations a body can feel — are torn open along with the soul as it is ripped from the body, showing just how difficult this process is for the disbeliever.</li>
+            <li>Imām As-Sa'dī's general method in tafsīr is to keep an ayah's meaning broad wherever it can cover more than one case, rather than restricting it to only one specific meaning — so this ayah is not necessarily confined to the angel of death alone, though that is the meaning that most naturally comes to mind for <i>An-Nāzi'āt Gharqā</i>.</li>
+            <li>The implied understanding here is that once the soul has been pulled from the body, it must answer for its deeds — a theme that continues in the same ḥadīth with the discussion of the punishment and questioning in the grave.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 06 -->
+    <section class="class-section" id="s-06" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">06</span>
+        <h2>Ayah 2 — The Believer's Soul</h2>
+        <button class="collapse-toggle" data-target="s-06" aria-expanded="false" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer collapsed" id="body-s-06">
+      <div class="class-body-inner">
+        <div class="quote ar-quote">وَٱلنَّـٰشِطَـٰتِ نَشۡطًا
+          <footer>Wan-Nāshiṭāti Nashṭā</footer>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3>Two possible readings of "Nashṭā"</h3>
+            <span class="code-badge">Two views</span>
+          </div>
+          <ul class="points">
+            <li>This too refers to the angels, and it is again about pulling something out — but this time <i>nashṭā</i>, gently.</li>
+            <li>As-Sa'dī raḥimahullāh Ta'ālā brings two possibilities for this word.</li>
+          </ul>
+        </div>
+        <div class="lesson-grid">
+          <div class="lesson-card">
+            <span class="kicker">Reading 1</span>
+            <h4>Energetic, without failing</h4>
+            <p>If <i>nashṭā</i> simply relates to <i>nashāṭ</i> (energy/vigor), it means the angels pull the soul out with energy and full commitment — applying to both the believer and the disbeliever. This echoes Allah's description that "our angels cause him to die, and they never fall short in their job." The angel of death never misses, delays, or fails.</p>
+          </div>
+          <div class="lesson-card">
+            <span class="kicker">Reading 2</span>
+            <h4>Gently — for the believer</h4>
+            <p>Alternatively, if <i>an-nāshiṭāt</i> means to pull out gently, the soul referred to is that of the believer, drawn on the authority of the same ḥadīth of al-Barā' ibn ʿĀzib describing the believing soul's departure.</p>
+          </div>
+        </div>
+        <div class="quote hadith">
+          "When a believing soul is about to leave this world and head to the ākhirah, angels come as though their faces are like the sun, carrying a shroud and perfume from Paradise. They sit as far as the eye can see. The angel of death sits at the person's head and says: 'O good soul, come out to forgiveness from Allah and His pleasure.' And it comes out flowing gently — like a drop of water rolling down the edge of a bottle."
+          <footer>Ḥadīth of al-Barā' ibn ʿĀzib (paraphrased) — describing the believer's soul</footer>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3>Summary of the two views</h3>
+            <span class="code-badge">Recap</span>
+          </div>
+          <ul class="points">
+            <li>View 1: <i>An-Nāzi'āt Nashṭā</i> shows the angels are active and never fail in taking any soul — believer or disbeliever.</li>
+            <li>View 2: it refers specifically to a gentle pulling, reserved for the soul of the believer — summarized by As-Sa'dī as <i>an-naz'u yakūn bi-arwāḥ al-kuffār wan-nashṭu bi-arwāḥ al-mu'minīn</i>: the forceful pulling (Ayah 1) is for the souls of the disbelievers, and the gentle pulling (Ayah 2) is for the souls of the believers.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 07 -->
+    <section class="class-section" id="s-07" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">07</span>
+        <h2>Ayah 3 — Ascending &amp; Descending</h2>
+        <button class="collapse-toggle" data-target="s-07" aria-expanded="false" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer collapsed" id="body-s-07">
+      <div class="class-body-inner">
+        <div class="quote ar-quote">وَٱلسَّـٰبِحَـٰتِ سَبۡحًا
+          <footer>Was-Sābiḥāti Sabḥā</footer>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3>Moving swiftly and smoothly through the heavens</h3>
+            <span class="code-badge">Meaning</span>
+          </div>
+          <ul class="points">
+            <li><i>As-Sābiḥāt</i> (root: <i>sīn-bā'-ḥā'</i>) describes those who move swiftly and smoothly, like a swimmer moving through water.</li>
+            <li>As-Sa'dī raḥimahullāh Ta'ālā explains this as the angels who are <i>al-mutaraddidāt fil-hawā' ṣu'ūdan wa nuzūlā</i> — those who move up and down through the heavens swiftly, ascending with the deeds of mankind to Allah, and descending with His command.</li>
+            <li>This includes the angels who carry the deeds upward, and the angels who alternate day and night — the angels of the day who accompany people from Fajr until 'Aṣr, and the angels of the night who take over at 'Aṣr and depart at Fajr.</li>
+            <li>A parallel is drawn with Sūrah al-Qadr: "The angels and the Rūḥ (Jibrīl) descend therein, by the permission of their Lord, for every matter" — the ease with which the angels ascend to the heavens and descend with Allah's command is exactly what <i>was-Sābiḥāti Sabḥā</i> describes.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 08 -->
+    <section class="class-section" id="s-08" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">08</span>
+        <h2>Ayah 4 — Racing the Shayāṭīn</h2>
+        <button class="collapse-toggle" data-target="s-08" aria-expanded="false" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer collapsed" id="body-s-08">
+      <div class="class-body-inner">
+        <div class="quote ar-quote">فَٱلسَّـٰبِقَـٰتِ سَبۡقًا
+          <footer>Fas-Sābiqāti Sabqā</footer>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3>Rushing to obey — and outracing the devils</h3>
+            <span class="code-badge">Two meanings</span>
+          </div>
+          <ul class="points">
+            <li>Some scholars take this generally: <i>as-sābiqāt</i> are the angels who rush to fulfill Allah's command, echoing "they do not disobey Allah in what He commands them, and they do as they are commanded" — the angels are first to fulfill Allah's command, without ever falling short.</li>
+            <li>As-Sa'dī raḥimahullāh Ta'ālā gives a further benefit: <i>as-sābiqāt li-ghayrihā</i> — that they race ahead of others, specifically racing the <i>shayāṭīn</i> to deliver revelation to the messengers before the devils can steal it, or racing to fulfill Allah's command before the devils can interfere.</li>
+            <li>This connects to the well-known account of the fortune-tellers: the devils stack on top of one another trying to reach the heavens to eavesdrop on the angels, then race to pass the stolen information down to fortune-tellers before being struck by a shooting star.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 09 -->
+    <section class="class-section" id="s-09" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">09</span>
+        <h2>Ayah 5 — Countless Responsibilities</h2>
+        <button class="collapse-toggle" data-target="s-09" aria-expanded="false" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer collapsed" id="body-s-09">
+      <div class="class-body-inner">
+        <div class="quote ar-quote">فَٱلۡمُدَبِّرَٲتِ أَمۡرًا
+          <footer>Fal-Mudabbirāti Amrā</footer>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3>Every angel has an appointed task</h3>
+            <span class="code-badge">Al-Mudabbirāt</span>
+          </div>
+          <ul class="points">
+            <li>Allah ʿAzza wa Jall has given the angels many different responsibilities — over both the heavens and the earth — including matters of rain, the growth of plants and trees, the wind, the seas, the fetus in its mother's womb, the animals, Paradise, Hellfire, and the writing of every deed.</li>
+            <li>Every single person has an assigned angel with an established responsibility over them, and it is these angels — the ones given specific commands to carry out — who are <i>al-mudabbirāti amrā</i>.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3>How immense this all is</h3>
+            <span class="code-badge">Magnitude</span>
+          </div>
+          <ul class="points">
+            <li>Each of the five things sworn by is described as <i>ʿaẓīm</i> — deeply significant: the taking of the disbeliever's soul, the taking of the believer's soul, the speed with which angels move between the heavens and earth, their racing to obey Allah's command, and their being entrusted with responsibilities.</li>
+            <li>An example of this magnitude: al-Bayt al-Maʿmūr in the heavens, directly above the Kaʿbah, is circled by 70,000 angels every single day — and not one angel ever returns to do so again, since the beginning of creation. No one knows the number of Allah's soldiers except Him.</li>
+            <li>So Allah swore by something truly <i>ʿaẓīm</i> in His sight — either because of the belief owed to the angels themselves, or with an implied conclusion that the Day of Resurrection is true — and what follows is the description of the terrors (<i>aḥwāl</i>) of the Day of Qiyāmah.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section class="class-section" id="s-10" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">10</span>
+        <h2>Ayah 6-7 - The Two Blasts of the Horn</h2>
+        <button class="collapse-toggle" data-target="s-10" aria-expanded="false" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer collapsed" id="body-s-10">
+      <div class="class-body-inner">
+        <div class="quote ar-quote">يَوۡمَ تَرۡجُفُ ٱلرَّاجِفَةُ ۝ تَتۡبَعُهَا ٱلرَّادِفَةُ
+          <footer>Yawma Tarjufu Ar-Rājifah — Tatbaʿuhā Ar-Rādifah</footer>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3>Ar-Rājifah — the violent shaking of the first horn</h3>
+            <span class="code-badge">First blast</span>
+          </div>
+          <ul class="points">
+            <li>As-Sa'dī raḥimahullāh Ta'ālā explains this as the coming of the Hour: <i>Ar-Rājifah</i> is the shaking of the earth, one of the names of the Hour itself — the earth will shake violently.</li>
+            <li>What causes this violent shaking is the first blowing of the horn (the class prefers the word "horn" over "trumpet"). When the horn is first blown, the earth will shake with a terrible shaking.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3>Ar-Rādifah — the second blast that follows</h3>
+            <span class="code-badge">Second blast</span>
+          </div>
+          <ul class="points">
+            <li>The letters <i>rā', dāl, fā'</i> (as in <i>rādifah</i>) describe something that follows right behind another — like a rider who sits behind you on the same mount, called a <i>radīf</i>.</li>
+            <li><i>Ar-Rādifah</i> is therefore the second blowing of the horn, which follows directly after the first — the earth will shake again because of this second blast.</li>
+            <li>How much time separates the two blasts? Reports mention a gap of "forty" — though the narrator did not specify whether it means forty days, forty months, or forty years.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 11 -->
+    <section class="class-section" id="s-11" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">11</span>
+        <h2>Ayah 8-9 - Trembling Hearts, Downcast Eyes</h2>
+        <button class="collapse-toggle" data-target="s-11" aria-expanded="false" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer collapsed" id="body-s-11">
+      <div class="class-body-inner">
+        <div class="quote ar-quote">قُلُوبٌ۬ يَوۡمَٮِٕذٍ۬ وَاجِفَةٌ ۝ أَبۡصَـٰرُهَا خَـٰشِعَةٌ۬
+          <footer>Qulūbun Yawma'idhin Wājifah — Abṣāruhā Khāshi'ah</footer>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3>Hearts pounding, eyes brought low</h3>
+            <span class="code-badge">Description</span>
+          </div>
+          <ul class="points">
+            <li>On that Day, hearts will be pounding — deeply troubled by the intensity of what they see and hear.</li>
+            <li>Their eyes will be downcast — humbled and brought low, because fear will have seized their hearts, leaving them stunned by panic and overwhelmed with regret and sorrow.</li>
+            <li>This all follows Allah's description of what the Qiyāmah will be like: the earth shaking terribly at the first blast, shaking again at the second blast, and everything within the earth being cast out — hearts trembling in absolute fear and terror at what they see and hear, eyes humbled by that same fear and by regret for what has passed.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 12 -->
+    <section class="class-section" id="s-12" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">12</span>
+        <h2>Ayah 10-12 - The Disbelievers' Mockery</h2>
+        <button class="collapse-toggle" data-target="s-12" aria-expanded="false" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer collapsed" id="body-s-12">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>"Even after we're crumbling bones?" — spoken as denial</h3>
+            <span class="code-badge">Takdhīb</span>
+          </div>
+          <ul class="points">
+            <li>Allah then describes what the disbelievers of this world say: "Is this going to happen to us? Will we really be restored, even after we've turned into crumbling, disintegrated bones (<i>a'idhā kunnā 'iẓāman nakhirah</i>)?"</li>
+            <li>They say this as <i>takdhīb</i> — as denial — meaning "this is never going to happen." The implication is sarcastic: "Are you telling me that when we open the grave and see nothing but crumbling bones, these bones are going to stand again in fear of Allah?"</li>
+            <li>"If this is true, we will certainly be losers at that time" (<i>tilka idhan karratun khāsirah</i>) — but they don't say this sincerely, as though genuinely conceding the point. They say it out of stubbornness, and to show disrespect and audacity toward Allah Subḥānahu wa Ta'ālā, as though daring Him to actually resurrect and recreate them.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 13 -->
+    <section class="class-section" id="s-13" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">13</span>
+        <h2>Ayah 13-14 - Allah's Answer — One Single Blast</h2>
+        <button class="collapse-toggle" data-target="s-13" aria-expanded="false" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer collapsed" id="body-s-13">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>It takes nothing at all for Allah</h3>
+            <span class="code-badge">The response</span>
+          </div>
+          <ul class="points">
+            <li>Allah responds to their mockery by making clear: it is only a single blast of the horn (<i>zajratun wāḥidah</i>) — resurrecting every single person who has ever died does not take a long or complicated process for Allah. It is one single blowing of the horn, and that is how easy it is for Him.</li>
+            <li>The Prophet ﷺ mentioned that the angel assigned to blow the horn already has it raised to his mouth, his eyes never leaving the Throne, ready to blow at any moment he is commanded — such is the immediacy of that single blast.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3>Instantly standing, instantly gathered</h3>
+            <span class="code-badge">The outcome</span>
+          </div>
+          <ul class="points">
+            <li>The moment that single blast sounds, everyone will be back above the ground at once — standing, looking around (<i>qiyāmun yanẓurūn</i>), in a state of fear.</li>
+            <li>Allah will then gather them and judge between them with His just ruling, and recompense each person for what they used to do.</li>
+            <li>The overall flow of the sūrah: Allah swears by the angels; describes the fear of the Qiyāmah; describes how the disbelievers belittled the Hour with their mockery; and then answers them — it is only a single blowing of the horn, and suddenly they will be standing on the face of the earth.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<button id="toTop" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<div id="quickPanel">
+  <div class="nav-actions">
+    <button id="expandAll">Expand all</button>
+    <button id="collapseAll">Collapse all</button>
+  </div>
+  <ul id="qpList">
+    <li data-target="s-01" class="is-collapsed"><a href="#s-01" style="--qc:var(--c-1)"><span class="qp-idx">01</span>Subject &amp; Oaths</a><span class="qp-toggle" data-target="s-01"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-02" class="is-collapsed"><a href="#s-02" style="--qc:var(--c-2)"><span class="qp-idx">02</span>Oaths in Arabic</a><span class="qp-toggle" data-target="s-02"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-03" class="is-collapsed"><a href="#s-03" style="--qc:var(--c-3)"><span class="qp-idx">03</span>Missing Jawāb</a><span class="qp-toggle" data-target="s-03"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-04" class="is-collapsed"><a href="#s-04" style="--qc:var(--c-4)"><span class="qp-idx">04</span>All Point to Angels</a><span class="qp-toggle" data-target="s-04"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-05" class="is-collapsed"><a href="#s-05" style="--qc:var(--c-5)"><span class="qp-idx">05</span>Disbeliever's Soul</a><span class="qp-toggle" data-target="s-05"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-06" class="is-collapsed"><a href="#s-06" style="--qc:var(--c-6)"><span class="qp-idx">06</span>Believer's Soul</a><span class="qp-toggle" data-target="s-06"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-07" class="is-collapsed"><a href="#s-07" style="--qc:var(--c-1)"><span class="qp-idx">07</span>Ascend &amp; Descend</a><span class="qp-toggle" data-target="s-07"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-08" class="is-collapsed"><a href="#s-08" style="--qc:var(--c-2)"><span class="qp-idx">08</span>Racing the Shayāṭīn</a><span class="qp-toggle" data-target="s-08"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-09" class="is-collapsed"><a href="#s-09" style="--qc:var(--c-3)"><span class="qp-idx">09</span>Countless Duties</a><span class="qp-toggle" data-target="s-09"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-10" class="is-collapsed"><a href="#s-10" style="--qc:var(--c-4)"><span class="qp-idx">10</span>Two Blasts</a><span class="qp-toggle" data-target="s-10"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-11" class="is-collapsed"><a href="#s-11" style="--qc:var(--c-5)"><span class="qp-idx">11</span>Trembling Hearts</a><span class="qp-toggle" data-target="s-11"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-12" class="is-collapsed"><a href="#s-12" style="--qc:var(--c-6)"><span class="qp-idx">12</span>Their Mockery</a><span class="qp-toggle" data-target="s-12"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-13" class="is-collapsed"><a href="#s-13" style="--qc:var(--c-1)"><span class="qp-idx">13</span>One Single Blast</a><span class="qp-toggle" data-target="s-13"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+  </ul>
+</div>
+
+<button id="quickFab" aria-label="Open quick navigation" aria-expanded="false">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+</button>
+
+<script>
+  const heroHeader = document.querySelector('header.hero');
+  function syncHeaderHeight(){
+    const refBar = document.querySelector('.ref-bar');
+    document.documentElement.style.setProperty('--header-h', (heroHeader.offsetHeight + refBar.offsetHeight) + 'px');
+  }
+  syncHeaderHeight();
+  window.addEventListener('resize', syncHeaderHeight);
+
+  const progress = document.getElementById('progress');
+  function updateProgress(){
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    progress.style.width = scrolled + '%';
+    document.getElementById('toTop').classList.toggle('show', h.scrollTop > 700);
+  }
+  document.addEventListener('scroll', updateProgress, {passive:true});
+  updateProgress();
+
+  document.getElementById('toTop').addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+  const navLinks = document.querySelectorAll('nav.sidebar li a');
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const id = entry.target.id;
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  document.querySelectorAll('main section.class-section').forEach(el => { if(el.id) sectionObserver.observe(el); });
+
+  const quickFab = document.getElementById('quickFab');
+  const quickPanel = document.getElementById('quickPanel');
+  function openQuickPanel(){ quickPanel.classList.add('open'); quickFab.classList.add('open'); quickFab.setAttribute('aria-expanded','true'); }
+  function closeQuickPanel(){ quickPanel.classList.remove('open'); quickFab.classList.remove('open'); quickFab.setAttribute('aria-expanded','false'); }
+  quickFab.addEventListener('click', () => { quickPanel.classList.contains('open') ? closeQuickPanel() : openQuickPanel(); });
+  document.addEventListener('click', (e) => {
+    if(quickPanel.classList.contains('open') && !quickPanel.contains(e.target) && !quickFab.contains(e.target)){ closeQuickPanel(); }
+  });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeQuickPanel(); });
+  quickPanel.querySelectorAll('a').forEach(a => { a.addEventListener('click', () => closeQuickPanel()); });
+
+  const ALL_SECTION_IDS = ['s-01','s-02','s-03','s-04','s-05','s-06','s-07','s-08','s-09','s-10','s-11','s-12','s-13'];
+
+  function setCollapsed(id, collapsed){
+    const body = document.getElementById('body-' + id);
+    const btn = document.querySelector('.collapse-toggle[data-target="' + id + '"]');
+    const qpItem = document.querySelector('#qpList li[data-target="' + id + '"]');
+    if(body) body.classList.toggle('collapsed', collapsed);
+    if(btn) btn.setAttribute('aria-expanded', String(!collapsed));
+    if(qpItem) qpItem.classList.toggle('is-collapsed', collapsed);
+  }
+  function isCollapsed(id){
+    const body = document.getElementById('body-' + id);
+    return body ? body.classList.contains('collapsed') : false;
+  }
+  function toggleCollapsed(id){ setCollapsed(id, !isCollapsed(id)); }
+
+  document.querySelectorAll('.collapse-toggle').forEach(btn => {
+    btn.addEventListener('click', () => toggleCollapsed(btn.dataset.target));
+  });
+  document.querySelectorAll('#qpList li').forEach(item => {
+    const id = item.dataset.target;
+    item.querySelector('.qp-toggle').addEventListener('click', (e) => { e.stopPropagation(); e.preventDefault(); toggleCollapsed(id); });
+  });
+
+  document.getElementById('expandAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, false)));
+  document.getElementById('collapseAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, true)));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href').slice(1);
+      if(!href) return;
+      const target = document.getElementById(href);
+      if(!target) return;
+      if(target.classList.contains('class-section')){ setCollapsed(href, false); }
+    });
+  });
+
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', () => {
+    const q = searchInput.value.trim().toLowerCase();
+    navLinks.forEach(a => {
+      const key = (a.dataset.key || a.textContent).toLowerCase();
+      const match = q === '' || key.includes(q);
+      a.dataset.hidden = match ? '0' : '1';
+      const section = document.querySelector(a.getAttribute('href'));
+      if(section){ section.style.display = match ? '' : 'none'; }
+    });
+  });
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

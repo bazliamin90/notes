@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sūrah An-Nāzi'āt — Tafsīr Study Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --paper:#fbfbfd;
+    --ink:#14151a;
+    --ink-soft:#5a5d6b;
+    --line:#e7e7ee;
+    --line-soft:#f0f0f5;
+
+    /* category brights, cycled across the sections */
+    --c-1:#7c3aed;  --c-1-tint:#f4edff;   /* violet */
+    --c-2:#0284c7;  --c-2-tint:#e8f6ff;   /* ocean */
+    --c-3:#ea580c;  --c-3-tint:#fff1e8;   /* coral */
+    --c-4:#db2777;  --c-4-tint:#ffe9f4;   /* magenta */
+    --c-5:#059669;  --c-5-tint:#e6faf2;   /* emerald */
+    --c-6:#0f766e;  --c-6-tint:#e6f8f6;   /* teal */
+
+    --accent: var(--c-1);
+    --accent-tint: var(--c-1-tint);
+
+    --radius: 18px;
+    --shadow: 0 1px 2px rgba(20,21,26,.04), 0 12px 32px -16px rgba(20,21,26,.14);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background: var(--accent); color:#fff; }
+
+  h1,h2,h3,h4{ font-family:'Space Grotesk', sans-serif; margin:0; letter-spacing:-.01em; }
+  code, .mono{ font-family:'IBM Plex Mono', monospace; }
+  a{ color:inherit; }
+  p{ margin:0; }
+  .ar{ font-family:'Amiri', serif; direction:rtl; }
+
+  /* ---------- top progress rail ---------- */
+  #progress{
+    position:fixed; top:0; left:0; height:3px; width:0%;
+    background: linear-gradient(90deg, var(--c-1), var(--c-2), var(--c-3), var(--c-4), var(--c-5), var(--c-6));
+    z-index:100; transition: width .1s linear;
+  }
+
+  /* ---------- reference bar ---------- */
+  .ref-bar{
+    background:var(--ink); color:#fff;
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    padding:9px 8vw; display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  }
+  .ref-bar span.ref-src{
+    color:#fff; display:flex; align-items:center; gap:7px; opacity:.9;
+  }
+  .ref-bar .ref-label{ color:rgba(255,255,255,.55); text-transform:uppercase; letter-spacing:.08em; font-size:10.5px; }
+
+  /* ---------- header ---------- */
+  header.hero{
+    padding: 6px 8vw;
+    min-height:46px;
+    display:flex; align-items:center;
+    position:sticky; top:0; z-index:80;
+    border-bottom:1px solid var(--line);
+    background-color:#fff;
+    background-image:
+      radial-gradient(700px 340px at 8% -10%, var(--c-1-tint), transparent 60%),
+      radial-gradient(600px 300px at 95% 0%, var(--c-3-tint), transparent 55%);
+  }
+  header.hero .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:15px;
+  }
+  header.hero .brand .dot{ width:9px; height:9px; border-radius:3px; background: linear-gradient(135deg, var(--c-1), var(--c-4)); }
+
+  /* ---------- burger navigation ---------- */
+  .burger-wrap{ position:relative; display:flex; align-items:center; }
+  .burger-btn{
+    width:34px; height:34px; border-radius:10px; border:1.3px solid var(--line);
+    background:var(--paper); color:var(--ink); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: border-color .15s ease, background .15s ease, color .15s ease;
+  }
+  .burger-btn:hover{ border-color: var(--c-1); }
+  .burger-btn.open{ background: var(--c-1); border-color: var(--c-1); color:#fff; }
+  .burger-btn svg{ transition: opacity .15s ease; }
+  .burger-menu{
+    position:absolute; top:calc(100% + 10px); left:0; width:320px;
+    background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow);
+    padding:8px; opacity:0; transform: translateY(-6px); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease; z-index:120;
+    display:flex; flex-direction:column;
+  }
+  .burger-menu.open{ opacity:1; transform: translateY(0); pointer-events:auto; }
+  .burger-menu-home{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; margin:2px 2px 8px;
+    border-radius:10px; border-bottom:1px solid var(--line-soft);
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-home svg{ flex:none; color:var(--ink-soft); }
+  .burger-menu-home:hover{ background: var(--paper); }
+  .burger-menu-home.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-home.is-current .bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-search{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:10px; padding:8px 10px; margin:2px 2px 8px;
+    background:var(--paper); flex:none;
+  }
+  .burger-menu-search svg{ flex:none; opacity:.5; color:var(--ink-soft); }
+  .burger-menu-search input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13px; width:100%; color:var(--ink);
+  }
+  .burger-menu-list{ max-height:340px; overflow-y:auto; overscroll-behavior:contain; }
+  .burger-menu-list::-webkit-scrollbar{ width:6px; }
+  .burger-menu-list::-webkit-scrollbar-thumb{ background:var(--line); border-radius:10px; }
+  .burger-menu-group + .burger-menu-group{ margin-top:4px; }
+  .burger-menu-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); padding:8px 10px 4px;
+  }
+  .burger-menu-empty{
+    display:none; padding:18px 10px; text-align:center; font-size:12.5px; color:var(--ink-soft);
+  }
+  .burger-menu-item{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; border-radius:10px;
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-item span.bm-title{ display:block; }
+  .burger-menu-item span.bm-sub{ display:block; font-size:11.5px; color:var(--ink-soft); font-weight:400; margin-top:1px; }
+  .burger-menu-item:hover{ background: var(--paper); }
+  .burger-menu-item.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-item.is-current span.bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-dot{ width:9px; height:9px; border-radius:3px; flex:none; margin-top:3px; }
+
+
+  /* ---------- bilingual content ---------- */
+  .t-ms{ display:none; }
+  body.lang-ms .t-ms{ display:inline; }
+  body.lang-ms .t-en{ display:none; }
+
+  /* ---------- language toggle switch ---------- */
+  .lang-switch-wrap{ margin-left:auto; display:flex; align-items:center; }
+  .lang-switch{
+    position:relative; display:flex; align-items:center; gap:0;
+    width:84px; height:32px; border-radius:100px; border:1.3px solid var(--line);
+    background:var(--paper); cursor:pointer; padding:0; overflow:hidden;
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:10.5px; letter-spacing:.03em;
+    transition: background .2s ease, border-color .2s ease;
+  }
+  .lang-switch:hover{ border-color: var(--c-1); }
+  .lang-switch .lang-lbl{
+    position:relative; z-index:2; flex:1; text-align:center; color:var(--ink-soft);
+    transition: color .25s ease;
+  }
+  .lang-switch .lang-knob{
+    position:absolute; top:4px; left:4px; width:34px; height:24px; border-radius:12px;
+    background: linear-gradient(135deg, var(--c-1), var(--c-4)); z-index:1;
+    transition: transform .25s cubic-bezier(.4,0,.2,1);
+    box-shadow:0 2px 6px rgba(124,58,237,.35);
+  }
+  .lang-switch[aria-checked="true"] .lang-knob{ transform: translateX(42px); }
+  .lang-switch[aria-checked="false"] .lang-lbl-en{ color:#fff; }
+  .lang-switch[aria-checked="true"] .lang-lbl-ms{ color:#fff; }
+
+  /* ---------- page title ---------- */
+  .page-title{ padding: 30px 8vw 6px; }
+  .page-title .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-soft); margin-bottom:10px; display:block;
+  }
+  .page-title h1{
+    font-size: clamp(26px, 5vw, 46px);
+    line-height:1.12;
+    font-weight:700;
+  }
+  .page-title h1 .accent-word{
+    background: linear-gradient(100deg, var(--c-1), var(--c-4) 55%, var(--c-3));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .page-title .sub{
+    margin-top:14px; max-width:66ch; color:var(--ink-soft); font-size:15px; line-height:1.6;
+  }
+  .page-title .ayah-block{
+    margin-top:18px; font-family:'Amiri', serif; direction:rtl; text-align:right; font-size:22px;
+    line-height:2; color:var(--ink); max-width:66ch;
+  }
+  .page-title .tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+  .page-title .tag{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; border:1.3px solid var(--line);
+    color:var(--ink-soft); font-weight:500; background:var(--paper);
+  }
+  .page-title .tag.warn{ border-color: var(--c-3); color: var(--c-3); background: var(--c-3-tint); }
+
+  /* ---------- layout ---------- */
+  .layout{
+    display:grid;
+    grid-template-columns: 260px minmax(0,1fr);
+    gap:0;
+    max-width:1400px; margin:0 auto;
+  }
+  nav.sidebar{
+    position:sticky; top: var(--header-h, 0px); align-self:start;
+    height: calc(100vh - var(--header-h, 0px)); overflow-y:auto;
+    padding: 28px 18px 40px 8vw;
+    border-right:1px solid var(--line);
+    scrollbar-width: thin;
+  }
+  nav.sidebar::-webkit-scrollbar{ width:6px; }
+  nav.sidebar::-webkit-scrollbar-thumb{ background:var(--line); border-radius:10px; }
+
+  .search-box{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:12px; padding:10px 12px; margin-bottom:18px;
+    background:var(--paper);
+  }
+  .search-box input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13.5px; width:100%; color:var(--ink);
+  }
+  .search-box svg{ flex:none; opacity:.5; }
+
+  .nav-actions{ display:flex; gap:8px; margin-bottom:18px; }
+  .nav-actions button{
+    flex:1; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    border:1.3px solid var(--line); background:#fff; color:var(--ink-soft);
+    padding:7px 8px; border-radius:9px; cursor:pointer; transition:.15s ease;
+  }
+  .nav-actions button:hover{ border-color:var(--ink); color:var(--ink); }
+
+  nav.sidebar ul{ list-style:none; margin:0; padding:0; border-left:2px solid var(--line-soft); }
+  nav.sidebar li a{
+    display:flex; align-items:center; gap:9px;
+    text-decoration:none; font-size:13.5px; color:var(--ink-soft);
+    padding:7px 0 7px 14px; border-left:2px solid transparent; margin-left:-2px;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  nav.sidebar li a .sw{ width:8px; height:8px; border-radius:3px; flex:none; background:var(--g-color); }
+  nav.sidebar li a:hover{ color:var(--ink); }
+  nav.sidebar li a.active{ color:var(--g-color); border-left-color: var(--g-color); font-weight:600; }
+  nav.sidebar li a[data-hidden="1"]{ display:none; }
+
+  main{ min-width:0; padding: 0 8vw 140px; }
+
+  section.class-section{ padding-top:56px; scroll-margin-top: 24px; }
+  section.class-section:first-child{ padding-top:44px; }
+
+  .class-head{
+    display:flex; align-items:baseline; gap:16px; flex-wrap:wrap;
+    padding-bottom:14px; margin-bottom:22px; border-bottom:3px solid var(--g-color);
+    position:relative;
+  }
+  .class-head .idx{
+    font-family:'IBM Plex Mono',monospace; font-size:14px; font-weight:700; color:#fff;
+    background:var(--g-color); padding:5px 10px; border-radius:8px;
+  }
+  .class-head h2{ font-size: clamp(20px,2.4vw,28px); color:var(--ink); }
+  .collapse-toggle{
+    margin-left:auto; width:34px; height:34px; border-radius:9px; border:1.5px solid var(--line);
+    background:#fff; color:var(--g-color); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: transform .3s ease, background .15s ease, border-color .15s ease;
+  }
+  .collapse-toggle:hover{ background: var(--g-tint); border-color: var(--g-color); }
+  .collapse-toggle svg{ transition: transform .3s ease; }
+  .collapse-toggle[aria-expanded="false"] svg{ transform: rotate(-90deg); }
+
+  .class-body-outer{ display:grid; grid-template-rows: 0fr; transition: grid-template-rows .38s ease; }
+  .class-body-outer.collapsed{ grid-template-rows: 0fr; }
+  .class-body-outer:not(.collapsed){ grid-template-rows: 1fr; }
+  .class-body-inner{ overflow:hidden; min-height:0; opacity:0; transition: opacity .25s ease .1s; }
+  .class-body-outer.collapsed .class-body-inner{ opacity:0; transition: opacity .18s ease; }
+  .class-body-outer:not(.collapsed) .class-body-inner{ opacity:1; }
+
+  /* content card */
+  .card{
+    background:#fff; border:1px solid var(--line); border-radius: var(--radius);
+    padding: 28px 30px; margin-bottom: 22px; position:relative; overflow:hidden;
+    border-left: 5px solid var(--g-color);
+  }
+  .card .card-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap;
+    margin-bottom:14px;
+  }
+  .card h3{ font-size:19px; font-weight:600; color:var(--ink); }
+  .card h3 .alt{ font-weight:400; color:var(--ink-soft); font-size:14px; display:block; margin-top:3px;}
+  .code-badge{
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:12px; color:#fff;
+    background: var(--g-color); padding:6px 12px; border-radius:8px; white-space:nowrap;
+  }
+
+  ul.points{ list-style:none; margin:0; padding:0; }
+  ul.points > li{
+    position:relative; padding: 10px 0 10px 34px; font-size:14.8px; line-height:1.65; color:#2b2d36;
+    border-top:1px solid var(--line-soft);
+  }
+  ul.points > li:first-child{ border-top:none; }
+  ul.points > li::before{
+    content:"—";
+    position:absolute; left:0; top:10px; width:22px; height:22px; border-radius:7px;
+    background: var(--g-tint); color:var(--g-color); font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:13px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  ul.points > li b, ul.points > li strong{ color:var(--g-color); }
+
+  .quote{
+    margin-top:16px; padding:16px 18px; border-radius:12px; background:var(--g-tint);
+    font-family:'Space Grotesk', sans-serif; font-size:16px; line-height:1.55; color:#20222a;
+    border-left:3px solid var(--g-color);
+  }
+  .quote footer{
+    margin-top:8px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    text-transform:uppercase; color:var(--ink-soft); font-style:normal;
+  }
+  .quote.ar-quote{ font-family:'Amiri', serif; direction:rtl; text-align:right; font-size:21px; line-height:2; }
+
+  .pill-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .pill-row .pill{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; background:#fff; border:1.3px solid var(--g-color);
+    color:var(--g-color); font-weight:600;
+  }
+
+  .stat-row{ display:flex; gap:14px; flex-wrap:wrap; margin-top:16px; }
+  .stat{
+    flex:1; min-width:120px; text-align:center; padding:16px 10px;
+    background:var(--g-tint); border-radius:12px;
+  }
+  .stat .num{ font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:26px; color:var(--g-color); display:block; }
+  .stat .label{ font-size:11.5px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.05em; margin-top:4px; }
+
+  /* opinion / comparison cards */
+  .lesson-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:6px; }
+  .lesson-grid.three{ grid-template-columns:1fr 1fr 1fr; }
+  @media (max-width:780px){ .lesson-grid, .lesson-grid.three{ grid-template-columns:1fr; } }
+  .lesson-card{
+    border-radius:var(--radius); padding:22px 22px; border:1.3px solid var(--line);
+  }
+  .lesson-card .kicker{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .lesson-card h4{ margin-top:8px; font-size:18px; }
+  .lesson-card p{ margin-top:10px; font-size:14px; line-height:1.6; color:#2b2d36; }
+
+  .table-wrap{
+    margin: 8px 0 40px; border:1px solid var(--line); border-radius:16px; overflow:auto; box-shadow:var(--shadow);
+  }
+  table.wordtable{ width:100%; border-collapse:collapse; font-size:13.6px; }
+  table.wordtable th{
+    background:var(--paper); text-align:left; font-family:'IBM Plex Mono',monospace; font-size:11px;
+    text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); padding:12px 16px; border-bottom:1px solid var(--line);
+  }
+  table.wordtable td{ padding:12px 16px; border-bottom:1px solid var(--line-soft); vertical-align:top; line-height:1.55; }
+  table.wordtable tr:last-child td{ border-bottom:none; }
+  table.wordtable td.word{ font-family:'Space Grotesk',sans-serif; font-weight:700; color:var(--g-color); white-space:nowrap; }
+
+  /* back to top */
+  #toTop{
+    position:fixed; right:26px; bottom:26px; width:46px; height:46px; border-radius:50%;
+    background:var(--ink); color:#fff; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,.22); opacity:0; pointer-events:none; transition: opacity .25s ease, transform .2s ease;
+    z-index:90;
+  }
+  #toTop.show{ opacity:1; pointer-events:auto; }
+  #toTop:hover{ transform: translateY(-3px); }
+
+  #empty-state{ display:none; padding:60px 0; text-align:center; color:var(--ink-soft); }
+  #empty-state.show{ display:block; }
+
+  /* floating quick-access launcher */
+  #quickFab{
+    position:fixed; left:26px; bottom:26px; width:52px; height:52px; border-radius:16px;
+    background: linear-gradient(135deg, var(--c-1), var(--c-4)); color:#fff; border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; z-index:95;
+    box-shadow:0 10px 28px -6px rgba(124,58,237,.5);
+    transition: transform .2s ease, border-radius .2s ease;
+  }
+  #quickFab:hover{ transform: translateY(-3px) scale(1.03); }
+  #quickFab.open{ border-radius:50%; }
+  #quickFab svg{ transition: transform .3s ease; }
+  #quickFab.open svg{ transform: rotate(45deg); }
+
+  #quickPanel{
+    position:fixed; left:26px; bottom:90px; width:280px; max-height:60vh; overflow-y:auto;
+    background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow);
+    z-index:94; padding:14px; opacity:0; transform: translateY(10px) scale(.97); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  #quickPanel.open{ opacity:1; transform: translateY(0) scale(1); pointer-events:auto; }
+  #qpList{ list-style:none; margin:0; padding:0; }
+  #qpList li{
+    display:flex; align-items:center; gap:8px; border-radius:10px; padding:2px;
+  }
+  #qpList li a{
+    flex:1; display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--ink);
+    font-size:13px; padding:8px; border-radius:10px; transition:background .15s ease;
+  }
+  #qpList li a:hover{ background:var(--paper); }
+  .qp-idx{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:700; color:#fff;
+    background: var(--qc, var(--c-1)); padding:2px 6px; border-radius:6px;
+  }
+  .qp-toggle{ padding:8px; cursor:pointer; color:var(--ink-soft); opacity:.6; }
+  .qp-toggle:hover{ opacity:1; }
+  #qpList li.is-collapsed .qp-toggle svg{ transform: rotate(-90deg); }
+  #qpList li .qp-toggle svg{ transition: transform .3s ease; }
+
+  @media (max-width: 980px){
+    .layout{ grid-template-columns: 1fr; }
+    nav.sidebar{ position:static; height:auto; border-right:none; border-bottom:1px solid var(--line); padding: 20px 6vw; }
+    main{ padding: 0 6vw 120px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001s !important; transition-duration:.001s !important; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body data-page="noumanalikhan">
+
+<div id="progress"></div>
+
+<header class="hero">
+  <div class="burger-wrap">
+    <button id="navBurger" class="burger-btn" aria-haspopup="true" aria-expanded="false" aria-label="Open navigation menu">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div id="navMenu" class="burger-menu"></div>
+  </div>
+  <div class="lang-switch-wrap">
+    <button id="langSwitch" class="lang-switch" role="switch" aria-checked="false" aria-label="Toggle language: English / Bahasa Melayu">
+      <span class="lang-lbl lang-lbl-en">EN</span>
+      <span class="lang-knob"></span>
+      <span class="lang-lbl lang-lbl-ms">MY</span>
+    </button>
+  </div>
+</header>
+
+<div class="ref-bar">
+  <span class="ref-label">Source</span>
+  <span class="ref-src">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+    <span class="t-en">Nouman Ali Khan on Sūrah An-Nāzi'āt (Ayāt 1–18)</span><span class="t-ms">Nouman Ali Khan tentang Surah An-Nāzi'āt (Ayat 1–18)</span>
+  </span>
+</div>
+
+<div class="page-title">
+  <span class="eyebrow"><span class="t-en">Tafsīr Notes · Makkī Sūrah</span><span class="t-ms">Nota Tafsir · Surah Makkiyyah</span></span>
+  <h1>Tafsir <span class="accent-word">An-Nāzi'āt</span> : 1–18</h1>
+  <div class="tag-row">
+    <span class="tag"><span class="t-en">Makkī Sūrah</span><span class="t-ms">Surah Makkiyyah</span></span>
+    <span class="tag"><span class="t-en">Continuation of Sūrah An-Naba'</span><span class="t-ms">Sambungan Surah An-Naba'</span></span>
+    <span class="tag"><span class="t-en">Al-Aqsām — the oaths</span><span class="t-ms">Al-Aqsām — sumpah-sumpah</span></span>
+    <span class="tag"><span class="t-en">Day of Resurrection</span><span class="t-ms">Hari Kebangkitan</span></span>
+    <span class="tag warn"><span class="t-en">Ayāt 1–18</span><span class="t-ms">Ayat 1–18</span></span>
+  </div>
+</div>
+
+<div class="layout">
+
+  <nav class="sidebar">
+    <div class="search-box">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="searchInput" type="text" placeholder="Search sections…">
+    </div>
+    <ul id="navList">
+      <li><a href="#s-01" data-key="introduction relation surah naba last day" style="--g-color:var(--c-1)"><span class="sw"></span><span class="t-en">Link to Sūrah Naba'</span><span class="t-ms">Kaitan dengan Surah Naba'</span></a></li>
+      <li><a href="#s-02" data-key="oaths aksaam quran wisdom function swearing" style="--g-color:var(--c-2)"><span class="sw"></span><span class="t-en">Understanding the Oaths</span><span class="t-ms">Memahami Sumpah-sumpah</span></a></li>
+      <li><a href="#s-03" data-key="ayah 1 naziat angels stars winds three opinions" style="--g-color:var(--c-3)"><span class="sw"></span><span class="t-en">Ayah 1 — An-Nāzi'āt</span><span class="t-ms">Ayat 1 — An-Nāzi'āt</span></a></li>
+      <li><a href="#s-04" data-key="ayah 2 nashitaat knot gentle" style="--g-color:var(--c-4)"><span class="sw"></span><span class="t-en">Ayah 2 — An-Nāshiṭāt</span><span class="t-ms">Ayat 2 — An-Nāshiṭāt</span></a></li>
+      <li><a href="#s-05" data-key="ayah 3 4 sabihaat sabiqaat swimmers racers clouds" style="--g-color:var(--c-5)"><span class="sw"></span><span class="t-en">Ayāt 3–4 — Swimmers &amp; Racers</span><span class="t-ms">Ayat 3–4 — Yang Berenang &amp; Yang Mendahului</span></a></li>
+      <li><a href="#s-06" data-key="ayah 5 mudabbiraat planning kayd makr heela" style="--g-color:var(--c-6)"><span class="sw"></span><span class="t-en">Ayah 5 — Al-Mudabbirāt</span><span class="t-ms">Ayat 5 — Al-Mudabbirāt</span></a></li>
+      <li><a href="#s-07" data-key="rhyme scheme hadf omitted response jawab qasam" style="--g-color:var(--c-1)"><span class="sw"></span><span class="t-en">The Unspoken Response</span><span class="t-ms">Jawapan Yang Tidak Disebut</span></a></li>
+      <li><a href="#s-08" data-key="ayah 6 7 8 rajifah radifah earthquake zalzala rajj maara" style="--g-color:var(--c-2)"><span class="sw"></span><span class="t-en">Ayāt 6–8 — The Two Quakes</span><span class="t-ms">Ayat 6–8 — Dua Gegaran</span></a></li>
+      <li><a href="#s-09" data-key="ayah 9 wajifah fear words khauf khashya khushoo taqwa" style="--g-color:var(--c-3)"><span class="sw"></span><span class="t-en">Ayah 9 — Vocabulary of Fear</span><span class="t-ms">Ayat 9 — Kosa Kata Ketakutan</span></a></li>
+      <li><a href="#s-10" data-key="ayah 10 absaruha khashiah eyes hearts iman" style="--g-color:var(--c-4)"><span class="sw"></span><span class="t-en">Ayah 10 — Eyes Tied to Hearts</span><span class="t-ms">Ayat 10 — Mata Yang Terikat Dengan Hati</span></a></li>
+      <li><a href="#s-11" data-key="ayah 11 12 sarcasm hafirah mardood nakhirah karra khasirah" style="--g-color:var(--c-5)"><span class="sw"></span><span class="t-en">Ayāt 11–12 — Their Sarcasm</span><span class="t-ms">Ayat 11–12 — Sindiran Mereka</span></a></li>
+      <li><a href="#s-12" data-key="ayah 13 14 zajratun wahidah sahirah open field mirage" style="--g-color:var(--c-6)"><span class="sw"></span><span class="t-en">Ayāt 13–14 — One Single Scolding</span><span class="t-ms">Ayat 13–14 — Satu Herdikan Sahaja</span></a></li>
+      <li><a href="#s-13" data-key="ayah 15 16 17 18 musa firaun tughyaan tazakka" style="--g-color:var(--c-1)"><span class="sw"></span><span class="t-en">Ayāt 15–18 — Mūsā &amp; Firʿawn</span><span class="t-ms">Ayat 15–18 — Mūsā &amp; Firʿawn</span></a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- 01 -->
+    <section class="class-section" id="s-01" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">01</span>
+        <h2><span class="t-en">Link to Sūrah An-Naba'</span><span class="t-ms">Kaitan dengan Surah An-Naba'</span></h2>
+        <button class="collapse-toggle" data-target="s-01" aria-expanded="false" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer collapsed" id="body-s-01">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3><span class="t-en">A continuation, with a small lapse, of the Last Day</span><span class="t-ms">Satu sambungan, dengan sedikit jeda, tentang Hari Akhirat</span></h3>
+            <span class="code-badge"><span class="t-en">Setting the scene</span><span class="t-ms">Latar belakang</span></span>
+          </div>
+          <ul class="points">
+            <li><span class="t-en">Sūrah An-Nāzi'āt is a Makkī sūrah, just like Sūrah An-Naba' that comes right before it — so the class begins by tying the end of An-Naba' to the opening of An-Nāzi'āt.</span><span class="t-ms">Surah An-Nāzi'āt ialah surah Makkiyyah, sama seperti Surah An-Naba' sebelumnya — maka kelas ini bermula dengan mengaitkan penutup An-Naba' dengan pembukaan An-Nāzi'āt.</span></li>
+            <li><span class="t-en">Towards the close of Sūrah An-Naba', Allah describes the Day the spirit and the angels stand in rows, and no one speaks except by His permission — "that is the True Day" (Qur'an 78:38–39).</span><span class="t-ms">Menjelang akhir Surah An-Naba', Allah menggambarkan Hari di mana roh dan para malaikat berdiri bersaf, dan tiada seorang pun berkata-kata kecuali dengan izin-Nya — "itulah hari yang pasti benar" (Qur'an 78:38–39).</span></li>
+            <li><span class="t-en">The conclusion of An-Naba' repeatedly circles back to the Last Day, describing the day the earth and the mountains will shake and hearts will tremble (Qur'an 78:6–9).</span><span class="t-ms">Penutup An-Naba' berulang kali kembali kepada Hari Akhirat, menggambarkan hari bumi dan gunung-ganang akan bergegar dan hati-hati akan gementar (Qur'an 78:6–9).</span></li>
+            <li><span class="t-en">The opening of An-Nāzi'āt reads like a continuation of that same Final Day, after a small pause — that is how the ending of one sūrah is tied to the beginning of the next.</span><span class="t-ms">Pembukaan An-Nāzi'āt seolah-olah sambungan kepada Hari Akhir yang sama itu, selepas satu jeda kecil — begitulah caranya penutup satu surah dikaitkan dengan pembukaan surah seterusnya.</span></li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section class="class-section" id="s-02" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">02</span>
+        <h2><span class="t-en">Understanding the Oaths</span><span class="t-ms">Memahami Sumpah-sumpah</span></h2>
+        <button class="collapse-toggle" data-target="s-02" aria-expanded="false" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer collapsed" id="body-s-02">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3><span class="t-en">Al-Aqsām fīl-Qur'ān — why does Allah swear by things?</span><span class="t-ms">Al-Aqsām fīl-Qur'ān — mengapa Allah bersumpah dengan sesuatu?</span></h3>
+            <span class="code-badge"><span class="t-en">Background</span><span class="t-ms">Latar belakang</span></span>
+          </div>
+          <ul class="points">
+            <li><span class="t-en">The sūrah opens with a series of oaths (<i>aqsām</i>) — a dedicated topic of study in the Qur'an, since Allah frequently swears by created things: the sun, the moon, the morning, the bright forenoon, the night, and time itself.</span><span class="t-ms">Surah ini bermula dengan satu siri sumpah (<i>aqsām</i>) — satu bidang kajian tersendiri dalam Al-Qur'an, kerana Allah sering bersumpah dengan makhluk ciptaan-Nya: matahari, bulan, waktu pagi, waktu dhuha, malam, dan masa itu sendiri.</span></li>
+            <li><span class="t-en">An early, common opinion among the tābi'īn is that Allah swears only by things that are sacred, powerful, or awe-inspiring.</span><span class="t-ms">Satu pendapat awal yang lazim di kalangan tābiʿīn ialah Allah hanya bersumpah dengan perkara yang suci, berkuasa, atau mengagumkan.</span></li>
+            <li><span class="t-en">Ibn al-Qayyim, in his book <i>Al-Tibyān fī Aqsām al-Qur'ān</i>, argued this isn't enough on its own — if sanctity were the only criterion, the specific oaths in one sūrah could be swapped with those in another sūrah without changing anything.</span><span class="t-ms">Ibn al-Qayyim, dalam kitabnya <i>Al-Tibyān fī Aqsām al-Qur'ān</i>, berhujah bahawa ini tidak memadai dengan sendirinya — jika kesucian sahaja menjadi kayu ukur, sumpah-sumpah tertentu dalam satu surah boleh ditukar ganti dengan surah lain tanpa mengubah apa-apa.</span></li>
+            <li><span class="t-en">His conclusion: the real key is not the sanctity of the object sworn by, but how the oath connects to and introduces the subject matter that follows in that sūrah — the clearest example being Sūrah Al-Qiyāmah (75), whose two oaths (the Day of Resurrection, and the blameworthy self) map exactly onto the sūrah's only two subjects.</span><span class="t-ms">Kesimpulannya: kunci sebenar bukanlah kesucian objek yang disumpah, tetapi bagaimana sumpah itu berkait dan memperkenalkan tajuk yang menyusul dalam surah tersebut — contoh paling jelas ialah Surah Al-Qiyāmah (75), di mana dua sumpahnya (Hari Kiamat, dan nafsu yang tercela) sepadan tepat dengan dua tajuk sahaja dalam surah itu.</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3><span class="t-en">Two functions of an oath in ordinary speech</span><span class="t-ms">Dua fungsi sumpah dalam pertuturan seharian</span></h3>
+            <span class="code-badge"><span class="t-en">Two functions</span><span class="t-ms">Dua fungsi</span></span>
+          </div>
+          <ul class="points">
+            <li><span class="t-en"><b>1 — Testimony:</b> an oath is used when the listener doesn't believe what's being said, so the speaker swears by something to become believable — the same reason people take an oath before testifying in court today. Even the mushrikūn swore by their children, tribe, or health.</span><span class="t-ms"><b>1 — Kesaksian:</b> sumpah digunakan apabila pendengar tidak percaya apa yang dikatakan, lalu penutur bersumpah dengan sesuatu untuk menjadi lebih dipercayai — sebab yang sama orang mengangkat sumpah sebelum memberi keterangan di mahkamah pada hari ini. Malah kaum musyrikin turut bersumpah dengan anak, kaum, atau kesihatan mereka.</span></li>
+            <li><span class="t-en"><b>2 — An illustration of anger / urgency:</b> a person swears when they aren't being taken seriously, e.g. "I swear, you'd better stop." In the Qur'an, an oath can likewise express Allah's seriousness about a matter people are taking lightly, to impress its magnitude on them.</span><span class="t-ms"><b>2 — Gambaran kemarahan / kepentingan:</b> seseorang bersumpah apabila kata-katanya tidak diambil serius, contohnya "Aku bersumpah, elok kau berhenti." Dalam Al-Qur'an, sumpah turut boleh menzahirkan keseriusan Allah tentang sesuatu perkara yang dipandang ringan oleh manusia, bagi menanamkan kepentingannya.</span></li>
+            <li><span class="t-en">Note on terminology: "swearing" here means taking an oath (the classical English sense), not modern profanity.</span><span class="t-ms">Nota istilah: "swearing" di sini bermaksud mengangkat sumpah (makna klasik dalam bahasa Inggeris), bukan kata-kata kesat moden.</span></li>
+            <li><span class="t-en">Finally, the oath is consistently a precursor — an introduction to the argument that is about to be made in that sūrah, which is exactly what unfolds across the rest of Sūrah An-Nāzi'āt.</span><span class="t-ms">Akhirnya, sumpah sentiasa berfungsi sebagai pendahuluan — satu pengenalan kepada hujah yang akan disampaikan dalam surah tersebut, dan itulah yang berlaku sepanjang baki Surah An-Nāzi'āt.</span></li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section class="class-section" id="s-03" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">03</span>
+        <h2><span class="t-en">Ayah 1 — An-Nāzi'āt</span><span class="t-ms">Ayat 1 — An-Nāzi'āt</span></h2>
+        <button class="collapse-toggle" data-target="s-03" aria-expanded="false" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer collapsed" id="body-s-03">
+      <div class="class-body-inner">
+        <div class="quote ar-quote">وَٱلنَّـٰزِعَـٰتِ غَرۡقًا
+          <footer><span class="t-en">Wa An-Nāzi'āti Gharqāa — "By those that pull out violently, having dived in"</span><span class="t-ms">Wa An-Nāzi'āti Gharqāa — "Demi (malaikat) yang mencabut (roh) dengan keras, setelah menyelam masuk"</span></footer>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3><span class="t-en">The linguistic picture: diving deep in, and yanking out</span><span class="t-ms">Gambaran bahasa: menyelam masuk, lalu mencabut keluar</span></h3>
+            <span class="code-badge"><span class="t-en">Grammar</span><span class="t-ms">Nahu</span></span>
+          </div>
+          <ul class="points">
+            <li><span class="t-en"><b>An-Nāzi'āt</b> comes from <i>naz'</i>, meaning to yank or pull something out violently.</span><span class="t-ms"><b>An-Nāzi'āt</b> berasal daripada <i>naz'</i>, bermaksud mencabut atau menarik sesuatu keluar dengan keras.</span></li>
+            <li><span class="t-en"><b>Gharqāa</b> means "having dived in," and is grammatically a <i>maf'ūl muṭlaq min ghairi lafẓihi</i> — a word used to emphasize the act (pulling out) without repeating its own root, reinforcing the image of something diving deep in before violently pulling something out.</span><span class="t-ms"><b>Gharqāa</b> bermaksud "setelah menyelam masuk," dan dari sudut nahu ia adalah <i>maf'ūl muṭlaq min ghairi lafẓihi</i> — perkataan yang digunakan untuk menegaskan perbuatan (mencabut) tanpa mengulangi akar katanya sendiri, memperkukuh gambaran sesuatu yang menyelam dalam sebelum mencabut keluar dengan keras.</span></li>
+            <li><span class="t-en">Baghawī reports, on the authority of Ibn ʿAbbās, that all the oaths in this sūrah ending in <i>-āt</i> refer to angels — this became the most popular opinion among the mufassirīn.</span><span class="t-ms">Al-Baghawī meriwayatkan, daripada Ibn ʿAbbās, bahawa semua sumpah dalam surah ini yang berakhir dengan <i>-āt</i> merujuk kepada para malaikat — ini menjadi pendapat paling popular di kalangan mufassirīn.</span></li>
+          </ul>
+        </div>
+        <div class="lesson-grid three">
+          <div class="lesson-card" style="border-color:var(--g-color); background:var(--g-tint)">
+            <span class="kicker"><span class="t-en">Opinion 1 · Majority</span><span class="t-ms">Pendapat 1 · Majoriti</span></span>
+            <h4><span class="t-en">The Angels</span><span class="t-ms">Para Malaikat</span></h4>
+            <p><span class="t-en">Angels who dive deep into the body and violently yank out the resistant soul of the disbeliever — the most widely held view among the mufassirīn.</span><span class="t-ms">Para malaikat yang menyelam dalam ke tubuh dan mencabut keluar roh orang kafir yang melawan — pandangan yang paling meluas dipegang di kalangan mufassirīn.</span></p>
+          </div>
+          <div class="lesson-card">
+            <span class="kicker"><span class="t-en">Opinion 2 · Ḥasan al-Baṣrī</span><span class="t-ms">Pendapat 2 · Ḥasan al-Baṣrī</span></span>
+            <h4><span class="t-en">The Stars</span><span class="t-ms">Bintang-bintang</span></h4>
+            <p><span class="t-en">Stars "yanked" out of the sky — reflecting the Arabs' experience of watching a comet or shooting star and describing it as something torn from the heavens.</span><span class="t-ms">Bintang-bintang yang "dicabut" dari langit — mencerminkan pengalaman orang Arab menyaksikan komet atau bintang jatuh dan menggambarkannya sebagai sesuatu yang tersentak dari langit.</span></p>
+          </div>
+          <div class="lesson-card">
+            <span class="kicker"><span class="t-en">Opinion 3 · Islāḥī and others</span><span class="t-ms">Pendapat 3 · Islāḥī dan lain-lain</span></span>
+            <h4><span class="t-en">The Winds</span><span class="t-ms">Angin</span></h4>
+            <p><span class="t-en">The feminine <i>-āt</i> plural pattern is used elsewhere for winds (al-Mursalāt, adh-Dhāriyāt, al-Jāriyāt), and the Qur'an criticizes attributing femininity to angels — while angels, when plural, are consistently described with the masculine plural form.</span><span class="t-ms">Pola jamak muannats <i>-āt</i> digunakan di tempat lain untuk angin (al-Mursalāt, adh-Dhāriyāt, al-Jāriyāt), dan Al-Qur'an mengkritik sifat keperempuanan yang dinisbahkan kepada malaikat — sedangkan malaikat, apabila jamak, sentiasa digambarkan dengan bentuk jamak mudzakkar.</span></p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3><span class="t-en">The case for "winds" — Islāḥī's criticisms of the angel view</span><span class="t-ms">Hujah bagi "angin" — kritikan Islāḥī terhadap pandangan malaikat</span></h3>
+            <span class="code-badge"><span class="t-en">Closer look</span><span class="t-ms">Kajian lanjut</span></span>
+          </div>
+          <ul class="points">
+            <li><span class="t-en">An-Nāzi'āt is a feminine plural (<i>jamʿ mu'annas sālim</i>), yet the Qur'an rejects attributing femininity to angels — "Has your Lord taken daughters, and from among the angels females?" (Qur'an 17:40).</span><span class="t-ms">An-Nāzi'āt ialah jamak muannats (<i>jamʿ mu'annas sālim</i>), namun Al-Qur'an menolak sifat keperempuanan dinisbahkan kepada malaikat — "Adakah Tuhanmu mengambil anak-anak perempuan, dan Dia mengambil daripada kalangan malaikat itu perempuan?" (Qur'an 17:40).</span></li>
+            <li><span class="t-en">When the Qur'an speaks of angels in the plural, it consistently uses the masculine plural form (e.g. <i>munzalīn, musawwimīn, murdafīn</i>), not the feminine.</span><span class="t-ms">Apabila Al-Qur'an menyebut malaikat dalam bentuk jamak, ia sentiasa menggunakan bentuk jamak mudzakkar (contohnya <i>munzalīn, musawwimīn, murdafīn</i>), bukan bentuk muannats.</span></li>
+            <li><span class="t-en">Even where a feminine verb appears with angels (e.g. <i>qālat il-malā'ika</i>), this is a separate Arabic grammar rule (<i>jam' taksīr</i> taking a feminine-singular verb form) — not evidence of femininity, since the reverse order uses the masculine (<i>al-malā'ikatu qālū</i>).</span><span class="t-ms">Walaupun kata kerja muannats muncul bersama malaikat (contohnya <i>qālat il-malā'ika</i>), ini adalah kaedah nahu Arab yang berasingan (<i>jam' taksīr</i> mengambil bentuk kata kerja muannats-tunggal) — bukan bukti keperempuanan, kerana jika susunan dibalikkan, bentuk mudzakkar digunakan (<i>al-malā'ikatu qālū</i>).</span></li>
+            <li><span class="t-en">Hadith describe the soul leaving from the toe and the angels pulling the soul out — not "diving in," as <i>gharqan</i> implies — and this meaning is not explicitly attested elsewhere.</span><span class="t-ms">Hadis menggambarkan roh keluar dari jari kaki dan malaikat menariknya keluar — bukan "menyelam masuk" seperti yang tersirat dalam <i>gharqan</i> — dan makna ini tidak dinyatakan secara jelas di tempat lain.</span></li>
+            <li><span class="t-en">Supporting evidence for "winds": Allah says He sent upon them a screeching wind that <i>tanzi'u</i> (snatches/plucks) people away (Qur'an 54:19–20) — <i>tanzi'u</i> shares the same root as <i>Nāzi'āt</i>.</span><span class="t-ms">Dalil sokongan bagi "angin": Allah berfirman bahawa Dia menghantar ke atas mereka angin yang bergemuruh yang <i>tanzi'u</i> (mencabut/merenggut) manusia (Qur'an 54:19–20) — <i>tanzi'u</i> berkongsi akar kata yang sama dengan <i>Nāzi'āt</i>.</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3><span class="t-en">Reconciling the two opinions</span><span class="t-ms">Menggabungkan dua pendapat</span></h3>
+            <span class="code-badge"><span class="t-en">Resolution</span><span class="t-ms">Kesimpulan</span></span>
+          </div>
+          <ul class="points">
+            <li><span class="t-en">Sometimes the Qur'an's text is deliberately open to more than one understanding — the range of early scholarly opinion is itself proof that this is not an absolute (<i>muṭlaq</i>) matter with only one correct answer.</span><span class="t-ms">Kadangkala teks Al-Qur'an sengaja dibiarkan terbuka kepada lebih daripada satu pemahaman — kepelbagaian pendapat ulama awal itu sendiri menjadi bukti bahawa ini bukan perkara mutlak (<i>muṭlaq</i>) yang hanya ada satu jawapan yang betul.</span></li>
+            <li><span class="t-en">Makkan Qur'an is primarily addressing disbelievers who take the words at face value and walk away — they are not stopping to ask for tafsīr. So a key principle of interpreting Makkan Qur'an is understanding how the mushrik Arab would have understood the words in the moment.</span><span class="t-ms">Al-Qur'an Makkiyyah pada asalnya berbicara kepada orang kafir yang menerima kata-kata itu secara zahir lalu berlalu pergi — mereka tidak berhenti untuk bertanya tafsir. Maka satu prinsip penting dalam mentafsir Al-Qur'an Makkiyyah ialah memahami bagaimana orang musyrik Arab akan memahami kata-kata itu pada ketika itu.</span></li>
+            <li><span class="t-en">The mushrik most likely understood <i>An-Nāzi'āt</i> as the winds; the deeper meaning of angels remains valid and relevant, especially for the believer, without invalidating the surface meaning grasped by the mushrik.</span><span class="t-ms">Orang musyrik kemungkinan besar memahami <i>An-Nāzi'āt</i> sebagai angin; makna yang lebih mendalam iaitu malaikat tetap sah dan relevan, terutamanya bagi orang beriman, tanpa membatalkan makna zahir yang difahami oleh orang musyrik.</span></li>
+            <li><span class="t-en">Parallel example: "He knows what enters the earth and what comes out of it" (Qur'an 34:2) — the mushrik pictures rain and plants; the believer additionally understands it as a reference to burial and resurrection. Same words, different depths of understanding for different audiences.</span><span class="t-ms">Contoh serupa: "Dia mengetahui apa yang masuk ke bumi dan apa yang keluar daripadanya" (Qur'an 34:2) — orang musyrik membayangkan hujan dan tumbuhan; orang beriman pula turut memahaminya sebagai rujukan kepada pengebumian dan kebangkitan. Kata-kata yang sama, kedalaman pemahaman yang berbeza bagi khalayak yang berbeza.</span></li>
+            <li><span class="t-en">If the oath refers to winds, Allah is swearing by hurricane or tornado winds that yank up trees and buildings by their roots. If it refers to angels, it is the angels diving deep into the body to rip out the resisting soul of the disbeliever.</span><span class="t-ms">Jika sumpah itu merujuk kepada angin, Allah bersumpah dengan angin puting beliung atau ribut yang mencabut pokok dan bangunan sehingga ke akar umbi. Jika ia merujuk kepada malaikat, ia adalah malaikat yang menyelam dalam ke tubuh untuk merenggut keluar roh orang kafir yang melawan.</span></li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 04 -->
+    <section class="class-section" id="s-04" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">04</span>
+        <h2><span class="t-en">Ayah 2 — An-Nāshiṭāt</span><span class="t-ms">Ayat 2 — An-Nāshiṭāt</span></h2>
+        <button class="collapse-toggle" data-target="s-04" aria-expanded="false" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer collapsed" id="body-s-04">
+      <div class="class-body-inner">
+        <div class="quote ar-quote">وَٱلنَّـٰشِطَـٰتِ نَشۡطًا
+          <footer><span class="t-en">Wa An-Nāshiṭāti Nashṭāa</span><span class="t-ms">Wa An-Nāshiṭāti Nashṭāa</span></footer>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3><span class="t-en">Undoing a loose knot, without any effort</span><span class="t-ms">Melerai simpulan yang longgar, tanpa sebarang usaha</span></h3>
+            <span class="code-badge"><span class="t-en">Contrast with Ayah 1</span><span class="t-ms">Perbandingan dengan Ayat 1</span></span>
+          </div>
+          <ul class="points">
+            <li><span class="t-en"><i>Nasht</i> in Arabic refers to undoing a knot effortlessly — the same word describes a loosely-tied animal that wiggles free of its knot on its own.</span><span class="t-ms"><i>Nasht</i> dalam bahasa Arab merujuk kepada melerai simpulan tanpa sebarang kesukaran — perkataan yang sama menggambarkan haiwan yang terikat longgar dan boleh terlerai sendiri dengan sedikit gerakan.</span></li>
+            <li><span class="t-en">If this refers to angels: it describes angels who enter the body seamlessly and remove the soul in a smooth process, needing no force — the soul of the believer, in contrast with the violent yanking of Ayah 1.</span><span class="t-ms">Jika ini merujuk kepada malaikat: ia menggambarkan malaikat yang masuk ke tubuh dengan lancar dan mengeluarkan roh secara lembut, tanpa memerlukan sebarang kekerasan — iaitu roh orang beriman, berbeza dengan cabutan keras dalam Ayat 1.</span></li>
+            <li><span class="t-en">If this refers to winds: it describes a smooth, calm breeze — a source of comfort and even pleasure, especially in desert life.</span><span class="t-ms">Jika ini merujuk kepada angin: ia menggambarkan bayu yang lembut dan tenang — sumber keselesaan malah kenikmatan, terutamanya dalam kehidupan padang pasir.</span></li>
+            <li><span class="t-en">The two ayāt together present two opposite kinds of wind, or two opposite kinds of soul-taking: violent and forceful (Ayah 1) versus smooth and gentle (Ayah 2).</span><span class="t-ms">Kedua-dua ayat ini bersama-sama menggambarkan dua jenis angin yang bertentangan, atau dua cara pencabutan roh yang bertentangan: keras dan kuat (Ayat 1) berbanding lembut dan tenang (Ayat 2).</span></li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 05 -->
+    <section class="class-section" id="s-05" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">05</span>
+        <h2><span class="t-en">Ayāt 3–4 — Swimmers &amp; Racers</span><span class="t-ms">Ayat 3–4 — Yang Berenang &amp; Yang Mendahului</span></h2>
+        <button class="collapse-toggle" data-target="s-05" aria-expanded="false" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer collapsed" id="body-s-05">
+      <div class="class-body-inner">
+        <div class="quote ar-quote">وَٱلسَّـٰبِحَـٰتِ سَبۡحًا فَٱلسَّـٰبِقَـٰتِ سَبۡقًا
+          <footer><span class="t-en">Wa As-Sābiḥāti Sabḥāa … Fālssābiqāti Sabqāa</span><span class="t-ms">Wa As-Sābiḥāti Sabḥāa … Fālssābiqāti Sabqāa</span></footer>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3><span class="t-en">A single connected process, not two separate images</span><span class="t-ms">Satu proses yang berkait, bukan dua gambaran berasingan</span></h3>
+            <span class="code-badge"><span class="t-en">Two ayāt, one thread</span><span class="t-ms">Dua ayat, satu benang</span></span>
+          </div>
+          <ul class="points">
+            <li><span class="t-en"><b>Sabḥ</b> means to swim quickly and smoothly (as opposed to swimming with splashing and effort). If referring to angels, this is them diving seamlessly inside the body, searching for the soul. If referring to wind, these are clouds swimming through the air, pushed along by the wind.</span><span class="t-ms"><b>Sabḥ</b> bermaksud berenang dengan pantas dan lancar (berbeza dengan berenang dengan percikan dan usaha keras). Jika merujuk kepada malaikat, ini ialah mereka menyelam dengan lancar ke dalam tubuh, mencari roh. Jika merujuk kepada angin, ini ialah awan yang terapung di udara, didorong oleh angin.</span></li>
+            <li><span class="t-en"><b>Sabaq</b> refers to a race — one thing overtaking another. The connecting <i>fa</i> at the start of <i>Fālssābiqāti</i> shows this ayah is directly linked to the one before it, unlike Ayāt 1–2 which are separated by <i>waw</i> because they describe two contrasting things.</span><span class="t-ms"><b>Sabaq</b> merujuk kepada perlumbaan — sesuatu yang mendahului yang lain. Huruf <i>fa</i> penghubung pada awal <i>Fālssābiqāti</i> menunjukkan ayat ini terus berkait dengan ayat sebelumnya, berbeza dengan Ayat 1–2 yang dipisahkan oleh <i>waw</i> kerana kedua-duanya menggambarkan dua perkara yang bertentangan.</span></li>
+            <li><span class="t-en">Together, <i>As-Sābiḥāt</i> and <i>Fālssābiqāt</i> describe one process: (a) swimming/floating, then (b) racing ahead of others — the angels racing to deliver souls for judgment, or clouds where some move faster than others, overtaking one another in the sky.</span><span class="t-ms">Bersama-sama, <i>As-Sābiḥāt</i> dan <i>Fālssābiqāt</i> menggambarkan satu proses: (a) berenang/terapung, kemudian (b) mendahului yang lain — para malaikat berlumba menghantar roh untuk dihisab, atau awan di mana sebahagiannya bergerak lebih pantas, saling mendahului di langit.</span></li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 06 -->
+    <section class="class-section" id="s-06" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">06</span>
+        <h2><span class="t-en">Ayah 5 — Al-Mudabbirāt</span><span class="t-ms">Ayat 5 — Al-Mudabbirāt</span></h2>
+        <button class="collapse-toggle" data-target="s-06" aria-expanded="false" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer collapsed" id="body-s-06">
+      <div class="class-body-inner">
+        <div class="quote ar-quote">فَٱلۡمُدَبِّرَٲتِ أَمۡرًا
+          <footer><span class="t-en">Fālmudabbirāti 'Amrāa</span><span class="t-ms">Fālmudabbirāti 'Amrāa</span></footer>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3><span class="t-en">Those who execute the command with thorough planning</span><span class="t-ms">Mereka yang melaksanakan perintah dengan perancangan yang teliti</span></h3>
+            <span class="code-badge"><span class="t-en">Ism fāʿil of tadbīr</span><span class="t-ms">Ism fāʿil daripada tadbīr</span></span>
+          </div>
+          <ul class="points">
+            <li><span class="t-en"><b>Mudabbirāt</b> is an <i>ism fāʿil</i> from <i>tadbīr</i>, which means thorough planning, organization, and complete execution of a matter — and comes from the root <i>dubr</i> ("the back of something"): to step back from a matter, think it through, then return to execute it.</span><span class="t-ms"><b>Mudabbirāt</b> ialah <i>ism fāʿil</i> daripada <i>tadbīr</i>, yang bermaksud perancangan yang teliti, penyusunan, dan pelaksanaan sepenuhnya sesuatu perkara — dan berasal daripada akar kata <i>dubr</i> ("bahagian belakang sesuatu"): mengundur diri daripada sesuatu perkara, memikirkannya dengan mendalam, lalu kembali untuk melaksanakannya.</span></li>
+            <li><span class="t-en">If referring to angels: they are assigned different tasks by Allah and carry them out diligently and in an organized fashion.</span><span class="t-ms">Jika merujuk kepada malaikat: mereka diberi tugasan berbeza oleh Allah dan melaksanakannya dengan tekun dan tersusun.</span></li>
+            <li><span class="t-en">If referring to winds: they carry out Allah's command of distributing clouds, rain, dust, and pollen — the means by which plant life, and therefore all life, is sustained on earth. Some places receive rain and become lush; others are left dry and become places of drought and famine, all according to Allah's plan.</span><span class="t-ms">Jika merujuk kepada angin: ia melaksanakan perintah Allah mengedarkan awan, hujan, debu, dan debunga — cara kehidupan tumbuhan, dan seterusnya seluruh kehidupan, dikekalkan di bumi. Sebahagian tempat menerima hujan dan menjadi subur; sebahagian lain dibiarkan kering dan menjadi tempat kemarau dan kebuluran, semuanya menurut perancangan Allah.</span></li>
+            <li><span class="t-en">A parallel appears in Sūrah al-Mursalāt: "those that spread out (the clouds)... those that separate/distribute" (Qur'an 77:3–4), reinforcing the wind's role in distributing rain and clouds by Allah's command.</span><span class="t-ms">Perbandingan serupa muncul dalam Surah al-Mursalāt: "yang menyebarkan (awan)... yang memisahkan/mengedarkan" (Qur'an 77:3–4), memperkukuh peranan angin dalam mengedarkan hujan dan awan menurut perintah Allah.</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3><span class="t-en">Other words for "planning" in the Qur'an</span><span class="t-ms">Perkataan lain untuk "perancangan" dalam Al-Qur'an</span></h3>
+            <span class="code-badge"><span class="t-en">Vocabulary</span><span class="t-ms">Kosa kata</span></span>
+          </div>
+          <ul class="points">
+            <li><span class="t-en"><b>Tadbīr</b> — thorough, organized planning and execution (used in this ayah, <i>mudabbirāt</i>).</span><span class="t-ms"><b>Tadbīr</b> — perancangan dan pelaksanaan yang teliti dan tersusun (digunakan dalam ayat ini, <i>mudabbirāt</i>).</span></li>
+            <li><span class="t-en"><b>Kayd</b> — a secret plan; its defining feature is secrecy, since exposing it would ruin it (e.g. Qur'an 77:39, 12:76).</span><span class="t-ms"><b>Kayd</b> — rancangan rahsia; ciri utamanya ialah kerahsiaan, kerana mendedahkannya akan merosakkannya (contohnya Qur'an 77:39, 12:76).</span></li>
+            <li><span class="t-en"><b>Makr</b> — a plan with an element of conflict, used in retaliation against an enemy. When attributed to Allah (Qur'an 3:54), it is always used in response to a plot initiated first by the wrongdoer, never as an unprovoked act.</span><span class="t-ms"><b>Makr</b> — rancangan yang mengandungi unsur konflik, digunakan sebagai balasan terhadap musuh. Apabila dinisbahkan kepada Allah (Qur'an 3:54), ia sentiasa digunakan sebagai balasan kepada rancangan yang dimulakan terlebih dahulu oleh pihak yang zalim, bukan sebagai tindakan tanpa sebab.</span></li>
+            <li><span class="t-en"><b>Ḥīlah</b> — a clever plan aimed at maximizing benefit or minimizing harm without technically breaking the law, by working around the system (e.g. Qur'an 4:98) — the example given is gifting away wealth right before zakāh season, then having it gifted back afterward.</span><span class="t-ms"><b>Ḥīlah</b> — rancangan bijak untuk memaksimumkan manfaat atau meminimumkan mudarat tanpa melanggar hukum secara literal, dengan mencari jalan sekitar sistem (contohnya Qur'an 4:98) — contoh yang diberikan ialah menghadiahkan harta sejurus sebelum musim zakat, kemudian dihadiahkan semula selepasnya.</span></li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 07 -->
+    <section class="class-section" id="s-07" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">07</span>
+        <h2><span class="t-en">The Unspoken Response</span><span class="t-ms">Jawapan Yang Tidak Disebut</span></h2>
+        <button class="collapse-toggle" data-target="s-07" aria-expanded="false" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer collapsed" id="body-s-07">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3><span class="t-en">Why Allah doesn't finish the sentence "I swear by X, that..."</span><span class="t-ms">Mengapa Allah tidak menghabiskan ayat "Aku bersumpah dengan X, bahawa..."</span></h3>
+            <span class="code-badge"><span class="t-en">Rhyme &amp; omission</span><span class="t-ms">Rima &amp; peninggalan</span></span>
+          </div>
+          <ul class="points">
+            <li><span class="t-en">The five oaths of Ayāt 1–5 all rhyme (<i>Gharqā... Nashṭā... Sabḥā... Sabqā... Amrā</i>), and the following ayāt about the Day of Judgment continue the same rhyme scheme — the subject matter of the Qur'an is organized by rhyme as well as meaning, reflecting a unified subject.</span><span class="t-ms">Kelima-lima sumpah dalam Ayat 1–5 semuanya berima (<i>Gharqā... Nashṭā... Sabḥā... Sabqā... Amrā</i>), dan ayat-ayat berikutnya tentang Hari Kiamat meneruskan skema rima yang sama — kandungan Al-Qur'an disusun bukan sahaja mengikut makna tetapi juga rima, mencerminkan satu tajuk yang bersatu.</span></li>
+            <li><span class="t-en">Normally, an oath is followed by a stated conclusion ("I swear by X, I'm going to do this"). Here, that conclusion (<i>jawāb al-qasam</i>) is <i>ḥadf</i> — omitted — because it was already spelled out in a related earlier sūrah (Sūrah al-Mursalāt 77:1–7, ending "indeed, what you are promised will occur").</span><span class="t-ms">Biasanya, sumpah diikuti dengan kesimpulan yang dinyatakan ("Aku bersumpah dengan X, aku akan lakukan ini"). Di sini, kesimpulan itu (<i>jawāb al-qasam</i>) adalah <i>ḥadf</i> — ditinggalkan — kerana ia telahpun dinyatakan dalam surah terdahulu yang berkaitan (Surah al-Mursalāt 77:1–7, berakhir dengan "sesungguhnya apa yang dijanjikan kepada kamu pasti akan berlaku").</span></li>
+            <li><span class="t-en">This omission forces the reader to look at the tafsīr of similar sūrahs for the implied conclusion, and it is understood that the coming subject is resurrection.</span><span class="t-ms">Peninggalan ini mendorong pembaca meneliti tafsir surah-surah yang serupa untuk kesimpulan yang tersirat, dan difahami bahawa tajuk yang akan datang ialah kebangkitan semula.</span></li>
+            <li><span class="t-en">The omission also has rhetorical benefits: it drives the listener to keep listening in anticipation, since their expectation is not immediately satisfied.</span><span class="t-ms">Peninggalan ini juga mempunyai manfaat retorik: ia mendorong pendengar terus mendengar dengan penuh harapan, kerana jangkaan mereka tidak dipenuhi dengan segera.</span></li>
+            <li><span class="t-en">Contrast with Sūrah An-Naba': there, the sceptics' questioning comes first, then the description of the Hereafter. Here, the sequence is reversed — the Hereafter is described first, and the sceptics' sarcasm comes later (Ayah 10). This mirrored reversal is a known Arabic literary device (<i>al-laff wa an-nashr ʿalā al-ʿaks</i>) — like a mirror image, organized in reverse.</span><span class="t-ms">Perbandingan dengan Surah An-Naba': di sana, persoalan golongan skeptik datang dahulu, kemudian barulah gambaran Akhirat. Di sini, susunannya berbalik — Akhirat digambarkan dahulu, dan sindiran golongan skeptik menyusul kemudian (Ayat 10). Pembalikan bercermin ini adalah satu teknik sastera Arab yang dikenali (<i>al-laff wa an-nashr ʿalā al-ʿaks</i>) — seperti bayangan cermin, disusun secara terbalik.</span></li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 08 -->
+    <section class="class-section" id="s-08" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">08</span>
+        <h2><span class="t-en">Ayāt 6–8 — The Two Quakes</span><span class="t-ms">Ayat 6–8 — Dua Gegaran</span></h2>
+        <button class="collapse-toggle" data-target="s-08" aria-expanded="false" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer collapsed" id="body-s-08">
+      <div class="class-body-inner">
+        <div class="quote ar-quote">يَوۡمَ تَرۡجُفُ ٱلرَّاجِفَةُ ۝ تَتۡبَعُهَا ٱلرَّادِفَةُ
+          <footer><span class="t-en">Yawma Tarjufu Ar-Rājifah — Tatba'uhā Ar-Rādifah</span><span class="t-ms">Yawma Tarjufu Ar-Rājifah — Tatba'uhā Ar-Rādifah</span></footer>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3><span class="t-en">Distinguishing the Qur'an's words for "shaking"</span><span class="t-ms">Membezakan perkataan-perkataan Al-Qur'an bagi "gegaran"</span></h3>
+            <span class="code-badge"><span class="t-en">Synonym study</span><span class="t-ms">Kajian sinonim</span></span>
+          </div>
+          <ul class="points">
+            <li><span class="t-en"><b>Zalzalah</b> — from <i>zalla</i> ("feet slipping"); the doubled root implies repetition, i.e. the feet keep tripping, as in an earthquake (Qur'an 99:1).</span><span class="t-ms"><b>Zalzalah</b> — daripada <i>zalla</i> ("kaki tergelincir"); pengulangan akar kata menandakan pengulangan perbuatan, iaitu kaki terus tersadung, seperti dalam gempa bumi (Qur'an 99:1).</span></li>
+            <li><span class="t-en"><b>Rajj</b> — the initial jerk, when something stationary is suddenly set into motion; according to the ulema, this describes the very first moment of an earthquake (Qur'an 56:4).</span><span class="t-ms"><b>Rajj</b> — sentakan awal, apabila sesuatu yang pegun tiba-tiba bergerak; menurut ulama, ini menggambarkan detik pertama sesuatu gempa bumi (Qur'an 56:4).</span></li>
+            <li><span class="t-en"><b>Mā'ir</b> — describes the shaking feeling of riding a fast horse or having a large animal rush past, simulating an earthquake without one actually occurring (Qur'an 52:9).</span><span class="t-ms"><b>Mā'ir</b> — menggambarkan rasa gegar seperti menunggang kuda yang laju atau haiwan besar yang lalu dengan pantas, meniru rasa gempa bumi tanpa gempa sebenar berlaku (Qur'an 52:9).</span></li>
+            <li><span class="t-en"><b>Rājifah</b> — the word used in this ayah: "that which is meant to rattle." Notably, Allah does not name the earth as the subject here — elsewhere (Qur'an 73:14) He explicitly says the earth and mountains will shake and crumble like loose sand dunes, but here the rattling itself, <i>Ar-Rājifah</i>, is made the subject, showing that shaking on that Day is the earth's final destiny — unavoidable and definitive.</span><span class="t-ms"><b>Rājifah</b> — perkataan yang digunakan dalam ayat ini: "sesuatu yang ditakdirkan untuk bergegar." Menariknya, Allah tidak menamakan bumi sebagai subjek di sini — di tempat lain (Qur'an 73:14) Dia menyatakan secara jelas bahawa bumi dan gunung-ganang akan bergegar dan runtuh seperti bukit pasir yang longgar, tetapi di sini gegaran itu sendiri, <i>Ar-Rājifah</i>, dijadikan subjek, menunjukkan bahawa gegaran pada Hari itu adalah destinasi akhir bumi — tidak dapat dielakkan dan pasti berlaku.</span></li>
+            <li><span class="t-en"><i>Rajaf</i> also depicts not just physical motion but the resulting state of discomfort and disarray in the one affected by it.</span><span class="t-ms"><i>Rajaf</i> turut menggambarkan bukan sahaja pergerakan fizikal tetapi juga keadaan tidak selesa dan kekacauan yang dialami oleh sesiapa yang terkena kesannya.</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3><span class="t-en">Two trumpet blasts, one following the other</span><span class="t-ms">Dua tiupan sangkakala, satu menyusuli yang lain</span></h3>
+            <span class="code-badge"><span class="t-en">Rādifah — "riding behind"</span><span class="t-ms">Rādifah — "menunggang di belakang"</span></span>
+          </div>
+          <ul class="points">
+            <li><span class="t-en"><b>Radf</b> literally means the one riding behind you on a camel or horse — today, someone sitting in the back seat of a car — following wherever you go, on the same ride.</span><span class="t-ms"><b>Radf</b> secara literal bermaksud orang yang menunggang di belakang anda di atas unta atau kuda — pada hari ini, seseorang yang duduk di tempat duduk belakang kereta — mengikuti ke mana sahaja anda pergi, dalam perjalanan yang sama.</span></li>
+            <li><span class="t-en">The <i>Rādifah</i> is a second violent shaking that follows the first (<i>Rājifah</i>), understood by many ulema as the second blowing of the trumpet — connecting back to "the trumpet will be blown" mentioned in the previous sūrah (An-Naba').</span><span class="t-ms"><i>Rādifah</i> ialah gegaran keras kedua yang menyusuli yang pertama (<i>Rājifah</i>), difahami oleh ramai ulama sebagai tiupan sangkakala yang kedua — mengaitkan kembali dengan "sangkakala akan ditiup" yang disebut dalam surah sebelumnya (An-Naba').</span></li>
+            <li><span class="t-en">Distinguishing near-synonyms for "following": <i>khalf</i> means following chronologically (one thing, then another); <i>radf</i> means being literally positioned right behind and moving along with; <i>tālā</i> means to follow carefully and repeatedly, as used for the sun and moon following their paths.</span><span class="t-ms">Membezakan sinonim hampir bagi "mengikuti": <i>khalf</i> bermaksud mengikuti mengikut kronologi (satu perkara, kemudian yang lain); <i>radf</i> bermaksud diletakkan secara literal betul-betul di belakang dan bergerak bersama; <i>tālā</i> bermaksud mengikuti dengan teliti dan berulang, seperti digunakan bagi matahari dan bulan yang mengikuti laluan masing-masing.</span></li>
+            <li><span class="t-en">Words very close in meaning but not identical are called <i>mutarādifāt</i> in Arabic — the origin of the term "synonym."</span><span class="t-ms">Perkataan yang sangat hampir maknanya tetapi tidak sama disebut <i>mutarādifāt</i> dalam bahasa Arab — asal-usul istilah "sinonim."</span></li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 09 -->
+    <section class="class-section" id="s-09" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">09</span>
+        <h2><span class="t-en">Ayah 9 — Vocabulary of Fear</span><span class="t-ms">Ayat 9 — Kosa Kata Ketakutan</span></h2>
+        <button class="collapse-toggle" data-target="s-09" aria-expanded="false" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer collapsed" id="body-s-09">
+      <div class="class-body-inner">
+        <div class="quote ar-quote">قُلُوبٌ۬ يَوۡمَٮِٕذٍ۬ وَاجِفَةٌ
+          <footer><span class="t-en">Qulūbun Yawma'idhin Wājifah — "Hearts, that Day, will be Wājifah"</span><span class="t-ms">Qulūbun Yawma'idhin Wājifah — "Hati-hati, pada Hari itu, akan menjadi Wājifah"</span></footer>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3><span class="t-en">Why "some hearts," and why translations fall short</span><span class="t-ms">Mengapa "sebahagian hati," dan mengapa terjemahan tidak mencukupi</span></h3>
+            <span class="code-badge"><span class="t-en">Nuance</span><span class="t-ms">Kehalusan makna</span></span>
+          </div>
+          <ul class="points">
+            <li><span class="t-en">By mentioning <i>Qulūbun</i> without the definite article "Al" (unusual for this sentence structure), the ayah implies only <i>some</i> hearts — not all — will experience this particular terror on that Day.</span><span class="t-ms">Dengan menyebut <i>Qulūbun</i> tanpa kata alif-lam "Al" (luar biasa bagi struktur ayat ini), ayat ini mengisyaratkan bahawa hanya <i>sebahagian</i> hati — bukan semua — yang akan mengalami kengerian khusus ini pada Hari tersebut.</span></li>
+            <li><span class="t-en">The class stresses that even careful translations remain incomplete, since Arabic words carry layers of connected meaning that don't survive translation — hence the long survey of near-synonyms for "fear" that follows.</span><span class="t-ms">Kelas ini menegaskan bahawa walaupun terjemahan yang teliti tetap tidak lengkap, kerana perkataan Arab membawa lapisan makna yang saling berkait yang tidak dapat dipertahankan dalam terjemahan — justeru itu kajian panjang tentang sinonim hampir bagi "ketakutan" yang berikut.</span></li>
+          </ul>
+        </div>
+        <div class="table-wrap">
+          <table class="wordtable">
+            <tr><th>Word</th><th>Nuance of meaning</th></tr>
+            <tr><td class="word">Khauf</td><td><span class="t-en">Fear of a perceived, physical danger (Qur'an 2:38).</span><span class="t-ms">Ketakutan terhadap bahaya fizikal yang dirasai (Qur'an 2:38).</span></td></tr>
+            <tr><td class="word">Khashya</td><td><span class="t-en">Fear of the magnitude or implications of something — e.g. losing a job, or the Day of Judgment (Qur'an 17:31).</span><span class="t-ms">Ketakutan terhadap kebesaran atau implikasi sesuatu perkara — contohnya kehilangan pekerjaan, atau Hari Kiamat (Qur'an 17:31).</span></td></tr>
+            <tr><td class="word">Khushū'</td><td><span class="t-en">Fear that manifests physically, showing on the face and limbs, not just the heart — the fear meant to be present in Ṣalāh.</span><span class="t-ms">Ketakutan yang terzahir secara fizikal, kelihatan pada wajah dan anggota badan, bukan sekadar di hati — ketakutan yang sepatutnya hadir dalam Solat.</span></td></tr>
+            <tr><td class="word">Taqwā</td><td><span class="t-en">Fear of the consequences of one's own actions; from <i>wiqāyah</i>, "to protect" — protecting oneself from one's own future consequences.</span><span class="t-ms">Ketakutan terhadap akibat perbuatan diri sendiri; daripada <i>wiqāyah</i>, "melindungi" — melindungi diri daripada akibat perbuatan sendiri pada masa hadapan.</span></td></tr>
+            <tr><td class="word">Ḥadhr</td><td><span class="t-en">To try to escape or be extremely careful of something dangerous that one is in proximity to (e.g. <i>ḥadhar al-mawt</i>, fear of death).</span><span class="t-ms">Cuba melarikan diri atau sangat berhati-hati terhadap sesuatu yang berbahaya yang berada berdekatan (contohnya <i>ḥadhar al-mawt</i>, takut mati).</span></td></tr>
+            <tr><td class="word">Rā'a</td><td><span class="t-en">To be startled — an immediate fear that subsides quickly, like the fear Ibrāhīm ʿalayhis-salām first felt seeing the angels.</span><span class="t-ms">Terperanjat — ketakutan segera yang cepat reda, seperti ketakutan yang mula-mula dirasai Ibrāhīm ʿalayhis-salām apabila melihat para malaikat.</span></td></tr>
+            <tr><td class="word">Awjasa</td><td><span class="t-en">Fear triggered by hearing something alarming, often hidden from others — used of Ibrāhīm ʿalayhis-salām concealing his unease before the unrecognized angels (Qur'an 11:70).</span><span class="t-ms">Ketakutan yang tercetus akibat mendengar sesuatu yang membimbangkan, selalunya disembunyikan daripada orang lain — digunakan bagi Ibrāhīm ʿalayhis-salām yang menyembunyikan kegelisahannya di hadapan malaikat yang tidak dikenali (Qur'an 11:70).</span></td></tr>
+            <tr><td class="word">Waja'</td><td><span class="t-en">A fear that penetrates deep into the very depths of the heart.</span><span class="t-ms">Ketakutan yang menembusi jauh ke dalam kedalaman hati.</span></td></tr>
+            <tr><td class="word">Rahb</td><td><span class="t-en">Fear mixed with love — fear of disappointing someone you love, as with believers who call on Allah in hope and fear together (Qur'an 21:90).</span><span class="t-ms">Ketakutan bercampur kasih — takut mengecewakan seseorang yang disayangi, seperti orang beriman yang berdoa kepada Allah dengan penuh harapan dan ketakutan sekali gus (Qur'an 21:90).</span></td></tr>
+            <tr><td class="word">Ru'b</td><td><span class="t-en">Overwhelming, terrifying fear that makes a person lose their reason (Qur'an 33:26).</span><span class="t-ms">Ketakutan yang menggerunkan dan mengatasi diri sehingga seseorang hilang akal fikirannya (Qur'an 33:26).</span></td></tr>
+            <tr><td class="word">Ashfaqa</td><td><span class="t-en">Fear for someone you care for — worry that harm may come to a person you are looking after.</span><span class="t-ms">Bimbang terhadap seseorang yang disayangi — kebimbangan bahawa bahaya akan menimpa orang yang dijaga.</span></td></tr>
+            <tr><td class="word">Wajaf</td><td><span class="t-en">The word used in this ayah — fear mixed with physical discomfort, the heart pounding hard enough to be felt; also used of a horse whose heart races when struck to run.</span><span class="t-ms">Perkataan yang digunakan dalam ayat ini — ketakutan bercampur ketidakselesaan fizikal, jantung berdegup kuat sehingga dapat dirasai; turut digunakan bagi kuda yang jantungnya berdegup pantas apabila dipacu untuk berlari.</span></td></tr>
+          </table>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3><span class="t-en">A pounding heart that never settles</span><span class="t-ms">Hati yang berdegup kencang dan tidak pernah tenang</span></h3>
+            <span class="code-badge"><span class="t-en">Ism fāʿil</span><span class="t-ms">Ism fāʿil</span></span>
+          </div>
+          <ul class="points">
+            <li><span class="t-en">The sentence structure shows these hearts are currently at peace in this world — completely undisturbed — yet on that specific Day, the very same hearts will experience <i>wajīfah</i>.</span><span class="t-ms">Struktur ayat menunjukkan hati-hati ini pada masa sekarang berada dalam ketenangan di dunia ini — sama sekali tidak terusik — namun pada Hari khusus itu, hati-hati yang sama itu akan mengalami <i>wajīfah</i>.</span></li>
+            <li><span class="t-en"><i>Wājifah</i> is an <i>ism fāʿil</i> (a nominal, ongoing form), indicating the pounding will not settle or calm down the way a racing heart normally does after a few minutes in this world — the terror will not subside.</span><span class="t-ms"><i>Wājifah</i> ialah <i>ism fāʿil</i> (bentuk nominal yang berterusan), menandakan degupan itu tidak akan reda atau tenang sebagaimana jantung yang berdegup pantas di dunia ini biasanya tenang selepas beberapa minit — kengerian itu tidak akan surut.</span></li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section class="class-section" id="s-10" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">10</span>
+        <h2><span class="t-en">Ayah 10 — Eyes Tied to Hearts</span><span class="t-ms">Ayat 10 — Mata Yang Terikat Dengan Hati</span></h2>
+        <button class="collapse-toggle" data-target="s-10" aria-expanded="false" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer collapsed" id="body-s-10">
+      <div class="class-body-inner">
+        <div class="quote ar-quote">أَبۡصَـٰرُهَا خَـٰشِعَةٌ۬
+          <footer><span class="t-en">'Abṣāruhā Khāshi'ah — "Its (the hearts') vision will be humbled"</span><span class="t-ms">'Abṣāruhā Khāshi'ah — "Penglihatannya (penglihatan hati-hati itu) akan tunduk"</span></footer>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3><span class="t-en">The reaction of people, not just events, is the focus</span><span class="t-ms">Fokusnya ialah reaksi manusia, bukan sekadar peristiwa</span></h3>
+            <span class="code-badge"><span class="t-en">Reflection</span><span class="t-ms">Renungan</span></span>
+          </div>
+          <ul class="points">
+            <li><span class="t-en">Some sūrahs depict the terror of the Last Day through cosmic events (the sun and moon colliding, etc.); this sūrah instead emphasizes the human reaction to those events.</span><span class="t-ms">Sebahagian surah menggambarkan kengerian Hari Akhirat melalui peristiwa kosmik (matahari dan bulan berlanggar, dan sebagainya); surah ini pula menekankan reaksi manusia terhadap peristiwa-peristiwa itu.</span></li>
+            <li><span class="t-en">The ayah says <i>abṣāruhā</i> ("its vision," referring back to the hearts) rather than <i>abṣāruhum</i> ("their vision," referring to the people) — grammatically tying eyesight directly to the state of the heart.</span><span class="t-ms">Ayat ini menyebut <i>abṣāruhā</i> ("penglihatannya," merujuk kembali kepada hati-hati itu) dan bukan <i>abṣāruhum</i> ("penglihatan mereka," merujuk kepada manusia) — dari sudut nahu mengaitkan penglihatan secara langsung dengan keadaan hati.</span></li>
+            <li><span class="t-en">What a person sees, and how they perceive it, is shaped by what is in their heart: with īmān, the wind, sun, or clouds become reminders; without īmān, the same sights mean nothing.</span><span class="t-ms">Apa yang dilihat seseorang, dan bagaimana ia difahami, dibentuk oleh apa yang ada dalam hatinya: dengan iman, angin, matahari, atau awan menjadi peringatan; tanpa iman, pemandangan yang sama tidak bermakna apa-apa.</span></li>
+            <li><span class="t-en">On that Day, sight becomes tied to a now fully believing heart, since īmān has become certain knowledge (<i>ḥaqq al-yaqīn</i> and <i>'ayn al-yaqīn</i>) — and it is these now-connected eyes that will become <i>khāshi'ah</i>: overpowered, overwhelmed, and humbled, their muscles relaxed by the fear before them.</span><span class="t-ms">Pada Hari itu, penglihatan akan terikat dengan hati yang kini sepenuhnya beriman, kerana iman telah menjadi pengetahuan yang pasti (<i>ḥaqq al-yaqīn</i> dan <i>'ayn al-yaqīn</i>) — dan mata yang kini terikat inilah yang akan menjadi <i>khāshi'ah</i>: dikuasai, ditewaskan, dan tunduk, otot-ototnya lemah lesu kerana ketakutan yang dihadapi.</span></li>
+            <li><span class="t-en">This describes the very same "some hearts" from Ayah 9 that feel no fear now, but will fear this terrifying Day when it comes.</span><span class="t-ms">Ini menggambarkan "sebahagian hati" yang sama daripada Ayat 9 yang tidak merasa takut sekarang, tetapi akan takut kepada Hari yang menggerunkan ini apabila ia tiba.</span></li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 11 -->
+    <section class="class-section" id="s-11" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">11</span>
+        <h2><span class="t-en">Ayāt 11–12 — Their Sarcasm</span><span class="t-ms">Ayat 11–12 — Sindiran Mereka</span></h2>
+        <button class="collapse-toggle" data-target="s-11" aria-expanded="false" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer collapsed" id="body-s-11">
+      <div class="class-body-inner">
+        <div class="quote ar-quote">يَقُولُونَ أَءِنَّا لَمَرۡدُودُونَ فِى ٱلۡحَافِرَةِ
+          <footer><span class="t-en">Yaqūlūna 'A'innā Lamardūdūna Fī Al-Ḥāfirah</span><span class="t-ms">Yaqūlūna 'A'innā Lamardūdūna Fī Al-Ḥāfirah</span></footer>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3><span class="t-en">"Are we really going back to square one?"</span><span class="t-ms">"Adakah kita benar-benar akan dikembalikan kepada keadaan asal?"</span></h3>
+            <span class="code-badge"><span class="t-en">Ayah 11</span><span class="t-ms">Ayat 11</span></span>
+          </div>
+          <ul class="points">
+            <li><span class="t-en">An abrupt transition (<i>ilthifāt</i>) introduces irony: the disbelievers mock the idea of resurrection, asking "Are we really going to be returned to (our) original state?"</span><span class="t-ms">Peralihan mendadak (<i>ilthifāt</i>) memperkenalkan unsur ironi: orang kafir mempersendakan idea kebangkitan semula, bertanya "Adakah kita benar-benar akan dikembalikan kepada keadaan (kita) yang asal?"</span></li>
+            <li><span class="t-en"><b>Al-Ḥāfirah</b> is an ancient Arabic expression meaning "right back where one started" — as when a person is said to have returned <i>fī ḥāfiratihi</i>.</span><span class="t-ms"><b>Al-Ḥāfirah</b> ialah ungkapan Arab kuno yang bermaksud "kembali tepat ke tempat asal" — seperti apabila seseorang dikatakan telah kembali <i>fī ḥāfiratihi</i>.</span></li>
+            <li><span class="t-en"><b>Mardūd</b> ("returned") carries a connotation of rejection — like being turned back at a border because your papers weren't accepted. The implication is sarcastic: "our death wasn't acceptable, so now we have to be brought back to life?"</span><span class="t-ms"><b>Mardūd</b> ("dikembalikan") membawa konotasi penolakan — seperti dihalau balik di sempadan kerana dokumen tidak diterima. Sindirannya ialah: "kematian kita tidak diterima, jadi sekarang kita perlu dihidupkan semula?"</span></li>
+            <li><span class="t-en"><i>Al-ḥāfirah</i> also relates to <i>ḥufr</i> (a dug ditch) and <i>mihfar</i> (a shovel) — evoking the image of graves already dug and settled, as if to say "it's a done deal, we're not coming out of this now."</span><span class="t-ms"><i>Al-ḥāfirah</i> juga berkait dengan <i>ḥufr</i> (lubang yang digali) dan <i>mihfar</i> (penyodok) — membangkitkan gambaran kubur yang telahpun digali dan diselesaikan, seolah-olah berkata "perkara ini sudah selesai, kita tidak akan keluar daripadanya sekarang."</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3><span class="t-en">"Even after we're crumbled bones?"</span><span class="t-ms">"Walaupun selepas kita menjadi tulang yang hancur?"</span></h3>
+            <span class="code-badge"><span class="t-en">Ayah 12 (first)</span><span class="t-ms">Ayat 12 (pertama)</span></span>
+          </div>
+          <ul class="points">
+            <li><span class="t-en"><b>'Iẓāman Nakhirah</b> — bones that have decayed to the point of being hollow, empty shells producing an air passage and a foul smell, describing an even more advanced state of decay than simply not breathing with muscles still intact.</span><span class="t-ms"><b>'Iẓāman Nakhirah</b> — tulang yang telah reput sehingga menjadi kosong dan berongga, menghasilkan laluan udara dan bau busuk, menggambarkan tahap kereputan yang lebih teruk berbanding sekadar tidak bernafas dengan otot yang masih utuh.</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3><span class="t-en">"That would be a losing return"</span><span class="t-ms">"Itu akan menjadi pemulangan yang rugi"</span></h3>
+            <span class="code-badge"><span class="t-en">Ayah 12 (second)</span><span class="t-ms">Ayat 12 (kedua)</span></span>
+          </div>
+          <ul class="points">
+            <li><span class="t-en">Ayah 11 uses the present tense (<i>yaqūlūna</i>, "they say/will say"), while this statement uses the past tense (<i>qālū</i>) — in classical Arabic, tense conveys frequency as much as time: present tense implies continuity or repetition, past tense implies a one-time occurrence.</span><span class="t-ms">Ayat 11 menggunakan kata kerja masa kini (<i>yaqūlūna</i>, "mereka berkata/akan berkata"), sementara pernyataan ini menggunakan kata kerja lampau (<i>qālū</i>) — dalam bahasa Arab klasik, kala kata kerja menandakan kekerapan sama seperti masa: kata kerja masa kini menandakan keberterusan atau pengulangan, kata kerja lampau menandakan satu kejadian sahaja.</span></li>
+            <li><span class="t-en">Parallel example: the Qur'an uses past tense for accidental manslaughter (Qur'an 4:92, unlikely to recur) and present tense for intentional killing (Qur'an 4:93, implying possible repetition).</span><span class="t-ms">Contoh serupa: Al-Qur'an menggunakan kata kerja lampau bagi pembunuhan tidak sengaja (Qur'an 4:92, tidak mungkin berulang) dan kata kerja masa kini bagi pembunuhan sengaja (Qur'an 4:93, mengisyaratkan kemungkinan berulang).</span></li>
+            <li><span class="t-en">Here, the past tense <i>qālū</i> shows that at least some of the mockers gave the idea real thought, and — even while speaking sarcastically — reached the conclusion that if resurrection were true, it would be a terrible outcome for them.</span><span class="t-ms">Di sini, kata kerja lampau <i>qālū</i> menunjukkan bahawa sekurang-kurangnya sebahagian pengejek benar-benar memikirkan idea itu, dan — walaupun bercakap secara sindiran — sampai kepada kesimpulan bahawa jika kebangkitan itu benar, ia akan menjadi natijah yang buruk bagi mereka.</span></li>
+            <li><span class="t-en"><b>Karra khāsirah</b> ("a losing return") — <i>karra</i> doesn't just mean "return"; it is also used for a military attack, as in the tactic <i>karra wa farra</i> ("attack and retreat"). The phrase implies not just a return but a costly, damaging one.</span><span class="t-ms"><b>Karra khāsirah</b> ("pemulangan yang rugi") — <i>karra</i> bukan sekadar bermaksud "kembali"; ia juga digunakan bagi serangan ketenteraan, seperti dalam taktik <i>karra wa farra</i> ("menyerang dan berundur"). Ungkapan ini mengisyaratkan bukan sekadar pemulangan tetapi satu pemulangan yang membawa kerugian dan kerosakan.</span></li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 12 -->
+    <section class="class-section" id="s-12" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">12</span>
+        <h2><span class="t-en">Ayāt 13–14 — One Single Scolding</span><span class="t-ms">Ayat 13–14 — Satu Herdikan Sahaja</span></h2>
+        <button class="collapse-toggle" data-target="s-12" aria-expanded="false" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer collapsed" id="body-s-12">
+      <div class="class-body-inner">
+        <div class="quote ar-quote">فَإِنَّمَا هِىَ زَجۡرَةٌ۬ وَٲحِدَةٌ۬ ۝ فَإِذَا هُم بِٱلسَّاهِرَةِ
+          <footer><span class="t-en">Fa'innamā Hiya Zajratun Wāḥidah — Fa'idhā Hum Bis-Sāhirah</span><span class="t-ms">Fa'innamā Hiya Zajratun Wāḥidah — Fa'idhā Hum Bis-Sāhirah</span></footer>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3><span class="t-en">A single "scolding" is all it will take</span><span class="t-ms">Satu "herdikan" sahaja sudah memadai</span></h3>
+            <span class="code-badge"><span class="t-en">Ayah 13</span><span class="t-ms">Ayat 13</span></span>
+          </div>
+          <ul class="points">
+            <li><span class="t-en">Where Sūrah An-Naba' ends by Allah directly warning the disbelievers, "No! They will come to know," this sūrah ends differently.</span><span class="t-ms">Jika Surah An-Naba' berakhir dengan Allah memberi amaran secara langsung kepada orang kafir, "Tidak! Mereka akan mengetahui," surah ini berakhir dengan cara yang berbeza.</span></li>
+            <li><span class="t-en"><b>Zajr</b> is the word used today for a parent yelling loudly and sharply at a child; it also describes how the Messenger ﷺ was yelled at and called insane in an attempt to drive him away (Qur'an 54:9).</span><span class="t-ms"><b>Zajr</b> ialah perkataan yang digunakan hari ini bagi ibu bapa yang menjerit dengan kuat dan tegas kepada anak; ia juga menggambarkan bagaimana Rasulullah ﷺ dijerit dan dituduh gila dalam usaha menghalaunya (Qur'an 54:9).</span></li>
+            <li><span class="t-en">Some ulema comment that this <i>zajrah</i> — a single scolding — refers to the second blowing of the trumpet: that alone will be enough.</span><span class="t-ms">Sebahagian ulama menyatakan bahawa <i>zajrah</i> ini — satu herdikan sahaja — merujuk kepada tiupan sangkakala kedua: itu sahaja sudah memadai.</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3><span class="t-en">"Then, suddenly, they are on the open plain (As-Sāhirah)"</span><span class="t-ms">"Maka, secara tiba-tiba, mereka berada di padang terbuka (As-Sāhirah)"</span></h3>
+            <span class="code-badge"><span class="t-en">Ayah 14</span><span class="t-ms">Ayat 14</span></span>
+          </div>
+          <ul class="points">
+            <li><span class="t-en">The opening <i>fa</i> here is <i>fa-sababiyyah</i>, indicating consequence ("then as a result"); <i>idhā</i> conveys suddenness.</span><span class="t-ms">Huruf <i>fa</i> pembuka di sini ialah <i>fa-sababiyyah</i>, menandakan akibat ("maka natijahnya"); <i>idhā</i> membawa makna kejadian yang tiba-tiba.</span></li>
+            <li><span class="t-en"><b>Saḥr</b> literally describes lost sleep — used of an open, exposed field, since a traveler resting there cannot fully sleep for fear of being spotted and robbed from a distance.</span><span class="t-ms"><b>Saḥr</b> secara literal menggambarkan hilangnya tidur — digunakan bagi padang terbuka yang terdedah, kerana pengembara yang berehat di sana tidak dapat tidur lena kerana bimbang dikesan dan dirompak dari jauh.</span></li>
+          </ul>
+        </div>
+        <div class="lesson-grid three">
+          <div class="lesson-card">
+            <span class="kicker"><span class="t-en">Comment 1</span><span class="t-ms">Ulasan 1</span></span>
+            <h4><span class="t-en">The mirage</span><span class="t-ms">Fatamorgana</span></h4>
+            <p><span class="t-en">An exhausted desert traveler, almost asleep, sees what looks like water — the sudden hope makes sleep disappear, since there is now a goal ahead of them.</span><span class="t-ms">Pengembara padang pasir yang keletihan, hampir tertidur, melihat sesuatu yang kelihatan seperti air — harapan yang tiba-tiba itu menghilangkan rasa mengantuk, kerana kini ada matlamat di hadapan mereka.</span></p>
+          </div>
+          <div class="lesson-card">
+            <span class="kicker"><span class="t-en">Comment 2</span><span class="t-ms">Ulasan 2</span></span>
+            <h4><span class="t-en">Pale, flat ground</span><span class="t-ms">Tanah yang pucat dan rata</span></h4>
+            <p><span class="t-en"><i>Sāhir</i> can describe a pale, crusty, single-colored, completely flat expanse of ground, open as far as the eye can see.</span><span class="t-ms"><i>Sāhir</i> boleh menggambarkan hamparan tanah yang pucat, berkerak, satu warna, dan sama sekali rata, terbuka sejauh mata memandang.</span></p>
+          </div>
+          <div class="lesson-card">
+            <span class="kicker"><span class="t-en">Comment 3</span><span class="t-ms">Ulasan 3</span></span>
+            <h4><span class="t-en">The gathering plain</span><span class="t-ms">Padang perhimpunan</span></h4>
+            <p><span class="t-en">The specific field/land where all human beings will be gathered for resurrection — "immediately they will be at the location of as-Sāhirah."</span><span class="t-ms">Padang/tanah khusus tempat seluruh umat manusia akan dihimpunkan untuk kebangkitan semula — "serta-merta mereka akan berada di lokasi as-Sāhirah."</span></p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3><span class="t-en">Sleep lost forever</span><span class="t-ms">Tidur yang hilang selama-lamanya</span></h3>
+            <span class="code-badge"><span class="t-en">Tafsīr Ḥaqqānī</span><span class="t-ms">Tafsir Ḥaqqānī</span></span>
+          </div>
+          <ul class="points">
+            <li><span class="t-en">Tafsīr Ḥaqqānī adds that this is like losing one's sleep upon emerging from the grave — as soon as the trumpet is blown, sleep is lost forever, echoing Sūrah Yāsīn: "Who has raised us from our place of sleep?" (Qur'an 36:52).</span><span class="t-ms">Tafsir Ḥaqqānī menambah bahawa ini seperti kehilangan tidur sebaik sahaja keluar dari kubur — sebaik sahaja sangkakala ditiup, tidur hilang selama-lamanya, sejajar dengan Surah Yāsīn: "Siapakah yang membangkitkan kami dari tempat tidur kami?" (Qur'an 36:52).</span></li>
+            <li><span class="t-en">Once the Day of Judgment arrives and Paradise and Hellfire are displayed, there is no more sleep, no partial death, and no escape from either its pleasures or its torments.</span><span class="t-ms">Setelah Hari Kiamat tiba dan Syurga serta Neraka dipertontonkan, tiada lagi tidur, tiada lagi kematian separa, dan tiada jalan lari daripada kenikmatannya mahupun azabnya.</span></li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 13 -->
+    <section class="class-section" id="s-13" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">13</span>
+        <h2><span class="t-en">Ayāt 15–18 — Mūsā &amp; Firʿawn</span><span class="t-ms">Ayat 15–18 — Mūsā &amp; Firʿawn</span></h2>
+        <button class="collapse-toggle" data-target="s-13" aria-expanded="false" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer collapsed" id="body-s-13">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3><span class="t-en">Recap: why the winds matter as an oath</span><span class="t-ms">Ulasan semula: mengapa angin penting sebagai sumpah</span></h3>
+            <span class="code-badge"><span class="t-en">Bridge</span><span class="t-ms">Jambatan penghubung</span></span>
+          </div>
+          <ul class="points">
+            <li><span class="t-en">The opening oaths regarding the winds matter because wind is among the closest things to the unseen within the seen world — it can be experienced but not seen.</span><span class="t-ms">Sumpah-sumpah permulaan berkenaan angin penting kerana angin antara perkara yang paling hampir dengan alam ghaib dalam dunia yang dapat dilihat — ia dapat dirasai tetapi tidak dapat dilihat.</span></li>
+            <li><span class="t-en">Through wind, Allah illustrates both His power of destruction (destroying entire towns) and His mercy (sustaining all life on earth) — Allah needs no special arrangement to punish the disbeliever; unleashing the wind alone is sufficient.</span><span class="t-ms">Melalui angin, Allah menggambarkan kedua-dua kuasa kemusnahan-Nya (memusnahkan seluruh kampung halaman) dan rahmat-Nya (mengekalkan seluruh kehidupan di bumi) — Allah tidak memerlukan sebarang persiapan khas untuk menghukum orang kafir; melepaskan angin sahaja sudah memadai.</span></li>
+            <li><span class="t-en">After the oaths, Allah described the Day itself: first the disbelievers' sarcasm (Ayāt 10–12), then the Day's description (Ayāt 13–14).</span><span class="t-ms">Selepas sumpah-sumpah itu, Allah menggambarkan Hari itu sendiri: mula-mula sindiran orang kafir (Ayat 10–12), kemudian gambaran Hari itu (Ayat 13–14).</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3><span class="t-en">"Has the story of Mūsā reached you?"</span><span class="t-ms">"Adakah kisah Mūsā telah sampai kepadamu?"</span></h3>
+            <span class="code-badge"><span class="t-en">Ayah 15</span><span class="t-ms">Ayat 15</span></span>
+          </div>
+          <ul class="points">
+            <li><span class="t-en">Allah now shifts His attention (<i>iltifāt</i>) directly to the Messenger ﷺ, asking whether the story (<i>ḥadīth</i>) of Mūsā has reached him.</span><span class="t-ms">Allah kini mengalihkan perhatian-Nya (<i>iltifāt</i>) secara langsung kepada Rasulullah ﷺ, bertanya sama ada kisah (<i>ḥadīth</i>) Mūsā telah sampai kepadanya.</span></li>
+            <li><span class="t-en">The class illustrates this shift with the image of a teacher addressing different sections of a classroom — sometimes speaking to one group about another, or turning to an assistant when the audience grows unresponsive — since the disbelievers had just been mocking in the previous ayāt.</span><span class="t-ms">Kelas ini menggambarkan peralihan ini dengan ibarat seorang guru yang berbicara kepada bahagian kelas yang berbeza — kadangkala bercakap kepada satu kumpulan tentang kumpulan lain, atau berpaling kepada pembantunya apabila khalayak tidak lagi memberi respons — kerana orang kafir baru sahaja mempersendakan dalam ayat-ayat sebelumnya.</span></li>
+            <li><span class="t-en">The specific word <i>ḥadīth</i> (not <i>khabar</i> or <i>naba'</i>) is chosen because it describes something manifest, and something old that, when recalled, feels entirely new — appropriate for a story whose relevance to this moment makes it feel freshly revealed.</span><span class="t-ms">Perkataan khusus <i>ḥadīth</i> (bukan <i>khabar</i> atau <i>naba'</i>) dipilih kerana ia menggambarkan sesuatu yang nyata, dan sesuatu yang lama yang, apabila diimbau kembali, terasa sama sekali baharu — sesuai bagi sebuah kisah yang kerelevanannya dengan detik ini membuatkannya terasa baru diwahyukan.</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3><span class="t-en">Called in the sanctified valley</span><span class="t-ms">Dipanggil di lembah yang disucikan</span></h3>
+            <span class="code-badge"><span class="t-en">Ayah 16</span><span class="t-ms">Ayat 16</span></span>
+          </div>
+          <ul class="points">
+            <li><span class="t-en"><b>Nidā'</b> means to call someone loudly; <b>taqdīs</b> means to speak of Allah appropriately, removing any unfitting attributions from Him.</span><span class="t-ms"><b>Nidā'</b> bermaksud memanggil seseorang dengan suara yang kuat; <b>taqdīs</b> bermaksud menyebut tentang Allah dengan sepatutnya, menghapuskan sebarang sifat yang tidak layak bagi-Nya.</span></li>
+            <li><span class="t-en"><b>Muqaddas</b> describes a place specifically designated to exalt and declare the perfection of Allah — a sanctified place, here the valley of Ṭuwā.</span><span class="t-ms"><b>Muqaddas</b> menggambarkan tempat yang dikhususkan untuk mengagungkan dan mengisytiharkan kesempurnaan Allah — tempat yang disucikan, di sini lembah Ṭuwā.</span></li>
+            <li><span class="t-en">A parallel is drawn: just as the Prophet ﷺ was called by Allah in the Cave of Ḥirā' at the time of the first revelation, Mūsā ʿalayhis-salām was called to the sanctified valley of Ṭuwā for his own revelation.</span><span class="t-ms">Satu perbandingan dibuat: sebagaimana Nabi ﷺ dipanggil oleh Allah di Gua Ḥirā' pada saat wahyu pertama, Mūsā ʿalayhis-salām dipanggil ke lembah Ṭuwā yang disucikan untuk wahyunya sendiri.</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3><span class="t-en">"Go to Firʿawn — he has transgressed"</span><span class="t-ms">"Pergilah kepada Firʿawn — sesungguhnya dia telah melampaui batas"</span></h3>
+            <span class="code-badge"><span class="t-en">Ayah 17</span><span class="t-ms">Ayat 17</span></span>
+          </div>
+          <ul class="points">
+            <li><span class="t-en">The phrasing <i>idhhab ilā</i> ("go to") signals "get started on this mission right away" — and hints to the Prophet ﷺ that he, too, is being directed toward the Quraysh/the disbelievers.</span><span class="t-ms">Ungkapan <i>idhhab ilā</i> ("pergilah kepada") menandakan "mulakan misi ini dengan segera" — dan mengisyaratkan kepada Nabi ﷺ bahawa baginda juga sedang diarahkan kepada Quraisy/golongan kafir.</span></li>
+            <li><span class="t-en"><b>Ṭughyān</b> describes crossing a set limit — like a pot overfilled with water spilling over, or an ocean boiling over into a flood. Firʿawn committed this in two documented ways: declaring himself lord, and enslaving the Banī Isrā'īl.</span><span class="t-ms"><b>Ṭughyān</b> menggambarkan melangkaui had yang ditetapkan — seperti periuk yang terlalu penuh dengan air sehingga tertumpah, atau lautan yang melimpah menjadi banjir. Firʿawn melakukan ini dalam dua cara yang direkodkan: mengisytiharkan dirinya sebagai tuhan, dan memperhambakan Banī Isrā'īl.</span></li>
+            <li><span class="t-en">The class draws out an indirect message to the Quraysh: their real problem was not disbelief in the Hereafter as such, but a love of unrestrained freedom and a resistance to limits being placed on their lifestyle — the same underlying crime as Firʿawn's.</span><span class="t-ms">Kelas ini mengeluarkan mesej tersirat kepada Quraisy: masalah sebenar mereka bukanlah keingkaran terhadap Akhirat semata-mata, tetapi kecintaan kepada kebebasan tanpa sekatan dan penentangan terhadap had yang dikenakan ke atas gaya hidup mereka — jenayah asas yang sama seperti Firʿawn.</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3><span class="t-en">"Do you have any inclination to purify yourself?"</span><span class="t-ms">"Adakah kamu mempunyai sebarang kecenderungan untuk menyucikan dirimu?"</span></h3>
+            <span class="code-badge"><span class="t-en">Ayah 18</span><span class="t-ms">Ayat 18</span></span>
+          </div>
+          <ul class="points">
+            <li><span class="t-en"><b>Hal laka ilā an tazakkā</b> — "Do you have any inclination to cleanse yourself?" — asks whether Firʿawn has any voice of conscience left inside him urging him to become better.</span><span class="t-ms"><b>Hal laka ilā an tazakkā</b> — "Adakah kamu mempunyai kecenderungan untuk menyucikan dirimu?" — bertanya sama ada Firʿawn masih mempunyai suara hati nurani di dalam dirinya yang mendorongnya menjadi lebih baik.</span></li>
+            <li><span class="t-en"><b>Tazkiyah</b> (purification) was a core mission of the messengers, alongside reciting the verses and teaching the Book and wisdom (Qur'an 3:164) — removing the flawed, evil, and rebellious elements of one's character.</span><span class="t-ms"><b>Tazkiyah</b> (penyucian) adalah misi teras para rasul, di samping membacakan ayat-ayat dan mengajarkan Kitab serta hikmah (Qur'an 3:164) — menghapuskan elemen yang cacat, jahat, dan derhaka dalam diri seseorang.</span></li>
+            <li><span class="t-en">The same question is put to anyone who does or doesn't fear the Hereafter: is there still a buried conscience willing to be reached? Daʿwah depends not only on the strength and clarity of the message, but on whether goodness inside the recipient is willing to respond — "light upon light" (Qur'an 24:35).</span><span class="t-ms">Persoalan yang sama diajukan kepada sesiapa sahaja sama ada dia takut atau tidak takut kepada Akhirat: adakah masih ada hati nurani yang terpendam yang sanggup untuk disentuh? Dakwah bukan sahaja bergantung kepada kekuatan dan kejelasan mesej, tetapi juga sama ada kebaikan dalam diri penerima itu sanggup untuk merespons — "cahaya di atas cahaya" (Qur'an 24:35).</span></li>
+            <li><span class="t-en">Mūsā ʿalayhis-salām is not questioning whether goodness exists in Firʿawn (Allah placed it in every human being) — only whether Firʿawn is willing to let that goodness surface, after having received full and clear daʿwah.</span><span class="t-ms">Mūsā ʿalayhis-salām tidak mempersoalkan sama ada kebaikan itu wujud dalam diri Firʿawn (Allah menanamkannya dalam setiap manusia) — beliau hanya mempersoalkan sama ada Firʿawn sanggup membiarkan kebaikan itu terserlah, setelah menerima dakwah yang lengkap dan jelas.</span></li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<button id="toTop" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<div id="quickPanel">
+  <div class="nav-actions">
+    <button id="expandAll">Expand all</button>
+    <button id="collapseAll">Collapse all</button>
+  </div>
+  <ul id="qpList">
+    <li data-target="s-01" class="is-collapsed"><a href="#s-01" style="--qc:var(--c-1)"><span class="qp-idx">01</span><span class="t-en">Link to Naba'</span><span class="t-ms">Kaitan dgn Naba'</span></a><span class="qp-toggle" data-target="s-01"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-02" class="is-collapsed"><a href="#s-02" style="--qc:var(--c-2)"><span class="qp-idx">02</span><span class="t-en">Understanding Oaths</span><span class="t-ms">Memahami Sumpah</span></a><span class="qp-toggle" data-target="s-02"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-03" class="is-collapsed"><a href="#s-03" style="--qc:var(--c-3)"><span class="qp-idx">03</span><span class="t-en">Ayah 1 — Nāzi'āt</span><span class="t-ms">Ayat 1 — Nāzi'āt</span></a><span class="qp-toggle" data-target="s-03"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-04" class="is-collapsed"><a href="#s-04" style="--qc:var(--c-4)"><span class="qp-idx">04</span><span class="t-en">Ayah 2 — Nāshiṭāt</span><span class="t-ms">Ayat 2 — Nāshiṭāt</span></a><span class="qp-toggle" data-target="s-04"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-05" class="is-collapsed"><a href="#s-05" style="--qc:var(--c-5)"><span class="qp-idx">05</span><span class="t-en">Swimmers &amp; Racers</span><span class="t-ms">Berenang &amp; Mendahului</span></a><span class="qp-toggle" data-target="s-05"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-06" class="is-collapsed"><a href="#s-06" style="--qc:var(--c-6)"><span class="qp-idx">06</span><span class="t-en">Al-Mudabbirāt</span><span class="t-ms">Al-Mudabbirāt</span></a><span class="qp-toggle" data-target="s-06"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-07" class="is-collapsed"><a href="#s-07" style="--qc:var(--c-1)"><span class="qp-idx">07</span><span class="t-en">Unspoken Response</span><span class="t-ms">Jawapan Tersirat</span></a><span class="qp-toggle" data-target="s-07"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-08" class="is-collapsed"><a href="#s-08" style="--qc:var(--c-2)"><span class="qp-idx">08</span><span class="t-en">The Two Quakes</span><span class="t-ms">Dua Gegaran</span></a><span class="qp-toggle" data-target="s-08"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-09" class="is-collapsed"><a href="#s-09" style="--qc:var(--c-3)"><span class="qp-idx">09</span><span class="t-en">Vocabulary of Fear</span><span class="t-ms">Kosa Kata Takut</span></a><span class="qp-toggle" data-target="s-09"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-10" class="is-collapsed"><a href="#s-10" style="--qc:var(--c-4)"><span class="qp-idx">10</span><span class="t-en">Eyes Tied to Hearts</span><span class="t-ms">Mata Terikat Hati</span></a><span class="qp-toggle" data-target="s-10"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-11" class="is-collapsed"><a href="#s-11" style="--qc:var(--c-5)"><span class="qp-idx">11</span><span class="t-en">Their Sarcasm</span><span class="t-ms">Sindiran Mereka</span></a><span class="qp-toggle" data-target="s-11"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-12" class="is-collapsed"><a href="#s-12" style="--qc:var(--c-6)"><span class="qp-idx">12</span><span class="t-en">One Single Scolding</span><span class="t-ms">Satu Herdikan</span></a><span class="qp-toggle" data-target="s-12"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-13" class="is-collapsed"><a href="#s-13" style="--qc:var(--c-1)"><span class="qp-idx">13</span><span class="t-en">Mūsā &amp; Firʿawn</span><span class="t-ms">Mūsā &amp; Firʿawn</span></a><span class="qp-toggle" data-target="s-13"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+  </ul>
+</div>
+
+<button id="quickFab" aria-label="Open quick navigation" aria-expanded="false">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+</button>
+
+<script>
+  const langSwitch = document.getElementById('langSwitch');
+  function setLang(ms){
+    document.body.classList.toggle('lang-ms', ms);
+    langSwitch.setAttribute('aria-checked', String(ms));
+  }
+  langSwitch.addEventListener('click', () => setLang(langSwitch.getAttribute('aria-checked') !== 'true'));
+
+  const heroHeader = document.querySelector('header.hero');
+  function syncHeaderHeight(){
+    const refBar = document.querySelector('.ref-bar');
+    document.documentElement.style.setProperty('--header-h', (heroHeader.offsetHeight + refBar.offsetHeight) + 'px');
+  }
+  syncHeaderHeight();
+  window.addEventListener('resize', syncHeaderHeight);
+
+  const progress = document.getElementById('progress');
+  function updateProgress(){
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    progress.style.width = scrolled + '%';
+    document.getElementById('toTop').classList.toggle('show', h.scrollTop > 700);
+  }
+  document.addEventListener('scroll', updateProgress, {passive:true});
+  updateProgress();
+
+  document.getElementById('toTop').addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+  const navLinks = document.querySelectorAll('nav.sidebar li a');
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const id = entry.target.id;
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  document.querySelectorAll('main section.class-section').forEach(el => { if(el.id) sectionObserver.observe(el); });
+
+  const quickFab = document.getElementById('quickFab');
+  const quickPanel = document.getElementById('quickPanel');
+  function openQuickPanel(){ quickPanel.classList.add('open'); quickFab.classList.add('open'); quickFab.setAttribute('aria-expanded','true'); }
+  function closeQuickPanel(){ quickPanel.classList.remove('open'); quickFab.classList.remove('open'); quickFab.setAttribute('aria-expanded','false'); }
+  quickFab.addEventListener('click', () => { quickPanel.classList.contains('open') ? closeQuickPanel() : openQuickPanel(); });
+  document.addEventListener('click', (e) => {
+    if(quickPanel.classList.contains('open') && !quickPanel.contains(e.target) && !quickFab.contains(e.target)){ closeQuickPanel(); }
+  });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeQuickPanel(); });
+  quickPanel.querySelectorAll('a').forEach(a => { a.addEventListener('click', () => closeQuickPanel()); });
+
+  const ALL_SECTION_IDS = ['s-01','s-02','s-03','s-04','s-05','s-06','s-07','s-08','s-09','s-10','s-11','s-12','s-13'];
+
+  function setCollapsed(id, collapsed){
+    const body = document.getElementById('body-' + id);
+    const btn = document.querySelector('.collapse-toggle[data-target="' + id + '"]');
+    const qpItem = document.querySelector('#qpList li[data-target="' + id + '"]');
+    if(body) body.classList.toggle('collapsed', collapsed);
+    if(btn) btn.setAttribute('aria-expanded', String(!collapsed));
+    if(qpItem) qpItem.classList.toggle('is-collapsed', collapsed);
+  }
+  function isCollapsed(id){
+    const body = document.getElementById('body-' + id);
+    return body ? body.classList.contains('collapsed') : false;
+  }
+  function toggleCollapsed(id){ setCollapsed(id, !isCollapsed(id)); }
+
+  document.querySelectorAll('.collapse-toggle').forEach(btn => {
+    btn.addEventListener('click', () => toggleCollapsed(btn.dataset.target));
+  });
+  document.querySelectorAll('#qpList li').forEach(item => {
+    const id = item.dataset.target;
+    item.querySelector('.qp-toggle').addEventListener('click', (e) => { e.stopPropagation(); e.preventDefault(); toggleCollapsed(id); });
+  });
+
+  document.getElementById('expandAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, false)));
+  document.getElementById('collapseAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, true)));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href').slice(1);
+      if(!href) return;
+      const target = document.getElementById(href);
+      if(!target) return;
+      if(target.classList.contains('class-section')){ setCollapsed(href, false); }
+    });
+  });
+
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', () => {
+    const q = searchInput.value.trim().toLowerCase();
+    navLinks.forEach(a => {
+      const key = (a.dataset.key || a.textContent).toLowerCase();
+      const match = q === '' || key.includes(q);
+      a.dataset.hidden = match ? '0' : '1';
+      const section = document.querySelector(a.getAttribute('href'));
+      if(section){ section.style.display = match ? '' : 'none'; }
+    });
+  });
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

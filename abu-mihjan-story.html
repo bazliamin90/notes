@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abu Mihjan ath-Thaqafi — Sīrah Field Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --paper:#fbfbfd;
+    --ink:#14151a;
+    --ink-soft:#5a5d6b;
+    --line:#e7e7ee;
+    --line-soft:#f0f0f5;
+
+    /* category brights, cycled across the sections */
+    --c-1:#7c3aed;  --c-1-tint:#f4edff;   /* violet */
+    --c-2:#0284c7;  --c-2-tint:#e8f6ff;   /* ocean */
+    --c-3:#ea580c;  --c-3-tint:#fff1e8;   /* coral */
+    --c-4:#db2777;  --c-4-tint:#ffe9f4;   /* magenta */
+    --c-5:#059669;  --c-5-tint:#e6faf2;   /* emerald */
+    --c-6:#0f766e;  --c-6-tint:#e6f8f6;   /* teal */
+
+    --accent: var(--c-1);
+    --accent-tint: var(--c-1-tint);
+
+    --radius: 18px;
+    --shadow: 0 1px 2px rgba(20,21,26,.04), 0 12px 32px -16px rgba(20,21,26,.14);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background: var(--accent); color:#fff; }
+
+  h1,h2,h3,h4{ font-family:'Space Grotesk', sans-serif; margin:0; letter-spacing:-.01em; }
+  code, .mono{ font-family:'IBM Plex Mono', monospace; }
+  a{ color:inherit; }
+  p{ margin:0; }
+
+  /* ---------- top progress rail ---------- */
+  #progress{
+    position:fixed; top:0; left:0; height:3px; width:0%;
+    background: linear-gradient(90deg, var(--c-1), var(--c-2), var(--c-3), var(--c-4), var(--c-5), var(--c-6));
+    z-index:100; transition: width .1s linear;
+  }
+
+  /* ---------- reference bar (source link) ---------- */
+  .ref-bar{
+    background:var(--ink); color:#fff;
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    padding:9px 8vw; display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  }
+  .ref-bar a{
+    color:#fff; text-decoration:none; display:flex; align-items:center; gap:7px;
+    border-bottom:1px solid rgba(255,255,255,.35); padding-bottom:1px;
+    transition:border-color .15s ease, opacity .15s ease;
+  }
+  .ref-bar a:hover{ border-color:#fff; opacity:.9; }
+  .ref-bar .ref-label{ color:rgba(255,255,255,.55); text-transform:uppercase; letter-spacing:.08em; font-size:10.5px; }
+
+  /* ---------- header ---------- */
+  header.hero{
+    padding: 6px 8vw;
+    min-height:46px;
+    display:flex; align-items:center;
+    position:sticky; top:0; z-index:80;
+    border-bottom:1px solid var(--line);
+    background-color:#fff;
+    background-image:
+      radial-gradient(700px 340px at 8% -10%, var(--c-1-tint), transparent 60%),
+      radial-gradient(600px 300px at 95% 0%, var(--c-3-tint), transparent 55%);
+  }
+  header.hero .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:15px;
+  }
+  header.hero .brand .dot{ width:9px; height:9px; border-radius:3px; background: linear-gradient(135deg, var(--c-1), var(--c-4)); }
+
+  /* ---------- burger navigation ---------- */
+  .burger-wrap{ position:relative; display:flex; align-items:center; }
+  .burger-btn{
+    width:34px; height:34px; border-radius:10px; border:1.3px solid var(--line);
+    background:var(--paper); color:var(--ink); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: border-color .15s ease, background .15s ease, color .15s ease;
+  }
+  .burger-btn:hover{ border-color: var(--c-1); }
+  .burger-btn.open{ background: var(--c-1); border-color: var(--c-1); color:#fff; }
+  .burger-btn svg{ transition: opacity .15s ease; }
+  .burger-menu{
+    position:absolute; top:calc(100% + 10px); left:0; width:320px;
+    background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow);
+    padding:8px; opacity:0; transform: translateY(-6px); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease; z-index:120;
+    display:flex; flex-direction:column;
+  }
+  .burger-menu.open{ opacity:1; transform: translateY(0); pointer-events:auto; }
+  .burger-menu-home{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; margin:2px 2px 8px;
+    border-radius:10px; border-bottom:1px solid var(--line-soft);
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-home svg{ flex:none; color:var(--ink-soft); }
+  .burger-menu-home:hover{ background: var(--paper); }
+  .burger-menu-home.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-home.is-current .bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-search{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:10px; padding:8px 10px; margin:2px 2px 8px;
+    background:var(--paper); flex:none;
+  }
+  .burger-menu-search svg{ flex:none; opacity:.5; color:var(--ink-soft); }
+  .burger-menu-search input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13px; width:100%; color:var(--ink);
+  }
+  .burger-menu-list{ max-height:340px; overflow-y:auto; overscroll-behavior:contain; }
+  .burger-menu-list::-webkit-scrollbar{ width:6px; }
+  .burger-menu-list::-webkit-scrollbar-thumb{ background:var(--line); border-radius:10px; }
+  .burger-menu-group + .burger-menu-group{ margin-top:4px; }
+  .burger-menu-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); padding:8px 10px 4px;
+  }
+  .burger-menu-empty{
+    display:none; padding:18px 10px; text-align:center; font-size:12.5px; color:var(--ink-soft);
+  }
+  .burger-menu-item{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; border-radius:10px;
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-item span.bm-title{ display:block; }
+  .burger-menu-item span.bm-sub{ display:block; font-size:11.5px; color:var(--ink-soft); font-weight:400; margin-top:1px; }
+  .burger-menu-item:hover{ background: var(--paper); }
+  .burger-menu-item.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-item.is-current span.bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-dot{ width:9px; height:9px; border-radius:3px; flex:none; margin-top:3px; }
+
+
+  /* ---------- page title (below the sticky header) ---------- */
+  .page-title{ padding: 30px 8vw 6px; }
+  .page-title .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-soft); margin-bottom:10px; display:block;
+  }
+  .page-title h1{
+    font-size: clamp(26px, 5vw, 46px);
+    line-height:1.12;
+    font-weight:700;
+  }
+  .page-title h1 .accent-word{
+    background: linear-gradient(100deg, var(--c-1), var(--c-4) 55%, var(--c-3));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .page-title .sub{
+    margin-top:14px; max-width:62ch; color:var(--ink-soft); font-size:15px; line-height:1.6;
+  }
+  .page-title .tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+  .page-title .tag{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; border:1.3px solid var(--line);
+    color:var(--ink-soft); font-weight:500; background:var(--paper);
+  }
+  .page-title .tag.warn{ border-color: var(--c-3); color: var(--c-3); background: var(--c-3-tint); }
+
+  /* ---------- layout ---------- */
+  .layout{
+    display:grid;
+    grid-template-columns: 260px minmax(0,1fr);
+    gap:0;
+    max-width:1400px; margin:0 auto;
+  }
+  nav.sidebar{
+    position:sticky; top: var(--header-h, 0px); align-self:start;
+    height: calc(100vh - var(--header-h, 0px)); overflow-y:auto;
+    padding: 28px 18px 40px 8vw;
+    border-right:1px solid var(--line);
+    scrollbar-width: thin;
+  }
+  nav.sidebar::-webkit-scrollbar{ width:6px; }
+  nav.sidebar::-webkit-scrollbar-thumb{ background:var(--line); border-radius:10px; }
+
+  .search-box{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:12px; padding:10px 12px; margin-bottom:18px;
+    background:var(--paper);
+  }
+  .search-box input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13.5px; width:100%; color:var(--ink);
+  }
+  .search-box svg{ flex:none; opacity:.5; }
+
+  .nav-actions{ display:flex; gap:8px; margin-bottom:18px; }
+  .nav-actions button{
+    flex:1; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    border:1.3px solid var(--line); background:#fff; color:var(--ink-soft);
+    padding:7px 8px; border-radius:9px; cursor:pointer; transition:.15s ease;
+  }
+  .nav-actions button:hover{ border-color:var(--ink); color:var(--ink); }
+
+  nav.sidebar ul{ list-style:none; margin:0; padding:0; border-left:2px solid var(--line-soft); }
+  nav.sidebar li a{
+    display:flex; align-items:center; gap:9px;
+    text-decoration:none; font-size:13.5px; color:var(--ink-soft);
+    padding:7px 0 7px 14px; border-left:2px solid transparent; margin-left:-2px;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  nav.sidebar li a .sw{ width:8px; height:8px; border-radius:3px; flex:none; background:var(--g-color); }
+  nav.sidebar li a:hover{ color:var(--ink); }
+  nav.sidebar li a.active{ color:var(--g-color); border-left-color: var(--g-color); font-weight:600; }
+  nav.sidebar li a[data-hidden="1"]{ display:none; }
+
+  main{ min-width:0; padding: 0 8vw 140px; }
+
+  section.class-section{ padding-top:56px; scroll-margin-top: 24px; }
+  section.class-section:first-child{ padding-top:44px; }
+
+  .class-head{
+    display:flex; align-items:baseline; gap:16px; flex-wrap:wrap;
+    padding-bottom:14px; margin-bottom:22px; border-bottom:3px solid var(--g-color);
+    position:relative;
+  }
+  .class-head .idx{
+    font-family:'IBM Plex Mono',monospace; font-size:14px; font-weight:700; color:#fff;
+    background:var(--g-color); padding:5px 10px; border-radius:8px;
+  }
+  .class-head h2{ font-size: clamp(20px,2.4vw,28px); color:var(--ink); }
+  .collapse-toggle{
+    margin-left:auto; width:34px; height:34px; border-radius:9px; border:1.5px solid var(--line);
+    background:#fff; color:var(--g-color); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: transform .3s ease, background .15s ease, border-color .15s ease;
+  }
+  .collapse-toggle:hover{ background: var(--g-tint); border-color: var(--g-color); }
+  .collapse-toggle svg{ transition: transform .3s ease; }
+  .collapse-toggle[aria-expanded="false"] svg{ transform: rotate(-90deg); }
+
+  .class-body-outer{ display:grid; grid-template-rows: 0fr; transition: grid-template-rows .38s ease; }
+  .class-body-outer.collapsed{ grid-template-rows: 0fr; }
+  .class-body-outer:not(.collapsed){ grid-template-rows: 1fr; }
+  .class-body-inner{ overflow:hidden; min-height:0; opacity:0; transition: opacity .25s ease .1s; }
+  .class-body-outer.collapsed .class-body-inner{ opacity:0; transition: opacity .18s ease; }
+  .class-body-outer:not(.collapsed) .class-body-inner{ opacity:1; }
+
+  /* content card */
+  .card{
+    background:#fff; border:1px solid var(--line); border-radius: var(--radius);
+    padding: 28px 30px; margin-bottom: 22px; position:relative; overflow:hidden;
+    border-left: 5px solid var(--g-color);
+  }
+  .card .card-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap;
+    margin-bottom:14px;
+  }
+  .card h3{ font-size:19px; font-weight:600; color:var(--ink); }
+  .card h3 .alt{ font-weight:400; color:var(--ink-soft); font-size:14px; display:block; margin-top:3px;}
+  .code-badge{
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:12px; color:#fff;
+    background: var(--g-color); padding:6px 12px; border-radius:8px; white-space:nowrap;
+  }
+
+  /* bullet points, styled like the DSM "criteria" list but re-purposed for narrative */
+  ul.points{ list-style:none; margin:0; padding:0; }
+  ul.points > li{
+    position:relative; padding: 10px 0 10px 34px; font-size:14.8px; line-height:1.65; color:#2b2d36;
+    border-top:1px solid var(--line-soft);
+  }
+  ul.points > li:first-child{ border-top:none; }
+  ul.points > li::before{
+    content:"—";
+    position:absolute; left:0; top:10px; width:22px; height:22px; border-radius:7px;
+    background: var(--g-tint); color:var(--g-color); font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:13px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  ul.points > li b, ul.points > li strong{ color:var(--g-color); }
+
+  .quote{
+    margin-top:16px; padding:16px 18px; border-radius:12px; background:var(--g-tint);
+    font-family:'Space Grotesk', sans-serif; font-size:16px; line-height:1.55; color:#20222a;
+    border-left:3px solid var(--g-color);
+  }
+  .quote footer{
+    margin-top:8px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    text-transform:uppercase; color:var(--ink-soft); font-style:normal;
+  }
+
+  .pill-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .pill-row .pill{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; background:#fff; border:1.3px solid var(--g-color);
+    color:var(--g-color); font-weight:600;
+  }
+
+  /* stat strip */
+  .stat-row{ display:flex; gap:14px; flex-wrap:wrap; margin-top:16px; }
+  .stat{
+    flex:1; min-width:120px; text-align:center; padding:16px 10px;
+    background:var(--g-tint); border-radius:12px;
+  }
+  .stat .num{ font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:26px; color:var(--g-color); display:block; }
+  .stat .label{ font-size:11.5px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.05em; margin-top:4px; }
+
+  /* two-lesson comparison cards */
+  .lesson-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:6px; }
+  @media (max-width:640px){ .lesson-grid{ grid-template-columns:1fr; } }
+  .lesson-card{
+    border-radius:var(--radius); padding:24px 24px; border:1.3px solid var(--line);
+  }
+  .lesson-card .kicker{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .lesson-card h4{ margin-top:8px; font-size:18px; }
+  .lesson-card p{ margin-top:10px; font-size:14px; line-height:1.6; color:#2b2d36; }
+
+  /* table wrap kept for legend/reference */
+  .table-wrap{
+    margin: 8px 0 40px; border:1px solid var(--line); border-radius:16px; overflow:auto; box-shadow:var(--shadow);
+  }
+
+  /* back to top */
+  #toTop{
+    position:fixed; right:26px; bottom:26px; width:46px; height:46px; border-radius:50%;
+    background:var(--ink); color:#fff; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,.22); opacity:0; pointer-events:none; transition: opacity .25s ease, transform .2s ease;
+    z-index:90;
+  }
+  #toTop.show{ opacity:1; pointer-events:auto; }
+  #toTop:hover{ transform: translateY(-3px); }
+
+  #empty-state{ display:none; padding:60px 0; text-align:center; color:var(--ink-soft); }
+  #empty-state.show{ display:block; }
+
+  /* floating quick-access launcher */
+  #quickFab{
+    position:fixed; left:26px; bottom:26px; width:52px; height:52px; border-radius:16px;
+    background: linear-gradient(135deg, var(--c-1), var(--c-4)); color:#fff; border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; z-index:95;
+    box-shadow:0 10px 28px -6px rgba(124,58,237,.5);
+    transition: transform .2s ease, border-radius .2s ease;
+  }
+  #quickFab:hover{ transform: translateY(-3px) scale(1.03); }
+  #quickFab.open{ border-radius:50%; }
+  #quickFab svg{ transition: transform .3s ease; }
+  #quickFab.open svg{ transform: rotate(45deg); }
+
+  #quickPanel{
+    position:fixed; left:26px; bottom:90px; width:280px; max-height:60vh; overflow-y:auto;
+    background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow);
+    z-index:94; padding:14px; opacity:0; transform: translateY(10px) scale(.97); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  #quickPanel.open{ opacity:1; transform: translateY(0) scale(1); pointer-events:auto; }
+  #quickPanel .qp-head{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--ink-soft); padding:4px 8px 10px;
+  }
+  #qpList{ list-style:none; margin:0; padding:0; }
+  #qpList li{
+    display:flex; align-items:center; gap:8px; border-radius:10px; padding:2px;
+  }
+  #qpList li a{
+    flex:1; display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--ink);
+    font-size:13px; padding:8px; border-radius:10px; transition:background .15s ease;
+  }
+  #qpList li a:hover{ background:var(--paper); }
+  .qp-idx{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:700; color:#fff;
+    background: var(--qc, var(--c-1)); padding:2px 6px; border-radius:6px;
+  }
+  .qp-toggle{ padding:8px; cursor:pointer; color:var(--ink-soft); opacity:.6; }
+  .qp-toggle:hover{ opacity:1; }
+  #qpList li.is-collapsed .qp-toggle svg{ transform: rotate(-90deg); }
+  #qpList li .qp-toggle svg{ transition: transform .3s ease; }
+
+  @media (max-width: 980px){
+    .layout{ grid-template-columns: 1fr; }
+    nav.sidebar{ position:static; height:auto; border-right:none; border-bottom:1px solid var(--line); padding: 20px 6vw; }
+    main{ padding: 0 6vw 120px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001s !important; transition-duration:.001s !important; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body data-page="abumihjan">
+
+<div id="progress"></div>
+
+<header class="hero">
+  <div class="burger-wrap">
+    <button id="navBurger" class="burger-btn" aria-haspopup="true" aria-expanded="false" aria-label="Open navigation menu">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div id="navMenu" class="burger-menu"></div>
+  </div>
+</header>
+
+<div class="ref-bar">
+  <span class="ref-label">Source</span>
+  <a href="https://www.youtube.com/watch?v=9aXoVumS_Tk" target="_blank" rel="noopener">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></svg>
+    youtube.com/watch?v=9aXoVumS_Tk
+  </a>
+</div>
+
+<div class="page-title">
+  <span class="eyebrow">Companion Biography · Sīrah Reflection</span>
+  <h1>Abu Mihjan ath-Thaqafi</h1>
+  <div class="tag-row">
+    <span class="tag">Courageous</span>
+    <span class="tag">Eloquent poet</span>
+    <span class="tag">Wealthy &amp; generous</span>
+    <span class="tag">Skilled horseman</span>
+    <span class="tag warn">Struggled with alcohol</span>
+  </div>
+</div>
+
+<div class="layout">
+
+  <nav class="sidebar">
+    <div class="search-box">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="searchInput" type="text" placeholder="Search sections…">
+    </div>
+    <ul id="navList">
+      <li><a href="#s-01" data-key="who was he intro" style="--g-color:var(--c-1)"><span class="sw"></span>Who Was He</a></li>
+      <li><a href="#s-02" data-key="character strengths weakness alcohol" style="--g-color:var(--c-2)"><span class="sw"></span>Character &amp; Flaw</a></li>
+      <li><a href="#s-03" data-key="real battlefield jihad nafs tangent" style="--g-color:var(--c-3)"><span class="sw"></span>The Real Battlefield</a></li>
+      <li><a href="#s-04" data-key="abu bakr accountability umar flogged" style="--g-color:var(--c-4)"><span class="sw"></span>Used, Not Discarded</a></li>
+      <li><a href="#s-05" data-key="exile escape qadisiyyah saad" style="--g-color:var(--c-5)"><span class="sw"></span>Exile &amp; Flight</a></li>
+      <li><a href="#s-06" data-key="poetry chains grief" style="--g-color:var(--c-6)"><span class="sw"></span>Poetry in Chains</a></li>
+      <li><a href="#s-07" data-key="plea promise wife tawbah" style="--g-color:var(--c-1)"><span class="sw"></span>The Plea</a></li>
+      <li><a href="#s-08" data-key="battle qadisiyyah balqa masked angel" style="--g-color:var(--c-2)"><span class="sw"></span>The Battle</a></li>
+      <li><a href="#s-09" data-key="return release saad discovery" style="--g-color:var(--c-3)"><span class="sw"></span>Return &amp; Release</a></li>
+      <li><a href="#s-10" data-key="vow never drink again" style="--g-color:var(--c-4)"><span class="sw"></span>The Vow</a></li>
+      <li><a href="#s-11" data-key="shaytan trick pride abdul razzaq" style="--g-color:var(--c-5)"><span class="sw"></span>Trick of Shayṭān</a></li>
+      <li><a href="#s-12" data-key="legacy death futuhat poem" style="--g-color:var(--c-6)"><span class="sw"></span>Legacy</a></li>
+      <li><a href="#s-13" data-key="two lessons love purpose gaza" style="--g-color:var(--c-1)"><span class="sw"></span>Two Lessons</a></li>
+      <li><a href="#s-14" data-key="closing dua salawat" style="--g-color:var(--c-2)"><span class="sw"></span>Closing</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- 01 -->
+    <section class="class-section" id="s-01" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">01</span>
+        <h2>Who Was He</h2>
+        <button class="collapse-toggle" data-target="s-01" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-01">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>A late arrival to Islam, a companion without a story told of him</h3>
+            <span class="code-badge">Ṣaḥābī</span>
+          </div>
+          <ul class="points">
+            <li>He's discussed right after Nuʿaymān because their stories are similar — repeated struggle, repeated forgiveness.</li>
+            <li>His conversion to Islam came very late — possibly even after the Prophet ﷺ's death, or possibly just before.</li>
+            <li>Scholars disagree on his actual name: <b>Mālik ibn Ḥabīb</b> or <b>ʿAbdullāh ibn Ḥabīb</b>. His kunya (nickname) was <b>Abu Mihjan</b>.</li>
+            <li>He belonged to the tribe of <b>Thaqīf</b> (hence "ath-Thaqafī") — the same tribe covered in an earlier series about late converts tied to the story of Ṭāʾif.</li>
+            <li>Most historians (Ibn ʿAbd al-Barr, Ibn al-Athīr) say he accepted Islam when the rest of Thaqīf did, in Ramadan of the ninth year of the Hijrah, during the Prophet's ﷺ lifetime.</li>
+            <li>He is technically considered a Ṣaḥābī (companion) since he had "ṣuḥbah" (companionship status), but there are no recorded direct interactions between him and the Prophet ﷺ, due to how late he converted.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section class="class-section" id="s-02" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">02</span>
+        <h2>Character &amp; Flaw</h2>
+        <button class="collapse-toggle" data-target="s-02" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-02">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>Every box checked, but one</h3>
+            <span class="code-badge">5 traits</span>
+          </div>
+          <ul class="points">
+            <li><b>Hero of the Jāhiliyyah</b> — known before Islam as one of the truly courageous men of his time.</li>
+            <li><b>A skilled horseman</b> — a talent that would later save an entire battle.</li>
+            <li><b>An eloquent poet</b> — his verses survive to this day, carrying both his grief and his resolve.</li>
+            <li><b>Wealthy and generous</b> — financially well-off, and known for spending freely on others.</li>
+            <li><b>His weakness — al-khamr (alcohol)</b> — despite all these strengths, this was his glaring weakness. Ibn ʿAbd al-Barr narrates that no punisher's punishment and no blamer's blame could ever restrain him from it.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section class="class-section" id="s-03" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">03</span>
+        <h2>The Real Battlefield</h2>
+        <button class="collapse-toggle" data-target="s-03" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-03">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>How can a man be fearless in war, and defeated by himself?</h3>
+          </div>
+          <ul class="points">
+            <li>The speaker raises the question: how can someone be so strong and brave in battle, yet fail so badly in a personal struggle?</li>
+            <li>This leads to the concept of <b>jihād al-nafs / mujāhadat al-nafs</b> (struggle against the self) being the ultimate battleground — greater than any external battle.</li>
+            <li>The idea: if you can conquer yourself, you can conquer anybody else.</li>
+          </ul>
+          <div class="quote">Jihād al-nafs is the ultimate battleground. A person who is able to overcome themselves will be able to overcome anybody else.</div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 04 -->
+    <section class="class-section" id="s-04" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">04</span>
+        <h2>Used, Not Discarded</h2>
+        <button class="collapse-toggle" data-target="s-04" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-04">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>Abu Bakr's view, and continued accountability</h3>
+            <span class="code-badge">Repeated ḥadd</span>
+          </div>
+          <ul class="points">
+            <li>Despite his ongoing struggle with alcohol, <b>Abu Bakr as-Ṣiddīq (RA)</b> still made use of Abu Mihjan in battle.</li>
+            <li>This shows people struggling with personal sins aren't necessarily disqualified from serving the community — a person doesn't have to be "sin-free" to contribute.</li>
+            <li>However, accountability still applied: <b>ʿUmar (RA)</b> carried out the ḥadd punishment (flogging) for alcohol on him seven times, with one report saying eight times.</li>
+            <li>This mirrors Nuʿaymān's story of repeated relapse and repeated punishment.</li>
+          </ul>
+          <div class="stat-row">
+            <div class="stat"><span class="num">7×</span><span class="label">Flogged (most narrations)</span></div>
+            <div class="stat"><span class="num">8×</span><span class="label">Flogged (one report)</span></div>
+            <div class="stat"><span class="num">1</span><span class="label">Island exile, ordered by ʿUmar</span></div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 05 -->
+    <section class="class-section" id="s-05" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">05</span>
+        <h2>Exile &amp; Flight</h2>
+        <button class="collapse-toggle" data-target="s-05" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-05">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>Banished — and running toward battle, not from it</h3>
+            <span class="code-badge">Al-Qādisiyyah</span>
+          </div>
+          <ul class="points">
+            <li>Eventually, <b>ʿUmar (RA)</b> exiled Abu Mihjan to an island in the sea because of his repeated offenses.</li>
+            <li>ʿUmar sent a man to accompany and guard him.</li>
+            <li>Abu Mihjan escaped from that man and fled, catching up with <b>Saʿd ibn Abī Waqqāṣ (RA)</b> in Persia, right as the <b>Battle of al-Qādisiyyah</b> — one of the most consequential battles against the Persian Empire — was about to take place.</li>
+            <li>Abu Mihjan, being a man who lived for the battlefield, begged Saʿd to let him fight rather than remain in exile.</li>
+            <li>However, ʿUmar had specifically written to Saʿd instructing him to restrain Abu Mihjan because of his repeated relapses.</li>
+            <li>So Saʿd chained and locked him up instead, telling him he'd deal with him later, since there was an urgent battle to focus on.</li>
+            <li>Abu Mihjan was also flogged again for the alcohol before being left in restraints.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 06 -->
+    <section class="class-section" id="s-06" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">06</span>
+        <h2>Poetry in Chains</h2>
+        <button class="collapse-toggle" data-target="s-06" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-06">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>Grief in restraint</h3>
+          </div>
+          <div class="quote">
+            What sorrow is it that the horses are driven onward by their spears, while I am here in this pathetic state, bound in my chains?
+            <footer>Abu Mihjan, reciting in his restraints</footer>
+          </div>
+          <ul class="points">
+            <li>While chained, he recited poetry lamenting his state — grieving that the horses and warriors were riding out to battle while he was left bound and helpless.</li>
+            <li>He wept, realizing his sin had cost him a share in a meaningful moment with the Prophet's companions, and that his personal downfall was hurting his community, who needed him.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 07 -->
+    <section class="class-section" id="s-07" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">07</span>
+        <h2>The Plea</h2>
+        <button class="collapse-toggle" data-target="s-07" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-07">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>His plea to Saʿd's wife, and his promise</h3>
+            <span class="code-badge">Tawbah</span>
+          </div>
+          <ul class="points">
+            <li>He pleaded with Saʿd's wife to release him.</li>
+            <li>He promised that if Allah allowed him to survive the battle (not be killed as a martyr), he would return and voluntarily put himself back in chains — with no one needing to know he'd left.</li>
+            <li>He framed this temporary release as his <b>tawbah</b> (repentance) — a chance to fight for Allah's sake.</li>
+            <li>He noted: if he died as a martyr, the household would be rid of him anyway; if he survived, he'd return to captivity without causing trouble, since Saʿd would come home and find him chained regardless.</li>
+            <li>Saʿd's wife believed his sincerity and let him go.</li>
+          </ul>
+          <div class="quote">If I am killed, then you're rid of me anyway. And if I don't die, I'll come back and put myself in the chains, and you won't be in trouble — because Saʿd will come home and find me right there.</div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 08 -->
+    <section class="class-section" id="s-08" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">08</span>
+        <h2>The Battle</h2>
+        <button class="collapse-toggle" data-target="s-08" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-08">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>A masked rider appears from nowhere</h3>
+            <span class="code-badge">Al-Balqā'</span>
+          </div>
+          <ul class="points">
+            <li>He took one of Saʿd's horses, known as <b>al-Balqā'</b>.</li>
+            <li>He wrapped and covered his face (masked) and appeared right as the Battle of Qādisiyyah began.</li>
+            <li>He fought fiercely with his spear, cutting through enemy lines left and right.</li>
+            <li>At the end, people searched for the masked rider on al-Balqā', but he had disappeared.</li>
+          </ul>
+          <div class="quote">"He must be an angel — innahu malak." <footer>Some of the Ṣaḥāba, watching him disappear</footer></div>
+          <ul class="points">
+            <li>Some of the Ṣaḥāba speculated he must have been an angel ("malak"), since he appeared from nowhere, fought decisively, and vanished — drawing a comparison to similar accounts from the Battle of Badr.</li>
+            <li>Saʿd (RA), however, recognized both his own horse and Abu Mihjan's distinctive fighting style.</li>
+            <li>Saʿd couldn't reconcile this because he believed Abu Mihjan was still chained back at the camp.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 09 -->
+    <section class="class-section" id="s-09" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">09</span>
+        <h2>Return &amp; Release</h2>
+        <button class="collapse-toggle" data-target="s-09" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-09">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>His return to captivity, and Saʿd's discovery</h3>
+          </div>
+          <ul class="points">
+            <li>After the battle, Abu Mihjan went back to Saʿd's wife and asked to be put back in his chains, as promised.</li>
+            <li>He remained in chains until Saʿd returned.</li>
+            <li>Saʿd's wife told him the full story upon his return.</li>
+            <li>Saʿd was deeply moved and emotional.</li>
+            <li>He went to Abu Mihjan and released him, declaring he would never strike him again, given what Allah had accomplished through his hands for the Muslims.</li>
+          </ul>
+          <div class="quote">By Allah, after today, I will never strike a man again through whom Allah granted the Muslims what he granted them on his hands.<footer>Saʿd ibn Abī Waqqāṣ (RA)</footer></div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section class="class-section" id="s-10" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">10</span>
+        <h2>The Vow</h2>
+        <button class="collapse-toggle" data-target="s-10" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-10">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>Abu Mihjan's response and vow</h3>
+          </div>
+          <ul class="points">
+            <li>Abu Mihjan explained that he used to drink alcohol, then undergo the ḥadd punishment, which he felt purified him of the sin — the punishment cleansing him.</li>
+            <li>But now, he swore by Allah that he would never drink again.</li>
+          </ul>
+          <div class="quote">Lā wallāhi lā ashrabuhā abadan — I swear by Allah, I will never drink it again.</div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 11 -->
+    <section class="class-section" id="s-11" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">11</span>
+        <h2>Trick of Shayṭān</h2>
+        <button class="collapse-toggle" data-target="s-11" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-11">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>"I wouldn't quit just because someone hit me"</h3>
+            <span class="code-badge">Musannaf ʿAbdul Razzāq</span>
+          </div>
+          <ul class="points">
+            <li>In a narration from Musannaf ʿAbdul Razzāq, he added a deeper reflection: he used to keep drinking partly out of pride — refusing to quit just because someone else (via punishment) forced him to.</li>
+            <li>He didn't want to be seen as quitting "because someone hit him."</li>
+            <li>The speaker uses this to illustrate a trick of Shayṭān: refusing to do what's right simply because someone else told you to, rather than doing it because you personally choose to for Allah's sake.</li>
+            <li>Abu Mihjan affirmed he would never return to alcohol again, whether or not he was flogged — and he kept that vow for the rest of his life.</li>
+          </ul>
+          <div class="quote">It's like someone saying: "I won't start doing what Allah commanded just because others told me to. I'll do it when I want to." That's a trick of Shayṭān.</div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 12 -->
+    <section class="class-section" id="s-12" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">12</span>
+        <h2>Legacy</h2>
+        <button class="collapse-toggle" data-target="s-12" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-12">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>Conquered heart, continued conquest</h3>
+          </div>
+          <ul class="points">
+            <li>His heart was described as "conquered," and he resumed serving fī sabīlillāh (in the path of Allah).</li>
+            <li>Scholars differ on where he died during the later Islamic conquests (al-futūḥāt) — some say <b>Azerbaijan</b>, others say <b>Jurjān</b> — but he continued fighting for the cause after breaking free of his addiction.</li>
+            <li>Despite his past struggle, his legacy isn't defined by being "a drunk" — instead, he's remembered as a sincere mujāhid (fighter) in Allah's path.</li>
+          </ul>
+          <div class="quote">"I used to see khamr, alcohol, as pleasant, yet within it there are traits that can destroy the most patient and forbearing man, someone that is ḥalīm."</div>
+          <div class="quote">"I will never again in my life drink it. And I will never use it to treat someone who is sick again. It's a disease."</div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 13 -->
+    <section class="class-section" id="s-13" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">13</span>
+        <h2>Two Lessons</h2>
+        <button class="collapse-toggle" data-target="s-13" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-13">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>Two lessons for overcoming addictive sin</h3>
+          </div>
+          <ul class="points">
+            <li><b>Caveat:</b> none of this means you shouldn't seek the specific means to cure a particular addiction — that's itself one of the ways to be sincere fī sabīlillāh. Seek help and take the practical steps needed, alongside tawbah.</li>
+            <li>Abu Mihjan's specific "wake-up call" was seeing himself drinking while his community fought one of Islam's most consequential battles — feeling like "a loser" for not contributing to something greater.</li>
+            <li>The speaker frames sin as fundamentally selfish — serving the self even when it crosses Allah's boundaries — while purpose refocuses a person toward serving others and the ummah.</li>
+          </ul>
+          <div class="lesson-grid">
+            <div class="lesson-card" style="border-color:var(--c-1); background:var(--c-1-tint);">
+              <span class="kicker">Lesson 1 — From Nuʿaymān</span>
+              <h4>Allah's love is bigger than your sin</h4>
+              <p>Don't think your sin is too big to be forgiven, or that it's disqualified you forever. Don't despair in the mercy of Allah, or in the idea that Allah can still love you. Unlike people — who may forgive but say "I can never love you the same again" — Allah, through al-ʿAfuw, al-Ghafūr, al-Wadūd, invites the sinner back into a relationship of love, where you could still be a walī of Allah after a major sin.</p>
+            </div>
+            <div class="lesson-card" style="border-color:var(--c-3); background:var(--c-3-tint);">
+              <span class="kicker">Lesson 2 — From Abu Mihjan</span>
+              <h4>Your purpose is bigger than your sin</h4>
+              <p>A person may wake up — as with a young person reacting to the suffering in Gaza — and ask: "What am I doing with my life? Why am I spoiling myself, getting mad over silly things, sad over things that don't deserve it, while people are being slaughtered?" Purpose calls a person back to the ummah that depends on them, and to the greatness Allah put them here to unlock.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 14 -->
+    <section class="class-section" id="s-14" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">14</span>
+        <h2>Closing</h2>
+        <button class="collapse-toggle" data-target="s-14" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-14">
+      <div class="class-body-inner">
+        <div class="card">
+          <div class="card-top">
+            <h3>His sin was never the end of his story</h3>
+          </div>
+          <ul class="points">
+            <li>The speaker closes with supplications: asking Allah to connect the listeners to His love and greatness, to forgive shortcomings, and to be pleased with the companions of the Prophet ﷺ.</li>
+            <li>He asks Allah to join the listeners with the Messenger ﷺ, his beloved family, and his companions in the Hereafter, and make them amongst them.</li>
+            <li>The talk ends with the standard Islamic closing salutations — ṣalawāt on the Prophet ﷺ and salām.</li>
+          </ul>
+          <div class="quote">
+            May Allah make us people who connect to His love and His greatness. May He forgive our shortcomings, and be pleased with the companions of the Prophet ﷺ. May He join us with the Messenger ﷺ, his family, and his companions, and make us amongst them. Allāhumma āmīn.
+            <footer>Wa ṣallallāhu ʿalā Nabiyyinā Muḥammad wa ʿalā ālihi wa ṣaḥbihi ajmaʿīn</footer>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<button id="toTop" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<div id="quickPanel">
+  <div class="nav-actions">
+    <button id="expandAll">Expand all</button>
+    <button id="collapseAll">Collapse all</button>
+  </div>
+  <ul id="qpList">
+    <li data-target="s-01"><a href="#s-01" style="--qc:var(--c-1)"><span class="qp-idx">01</span>Who Was He</a><span class="qp-toggle" data-target="s-01"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-02"><a href="#s-02" style="--qc:var(--c-2)"><span class="qp-idx">02</span>Character &amp; Flaw</a><span class="qp-toggle" data-target="s-02"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-03"><a href="#s-03" style="--qc:var(--c-3)"><span class="qp-idx">03</span>The Real Battlefield</a><span class="qp-toggle" data-target="s-03"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-04"><a href="#s-04" style="--qc:var(--c-4)"><span class="qp-idx">04</span>Used, Not Discarded</a><span class="qp-toggle" data-target="s-04"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-05"><a href="#s-05" style="--qc:var(--c-5)"><span class="qp-idx">05</span>Exile &amp; Flight</a><span class="qp-toggle" data-target="s-05"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-06"><a href="#s-06" style="--qc:var(--c-6)"><span class="qp-idx">06</span>Poetry in Chains</a><span class="qp-toggle" data-target="s-06"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-07"><a href="#s-07" style="--qc:var(--c-1)"><span class="qp-idx">07</span>The Plea</a><span class="qp-toggle" data-target="s-07"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-08"><a href="#s-08" style="--qc:var(--c-2)"><span class="qp-idx">08</span>The Battle</a><span class="qp-toggle" data-target="s-08"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-09"><a href="#s-09" style="--qc:var(--c-3)"><span class="qp-idx">09</span>Return &amp; Release</a><span class="qp-toggle" data-target="s-09"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-10"><a href="#s-10" style="--qc:var(--c-4)"><span class="qp-idx">10</span>The Vow</a><span class="qp-toggle" data-target="s-10"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-11"><a href="#s-11" style="--qc:var(--c-5)"><span class="qp-idx">11</span>Trick of Shayṭān</a><span class="qp-toggle" data-target="s-11"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-12"><a href="#s-12" style="--qc:var(--c-6)"><span class="qp-idx">12</span>Legacy</a><span class="qp-toggle" data-target="s-12"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-13"><a href="#s-13" style="--qc:var(--c-1)"><span class="qp-idx">13</span>Two Lessons</a><span class="qp-toggle" data-target="s-13"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-14"><a href="#s-14" style="--qc:var(--c-2)"><span class="qp-idx">14</span>Closing</a><span class="qp-toggle" data-target="s-14"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+  </ul>
+</div>
+
+<button id="quickFab" aria-label="Open quick navigation" aria-expanded="false">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+</button>
+
+<script>
+  const heroHeader = document.querySelector('header.hero');
+  function syncHeaderHeight(){
+    const refBar = document.querySelector('.ref-bar');
+    document.documentElement.style.setProperty('--header-h', (heroHeader.offsetHeight + refBar.offsetHeight) + 'px');
+  }
+  syncHeaderHeight();
+  window.addEventListener('resize', syncHeaderHeight);
+
+  const progress = document.getElementById('progress');
+  function updateProgress(){
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    progress.style.width = scrolled + '%';
+    document.getElementById('toTop').classList.toggle('show', h.scrollTop > 700);
+  }
+  document.addEventListener('scroll', updateProgress, {passive:true});
+  updateProgress();
+
+  document.getElementById('toTop').addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+  const navLinks = document.querySelectorAll('nav.sidebar li a');
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const id = entry.target.id;
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  document.querySelectorAll('main section.class-section').forEach(el => { if(el.id) sectionObserver.observe(el); });
+
+  const quickFab = document.getElementById('quickFab');
+  const quickPanel = document.getElementById('quickPanel');
+  function openQuickPanel(){ quickPanel.classList.add('open'); quickFab.classList.add('open'); quickFab.setAttribute('aria-expanded','true'); }
+  function closeQuickPanel(){ quickPanel.classList.remove('open'); quickFab.classList.remove('open'); quickFab.setAttribute('aria-expanded','false'); }
+  quickFab.addEventListener('click', () => { quickPanel.classList.contains('open') ? closeQuickPanel() : openQuickPanel(); });
+  document.addEventListener('click', (e) => {
+    if(quickPanel.classList.contains('open') && !quickPanel.contains(e.target) && !quickFab.contains(e.target)){ closeQuickPanel(); }
+  });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeQuickPanel(); });
+  quickPanel.querySelectorAll('a').forEach(a => { a.addEventListener('click', () => closeQuickPanel()); });
+
+  const ALL_SECTION_IDS = ['s-01','s-02','s-03','s-04','s-05','s-06','s-07','s-08','s-09','s-10','s-11','s-12','s-13','s-14'];
+
+  function setCollapsed(id, collapsed){
+    const body = document.getElementById('body-' + id);
+    const btn = document.querySelector('.collapse-toggle[data-target="' + id + '"]');
+    const qpItem = document.querySelector('#qpList li[data-target="' + id + '"]');
+    if(body) body.classList.toggle('collapsed', collapsed);
+    if(btn) btn.setAttribute('aria-expanded', String(!collapsed));
+    if(qpItem) qpItem.classList.toggle('is-collapsed', collapsed);
+  }
+  function isCollapsed(id){
+    const body = document.getElementById('body-' + id);
+    return body ? body.classList.contains('collapsed') : false;
+  }
+  function toggleCollapsed(id){ setCollapsed(id, !isCollapsed(id)); }
+
+  document.querySelectorAll('.collapse-toggle').forEach(btn => {
+    btn.addEventListener('click', () => toggleCollapsed(btn.dataset.target));
+  });
+  document.querySelectorAll('#qpList li').forEach(item => {
+    const id = item.dataset.target;
+    item.querySelector('.qp-toggle').addEventListener('click', (e) => { e.stopPropagation(); e.preventDefault(); toggleCollapsed(id); });
+  });
+
+  document.getElementById('expandAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, false)));
+  document.getElementById('collapseAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, true)));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href').slice(1);
+      if(!href) return;
+      const target = document.getElementById(href);
+      if(!target) return;
+      if(target.classList.contains('class-section')){ setCollapsed(href, false); }
+    });
+  });
+
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', () => {
+    const q = searchInput.value.trim().toLowerCase();
+    navLinks.forEach(a => {
+      const key = (a.dataset.key || a.textContent).toLowerCase();
+      const match = q === '' || key.includes(q);
+      a.dataset.hidden = match ? '0' : '1';
+      const section = document.querySelector(a.getAttribute('href'));
+      if(section){ section.style.display = match ? '' : 'none'; }
+    });
+  });
+</script>
+<script src="nav.js"></script>
+</body>
+</html>
