@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>"You Will Not Stop Mentioning Yusuf" — Surah Yusuf 85 | Study Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --paper:#fbfbfd;
+    --ink:#14151a;
+    --ink-soft:#5a5d6b;
+    --line:#e7e7ee;
+    --line-soft:#f0f0f5;
+
+    --c-1:#7c3aed;  --c-1-tint:#f4edff;   /* violet */
+    --c-2:#0284c7;  --c-2-tint:#e8f6ff;   /* ocean */
+    --c-3:#ea580c;  --c-3-tint:#fff1e8;   /* coral */
+    --c-4:#db2777;  --c-4-tint:#ffe9f4;   /* magenta */
+    --c-5:#059669;  --c-5-tint:#e6faf2;   /* emerald */
+    --c-6:#0f766e;  --c-6-tint:#e6f8f6;   /* teal */
+
+    --accent: var(--c-1);
+    --accent-tint: var(--c-1-tint);
+
+    --radius: 18px;
+    --shadow: 0 1px 2px rgba(20,21,26,.04), 0 12px 32px -16px rgba(20,21,26,.14);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background: var(--accent); color:#fff; }
+
+  h1,h2,h3,h4{ font-family:'Space Grotesk', sans-serif; margin:0; letter-spacing:-.01em; }
+  code, .mono{ font-family:'IBM Plex Mono', monospace; }
+  a{ color:inherit; }
+  p{ margin:0; }
+  .arabic{ font-family:'Amiri', serif; direction:rtl; }
+
+  #progress{
+    position:fixed; top:0; left:0; height:3px; width:0%;
+    background: linear-gradient(90deg, var(--c-1), var(--c-2), var(--c-3), var(--c-4), var(--c-5), var(--c-6));
+    z-index:100; transition: width .1s linear;
+  }
+
+  .ref-bar{
+    background:var(--ink); color:#fff;
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    padding:9px 8vw; display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  }
+  .ref-bar .ref-label{ color:rgba(255,255,255,.55); text-transform:uppercase; letter-spacing:.08em; font-size:10.5px; }
+  .ref-bar .ref-txt{ opacity:.85; }
+
+  header.hero{
+    padding: 6px 8vw;
+    min-height:46px;
+    display:flex; align-items:center; gap:10px;
+    position:sticky; top:0; z-index:80;
+    border-bottom:1px solid var(--line);
+    background-color:#fff;
+    background-image:
+      radial-gradient(700px 340px at 8% -10%, var(--c-1-tint), transparent 60%),
+      radial-gradient(600px 300px at 95% 0%, var(--c-3-tint), transparent 55%);
+  }
+
+  /* ---------- burger navigation ---------- */
+  .burger-wrap{ position:relative; display:flex; align-items:center; }
+  .burger-btn{
+    width:34px; height:34px; border-radius:10px; border:1.3px solid var(--line);
+    background:var(--paper); color:var(--ink); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: border-color .15s ease, background .15s ease, color .15s ease;
+  }
+  .burger-btn:hover{ border-color: var(--c-1); }
+  .burger-btn.open{ background: var(--c-1); border-color: var(--c-1); color:#fff; }
+  .burger-btn svg{ transition: opacity .15s ease; }
+  .burger-menu{
+    position:absolute; top:calc(100% + 10px); left:0; width:320px;
+    background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow);
+    padding:8px; opacity:0; transform: translateY(-6px); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease; z-index:120;
+    display:flex; flex-direction:column;
+  }
+  .burger-menu.open{ opacity:1; transform: translateY(0); pointer-events:auto; }
+  .burger-menu-home{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; margin:2px 2px 8px;
+    border-radius:10px; border-bottom:1px solid var(--line-soft);
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-home svg{ flex:none; color:var(--ink-soft); }
+  .burger-menu-home:hover{ background: var(--paper); }
+  .burger-menu-home.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-home.is-current .bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-search{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:10px; padding:8px 10px; margin:2px 2px 8px;
+    background:var(--paper); flex:none;
+  }
+  .burger-menu-search svg{ flex:none; opacity:.5; color:var(--ink-soft); }
+  .burger-menu-search input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13px; width:100%; color:var(--ink);
+  }
+  .burger-menu-list{ max-height:340px; overflow-y:auto; overscroll-behavior:contain; }
+  .burger-menu-list::-webkit-scrollbar{ width:6px; }
+  .burger-menu-list::-webkit-scrollbar-thumb{ background:var(--line); border-radius:10px; }
+  .burger-menu-group + .burger-menu-group{ margin-top:4px; }
+  .burger-menu-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); padding:8px 10px 4px;
+  }
+  .burger-menu-empty{
+    display:none; padding:18px 10px; text-align:center; font-size:12.5px; color:var(--ink-soft);
+  }
+  .burger-menu-item{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; border-radius:10px;
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-item span.bm-title{ display:block; }
+  .burger-menu-item span.bm-sub{ display:block; font-size:11.5px; color:var(--ink-soft); font-weight:400; margin-top:1px; }
+  .burger-menu-item:hover{ background: var(--paper); }
+  .burger-menu-item.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-item.is-current span.bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-dot{ width:9px; height:9px; border-radius:3px; flex:none; margin-top:3px; }
+
+  .page-title{ padding: 30px 8vw 6px; }
+  .page-title .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-soft); margin-bottom:10px; display:block;
+  }
+  .page-title h1{
+    font-size: clamp(26px, 5vw, 46px);
+    line-height:1.12;
+    font-weight:700;
+  }
+  .page-title h1 .accent-word{
+    background: linear-gradient(100deg, var(--c-1), var(--c-4) 55%, var(--c-3));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .page-title .sub{
+    margin-top:14px; max-width:66ch; color:var(--ink-soft); font-size:15px; line-height:1.6;
+  }
+  .page-title .tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+  .page-title .tag{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; border:1.3px solid var(--line);
+    color:var(--ink-soft); font-weight:500; background:var(--paper);
+  }
+
+  .layout{
+    max-width:1400px; margin:0 auto;
+  }
+  .toc-wrap{
+    border-bottom:1px solid var(--line);
+    padding: 0 8vw;
+  }
+  .toc-toggle{
+    width:100%; display:flex; align-items:center; justify-content:space-between; gap:10px;
+    background:none; border:none; cursor:pointer; padding:16px 0;
+    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px; color:var(--ink);
+  }
+  .toc-toggle:hover{ color:var(--c-1); }
+  .toc-toggle-left{ display:flex; align-items:center; gap:10px; }
+  .toc-toggle-left svg{ color:var(--ink-soft); flex:none; }
+  .toc-count{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft); font-weight:500;
+    background:var(--paper); border:1px solid var(--line); padding:2px 8px; border-radius:100px;
+  }
+  .toc-chevron{ transition: transform .3s ease; color:var(--ink-soft); flex:none; }
+  .toc-toggle[aria-expanded="true"] .toc-chevron{ transform: rotate(180deg); }
+  .toc-panel-outer{ display:grid; grid-template-rows: 0fr; transition: grid-template-rows .35s ease; }
+  .toc-panel-outer.open{ grid-template-rows: 1fr; }
+  .toc-panel-inner{ overflow:hidden; min-height:0; }
+
+  nav.sidebar{ display:block; padding: 4px 0 22px; }
+
+  .search-box{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:12px; padding:10px 12px; margin-bottom:18px;
+    background:var(--paper);
+  }
+  .search-box input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13.5px; width:100%; color:var(--ink);
+  }
+  .search-box svg{ flex:none; opacity:.5; }
+
+  .nav-actions{ display:flex; gap:8px; margin-bottom:18px; }
+  .nav-actions button{
+    flex:1; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    border:1.3px solid var(--line); background:#fff; color:var(--ink-soft);
+    padding:7px 8px; border-radius:9px; cursor:pointer; transition:.15s ease;
+  }
+  .nav-actions button:hover{ border-color:var(--ink); color:var(--ink); }
+
+  .nav-group-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); margin: 18px 0 6px 2px;
+  }
+  .nav-group-label:first-of-type{ margin-top:0; }
+
+  nav.sidebar ul{ list-style:none; margin:0; padding:0; border-left:2px solid var(--line-soft); }
+  nav.sidebar li a{
+    display:flex; align-items:center; gap:9px;
+    text-decoration:none; font-size:13.5px; color:var(--ink-soft);
+    padding:7px 0 7px 14px; border-left:2px solid transparent; margin-left:-2px;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  nav.sidebar li a .sw{ width:8px; height:8px; border-radius:3px; flex:none; background:var(--g-color); }
+  nav.sidebar li a:hover{ color:var(--ink); }
+  nav.sidebar li a.active{ color:var(--g-color); border-left-color: var(--g-color); font-weight:600; }
+  nav.sidebar li a[data-hidden="1"]{ display:none; }
+
+  main{ min-width:0; padding: 0 8vw 140px; }
+
+  section.class-section{ padding-top:56px; scroll-margin-top: 24px; }
+  section.class-section:first-child{ padding-top:44px; }
+
+  .class-head{
+    display:flex; align-items:baseline; gap:16px; flex-wrap:wrap;
+    padding-bottom:14px; margin-bottom:22px; border-bottom:3px solid var(--g-color);
+    position:relative;
+  }
+  .class-head .idx{
+    font-family:'IBM Plex Mono',monospace; font-size:14px; font-weight:700; color:#fff;
+    background:var(--g-color); padding:5px 10px; border-radius:8px;
+  }
+  .class-head h2{ font-size: clamp(20px,2.4vw,28px); color:var(--ink); }
+  .collapse-toggle{
+    margin-left:auto; width:34px; height:34px; border-radius:9px; border:1.5px solid var(--line);
+    background:#fff; color:var(--g-color); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: transform .3s ease, background .15s ease, border-color .15s ease;
+  }
+  .collapse-toggle:hover{ background: var(--g-tint); border-color: var(--g-color); }
+  .collapse-toggle svg{ transition: transform .3s ease; }
+  .collapse-toggle[aria-expanded="false"] svg{ transform: rotate(-90deg); }
+
+  .class-body-outer{ display:grid; grid-template-rows: 0fr; transition: grid-template-rows .38s ease; }
+  .class-body-outer.collapsed{ grid-template-rows: 0fr; }
+  .class-body-outer:not(.collapsed){ grid-template-rows: 1fr; }
+  .class-body-inner{ overflow:hidden; min-height:0; opacity:0; transition: opacity .25s ease .1s; }
+  .class-body-outer.collapsed .class-body-inner{ opacity:0; transition: opacity .18s ease; }
+  .class-body-outer:not(.collapsed) .class-body-inner{ opacity:1; }
+
+  .card{
+    background:#fff; border:1px solid var(--line); border-radius: var(--radius);
+    padding: 28px 30px; margin-bottom: 22px; position:relative; overflow:hidden;
+    border-left: 5px solid var(--g-color);
+  }
+  .card .card-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap;
+    margin-bottom:14px;
+  }
+  .card h3{ font-size:19px; font-weight:600; color:var(--ink); }
+  .card h3 .alt{ font-weight:400; color:var(--ink-soft); font-size:14px; display:block; margin-top:3px;}
+  .code-badge{
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:12px; color:#fff;
+    background: var(--g-color); padding:6px 12px; border-radius:8px; white-space:nowrap;
+  }
+
+  ul.points{ list-style:none; margin:0; padding:0; }
+  ul.points > li{
+    position:relative; padding: 10px 0 10px 34px; font-size:14.8px; line-height:1.65; color:#2b2d36;
+    border-top:1px solid var(--line-soft);
+  }
+  ul.points > li:first-child{ border-top:none; }
+  ul.points > li::before{
+    content:"—";
+    position:absolute; left:0; top:10px; width:22px; height:22px; border-radius:7px;
+    background: var(--g-tint); color:var(--g-color); font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:13px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  ul.points > li b, ul.points > li strong{ color:var(--g-color); }
+  ul.points ul{ list-style:none; margin:8px 0 0; padding:0; }
+  ul.points ul li{
+    position:relative; padding:6px 0 6px 22px; font-size:14px; color:var(--ink-soft); border-top:none;
+  }
+  ul.points ul li::before{
+    content:"·"; position:absolute; left:0; top:4px; width:14px; height:14px; border-radius:0;
+    background:none; color:var(--g-color); font-size:20px; font-weight:700; display:flex; align-items:center; justify-content:center;
+  }
+
+  .ayah-block{
+    margin: 6px 0 18px; padding:20px 22px; border-radius:14px; background:var(--paper);
+    border:1px solid var(--line);
+  }
+  .ayah-block .ayah-ref{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--g-color); font-weight:700; margin-bottom:10px; display:block;
+  }
+  .ayah-block .ayah-ar{
+    font-size:24px; line-height:2; color:var(--ink); text-align:right; margin-bottom:12px;
+  }
+  .ayah-block .ayah-en{
+    font-size:14.5px; line-height:1.6; color:var(--ink-soft); font-style:italic;
+  }
+
+  .quote{
+    margin-top:16px; padding:16px 18px; border-radius:12px; background:var(--g-tint);
+    font-family:'Space Grotesk', sans-serif; font-size:16px; line-height:1.55; color:#20222a;
+    border-left:3px solid var(--g-color);
+  }
+  .quote footer{
+    margin-top:8px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    text-transform:uppercase; color:var(--ink-soft); font-style:normal;
+  }
+
+  .pill-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .pill-row .pill{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; background:#fff; border:1.3px solid var(--g-color);
+    color:var(--g-color); font-weight:600;
+  }
+
+  .lesson-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:6px; }
+  @media (max-width:640px){ .lesson-grid{ grid-template-columns:1fr; } }
+  .lesson-card{
+    border-radius:var(--radius); padding:22px 22px; border:1.3px solid var(--line);
+  }
+  .lesson-card .kicker{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .lesson-card h4{ margin-top:8px; font-size:17px; }
+  .lesson-card p{ margin-top:10px; font-size:14px; line-height:1.6; color:#2b2d36; }
+
+  .num-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:6px; }
+  @media (max-width:760px){ .num-grid{ grid-template-columns:1fr; } }
+  .num-card{
+    border-radius:14px; padding:18px 20px; border:1.3px solid var(--line); background:var(--paper);
+    display:flex; gap:14px; align-items:flex-start;
+  }
+  .num-card .num-badge{
+    flex:none; width:30px; height:30px; border-radius:9px; background:var(--g-color); color:#fff;
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center;
+  }
+  .num-card p{ font-size:14px; line-height:1.6; color:#2b2d36; }
+
+  #toTop{
+    position:fixed; right:26px; bottom:26px; width:46px; height:46px; border-radius:50%;
+    background:var(--ink); color:#fff; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,.22); opacity:0; pointer-events:none; transition: opacity .25s ease, transform .2s ease;
+    z-index:90;
+  }
+  #toTop.show{ opacity:1; pointer-events:auto; }
+  #toTop:hover{ transform: translateY(-3px); }
+
+  #quickFab{
+    position:fixed; left:26px; bottom:26px; width:52px; height:52px; border-radius:16px;
+    background: linear-gradient(135deg, var(--c-1), var(--c-4)); color:#fff; border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; z-index:95;
+    box-shadow:0 10px 28px -6px rgba(124,58,237,.5);
+    transition: transform .2s ease, border-radius .2s ease;
+  }
+  #quickFab:hover{ transform: translateY(-3px) scale(1.03); }
+  #quickFab.open{ border-radius:50%; }
+  #quickFab svg{ transition: transform .3s ease; }
+  #quickFab.open svg{ transform: rotate(45deg); }
+
+  #quickPanel{
+    position:fixed; left:26px; bottom:90px; width:280px; max-height:60vh; overflow-y:auto;
+    background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow);
+    z-index:94; padding:14px; opacity:0; transform: translateY(10px) scale(.97); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  #quickPanel.open{ opacity:1; transform: translateY(0) scale(1); pointer-events:auto; }
+  #quickPanel .qp-head{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--ink-soft); padding:4px 8px 10px;
+  }
+  #qpList{ list-style:none; margin:0; padding:0; }
+  #qpList li{
+    display:flex; align-items:center; gap:8px; border-radius:10px; padding:2px;
+  }
+  #qpList li a{
+    flex:1; display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--ink);
+    font-size:13px; padding:8px; border-radius:10px; transition:background .15s ease;
+  }
+  #qpList li a:hover{ background:var(--paper); }
+  .qp-idx{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:700; color:#fff;
+    background: var(--qc, var(--c-1)); padding:2px 6px; border-radius:6px;
+  }
+  .qp-toggle{ padding:8px; cursor:pointer; color:var(--ink-soft); opacity:.6; }
+  .qp-toggle:hover{ opacity:1; }
+  #qpList li.is-collapsed .qp-toggle svg{ transform: rotate(-90deg); }
+  #qpList li .qp-toggle svg{ transition: transform .3s ease; }
+
+  #empty-state{ display:none; padding:60px 0; text-align:center; color:var(--ink-soft); }
+  #empty-state.show{ display:block; }
+
+  footer.page-footer{
+    padding:30px 8vw 60px; color:var(--ink-soft); font-size:12.5px; font-family:'IBM Plex Mono',monospace;
+    border-top:1px solid var(--line); margin-top:30px;
+  }
+
+  @media (max-width: 980px){
+    main{ padding: 0 6vw 120px; }
+    .ayah-block .ayah-ar{ font-size:20px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001s !important; transition-duration:.001s !important; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body data-page="yusuf85">
+
+<div id="progress"></div>
+
+<header class="hero">
+  <div class="burger-wrap">
+    <button id="navBurger" class="burger-btn" aria-haspopup="true" aria-expanded="false" aria-label="Open navigation menu">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div id="navMenu" class="burger-menu"></div>
+  </div>
+</header>
+
+<div class="ref-bar">
+  <span class="ref-label">Source</span>
+  <a href="https://www.youtube.com/watch?v=BDS7kTAXd8k&list=PLutdSTmJ7bAKlyRliJdlAJZRF6RSIE49y&index=58" target="_blank" rel="noopener" class="ref-txt" style="text-decoration:none; border-bottom:1px solid rgba(255,255,255,.35); padding-bottom:1px;">Nouman Ali Khan</a>
+</div>
+
+<div class="page-title" id="top">
+  <span class="eyebrow">Tafsīr Notes · Sūrah Yūsuf</span>
+  <h1>"You Will Not <span class="accent-word">Stop</span> Mentioning Yusuf" [Ayah 85]</h1>
+  <div class="sub">The brothers swear an oath to their grieving father — an outburst that becomes a study in oath-taking, translated emotion, the psychology of shifted guilt, and the deep etymology of a single, difficult word: "Harad."</div>
+  <div class="tag-row">
+    <span class="tag">Verse 85</span>
+    <span class="tag">Ta-Allahi</span>
+    <span class="tag">Harad</span>
+    <span class="tag">Guilt &amp; Projection</span>
+  </div>
+</div>
+
+<div class="layout">
+
+  <div class="toc-wrap">
+    <button class="toc-toggle" id="tocToggle" aria-expanded="false" aria-controls="tocPanelOuter">
+      <span class="toc-toggle-left">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        <span>Table of Contents</span>
+      </span>
+      <svg class="toc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="toc-panel-outer" id="tocPanelOuter">
+      <div class="toc-panel-inner">
+        <nav class="sidebar">
+    <div class="search-box">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="searchInput" type="text" placeholder="Search sections…">
+    </div>
+    <div class="nav-actions">
+      <button id="expandAll">Expand all</button>
+      <button id="collapseAll">Collapse all</button>
+    </div>
+
+    <div class="nav-group-label">Reading the Outburst</div>
+    <ul>
+      <li><a href="#s-01" data-key="two readings anger affection unique long quote translation" style="--g-color:var(--c-1)"><span class="sw"></span>Two Readings: Anger or Affection?</a></li>
+      <li><a href="#s-02" data-key="gentle reading ayah 87 seek yusuf brother mercy hope" style="--g-color:var(--c-2)"><span class="sw"></span>The Case for a Gentle Reading</a></li>
+      <li><a href="#s-03" data-key="angry reading context clues othering thief abusive love" style="--g-color:var(--c-3)"><span class="sw"></span>The Case for an Angry Reading</a></li>
+      <li><a href="#s-04" data-key="reconciling ayah 86 complaining to allah teacher own view" style="--g-color:var(--c-4)"><span class="sw"></span>Reconciling With Ayah 86 &amp; the Teacher's View</a></li>
+    </ul>
+
+    <div class="nav-group-label">The Oath — Ta-Allahi</div>
+    <ul>
+      <li><a href="#s-05" data-key="wallahi tallahi wow qasam grades of oath casual serious" style="--g-color:var(--c-5)"><span class="sw"></span>"Wallahi" vs "Ta-Allahi": Grades of Oath</a></li>
+      <li><a href="#s-06" data-key="ibrahim idols scheme tallahi precedent serious oath" style="--g-color:var(--c-6)"><span class="sw"></span>Ibrahim's "Ta-Allahi": A Precedent</a></li>
+      <li><a href="#s-07" data-key="hebrew arabic translation emotion video footage recitation" style="--g-color:var(--c-1)"><span class="sw"></span>Allah Translating Hebrew Grief Into Arabic</a></li>
+      <li><a href="#s-08" data-key="irony oath binyamin sacred name disobedience adab parents role model father" style="--g-color:var(--c-2)"><span class="sw"></span>The Irony of Invoking Allah's Name</a></li>
+    </ul>
+
+    <div class="nav-group-label">Word Study &amp; Psychology</div>
+    <ul>
+      <li><a href="#s-09" data-key="tafta tathkuru grammar nawakus poetry still not stop heart tongue" style="--g-color:var(--c-3)"><span class="sw"></span>"Tafta" and "Tathkuru": Grammar of Grief</a></li>
+      <li><a href="#s-10" data-key="love plate of food jealousy resurfaces binyamin trust" style="--g-color:var(--c-4)"><span class="sw"></span>Love Is Not a Plate of Food</a></li>
+      <li><a href="#s-11" data-key="harad etymology plaster dye plant sidilizia gambling dealer razi" style="--g-color:var(--c-5)"><span class="sw"></span>Deep Dive: The Word "Harad"</a></li>
+      <li><a href="#s-12" data-key="psychology guilt projection victim flip devil offensive" style="--g-color:var(--c-6)"><span class="sw"></span>The Psychology of Guilt Turned Outward</a></li>
+      <li><a href="#s-13" data-key="halak violent death irony learn from mistakes of others" style="--g-color:var(--c-1)"><span class="sw"></span>Irony: "Learn From Those Who Died"</a></li>
+    </ul>
+
+    <div class="nav-group-label">Why It Matters</div>
+    <ul>
+      <li><a href="#s-14" data-key="why allah dedicated whole ayah selective storytelling highlights" style="--g-color:var(--c-2)"><span class="sw"></span>Why Allah Dedicated a Whole Ayah to This</a></li>
+      <li><a href="#s-15" data-key="mirror for us recognizing both roles perpetrator recipient" style="--g-color:var(--c-3)"><span class="sw"></span>A Mirror for Us — Not Just Them</a></li>
+      <li><a href="#s-16" data-key="past does not define you tawbah firaun hope new life" style="--g-color:var(--c-4)"><span class="sw"></span>Past Actions Don't Define You</a></li>
+      <li><a href="#s-17" data-key="preview yaqub draws boundary ayah 86 root fixed plant" style="--g-color:var(--c-5)"><span class="sw"></span>Preview: Yaqub Draws a Boundary</a></li>
+    </ul>
+  </nav>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- 01 -->
+    <section class="class-section" id="s-01" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">01</span>
+        <h2>Two Readings: Anger or Affection?</h2>
+        <button class="collapse-toggle" data-target="s-01" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-01">
+      <div class="class-body-inner">
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Verse 85</span>
+          <p class="ayah-ar arabic">قَالُوا۟ تَٱللَّهِ تَفْتَؤُا۟ تَذْكُرُ يُوسُفَ حَتَّىٰ تَكُونَ حَرَضًا أَوْ تَكُونَ مِنَ ٱلْهَـٰلِكِينَ</p>
+          <p class="ayah-en">"They said, 'By Allah, you will not cease remembering Joseph until you become fatally ill or become of those who perish.'" — Sahih International</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>An unusually long quotation</h3>
+            <span class="code-badge">Why This Ayah Is Different</span>
+          </div>
+          <ul class="points">
+            <li>Allah does not often dedicate this much space to a direct quotation — here an entire ayah is given over to the brothers' words to their father.</li>
+            <li>The paraphrased sense of the line: "We swear by Allah, will you not stop mentioning Yusuf, until you make yourself sick, or you die from it?"</li>
+            <li>The statement can be read two very different ways, and both readings are defensible from the text.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Reading one: anger</h3>
+            <span class="code-badge">Frustration at a Turned Back</span>
+          </div>
+          <ul class="points">
+            <li>In the previous ayah Yaʿqūb (AS) turned his back on his sons and cried out in grief, even letting Yusuf's (AS) name slip from his mouth again.</li>
+            <li>Seeing him do this could have provoked the brothers, who reacted by yelling at their father out of frustration.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Reading two: concern</h3>
+            <span class="code-badge">The More Popular View</span>
+          </div>
+          <ul class="points">
+            <li>The more widely favored reading is that the sons were worried about their father — as if one of them put an arm around his shoulder and gently pleaded with him to stop dwelling on Yusuf before it destroyed his health.</li>
+            <li>On this reading they are trying to console him: it has been years, Yusuf is old news, and the present crisis is about Binyamin.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section class="class-section" id="s-02" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">02</span>
+        <h2>The Case for a Gentle Reading</h2>
+        <button class="collapse-toggle" data-target="s-02" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-02">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The strongest argument: Ayah 87</h3>
+            <span class="code-badge">"Go Seek Out Yusuf and His Brother"</span>
+          </div>
+          <ul class="points">
+            <li>Two ayat later, Yaʿqūb (AS) tells his sons to go search for Yusuf and his brother, and not to lose hope in Allah's mercy — since only disbelievers despair of it.</li>
+            <li>If the sons had just yelled at him for even mentioning Yusuf's name, it would be strange for Yaʿqūb (AS) to immediately turn around and tell them to go look for him.</li>
+            <li>This suggests the brothers must have approached him gently, opening the door for him to speak to them warmly about hope in Allah in return.</li>
+            <li>The reading of ayah 85 is therefore influenced by what comes in ayah 87 — a more positive, hope-filled exchange follows.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section class="class-section" id="s-03" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">03</span>
+        <h2>The Case for an Angry Reading</h2>
+        <button class="collapse-toggle" data-target="s-03" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-03">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Textual clues pointing to anger</h3>
+            <span class="code-badge">Turning Away, Repetition, Rage</span>
+          </div>
+          <ul class="points">
+            <li>Yaʿqūb (AS) had already turned his back on them, showing he was not comfortable with how they were behaving toward him.</li>
+            <li>He repeated the same words of grief he had voiced before — he is already overwhelmed, and their response can be read as anger rather than sympathy: "Are you serious? You're still going to cry about Yusuf?"</li>
+            <li>The old sibling jealousy toward Yusuf (AS) appears to reignite: their entire crime years earlier was committed so that Yusuf would disappear and their father's heart would empty out for them alone.</li>
+            <li>Even now, after all these years, Yusuf still seems to occupy first place in their father's heart — "we are still number two" — and that realization angers them all over again.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The twisted logic of "loving" abuse</h3>
+            <span class="code-badge">"I'm Yelling Because I Love You"</span>
+          </div>
+          <ul class="points">
+            <li>Some people believe that hurting someone is itself a form of loving them — the same mentality some abusive people use to justify their harshness.</li>
+            <li>On this reading, the brothers are angry and frustrated, even though deep down they do want their father's love — they simply have that desire twisted.</li>
+            <li>Earlier in the sūrah, the brothers spoke ill of Yusuf without much provocation, falsely accusing him of theft, and referred to him and his brother with a sense of "otherness" rather than calling him their own brother.</li>
+            <li>This pattern shows it does not take much for the brothers to become aggravated at the mere memory of Yusuf.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 04 -->
+    <section class="class-section" id="s-04" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">04</span>
+        <h2>Reconciling With Ayah 86 &amp; the Teacher's View</h2>
+        <button class="collapse-toggle" data-target="s-04" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-04">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Ayah 86 supports the angry reading</h3>
+            <span class="code-badge">"I Only Complain to Allah"</span>
+          </div>
+          <ul class="points">
+            <li>In the very next ayah, Yaʿqūb (AS) responds: he is only taking his overwhelming grief to Allah as a complaint — he is not speaking to his sons at all.</li>
+            <li>This can be read as him drawing a boundary after a harsh exchange: "I know from Allah what you don't know, leave me be" — consistent with a father who has just been spoken to harshly and turns away again.</li>
+            <li>Whichever reading is taken for ayah 85, the following ayah (86) or ayah 87 then needs to be reconciled with it — a puzzle to be resolved in the following lessons.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Where the teacher leans</h3>
+            <span class="code-badge">A Personal, Not Final, Judgment</span>
+          </div>
+          <ul class="points">
+            <li>While both readings deserve respect, the harsher, angrier reading is described as more convincing, because it fits the pattern already established for the brothers elsewhere in the sūrah.</li>
+            <li>It doesn't take much for their old resentment toward Yusuf (AS) to resurface, and their harshness toward their father earlier in the story supports this reading being consistent with their character.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 05 -->
+    <section class="class-section" id="s-05" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">05</span>
+        <h2>"Wallahi" vs "Ta-Allahi": Grades of Oath</h2>
+        <button class="collapse-toggle" data-target="s-05" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-05">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Two Arabic particles for "I swear"</h3>
+            <span class="code-badge">Wow al-Qasam vs Ta al-Qasam</span>
+          </div>
+          <ul class="points">
+            <li>The letter "wow" (و) used for oaths is common in the Qur'an — many sūrahs open with it (e.g. "wal-'asr," "wal-fajr"), and it can attach to any noun someone swears by.</li>
+            <li>Far rarer is the letter "ta" (ت) used for an oath, as in "Ta-Allahi" — grammarians such as az-Zamakhshari note it carries an added sense of shock or overwhelming emotion.</li>
+            <li>"Ta" oaths can only be used with Allah's name — never with any other noun — making it the highest, most emphatic form of oath in the Arabic language.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Casual "Wallahi" vs. serious "Ta-Allahi"</h3>
+            <span class="code-badge">Everyday Speech vs. Clenched Teeth</span>
+          </div>
+          <ul class="points">
+            <li>In everyday Arab speech, "Wallahi" is often used casually — like saying "I swear, I really want ice cream right now" — without carrying real weight or consequence if unfulfilled.</li>
+            <li>"Ta-Allahi," by contrast, is not used casually. It reflects a moment of clenched fists and gritted teeth, where someone means exactly what they say and is speaking under real, intense emotion.</li>
+            <li>Here, the brothers used "Ta-Allahi" — signaling this was not an offhand complaint but words spoken with genuine rage and conviction.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 06 -->
+    <section class="class-section" id="s-06" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">06</span>
+        <h2>Ibrahim's "Ta-Allahi": A Precedent</h2>
+        <button class="collapse-toggle" data-target="s-06" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-06">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A young Ibrahim (AS) and the idols</h3>
+            <span class="code-badge">"I Will Make a Scheme Against Your Idols"</span>
+          </div>
+          <ul class="points">
+            <li>One of the rare Qur'anic examples of "Ta-Allahi" comes from a young Ibrahim (AS), disgusted by his people's devotion to idols of wood and stone.</li>
+            <li>His fury is palpable in the wording chosen — he doesn't use the casual "Wallahi" but the emphatic "Ta-Allahi" when vowing to deal with the idols, showing he meant serious business.</li>
+            <li>What followed shows he truly meant it — he acted on what he swore, unlike a casual, unfulfilled "Wallahi."</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 07 -->
+    <section class="class-section" id="s-07" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">07</span>
+        <h2>Allah Translating Hebrew Grief Into Arabic</h2>
+        <button class="collapse-toggle" data-target="s-07" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-07">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The original conversation was not in Arabic</h3>
+            <span class="code-badge">A Family of Hebrew Speakers</span>
+          </div>
+          <ul class="points">
+            <li>Yaʿqūb's (AS) family were Hebrew speakers, not Arabs — so the actual conversation recorded here took place in Hebrew, and the Qur'an presents Allah's Arabic translation of it.</li>
+            <li>When Allah translates, He translates the underlying emotion, not merely the literal words — the brothers may have said far more than what is captured, but the Arabic wording is enough to convey the full weight of their rage.</li>
+            <li>A more emotionally accurate rendering in modern English might use an exclamation like "I swear to God, come on!" rather than a flat "we swear to God" — to capture the intensity that a smooth, calming recitation of the Arabic can obscure for a non-Arabic listener.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The gap between sound and meaning</h3>
+            <span class="code-badge">Calm Recitation, Raging Scene</span>
+          </div>
+          <ul class="points">
+            <li>Someone unfamiliar with Arabic can listen to this ayah recited beautifully and calmly, absorbed only in the pleasant phonetics, without sensing that the actual scene was one of real anger and confrontation.</li>
+            <li>The brothers were not standing calmly before their father speaking evenly — they were enraged, and the words reflect that intensity.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 08 -->
+    <section class="class-section" id="s-08" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">08</span>
+        <h2>The Irony of Invoking Allah's Name</h2>
+        <button class="collapse-toggle" data-target="s-08" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-08">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>They were already bound by a sacred oath</h3>
+            <span class="code-badge">The Binyamin Oath, Turned Around</span>
+          </div>
+          <ul class="points">
+            <li>When the brothers took Binyamin, Yaʿqūb (AS) had made them swear an oath by Allah's name specifically — hoping their awe of Allah would restrain them from wronging their brother, even if their hearts still held ill feeling.</li>
+            <li>It is ironic, then, that the very name they were bound by now appears again — this time invoked in their disobedience toward their father, in a moment of anger rather than restraint.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Adab with parents, and a father like no other</h3>
+            <span class="code-badge">Yaʿqūb (AS) as the Qur'an's Model Parent</span>
+          </div>
+          <ul class="points">
+            <li>The Qur'an teaches a timeless principle: children should treat parents with the utmost excellence and never show frustration toward them, even when parents test their patience.</li>
+            <li>Yaʿqūb (AS) is not simply "a parent" — he is described in the Qur'an as a role model any parent can learn from, and Surah al-Baqarah records his final words to his sons on his deathbed, asking what they will worship after he is gone.</li>
+            <li>Because he is cited in the Qur'an as an example for all of humanity until Judgment Day, the sons' disrespect toward him is not a small or trivial matter.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Believers whose emotions overran their faith</h3>
+            <span class="code-badge">A Spiritual Truth Shelved</span>
+          </div>
+          <ul class="points">
+            <li>The brothers were believers — followers of revelation and mentioners of Allah's name — not outsiders to faith, yet their jealousy and rage overtook their spiritual awareness in this moment.</li>
+            <li>When emotions run this high, the deeper spiritual truth inside a person can effectively be "shelved" and locked away, causing words to come out that contradict one's own faith.</li>
+            <li>Allah does not hold people accountable for oaths taken carelessly, but He does hold them accountable for what the heart truly means — and this outburst clearly came from the heart.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 09 -->
+    <section class="class-section" id="s-09" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">09</span>
+        <h2>"Tafta" and "Tathkuru": Grammar of Grief</h2>
+        <button class="collapse-toggle" data-target="s-09" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-09">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>"Tafta": will not stop, will not cease</h3>
+            <span class="code-badge">A Grammatical License Rooted in Emotion</span>
+          </div>
+          <ul class="points">
+            <li>"Tafta" comes from a defective verb family and normally functions as "la tafta" ("you will not stop"), similar to how English says "will you still be at it" or "won't you ever stop."</li>
+            <li>In highly emotional expression, especially in pre-Islamic poetry, speakers took the license to drop the negation particle while keeping the same intended meaning — a feature of emotional speech rather than formal grammar.</li>
+            <li>Emotional speech tends to be less formal, sometimes concise to the point of dropping expected words, and sometimes overly emphatic elsewhere — which is exactly the texture of this ayah.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>"Tathkuru": remembering and mentioning</h3>
+            <span class="code-badge">Heart and Tongue Together</span>
+          </div>
+          <ul class="points">
+            <li>The root behind "tathkuru" (zikr) carries a double meaning: remembering something in the heart, and mentioning it aloud with the tongue — the same duality found whenever "zikr" appears in the Qur'an.</li>
+            <li>Interestingly, in Hebrew the words for "remembrance" and "mention" are also expressed by the same root, paralleling the Arabic.</li>
+            <li>The brothers' accusation therefore lands on two fronts at once: Yaʿqūb (AS) is still feeling Yusuf in his heart and still speaking of him with his tongue — and to them, both are unacceptable.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section class="class-section" id="s-10" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">10</span>
+        <h2>Love Is Not a Plate of Food</h2>
+        <button class="collapse-toggle" data-target="s-10" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-10">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Old insecurity resurfacing</h3>
+            <span class="code-badge">"Where Is the Room for Our Feelings?"</span>
+          </div>
+          <ul class="points">
+            <li>The name Yusuf comes up for a second time — earlier, Yaʿqūb (AS) had already asked, somewhat pointedly, whether he could trust them with Binyamin the way he once trusted them with Yusuf.</li>
+            <li>The brothers aren't only reacting to what their father said, but to how he still feels — they resent that his heart is still occupied by Yusuf, as though there is no room left for them.</li>
+            <li>Years earlier they had tried to eliminate Yusuf believing this would redirect their father's love toward themselves.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A flawed model of love</h3>
+            <span class="code-badge">Love Can Be Shared</span>
+          </div>
+          <ul class="points">
+            <li>The brothers' underlying assumption is that love is a finite quantity, like a plate of food — the more given to one person, the less left for another.</li>
+            <li>In reality love is not black and white or quantifiable in that way: a parent can love multiple children fully, and the love given to one is not identical to, nor a subtraction from, the love given to another.</li>
+            <li>In their minds, so long as Yaʿqūb (AS) loves Yusuf, something essential is missing from what they receive from him — the same old grievance resurfacing yet again.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 11 -->
+    <section class="class-section" id="s-11" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">11</span>
+        <h2>Deep Dive: The Word "Harad"</h2>
+        <button class="collapse-toggle" data-target="s-11" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-11">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A rare and layered root</h3>
+            <span class="code-badge">Plaster, Dye, and a Desert Plant</span>
+          </div>
+          <ul class="points">
+            <li>The root of "harad" is uncommon in the Qur'an, and its layers of meaning are worth unpacking one by one before drawing them together.</li>
+            <li>It is used for a plaster-like paste (ancient plaster akin to modern cement) that sticks permanently once applied.</li>
+            <li>It is used for cloth that has been dyed in a way that the color will not come out.</li>
+            <li>It names a skinny, withering green desert plant (identified as a species of saltwort native to the Jordan valley) whose extract is used both to make a dye that won't wash out, and to make a soap capable of removing that same dye.</li>
+            <li>A common thread across these meanings: something that either sticks and won't let go, or that removes something stuck and won't let go — two opposite senses drawn from the same root.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The card-dealer connection</h3>
+            <span class="code-badge">A Person Assigned to Deal the Arrows</span>
+          </div>
+          <ul class="points">
+            <li>A less obviously related meaning of the root describes a person assigned to deal out gambling arrows in pre-Islamic Arab gambling — comparable to a modern card dealer.</li>
+            <li>A speculative link offered here: gambling is closely tied to depression and near-death experience for those who lose (the majority), and societies with heavy gambling tend to see more debt, suicide, and violent crime — so "dealing" could be tied to dealing people toward ruin or death, paralleling how "harad" brings a person near death.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Imam ar-Razi's description of a "harid" person</h3>
+            <span class="code-badge">Overwhelmed to the Point of Collapse</span>
+          </div>
+          <ul class="points">
+            <li>A "harid" is someone overwhelmed and overrun by sadness and longing together, to the point of a disease that brings them near death.</li>
+            <li>Such a person's body and mind visibly deteriorate — comparable to someone in intensive care who begins hallucinating or mistaking loved ones for other people.</li>
+            <li>Longing and grief can make a person incapable of clear thought, paralyzed, and skeletal from weight loss — becoming, in effect, unrecognizable, like a completely different person.</li>
+            <li>At its essence, "harad" describes the corruption of both body and mind brought on by sadness combined with love.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Bringing the meanings together</h3>
+            <span class="code-badge">Sticking, Stripping, and Inciting</span>
+          </div>
+          <ul class="points">
+            <li>Arabic triliteral roots often carry a cluster of meanings that, in creative or anthropological ways, connect to one another — sometimes clearly, sometimes only through interpretation.</li>
+            <li>The word gives both the sense of something that sticks and won't let go, and something being scraped or pulled off (as soap removes dye) — from which also comes the meaning "to incite," as if pulling out someone's buried motivation the way soap pulls dye from cloth.</li>
+            <li>Applied to Yaʿqūb (AS): the brothers are describing him as visibly wasting away, losing his mind, and approaching the edge of death — all because of what he still feels for Yusuf (AS).</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 12 -->
+    <section class="class-section" id="s-12" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">12</span>
+        <h2>The Psychology of Guilt Turned Outward</h2>
+        <button class="collapse-toggle" data-target="s-12" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-12">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Blaming the one who reminds you</h3>
+            <span class="code-badge">"You Did This to Me"</span>
+          </div>
+          <ul class="points">
+            <li>Rather than feeling ashamed at even hearing Yusuf's name, given their role in what happened to him, the brothers instead turn the moment into their father's fault for reminding them.</li>
+            <li>Yaʿqūb (AS) was not even accusing them of anything — he had explicitly said he was only speaking to Allah — yet they respond as though he were attacking them.</li>
+            <li>A guilty conscience can be used constructively, to turn toward Allah in repentance, or it can be hijacked by whispering that one is actually the victim and has a right to push back at whoever triggered the guilt.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The script gets flipped</h3>
+            <span class="code-badge">A Familiar Family Pattern</span>
+          </div>
+          <ul class="points">
+            <li>The sin the brothers committed against Yusuf effectively disappears from view, replaced by a self-image in which they are now the victims of the mention of Yusuf.</li>
+            <li>This mirrors a well-known dynamic: people who did wrong often become skilled at making others feel guilty, especially guilty for simply feeling sad — accusing the aggrieved party of lacking patience ("sabr") when in fact it is the wrongdoers avoiding accountability.</li>
+            <li>This is described as a powerful and common psychological pattern within families, where a wrongdoer, when confronted or even just reminded, goes on the offensive instead of reflecting.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 13 -->
+    <section class="class-section" id="s-13" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">13</span>
+        <h2>Irony: "Learn From Those Who Died"</h2>
+        <button class="collapse-toggle" data-target="s-13" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-13">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>"Halikeen": dying a violent, ugly death</h3>
+            <span class="code-badge">A Word Stronger Than "Mawt"</span>
+          </div>
+          <ul class="points">
+            <li>The word used for "perish" here implies a harsh or violent death, distinct from the more neutral word for ordinary death.</li>
+            <li>The brothers effectively tell their father: look at how many people have gone down this road and ended up destroyed — as if urging him to learn from the fate of others who let grief consume them.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>An ironic instruction</h3>
+            <span class="code-badge">Learn From Others, Not From Yourselves</span>
+          </div>
+          <ul class="points">
+            <li>The irony: the very people telling Yaʿqūb (AS) to learn from other people's mistakes are themselves unwilling to learn from their own past mistake regarding Yusuf.</li>
+            <li>Instead of reflecting on where their own jealousy came from, they redirect the lesson entirely onto their father's grief.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 14 -->
+    <section class="class-section" id="s-14" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">14</span>
+        <h2>Why Allah Dedicated a Whole Ayah to This</h2>
+        <button class="collapse-toggle" data-target="s-14" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-14">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A minor exchange, given major weight</h3>
+            <span class="code-badge">Selective Qur'anic Storytelling</span>
+          </div>
+          <ul class="points">
+            <li>The Qur'an is famously selective — Surah Yusuf is often described as the pinnacle of storytelling in the Qur'an, focusing on major turning points: the journeys to and from Egypt, the taking and losing of brothers, and so on.</li>
+            <li>This particular exchange is not one of the story's major plot events; it's one conversation among many that must have taken place during a long journey, yet Allah chose to record it in detail.</li>
+            <li>No human being at the time recorded this outburst, no consequence followed it in worldly terms — yet Allah preserved it, translated it, and made it part of a revelation recited until Judgment Day.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Words are not "just family talk"</h3>
+            <span class="code-badge">Nothing Is Too Small to Matter</span>
+          </div>
+          <ul class="points">
+            <li>The lesson drawn is that some things people consider trivial — "I said it because I was upset," "it's just a family fight" — are, in fact, taken very seriously by Allah.</li>
+            <li>Everything a person says will be recorded and brought forward on Judgment Day, down to the smallest and largest details, which is why seeking Allah's forgiveness for careless words matters.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 15 -->
+    <section class="class-section" id="s-15" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">15</span>
+        <h2>A Mirror for Us — Not Just Them</h2>
+        <button class="collapse-toggle" data-target="s-15" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-15">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Two sides of the same audience</h3>
+            <span class="code-badge">Recipients and Perpetrators</span>
+          </div>
+          <ul class="points">
+            <li>Among any audience hearing this ayah, some will identify as having received this kind of treatment from others, and some will recognize themselves as having done this kind of thing to someone else.</li>
+            <li>The instinct to immediately think of others who've wronged us is natural, but the more searching reflection is whether we ourselves have been guilty of this without fully realizing it.</li>
+            <li>Human beings are complex, holding both good and bad within them, and people often gloss over their own wrongdoing while focusing on someone else's shortcomings, to avoid facing their own guilt.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Fear of facing one's own failure</h3>
+            <span class="code-badge">Avoidance as Self-Protection</span>
+          </div>
+          <ul class="points">
+            <li>Sometimes defensiveness after wrongdoing isn't pure evil — it may be fear: confronting what one did honestly might lead to a painful reckoning with one's own character.</li>
+            <li>People sometimes avoid facing what they've done because doing so risks a devastating verdict against themselves.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 16 -->
+    <section class="class-section" id="s-16" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">16</span>
+        <h2>Past Actions Don't Define You</h2>
+        <button class="collapse-toggle" data-target="s-16" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-16">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Confronting wrongdoing without hopelessness</h3>
+            <span class="code-badge">What You Did vs. Who You Are</span>
+          </div>
+          <ul class="points">
+            <li>Facing what one has done wrong does not mean concluding one is a fundamentally bad person — it means acknowledging a specific action, which is a very different thing.</li>
+            <li>If people were entirely defined by their past actions, tawbah (repentance) would have no purpose at all.</li>
+            <li>Firaun is cited as the Qur'an's extreme example — a man responsible for mass killing and blasphemy — yet Allah still described hope that he might turn around, showing that no one's past is treated as an unchangeable verdict except for Iblis, who has no hope left in himself.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A new day, a fresh start</h3>
+            <span class="code-badge">"Alhamdulillah — Who Gave Us Life After Death"</span>
+          </div>
+          <ul class="points">
+            <li>Iblis wants people to believe that acknowledging past wrong is either something to hide and justify, or something that should lead to despair — both are described as his tricks.</li>
+            <li>True repentance means reforming, stopping the wrong, and making amends where possible — while accepting that others may or may not forgive, which does not determine one's present worth.</li>
+            <li>The daily reminder of waking each morning — thanking Allah for giving life after a kind of "death" in sleep — is offered as a symbol of the fresh start available to everyone each day.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 17 -->
+    <section class="class-section" id="s-17" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">17</span>
+        <h2>Preview: Yaqub Draws a Boundary</h2>
+        <button class="collapse-toggle" data-target="s-17" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-17">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Addressing the root, not the branches</h3>
+            <span class="code-badge">A Father Who Sees Past the Words</span>
+          </div>
+          <ul class="points">
+            <li>Yaʿqūb (AS) appears to have deep insight into his sons — recognizing that their aggressiveness is likely masking a guilt they are unable to face or confront directly.</li>
+            <li>Rather than reacting only to what they said, he addresses what is behind it — the thinking and feeling that drive the behavior, not just the behavior itself.</li>
+            <li>The principle drawn out: when the root (the heart) is fixed, the whole plant (behavior) follows — chasing surface behavior alone rarely works.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Boundaries before help</h3>
+            <span class="code-badge">Looking Ahead to Ayah 86</span>
+          </div>
+          <ul class="points">
+            <li>In the very next ayah, Yaʿqūb (AS) is described as first drawing a boundary for himself before he is able to help his sons.</li>
+            <li>The principle offered: a person who is being walked over is not in a position to help anyone else — a boundary must come first, and only then can guidance follow.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<button id="toTop" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<div id="quickPanel">
+  <div class="qp-head">Jump to Section</div>
+  <ul id="qpList">
+    <li data-target="s-01"><a href="#s-01" style="--qc:var(--c-1)"><span class="qp-idx">01</span>Two Readings: Anger or Affection?</a><span class="qp-toggle" data-target="s-01"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-02"><a href="#s-02" style="--qc:var(--c-2)"><span class="qp-idx">02</span>The Case for a Gentle Reading</a><span class="qp-toggle" data-target="s-02"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-03"><a href="#s-03" style="--qc:var(--c-3)"><span class="qp-idx">03</span>The Case for an Angry Reading</a><span class="qp-toggle" data-target="s-03"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-04"><a href="#s-04" style="--qc:var(--c-4)"><span class="qp-idx">04</span>Reconciling With Ayah 86 &amp; the Teacher's View</a><span class="qp-toggle" data-target="s-04"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-05"><a href="#s-05" style="--qc:var(--c-5)"><span class="qp-idx">05</span>"Wallahi" vs "Ta-Allahi": Grades of Oath</a><span class="qp-toggle" data-target="s-05"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-06"><a href="#s-06" style="--qc:var(--c-6)"><span class="qp-idx">06</span>Ibrahim's "Ta-Allahi": A Precedent</a><span class="qp-toggle" data-target="s-06"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-07"><a href="#s-07" style="--qc:var(--c-1)"><span class="qp-idx">07</span>Allah Translating Hebrew Grief Into Arabic</a><span class="qp-toggle" data-target="s-07"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-08"><a href="#s-08" style="--qc:var(--c-2)"><span class="qp-idx">08</span>The Irony of Invoking Allah's Name</a><span class="qp-toggle" data-target="s-08"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-09"><a href="#s-09" style="--qc:var(--c-3)"><span class="qp-idx">09</span>"Tafta" and "Tathkuru": Grammar of Grief</a><span class="qp-toggle" data-target="s-09"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-10"><a href="#s-10" style="--qc:var(--c-4)"><span class="qp-idx">10</span>Love Is Not a Plate of Food</a><span class="qp-toggle" data-target="s-10"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-11"><a href="#s-11" style="--qc:var(--c-5)"><span class="qp-idx">11</span>Deep Dive: The Word "Harad"</a><span class="qp-toggle" data-target="s-11"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-12"><a href="#s-12" style="--qc:var(--c-6)"><span class="qp-idx">12</span>The Psychology of Guilt Turned Outward</a><span class="qp-toggle" data-target="s-12"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-13"><a href="#s-13" style="--qc:var(--c-1)"><span class="qp-idx">13</span>Irony: "Learn From Those Who Died"</a><span class="qp-toggle" data-target="s-13"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-14"><a href="#s-14" style="--qc:var(--c-2)"><span class="qp-idx">14</span>Why Allah Dedicated a Whole Ayah to This</a><span class="qp-toggle" data-target="s-14"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-15"><a href="#s-15" style="--qc:var(--c-3)"><span class="qp-idx">15</span>A Mirror for Us — Not Just Them</a><span class="qp-toggle" data-target="s-15"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-16"><a href="#s-16" style="--qc:var(--c-4)"><span class="qp-idx">16</span>Past Actions Don't Define You</a><span class="qp-toggle" data-target="s-16"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-17"><a href="#s-17" style="--qc:var(--c-5)"><span class="qp-idx">17</span>Preview: Yaqub Draws a Boundary</a><span class="qp-toggle" data-target="s-17"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+  </ul>
+</div>
+
+<button id="quickFab" aria-label="Open quick navigation" aria-expanded="false">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+</button>
+
+<script>
+  const heroHeader = document.querySelector('header.hero');
+  function syncHeaderHeight(){
+    const refBar = document.querySelector('.ref-bar');
+    document.documentElement.style.setProperty('--header-h', (heroHeader.offsetHeight + refBar.offsetHeight) + 'px');
+  }
+  syncHeaderHeight();
+  window.addEventListener('resize', syncHeaderHeight);
+
+  const progress = document.getElementById('progress');
+  function updateProgress(){
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    progress.style.width = scrolled + '%';
+    document.getElementById('toTop').classList.toggle('show', h.scrollTop > 700);
+  }
+  document.addEventListener('scroll', updateProgress, {passive:true});
+  updateProgress();
+
+  document.getElementById('toTop').addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+  const tocToggle = document.getElementById('tocToggle');
+  const tocPanelOuter = document.getElementById('tocPanelOuter');
+  function closeToc(){
+    if(!tocPanelOuter) return;
+    tocPanelOuter.classList.remove('open');
+    if(tocToggle) tocToggle.setAttribute('aria-expanded', 'false');
+  }
+  if(tocToggle && tocPanelOuter){
+    tocToggle.addEventListener('click', () => {
+      const isOpen = tocPanelOuter.classList.toggle('open');
+      tocToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+  }
+
+  const navLinks = document.querySelectorAll('nav.sidebar li a');
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const id = entry.target.id;
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  document.querySelectorAll('main section.class-section').forEach(el => { if(el.id) sectionObserver.observe(el); });
+
+  const quickFab = document.getElementById('quickFab');
+  const quickPanel = document.getElementById('quickPanel');
+  function openQuickPanel(){ quickPanel.classList.add('open'); quickFab.classList.add('open'); quickFab.setAttribute('aria-expanded','true'); }
+  function closeQuickPanel(){ quickPanel.classList.remove('open'); quickFab.classList.remove('open'); quickFab.setAttribute('aria-expanded','false'); }
+  quickFab.addEventListener('click', () => { quickPanel.classList.contains('open') ? closeQuickPanel() : openQuickPanel(); });
+  document.addEventListener('click', (e) => {
+    if(quickPanel.classList.contains('open') && !quickPanel.contains(e.target) && !quickFab.contains(e.target)){ closeQuickPanel(); }
+  });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeQuickPanel(); });
+  quickPanel.querySelectorAll('a').forEach(a => { a.addEventListener('click', () => closeQuickPanel()); });
+
+  const ALL_SECTION_IDS = ['s-01','s-02','s-03','s-04','s-05','s-06','s-07','s-08','s-09','s-10','s-11','s-12','s-13','s-14','s-15','s-16','s-17'];
+
+  function setCollapsed(id, collapsed){
+    const body = document.getElementById('body-' + id);
+    const btn = document.querySelector('.collapse-toggle[data-target="' + id + '"]');
+    const qpItem = document.querySelector('#qpList li[data-target="' + id + '"]');
+    if(body) body.classList.toggle('collapsed', collapsed);
+    if(btn) btn.setAttribute('aria-expanded', String(!collapsed));
+    if(qpItem) qpItem.classList.toggle('is-collapsed', collapsed);
+  }
+  function isCollapsed(id){
+    const body = document.getElementById('body-' + id);
+    return body ? body.classList.contains('collapsed') : false;
+  }
+  function toggleCollapsed(id){ setCollapsed(id, !isCollapsed(id)); }
+
+  document.querySelectorAll('.collapse-toggle').forEach(btn => {
+    btn.addEventListener('click', () => toggleCollapsed(btn.dataset.target));
+  });
+  document.querySelectorAll('#qpList li').forEach(item => {
+    const id = item.dataset.target;
+    item.querySelector('.qp-toggle').addEventListener('click', (e) => { e.stopPropagation(); e.preventDefault(); toggleCollapsed(id); });
+  });
+
+  document.getElementById('expandAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, false)));
+  document.getElementById('collapseAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, true)));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href').slice(1);
+      if(!href) return;
+      const target = document.getElementById(href);
+      if(!target) return;
+      if(target.classList.contains('class-section')){ setCollapsed(href, false); }
+      if(a.closest('nav.sidebar')){ closeToc(); }
+    });
+  });
+
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', () => {
+    const q = searchInput.value.trim().toLowerCase();
+    navLinks.forEach(a => {
+      const key = (a.dataset.key || a.textContent).toLowerCase();
+      const match = q === '' || key.includes(q);
+      a.dataset.hidden = match ? '0' : '1';
+      const section = document.querySelector(a.getAttribute('href'));
+      if(section){ section.style.display = match ? '' : 'none'; }
+    });
+  });
+
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

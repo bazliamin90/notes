@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Is His Heart Hopeful or Devastated? — Surah Yusuf 84 | Study Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --paper:#fbfbfd;
+    --ink:#14151a;
+    --ink-soft:#5a5d6b;
+    --line:#e7e7ee;
+    --line-soft:#f0f0f5;
+
+    --c-1:#7c3aed;  --c-1-tint:#f4edff;   /* violet */
+    --c-2:#0284c7;  --c-2-tint:#e8f6ff;   /* ocean */
+    --c-3:#ea580c;  --c-3-tint:#fff1e8;   /* coral */
+    --c-4:#db2777;  --c-4-tint:#ffe9f4;   /* magenta */
+    --c-5:#059669;  --c-5-tint:#e6faf2;   /* emerald */
+    --c-6:#0f766e;  --c-6-tint:#e6f8f6;   /* teal */
+
+    --accent: var(--c-1);
+    --accent-tint: var(--c-1-tint);
+
+    --radius: 18px;
+    --shadow: 0 1px 2px rgba(20,21,26,.04), 0 12px 32px -16px rgba(20,21,26,.14);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background: var(--accent); color:#fff; }
+
+  h1,h2,h3,h4{ font-family:'Space Grotesk', sans-serif; margin:0; letter-spacing:-.01em; }
+  code, .mono{ font-family:'IBM Plex Mono', monospace; }
+  a{ color:inherit; }
+  p{ margin:0; }
+  .arabic{ font-family:'Amiri', serif; direction:rtl; }
+
+  #progress{
+    position:fixed; top:0; left:0; height:3px; width:0%;
+    background: linear-gradient(90deg, var(--c-1), var(--c-2), var(--c-3), var(--c-4), var(--c-5), var(--c-6));
+    z-index:100; transition: width .1s linear;
+  }
+
+  .ref-bar{
+    background:var(--ink); color:#fff;
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    padding:9px 8vw; display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  }
+  .ref-bar .ref-label{ color:rgba(255,255,255,.55); text-transform:uppercase; letter-spacing:.08em; font-size:10.5px; }
+  .ref-bar .ref-txt{ opacity:.85; }
+
+  header.hero{
+    padding: 6px 8vw;
+    min-height:46px;
+    display:flex; align-items:center; gap:10px;
+    position:sticky; top:0; z-index:80;
+    border-bottom:1px solid var(--line);
+    background-color:#fff;
+    background-image:
+      radial-gradient(700px 340px at 8% -10%, var(--c-1-tint), transparent 60%),
+      radial-gradient(600px 300px at 95% 0%, var(--c-3-tint), transparent 55%);
+  }
+
+  /* ---------- burger navigation ---------- */
+  .burger-wrap{ position:relative; display:flex; align-items:center; }
+  .burger-btn{
+    width:34px; height:34px; border-radius:10px; border:1.3px solid var(--line);
+    background:var(--paper); color:var(--ink); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: border-color .15s ease, background .15s ease, color .15s ease;
+  }
+  .burger-btn:hover{ border-color: var(--c-1); }
+  .burger-btn.open{ background: var(--c-1); border-color: var(--c-1); color:#fff; }
+  .burger-btn svg{ transition: opacity .15s ease; }
+  .burger-menu{
+    position:absolute; top:calc(100% + 10px); left:0; width:320px;
+    background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow);
+    padding:8px; opacity:0; transform: translateY(-6px); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease; z-index:120;
+    display:flex; flex-direction:column;
+  }
+  .burger-menu.open{ opacity:1; transform: translateY(0); pointer-events:auto; }
+  .burger-menu-home{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; margin:2px 2px 8px;
+    border-radius:10px; border-bottom:1px solid var(--line-soft);
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-home svg{ flex:none; color:var(--ink-soft); }
+  .burger-menu-home:hover{ background: var(--paper); }
+  .burger-menu-home.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-home.is-current .bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-search{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:10px; padding:8px 10px; margin:2px 2px 8px;
+    background:var(--paper); flex:none;
+  }
+  .burger-menu-search svg{ flex:none; opacity:.5; color:var(--ink-soft); }
+  .burger-menu-search input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13px; width:100%; color:var(--ink);
+  }
+  .burger-menu-list{ max-height:340px; overflow-y:auto; overscroll-behavior:contain; }
+  .burger-menu-list::-webkit-scrollbar{ width:6px; }
+  .burger-menu-list::-webkit-scrollbar-thumb{ background:var(--line); border-radius:10px; }
+  .burger-menu-group + .burger-menu-group{ margin-top:4px; }
+  .burger-menu-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); padding:8px 10px 4px;
+  }
+  .burger-menu-empty{
+    display:none; padding:18px 10px; text-align:center; font-size:12.5px; color:var(--ink-soft);
+  }
+  .burger-menu-item{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; border-radius:10px;
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-item span.bm-title{ display:block; }
+  .burger-menu-item span.bm-sub{ display:block; font-size:11.5px; color:var(--ink-soft); font-weight:400; margin-top:1px; }
+  .burger-menu-item:hover{ background: var(--paper); }
+  .burger-menu-item.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-item.is-current span.bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-dot{ width:9px; height:9px; border-radius:3px; flex:none; margin-top:3px; }
+
+  .page-title{ padding: 30px 8vw 6px; }
+  .page-title .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-soft); margin-bottom:10px; display:block;
+  }
+  .page-title h1{
+    font-size: clamp(26px, 5vw, 46px);
+    line-height:1.12;
+    font-weight:700;
+  }
+  .page-title h1 .accent-word{
+    background: linear-gradient(100deg, var(--c-1), var(--c-4) 55%, var(--c-3));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .page-title .sub{
+    margin-top:14px; max-width:66ch; color:var(--ink-soft); font-size:15px; line-height:1.6;
+  }
+  .page-title .tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+  .page-title .tag{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; border:1.3px solid var(--line);
+    color:var(--ink-soft); font-weight:500; background:var(--paper);
+  }
+
+  .layout{
+    max-width:1400px; margin:0 auto;
+  }
+  .toc-wrap{
+    border-bottom:1px solid var(--line);
+    padding: 0 8vw;
+  }
+  .toc-toggle{
+    width:100%; display:flex; align-items:center; justify-content:space-between; gap:10px;
+    background:none; border:none; cursor:pointer; padding:16px 0;
+    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px; color:var(--ink);
+  }
+  .toc-toggle:hover{ color:var(--c-1); }
+  .toc-toggle-left{ display:flex; align-items:center; gap:10px; }
+  .toc-toggle-left svg{ color:var(--ink-soft); flex:none; }
+  .toc-count{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft); font-weight:500;
+    background:var(--paper); border:1px solid var(--line); padding:2px 8px; border-radius:100px;
+  }
+  .toc-chevron{ transition: transform .3s ease; color:var(--ink-soft); flex:none; }
+  .toc-toggle[aria-expanded="true"] .toc-chevron{ transform: rotate(180deg); }
+  .toc-panel-outer{ display:grid; grid-template-rows: 0fr; transition: grid-template-rows .35s ease; }
+  .toc-panel-outer.open{ grid-template-rows: 1fr; }
+  .toc-panel-inner{ overflow:hidden; min-height:0; }
+
+  nav.sidebar{ display:block; padding: 4px 0 22px; }
+
+  .search-box{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:12px; padding:10px 12px; margin-bottom:18px;
+    background:var(--paper);
+  }
+  .search-box input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13.5px; width:100%; color:var(--ink);
+  }
+  .search-box svg{ flex:none; opacity:.5; }
+
+  .nav-actions{ display:flex; gap:8px; margin-bottom:18px; }
+  .nav-actions button{
+    flex:1; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    border:1.3px solid var(--line); background:#fff; color:var(--ink-soft);
+    padding:7px 8px; border-radius:9px; cursor:pointer; transition:.15s ease;
+  }
+  .nav-actions button:hover{ border-color:var(--ink); color:var(--ink); }
+
+  .nav-group-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); margin: 18px 0 6px 2px;
+  }
+  .nav-group-label:first-of-type{ margin-top:0; }
+
+  nav.sidebar ul{ list-style:none; margin:0; padding:0; border-left:2px solid var(--line-soft); }
+  nav.sidebar li a{
+    display:flex; align-items:center; gap:9px;
+    text-decoration:none; font-size:13.5px; color:var(--ink-soft);
+    padding:7px 0 7px 14px; border-left:2px solid transparent; margin-left:-2px;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  nav.sidebar li a .sw{ width:8px; height:8px; border-radius:3px; flex:none; background:var(--g-color); }
+  nav.sidebar li a:hover{ color:var(--ink); }
+  nav.sidebar li a.active{ color:var(--g-color); border-left-color: var(--g-color); font-weight:600; }
+  nav.sidebar li a[data-hidden="1"]{ display:none; }
+
+  main{ min-width:0; padding: 0 8vw 140px; }
+
+  section.class-section{ padding-top:56px; scroll-margin-top: 24px; }
+  section.class-section:first-child{ padding-top:44px; }
+
+  .class-head{
+    display:flex; align-items:baseline; gap:16px; flex-wrap:wrap;
+    padding-bottom:14px; margin-bottom:22px; border-bottom:3px solid var(--g-color);
+    position:relative;
+  }
+  .class-head .idx{
+    font-family:'IBM Plex Mono',monospace; font-size:14px; font-weight:700; color:#fff;
+    background:var(--g-color); padding:5px 10px; border-radius:8px;
+  }
+  .class-head h2{ font-size: clamp(20px,2.4vw,28px); color:var(--ink); }
+  .collapse-toggle{
+    margin-left:auto; width:34px; height:34px; border-radius:9px; border:1.5px solid var(--line);
+    background:#fff; color:var(--g-color); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: transform .3s ease, background .15s ease, border-color .15s ease;
+  }
+  .collapse-toggle:hover{ background: var(--g-tint); border-color: var(--g-color); }
+  .collapse-toggle svg{ transition: transform .3s ease; }
+  .collapse-toggle[aria-expanded="false"] svg{ transform: rotate(-90deg); }
+
+  .class-body-outer{ display:grid; grid-template-rows: 0fr; transition: grid-template-rows .38s ease; }
+  .class-body-outer.collapsed{ grid-template-rows: 0fr; }
+  .class-body-outer:not(.collapsed){ grid-template-rows: 1fr; }
+  .class-body-inner{ overflow:hidden; min-height:0; opacity:0; transition: opacity .25s ease .1s; }
+  .class-body-outer.collapsed .class-body-inner{ opacity:0; transition: opacity .18s ease; }
+  .class-body-outer:not(.collapsed) .class-body-inner{ opacity:1; }
+
+  .card{
+    background:#fff; border:1px solid var(--line); border-radius: var(--radius);
+    padding: 28px 30px; margin-bottom: 22px; position:relative; overflow:hidden;
+    border-left: 5px solid var(--g-color);
+  }
+  .card .card-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap;
+    margin-bottom:14px;
+  }
+  .card h3{ font-size:19px; font-weight:600; color:var(--ink); }
+  .card h3 .alt{ font-weight:400; color:var(--ink-soft); font-size:14px; display:block; margin-top:3px;}
+  .code-badge{
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:12px; color:#fff;
+    background: var(--g-color); padding:6px 12px; border-radius:8px; white-space:nowrap;
+  }
+
+  ul.points{ list-style:none; margin:0; padding:0; }
+  ul.points > li{
+    position:relative; padding: 10px 0 10px 34px; font-size:14.8px; line-height:1.65; color:#2b2d36;
+    border-top:1px solid var(--line-soft);
+  }
+  ul.points > li:first-child{ border-top:none; }
+  ul.points > li::before{
+    content:"—";
+    position:absolute; left:0; top:10px; width:22px; height:22px; border-radius:7px;
+    background: var(--g-tint); color:var(--g-color); font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:13px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  ul.points > li b, ul.points > li strong{ color:var(--g-color); }
+  ul.points ul{ list-style:none; margin:8px 0 0; padding:0; }
+  ul.points ul li{
+    position:relative; padding:6px 0 6px 22px; font-size:14px; color:var(--ink-soft); border-top:none;
+  }
+  ul.points ul li::before{
+    content:"·"; position:absolute; left:0; top:4px; width:14px; height:14px; border-radius:0;
+    background:none; color:var(--g-color); font-size:20px; font-weight:700; display:flex; align-items:center; justify-content:center;
+  }
+
+  .ayah-block{
+    margin: 6px 0 18px; padding:20px 22px; border-radius:14px; background:var(--paper);
+    border:1px solid var(--line);
+  }
+  .ayah-block .ayah-ref{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--g-color); font-weight:700; margin-bottom:10px; display:block;
+  }
+  .ayah-block .ayah-ar{
+    font-size:24px; line-height:2; color:var(--ink); text-align:right; margin-bottom:12px;
+  }
+  .ayah-block .ayah-en{
+    font-size:14.5px; line-height:1.6; color:var(--ink-soft); font-style:italic;
+  }
+
+  .quote{
+    margin-top:16px; padding:16px 18px; border-radius:12px; background:var(--g-tint);
+    font-family:'Space Grotesk', sans-serif; font-size:16px; line-height:1.55; color:#20222a;
+    border-left:3px solid var(--g-color);
+  }
+  .quote footer{
+    margin-top:8px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    text-transform:uppercase; color:var(--ink-soft); font-style:normal;
+  }
+
+  .pill-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .pill-row .pill{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; background:#fff; border:1.3px solid var(--g-color);
+    color:var(--g-color); font-weight:600;
+  }
+
+  .lesson-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:6px; }
+  @media (max-width:640px){ .lesson-grid{ grid-template-columns:1fr; } }
+  .lesson-card{
+    border-radius:var(--radius); padding:22px 22px; border:1.3px solid var(--line);
+  }
+  .lesson-card .kicker{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .lesson-card h4{ margin-top:8px; font-size:17px; }
+  .lesson-card p{ margin-top:10px; font-size:14px; line-height:1.6; color:#2b2d36; }
+
+  .num-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:6px; }
+  @media (max-width:760px){ .num-grid{ grid-template-columns:1fr; } }
+  .num-card{
+    border-radius:14px; padding:18px 20px; border:1.3px solid var(--line); background:var(--paper);
+    display:flex; gap:14px; align-items:flex-start;
+  }
+  .num-card .num-badge{
+    flex:none; width:30px; height:30px; border-radius:9px; background:var(--g-color); color:#fff;
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center;
+  }
+  .num-card p{ font-size:14px; line-height:1.6; color:#2b2d36; }
+
+  #toTop{
+    position:fixed; right:26px; bottom:26px; width:46px; height:46px; border-radius:50%;
+    background:var(--ink); color:#fff; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,.22); opacity:0; pointer-events:none; transition: opacity .25s ease, transform .2s ease;
+    z-index:90;
+  }
+  #toTop.show{ opacity:1; pointer-events:auto; }
+  #toTop:hover{ transform: translateY(-3px); }
+
+  #quickFab{
+    position:fixed; left:26px; bottom:26px; width:52px; height:52px; border-radius:16px;
+    background: linear-gradient(135deg, var(--c-1), var(--c-4)); color:#fff; border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; z-index:95;
+    box-shadow:0 10px 28px -6px rgba(124,58,237,.5);
+    transition: transform .2s ease, border-radius .2s ease;
+  }
+  #quickFab:hover{ transform: translateY(-3px) scale(1.03); }
+  #quickFab.open{ border-radius:50%; }
+  #quickFab svg{ transition: transform .3s ease; }
+  #quickFab.open svg{ transform: rotate(45deg); }
+
+  #quickPanel{
+    position:fixed; left:26px; bottom:90px; width:280px; max-height:60vh; overflow-y:auto;
+    background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow);
+    z-index:94; padding:14px; opacity:0; transform: translateY(10px) scale(.97); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  #quickPanel.open{ opacity:1; transform: translateY(0) scale(1); pointer-events:auto; }
+  #quickPanel .qp-head{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--ink-soft); padding:4px 8px 10px;
+  }
+  #qpList{ list-style:none; margin:0; padding:0; }
+  #qpList li{
+    display:flex; align-items:center; gap:8px; border-radius:10px; padding:2px;
+  }
+  #qpList li a{
+    flex:1; display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--ink);
+    font-size:13px; padding:8px; border-radius:10px; transition:background .15s ease;
+  }
+  #qpList li a:hover{ background:var(--paper); }
+  .qp-idx{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:700; color:#fff;
+    background: var(--qc, var(--c-1)); padding:2px 6px; border-radius:6px;
+  }
+  .qp-toggle{ padding:8px; cursor:pointer; color:var(--ink-soft); opacity:.6; }
+  .qp-toggle:hover{ opacity:1; }
+  #qpList li.is-collapsed .qp-toggle svg{ transform: rotate(-90deg); }
+  #qpList li .qp-toggle svg{ transition: transform .3s ease; }
+
+  #empty-state{ display:none; padding:60px 0; text-align:center; color:var(--ink-soft); }
+  #empty-state.show{ display:block; }
+
+  footer.page-footer{
+    padding:30px 8vw 60px; color:var(--ink-soft); font-size:12.5px; font-family:'IBM Plex Mono',monospace;
+    border-top:1px solid var(--line); margin-top:30px;
+  }
+
+  @media (max-width: 980px){
+    main{ padding: 0 6vw 120px; }
+    .ayah-block .ayah-ar{ font-size:20px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001s !important; transition-duration:.001s !important; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body data-page="yusuf84">
+
+<div id="progress"></div>
+
+<header class="hero">
+  <div class="burger-wrap">
+    <button id="navBurger" class="burger-btn" aria-haspopup="true" aria-expanded="false" aria-label="Open navigation menu">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div id="navMenu" class="burger-menu"></div>
+  </div>
+</header>
+
+<div class="ref-bar">
+  <span class="ref-label">Source</span>
+  <a href="https://drive.google.com/file/d/1uI7Bim4KFKQEmr9bJ5up2W_MqxRjI1tR/view?usp=sharing" target="_blank" rel="noopener" class="ref-txt" style="text-decoration:none; border-bottom:1px solid rgba(255,255,255,.35); padding-bottom:1px;">Nouman Ali Khan</a>
+  <span class="ref-txt" style="opacity:.4;">|</span>
+  <a href="https://drive.google.com/drive/folders/1NdnwWve1_wBqZEAn0DtGvW89dY9SYBiV" target="_blank" rel="noopener" class="ref-txt" style="text-decoration:none; border-bottom:1px solid rgba(255,255,255,.35); padding-bottom:1px;">gdrive</a>
+</div>
+
+<div class="page-title">
+  <span class="eyebrow">Tafsīr Notes · Sūrah Yūsuf</span>
+  <h1>Is His Heart <span class="accent-word">Hopeful</span> or Devastated? [Ayah 84]</h1>
+  <div class="sub">Yaʿqūb (AS) turns away from his sons and cries out a grief he has suppressed for decades — a moment that becomes a study in trauma, suppressed emotion, and the balance between beautiful patience and honest sorrow.</div>
+  <div class="tag-row">
+    <span class="tag">Verse 84</span>
+    <span class="tag">Ya-Asafa</span>
+    <span class="tag">Conversion Disorder</span>
+    <span class="tag">Fahuwa Katheem</span>
+  </div>
+</div>
+
+<div class="layout">
+
+  <div class="toc-wrap">
+    <button class="toc-toggle" id="tocToggle" aria-expanded="false" aria-controls="tocPanelOuter">
+      <span class="toc-toggle-left">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        <span>Table of Contents</span>
+      </span>
+      <svg class="toc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="toc-panel-outer" id="tocPanelOuter">
+      <div class="toc-panel-inner">
+        <nav class="sidebar">
+    <div class="search-box">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="searchInput" type="text" placeholder="Search sections…">
+    </div>
+    <div class="nav-actions">
+      <button id="expandAll">Expand all</button>
+      <button id="collapseAll">Collapse all</button>
+    </div>
+
+    <div class="nav-group-label">Yaqoob's Outburst</div>
+    <ul>
+      <li><a href="#s-01" data-key="watawalla anhum turned away turning away room alone" style="--g-color:var(--c-1)"><span class="sw"></span>"Watawalla Anhum": Turning Away</a></li>
+      <li><a href="#s-02" data-key="ya asafa aala yoosufa grief mutassil pronoun ee aa" style="--g-color:var(--c-2)"><span class="sw"></span>"Ya-Asafa Aala Yoosufa": Calling Out in Grief</a></li>
+      <li><a href="#s-03" data-key="trauma triggers binyamin razi psychology personify sadness alif" style="--g-color:var(--c-3)"><span class="sw"></span>Trauma Triggers: Why Yusuf, Not Binyamin?</a></li>
+    </ul>
+
+    <div class="nav-group-label">Grief and Faith</div>
+    <ul>
+      <li><a href="#s-04" data-key="balancing sabr sadness spiritual emotional hope new day" style="--g-color:var(--c-4)"><span class="sw"></span>Balancing Sabr and Sadness</a></li>
+      <li><a href="#s-05" data-key="wabyaddat aaynahu eyes white grief blind emotional collapse" style="--g-color:var(--c-5)"><span class="sw"></span>"Wabyaddat AAaynahu": Eyes Turned White</a></li>
+      <li><a href="#s-06" data-key="conversion disorder medical lens stress blindness scent" style="--g-color:var(--c-6)"><span class="sw"></span>Conversion Disorder: A Medical Lens</a></li>
+    </ul>
+
+    <div class="nav-group-label">Deep Dive: Suppression &amp; Word Study</div>
+    <ul>
+      <li><a href="#s-07" data-key="fahuwa katheem suppress swallow kazama camel anger imran" style="--g-color:var(--c-1)"><span class="sw"></span>"Fahuwa Katheem": A Lifetime of Suppression</a></li>
+      <li><a href="#s-08" data-key="asafa huzn two words sadness izaj tama tafarraqa synonyms" style="--g-color:var(--c-2)"><span class="sw"></span>"Asafa" vs "Huzn": Two Words, Different Weight</a></li>
+      <li><a href="#s-09" data-key="mufassiroon meaning asafa anger sadness helpless anxiety zamakhshari wahidi" style="--g-color:var(--c-3)"><span class="sw"></span>Mufassiroon on the Meaning of "Asafa"</a></li>
+      <li><a href="#s-10" data-key="closing morals power balance sadness iman debilitating" style="--g-color:var(--c-4)"><span class="sw"></span>Closing Morals: Power &amp; Balance of Sadness</a></li>
+    </ul>
+  </nav>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- 01 -->
+    <section class="class-section" id="s-01" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">01</span>
+        <h2>"Watawalla Anhum": Turning Away</h2>
+        <button class="collapse-toggle" data-target="s-01" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-01">
+      <div class="class-body-inner">
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Verse 84</span>
+          <p class="ayah-ar arabic">وَتَوَلَّىٰ عَنْهُمْ وَقَالَ يَـٰٓأَسَفَىٰ عَلَىٰ يُوسُفَ وَٱبْيَضَّتْ عَيْنَاهُ مِنَ ٱلْحُزْنِ فَهُوَ كَظِيمٌۭ</p>
+          <p class="ayah-en">"And he turned away from them and said, 'Oh, my sorrow over Joseph,' and his eyes became white from grief, for he was [of that] a suppressor." — Sahih International</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>He turns away from his sons</h3>
+            <span class="code-badge">"Watawalla Anhum" · And He Turned Away From Them</span>
+          </div>
+          <ul class="points">
+            <li>Allah specifically chose to mention that Yaʿqūb (AS) turned away from his sons at this moment.</li>
+            <li>This carries an important lesson: when a person is overwhelmed in a conversation by those they love, it is completely okay to turn away.</li>
+            <li><b>Imam Razi</b> held that Yaʿqūb (AS) became so upset that he physically left and went into a different room.</li>
+            <li>Another plausible explanation is that he stayed in the same room but "turned away" emotionally — so overwhelmed that he began talking to himself and expressing his grief, as if he had entered his own world.</li>
+            <li>He saw no point in continuing the conversation with his sons; he simply needed some time alone.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section class="class-section" id="s-02" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">02</span>
+        <h2>"Ya-Asafa Aala Yoosufa": Calling Out in Grief</h2>
+        <button class="collapse-toggle" data-target="s-02" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-02">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>An artistic pairing of sound</h3>
+            <span class="code-badge">Alas, My Grief Over Yusuf</span>
+          </div>
+          <ul class="points">
+            <li><b>"Ya-Asafa Aala Yoosufa"</b> — Alas my grief / Oh, my sorrow over Yusuf.</li>
+            <li>This is one of those places in the Qur'an where two similar-sounding words are used artistically together — here, <b>"Asafa"</b> and <b>"Yusuf"</b> echo one another in sound.</li>
+            <li>This is remarkable because the entire sūrah is about Yusuf's (AS) own sadness in his life, <i>and</i> about the sadness over Yusuf (AS) that lives in Yaʿqūb's (AS) life — both meanings converge in this one line.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The grammar of extreme emotion</h3>
+            <span class="code-badge">Mutassil "ee" → Hyperbolized "aa"</span>
+          </div>
+          <ul class="points">
+            <li>In Arabic, when expressing possession — "my ---" — the word normally ends with the pronoun <b>"ee"</b> (called <b>Mutassil</b>).
+              <ul>
+                <li>E.g. <b>"Rabbee"</b> → My Master</li>
+                <li>E.g. <b>"Rasoolee"</b> → My Messenger</li>
+              </ul>
+            </li>
+            <li>However, in hyperbolized, extreme forms of communication, instead of the pronoun "ee," the pronoun <b>"aa"</b> is used — conveying something abnormal or extreme.</li>
+            <li>Here, the pronoun "aa" (as in "Asafa") is used, conveying extreme emotion.</li>
+            <li>So Yaʿqūb (AS) is in extreme pain that he has been suppressing for a long time — and this is the moment he finally lets it out.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section class="class-section" id="s-03" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">03</span>
+        <h2>Trauma Triggers: Why Yusuf, Not Binyamin?</h2>
+        <button class="collapse-toggle" data-target="s-03" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-03">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>An old wound reopened</h3>
+            <span class="code-badge">Psychology of a Trigger</span>
+          </div>
+          <ul class="points">
+            <li>A natural question: why does Yaʿqūb (AS) cry out over Yusuf (AS), and not over Binyamin or the other brother who stayed behind in Egypt — the more immediate losses?</li>
+            <li>In psychology, this is described as a <b>"trigger"</b>: one traumatic event triggers the memory and pain of a previous one.</li>
+            <li><b>Ar-Razi</b>, commenting on Yaʿqūb's (AS) psychology, explained it this way: when a person experiences an extreme sadness that replicates a previous traumatic event, it makes them re-live that old tragedy as though it had just happened.</li>
+            <li>It is as if Yaʿqūb (AS) is reliving the original loss of Yusuf (AS) all over again, triggered by this new calamity.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Sadness personified</h3>
+            <span class="code-badge">The Extended Alif</span>
+          </div>
+          <ul class="points">
+            <li>The style of this phrase — the extended Alif at the end of "Ya-Asafa" — is used elsewhere in the Qur'an to personify abstract ideas.</li>
+            <li>Sadness is an idea, not a person — but by saying "Ya-Asafa," Yaʿqūb (AS) is, in effect, calling out to it as though it were a person.</li>
+            <li>For Yaʿqūb (AS), it is as if sadness itself is a person — and the very sadness that came with the loss of Yusuf (AS) has returned once again to haunt him.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 04 -->
+    <section class="class-section" id="s-04" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">04</span>
+        <h2>Balancing Sabr and Sadness</h2>
+        <button class="collapse-toggle" data-target="s-04" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-04">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Beautiful patience, then wailing — how do both fit together?</h3>
+            <span class="code-badge">Reconciling the Two Ayat</span>
+          </div>
+          <ul class="points">
+            <li>In the previous ayah, Yaʿqūb (AS) spoke of beautiful patience ("Fa-Sabrun Jameel"). Here, in this very next ayah, he is wailing openly. How can both be reconciled?</li>
+            <li>This is the Qur'an's way of teaching balance between a person's emotional needs and their spiritual needs.</li>
+          </ul>
+          <div class="lesson-grid">
+            <div class="lesson-card" style="background:var(--c-2-tint); border-color:var(--c-2);">
+              <span class="kicker" style="color:var(--c-2);">Spiritual Need</span>
+              <h4>Sabrun Jameel</h4>
+              <p>Beautiful patience — trust in Allah's plan, and refusal to lose faith even amid loss.</p>
+            </div>
+            <div class="lesson-card" style="background:var(--c-3-tint); border-color:var(--c-3);">
+              <span class="kicker" style="color:var(--c-3);">Emotional Need</span>
+              <h4>Grief</h4>
+              <p>Honest sorrow — allowing the heart to feel and express what it is actually going through.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Not a hopeless man</h3>
+            <span class="code-badge">Every New Day, New Hope</span>
+          </div>
+          <ul class="points">
+            <li>Achieving this balance between spiritual and emotional needs is something every believer has to work toward in life.</li>
+            <li>But Yaʿqūb (AS) is not a hopeless man. It is not that after being sad day after day, he assumes tomorrow will be sad as well.</li>
+            <li>For him, every new day carries new hope.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 05 -->
+    <section class="class-section" id="s-05" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">05</span>
+        <h2>"Wabyaddat AAaynahu": Eyes Turned White</h2>
+        <button class="collapse-toggle" data-target="s-05" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-05">
+      <div class="class-body-inner">
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Verse 84 (continued)</span>
+          <p class="ayah-ar arabic">وَٱبْيَضَّتْ عَيْنَاهُ مِنَ ٱلْحُزْنِ فَهُوَ كَظِيمٌۭ</p>
+          <p class="ayah-en">"...and his eyes became white from grief, for he was [of that] a suppressor." — Sahih International</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>An emotional collapse</h3>
+            <span class="code-badge">"His Eyes Became White"</span>
+          </div>
+          <ul class="points">
+            <li>This phrase marks the emotional collapse of Yaʿqūb (AS) after having held onto his emotions for so long.</li>
+            <li>The cry was so intense that his eyes became white. Two meanings have been given for this:
+              <ul>
+                <li>He lost his eyesight entirely.</li>
+                <li>He lost the natural color of his eyes — a figure of speech that does not necessarily mean he became blind.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 06 -->
+    <section class="class-section" id="s-06" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">06</span>
+        <h2>Conversion Disorder: A Medical Lens</h2>
+        <button class="collapse-toggle" data-target="s-06" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-06">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Can grief really affect eyesight?</h3>
+            <span class="code-badge">Body & Mind</span>
+          </div>
+          <ul class="points">
+            <li>From a strictly medical standpoint, this kind of sudden vision loss from crying isn't something commonly documented — yet there are many cases where all tests come back clear and a person still dies of a condition doctors cannot fully explain.</li>
+            <li>Besides, Yaʿqūb (AS) had been crying for many years by this point, so the underlying damage had likely been building for a long time — this one event simply triggered the visible physical impact.</li>
+            <li>Emotional trauma can carry real physical side effects.</li>
+            <li>Medically, this general phenomenon resembles what is known today as <b>Conversion Disorder</b>.</li>
+          </ul>
+          <div class="quote">
+            Conversion disorder describes a condition in which a person experiences blindness, paralysis, or other symptoms affecting the nervous system that cannot be fully explained by a physical illness or injury on its own. Symptoms typically begin suddenly, following a period of emotional or physical distress or psychological conflict. It is thought to arise from the body's reaction to a stressful event, and some research points to related neurological changes. Diagnosis relies on recognizing signs common to the disorder together with ruling out other physical causes through testing. Treatment can include psychotherapy, hypnosis, and stress-management training, along with treatment of any underlying psychological condition; the affected body part may also need physical or occupational therapy until symptoms resolve.
+            <footer>Paraphrased — Conversion Disorder, Rare Disease reference</footer>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>What lifts the stress, lifts the symptom</h3>
+            <span class="code-badge">The Story Confirms It</span>
+          </div>
+          <ul class="points">
+            <li>Based on this understanding, once the underlying stress is relieved, the affected function — such as eyesight — can return.</li>
+            <li>That is exactly what happens later in the story: when Yaʿqūb (AS) smells the scent of Yusuf's (AS) shirt, the stress lifts, and his eyesight returns.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 07 -->
+    <section class="class-section" id="s-07" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">07</span>
+        <h2>"Fahuwa Katheem": A Lifetime of Suppression</h2>
+        <button class="collapse-toggle" data-target="s-07" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-07">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The word "Katheem": a lid held shut</h3>
+            <span class="code-badge">"Fahuwa Katheem" · He Was a Suppressor</span>
+          </div>
+          <ul class="points">
+            <li><b>"Fahuwa Katheem"</b> — for he had always been someone who swallows and suppresses his feelings.</li>
+            <li><b>"Katheem"</b> traces back to the root <b>"Ka-Za-Ma"</b>, meaning the lid placed on something.</li>
+            <li>The same root also describes what happens with a camel: when it gulps something down to the point it gets stuck in its throat and blocks the air passage — that is "kazama."</li>
+            <li>In Sūrah Āl ʿImrān, the phrase "those who swallow anger" uses this same root, meaning those who block anger from coming out once it has become stuck inside.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Damage that built up over years</h3>
+            <span class="code-badge">Not Overnight</span>
+          </div>
+          <ul class="points">
+            <li>Yaʿqūb (AS) had been holding in his trauma and emotions for a very long time.</li>
+            <li>Allah is telling us that his eyes did not turn white overnight — this had been building for a very long time before this moment.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 08 -->
+    <section class="class-section" id="s-08" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">08</span>
+        <h2>"Asafa" vs "Huzn": Two Words, Different Weight</h2>
+        <button class="collapse-toggle" data-target="s-08" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-08">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Two synonyms placed side by side, on purpose</h3>
+            <span class="code-badge">"Izaj Tama Tafarraqa"</span>
+          </div>
+          <ul class="points">
+            <li>Both <b>"Asafa"</b> and <b>"Huzn"</b> mean sadness — but one is used at the beginning of the ayah, the other at the end.</li>
+            <li><b>"Huzn"</b> is the more common word for sadness in the Qur'an, used roughly 40 times — a more universal expression.</li>
+            <li><b>"Asafa"</b>, by contrast, is a unique and far rarer word.</li>
+            <li>There is a principle in Qur'anic study called <b>"Izaj tama tafarraqa"</b>: when two synonyms are placed together in the same context, it signals that they are actually different in meaning.</li>
+            <li>A reference book on this kind of near-synonym study is <b>Mutaradifaat al-Qur'an</b> by Abdul Rehman Gillani.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Where "Asafa" appears in the Qur'an</h3>
+            <span class="code-badge">5 Occurrences</span>
+          </div>
+          <ul class="points">
+            <li>"Asafa" refers to an extreme state of sadness and anger combined, and this word occurs in the Qur'an five times.</li>
+          </ul>
+          <div class="num-grid">
+            <div class="num-card">
+              <span class="num-badge">1</span>
+              <p>Used when Musa (AS) returned after meeting with Allah and found his people worshipping the calf — described as returning "asifan."</p>
+            </div>
+            <div class="num-card">
+              <span class="num-badge">2</span>
+              <p>Used at the beginning of Sūrah Al-Kahf, describing the Prophet (SAW): "Are you going to kill yourself over grief?"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 09 -->
+    <section class="class-section" id="s-09" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">09</span>
+        <h2>Mufassiroon on the Meaning of "Asafa"</h2>
+        <button class="collapse-toggle" data-target="s-09" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-09">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Anger, sadness, or both</h3>
+            <span class="code-badge">Scholarly Disagreement</span>
+          </div>
+          <ul class="points">
+            <li>The Mufassiroon (Qur'anic exegetes) differed over the precise meaning of this word.</li>
+            <li>Some held it means an extreme form of <b>anger</b> — e.g. Allah says about Himself (referring to Pharaoh's people): "When they caused Us Asaf, We took revenge from them and drowned all of them."</li>
+            <li>Some held it means <b>sadness</b> — e.g. in a report about Ayesha (RA), she describes Abu Bakr as a man who is "Aseef," meaning he carries a great deal of sadness, at the loss of the Prophet (SAW).</li>
+            <li><b>Al-Wahidi</b> combined both meanings, since anger is often rooted in sadness, and sadness is sometimes rooted in anger.</li>
+            <li>Generally, a person gets angry at someone below them (in position or status), and sad over someone above them.</li>
+            <li>Some scholars said it refers to a state of feeling helpless; others said it refers to anxiety.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Zamakhshari: a sadness that never fully fades</h3>
+            <span class="code-badge">Extreme, Regret, Helplessness</span>
+          </div>
+          <ul class="points">
+            <li><b>Zamakhshari</b> explains "Asafa" as the most extreme form of sadness, regret, and helplessness combined.</li>
+            <li>Along with that, it is a feeling that can persist for a very long time — comparable to how depression can continue for years — and he cites this very ayah as evidence.</li>
+            <li>Normally, when something continues for a long time, the body or mind gradually adjusts to it. But with "Asafa," its intensity remains even after a long time has passed.</li>
+            <li>A further question arises: how can Allah describe Himself as experiencing "Asaf" — how can Allah be made "sad"? Two explanations are recorded from Ibn Abbas:
+              <ul>
+                <li>They made Us angry.</li>
+                <li>They made Our believing friends sad — and Allah feels for His believers.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section class="class-section" id="s-10" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">10</span>
+        <h2>Closing Morals: Power &amp; Balance of Sadness</h2>
+        <button class="collapse-toggle" data-target="s-10" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-10">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Even prophets can be overwhelmed</h3>
+            <span class="code-badge">Moral</span>
+          </div>
+          <ul class="points">
+            <li>Allah dedicated a whole ayah to Yaʿqūb's (AS) sadness — a deliberate choice, not an incidental detail.</li>
+            <li><b>Moral:</b> people with the strongest faith — the prophets — can experience sadness so overwhelming that it can even affect their eyesight.</li>
+            <li>This raises a natural question: then what is the point of Iman and Sabr at all?</li>
+            <li>The point is that no matter how overwhelming a situation becomes, faith and patience are what allow a person to navigate through it — not to feel nothing.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Crying is not the absence of Sabr</h3>
+            <span class="code-badge">Sabr = Trust, Not Silence</span>
+          </div>
+          <ul class="points">
+            <li>Crying does not mean a person lacks Sabr. Sabr means not losing trust in Allah — it does not mean suppressing every emotion into silence.</li>
+            <li>All of this teaches a believer the debilitating power sadness can carry, and how faith is meant to hold and carry that sadness, not erase it.</li>
+            <li>Faith remains beautiful even while the ugliness of sadness is being worked through.</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<button id="toTop" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<div id="quickPanel">
+  <div class="qp-head">Jump to Section</div>
+  <ul id="qpList">
+    <li data-target="s-01"><a href="#s-01" style="--qc:var(--c-1)"><span class="qp-idx">01</span>"Watawalla Anhum": Turning Away</a><span class="qp-toggle" data-target="s-01"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-02"><a href="#s-02" style="--qc:var(--c-2)"><span class="qp-idx">02</span>"Ya-Asafa Aala Yoosufa": Calling Out in Grief</a><span class="qp-toggle" data-target="s-02"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-03"><a href="#s-03" style="--qc:var(--c-3)"><span class="qp-idx">03</span>Trauma Triggers: Why Yusuf, Not Binyamin?</a><span class="qp-toggle" data-target="s-03"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-04"><a href="#s-04" style="--qc:var(--c-4)"><span class="qp-idx">04</span>Balancing Sabr and Sadness</a><span class="qp-toggle" data-target="s-04"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-05"><a href="#s-05" style="--qc:var(--c-5)"><span class="qp-idx">05</span>"Wabyaddat AAaynahu": Eyes Turned White</a><span class="qp-toggle" data-target="s-05"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-06"><a href="#s-06" style="--qc:var(--c-6)"><span class="qp-idx">06</span>Conversion Disorder: A Medical Lens</a><span class="qp-toggle" data-target="s-06"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-07"><a href="#s-07" style="--qc:var(--c-1)"><span class="qp-idx">07</span>"Fahuwa Katheem": A Lifetime of Suppression</a><span class="qp-toggle" data-target="s-07"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-08"><a href="#s-08" style="--qc:var(--c-2)"><span class="qp-idx">08</span>"Asafa" vs "Huzn": Two Words, Different Weight</a><span class="qp-toggle" data-target="s-08"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-09"><a href="#s-09" style="--qc:var(--c-3)"><span class="qp-idx">09</span>Mufassiroon on the Meaning of "Asafa"</a><span class="qp-toggle" data-target="s-09"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-10"><a href="#s-10" style="--qc:var(--c-4)"><span class="qp-idx">10</span>Closing Morals: Power &amp; Balance of Sadness</a><span class="qp-toggle" data-target="s-10"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+  </ul>
+</div>
+
+<button id="quickFab" aria-label="Open quick navigation" aria-expanded="false">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+</button>
+
+<script>
+  const heroHeader = document.querySelector('header.hero');
+  function syncHeaderHeight(){
+    const refBar = document.querySelector('.ref-bar');
+    document.documentElement.style.setProperty('--header-h', (heroHeader.offsetHeight + refBar.offsetHeight) + 'px');
+  }
+  syncHeaderHeight();
+  window.addEventListener('resize', syncHeaderHeight);
+
+  const progress = document.getElementById('progress');
+  function updateProgress(){
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    progress.style.width = scrolled + '%';
+    document.getElementById('toTop').classList.toggle('show', h.scrollTop > 700);
+  }
+  document.addEventListener('scroll', updateProgress, {passive:true});
+  updateProgress();
+
+  document.getElementById('toTop').addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+  const tocToggle = document.getElementById('tocToggle');
+  const tocPanelOuter = document.getElementById('tocPanelOuter');
+  function closeToc(){
+    if(!tocPanelOuter) return;
+    tocPanelOuter.classList.remove('open');
+    if(tocToggle) tocToggle.setAttribute('aria-expanded', 'false');
+  }
+  if(tocToggle && tocPanelOuter){
+    tocToggle.addEventListener('click', () => {
+      const isOpen = tocPanelOuter.classList.toggle('open');
+      tocToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+  }
+
+  const navLinks = document.querySelectorAll('nav.sidebar li a');
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const id = entry.target.id;
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  document.querySelectorAll('main section.class-section').forEach(el => { if(el.id) sectionObserver.observe(el); });
+
+  const quickFab = document.getElementById('quickFab');
+  const quickPanel = document.getElementById('quickPanel');
+  function openQuickPanel(){ quickPanel.classList.add('open'); quickFab.classList.add('open'); quickFab.setAttribute('aria-expanded','true'); }
+  function closeQuickPanel(){ quickPanel.classList.remove('open'); quickFab.classList.remove('open'); quickFab.setAttribute('aria-expanded','false'); }
+  quickFab.addEventListener('click', () => { quickPanel.classList.contains('open') ? closeQuickPanel() : openQuickPanel(); });
+  document.addEventListener('click', (e) => {
+    if(quickPanel.classList.contains('open') && !quickPanel.contains(e.target) && !quickFab.contains(e.target)){ closeQuickPanel(); }
+  });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeQuickPanel(); });
+  quickPanel.querySelectorAll('a').forEach(a => { a.addEventListener('click', () => closeQuickPanel()); });
+
+  const ALL_SECTION_IDS = ['s-01','s-02','s-03','s-04','s-05','s-06','s-07','s-08','s-09','s-10'];
+
+  function setCollapsed(id, collapsed){
+    const body = document.getElementById('body-' + id);
+    const btn = document.querySelector('.collapse-toggle[data-target="' + id + '"]');
+    const qpItem = document.querySelector('#qpList li[data-target="' + id + '"]');
+    if(body) body.classList.toggle('collapsed', collapsed);
+    if(btn) btn.setAttribute('aria-expanded', String(!collapsed));
+    if(qpItem) qpItem.classList.toggle('is-collapsed', collapsed);
+  }
+  function isCollapsed(id){
+    const body = document.getElementById('body-' + id);
+    return body ? body.classList.contains('collapsed') : false;
+  }
+  function toggleCollapsed(id){ setCollapsed(id, !isCollapsed(id)); }
+
+  document.querySelectorAll('.collapse-toggle').forEach(btn => {
+    btn.addEventListener('click', () => toggleCollapsed(btn.dataset.target));
+  });
+  document.querySelectorAll('#qpList li').forEach(item => {
+    const id = item.dataset.target;
+    item.querySelector('.qp-toggle').addEventListener('click', (e) => { e.stopPropagation(); e.preventDefault(); toggleCollapsed(id); });
+  });
+
+  document.getElementById('expandAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, false)));
+  document.getElementById('collapseAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, true)));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href').slice(1);
+      if(!href) return;
+      const target = document.getElementById(href);
+      if(!target) return;
+      if(target.classList.contains('class-section')){ setCollapsed(href, false); }
+      if(a.closest('nav.sidebar')){ closeToc(); }
+    });
+  });
+
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', () => {
+    const q = searchInput.value.trim().toLowerCase();
+    navLinks.forEach(a => {
+      const key = (a.dataset.key || a.textContent).toLowerCase();
+      const match = q === '' || key.includes(q);
+      a.dataset.hidden = match ? '0' : '1';
+      const section = document.querySelector(a.getAttribute('href'));
+      if(section){ section.style.display = match ? '' : 'none'; }
+    });
+  });
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

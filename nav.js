@@ -16,7 +16,9 @@
         { href: "yusuf-77.html",             page: "painlikenoother", color: "var(--c-6)", title: "A Pain Like No Other",         sub: "Sūrah Yūsuf, Āyah 77 · Nouman Ali Khan" },
         { href: "surah-yusuf-78-79.html",    page: "yusuf7879",       color: "var(--c-2)", title: "Please Show Mercy",            sub: "Sūrah Yūsuf, Āyāt 78–79 · Nouman Ali Khan" },
         { href: "surah-yusuf-80-82.html",    page: "yusuf8082",       color: "var(--c-1)", title: "A Flicker of Light",           sub: "Sūrah Yūsuf, Āyāt 80–82 · Nouman Ali Khan" },
-        { href: "part-83.html",              page: "yusuf83",         color: "var(--c-4)", title: "Beautiful Patience Again?",    sub: "Sūrah Yūsuf, Āyah 83 · Nouman Ali Khan" }
+        { href: "part-83.html",              page: "yusuf83",         color: "var(--c-4)", title: "Beautiful Patience Again?",    sub: "Sūrah Yūsuf, Āyah 83 · Nouman Ali Khan" },
+        { href: "part-84.html",              page: "yusuf84",         color: "var(--c-6)", title: "Is His Heart Hopeful or Devastated?", sub: "Sūrah Yūsuf, Āyah 84 · Nouman Ali Khan" },
+        { href: "surah-yusuf-85.html",        page: "yusuf85",         color: "var(--c-5)", title: "\"You Will Not Stop Mentioning Yusuf\"", sub: "Sūrah Yūsuf, Āyah 85 · Nouman Ali Khan" }
       ]
     },
     {
@@ -28,15 +30,15 @@
       ]
     },
     {
-      section: "Stories",
-      items: [
-        { href: "abu-mihjan-story.html", page: "abumihjan", color: "var(--c-3)", title: "The Story of Abū Miḥjan", sub: "Reference page" }
-      ]
-    },
-    {
       section: "114. An-Nās",
       items: [
         { href: "surah-an-naas.html", page: "annaas", color: "var(--c-5)", title: "Say, I Seek Refuge", sub: "Sūrah An-Nās · Nouman Ali Khan" }
+      ]
+    },
+    {
+      section: "Stories",
+      items: [
+        { href: "abu-mihjan-story.html", page: "abumihjan", color: "var(--c-3)", title: "The Story of Abū Miḥjan", sub: "Reference page" }
       ]
     }
   ];
@@ -152,7 +154,6 @@
       burger.setAttribute("aria-expanded", "true");
       searchInput.value = "";
       applyFilter();
-      setTimeout(function () { searchInput.focus(); }, 50);
     }
     function closeMenu() {
       menu.classList.remove("open");
