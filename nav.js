@@ -134,9 +134,15 @@
       var anyVisible = false;
 
       listEl.querySelectorAll(".burger-menu-group").forEach(function (groupEl) {
+        var gi = parseInt(groupEl.getAttribute("data-group"), 10);
+        var group = GROUPS[gi];
+        // If the query matches the group/section name itself (e.g. "yusuf"
+        // matching "012. Yūsuf"), show every item under that group too.
+        var groupNameMatches = q === "" || (group && normalize(group.section).indexOf(q) !== -1);
         var groupHasMatch = false;
+
         groupEl.querySelectorAll("a.burger-menu-item").forEach(function (a) {
-          var match = q === "" || a.getAttribute("data-search").indexOf(q) !== -1;
+          var match = groupNameMatches || a.getAttribute("data-search").indexOf(q) !== -1;
           a.style.display = match ? "" : "none";
           if (match) groupHasMatch = true;
         });
