@@ -188,6 +188,71 @@
     });
 
     // =========================================================================
+    // ---- Prev/Next pager footer, built from the same GROUPS order above ----
+    // =========================================================================
+    (function initPager() {
+      var mainEl = document.querySelector("main");
+      if (!mainEl) return;
+
+      // Flatten GROUPS in the same order they're defined/rendered above
+      var flat = [];
+      GROUPS.forEach(function (g) {
+        g.items.forEach(function (p) { flat.push(p); });
+      });
+
+      var idx = -1;
+      for (var i = 0; i < flat.length; i++) {
+        if (flat[i].page === current) { idx = i; break; }
+      }
+      if (idx === -1) return; // current page isn't part of the reading sequence (e.g. Home)
+
+      var prevItem = idx > 0 ? flat[idx - 1] : null;
+      var nextItem = idx < flat.length - 1 ? flat[idx + 1] : null;
+      if (!prevItem && !nextItem) return; // only one page total, nothing to link to
+
+      if (!document.getElementById("navPagerStyle")) {
+        var style = document.createElement("style");
+        style.id = "navPagerStyle";
+        style.textContent =
+          ".page-pager{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:56px;padding-top:28px;border-top:1px solid var(--line,#e7e7ee);}" +
+          "@media (max-width:700px){.page-pager{grid-template-columns:1fr;}}" +
+          ".pager-link{display:flex;flex-direction:column;gap:5px;padding:16px 18px;border-radius:14px;border:1.3px solid var(--line,#e7e7ee);text-decoration:none;color:var(--ink,#14151a);transition:border-color .15s ease,transform .15s ease,box-shadow .15s ease;min-width:0;}" +
+          ".pager-link:hover{border-color:var(--c-1,#7c3aed);transform:translateY(-2px);box-shadow:var(--shadow,0 1px 2px rgba(0,0,0,.04));}" +
+          ".pager-next{text-align:right;align-items:flex-end;}" +
+          ".pager-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft,#5a5d6b);display:flex;align-items:center;gap:6px;}" +
+          ".pager-title{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14.5px;color:var(--ink,#14151a);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%;}" +
+          ".pager-sub{font-size:11.5px;color:var(--ink-soft,#5a5d6b);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%;}" +
+          ".pager-placeholder{visibility:hidden;}";
+        document.head.appendChild(style);
+      }
+
+      function linkHTML(item, isNext) {
+        var arrow = isNext ? "Next" : "Previous";
+        var svg = isNext
+          ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>'
+          : '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>';
+        var eyebrowInner = isNext ? arrow + svg : svg + arrow;
+        return (
+          '<a class="pager-link ' + (isNext ? "pager-next" : "pager-prev") + '" href="' + item.href + '">' +
+            '<span class="pager-eyebrow">' + eyebrowInner + '</span>' +
+            '<span class="pager-title">' + item.title + '</span>' +
+            '<span class="pager-sub">' + item.sub + '</span>' +
+          '</a>'
+        );
+      }
+
+      var pagerHTML =
+        (prevItem ? linkHTML(prevItem, false) : '<span class="pager-link pager-placeholder"></span>') +
+        (nextItem ? linkHTML(nextItem, true) : '<span class="pager-link pager-placeholder"></span>');
+
+      var pagerNav = document.createElement("nav");
+      pagerNav.className = "page-pager";
+      pagerNav.setAttribute("aria-label", "Sequential page navigation");
+      pagerNav.innerHTML = pagerHTML;
+      mainEl.appendChild(pagerNav);
+    })();
+
+    // =========================================================================
     // ---- Highlighter tool: button next to the burger, color picker, ----
     // ---- localStorage-backed persistence, and highlight deletion.      ----
     // =========================================================================
