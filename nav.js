@@ -19,7 +19,8 @@
         { href: "part-83.html",              page: "yusuf83",         color: "var(--c-4)", title: "Beautiful Patience Again?",    sub: "Sūrah Yūsuf, Āyah 83 · Nouman Ali Khan" },
         { href: "part-84.html",              page: "yusuf84",         color: "var(--c-6)", title: "Is His Heart Hopeful or Devastated?", sub: "Sūrah Yūsuf, Āyah 84 · Nouman Ali Khan" },
         { href: "surah-yusuf-85.html",        page: "yusuf85",         color: "var(--c-5)", title: "\"You Will Not Stop Mentioning Yusuf\"", sub: "Sūrah Yūsuf, Āyah 85 · Nouman Ali Khan" },
-        { href: "surah-yusuf-86.html",        page: "yusuf86",         color: "var(--c-2)", title: "\"I Only Complain to Allah\"", sub: "Sūrah Yūsuf, Āyah 86 · Nouman Ali Khan" }
+        { href: "surah-yusuf-86.html",        page: "yusuf86",         color: "var(--c-2)", title: "\"I Only Complain to Allah\"", sub: "Sūrah Yūsuf, Āyah 86 · Nouman Ali Khan" },
+        { href: "surah-yusuf-87.html",        page: "yusuf87",         color: "var(--c-1)", title: "\"Go, Seek Out Yusuf and His Brother\"", sub: "Sūrah Yūsuf, Āyah 87 · Nouman Ali Khan" }
       ]
     },
     {

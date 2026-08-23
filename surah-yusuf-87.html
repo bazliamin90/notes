@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>"Go, Seek Out Yusuf and His Brother" — Surah Yusuf 87 | Study Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --paper:#fbfbfd;
+    --ink:#14151a;
+    --ink-soft:#5a5d6b;
+    --line:#e7e7ee;
+    --line-soft:#f0f0f5;
+
+    --c-1:#7c3aed;  --c-1-tint:#f4edff;   /* violet */
+    --c-2:#0284c7;  --c-2-tint:#e8f6ff;   /* ocean */
+    --c-3:#ea580c;  --c-3-tint:#fff1e8;   /* coral */
+    --c-4:#db2777;  --c-4-tint:#ffe9f4;   /* magenta */
+    --c-5:#059669;  --c-5-tint:#e6faf2;   /* emerald */
+    --c-6:#0f766e;  --c-6-tint:#e6f8f6;   /* teal */
+
+    --accent: var(--c-1);
+    --accent-tint: var(--c-1-tint);
+
+    --radius: 18px;
+    --shadow: 0 1px 2px rgba(20,21,26,.04), 0 12px 32px -16px rgba(20,21,26,.14);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background: var(--accent); color:#fff; }
+
+  h1,h2,h3,h4{ font-family:'Space Grotesk', sans-serif; margin:0; letter-spacing:-.01em; }
+  code, .mono{ font-family:'IBM Plex Mono', monospace; }
+  a{ color:inherit; }
+  p{ margin:0; }
+  .arabic{ font-family:'Amiri', serif; direction:rtl; }
+
+  #progress{
+    position:fixed; top:0; left:0; height:3px; width:0%;
+    background: linear-gradient(90deg, var(--c-1), var(--c-2), var(--c-3), var(--c-4), var(--c-5), var(--c-6));
+    z-index:100; transition: width .1s linear;
+  }
+
+  .ref-bar{
+    background:var(--ink); color:#fff;
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    padding:9px 8vw; display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  }
+  .ref-bar .ref-label{ color:rgba(255,255,255,.55); text-transform:uppercase; letter-spacing:.08em; font-size:10.5px; }
+  .ref-bar .ref-txt{ opacity:.85; }
+
+  header.hero{
+    padding: 6px 8vw;
+    min-height:46px;
+    display:flex; align-items:center;
+    position:sticky; top:0; z-index:80;
+    border-bottom:1px solid var(--line);
+    background-color:#fff;
+    background-image:
+      radial-gradient(700px 340px at 8% -10%, var(--c-1-tint), transparent 60%),
+      radial-gradient(600px 300px at 95% 0%, var(--c-3-tint), transparent 55%);
+  }
+  /* ---------- burger navigation ---------- */
+  .burger-wrap{ position:relative; display:flex; align-items:center; }
+  .burger-btn{
+    width:34px; height:34px; border-radius:10px; border:1.3px solid var(--line);
+    background:var(--paper); color:var(--ink); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: border-color .15s ease, background .15s ease, color .15s ease;
+  }
+  .burger-btn:hover{ border-color: var(--c-1); }
+  .burger-btn.open{ background: var(--c-1); border-color: var(--c-1); color:#fff; }
+  .burger-btn svg{ transition: opacity .15s ease; }
+  .burger-menu{
+    position:absolute; top:calc(100% + 10px); left:0; width:320px;
+    background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow);
+    padding:8px; opacity:0; transform: translateY(-6px); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease; z-index:120;
+    display:flex; flex-direction:column;
+  }
+  .burger-menu.open{ opacity:1; transform: translateY(0); pointer-events:auto; }
+  .burger-menu-home{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; margin:2px 2px 8px;
+    border-radius:10px; border-bottom:1px solid var(--line-soft);
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-home svg{ flex:none; color:var(--ink-soft); }
+  .burger-menu-home:hover{ background: var(--paper); }
+  .burger-menu-home.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-home.is-current .bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-search{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:10px; padding:8px 10px; margin:2px 2px 8px;
+    background:var(--paper); flex:none;
+  }
+  .burger-menu-search svg{ flex:none; opacity:.5; color:var(--ink-soft); }
+  .burger-menu-search input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13px; width:100%; color:var(--ink);
+  }
+  .burger-menu-list{ max-height:340px; overflow-y:auto; overscroll-behavior:contain; }
+  .burger-menu-list::-webkit-scrollbar{ width:6px; }
+  .burger-menu-list::-webkit-scrollbar-thumb{ background:var(--line); border-radius:10px; }
+  .burger-menu-group + .burger-menu-group{ margin-top:4px; }
+  .burger-menu-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); padding:8px 10px 4px;
+  }
+  .burger-menu-empty{
+    display:none; padding:18px 10px; text-align:center; font-size:12.5px; color:var(--ink-soft);
+  }
+  .burger-menu-item{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; border-radius:10px;
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-item span.bm-title{ display:block; }
+  .burger-menu-item span.bm-sub{ display:block; font-size:11.5px; color:var(--ink-soft); font-weight:400; margin-top:1px; }
+  .burger-menu-item:hover{ background: var(--paper); }
+  .burger-menu-item.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-item.is-current span.bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-dot{ width:9px; height:9px; border-radius:3px; flex:none; margin-top:3px; }
+
+  .page-title{ padding: 30px 8vw 6px; }
+  .page-title .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-soft); margin-bottom:10px; display:block;
+  }
+  .page-title h1{
+    font-size: clamp(26px, 5vw, 46px);
+    line-height:1.12;
+    font-weight:700;
+  }
+  .page-title h1 .accent-word{
+    background: linear-gradient(100deg, var(--c-1), var(--c-4) 55%, var(--c-3));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .page-title .sub{
+    margin-top:14px; max-width:66ch; color:var(--ink-soft); font-size:15px; line-height:1.6;
+  }
+  .page-title .tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+  .page-title .tag{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; border:1.3px solid var(--line);
+    color:var(--ink-soft); font-weight:500; background:var(--paper);
+  }
+
+  .layout{ max-width:1400px; margin:0 auto; }
+  .toc-wrap{ border-bottom:1px solid var(--line); padding: 0 8vw; }
+  .toc-toggle{
+    width:100%; display:flex; align-items:center; justify-content:space-between; gap:10px;
+    background:none; border:none; cursor:pointer; padding:16px 0;
+    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px; color:var(--ink);
+  }
+  .toc-toggle:hover{ color:var(--c-1); }
+  .toc-toggle-left{ display:flex; align-items:center; gap:10px; }
+  .toc-toggle-left svg{ color:var(--ink-soft); flex:none; }
+  .toc-count{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft); font-weight:500;
+    background:var(--paper); border:1px solid var(--line); padding:2px 8px; border-radius:100px;
+  }
+  .toc-chevron{ transition: transform .3s ease; color:var(--ink-soft); flex:none; }
+  .toc-toggle[aria-expanded="true"] .toc-chevron{ transform: rotate(180deg); }
+  .toc-panel-outer{ display:grid; grid-template-rows: 0fr; transition: grid-template-rows .35s ease; }
+  .toc-panel-outer.open{ grid-template-rows: 1fr; }
+  .toc-panel-inner{ overflow:hidden; min-height:0; }
+
+  nav.sidebar{ display:block; padding: 4px 0 22px; }
+
+  .search-box{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:12px; padding:10px 12px; margin-bottom:18px;
+    background:var(--paper);
+  }
+  .search-box input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13.5px; width:100%; color:var(--ink);
+  }
+  .search-box svg{ flex:none; opacity:.5; }
+
+  .nav-actions{ display:flex; gap:8px; margin-bottom:18px; }
+  .nav-actions button{
+    flex:1; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    border:1.3px solid var(--line); background:#fff; color:var(--ink-soft);
+    padding:7px 8px; border-radius:9px; cursor:pointer; transition:.15s ease;
+  }
+  .nav-actions button:hover{ border-color:var(--ink); color:var(--ink); }
+
+  .nav-group-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); margin: 18px 0 6px 2px;
+  }
+  .nav-group-label:first-of-type{ margin-top:0; }
+
+  nav.sidebar ul{ list-style:none; margin:0; padding:0; border-left:2px solid var(--line-soft); }
+  nav.sidebar li a{
+    display:flex; align-items:center; gap:9px;
+    text-decoration:none; font-size:13.5px; color:var(--ink-soft);
+    padding:7px 0 7px 14px; border-left:2px solid transparent; margin-left:-2px;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  nav.sidebar li a .sw{ width:8px; height:8px; border-radius:3px; flex:none; background:var(--g-color); }
+  nav.sidebar li a:hover{ color:var(--ink); }
+  nav.sidebar li a.active{ color:var(--g-color); border-left-color: var(--g-color); font-weight:600; }
+  nav.sidebar li a[data-hidden="1"]{ display:none; }
+
+  main{ min-width:0; padding: 0 8vw 140px; }
+
+  section.class-section{ padding-top:56px; scroll-margin-top: 24px; }
+  section.class-section:first-child{ padding-top:44px; }
+
+  .class-head{
+    display:flex; align-items:baseline; gap:16px; flex-wrap:wrap;
+    padding-bottom:14px; margin-bottom:22px; border-bottom:3px solid var(--g-color);
+    position:relative;
+  }
+  .class-head .idx{
+    font-family:'IBM Plex Mono',monospace; font-size:14px; font-weight:700; color:#fff;
+    background:var(--g-color); padding:5px 10px; border-radius:8px;
+  }
+  .class-head h2{ font-size: clamp(20px,2.4vw,28px); color:var(--ink); }
+  .collapse-toggle{
+    margin-left:auto; width:34px; height:34px; border-radius:9px; border:1.5px solid var(--line);
+    background:#fff; color:var(--g-color); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: transform .3s ease, background .15s ease, border-color .15s ease;
+  }
+  .collapse-toggle:hover{ background: var(--g-tint); border-color: var(--g-color); }
+  .collapse-toggle svg{ transition: transform .3s ease; }
+  .collapse-toggle[aria-expanded="false"] svg{ transform: rotate(-90deg); }
+
+  .class-body-outer{ display:grid; grid-template-rows: 0fr; transition: grid-template-rows .38s ease; }
+  .class-body-outer.collapsed{ grid-template-rows: 0fr; }
+  .class-body-outer:not(.collapsed){ grid-template-rows: 1fr; }
+  .class-body-inner{ overflow:hidden; min-height:0; opacity:0; transition: opacity .25s ease .1s; }
+  .class-body-outer.collapsed .class-body-inner{ opacity:0; transition: opacity .18s ease; }
+  .class-body-outer:not(.collapsed) .class-body-inner{ opacity:1; }
+
+  .card{
+    background:#fff; border:1px solid var(--line); border-radius: var(--radius);
+    padding: 28px 30px; margin-bottom: 22px; position:relative; overflow:hidden;
+    border-left: 5px solid var(--g-color);
+  }
+  .card .card-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap;
+    margin-bottom:14px;
+  }
+  .card h3{ font-size:19px; font-weight:600; color:var(--ink); }
+  .card h3 .alt{ font-weight:400; color:var(--ink-soft); font-size:14px; display:block; margin-top:3px;}
+  .code-badge{
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:12px; color:#fff;
+    background: var(--g-color); padding:6px 12px; border-radius:8px; white-space:nowrap;
+  }
+
+  ul.points{ list-style:none; margin:0; padding:0; }
+  ul.points > li{
+    position:relative; padding: 10px 0 10px 34px; font-size:14.8px; line-height:1.65; color:#2b2d36;
+    border-top:1px solid var(--line-soft);
+  }
+  ul.points > li:first-child{ border-top:none; }
+  ul.points > li::before{
+    content:"—";
+    position:absolute; left:0; top:10px; width:22px; height:22px; border-radius:7px;
+    background: var(--g-tint); color:var(--g-color); font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:13px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  ul.points > li b, ul.points > li strong{ color:var(--g-color); }
+  ul.points ul{ list-style:none; margin:8px 0 0; padding:0; }
+  ul.points ul li{
+    position:relative; padding:6px 0 6px 22px; font-size:14px; color:var(--ink-soft); border-top:none;
+  }
+  ul.points ul li::before{
+    content:"·"; position:absolute; left:0; top:4px; width:14px; height:14px; border-radius:0;
+    background:none; color:var(--g-color); font-size:20px; font-weight:700; display:flex; align-items:center; justify-content:center;
+  }
+
+  .ayah-block{
+    margin: 6px 0 18px; padding:20px 22px; border-radius:14px; background:var(--paper);
+    border:1px solid var(--line);
+  }
+  .ayah-block .ayah-ref{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--g-color); font-weight:700; margin-bottom:10px; display:block;
+  }
+  .ayah-block .ayah-ar{
+    font-size:24px; line-height:2; color:var(--ink); text-align:right; margin-bottom:12px;
+  }
+  .ayah-block .ayah-en{
+    font-size:14.5px; line-height:1.6; color:var(--ink-soft); font-style:italic;
+  }
+
+  .quote{
+    margin-top:16px; padding:16px 18px; border-radius:12px; background:var(--g-tint);
+    font-family:'Space Grotesk', sans-serif; font-size:16px; line-height:1.55; color:#20222a;
+    border-left:3px solid var(--g-color);
+  }
+  .quote footer{
+    margin-top:8px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    text-transform:uppercase; color:var(--ink-soft); font-style:normal;
+  }
+
+  .pill-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .pill-row .pill{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; background:#fff; border:1.3px solid var(--g-color);
+    color:var(--g-color); font-weight:600;
+  }
+
+  .lesson-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:6px; }
+  @media (max-width:640px){ .lesson-grid{ grid-template-columns:1fr; } }
+  .lesson-card{ border-radius:var(--radius); padding:22px 22px; border:1.3px solid var(--line); }
+  .lesson-card .kicker{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .lesson-card h4{ margin-top:8px; font-size:17px; }
+  .lesson-card p{ margin-top:10px; font-size:14px; line-height:1.6; color:#2b2d36; }
+
+  .num-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:6px; }
+  @media (max-width:760px){ .num-grid{ grid-template-columns:1fr; } }
+  .num-card{
+    border-radius:14px; padding:18px 20px; border:1.3px solid var(--line); background:var(--paper);
+    display:flex; gap:14px; align-items:flex-start;
+  }
+  .num-card .num-badge{
+    flex:none; width:30px; height:30px; border-radius:9px; background:var(--g-color); color:#fff;
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center;
+  }
+  .num-card p{ font-size:14px; line-height:1.6; color:#2b2d36; }
+
+  #toTop{
+    position:fixed; right:26px; bottom:26px; width:46px; height:46px; border-radius:50%;
+    background:var(--ink); color:#fff; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,.22); opacity:0; pointer-events:none; transition: opacity .25s ease, transform .2s ease;
+    z-index:90;
+  }
+  #toTop.show{ opacity:1; pointer-events:auto; }
+  #toTop:hover{ transform: translateY(-3px); }
+
+  #quickFab{
+    position:fixed; left:26px; bottom:26px; width:52px; height:52px; border-radius:16px;
+    background: linear-gradient(135deg, var(--c-1), var(--c-4)); color:#fff; border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; z-index:95;
+    box-shadow:0 10px 28px -6px rgba(124,58,237,.5);
+    transition: transform .2s ease, border-radius .2s ease;
+  }
+  #quickFab:hover{ transform: translateY(-3px) scale(1.03); }
+  #quickFab.open{ border-radius:50%; }
+  #quickFab svg{ transition: transform .3s ease; }
+  #quickFab.open svg{ transform: rotate(45deg); }
+
+  #quickPanel{
+    position:fixed; left:26px; bottom:90px; width:290px; max-height:60vh; overflow-y:auto;
+    background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow);
+    z-index:94; padding:14px; opacity:0; transform: translateY(10px) scale(.97); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  #quickPanel.open{ opacity:1; transform: translateY(0) scale(1); pointer-events:auto; }
+  #quickPanel .qp-head{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--ink-soft); padding:4px 8px 10px;
+  }
+  #qpList{ list-style:none; margin:0; padding:0; }
+  #qpList li{ display:flex; align-items:center; gap:8px; border-radius:10px; padding:2px; }
+  #qpList li a{
+    flex:1; display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--ink);
+    font-size:13px; padding:8px; border-radius:10px; transition:background .15s ease;
+  }
+  #qpList li a:hover{ background:var(--paper); }
+  .qp-idx{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:700; color:#fff;
+    background: var(--qc, var(--c-1)); padding:2px 6px; border-radius:6px;
+  }
+  .qp-toggle{ padding:8px; cursor:pointer; color:var(--ink-soft); opacity:.6; }
+  .qp-toggle:hover{ opacity:1; }
+  #qpList li.is-collapsed .qp-toggle svg{ transform: rotate(-90deg); }
+  #qpList li .qp-toggle svg{ transition: transform .3s ease; }
+
+  #empty-state{ display:none; padding:60px 0; text-align:center; color:var(--ink-soft); }
+  #empty-state.show{ display:block; }
+
+  footer.page-footer{
+    padding:30px 8vw 60px; color:var(--ink-soft); font-size:12.5px; font-family:'IBM Plex Mono',monospace;
+    border-top:1px solid var(--line); margin-top:30px;
+  }
+
+  @media (max-width: 980px){
+    main{ padding: 0 6vw 120px; }
+    .ayah-block .ayah-ar{ font-size:20px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001s !important; transition-duration:.001s !important; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body data-page="yusuf87">
+
+<div id="progress"></div>
+
+<header class="hero">
+  <div class="burger-wrap">
+    <button id="navBurger" class="burger-btn" aria-haspopup="true" aria-expanded="false" aria-label="Open navigation menu">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div id="navMenu" class="burger-menu"></div>
+  </div>
+</header>
+
+<div class="ref-bar">
+  <span class="ref-label">Source</span>
+  <a href="https://www.youtube.com/watch?v=Aswf_0H185Q&list=PLutdSTmJ7bAKlyRliJdlAJZRF6RSIE49y&index=59" target="_blank" rel="noopener" class="ref-txt" style="text-decoration:none; border-bottom:1px solid rgba(255,255,255,.35); padding-bottom:1px;">Nouman Ali Khan</a>
+</div>
+
+<div class="page-title" id="top">
+  <span class="eyebrow">Tafsīr Notes · Sūrah Yūsuf</span>
+  <h1>"Go, <span class="accent-word">Seek Out</span> Yusuf and His Brother" [Ayah 87]</h1>
+  <div class="sub">After turning his back on his sons in grief, Ya'qūb (AS) turns to face them again — this time with tenderness. A study in loving confrontation, the word "tahassus," the psychology of buried guilt, and the etymology of "rawh," Allah's breath of relief.</div>
+  <div class="tag-row">
+    <span class="tag">Verse 87</span>
+    <span class="tag">Ya Baniyya</span>
+    <span class="tag">Tahassus</span>
+    <span class="tag">Rawḥ Allāh</span>
+    <span class="tag">Guilt &amp; Redemption</span>
+  </div>
+</div>
+
+<div class="layout">
+
+  <div class="toc-wrap">
+    <button class="toc-toggle" id="tocToggle" aria-expanded="false" aria-controls="tocPanelOuter">
+      <span class="toc-toggle-left">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        <span>Table of Contents</span>
+      </span>
+      <svg class="toc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="toc-panel-outer" id="tocPanelOuter">
+      <div class="toc-panel-inner">
+        <nav class="sidebar">
+    <div class="search-box">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="searchInput" type="text" placeholder="Search sections…">
+    </div>
+    <div class="nav-actions">
+      <button id="expandAll">Expand all</button>
+      <button id="collapseAll">Collapse all</button>
+    </div>
+
+    <div class="nav-group-label">Turning Back With Love</div>
+    <ul>
+      <li><a href="#s-01" data-key="setting scene ayah 84 sabrun jameel grief outburst walked away contrast" style="--g-color:var(--c-1)"><span class="sw"></span>Setting the Scene: From Ayah 84 to 87</a></li>
+      <li><a href="#s-02" data-key="yabaniya my sons term of endearment heart softener" style="--g-color:var(--c-2)"><span class="sw"></span>"My Sons" — The Power of Yabaniya</a></li>
+      <li><a href="#s-03" data-key="sabr jameel principled discipline boundary grudge legacy memory" style="--g-color:var(--c-3)"><span class="sw"></span>Staying Principled Without a Grudge</a></li>
+    </ul>
+
+    <div class="nav-group-label">The Search & the Guilt</div>
+    <ul>
+      <li><a href="#s-04" data-key="tahassus tajassus hiss senses investigate track scent" style="--g-color:var(--c-4)"><span class="sw"></span>"Go Investigate" — Tahassus vs Tajassus</a></li>
+      <li><a href="#s-05" data-key="why yusuf first guilty conscience defense mechanism wolf shirt blood" style="--g-color:var(--c-5)"><span class="sw"></span>Why Yusuf First? The Guilty Conscience</a></li>
+      <li><a href="#s-06" data-key="binyamin honest this time caravan witnesses glimmer of hope" style="--g-color:var(--c-6)"><span class="sw"></span>This Time They Are Honest</a></li>
+      <li><a href="#s-07" data-key="loving confrontation intervention explode defense speak what needs to be said" style="--g-color:var(--c-1)"><span class="sw"></span>Loving Confrontation</a></li>
+    </ul>
+
+    <div class="nav-group-label">Hope in Allah's Mercy</div>
+    <ul>
+      <li><a href="#s-08" data-key="rawh breath relief nafas etymology kafirun aziz governor no hope means" style="--g-color:var(--c-2)"><span class="sw"></span>Rawh — Allah's Breath of Relief</a></li>
+      <li><a href="#s-09" data-key="iman weak heart hardened spark guilty conscience running from allah" style="--g-color:var(--c-3)"><span class="sw"></span>A Spark of Iman in a Hardened Heart</a></li>
+      <li><a href="#s-10" data-key="psychology guilt shame running away shaytan tawba redemption" style="--g-color:var(--c-4)"><span class="sw"></span>The Psychology of Guilt and Shame</a></li>
+    </ul>
+
+    <div class="nav-group-label">Why It Matters</div>
+    <ul>
+      <li><a href="#s-11" data-key="blind man sees clearly irony heart eyes bold" style="--g-color:var(--c-5)"><span class="sw"></span>A Blind Man Who Sees Clearly</a></li>
+      <li><a href="#s-12" data-key="sadness hope contagious sabr jameel ayah 83 bookend" style="--g-color:var(--c-6)"><span class="sw"></span>From Sadness to Contagious Hope</a></li>
+      <li><a href="#s-13" data-key="kafirun prison inmates ibrahim like father like son redemption" style="--g-color:var(--c-1)"><span class="sw"></span>Echoes of Yusuf's Own Words in Prison</a></li>
+      <li><a href="#s-14" data-key="closing dream eleven stars sun moon fulfillment mufassirun" style="--g-color:var(--c-2)"><span class="sw"></span>Closing Note: A Clue to the Dream</a></li>
+    </ul>
+  </nav>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- 01 -->
+    <section class="class-section" id="s-01" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">01</span>
+        <h2>Setting the Scene: From Ayah 84 to 87</h2>
+        <button class="collapse-toggle" data-target="s-01" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-01">
+      <div class="class-body-inner">
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Verse 87 (paraphrase discussed)</span>
+          <p class="ayah-en">"My sons, go and seek out any clue you can regarding Yusuf and his brother, and don't lose hope in Allah's relief — for none but a disbelieving people despair of Allah's mercy."</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A contrast after intensity</h3>
+            <span class="code-badge">Turning Point</span>
+          </div>
+          <ul class="points">
+            <li>Ayah 87 marks a real contrast from the heated, intense exchange between the sons and Ya'qūb (AS) covered in the previous session, where he had to draw a firm boundary with them.</li>
+            <li>The whole episode begins in ayah 84: when the sons gave their account of what happened to Binyamin, Ya'qūb (AS) responded with <b>"sabrun jameel"</b> ("beautiful patience"), hoping Allah would bring all of them back to him.</li>
+            <li>In the very next ayah, his grief overtook him; the sons then lost their composure and had an angry outburst against him, prompting the sharp reply already studied — essentially: don't yell at me, I only complain to Allah, not to you.</li>
+            <li>Following that clash, Ya'qūb (AS) appeared to distance himself emotionally from his sons, retreating into private grief he could only voice to Allah.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Scenic transitions in the Qur'an</h3>
+            <span class="code-badge">Timing Is Uncertain</span>
+          </div>
+          <ul class="points">
+            <li>This next exchange may not have followed immediately — it could have occurred moments later, hours later, or even the next day; the Qur'an's scenic transitions don't always specify the gap.</li>
+            <li>Despite parting on clearly bad terms, in this ayah Ya'qūb (AS) turns back to speak to his sons — being a father doesn't end because a conversation went badly; there is still something that needs to be said.</li>
+            <li>Remarkably, when he turns back, he doesn't resume the confrontation — he speaks to them lovingly instead.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section class="class-section" id="s-02" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">02</span>
+        <h2>"My Sons" — The Power of Yabaniya</h2>
+        <button class="collapse-toggle" data-target="s-02" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-02">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>An address that didn't have to be there</h3>
+            <span class="code-badge">Ya Baniyya</span>
+          </div>
+          <ul class="points">
+            <li>Before considering the content of his instructions, the opening word <b>"yabaniya"</b> ("my sons") is itself significant — it's an add-on, since he could simply have said "go" and the audience would still be obvious.</li>
+            <li>Calling a child "son," "my boy," or "my baby" instead of using their name or a flat command is a term of endearment; it softens the heart and pulls the child emotionally closer to the parent.</li>
+            <li>Using this word right after a painful clash shows that, even while a boundary had been drawn, Ya'qūb (AS) still chose to speak with warmth.</li>
+          </ul>
+        </div>
+
+        <div class="lesson-grid">
+          <div class="lesson-card" style="border-left:4px solid var(--c-2)">
+            <span class="kicker">The Lesson</span>
+            <h4>Boundaries don't cancel love</h4>
+            <p>Family may treat you in ways you don't deserve, but that doesn't have to change who you are or how you carry yourself. You can hold a boundary and still speak with respect and love.</p>
+          </div>
+          <div class="lesson-card" style="border-left:4px solid var(--c-2)">
+            <span class="kicker">A Note on Roles</span>
+            <h4>The parent's higher standard</h4>
+            <p>The Qur'an commands children not to be harsh with parents, not the other way around — yet even holding that "right," Ya'qūb (AS) still chooses gentleness as a father.</p>
+          </div>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section class="class-section" id="s-03" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">03</span>
+        <h2>Staying Principled Without a Grudge</h2>
+        <button class="collapse-toggle" data-target="s-03" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-03">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>They didn't "deserve" it — and it didn't matter</h3>
+            <span class="code-badge">Undeserved Kindness</span>
+          </div>
+          <ul class="points">
+            <li>By any normal measure, the sons hadn't earned kindness: they had disrespected, disobeyed, lied to, and deeply hurt their father for years, and never once admitted it.</li>
+            <li>But no one knows when Allah will soften a person's heart; even people with no religious inclination often come to regret, much later in life, how they once treated a parent.</li>
+            <li>If a parent responds to bad behavior with equally bad behavior, the child will remember only the hurt inflicted on them, not their own wrongdoing.</li>
+            <li>Staying principled instead means the child is more likely to remember: "dad always spoke respectfully, dad's doors were always open, dad always gave good advice."</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Sabr jameel in practice</h3>
+            <span class="code-badge">Beautiful Patience</span>
+          </div>
+          <ul class="points">
+            <li>Many people, hurt in conflict, either avoid all further engagement or let their emotions dictate ugly speech in return; the higher road is to remain constant — to stay the same, not budge from one's principles or manners.</li>
+            <li>A believer will not withhold honest counsel or the truth out of a grudge, even after a painful fight — what needs to be said still needs to be said.</li>
+            <li>Even as grown men with families of their own (shown earlier in the surah by their plan to bring camel-loads of food home), a parent's job of protecting may end, but the role of giving counsel never does.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 04 -->
+    <section class="class-section" id="s-04" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">04</span>
+        <h2>"Go Investigate" — Tahassus vs Tajassus</h2>
+        <button class="collapse-toggle" data-target="s-04" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-04">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>For the first time, he sends them out</h3>
+            <span class="code-badge">Ithhabu — "All of You, Go"</span>
+          </div>
+          <ul class="points">
+            <li>Ya'qūb (AS) says "ithhabu" — go, all of you — actively sending his sons out, since there is no longer anyone at home needing his protection; those who once needed guarding are now the ones who caused the harm.</li>
+            <li>He instructs them to <b>"tahassasu"</b>, from the root ḥā-sīn-sīn, connected to the senses — smell, sound, sight, touch — as in following a scent to cooking food, or a tracker following footprints or a broken leaf.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Two close but distinct roots</h3>
+            <span class="code-badge">Tajassus vs Tahassus</span>
+          </div>
+          <ul class="points">
+            <li>Early scholars distinguished this root (ḥā-sīn-sīn) from the similar root jīm-sīn-sīn (tajassus): <b>tajassus</b> means to spy on someone secretly, while <b>tahassus</b> means to actively and openly seek something out.</li>
+            <li>So Ya'qūb (AS) is instructing an open investigation — actively searching for any clue regarding Yusuf and his brother, not a covert operation.</li>
+            <li>Some commentators point to a secondary layer in the root's meaning — a sense of "sensitivity" or delicacy — suggesting he may also be asking them to find some feeling and sensitivity in themselves toward their two missing brothers, not merely to gather physical clues.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 05 -->
+    <section class="class-section" id="s-05" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">05</span>
+        <h2>Why Yusuf First? The Guilty Conscience</h2>
+        <button class="collapse-toggle" data-target="s-05" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-05">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A puzzle worth solving</h3>
+            <span class="code-badge">Why Bring Up Yusuf Again?</span>
+          </div>
+          <ul class="points">
+            <li>This raises a real puzzle: the conversation up to this point hadn't been about Yusuf — the brothers had just gotten angry specifically at his father's mention of Yusuf's name. So why would Ya'qūb (AS) bring him up again himself?</li>
+            <li>Years earlier, the brothers had returned with a shirt stained with animal blood and a story that a wolf had killed Yusuf; Ya'qūb (AS) never accepted that account.</li>
+            <li>Every time he tried to raise his doubts, the sons shut the conversation down — "he died, he died, stop bringing it up" — silencing him, even though in his heart he never accepted their version.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Anger as a defense mechanism</h3>
+            <span class="code-badge">The Guilty Conscience Exposed</span>
+          </div>
+          <ul class="points">
+            <li>Their intense anger whenever Yusuf's name comes up is itself telling — it exposes a guilty conscience reacting defensively rather than genuine grievance.</li>
+            <li>This mirrors a common human pattern: people who cannot bear to be confronted about a past wrong often respond with disproportionate anger, using aggression to make sure no one dares raise the subject again.</li>
+            <li>But if someone stays calm and persists, that defensive "toughness" can eventually crack, revealing real vulnerability and guilt underneath — much like a teenager who talks tough until, after enough steady pressure, the front breaks down into tears.</li>
+            <li>By deliberately naming Yusuf again, Ya'qūb (AS) signals he knows the truth: he never accepted the wolf story, and the subject they thought was permanently closed is being reopened.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 06 -->
+    <section class="class-section" id="s-06" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">06</span>
+        <h2>This Time They Are Honest</h2>
+        <button class="collapse-toggle" data-target="s-06" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-06">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A different kind of story</h3>
+            <span class="code-badge">Verifiable, Not Fabricated</span>
+          </div>
+          <ul class="points">
+            <li>Something has shifted: unlike the Yusuf story, the account of what happened to Binyamin was true, and the brothers even invited their father to verify it with the caravan or the whole town, since many witnesses saw the incident.</li>
+            <li>This honesty is new, and it gives Ya'qūb (AS) reason to sense a glimmer of hope that some real change has taken place in his sons.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The iron is hot</h3>
+            <span class="code-badge">Yusuf and His Brother, Together</span>
+          </div>
+          <ul class="points">
+            <li>Whether through Allah revealing that the time to speak had come, or through his own wisdom recognizing the moment, Ya'qūb (AS) senses this is the right time to act — the sons are showing guilt and genuine effort instead of fabricating another lie.</li>
+            <li>Rather than saying "go look for your brother," he deliberately says <b>"go look for Yusuf and his brother"</b> — placing Yusuf first, which immediately tells his sons: I never accepted your old story, and I see through your earlier anger as a cover for guilt, not honest offense.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 07 -->
+    <section class="class-section" id="s-07" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">07</span>
+        <h2>Loving Confrontation</h2>
+        <button class="collapse-toggle" data-target="s-07" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-07">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Say what needs to be said</h3>
+            <span class="code-badge">Not Aggressive — Just Necessary</span>
+          </div>
+          <ul class="points">
+            <li>Many people avoid confrontation entirely, wanting only peace; a few others crave confrontation for validation. But sometimes a situation genuinely requires confronting someone about something painful.</li>
+            <li>When confronted, people often explode specifically to make the confronter back off — and it usually works, discouraging any further mention of the issue.</li>
+            <li>Ya'qūb (AS) shows that no matter how someone reacts, if something needs to be said, it should be said — but delivered without losing composure, principles, or love. Confrontation doesn't have to be aggressive; it can be an "intervention" rooted in love, hope, and the mention of Allah.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Said without being said</h3>
+            <span class="code-badge">"I Know What You Did"</span>
+          </div>
+          <ul class="points">
+            <li>Though he never explicitly accuses them, his words carry an unmistakable, implicit message: I know what you did with Yusuf.</li>
+            <li>The proof it worked: in the following ayah, the brothers don't argue back or repeat their earlier demand to stop mentioning Yusuf — they quietly comply and leave, suggesting his loving words broke through a guard that anger and argument could not.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 08 -->
+    <section class="class-section" id="s-08" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">08</span>
+        <h2>Rawh — Allah's Breath of Relief</h2>
+        <button class="collapse-toggle" data-target="s-08" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-08">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Answering the unspoken objection</h3>
+            <span class="code-badge">"There's No Way, Dad"</span>
+          </div>
+          <ul class="points">
+            <li>Ya'qūb (AS) tells them not to lose hope in <b>"rawh"</b> from Allah — a rare word connected to "rīḥ" (wind) and "nafas" (breath); essentially, a sigh or breath of relief, matching the English idiom.</li>
+            <li>He seems to anticipate the sons' unspoken objection before they voice it: they had already pleaded with the governor (the Azīz) of Egypt to release Binyamin and were flatly refused, and given how long Yusuf has been missing, the case would statistically seem hopeless by now.</li>
+            <li>His answer: even where there's no hope through worldly means — investigation, government, the ruler of Egypt — there is no ceiling on what Allah can do, since He is the one who created those very means in the first place and can create entirely new ones.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Family precedent — Ibrahim's household</h3>
+            <span class="code-badge">Fire Made Cold</span>
+          </div>
+          <ul class="points">
+            <li>He reminds them of their lineage from Ibrahim (AS): Allah can make fire cold, bring water from a dry desert, or reverse the natural order — precedents of miraculous relief already present in their own family history.</li>
+            <li>The ayah concludes: none despair of Allah's rawh (mercy and relief) except a disbelieving people — because disbelievers have no source to hope in, since they never turn to Allah for anything in the first place.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Taking daily mercy for granted</h3>
+            <span class="code-badge">A Tangent on Gratitude</span>
+          </div>
+          <ul class="points">
+            <li>The ordinary functioning of the human body — breathing, heartbeat, unseen defenses against countless microbes — is itself a continuous mercy people overlook simply because it's constant.</li>
+            <li>An illustrative example (shared from another teacher's lecture): imagine someone raised for twenty years inside a windowless house, never seeing outside — the first time they see the sun, they'd be awestruck by something the rest of us take completely for granted because we see it every day.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 09 -->
+    <section class="class-section" id="s-09" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">09</span>
+        <h2>A Spark of Iman in a Hardened Heart</h2>
+        <button class="collapse-toggle" data-target="s-09" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-09">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>An ironic echo</h3>
+            <span class="code-badge">"Wallahi" Misused, Then Redeemed</span>
+          </div>
+          <ul class="points">
+            <li>Moments earlier, the brothers had invoked Allah's name inappropriately while yelling at their father — a misuse of a sacred oath.</li>
+            <li>Yet Ya'qūb's message implies: even if their imān feels weak, even if their hearts feel hardened, if even one trace of consciousness of Allah remains, that spark can still connect them to His mercy.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The real target of his hope</h3>
+            <span class="code-badge">Not Just "Find Yusuf"</span>
+          </div>
+          <ul class="points">
+            <li>The hope he offers isn't ultimately about the search itself — it's aimed at a deeper issue: their unresolved guilt and fear of confronting what they did to Yusuf.</li>
+            <li>He is telling them: don't run from what your guilty conscience already knows; that discomfort is proof there's still goodness inside you, and Allah can restore and redeem you — if you act on it by making things right, rather than burying the guilt further.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section class="class-section" id="s-10" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">10</span>
+        <h2>The Psychology of Guilt and Shame</h2>
+        <button class="collapse-toggle" data-target="s-10" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-10">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>When guilt is weaponized, people flee</h3>
+            <span class="code-badge">Running From Shame</span>
+          </div>
+          <ul class="points">
+            <li>A well-known human pattern: being constantly guilted or shamed eventually causes a person to shut off the feeling of guilt entirely, since no one can bear repeated shame indefinitely.</li>
+            <li>This dynamic can drive a child to run away from home, a spouse to leave a marriage, or a person to abandon their faith altogether — for instance, someone worn down by being told relentlessly "you'll burn in hell" may simply walk away from the deen in search of relief from constant negativity.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Divine guilt vs. human shaming</h3>
+            <span class="code-badge">A Real Distinction</span>
+          </div>
+          <ul class="points">
+            <li>Guilt from Allah — a call to conscience — is different from guilt imposed abusively by another person: it exists because the wrongdoing is real, not to demean or belittle.</li>
+            <li>The Prophetic model was never to shame people harshly, even sinners; here too, Ya'qūb (AS) doesn't shame his sons over what they did — he simply tells them to go search.</li>
+            <li>Sometimes a person's inner guilt is so heavy that they run from confronting themselves purely to avoid the discomfort — a self-avoidance described as something shaytan encourages internally, not something imposed from outside.</li>
+            <li>Ya'qūb's message directly counters this tendency: don't lose hope, don't run — Allah's mercy and redemption remain available to anyone willing to turn back.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 11 -->
+    <section class="class-section" id="s-11" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">11</span>
+        <h2>A Blind Man Who Sees Clearly</h2>
+        <button class="collapse-toggle" data-target="s-11" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-11">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The irony of sight</h3>
+            <span class="code-badge">Eyes vs. Heart</span>
+          </div>
+          <ul class="points">
+            <li>Ya'qūb (AS), described elsewhere in the surah as blind, is in this household the only one who truly "sees" — his physical eyes fail him, but his heart perceives what really happened to Yusuf with total clarity, unlike his sons, whose eyes function but whose hearts remain blind to the truth they're hiding.</li>
+            <li>It took real boldness for him to mention Yusuf's name again immediately after being yelled at for the very same thing — he wasn't intimidated out of speaking the truth.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 12 -->
+    <section class="class-section" id="s-12" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">12</span>
+        <h2>From Sadness to Contagious Hope</h2>
+        <button class="collapse-toggle" data-target="s-12" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-12">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The darkest moment, given to Allah</h3>
+            <span class="code-badge">A Private Complaint</span>
+          </div>
+          <ul class="points">
+            <li>This episode captures arguably the darkest period of Ya'qūb's life — even a man renowned for his patience could not fully hold his tongue, crying out in visible grief.</li>
+            <li>What's remarkable is what he does with that sadness: he brings it directly to Allah as a private complaint, rather than letting it curdle into despair or bitterness toward others.</li>
+            <li>In response, Allah fills his heart with such hope that, though still sad, he becomes more unbroken than ever — to the point that his hope becomes contagious, and he starts extending hope to others (his own sons) instead of negativity.</li>
+          </ul>
+        </div>
+
+        <div class="quote">
+          Sadness and hope are not mutually exclusive — a person can be deeply sad and fully hopeful at the same time, without either one diminishing their faith. Negativity given over to Allah becomes "sabr jameel," and Allah answers beautiful patience with hope.
+          <footer>Core takeaway of this ayah</footer>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Hope bookends the whole exchange</h3>
+            <span class="code-badge">Ayah 83 → Ayah 87</span>
+          </div>
+          <ul class="points">
+            <li>The exchange began in ayah 83 with "la'alla Allahu ya'tini bihim jami'an" — "maybe Allah will bring them all back to me" — hope present even before the emotional low point that followed.</li>
+            <li>It closes here in ayah 87 with hope restored and amplified, after passing through grief, an outburst, and silence.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 13 -->
+    <section class="class-section" id="s-13" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">13</span>
+        <h2>Echoes of Yusuf's Own Words in Prison</h2>
+        <button class="collapse-toggle" data-target="s-13" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-13">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Like father, like son</h3>
+            <span class="code-badge">Kāfirūn — Just Two Occurrences</span>
+          </div>
+          <ul class="points">
+            <li>The word for "disbelievers" (kāfirūn) appears only twice in this surah before this ayah; the other occurrence is when Yusuf (AS), while imprisoned, told his fellow inmates he had left the religion of a people who don't believe in Allah and deny the Hereafter.</li>
+            <li>Yusuf, in one of the darkest places of his own life, thanked Allah for not being among the disbelievers — referencing the honor of belonging to Ibrahim's family.</li>
+            <li>The parallel is striking: father and son, each in their own darkest hour, express the same underlying gratitude — being connected to Allah rather than being without hope like disbelievers.</li>
+            <li>Yusuf offered that same message of redemption to his cellmates — men with a criminal record of their own — and here Ya'qūb (AS) extends the same possibility of redemption to his own sons, who had committed a real wrong against Yusuf and their father.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 14 -->
+    <section class="class-section" id="s-14" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">14</span>
+        <h2>Closing Note: A Clue to the Dream</h2>
+        <button class="collapse-toggle" data-target="s-14" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-14">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Sensing the dream's fulfillment</h3>
+            <span class="code-badge">Eleven Stars, Sun, and Moon</span>
+          </div>
+          <ul class="points">
+            <li>Some commentators (mufassirūn) suggest Ya'qūb's sudden optimism about Yusuf may be connected to the dream Yusuf once shared with him — the eleven stars, the sun, and the moon prostrating to him — which Ya'qūb (AS) recognized as revelation and always believed would be fulfilled.</li>
+            <li>On this reading, he may be sensing, consciously or not, that events are moving toward the fulfillment of that old dream, even without knowing that Yusuf is now the governor of Egypt.</li>
+            <li>This is offered as one possible additional layer of meaning, alongside the primary lessons of this ayah about loving confrontation, guilt, and mercy.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+  </main>
+
+</div>
+
+<div id="empty-state">No sections match your search.</div>
+
+<button id="toTop" aria-label="Scroll to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<div id="quickPanel">
+  <div class="qp-head">Jump to section</div>
+  <ul id="qpList">
+    <li data-target="s-01"><a href="#s-01" style="--qc:var(--c-1)"><span class="qp-idx">01</span>Setting the Scene</a><span class="qp-toggle" data-target="s-01"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-02"><a href="#s-02" style="--qc:var(--c-2)"><span class="qp-idx">02</span>"My Sons" — Yabaniya</a><span class="qp-toggle" data-target="s-02"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-03"><a href="#s-03" style="--qc:var(--c-3)"><span class="qp-idx">03</span>Staying Principled</a><span class="qp-toggle" data-target="s-03"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-04"><a href="#s-04" style="--qc:var(--c-4)"><span class="qp-idx">04</span>Tahassus vs Tajassus</a><span class="qp-toggle" data-target="s-04"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-05"><a href="#s-05" style="--qc:var(--c-5)"><span class="qp-idx">05</span>The Guilty Conscience</a><span class="qp-toggle" data-target="s-05"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-06"><a href="#s-06" style="--qc:var(--c-6)"><span class="qp-idx">06</span>This Time, Honest</a><span class="qp-toggle" data-target="s-06"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-07"><a href="#s-07" style="--qc:var(--c-1)"><span class="qp-idx">07</span>Loving Confrontation</a><span class="qp-toggle" data-target="s-07"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-08"><a href="#s-08" style="--qc:var(--c-2)"><span class="qp-idx">08</span>Rawh — Breath of Relief</a><span class="qp-toggle" data-target="s-08"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-09"><a href="#s-09" style="--qc:var(--c-3)"><span class="qp-idx">09</span>A Spark of Iman</a><span class="qp-toggle" data-target="s-09"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-10"><a href="#s-10" style="--qc:var(--c-4)"><span class="qp-idx">10</span>Guilt &amp; Shame Psychology</a><span class="qp-toggle" data-target="s-10"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-11"><a href="#s-11" style="--qc:var(--c-5)"><span class="qp-idx">11</span>A Blind Man Who Sees</a><span class="qp-toggle" data-target="s-11"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-12"><a href="#s-12" style="--qc:var(--c-6)"><span class="qp-idx">12</span>Sadness → Contagious Hope</a><span class="qp-toggle" data-target="s-12"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-13"><a href="#s-13" style="--qc:var(--c-1)"><span class="qp-idx">13</span>Echoes in Prison</a><span class="qp-toggle" data-target="s-13"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-14"><a href="#s-14" style="--qc:var(--c-2)"><span class="qp-idx">14</span>Clue to the Dream</a><span class="qp-toggle" data-target="s-14"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+  </ul>
+</div>
+
+<button id="quickFab" aria-label="Open quick navigation" aria-expanded="false">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+</button>
+
+<script>
+  const progress = document.getElementById('progress');
+  function updateProgress(){
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    progress.style.width = scrolled + '%';
+    document.getElementById('toTop').classList.toggle('show', h.scrollTop > 700);
+  }
+  document.addEventListener('scroll', updateProgress, {passive:true});
+  updateProgress();
+
+  document.getElementById('toTop').addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+  const tocToggle = document.getElementById('tocToggle');
+  const tocPanelOuter = document.getElementById('tocPanelOuter');
+  function closeToc(){
+    if(!tocPanelOuter) return;
+    tocPanelOuter.classList.remove('open');
+    if(tocToggle) tocToggle.setAttribute('aria-expanded', 'false');
+  }
+  if(tocToggle && tocPanelOuter){
+    tocToggle.addEventListener('click', () => {
+      const isOpen = tocPanelOuter.classList.toggle('open');
+      tocToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+  }
+
+  const navLinks = document.querySelectorAll('nav.sidebar li a');
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const id = entry.target.id;
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  document.querySelectorAll('main section.class-section').forEach(el => { if(el.id) sectionObserver.observe(el); });
+
+  const quickFab = document.getElementById('quickFab');
+  const quickPanel = document.getElementById('quickPanel');
+  function openQuickPanel(){ quickPanel.classList.add('open'); quickFab.classList.add('open'); quickFab.setAttribute('aria-expanded','true'); }
+  function closeQuickPanel(){ quickPanel.classList.remove('open'); quickFab.classList.remove('open'); quickFab.setAttribute('aria-expanded','false'); }
+  quickFab.addEventListener('click', () => { quickPanel.classList.contains('open') ? closeQuickPanel() : openQuickPanel(); });
+  document.addEventListener('click', (e) => {
+    if(quickPanel.classList.contains('open') && !quickPanel.contains(e.target) && !quickFab.contains(e.target)){ closeQuickPanel(); }
+  });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeQuickPanel(); });
+  quickPanel.querySelectorAll('a').forEach(a => { a.addEventListener('click', () => closeQuickPanel()); });
+
+  const ALL_SECTION_IDS = ['s-01','s-02','s-03','s-04','s-05','s-06','s-07','s-08','s-09','s-10','s-11','s-12','s-13','s-14'];
+
+  function setCollapsed(id, collapsed){
+    const body = document.getElementById('body-' + id);
+    const btn = document.querySelector('.collapse-toggle[data-target="' + id + '"]');
+    const qpItem = document.querySelector('#qpList li[data-target="' + id + '"]');
+    if(body) body.classList.toggle('collapsed', collapsed);
+    if(btn) btn.setAttribute('aria-expanded', String(!collapsed));
+    if(qpItem) qpItem.classList.toggle('is-collapsed', collapsed);
+  }
+  function isCollapsed(id){
+    const body = document.getElementById('body-' + id);
+    return body ? body.classList.contains('collapsed') : false;
+  }
+  function toggleCollapsed(id){ setCollapsed(id, !isCollapsed(id)); }
+
+  document.querySelectorAll('.collapse-toggle').forEach(btn => {
+    btn.addEventListener('click', () => toggleCollapsed(btn.dataset.target));
+  });
+  document.querySelectorAll('#qpList li').forEach(item => {
+    const id = item.dataset.target;
+    item.querySelector('.qp-toggle').addEventListener('click', (e) => { e.stopPropagation(); e.preventDefault(); toggleCollapsed(id); });
+  });
+
+  document.getElementById('expandAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, false)));
+  document.getElementById('collapseAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, true)));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href').slice(1);
+      if(!href) return;
+      const target = document.getElementById(href);
+      if(!target) return;
+      if(target.classList.contains('class-section')){ setCollapsed(href, false); }
+      if(a.closest('nav.sidebar')){ closeToc(); }
+    });
+  });
+
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', () => {
+    const q = searchInput.value.trim().toLowerCase();
+    let anyVisible = false;
+    navLinks.forEach(a => {
+      const key = (a.dataset.key || a.textContent).toLowerCase();
+      const match = q === '' || key.includes(q);
+      a.dataset.hidden = match ? '0' : '1';
+      const section = document.querySelector(a.getAttribute('href'));
+      if(section){ section.style.display = match ? '' : 'none'; }
+      if(match) anyVisible = true;
+    });
+    document.getElementById('empty-state').classList.toggle('show', !anyVisible);
+  });
+</script>
+<script src="nav.js"></script>
+</body>
+</html>
