@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interaksi Dengan Al-Quran — Nota Ceramah Maulidur Rasul</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --paper:#fbfbfd;
+    --ink:#14151a;
+    --ink-soft:#5a5d6b;
+    --line:#e7e7ee;
+    --line-soft:#f0f0f5;
+
+    --c-1:#7c3aed;  --c-1-tint:#f4edff;   /* violet */
+    --c-2:#0284c7;  --c-2-tint:#e8f6ff;   /* ocean */
+    --c-3:#ea580c;  --c-3-tint:#fff1e8;   /* coral */
+    --c-4:#db2777;  --c-4-tint:#ffe9f4;   /* magenta */
+    --c-5:#059669;  --c-5-tint:#e6faf2;   /* emerald */
+    --c-6:#0f766e;  --c-6-tint:#e6f8f6;   /* teal */
+    --c-7:#ca8a04;  --c-7-tint:#fef7e0;   /* amber */
+
+    --accent: var(--c-1);
+    --accent-tint: var(--c-1-tint);
+
+    --radius: 18px;
+    --shadow: 0 1px 2px rgba(20,21,26,.04), 0 12px 32px -16px rgba(20,21,26,.14);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background: var(--accent); color:#fff; }
+
+  h1,h2,h3,h4{ font-family:'Space Grotesk', sans-serif; margin:0; letter-spacing:-.01em; }
+  code, .mono{ font-family:'IBM Plex Mono', monospace; }
+  a{ color:inherit; }
+  p{ margin:0; }
+  .arabic{ font-family:'Amiri', serif; direction:rtl; }
+
+  #progress{
+    position:fixed; top:0; left:0; height:3px; width:0%;
+    background: linear-gradient(90deg, var(--c-1), var(--c-2), var(--c-3), var(--c-4), var(--c-5), var(--c-6), var(--c-7));
+    z-index:100; transition: width .1s linear;
+  }
+
+  .ref-bar{
+    background:var(--ink); color:#fff;
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    padding:9px 8vw; display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  }
+  .ref-bar .ref-label{ color:rgba(255,255,255,.55); text-transform:uppercase; letter-spacing:.08em; font-size:10.5px; }
+  .ref-bar .ref-txt{ opacity:.85; }
+
+  /* sticky header — intentionally empty, purely decorative */
+  header.hero{
+    padding: 6px 8vw;
+    min-height:46px;
+    display:flex; align-items:center;
+    position:sticky; top:0; z-index:80;
+    border-bottom:1px solid var(--line);
+    background-color:#fff;
+    background-image:
+      radial-gradient(700px 340px at 8% -10%, var(--c-1-tint), transparent 60%),
+      radial-gradient(600px 300px at 95% 0%, var(--c-3-tint), transparent 55%);
+  }
+  /* ---------- burger navigation ---------- */
+  .burger-wrap{ position:relative; display:flex; align-items:center; }
+  .burger-btn{
+    width:34px; height:34px; border-radius:10px; border:1.3px solid var(--line);
+    background:var(--paper); color:var(--ink); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: border-color .15s ease, background .15s ease, color .15s ease;
+  }
+  .burger-btn:hover{ border-color: var(--c-1); }
+  .burger-btn.open{ background: var(--c-1); border-color: var(--c-1); color:#fff; }
+  .burger-btn svg{ transition: opacity .15s ease; }
+  .burger-menu{
+    position:absolute; top:calc(100% + 10px); left:0; width:320px;
+    background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow);
+    padding:8px; opacity:0; transform: translateY(-6px); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease; z-index:120;
+    display:flex; flex-direction:column;
+  }
+  .burger-menu.open{ opacity:1; transform: translateY(0); pointer-events:auto; }
+  .burger-menu-home{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; margin:2px 2px 8px;
+    border-radius:10px; border-bottom:1px solid var(--line-soft);
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-home svg{ flex:none; color:var(--ink-soft); }
+  .burger-menu-home:hover{ background: var(--paper); }
+  .burger-menu-home.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-home.is-current .bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-search{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:10px; padding:8px 10px; margin:2px 2px 8px;
+    background:var(--paper); flex:none;
+  }
+  .burger-menu-search svg{ flex:none; opacity:.5; color:var(--ink-soft); }
+  .burger-menu-search input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13px; width:100%; color:var(--ink);
+  }
+  .burger-menu-list{ max-height:340px; overflow-y:auto; overscroll-behavior:contain; }
+  .burger-menu-list::-webkit-scrollbar{ width:6px; }
+  .burger-menu-list::-webkit-scrollbar-thumb{ background:var(--line); border-radius:10px; }
+  .burger-menu-group + .burger-menu-group{ margin-top:4px; }
+  .burger-menu-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); padding:8px 10px 4px;
+  }
+  .burger-menu-empty{
+    display:none; padding:18px 10px; text-align:center; font-size:12.5px; color:var(--ink-soft);
+  }
+  .burger-menu-item{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; border-radius:10px;
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-item span.bm-title{ display:block; }
+  .burger-menu-item span.bm-sub{ display:block; font-size:11.5px; color:var(--ink-soft); font-weight:400; margin-top:1px; }
+  .burger-menu-item:hover{ background: var(--paper); }
+  .burger-menu-item.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-item.is-current span.bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-dot{ width:9px; height:9px; border-radius:3px; flex:none; margin-top:3px; }
+
+  .page-title{ padding: 30px 8vw 6px; }
+  .page-title .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-soft); margin-bottom:10px; display:block;
+  }
+  .page-title h1{
+    font-size: clamp(26px, 5vw, 46px);
+    line-height:1.12;
+    font-weight:700;
+  }
+  .page-title h1 .accent-word{
+    background: linear-gradient(100deg, var(--c-1), var(--c-4) 55%, var(--c-3));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .page-title .sub{
+    margin-top:14px; max-width:70ch; color:var(--ink-soft); font-size:15px; line-height:1.6;
+  }
+  .page-title .tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+  .page-title .tag{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; border:1.3px solid var(--line);
+    color:var(--ink-soft); font-weight:500; background:var(--paper);
+  }
+
+  .layout{ max-width:1400px; margin:0 auto; }
+  .toc-wrap{ border-bottom:1px solid var(--line); padding: 0 8vw; }
+  .toc-toggle{
+    width:100%; display:flex; align-items:center; justify-content:space-between; gap:10px;
+    background:none; border:none; cursor:pointer; padding:16px 0;
+    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px; color:var(--ink);
+  }
+  .toc-toggle:hover{ color:var(--c-1); }
+  .toc-toggle-left{ display:flex; align-items:center; gap:10px; }
+  .toc-toggle-left svg{ color:var(--ink-soft); flex:none; }
+  .toc-count{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft); font-weight:500;
+    background:var(--paper); border:1px solid var(--line); padding:2px 8px; border-radius:100px;
+  }
+  .toc-chevron{ transition: transform .3s ease; color:var(--ink-soft); flex:none; }
+  .toc-toggle[aria-expanded="true"] .toc-chevron{ transform: rotate(180deg); }
+  .toc-panel-outer{ display:grid; grid-template-rows: 0fr; transition: grid-template-rows .35s ease; }
+  .toc-panel-outer.open{ grid-template-rows: 1fr; }
+  .toc-panel-inner{ overflow:hidden; min-height:0; }
+
+  nav.sidebar{ display:block; padding: 4px 0 22px; }
+
+  .search-box{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:12px; padding:10px 12px; margin-bottom:18px;
+    background:var(--paper);
+  }
+  .search-box input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13.5px; width:100%; color:var(--ink);
+  }
+  .search-box svg{ flex:none; opacity:.5; }
+
+  .nav-actions{ display:flex; gap:8px; margin-bottom:18px; }
+  .nav-actions button{
+    flex:1; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    border:1.3px solid var(--line); background:#fff; color:var(--ink-soft);
+    padding:7px 8px; border-radius:9px; cursor:pointer; transition:.15s ease;
+  }
+  .nav-actions button:hover{ border-color:var(--ink); color:var(--ink); }
+
+  .nav-group-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); margin: 18px 0 6px 2px;
+  }
+  .nav-group-label:first-of-type{ margin-top:0; }
+
+  nav.sidebar ul{ list-style:none; margin:0; padding:0; border-left:2px solid var(--line-soft); }
+  nav.sidebar li a{
+    display:flex; align-items:center; gap:9px;
+    text-decoration:none; font-size:13.5px; color:var(--ink-soft);
+    padding:7px 0 7px 14px; border-left:2px solid transparent; margin-left:-2px;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  nav.sidebar li a .sw{ width:8px; height:8px; border-radius:3px; flex:none; background:var(--g-color); }
+  nav.sidebar li a:hover{ color:var(--ink); }
+  nav.sidebar li a.active{ color:var(--g-color); border-left-color: var(--g-color); font-weight:600; }
+  nav.sidebar li a[data-hidden="1"]{ display:none; }
+
+  main{ min-width:0; padding: 0 8vw 140px; }
+
+  section.class-section{ padding-top:56px; scroll-margin-top: 24px; }
+  section.class-section:first-child{ padding-top:44px; }
+
+  .class-head{
+    display:flex; align-items:baseline; gap:16px; flex-wrap:wrap;
+    padding-bottom:14px; margin-bottom:22px; border-bottom:3px solid var(--g-color);
+    position:relative;
+  }
+  .class-head .idx{
+    font-family:'IBM Plex Mono',monospace; font-size:14px; font-weight:700; color:#fff;
+    background:var(--g-color); padding:5px 10px; border-radius:8px;
+  }
+  .class-head h2{ font-size: clamp(20px,2.4vw,28px); color:var(--ink); }
+  .collapse-toggle{
+    margin-left:auto; width:34px; height:34px; border-radius:9px; border:1.5px solid var(--line);
+    background:#fff; color:var(--g-color); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: transform .3s ease, background .15s ease, border-color .15s ease;
+  }
+  .collapse-toggle:hover{ background: var(--g-tint); border-color: var(--g-color); }
+  .collapse-toggle svg{ transition: transform .3s ease; }
+  .collapse-toggle[aria-expanded="false"] svg{ transform: rotate(-90deg); }
+
+  .class-body-outer{ display:grid; grid-template-rows: 0fr; transition: grid-template-rows .38s ease; }
+  .class-body-outer.collapsed{ grid-template-rows: 0fr; }
+  .class-body-outer:not(.collapsed){ grid-template-rows: 1fr; }
+  .class-body-inner{ overflow:hidden; min-height:0; opacity:0; transition: opacity .25s ease .1s; }
+  .class-body-outer.collapsed .class-body-inner{ opacity:0; transition: opacity .18s ease; }
+  .class-body-outer:not(.collapsed) .class-body-inner{ opacity:1; }
+
+  .card{
+    background:#fff; border:1px solid var(--line); border-radius: var(--radius);
+    padding: 28px 30px; margin-bottom: 22px; position:relative; overflow:hidden;
+    border-left: 5px solid var(--g-color);
+  }
+  .card .card-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap;
+    margin-bottom:14px;
+  }
+  .card h3{ font-size:19px; font-weight:600; color:var(--ink); }
+  .card h3 .alt{ font-weight:400; color:var(--ink-soft); font-size:14px; display:block; margin-top:3px;}
+  .code-badge{
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:12px; color:#fff;
+    background: var(--g-color); padding:6px 12px; border-radius:8px; white-space:nowrap;
+  }
+
+  ul.points{ list-style:none; margin:0; padding:0; }
+  ul.points > li{
+    position:relative; padding: 10px 0 10px 34px; font-size:14.8px; line-height:1.65; color:#2b2d36;
+    border-top:1px solid var(--line-soft);
+  }
+  ul.points > li:first-child{ border-top:none; }
+  ul.points > li::before{
+    content:"—";
+    position:absolute; left:0; top:10px; width:22px; height:22px; border-radius:7px;
+    background: var(--g-tint); color:var(--g-color); font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:13px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  ul.points > li b, ul.points > li strong{ color:var(--g-color); }
+  ul.points ul{ list-style:none; margin:8px 0 0; padding:0; }
+  ul.points ul li{
+    position:relative; padding:6px 0 6px 22px; font-size:14px; color:var(--ink-soft); border-top:none;
+  }
+  ul.points ul li::before{
+    content:"·"; position:absolute; left:0; top:4px; width:14px; height:14px;
+    color:var(--g-color); font-size:20px; font-weight:700; display:flex; align-items:center; justify-content:center;
+  }
+
+  .ayah-block{
+    background: var(--g-tint); border-radius: var(--radius); padding:24px 26px; margin-bottom:22px;
+  }
+  .ayah-block .ayah-ref{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--g-color); font-weight:700; margin-bottom:10px; display:block;
+  }
+  .ayah-block .ayah-ar{
+    font-size:24px; line-height:2; color:var(--ink); text-align:right; margin-bottom:12px;
+  }
+  .ayah-block .ayah-en{
+    font-size:14.5px; line-height:1.6; color:var(--ink-soft); font-style:italic;
+  }
+  .ayah-block .ayah-en + .ayah-en{ margin-top:8px; }
+
+  .quote{
+    margin-top:16px; padding:16px 18px; border-radius:12px; background:var(--g-tint);
+    font-family:'Space Grotesk', sans-serif; font-size:16px; line-height:1.55; color:#20222a;
+    border-left:3px solid var(--g-color);
+  }
+  .quote footer{
+    margin-top:8px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    text-transform:uppercase; color:var(--ink-soft); font-style:normal;
+  }
+
+  .pill-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .pill-row .pill{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; background:#fff; border:1.3px solid var(--g-color);
+    color:var(--g-color); font-weight:600;
+  }
+
+  .lesson-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:6px; }
+  @media (max-width:640px){ .lesson-grid{ grid-template-columns:1fr; } }
+  .lesson-card{ border-radius:var(--radius); padding:22px 22px; border:1.3px solid var(--line); }
+  .lesson-card .kicker{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .lesson-card h4{ margin-top:8px; font-size:17px; }
+  .lesson-card p{ margin-top:10px; font-size:14px; line-height:1.6; color:#2b2d36; }
+
+  .num-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:6px; }
+  @media (max-width:760px){ .num-grid{ grid-template-columns:1fr; } }
+  .num-card{
+    border-radius:14px; padding:18px 20px; border:1.3px solid var(--line); background:var(--paper);
+    display:flex; gap:14px; align-items:flex-start;
+  }
+  .num-card .num-badge{
+    flex:none; width:30px; height:30px; border-radius:9px; background:var(--g-color); color:#fff;
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center;
+  }
+  .num-card p{ font-size:14px; line-height:1.6; color:#2b2d36; }
+  .num-card h4{ font-size:15px; margin-bottom:4px; }
+
+  #toTop{
+    position:fixed; right:26px; bottom:26px; width:46px; height:46px; border-radius:50%;
+    background:var(--ink); color:#fff; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,.22); opacity:0; pointer-events:none; transition: opacity .25s ease, transform .2s ease;
+    z-index:90;
+  }
+  #toTop.show{ opacity:1; pointer-events:auto; }
+  #toTop:hover{ transform: translateY(-3px); }
+
+  #quickFab{
+    position:fixed; left:26px; bottom:26px; width:52px; height:52px; border-radius:16px;
+    background: linear-gradient(135deg, var(--c-1), var(--c-4)); color:#fff; border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; z-index:95;
+    box-shadow:0 10px 28px -6px rgba(124,58,237,.5);
+    transition: transform .2s ease, border-radius .2s ease;
+  }
+  #quickFab:hover{ transform: translateY(-3px) scale(1.03); }
+  #quickFab.open{ border-radius:50%; }
+  #quickFab svg{ transition: transform .3s ease; }
+  #quickFab.open svg{ transform: rotate(45deg); }
+
+  #quickPanel{
+    position:fixed; left:26px; bottom:90px; width:290px; max-height:60vh; overflow-y:auto;
+    background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow);
+    z-index:94; padding:14px; opacity:0; transform: translateY(10px) scale(.97); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  #quickPanel.open{ opacity:1; transform: translateY(0) scale(1); pointer-events:auto; }
+  #quickPanel .qp-head{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--ink-soft); padding:4px 8px 10px;
+  }
+  #qpList{ list-style:none; margin:0; padding:0; }
+  #qpList li{ display:flex; align-items:center; gap:8px; border-radius:10px; padding:2px; }
+  #qpList li a{
+    flex:1; display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--ink);
+    font-size:13px; padding:8px; border-radius:10px; transition:background .15s ease;
+  }
+  #qpList li a:hover{ background:var(--paper); }
+  .qp-idx{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:700; color:#fff;
+    background: var(--qc, var(--c-1)); padding:2px 6px; border-radius:6px;
+  }
+  .qp-toggle{ padding:8px; cursor:pointer; color:var(--ink-soft); opacity:.6; }
+  .qp-toggle:hover{ opacity:1; }
+  #qpList li.is-collapsed .qp-toggle svg{ transform: rotate(-90deg); }
+  #qpList li .qp-toggle svg{ transition: transform .3s ease; }
+
+  #empty-state{ display:none; padding:60px 0; text-align:center; color:var(--ink-soft); }
+  #empty-state.show{ display:block; }
+
+  footer.page-footer{
+    padding:30px 8vw 60px; color:var(--ink-soft); font-size:12.5px; font-family:'IBM Plex Mono',monospace;
+    border-top:1px solid var(--line); margin-top:30px;
+  }
+
+  @media (max-width: 980px){
+    main{ padding: 0 6vw 120px; }
+    .ayah-block .ayah-ar{ font-size:20px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001s !important; transition-duration:.001s !important; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body data-page="interaksi-al-quran">
+
+<div id="progress"></div>
+
+<header class="hero">
+  <div class="burger-wrap">
+    <button id="navBurger" class="burger-btn" aria-haspopup="true" aria-expanded="false" aria-label="Open navigation menu">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div id="navMenu" class="burger-menu"></div>
+  </div>
+</header>
+
+<div class="ref-bar">
+  <span class="ref-label">Tema</span>
+  <span class="ref-txt">Ceramah Sempena Maulidur Rasul</span>
+</div>
+
+<div class="page-title" id="top">
+  <span class="eyebrow">Nota Ceramah · Maulidur Rasul</span>
+  <h1>Interaksi Nabi ﷺ <span class="accent-word">Dengan Al-Quran</span></h1>
+  <div class="sub">Nabi ﷺ bukan sekadar menerima al-Quran, tetapi membaca, menghafal, menghayati, mengamalkan dan mengajarkannya. Lapan tauladan daripada kehidupan Baginda ﷺ tentang bagaimana seharusnya seorang Muslim berinteraksi dengan Kalam Allah.</div>
+  <div class="tag-row">
+    <span class="tag">Adab Menuntut Ilmu</span>
+    <span class="tag">Muraja'ah</span>
+    <span class="tag">Mengajar Al-Quran</span>
+    <span class="tag">Akhlak Al-Quran</span>
+    <span class="tag">Air Mata Ketaqwaan</span>
+    <span class="tag">Cinta Kepada Nabi ﷺ</span>
+  </div>
+</div>
+
+<div class="layout">
+
+  <div class="toc-wrap">
+    <button class="toc-toggle" id="tocToggle" aria-expanded="false" aria-controls="tocPanelOuter">
+      <span class="toc-toggle-left">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        <span>Kandungan</span>
+      </span>
+      <svg class="toc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="toc-panel-outer" id="tocPanelOuter">
+      <div class="toc-panel-inner">
+        <nav class="sidebar">
+    <div class="search-box">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="searchInput" type="text" placeholder="Cari bahagian…">
+    </div>
+    <div class="nav-actions">
+      <button id="expandAll">Buka semua</button>
+      <button id="collapseAll">Tutup semua</button>
+    </div>
+
+    <div class="nav-group-label">Adab & Kesungguhan</div>
+    <ul>
+      <li><a href="#s-01" data-key="adab belajar ilmu wahyu jibril mengulang bacaan qiyamah" style="--g-color:var(--c-1)"><span class="sw"></span>1. Adab Ketika Belajar Sesuatu Ilmu</a></li>
+      <li><a href="#s-02" data-key="menghafal murajaah menjaga hafalan unta ikatan bukhari 5033" style="--g-color:var(--c-2)"><span class="sw"></span>2. Menjaga Hafalan Seperti Nabi ﷺ</a></li>
+      <li><a href="#s-03" data-key="sebaik baik manusia belajar mengajar quran bukhari 5027 khatam" style="--g-color:var(--c-3)"><span class="sw"></span>3. Sebaik-Baik Orang Ialah Yang Mengajar</a></li>
+    </ul>
+
+    <div class="nav-group-label">Kemuliaan & Akhlak</div>
+    <ul>
+      <li><a href="#s-04" data-key="uhud syuhada kedudukan mulia menguasai quran bukhari 1343" style="--g-color:var(--c-4)"><span class="sw"></span>4. Kedudukan Mulia Bersama Al-Quran</a></li>
+      <li><a href="#s-05" data-key="akhlak aisyah muslim 746 sabar memaafkan amanah" style="--g-color:var(--c-5)"><span class="sw"></span>5. Berakhlak Dengan Al-Quran</a></li>
+      <li><a href="#s-06" data-key="menangis mendengar quran ibnu masud bukhari 4582 nisa air mata" style="--g-color:var(--c-6)"><span class="sw"></span>6. Nabi ﷺ Menangis Mendengar Al-Quran</a></li>
+    </ul>
+
+    <div class="nav-group-label">Ganjaran & Cinta</div>
+    <ul>
+      <li><a href="#s-07" data-key="susah membaca tergagap dua pahala muslim 798 mahir" style="--g-color:var(--c-7)"><span class="sw"></span>7. Ganjaran Bagi Yang Bertatih-tatih Membaca</a></li>
+      <li><a href="#s-08" data-key="bukti cinta nabi ikut ali imran 31 abu bakar umar uthman ali" style="--g-color:var(--c-1)"><span class="sw"></span>8. Bukti Cinta Ialah Mengikuti Nabi ﷺ</a></li>
+      <li><a href="#s-09" data-key="penutup lima hubungan baca hafal faham amal ajar" style="--g-color:var(--c-2)"><span class="sw"></span>Penutup: 5 Hubungan Dengan Al-Quran</a></li>
+    </ul>
+  </nav>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- 01 -->
+    <section class="class-section" id="s-01" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">01</span>
+        <h2>Adab Ketika Belajar Sesuatu Ilmu</h2>
+        <button class="collapse-toggle" data-target="s-01" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-01">
+      <div class="class-body-inner">
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Al-Qiyamah, 75:16-18</span>
+          <p class="ayah-ar arabic">لَا تُحَرِّكۡ بِهِۦ لِسَانَكَ لِتَعۡجَلَ بِهِۦٓ١٦ إِنَّ عَلَيۡنَا جَمۡعَهُۥ وَقُرۡءَانَهُۥ١٧ فَإِذَا قَرَأۡنَٰهُ فَٱتَّبِعۡ قُرۡءَانَهُۥ١٨</p>
+          <p class="ayah-en">[16] "Janganlah engkau (wahai Muhammad) — kerana hendakkan cepat menghafaz Quran yang diturunkan kepadamu — menggerakkan lidahmu membacanya (sebelum selesai dibacakan kepadamu)."</p>
+          <p class="ayah-en">[17] "Sesungguhnya Kamilah yang berkuasa mengumpulkan Al-Quran itu (dalam dadamu), dan menetapkan bacaannya (pada lidahmu)."</p>
+          <p class="ayah-en">[18] "Oleh itu, apabila Kami telah menyempurnakan bacaannya (kepadamu, dengan perantaraan Jibril), maka bacalah menurut bacaannya itu."</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Nabi ﷺ diajar adab semasa menerima wahyu</h3>
+            <span class="code-badge">Ayat Pembuka Ilmu</span>
+          </div>
+          <ul class="points">
+            <li>Rasulullah ﷺ menerima wahyu melalui Jibril, dan kerana terlalu bersungguh-sungguh mahu menghafaznya, Baginda tergesa-gesa mengulang setiap patah kata sebelum bacaan selesai — lalu Allah menegur dan mengajar adab yang betul.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Tiga inspirasi daripada tiga ayat</h3>
+            <span class="code-badge">Inspirasi</span>
+          </div>
+          <ul class="points">
+            <li><b>[16]</b> Tunggu guru selesai membaca atau menerangkan sesuatu perkara terlebih dahulu; jangan tergesa-gesa memotong percakapan guru.</li>
+            <li><b>[17]</b> Kita tetap wajib berusaha bersungguh-sungguh, namun usaha itu sendiri bukanlah penentu sama ada sesuatu ilmu itu benar-benar meresap ke dalam hati.</li>
+            <li><b>[18]</b> Kunci untuk mengingati sesuatu ilmu ialah pengulangan — ulang semula apa yang disebut oleh guru, dan ulang kaji pada waktu-waktu lain.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section class="class-section" id="s-02" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">02</span>
+        <h2>Menjaga Hafalan Seperti Kesungguhan Nabi ﷺ</h2>
+        <button class="collapse-toggle" data-target="s-02" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-02">
+      <div class="class-body-inner">
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Hadis Riwayat Bukhari, No. 5033</span>
+          <p class="ayah-ar arabic">تَعَاهَدُوا الْقُرْآنَ فَوَالَّذِي نَفْسِي بِيَدِهِ لَهُوَ أَشَدُّ تَفَصِّيًا مِنَ الإِبِلِ فِي عُقُلِهَا</p>
+          <p class="ayah-en">"Sentiasalah mengulang-ulang al-Quran, kerana al-Quran lebih mudah terlepas daripada ingatan berbanding unta daripada ikatannya."</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Penghafal perlu mencontohi kesungguhan Nabi ﷺ dalam menjaga hafalan</h3>
+            <span class="code-badge">Ta'ahud</span>
+          </div>
+          <ul class="points">
+            <li>Nabi ﷺ memerintahkan umatnya supaya sentiasa mengulang dan menjaga hafalan al-Quran, kerana ia lebih senang lupa berbanding seekor unta terlepas daripada ikatannya.</li>
+            <li>Hafal bukan bermaksud selesai — hafalan perlu terus dijaga. Murajaah (mengulangkaji) adalah sebahagian daripada usaha menjaga al-Quran, bukan langkah tambahan yang boleh diabaikan.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section class="class-section" id="s-03" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">03</span>
+        <h2>Sebaik-Baik Orang Ialah Yang Mengajar Al-Quran</h2>
+        <button class="collapse-toggle" data-target="s-03" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-03">
+      <div class="class-body-inner">
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Hadis Riwayat Bukhari, No. 5027</span>
+          <p class="ayah-ar arabic">خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ</p>
+          <p class="ayah-en">Rasulullah ﷺ bersabda: "Sebaik-baik kamu ialah orang yang mempelajari al-Quran dan mengajarkannya."</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Naikkan tahap: daripada belajar kepada mengajar</h3>
+            <span class="code-badge">Khairukum</span>
+          </div>
+          <ul class="points">
+            <li>Kemuliaan tertinggi bukan sekadar mempelajari al-Quran, tetapi juga menyampaikannya kepada orang lain.</li>
+            <li>Jangan berhenti pada "saya sudah khatam" atau "saya sudah hafal". Naikkan tahap kepada "saya nak mengajar" — supaya ilmu yang diperoleh turut disebarkan.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 04 -->
+    <section class="class-section" id="s-04" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">04</span>
+        <h2>Kedudukan Mulia Bagi Yang Kuat Bersama Al-Quran</h2>
+        <button class="collapse-toggle" data-target="s-04" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-04">
+      <div class="class-body-inner">
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Hadis Riwayat Bukhari, No. 1343</span>
+          <p class="ayah-ar arabic">كَانَ النَّبِيُّ صلى الله عليه وسلم يَجْمَعُ بَيْنَ الرَّجُلَيْنِ مِنْ قَتْلَى أُحُدٍ فِي ثَوْبٍ وَاحِدٍ ثُمَّ يَقُولُ أَيُّهُمْ أَكْثَرُ أَخْذًا لِلْقُرْآنِ فَإِذَا أُشِيرَ لَهُ إِلَى أَحَدِهِمَا قَدَّمَهُ فِي اللَّحْدِ</p>
+          <p class="ayah-en">"Nabi ﷺ menghimpunkan dua orang lelaki daripada para syuhada' Uhud dalam satu kain. Kemudian Baginda bertanya: 'Siapakah antara mereka berdua yang lebih banyak mengambil (menghafaz/mempelajari) al-Quran?' Apabila salah seorang daripada mereka ditunjukkan kepada Baginda, Baginda mendahulukannya untuk diletakkan di dalam liang lahad."</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Kisah para syuhada Uhud</h3>
+            <span class="code-badge">Kayu Ukur Kemuliaan</span>
+          </div>
+          <ul class="points">
+            <li>Ketika mengebumikan para syuhada Uhud, Nabi ﷺ bertanya siapakah antara dua jenazah itu yang lebih banyak menguasai al-Quran, lalu mendahulukan orang yang lebih banyak al-Qurannya untuk diletakkan lebih dahulu di dalam liang lahad.</li>
+            <li>Manusia sering mengukur kemuliaan seseorang dengan jawatan, kekayaan dan populariti. Namun dalam pandangan Nabi ﷺ, kecintaan dan kekuatan seseorang bersama al-Quran itulah yang menjadi kayu ukur kelebihannya.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 05 -->
+    <section class="class-section" id="s-05" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">05</span>
+        <h2>Berakhlak Dengan Al-Quran</h2>
+        <button class="collapse-toggle" data-target="s-05" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-05">
+      <div class="class-body-inner">
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Hadis Riwayat Muslim, No. 746</span>
+          <p class="ayah-ar arabic">يَا أُمَّ الْمُؤْمِنِينَ أَنْبِئِينِي عَنْ خُلُقِ رَسُولِ اللَّهِ صلى الله عليه وسلم قَالَتْ أَلَسْتَ تَقْرَأُ الْقُرْآنَ قُلْتُ بَلَى قَالَتْ فَإِنَّ خُلُقَ نَبِيِّ اللَّهِ صلى الله عليه وسلم كَانَ الْقُرْآنَ</p>
+          <p class="ayah-en">"Wahai Ummul Mukminin, ceritakanlah kepadaku tentang akhlak Rasulullah ﷺ." 'Aisyah menjawab: "Bukankah kamu membaca al-Quran?" Aku menjawab: "Ya." Beliau berkata: "Sesungguhnya akhlak Nabi Allah ﷺ adalah al-Quran."</p>
+        </div>
+
+        <div class="lesson-grid">
+          <div class="lesson-card" style="border-left:4px solid var(--c-5)">
+            <span class="kicker">Akhlak Ialah Buah Hafalan</span>
+            <h4>Ayat yang dihafal, sifat yang terbentuk</h4>
+            <p>Hafal ayat tentang sabar → belajar menjadi sabar. Hafal ayat tentang memaafkan → belajar memaafkan. Hafal ayat tentang amanah → menjadi seorang yang amanah.</p>
+          </div>
+          <div class="lesson-card" style="border-left:4px solid var(--c-5)">
+            <span class="kicker">Ukuran Kejayaan Sebenar</span>
+            <h4>Bukan sekadar banyak, tetapi terpancar</h4>
+            <p>Ukuran kejayaan seorang hafiz bukan hanya berapa banyak ayat yang tersimpan dalam kepala, tetapi berapa banyak ayat itu yang terpamer pada akhlaknya sehari-hari.</p>
+          </div>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 06 -->
+    <section class="class-section" id="s-06" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">06</span>
+        <h2>Nabi ﷺ Menangis Ketika Membaca Atau Mendengar Al-Quran</h2>
+        <button class="collapse-toggle" data-target="s-06" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-06">
+      <div class="class-body-inner">
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Hadis Riwayat Bukhari, No. 4582 — Daripada Abdullah bin Mas'ud</span>
+          <p class="ayah-ar arabic">اقْرَأْ عَلَىَّ قُلْتُ آقْرَأُ عَلَيْكَ وَعَلَيْكَ أُنْزِلَ قَالَ فَإِنِّي أُحِبُّ أَنْ أَسْمَعَهُ مِنْ غَيْرِي فَقَرَأْتُ عَلَيْهِ سُورَةَ النِّسَاءِ حَتَّى بَلَغْتُ فَكَيْفَ إِذَا جِئْنَا مِنْ كُلِّ أُمَّةٍ بِشَهِيدٍ وَجِئْنَا بِكَ عَلَى هَؤُلاَءِ شَهِيدًا قَالَ أَمْسِكْ فَإِذَا عَيْنَاهُ تَذْرِفَانِ</p>
+          <p class="ayah-en">"Bacakanlah kepadaku." Aku berkata: "Adakah aku membacakannya kepadamu, sedangkan al-Quran itu diturunkan kepadamu?" Baginda ﷺ bersabda: "Sesungguhnya aku suka mendengarnya daripada orang lain." Lalu aku membacakan kepada Baginda Surah al-Nisa', sehingga aku sampai kepada ayat: "Maka bagaimanakah keadaan mereka apabila Kami datangkan seorang saksi daripada setiap umat, dan Kami datangkan engkau (wahai Muhammad) sebagai saksi terhadap mereka semua?" Baginda ﷺ bersabda: "Cukuplah." Lalu kedua-dua mata Baginda mengalirkan air mata.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Tiga renungan daripada tangisan Nabi ﷺ</h3>
+            <span class="code-badge">Penghayatan</span>
+          </div>
+          <ul class="points">
+            <li>Jangan hanya nak cepat habis mengaji, dan jangan hanya sibuk dengan melagukan bacaan.</li>
+            <li>Kejar juga kefahaman, penghayatan, rasa takut dan rasa cinta kepada Allah — bukan sekadar menghabiskan bacaan.</li>
+            <li>Bila kali terakhir kita mengalirkan air mata apabila mengaji atau mendengar al-Quran?</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 07 -->
+    <section class="class-section" id="s-07" style="--g-color:var(--c-7); --g-tint:var(--c-7-tint);">
+      <div class="class-head">
+        <span class="idx">07</span>
+        <h2>Orang Yang Susah Membaca Al-Quran Tetap Mendapat Ganjaran Besar</h2>
+        <button class="collapse-toggle" data-target="s-07" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-07">
+      <div class="class-body-inner">
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Hadis Riwayat Muslim, No. 798</span>
+          <p class="ayah-ar arabic">الْمَاهِرُ بِالْقُرْآنِ مَعَ السَّفَرَةِ الْكِرَامِ الْبَرَرَةِ وَالَّذِي يَقْرَأُ الْقُرْآنَ وَيَتَتَعْتَعُ فِيهِ وَهُوَ عَلَيْهِ شَاقٌّ لَهُ أَجْرَانِ</p>
+          <p class="ayah-en">"Orang yang mahir membaca al-Quran akan bersama para malaikat yang mulia lagi taat. Dan orang yang membaca al-Quran dalam keadaan tergagap-gagap dan dia berasa susah dalam membacanya, maka baginya dua pahala."</p>
+        </div>
+
+        <div class="lesson-grid">
+          <div class="lesson-card" style="border-left:4px solid var(--c-7)">
+            <span class="kicker">Jangan Jadikan Alasan</span>
+            <h4>Kesukaran bukan sebab berhenti</h4>
+            <p>"Saya lambat", "saya merangkak-rangkak baca" atau "saya tidak pandai" bukanlah alasan untuk tidak mahu mengaji. Teruskan belajar, sambil istiqamah mengaji.</p>
+          </div>
+          <div class="lesson-card" style="border-left:4px solid var(--c-7)">
+            <span class="kicker">Maksud "Dua Pahala"</span>
+            <h4>Bukan gandaan matematik</h4>
+            <p>"Dua pahala" bagi orang yang membaca dalam keadaan sukar bukan bermaksud pahala bacaannya menjadi dua kali ganda secara matematik. Para ulama menjelaskan ia adalah pahala membaca al-Quran, dan pahala di atas kesungguhannya menanggung kesukaran dalam membaca.</p>
+          </div>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 08 -->
+    <section class="class-section" id="s-08" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">08</span>
+        <h2>Bukti Cinta Kepada Nabi ﷺ Ialah Mengikuti Baginda</h2>
+        <button class="collapse-toggle" data-target="s-08" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-08">
+      <div class="class-body-inner">
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Ali 'Imran, 3:31</span>
+          <p class="ayah-ar arabic">قُلۡ إِن كُنتُمۡ تُحِبُّونَ ٱللَّهَ فَٱتَّبِعُونِی یُحۡبِبۡكُمُ ٱللَّهُ وَیَغۡفِرۡ لَكُمۡ ذُنُوبَكُمۡۚ وَٱللَّهُ غَفُورࣱ رَّحِیمࣱ</p>
+          <p class="ayah-en">Katakanlah (wahai Muhammad): "Jika benar kamu mengasihi Allah, <b>maka ikutilah daku</b>, nescaya Allah mengasihi kamu serta mengampunkan dosa-dosa kamu. Dan (ingatlah), Allah Maha Pengampun, lagi Maha Mengasihani."</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Pengajaran daripada ayat ini</h3>
+            <span class="code-badge">Fattabi'uni</span>
+          </div>
+          <ul class="points">
+            <li>Nabi ﷺ tidak memerlukan sambutan meriah hari kelahiran Baginda daripada kita.
+              <ul>
+                <li>Jika itu yang dikehendaki, Abu Bakar, Umar, Uthman dan Ali radhiyallahu 'anhum sudah lama membuatnya setiap tahun.</li>
+              </ul>
+            </li>
+            <li>Jangan hanya sebut "Aku sayang Nabi!" tetapi buktikan — sejauh mana kehidupan kita menyerupai kehidupan Nabi ﷺ? Antara ciri besar kehidupan Baginda ialah hubungan yang kuat dengan al-Quran.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 09 : Penutup -->
+    <section class="class-section" id="s-09" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">09</span>
+        <h2>Penutup: 5 Hubungan Kita Dengan Al-Quran</h2>
+        <button class="collapse-toggle" data-target="s-09" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-09">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Pastikan kita ada 5 hubungan dengan al-Quran</h3>
+            <span class="code-badge">Kesimpulan</span>
+          </div>
+          <div class="num-grid">
+            <div class="num-card">
+              <span class="num-badge">1</span>
+              <div>
+                <h4>Baca</h4>
+                <p>Jangan tinggalkan al-Quran.</p>
+              </div>
+            </div>
+            <div class="num-card">
+              <span class="num-badge">2</span>
+              <div>
+                <h4>Hafal</h4>
+                <p>Simpan al-Quran dalam dada.</p>
+              </div>
+            </div>
+            <div class="num-card">
+              <span class="num-badge">3</span>
+              <div>
+                <h4>Faham</h4>
+                <p>Tahu apa yang Allah mahu daripada kita.</p>
+              </div>
+            </div>
+            <div class="num-card">
+              <span class="num-badge">4</span>
+              <div>
+                <h4>Amal</h4>
+                <p>Jadikan al-Quran sebagai panduan hidup.</p>
+              </div>
+            </div>
+            <div class="num-card">
+              <span class="num-badge">5</span>
+              <div>
+                <h4>Ajarkan</h4>
+                <p>Sebarkan cahaya al-Quran kepada orang lain.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+  </main>
+
+</div>
+
+<div id="empty-state">Tiada bahagian sepadan dengan carian anda.</div>
+
+<button id="toTop" aria-label="Scroll to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<button id="quickFab" aria-label="Open quick navigation" aria-expanded="false">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+</button>
+
+<div id="quickPanel">
+  <div class="qp-head">Lompat ke bahagian</div>
+  <ul id="qpList">
+    <li data-target="s-01"><a href="#s-01" style="--qc:var(--c-1)"><span class="qp-idx">01</span>Adab Belajar Ilmu</a><span class="qp-toggle" data-target="s-01"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-02"><a href="#s-02" style="--qc:var(--c-2)"><span class="qp-idx">02</span>Menjaga Hafalan</a><span class="qp-toggle" data-target="s-02"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-03"><a href="#s-03" style="--qc:var(--c-3)"><span class="qp-idx">03</span>Belajar & Mengajar</a><span class="qp-toggle" data-target="s-03"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-04"><a href="#s-04" style="--qc:var(--c-4)"><span class="qp-idx">04</span>Kedudukan Mulia</a><span class="qp-toggle" data-target="s-04"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-05"><a href="#s-05" style="--qc:var(--c-5)"><span class="qp-idx">05</span>Berakhlak Dengan Quran</a><span class="qp-toggle" data-target="s-05"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-06"><a href="#s-06" style="--qc:var(--c-6)"><span class="qp-idx">06</span>Nabi ﷺ Menangis</a><span class="qp-toggle" data-target="s-06"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-07"><a href="#s-07" style="--qc:var(--c-7)"><span class="qp-idx">07</span>Ganjaran Bertatih-tatih</a><span class="qp-toggle" data-target="s-07"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-08"><a href="#s-08" style="--qc:var(--c-1)"><span class="qp-idx">08</span>Bukti Cinta Nabi ﷺ</a><span class="qp-toggle" data-target="s-08"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-09"><a href="#s-09" style="--qc:var(--c-2)"><span class="qp-idx">09</span>Penutup: 5 Hubungan</a><span class="qp-toggle" data-target="s-09"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+  </ul>
+</div>
+
+<script>
+  const progress = document.getElementById('progress');
+  function updateProgress(){
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    progress.style.width = scrolled + '%';
+    document.getElementById('toTop').classList.toggle('show', h.scrollTop > 700);
+  }
+  document.addEventListener('scroll', updateProgress, {passive:true});
+  updateProgress();
+
+  document.getElementById('toTop').addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+  const tocToggle = document.getElementById('tocToggle');
+  const tocPanelOuter = document.getElementById('tocPanelOuter');
+  function closeToc(){
+    if(!tocPanelOuter) return;
+    tocPanelOuter.classList.remove('open');
+    if(tocToggle) tocToggle.setAttribute('aria-expanded', 'false');
+  }
+  if(tocToggle && tocPanelOuter){
+    tocToggle.addEventListener('click', () => {
+      const isOpen = tocPanelOuter.classList.toggle('open');
+      tocToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+  }
+
+  const navLinks = document.querySelectorAll('nav.sidebar li a');
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const id = entry.target.id;
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  document.querySelectorAll('main section.class-section').forEach(el => { if(el.id) sectionObserver.observe(el); });
+
+  const quickFab = document.getElementById('quickFab');
+  const quickPanel = document.getElementById('quickPanel');
+  function openQuickPanel(){ quickPanel.classList.add('open'); quickFab.classList.add('open'); quickFab.setAttribute('aria-expanded','true'); }
+  function closeQuickPanel(){ quickPanel.classList.remove('open'); quickFab.classList.remove('open'); quickFab.setAttribute('aria-expanded','false'); }
+  quickFab.addEventListener('click', () => { quickPanel.classList.contains('open') ? closeQuickPanel() : openQuickPanel(); });
+  document.addEventListener('click', (e) => {
+    if(quickPanel.classList.contains('open') && !quickPanel.contains(e.target) && !quickFab.contains(e.target)){ closeQuickPanel(); }
+  });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeQuickPanel(); });
+  quickPanel.querySelectorAll('a').forEach(a => { a.addEventListener('click', () => closeQuickPanel()); });
+
+  const ALL_SECTION_IDS = ['s-01','s-02','s-03','s-04','s-05','s-06','s-07','s-08','s-09'];
+
+  function setCollapsed(id, collapsed){
+    const body = document.getElementById('body-' + id);
+    const btn = document.querySelector('.collapse-toggle[data-target="' + id + '"]');
+    const qpItem = document.querySelector('#qpList li[data-target="' + id + '"]');
+    if(body) body.classList.toggle('collapsed', collapsed);
+    if(btn) btn.setAttribute('aria-expanded', String(!collapsed));
+    if(qpItem) qpItem.classList.toggle('is-collapsed', collapsed);
+  }
+  function isCollapsed(id){
+    const body = document.getElementById('body-' + id);
+    return body ? body.classList.contains('collapsed') : false;
+  }
+  function toggleCollapsed(id){ setCollapsed(id, !isCollapsed(id)); }
+
+  document.querySelectorAll('.collapse-toggle').forEach(btn => {
+    btn.addEventListener('click', () => toggleCollapsed(btn.dataset.target));
+  });
+  document.querySelectorAll('#qpList li').forEach(item => {
+    const id = item.dataset.target;
+    item.querySelector('.qp-toggle').addEventListener('click', (e) => { e.stopPropagation(); e.preventDefault(); toggleCollapsed(id); });
+  });
+
+  document.getElementById('expandAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, false)));
+  document.getElementById('collapseAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, true)));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href').slice(1);
+      if(!href) return;
+      const target = document.getElementById(href);
+      if(!target) return;
+      if(target.classList.contains('class-section')){ setCollapsed(href, false); }
+      if(a.closest('nav.sidebar')){ closeToc(); }
+    });
+  });
+
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', () => {
+    const q = searchInput.value.trim().toLowerCase();
+    let anyVisible = false;
+    navLinks.forEach(a => {
+      const key = (a.dataset.key || a.textContent).toLowerCase();
+      const match = q === '' || key.includes(q);
+      a.dataset.hidden = match ? '0' : '1';
+      const section = document.querySelector(a.getAttribute('href'));
+      if(section){ section.style.display = match ? '' : 'none'; }
+      if(match) anyVisible = true;
+    });
+    document.getElementById('empty-state').classList.toggle('show', !anyVisible);
+  });
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

@@ -42,6 +42,12 @@
       items: [
         { href: "abu-mihjan-story.html", page: "abumihjan", color: "var(--c-3)", title: "The Story of Abū Miḥjan", sub: "Reference page" }
       ]
+    },
+    {
+      section: "Tazkirah",
+      items: [
+        { href: "interaksi-al-quran.html", page: "interaksi-al-quran", color: "var(--c-4)", title: "Interaksi Nabi ﷺ Dengan Al-Quran", sub: "Ceramah Sempena Maulidur Rasul" }
+      ]
     }
   ];
 
@@ -563,6 +569,133 @@
       window.addEventListener("resize", function () {
         if (popover.classList.contains("open")) positionPopover();
       });
+    })();
+
+    // =========================================================================
+    // ---- Stopwatch tool: button + inline controls in the header itself. ----
+    // ---- Count-up only, start/pause/reset, no persistence — resets on   ----
+    // ---- every page load. Deliberately single-line so header height    ----
+    // ---- never changes when it's revealed.                             ----
+    // =========================================================================
+    (function initStopwatch() {
+      var hlBtn = document.getElementById("navHighlightBtn");
+      var anchorBtn = hlBtn || burger;
+      if (!anchorBtn) return;
+
+      if (!document.getElementById("navStopwatchStyle")) {
+        var style = document.createElement("style");
+        style.id = "navStopwatchStyle";
+        style.textContent =
+          "#navStopwatchBtn{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;padding:0;margin-left:6px;border:none;background:transparent;color:inherit;border-radius:8px;cursor:pointer;transition:background .15s ease;flex:none;}" +
+          "#navStopwatchBtn:hover{background:rgba(128,128,128,.15);}" +
+          "#navStopwatchBtn.active{background:rgba(224,150,49,.16);color:rgb(224,150,49);}" +
+          "#navStopwatchBtn svg{display:block;}" +
+          "#navSwInline{display:none;align-items:center;gap:6px;margin-left:6px;white-space:nowrap;flex:none;}" +
+          "#navSwInline.open{display:inline-flex;}" +
+          ".nav-sw-time{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13px;font-variant-numeric:tabular-nums;line-height:1;min-width:2.6em;text-align:center;}" +
+          ".nav-sw-btn{width:26px;height:26px;flex:none;display:inline-flex;align-items:center;justify-content:center;padding:0;font-size:13px;line-height:1;border-radius:6px;border:1px solid rgba(128,128,128,.3);background:transparent;color:inherit;cursor:pointer;transition:background .15s ease;}" +
+          ".nav-sw-btn:hover{background:rgba(128,128,128,.12);}" +
+          ".nav-sw-btn.nav-sw-primary.is-running{background:rgba(224,150,49,.16);border-color:rgba(224,150,49,.4);}" +
+          ".nav-sw-btn.nav-sw-primary.is-running:hover{background:rgba(224,150,49,.26);}";
+        document.head.appendChild(style);
+      }
+
+      // ---- Icon button ----
+      var swBtn = document.createElement("button");
+      swBtn.id = "navStopwatchBtn";
+      swBtn.type = "button";
+      swBtn.setAttribute("aria-label", "Stopwatch");
+      swBtn.setAttribute("aria-expanded", "false");
+      swBtn.innerHTML =
+        '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+          '<circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5"/><path d="M9 2h6"/><path d="M12 2v3"/>' +
+        '</svg>';
+      anchorBtn.insertAdjacentElement("afterend", swBtn);
+
+      // ---- Inline controls, single line, right next to the icon ----
+      var inline = document.createElement("span");
+      inline.id = "navSwInline";
+      inline.innerHTML =
+        '<span class="nav-sw-time" id="navSwTime">00:00</span>' +
+        '<button type="button" class="nav-sw-btn nav-sw-primary" id="navSwToggle" aria-label="Start">&#9654;</button>' +
+        '<button type="button" class="nav-sw-btn" id="navSwReset" aria-label="Reset">&#8635;</button>';
+      swBtn.insertAdjacentElement("afterend", inline);
+
+      var timeEl = inline.querySelector("#navSwTime");
+      var toggleBtn = inline.querySelector("#navSwToggle");
+      var resetBtn = inline.querySelector("#navSwReset");
+
+      var running = false;
+      var accumulatedMs = 0;
+      var startTimestamp = 0;
+      var tickHandle = null;
+
+      function formatTime(ms) {
+        var totalSec = Math.floor(ms / 1000);
+        var h = Math.floor(totalSec / 3600);
+        var m = Math.floor((totalSec % 3600) / 60);
+        var s = totalSec % 60;
+        var pad = function (n) { return n < 10 ? "0" + n : String(n); };
+        return h > 0 ? (h + ":" + pad(m) + ":" + pad(s)) : (pad(m) + ":" + pad(s));
+      }
+
+      function currentElapsed() {
+        return accumulatedMs + (running ? (Date.now() - startTimestamp) : 0);
+      }
+
+      function render() {
+        timeEl.textContent = formatTime(currentElapsed());
+      }
+
+      // Play (▶) / Pause (❚❚) symbols swapped via textContent, kept as
+      // single characters so the button never needs to grow.
+      function start() {
+        if (running) return;
+        running = true;
+        startTimestamp = Date.now();
+        toggleBtn.innerHTML = "&#10074;&#10074;";
+        toggleBtn.setAttribute("aria-label", "Pause");
+        toggleBtn.classList.add("is-running");
+        swBtn.classList.add("active");
+        tickHandle = window.setInterval(render, 250);
+      }
+      function pause() {
+        if (!running) return;
+        accumulatedMs += Date.now() - startTimestamp;
+        running = false;
+        toggleBtn.innerHTML = "&#9654;";
+        toggleBtn.setAttribute("aria-label", "Start");
+        toggleBtn.classList.remove("is-running");
+        if (accumulatedMs === 0) swBtn.classList.remove("active");
+        if (tickHandle) { window.clearInterval(tickHandle); tickHandle = null; }
+        render();
+      }
+      function reset() {
+        running = false;
+        accumulatedMs = 0;
+        startTimestamp = 0;
+        if (tickHandle) { window.clearInterval(tickHandle); tickHandle = null; }
+        toggleBtn.innerHTML = "&#9654;";
+        toggleBtn.setAttribute("aria-label", "Start");
+        toggleBtn.classList.remove("is-running");
+        swBtn.classList.remove("active");
+        render();
+      }
+
+      // Clicking the stopwatch icon shows/hides the inline controls. The
+      // timer keeps running in the background even while hidden — the icon
+      // stays highlighted so it's clear it's still counting.
+      swBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var isOpen = inline.classList.toggle("open");
+        swBtn.setAttribute("aria-expanded", String(isOpen));
+      });
+      inline.addEventListener("click", function (e) { e.stopPropagation(); });
+
+      toggleBtn.addEventListener("click", function () { running ? pause() : start(); });
+      resetBtn.addEventListener("click", reset);
+
+      render();
     })();
   });
 })();
