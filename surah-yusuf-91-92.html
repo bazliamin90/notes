@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>"Allah Has Preferred You Over Us" — Surah Yusuf 91–92 | Study Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    box-sizing:border-box;
+    color-scheme: light;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+
+    --bg:#ffffff;
+    --surface:#ffffff;
+    --paper:#fbfbfd;
+    --ink:#14151a;
+    --ink-soft:#5a5d6b;
+    --body-ink:#2b2d36;
+    --line:#e7e7ee;
+    --line-soft:#f0f0f5;
+    --bar-bg:#14151a;
+    --on-g:#ffffff;
+
+    --c-1:#7c3aed;  --c-1-tint:#f4edff;
+    --c-2:#0284c7;  --c-2-tint:#e8f6ff;
+    --c-3:#ea580c;  --c-3-tint:#fff1e8;
+    --c-4:#db2777;  --c-4-tint:#ffe9f4;
+    --c-5:#059669;  --c-5-tint:#e6faf2;
+    --c-6:#0f766e;  --c-6-tint:#e6f8f6;
+
+    --accent: var(--c-1);
+    --accent-tint: var(--c-1-tint);
+    --radius: 18px;
+    --shadow: 0 1px 2px rgba(20,21,26,.04), 0 12px 32px -16px rgba(20,21,26,.14);
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+  html{ scroll-behavior:smooth; scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 64px); }
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:'IBM Plex Sans', system-ui, sans-serif; -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background: var(--accent); color:var(--on-g); }
+  h1,h2,h3,h4{ font-family:'Space Grotesk', system-ui, sans-serif; margin:0; letter-spacing:-.01em; }
+  a{ color:inherit; }
+  p{ margin:0; }
+  .arabic{ font-family:'Amiri', serif; direction:rtl; }
+  .ar{ font-family:'Amiri', serif; font-size:1.15em; }
+
+  #progress{
+    position:fixed; top:env(safe-area-inset-top, 0px); left:0; height:3px; width:0%;
+    background: linear-gradient(90deg, var(--c-1), var(--c-2), var(--c-3), var(--c-4), var(--c-5), var(--c-6));
+    z-index:100; transition: width .1s linear;
+  }
+
+  /* empty sticky header */
+  header.hero{
+    position:sticky; top:env(safe-area-inset-top, 0px); z-index:80;
+    height:46px; display:flex; align-items:center; padding:0 8vw; border-bottom:1px solid var(--line);
+    background-color:var(--surface);
+    background-image:
+      radial-gradient(700px 340px at 8% -10%, var(--c-1-tint), transparent 60%),
+      radial-gradient(600px 300px at 95% 0%, var(--c-3-tint), transparent 55%);
+  }
+  /* ---------- burger navigation ---------- */
+  .burger-wrap{ position:relative; display:flex; align-items:center; }
+  .burger-btn{
+    width:34px; height:34px; border-radius:10px; border:1.3px solid var(--line);
+    background:var(--paper); color:var(--ink); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: border-color .15s ease, background .15s ease, color .15s ease;
+  }
+  .burger-btn:hover{ border-color: var(--c-1); }
+  .burger-btn.open{ background: var(--c-1); border-color: var(--c-1); color:#fff; }
+  .burger-btn svg{ transition: opacity .15s ease; }
+  .burger-menu{
+    position:absolute; top:calc(100% + 10px); left:0; width:320px;
+    background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow);
+    padding:8px; opacity:0; transform: translateY(-6px); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease; z-index:120;
+    display:flex; flex-direction:column;
+  }
+  .burger-menu.open{ opacity:1; transform: translateY(0); pointer-events:auto; }
+  .burger-menu-home{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; margin:2px 2px 8px;
+    border-radius:10px; border-bottom:1px solid var(--line-soft);
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-home svg{ flex:none; color:var(--ink-soft); }
+  .burger-menu-home:hover{ background: var(--paper); }
+  .burger-menu-home.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-home.is-current .bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-search{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:10px; padding:8px 10px; margin:2px 2px 8px;
+    background:var(--paper); flex:none;
+  }
+  .burger-menu-search svg{ flex:none; opacity:.5; color:var(--ink-soft); }
+  .burger-menu-search input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13px; width:100%; color:var(--ink);
+  }
+  .burger-menu-list{ max-height:340px; overflow-y:auto; overscroll-behavior:contain; }
+  .burger-menu-list::-webkit-scrollbar{ width:6px; }
+  .burger-menu-list::-webkit-scrollbar-thumb{ background:var(--line); border-radius:10px; }
+  .burger-menu-group + .burger-menu-group{ margin-top:4px; }
+  .burger-menu-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); padding:8px 10px 4px;
+  }
+  .burger-menu-empty{
+    display:none; padding:18px 10px; text-align:center; font-size:12.5px; color:var(--ink-soft);
+  }
+  .burger-menu-item{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; border-radius:10px;
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-item span.bm-title{ display:block; }
+  .burger-menu-item span.bm-sub{ display:block; font-size:11.5px; color:var(--ink-soft); font-weight:400; margin-top:1px; }
+  .burger-menu-item:hover{ background: var(--paper); }
+  .burger-menu-item.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-item.is-current span.bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-dot{ width:9px; height:9px; border-radius:3px; flex:none; margin-top:3px; }
+
+  .ref-bar{
+    background:var(--bar-bg); color:#fff;
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    padding:9px 8vw; display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  }
+  .ref-bar .ref-label{ color:rgba(255,255,255,.55); text-transform:uppercase; letter-spacing:.08em; font-size:10.5px; }
+  .ref-bar .ref-txt{ opacity:.85; }
+
+  .page-title{ padding: 30px 8vw 6px; }
+  .page-title .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-soft); margin-bottom:10px; display:block;
+  }
+  .page-title h1{ font-size: clamp(26px, 5vw, 46px); line-height:1.12; font-weight:700; }
+  .page-title h1 .accent-word{
+    background: linear-gradient(100deg, var(--c-1), var(--c-4) 55%, var(--c-3));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .page-title .sub{ margin-top:14px; max-width:66ch; color:var(--ink-soft); font-size:15px; line-height:1.6; }
+  .page-title .tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+  .page-title .tag{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; border:1.3px solid var(--line);
+    color:var(--ink-soft); font-weight:500; background:var(--paper);
+  }
+
+  .layout{ max-width:1400px; margin:0 auto; }
+  .toc-wrap{ border-bottom:1px solid var(--line); padding: 0 8vw; }
+  .toc-toggle{
+    width:100%; display:flex; align-items:center; justify-content:space-between; gap:10px;
+    background:none; border:none; cursor:pointer; padding:16px 0;
+    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px; color:var(--ink);
+  }
+  .toc-toggle:hover{ color:var(--c-1); }
+  .toc-toggle-left{ display:flex; align-items:center; gap:10px; }
+  .toc-toggle-left svg{ color:var(--ink-soft); flex:none; }
+  .toc-count{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft); font-weight:500;
+    background:var(--paper); border:1px solid var(--line); padding:2px 8px; border-radius:100px;
+  }
+  .toc-chevron{ transition: transform .3s ease; color:var(--ink-soft); flex:none; }
+  .toc-toggle[aria-expanded="true"] .toc-chevron{ transform: rotate(180deg); }
+  .toc-panel-outer{ display:grid; grid-template-rows: 0fr; transition: grid-template-rows .35s ease; }
+  .toc-panel-outer.open{ grid-template-rows: 1fr; }
+  .toc-panel-inner{ overflow:hidden; min-height:0; }
+
+  nav.sidebar{ display:block; padding: 4px 0 22px; }
+  .search-box{
+    display:flex; align-items:center; gap:8px; border:1.5px solid var(--line); border-radius:12px;
+    padding:10px 12px; margin-bottom:18px; background:var(--paper);
+  }
+  .search-box input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13.5px; width:100%; color:var(--ink);
+  }
+  .search-box svg{ flex:none; opacity:.5; color:var(--ink-soft); }
+  .nav-actions{ display:flex; gap:8px; margin-bottom:18px; }
+  .nav-actions button{
+    flex:1; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    border:1.3px solid var(--line); background:var(--surface); color:var(--ink-soft);
+    padding:7px 8px; border-radius:9px; cursor:pointer; transition:.15s ease;
+  }
+  .nav-actions button:hover{ border-color:var(--ink); color:var(--ink); }
+  .nav-group-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); margin: 18px 0 6px 2px;
+  }
+  .nav-group-label:first-of-type{ margin-top:0; }
+  nav.sidebar ul{ list-style:none; margin:0; padding:0; border-left:2px solid var(--line-soft); }
+  nav.sidebar li a{
+    display:flex; align-items:center; gap:9px; text-decoration:none; font-size:13.5px; color:var(--ink-soft);
+    padding:7px 0 7px 14px; border-left:2px solid transparent; margin-left:-2px;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  nav.sidebar li a .sw{ width:8px; height:8px; border-radius:3px; flex:none; background:var(--g-color); }
+  nav.sidebar li a:hover{ color:var(--ink); }
+  nav.sidebar li a.active{ color:var(--g-color); border-left-color: var(--g-color); font-weight:600; }
+  nav.sidebar li a[data-hidden="1"]{ display:none; }
+
+  main{ min-width:0; padding: 0 8vw 140px; }
+  section.class-section{ padding-top:56px; scroll-margin-top: 70px; }
+  section.class-section:first-child{ padding-top:44px; }
+
+  .class-head{
+    display:flex; align-items:baseline; gap:16px; flex-wrap:wrap;
+    padding-bottom:14px; margin-bottom:22px; border-bottom:3px solid var(--g-color);
+  }
+  .class-head .idx{
+    font-family:'IBM Plex Mono',monospace; font-size:14px; font-weight:700; color:var(--on-g);
+    background:var(--g-color); padding:5px 10px; border-radius:8px;
+  }
+  .class-head h2{ font-size: clamp(20px,2.4vw,28px); color:var(--ink); }
+  .collapse-toggle{
+    margin-left:auto; width:34px; height:34px; border-radius:9px; border:1.5px solid var(--line);
+    background:var(--surface); color:var(--g-color); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: background .15s ease, border-color .15s ease; align-self:center;
+  }
+  .collapse-toggle:hover{ background: var(--g-tint); border-color: var(--g-color); }
+  .collapse-toggle svg{ transition: transform .3s ease; }
+  .collapse-toggle[aria-expanded="false"] svg{ transform: rotate(-90deg); }
+
+  .class-body-outer{ display:grid; grid-template-rows: 1fr; transition: grid-template-rows .38s ease; }
+  .class-body-outer.collapsed{ grid-template-rows: 0fr; }
+  .class-body-inner{ overflow:hidden; min-height:0; opacity:1; transition: opacity .25s ease .1s; }
+  .class-body-outer.collapsed .class-body-inner{ opacity:0; transition: opacity .18s ease; }
+
+  .card{
+    background:var(--surface); border:1px solid var(--line); border-radius: var(--radius);
+    padding: 28px 30px; margin-bottom: 22px; position:relative; overflow:hidden;
+    border-left: 5px solid var(--g-color);
+  }
+  .card .card-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; margin-bottom:14px;
+  }
+  .card h3{ font-size:19px; font-weight:600; color:var(--ink); }
+  .code-badge{
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:12px; color:var(--on-g);
+    background: var(--g-color); padding:6px 12px; border-radius:8px; white-space:nowrap;
+  }
+
+  ul.points{ list-style:none; margin:0; padding:0; }
+  ul.points > li{
+    position:relative; padding: 10px 0 10px 34px; font-size:14.8px; line-height:1.65; color:var(--body-ink);
+    border-top:1px solid var(--line-soft);
+  }
+  ul.points > li:first-child{ border-top:none; }
+  ul.points > li::before{
+    content:"—"; position:absolute; left:0; top:10px; width:22px; height:22px; border-radius:7px;
+    background: var(--g-tint); color:var(--g-color); font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:13px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  ul.points > li b, ul.points > li strong{ color:var(--g-color); }
+  ul.points ul{ list-style:none; margin:8px 0 0; padding:0; }
+  ul.points ul li{ position:relative; padding:6px 0 6px 22px; font-size:14px; color:var(--ink-soft); }
+  ul.points ul li::before{
+    content:"·"; position:absolute; left:0; top:2px; color:var(--g-color); font-size:22px; font-weight:700; line-height:1.2;
+  }
+
+  .ayah-block{
+    margin: 6px 0 18px; padding:20px 22px; border-radius:14px; background:var(--paper); border:1px solid var(--line);
+  }
+  .ayah-block .ayah-ref{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--g-color); font-weight:700; margin-bottom:10px; display:block;
+  }
+  .ayah-block .ayah-ar{ font-size:26px; line-height:2.05; color:var(--ink); text-align:right; margin-bottom:12px; }
+  .ayah-block .ayah-en{ font-size:14.5px; line-height:1.6; color:var(--ink-soft); font-style:italic; }
+
+  .quote{
+    margin-top:16px; padding:16px 18px; border-radius:12px; background:var(--g-tint);
+    font-family:'Space Grotesk', sans-serif; font-size:16px; line-height:1.55; color:var(--ink);
+    border-left:3px solid var(--g-color);
+  }
+  .quote footer{
+    margin-top:8px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    text-transform:uppercase; color:var(--ink-soft); font-style:normal;
+  }
+  .pill-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .pill-row .pill{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; background:var(--surface); border:1.3px solid var(--g-color);
+    color:var(--g-color); font-weight:600;
+  }
+
+  #toTop{
+    position:fixed; right:26px; bottom:calc(26px + env(safe-area-inset-bottom, 0px)); width:46px; height:46px; border-radius:50%;
+    background:var(--ink); color:var(--bg); border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,.22); opacity:0; pointer-events:none; transition: opacity .25s ease, transform .2s ease; z-index:90;
+  }
+  #toTop.show{ opacity:1; pointer-events:auto; }
+  #toTop:hover{ transform: translateY(-3px); }
+
+  #quickFab{
+    position:fixed; left:26px; bottom:calc(26px + env(safe-area-inset-bottom, 0px)); width:52px; height:52px; border-radius:16px;
+    background: linear-gradient(135deg, #7c3aed, #db2777); color:#fff; border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; z-index:95;
+    box-shadow:0 10px 28px -6px rgba(124,58,237,.5); transition: transform .2s ease, border-radius .2s ease;
+  }
+  #quickFab:hover{ transform: translateY(-3px) scale(1.03); }
+  #quickFab.open{ border-radius:50%; }
+  #quickFab svg{ transition: transform .3s ease; }
+  #quickFab.open svg{ transform: rotate(45deg); }
+
+  #quickPanel{
+    position:fixed; left:26px; bottom:calc(90px + env(safe-area-inset-bottom, 0px)); width:290px; max-width:calc(100vw - 52px); max-height:60vh; overflow-y:auto;
+    background:var(--surface); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow);
+    z-index:94; padding:14px; opacity:0; transform: translateY(10px) scale(.97); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  #quickPanel.open{ opacity:1; transform: translateY(0) scale(1); pointer-events:auto; }
+  #quickPanel .qp-head{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--ink-soft); padding:4px 8px 10px;
+  }
+  #qpList{ list-style:none; margin:0; padding:0; }
+  #qpList li{ display:flex; align-items:center; gap:8px; border-radius:10px; padding:2px; }
+  #qpList li a{
+    flex:1; display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--ink);
+    font-size:13px; padding:8px; border-radius:10px; transition:background .15s ease;
+  }
+  #qpList li a:hover{ background:var(--paper); }
+  .qp-idx{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:700; color:var(--on-g);
+    background: var(--qc, var(--c-1)); padding:2px 6px; border-radius:6px; flex:none;
+  }
+  .qp-toggle{ padding:8px; cursor:pointer; color:var(--ink-soft); opacity:.6; }
+  .qp-toggle:hover{ opacity:1; }
+  #qpList li.is-collapsed .qp-toggle svg{ transform: rotate(-90deg); }
+  #qpList li .qp-toggle svg{ transition: transform .3s ease; }
+
+  #empty-state{ display:none; padding:60px 0; text-align:center; color:var(--ink-soft); }
+  #empty-state.show{ display:block; }
+
+  footer.page-footer{
+    padding:30px 8vw 60px; color:var(--ink-soft); font-size:12.5px; font-family:'IBM Plex Mono',monospace;
+    border-top:1px solid var(--line); margin-top:30px; line-height:1.7;
+  }
+  @media (max-width: 980px){
+    main{ padding: 0 6vw 120px; }
+    .ayah-block .ayah-ar{ font-size:22px; }
+    .card{ padding:22px 20px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001s !important; transition-duration:.001s !important; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body data-page="yusuf9192">
+
+<div id="progress"></div>
+<header class="hero">
+  <div class="burger-wrap">
+    <button id="navBurger" class="burger-btn" aria-haspopup="true" aria-expanded="false" aria-label="Open navigation menu">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div id="navMenu" class="burger-menu"></div>
+  </div>
+</header>
+
+<div class="ref-bar">
+  <span class="ref-label">Source</span>
+  <a href="https://www.youtube.com/watch?v=-G_CICqKkMQ" target="_blank" rel="noopener" class="ref-txt" style="text-decoration:none; border-bottom:1px solid rgba(255,255,255,.35); padding-bottom:1px;">Nouman Ali Khan</a>
+</div>
+
+<div class="page-title" id="top">
+  <span class="eyebrow">Tafsīr Notes · Sūrah Yūsuf</span>
+  <h1>"Allah Has <span class="accent-word">Preferred</span> You Over Us" [Ayat 91–92]</h1>
+  <div class="sub">The brothers' shaken confession and Yusuf's carefully worded reply — a study in the oath "Ta-Allahi", the hidden word <i>athara</i>, the gravity of <i>khāṭiʾīn</i>, the anatomy of <i>tathrīb</i>, and a realistic, non-simplistic view of forgiveness.</div>
+  <div class="tag-row">
+    <span class="tag">Verse 91</span>
+    <span class="tag">Verse 92</span>
+    <span class="tag">Ta-Allahi</span>
+    <span class="tag">Athar</span>
+    <span class="tag">Khāṭiʾīn</span>
+    <span class="tag">Tathrīb</span>
+    <span class="tag">Forgiveness</span>
+  </div>
+</div>
+
+<div class="layout">
+  <div class="toc-wrap">
+    <button class="toc-toggle" id="tocToggle" aria-expanded="false" aria-controls="tocPanelOuter">
+      <span class="toc-toggle-left">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        <span>Table of Contents</span>
+        <span class="toc-count" id="tocCount"></span>
+      </span>
+      <svg class="toc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="toc-panel-outer" id="tocPanelOuter">
+      <div class="toc-panel-inner">
+        <nav class="sidebar" id="tocNav">
+          <div class="search-box">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input id="searchInput" type="text" placeholder="Search all notes…" aria-label="Search notes">
+          </div>
+          <div class="nav-actions">
+            <button id="expandAll">Expand all</button>
+            <button id="collapseAll">Collapse all</button>
+          </div>
+          <div id="tocGroups"></div>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <main id="mainContent">
+    <div id="empty-state">No sections match your search.</div>
+  </main>
+</div>
+
+<button id="toTop" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<div id="quickPanel">
+  <div class="qp-head">Jump to Section</div>
+  <ul id="qpList"></ul>
+</div>
+
+<button id="quickFab" aria-label="Open quick navigation" aria-expanded="false">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+</button>
+
+<script>
+/* ============================================================
+   CONTENT
+   Each group has sections; each section has optional ayah blocks
+   and cards. A card has: h (title), badge, pts (bullet points),
+   optional quote {t,f}. A point is a string, or {t, s:[sub-points]}.
+   ============================================================ */
+const AYAH_91 = {
+  ref:'Verse 91',
+  ar:'قَالُوا۟ تَٱللَّهِ لَقَدْ ءَاثَرَكَ ٱللَّهُ عَلَيْنَا وَإِن كُنَّا لَخَـٰطِـِٔينَ',
+  en:'"They said, \'By Allah, certainly has Allah preferred you over us, and indeed, we have been sinners.\'" — Sahih International'
+};
+const AYAH_92 = {
+  ref:'Verse 92',
+  ar:'قَالَ لَا تَثْرِيبَ عَلَيْكُمُ ٱلْيَوْمَ ۖ يَغْفِرُ ٱللَّهُ لَكُمْ ۖ وَهُوَ أَرْحَمُ ٱلرَّٰحِمِينَ',
+  en:'"He said, \'No blame will there be upon you today. May Allah forgive you; and He is the most merciful of the merciful.\'" — Sahih International'
+};
+
+const GROUPS = [
+{
+  label:'Setting the Scene',
+  sections:[
+  {
+    title:'The Brothers Respond',
+    ayat:[AYAH_91],
+    cards:[
+      {h:'Where we are in the story', badge:'Ayat 91–92', pts:[
+        'These two ayat present an exchange between the brothers of Yusuf and Yusuf (AS) himself.',
+        'The brothers speak first, because it has now dawned on them — Yusuf has let it out that he is their brother. That was the discussion of ayah 90.',
+        'In ayah 90 Yusuf said, in essence: "I am Yusuf, and this is my brother. Allah has done us a favor. Whoever has taqwa and patience — Allah never lets the reward of those who do their best go to waste." That was the last statement before this section.',
+        'Ayah 91 is the brothers\' reaction; ayah 92 is Yusuf\'s reply.'
+      ]},
+      {h:'One statement standing for many', badge:'Quranic Brevity', pts:[
+        'Their reaction must have been far more than the words recorded — but in Allah\'s wisdom, our focus is directed to these particular words.',
+        'This was probably much more than one conversation or one comment. With ten brothers, each must have had something to say, either to Yusuf or to one another.',
+        'Everything has been "juiced" and presented as one statement, representative of all their sentiments.',
+        'This is the Quran\'s style of <b>brevity</b>: brief language that captures a great deal.',
+        'A tree can be contained in a single seed — you would not think a seed is much, yet it holds the power to grow an entire tree.',
+        'Likewise, one word or one ayah of the Quran may look small, but inside it is an entire tree of wisdom that keeps giving fruit after fruit, blossoming continually.',
+        'The only missing ingredient is our contemplation, and Allah opening the heart and mind to understand better.'
+      ], quote:{t:'A dua to begin with: may Allah keep opening our minds and let us reflect on His book in the way that pleases Him.', f:'Opening supplication'}}
+    ]
+  },
+  {
+    title:'The Shock of "Ta-Allahi" — Reading Ayah 91',
+    cards:[
+      {h:'A brief translation', badge:'La Qad Atharaka…', pts:[
+        'Rendered briefly: "By Allah — Allah has certainly preferred you over us. And no doubt, we have been ones who made mistakes / grievous mistakes."',
+        'The word for "mistakes" (<i>khāṭiʾīn</i>) will be explored more deeply later on.',
+        'Their opening word, <i>Ta-Allahi</i>, is an oath — like "Wallahi", but in an extreme form. It has appeared a few times in the surah.',
+        'What it captures here is the <b>shock</b> with which they experience these words. It has hit them hard; this is not typical speech.',
+        'Their first words amount to "Oh my — Allah!" — not just "I swear by Allah", but a very heavy realization.',
+        '"Allah has certainly preferred you over us" — one way of looking at the meaning; and "we have been those who erred" follows.'
+      ]}
+    ]
+  }
+  ]
+},
+{
+  label:'The Oath — Ta-Allahi',
+  sections:[
+  {
+    title:'Three Oaths, One Pattern',
+    cards:[
+      {h:'A step back: the brothers\' path toward repentance', badge:'Ta-Allahi ×3', pts:[
+        'The oath "Ta-Allahi" has come from the brothers\' mouths <b>three times</b> in the surah. Tracing them shows a pattern.'
+      ]},
+      {h:'First time: anger at their father', badge:'Ayah 85', pts:[
+        '"By Allah, you will keep mentioning Yusuf until you become sick, near death, or among those who perish."',
+        'They were yelling at their dad.',
+        'Allah\'s name was not used in a humble or spiritual context — not in conversation with Allah, and not as repenting servants coming before Him.'
+      ]},
+      {h:'Second time: insisting on their innocence', badge:'The Cup Incident', pts:[
+        '"By Allah, you know we did not come to cause trouble in the land, and we have never been thieves."',
+        'This came when the cup was found: they were shocked and protested.',
+        'This time it was to impose on everyone else that they were innocent — Allah\'s name used almost as a kind of credibility ("we invoke God\'s name to show we are innocent, we would never be thieves").',
+        'These two statements were analyzed in earlier sessions.'
+      ]},
+      {h:'Third time: here', badge:'Ayah 91', pts:[
+        'A pattern is already established: they use this extreme word and drop Allah\'s name — but never in a spiritual sense, never truly invoking Allah.',
+        'Their focus has been on the people they are engaged with, not on a conversation with Allah.',
+        'Even in this ayah — where you would imagine they are to be redeemed and to acknowledge what they did wrong — the oath itself still follows the old pattern.',
+        'However, this is the <b>first time</b> they mention Allah by name outside of the oath formula "Ta-Allahi" — "Allah has preferred you."',
+        'Across all their recorded conversations in the Quran, the brothers of Yusuf simply do not talk about Allah.'
+      ]}
+    ]
+  },
+  {
+    title:'Two Opposite Ways of Mentioning Allah',
+    cards:[
+      {h:'Who keeps bringing up Allah?', badge:'Scan the Surah', pts:[
+        'Every recorded conversation of Yaʿqub (AS): Allah comes up — he cannot say something without Him coming up.',
+        'Yusuf (AS): his Lord, Allah, keeps coming up whenever he speaks.',
+        'The brothers, by contrast: Allah does not come up — and when He does, it is not because they are talking about Him. The word "Allah" is thrown around to express something that concerns <b>people</b>.'
+      ]},
+      {h:'Engaged with people, or engaged with Allah?', badge:'Heart vs. Tongue', pts:[
+        'Two opposite scenarios are shown: people who deal with others while their mind and heart stay with Allah and the connection never severs, versus people whose tongue mentions Allah while heart and mind stay on people.',
+        'In the second case Allah\'s name is dropped but it is nothing but lip service and goes no further.',
+        'How can you call on Allah — the All-Knowing, who knows the mistake you made — while yelling at your victim? That does not make sense.',
+        'How can you call on Allah\'s name and then accuse your brother of being a thief? That also does not make sense.',
+        'But now they are powerless and humble, and it has dawned on them what position Allah has given Yusuf. Their words become: "Allah has certainly preferred you over us" — where Allah is finally mentioned outside a bare oath.'
+      ]}
+    ]
+  }
+  ]
+},
+{
+  label:'"Allah Has Preferred You"',
+  sections:[
+  {
+    title:'Layers of Meaning: A Charitable Reading',
+    cards:[
+      {h:'What could be in their minds?', badge:'Benefit of the Doubt', pts:[
+        'The statement is obvious on its surface — Allah has given you preference over us — but what layers and implications could it carry?',
+        'First, the benefit of the doubt: in the previous ayah Yusuf said of himself and Binyamin, "Allah has favored us."',
+        {t:'That favor has several dimensions:', s:[
+          'The reunion itself is a favor.',
+          'Holding on to their faith is a favor.',
+          'Never losing their connection to Allah, whatever happened, is a favor — whether in prison, being abused, or being falsely accused, their focus remained Allah.',
+          'This is the ultimate favor, because the only real treasure a person has lies inside their chest — and they never lost it even as the outer scenery kept changing.'
+        ]},
+        'Another subtle implication of Yusuf\'s words: "Allah has finally given us the upper hand over you."'
+      ]},
+      {h:'"No need to be subtle"', badge:'The Brothers\' Realization', pts:[
+        'On this reading the brothers heard that and said: there\'s no need to be subtle or modest — Allah gave you the upper hand; Allah preferred you over us.',
+        'Imagined inner voice: "As oblivious as I had been to Allah and His role, when my father reminded us not to lose hope in Allah\'s mercy, or made us take oaths by Allah — none of it carried weight. But now, seeing this miraculous turn of events, it is finally dawning on me — something I had been avoiding."',
+        'Speaking it out loud is an act of humility: they say what Yusuf was too gracious to say ("Allah favored us" instead of "Allah favored us over you"; "Allah finally gave us victory over you"). In effect: "Let\'s call a spade a spade — Allah did give you preference over us."',
+        'It can be read as recognizing divine intervention and accepting divine judgment: Allah gave him the upper hand because he deserved it.'
+      ]}
+    ]
+  },
+  {
+    title:'Subtle Signs vs. Signs in Your Face',
+    cards:[
+      {h:'How Allah sends signs', badge:'Clues in Life', pts:[
+        'Sometimes Allah gives subtle signs; then He gives very direct ones.',
+        'The Quran speaks of signs and lessons for those who pick up on the clues — clues Allah leaves in life for us to ponder.'
+      ]},
+      {h:'The blade of grass in New York', badge:'A Story of Contemplation', pts:[
+        'The speaker recalls a friend (unnamed, as he would be embarrassed) from college days, walking together in New York — "a concrete jungle for a reason": crowded, pavement and road everywhere, no view of the sky, just buildings, traffic, hustle and bustle. (In Texas, by contrast, all you see is sky.)',
+        'His friend suddenly grabbed his hand and said, "Stop — look!" — very dramatic. The speaker thought there had been a car accident or a mugging.',
+        'He was pointing at a little blade of grass growing up through a crack in the concrete — weeds and grass emerge when concrete isn\'t maintained.',
+        'The friend said: "That\'s the only thing that\'s supposed to be here. It looks like it doesn\'t belong, but it\'s actually the only natural thing here."',
+        'He then mentioned the hadith of the Prophet ﷺ — glad tidings to the strangers — because a time will come when people on <i>fitra</i> (the nature Allah created) will feel strange and everyone else will feel normal.',
+        'The point: someone saw a piece of grass and it moved him to contemplate what Allah was telling him. These are people of the Quran and of contemplation.'
+      ]},
+      {h:'From subtle to unavoidable', badge:'The Billboard', pts:[
+        'Subtle signs can be changing winds, a picture, an email, a lesson drawn from something you heard about someone else, or an almost-accident that reminds you of death.',
+        'Then sometimes there are in-your-face signs you cannot get away from.',
+        'You can avoid the signs that were there before — even the voice of your conscience telling you to turn back to Allah. But now it has hit them directly, right in front of them, and they acknowledge it.'
+      ], quote:{t:'It is one thing to drive past a billboard on the side of the road and never quite look at it. It is another when the billboard falls onto the highway and blocks the road.', f:'The difference between subtle and direct signs'}}
+    ]
+  },
+  {
+    title:'The Skeptical Reading and the Preferred One',
+    cards:[
+      {h:'If you don\'t give them the benefit of the doubt', badge:'Passive-Aggressive Reading', pts:[
+        'The same words can be read passive-aggressively: "We always thought Dad favored you — and now Allah prefers you too. Things turned out pretty good for you. Sure, we did a lot of bad, but if we hadn\'t messed up your life, you wouldn\'t be here. So, in a weird way, even though we made a mistake — you\'re welcome."',
+        'Some people genuinely think this way: the wrong they did to you, and your recovery from it, means they somehow made you strong — "I was only beating you to build your character; see how well you turned out — I prepared you for the real world."',
+        'The speaker is <b>not</b> saying the brothers did this — only that, without the benefit of the doubt, the words could be read that way.',
+        'It could also be a sliding comment about their standing with Allah — or a dig that Yaʿqub was unfair in how he loved, and that Allah simply likes Yusuf better.'
+      ]},
+      {h:'The reading the speaker leans toward', badge:'Giving Them the Benefit', pts:[
+        'The speaker inclines — for the first time — to give them more benefit of the doubt than not: they acknowledge that this preference is divine.',
+        'Perhaps what they realize now: "We always thought Dad was wrong for preferring you. We felt he loved you more, and saw something in you that we didn\'t. But it wasn\'t just our father who saw something good in you — Allah Himself did."',
+        '"We should have known all along; we should have seen it for what it was."',
+        'Better to read it as: we were wrong about you, we shortchanged you, and we did not realize Allah was always on your side.',
+        'Perhaps they even recognize that when Yusuf was younger, his good character was a favor from Allah — and they should have learned from it.'
+      ]}
+    ]
+  }
+  ]
+},
+{
+  label:'The Hidden Word: Atharaka',
+  sections:[
+  {
+    title:'Why "Atharaka" and Not "Faddalaka"?',
+    cards:[
+      {h:'A subtle undertone', badge:'Thanks to Shaykh Sohei', pts:[
+        'The speaker thanks Shaykh Sohei (as named in the transcript) for drawing attention to an important subtle undertone.',
+        'Throughout, "preferred" has been the translation — but the typical Arabic word for preference in the Quran is <i>faddala</i>, as used for the Israelites: "I preferred you over all nations of the world."',
+        'Here the verb is <i>atharaka</i> — an unusual, specific choice with possible literary connotations.',
+        'Arabic words are very rich: a word means something, but it also carries a story — related words and an etymology that create an imagery. Even when the speaker isn\'t referring to that imagery, it comes to the back of the mind through the related spelling.'
+      ]},
+      {h:'Etymology: what is left behind', badge:'Root of Athar', pts:[
+        'The root idea is something <b>left behind</b> — the remnants of something. Footsteps left behind, or ruins left behind, are called <i>āthār</i>.',
+        'When a camel gets fat, what used to be muscle turns to fat; what is left of it is a fat — the same root is used.',
+        'When you melt fat, the leftover is pure, refined meat — the excess fat is melted off. That remainder is also called by this root.',
+        'In every use, something is removed and something remains — and the remainder is the <i>athar</i>.',
+        'In the Quran it is used many times. Essentially: the leftover or trace of something that will outlast the thing itself.'
+      ]}
+    ]
+  },
+  {
+    title:'Athar Across the Quran',
+    cards:[
+      {h:'Uses in the Quran', badge:'Traces & Remnants', pts:[
+        {t:'Followed the footsteps and traces — the clues left behind — were called <i>āthār</i>.', s:[]},
+        {t:'<b>Surah al-Kahf:</b> "Will you kill yourself in grief over <i>ʿalā āthārihim</i>?" — the Prophet was told this over the trail of destruction they leave behind.', s:[
+          'The speaker explains this as the trail of destruction of the Christian creed: the Trinity is not just an idea but creates a worldview, a civilization, and then a disaster.',
+          'In reaction, an anti-religious fervor takes over the world. Its starting point was the Christian civilization and its deterioration.'
+        ]},
+        {t:'<b>Surah al-Māʾida:</b> "We followed up on their traces (<i>ʿalā āthārihim</i>) with ʿĪsā (Jesus)."', s:[
+          'Jesus was following the traces of previous prophets of the Israelites — a continuation, reinforcing what had been taught.',
+          'He did not say anything that wasn\'t already taught by previous prophets.',
+          'Follow those traces and they lead you to Jesus, and to Islam. The continuity and consistency of the message is captured in this word.'
+        ]},
+        'Remnants illustrate it: a remnant of a civilization can be an ancient coin or a dilapidated tower that is preserved as a historical site.',
+        'The speaker\'s example: in Switzerland — a Calvinist country — church bells ring exactly on time every day even though hardly anyone attends, because they wish to preserve the remnants of the society they belong to.',
+        {t:'<b>Surah ar-Rūm:</b> "Look at the <i>āthār</i> of Allah\'s mercy" — the traces, remnants, the small droplets showing that something is coming from the love and mercy of Allah.', s:[
+          'It makes us ponder things that remind us Allah loves us and cares for us.'
+        ]}
+      ]}
+    ]
+  },
+  {
+    title:'The Irony Buried in One Word',
+    cards:[
+      {h:'What the brothers wanted vs. what they said', badge:'No Trace Left', pts:[
+        'Return to the ayah: the "preference" here is built on the word for traces and remnants — as if to say, "check this out."',
+        'What they had wanted was for no trace of Yusuf to remain: erase him from this world — kill him, or cast him into some unknown, uncharted place so he would be a forgotten thing.',
+        'Even his name being mentioned made them angry, because they wanted no trace of him and no clue as to what happened to him. That was the entire scheme.',
+        'And now they say Allah gave you <i>athar</i> over us: of all of us, you will never be an unknown mystery who died in a well somewhere — you will be the one everyone knows, and not only in our time.',
+        'They do not even realize what they are saying. The one they wanted anonymous is now the most known name in Egypt and its surrounding nations. Everyone knows Yusuf\'s name; everyone calls him al-ʿAzīz.'
+      ]},
+      {h:'Effect, impact, legacy', badge:'Timeless', pts:[
+        'One meaning of <i>athar</i> is "effect": Allah gave you more effectiveness than any of us. That helpless child has more impact and leaves more of a legacy.',
+        'What are traces at the end of the day? Old roads, old buildings, ancient coins — the legacy of a previous time. Allah empowered him with legacy over them. It is inside the word "preferred you over us."',
+        'The dominant, obvious meaning is preference, but the choice of root suggests a powerful additional statement.',
+        'Look at our time: millennia later, we are reading the personal story of a child who was abducted, made a slave, and then brought by Allah to this position — pondering every event in his life. Every event has an <i>athar</i> on us: it leaves a trace on our hearts and an effect on our lives.',
+        'Literarily too: we do not find the names of his eleven brothers in the Quran — there is no trace of their names in the timeless final revelation.',
+        'Allah mentions his father, his grandfather, and his great-grandfather — but the only name that leaves an endless mark is Yusuf\'s.',
+        'So when they say "Allah has preferred you over us," they do not realize the weight of what they have just said.'
+      ]}
+    ]
+  }
+  ]
+},
+{
+  label:'"We Have Been Sinners"',
+  sections:[
+  {
+    title:'Grammar of "Wa In Kunna la-Khāṭiʾīn"',
+    cards:[
+      {h:'Three things "in" can mean', badge:'For Grammar Students', pts:[
+        'In Arabic <i>in</i> normally means "if" — a conditional statement.',
+        'But it can also be <i>nāfiya</i> (a substitute for <i>mā</i>, "not"), or the short form of <i>inna</i> ("indeed").',
+        'The speaker tells students who don\'t know what that means: that\'s okay — make dua that you\'ll soon understand, and you will, inshallah.',
+        'Here it is the short form of <i>inna</i>: "The fact is we were truly mistaken" / "we were the ones who made a mistake."'
+      ]},
+      {h:'Why not "even if we made a mistake"?', badge:'The Lam of Emphasis', pts:[
+        'A translator might render it conditionally — "even if we made a mistake" — as if to say: "Allah took care of you even though we messed up; you\'re doing pretty good for yourself; we\'re the ones starving; I\'m not that sorry — I mean, I\'m sorry, but look at the situation, bro."',
+        'But it should not be read that way. If this were a conditional <i>in</i>, the <i>lām</i> would not appear on <i>la-khāṭiʾīn</i>.',
+        'The lām of emphasis (<i>lām al-tawkīd</i>) confirms that <i>in</i> is really shortened from <i>innahu</i> / <i>inna</i> — so it is not a conditional.',
+        'The transition is therefore: "Allah has preferred you over us, and certainly, we were the ones who made mistakes."'
+      ]}
+    ]
+  },
+  {
+    title:'"Kunna": A Pattern, Not a Single Act',
+    cards:[
+      {h:'Why "we have been" matters', badge:'Continuous Mistakes', pts:[
+        'This is different from "we made a mistake" or "we erred." <i>Kunna khāṭiʾīn</i> says: we have been the kind of people who make mistakes — continuously.',
+        'It is not confessing one act; it is a confession of something long-term.'
+      ]},
+      {h:'What might the confession entail?', badge:'Two Possibilities', pts:[
+        {t:'Two possible meanings:', s:[
+          '(1) We did wrong by you — and plenty of other wrong things too.',
+          '(2) We were wrong about our opinion of you — we had you figured out all wrong; we misunderstood you and did not know how good you were.'
+        ]},
+        'If you accept the second, it does not sound very good: it still is not confessing to having done anything wrong. It is "I was wrong in my opinion of you — I underestimated you, bro; good job." That is not exactly remorse.',
+        'When someone truly wants to acknowledge a mistake, there should be words of apology: "Forgive me. I wronged you. I oppressed you."',
+        'Instead, notice the language: generalized — "we have been making mistakes." When you generalize, you avoid saying specifically what you did; even now it is a washing-over.'
+      ]},
+      {h:'The question they dodged', badge:'Ayah 89 Callback', pts:[
+        'Yusuf had earlier asked them specifically: "Do you realize what you did to Yusuf and his brother when you were ignorant?"',
+        'This was their moment to say, "Now we know what we did" — but instead they gloss over it with a general statement.'
+      ]}
+    ]
+  },
+  {
+    title:'Khāṭiʾ vs. Mukhṭiʾ: How Grave a Mistake?',
+    cards:[
+      {h:'Two Arabic words for "mistake"', badge:'A Subtle Distinction', pts:[
+        'Arabic has two words for mistake that sound very similar to English ears because the letters are similar, differing by a short vowel.',
+        'One kind is like mistakenly spilling a cup; the other is like taking the cup and splashing it in your brother\'s face.',
+        'Linguists argue that originally the two meant the same thing — a person who erred, on purpose or not.',
+        'Over time one became coined for what you do <b>on purpose</b> and the other for what you do <b>by mistake</b>.',
+        'The word for someone who errs unintentionally is <i>mukhṭiʾ</i>. By that standard, the brothers did <b>not</b> say <i>mukhṭiʾīn</i> — they said <i>khāṭiʾīn</i>.',
+        'So they are saying "we made grievous mistakes." They are not entirely dismissive; the word signals the mistake was serious.'
+      ]},
+      {h:'What the Quran shows', badge:'Usage Check', pts:[
+        'The unintentional sense is used, e.g., for mistakes made inadvertently (<i>khaṭaʾ</i>).',
+        'The word the brothers used is the one the Quran uses for "killing your children out of fear of poverty" — Allah calls it a <i>khiṭʾ</i> — obviously not unintentional, but a grievous sin.',
+        'That suggests they are admitting they messed up pretty badly and did a lot of really terrible things.'
+      ]}
+    ]
+  }
+  ]
+},
+{
+  label:'Yusuf\'s Reply — Ayah 92',
+  sections:[
+  {
+    title:'Is It Really Just "I Forgive You"?',
+    ayat:[AYAH_92],
+    cards:[
+      {h:'A careful reading', badge:'Not So Simple', pts:[
+        'Now it is time for Yusuf (AS) to speak. We expect that he will forgive them.',
+        'The speaker prefaces: he does not think it is that simple. You can gloss it over and say Yusuf forgave them — but a careful reading of the text does not give that clear indication, and he is not entirely convinced it is the case.',
+        'The statement: <i>lā tathrība ʿalaykum al-yawm</i> — "No shaming shall fall upon you today."',
+        'On the reading followed here, <i>al-yawm</i> ("today") is connected to <i>lā tathrīb</i>. There are other readings, but this is the clearer one.'
+      ]}
+    ]
+  },
+  {
+    title:'The Confrontation That Doesn\'t Happen',
+    cards:[
+      {h:'What Yusuf could have asked', badge:'The Road Not Taken', pts:[
+        'Yusuf had already asked, "Do you know what you did?" — and they did not answer. They just said, "Allah preferred you; we made mistakes."',
+        'He could have said: "I want to talk about what you did. Tell me exactly what you did. Where did you hit me? What did you say when you threw me in the well? What did you tell Dad? Review it with me — I can\'t remember, and if you have gaps, I\'ll fill them in."',
+        'None of that happens. Yusuf says: no shaming today.',
+        'If there was ever a day for them to be shamed, this was it.'
+      ]},
+      {h:'Shield down, sword out', badge:'An Everyday Analogy', pts:[
+        'When you argue with someone, it takes forever for them to say sorry. When they finally do, it is as if they had a shield up and a sword in the other hand — and suddenly they drop it.',
+        'When you notice their shield is down, the temptation is: "Now it\'s time to remind you how sorry you should really be" — and you lay it on thick because they are no longer guarding.',
+        'But the person being slammed picks up their sword and shield again — "I thought you were sorry!" "You slapped me after I put my shield down!"',
+        'Yusuf knows the point has been made. What is in their hearts is in their hearts. There is no need to beat it over their heads.'
+      ]},
+      {h:'The dream of a confrontation', badge:'Human Nature', pts:[
+        'Understand: when someone has been wronged again and again — and then insulted to his face when they didn\'t know who he was — you dream of the day you can finally confront them.',
+        'You imagine what you will say, what they need to hear. Not feeling you have gotten it out, you write it in a journal, or write it out and send it to yourself — or draft a message to a friend: "I was going to send this to her/him — but you\'re safe, so I\'ll send it to you." "Whoa, bro, that\'s heavy."',
+        'None of that happens today. "No shaming shall fall upon you today."'
+      ]}
+    ]
+  },
+  {
+    title:'Tathrīb: Peeling Back the Layer',
+    cards:[
+      {h:'The root imagery of <i>tathrīb</i>', badge:'Two Graphic Meanings', pts:[
+        'The origin of the word gives two vivid meanings.',
+        'When an animal is slaughtered, the meat is separated into legs and limbs. Then there is the stomach, with a thin lining — you don\'t want to gut the stomach, because the intestines and other gooey, nasty things are inside.',
+        'The <i>tharb</i> is that thin lining of flesh or fat; <i>tathrīb</i> is its removal, so that the ugly, disgusting organs are exposed. The only thing hiding them was that layer.',
+        'The speaker\'s story: in high school biology in New York, they were made to dissect a frog. The teacher, not knowing, gave him a pregnant frog full of nasty-looking eggs. As soon as he cut it open, the goo started coming out — "that\'s the <i>tharb</i> story" — the day he knew he would never go into medicine, alhamdulillah.'
+      ]},
+      {h:'Meaning one: exposing', badge:'Laying Them Bare', pts:[
+        'Applied to a person: when someone is incriminated in front of you, you have the chance to lay them bare — let their ugliness come out, let them be exposed and see how disgusting they really are.',
+        'Every ugly detail that was invisible becomes visible; you let everybody know how filthy they are. That is one implication of <i>tathrīb</i>.'
+      ]},
+      {h:'Meaning two: adding another layer', badge:'Burying Them', pts:[
+        'The word can mean the opposite too: to put another layer on. (The speaker reads out another definition mentioned in a classical source.)',
+        'Like adding a coat of wax or paint — layer upon layer. Someone is already down and you pour humiliation on them, then another layer, then another — burying and suffocating them under their guilt.',
+        'Today, when criminals are already sentenced, the victims\' families are brought to read their feelings towards the killer — a kind of <i>tathrīb</i>: guilt layered on top; the jail sentence is not enough, "you deserve <i>tathrīb</i>."',
+        'Yusuf says there is absolutely no bringing up of past harm at all.'
+      ]}
+    ]
+  },
+  {
+    title:'Yathrib — Same Root',
+    cards:[
+      {h:'A side note on Madinah', badge:'Word Study', pts:[
+        '<i>Tathrīb</i> is from the same root that gives <i>Yathrib</i>, the ancient name of the city of the Prophet ﷺ (Madinah).',
+        'One explanation: it is a land rich in crops — the root is linked to scraping/shaving off, and to the original meaning of "fat" (a juicy lamb). A land that is <i>yathrib</i> is juicy, lush land that grows a lot and gives a lot of nutrition.',
+        'Another explanation given: the area in the region that got the most diseases and epidemics was Yathrib, and people\'s immunity was constantly "scraped off" — hence the name.',
+        'The Prophet ﷺ then made dua for that city and the diseases stopped coming to Madinah; he wanted to change the name from Yathrib to Ṭāba / Ṭība — good and pure — and so he named it.'
+      ]}
+    ]
+  },
+  {
+    title:'Yusuf\'s "Nationwide Policy"',
+    cards:[
+      {h:'Not "I forgive" — but "I will not shame you"', badge:'What He Actually Said', pts:[
+        'Yusuf does not come out and say, "I forgive you." He says: I am not going to bring up what you did wrong; I will not humiliate you.',
+        'And no one else will either. Consider the setting: he is in the king\'s court, speaking to them; they have made a confession; the people around are soldiers, advisors, ministers, friends. This is a major event — live from the castle, printed news. Everybody wants an interview: "So what exactly did you do to your brother?"',
+        'He has issued a nationwide policy: nobody will talk about this. It is done; I have moved on; you all need to move on. Don\'t dig this up; don\'t humiliate them.',
+        'His decision: I will not dwell on the past; I will think about the future.'
+      ]},
+      {h:'The extra word: "ʿalaykum"', badge:'A Layer of Specificity', pts:[
+        'Typically you would just say <i>lā tathrīb</i> — a blanket negation: "no shaming," full stop.',
+        'If he had said "no shaming at all," he would not have needed to add <i>ʿalaykum</i> ("upon you").',
+        'The speaker recalls (unsure whether it was Alusi — to be confirmed with a teacher) that the added "upon you" is an added layer of favor and specificity toward his brothers.',
+        'It is as if Yusuf is going out of his way: "I absolutely do not want to hear anything of this said toward you — I will not do it, and I will not allow anybody else to do it."'
+      ]}
+    ]
+  },
+  {
+    title:'"Al-Yawm": Today — and What Comes Tomorrow',
+    cards:[
+      {h:'Layers in the word "today"', badge:'Time Frame', pts:[
+        '"Today" can mean: from today onward, no shaming will happen to you.',
+        'Or: if there was any day you should have been shamed, it was today — and since it isn\'t happening today, I will never do it.',
+        'Or it could mean "up until now": everything that has happened so far shall not be shamed.',
+        'And perhaps — not stated directly, but a very subtle, indirect hint — if you are up to no good again tomorrow, this offer expires today. Everything up to now is expunged, but do not push it.'
+      ]},
+      {h:'Why the warning matters', badge:'The Parent Analogy', pts:[
+        'People who never saw the consequences of their actions and got forgiven often tend to repeat.',
+        'Think of kids who have been missing homework and got in trouble with the teacher. They come before you and say they are upset — and you say, "You know what, I\'ll let this one go, I think you will do better." No parent the speaker knows would do that.',
+        'The fear if a parent did: they might do it again. Next time they think of skipping homework, they should remember the <i>tathrīb</i> — the layer being peeled, the humiliation, the look on Mama\'s face, the "look of death."',
+        'But Yusuf let them go. They had been overpowered and humbled — and his response was to not bring it up, not to give them a naive clean slate.'
+      ]}
+    ]
+  }
+  ]
+},
+{
+  label:'"May Allah Forgive You"',
+  sections:[
+  {
+    title:'Yaghfirullahu Lakum: Three Possible Meanings',
+    cards:[
+      {h:'Meaning one: "Allah has forgiven you"', badge:'The Speaker Is Unconvinced', pts:[
+        'Some have read the phrase as "Allah has forgiven you." The speaker is completely unconvinced by this.',
+        'The idea itself exists: a prophet can be told who is forgiven. The Prophet ﷺ was told which Companions are going to Jannah, and previous prophets can be given glad tidings about someone being forgiven.',
+        'The problem is grammatical: in the past tense it would have been clear — <i>ghafara Allāhu lakum</i>, "Allah has forgiven you."',
+        'The text is in the present/future: <i>yaghfiru</i> — "Allah forgives" or "will forgive you." If read in the present, it is not guaranteeing the past.'
+      ]},
+      {h:'Meaning two: "Allah is the one who forgives — not me"', badge:'Forgiveness Belongs to Allah', pts:[
+        'It reads as a statement: Allah is the one to forgive you. What happened between you and me — the farthest I will go is to not bring it up. Forgiveness is with Allah. You know what you did; take that to Allah.',
+        'Allah forgives — and He is the most loving and caring of those who show love and care.',
+        'As if Yusuf acknowledges: at the end of the day I am human, and I have been hurt terribly by you. I will not shame you. I will reconcile. I will not hurt you or take revenge.',
+        'But I am not going to say "we\'re good — no harm, no foul." My pain did happen. I am human. The only one who can forgive and let everything go is Allah, who has the capacity to do so.'
+      ]},
+      {h:'Meaning three: a supplication', badge:'A Prayer', pts:[
+        'It can also be a prayer: "May Allah forgive you."',
+        '<i>Ghafara</i> also carries the sense of <b>covering</b>: Allah will cover your mistakes.',
+        'Yusuf is not going to shame them — that would expose them — but the One who ultimately covers everybody\'s shame is Allah: may Allah cover you.',
+        'As the Prophet ﷺ told us: whoever covers a believer, Allah covers them on the Day of Judgment. So: "I won\'t shame you, and I pray that Allah rewards me for that."'
+      ]}
+    ]
+  },
+  {
+    title:'Don\'t Wish Judgment Day on Anyone',
+    cards:[
+      {h:'The profound side of the dua', badge:'Beyond Revenge', pts:[
+        'The prayer is profound: even if you and I still have a way to go before a clear path — I don\'t mean you harm and you no longer mean me harm, but we are not "bros" like that yet — that does not mean I want you to stand in front of Allah and be answerable.',
+        'We can sort out our issues in this life. I would not wish divine justice on the Day of Judgment on anybody, no matter how bad I feel about them.',
+        'The justice you think you deserve is nothing compared to the judgment of Allah on that day.',
+        'People sometimes say in an argument, "I\'ll tell Allah what you did on Judgment Day — we\'ll see." You don\'t know what you\'re saying, nor the degree of harm you may be wishing on someone.',
+        'The worst physical harm in this life: a violent death. The worst psychological harm: public humiliation. But the humiliation on the Day of Judgment has no comparison to anything in this life.'
+      ]},
+      {h:'Justice, yes — but not wishing hellfire', badge:'A Healthy Balance', pts:[
+        'No matter what hurt was caused, we want justice — especially from close people like family. We want things worked out, people reconciled, the error recognized, amends made, even a penalty paid if needed.',
+        'But if you start wishing they will answer to Allah on Judgment Day — wanting to see them in Hell or tortured — that goes too far, especially if they have redeemed themselves.',
+        'If they haven\'t redeemed themselves, feelings are feelings: people may say out of anger, "You\'re headed to the Fire," because of harm done perpetually with no remorse.',
+        'But the brothers have now shown remorse. So Yusuf\'s words are: no harm shall fall on you — nobody will bring up your past mistakes — and Allah is the one who forgives. "That much I can do: I can make dua for you."',
+        'And He — <i>wa huwa arḥamu r-rāḥimīn</i> — has more loving care than anyone else.'
+      ]}
+    ]
+  }
+  ]
+},
+{
+  label:'Lessons on Forgiveness',
+  sections:[
+  {
+    title:'A Prophetic Example: Hamza and Wahshi',
+    cards:[
+      {h:'The pain doesn\'t vanish', badge:'The Prophet ﷺ Was Human', pts:[
+        'The Prophet ﷺ loved his uncle Hamza. Hamza was killed at Uhud by Wahshi, a long-range spear assassin, and then his body was mutilated.',
+        'The Prophet ﷺ knew Hamza is among the martyrs and one of the most honored of his Companions before Allah on Judgment Day — yet the pain of what he suffered in this life was not erased. It wasn\'t enough to say "he\'s in Jannah, so it\'s okay."',
+        'Nobody had a bigger chest and a grander heart than the beloved ﷺ.'
+      ]},
+      {h:'When Wahshi came to Islam', badge:'As the Speaker Tells It', pts:[
+        'When Islam became victorious, Wahshi — far away — was afraid that when Islam came his way, they would find him and kill him. He actually wanted to accept Islam, but to do so he had to appear before the Prophet ﷺ.',
+        'In the speaker\'s telling, he put on a hood and hid in the crowd, since the Muslims knew what he looked like and what he had done. He took the shahada face to face with the Prophet ﷺ.',
+        'The Prophet ﷺ recognized him and asked, "Are you the same one?" "Yes." Then he asked him to describe how he had killed his uncle. Wahshi didn\'t want to tell him, but the Prophet ﷺ said, "You need to tell me how you killed him." He described it.',
+        'The Prophet ﷺ said that after Islam everything is forgiven — <b>but I can\'t bear to see your face</b>. He couldn\'t look at him.',
+        'The takeaway: at the end of the day he has a human heart. Forgiveness for the sake of Islam and lingering human pain can coexist.'
+      ]},
+      {h:'Applying it to Yusuf', badge:'The Parallel', pts:[
+        'Yusuf (AS) is incredibly forgiving — but "you didn\'t just hurt me: you hurt my brother, you humiliated my dad, you caused so much pain and suffering for so long."',
+        'You say you recognize you made a lot of mistakes — "I\'m not sure you realize what those mistakes are."',
+        'If in your head the "mistake" is merely, "We should never have come back to Egypt — we should have found somewhere else to get food" — "I don\'t know what\'s in your heart. I know what you\'re telling me."'
+      ]}
+    ]
+  },
+  {
+    title:'The Worst-Case Reading: "How Convenient"',
+    cards:[
+      {h:'If you deny them the benefit of the doubt', badge:'A Convenient Apology?', pts:[
+        'Read it from the worst case: "Wow, that\'s convenient. Now you\'re sorry — a second ago you were calling him a thief. Now that you\'re starving, and he has authority and all the guards around."',
+        'If they hadn\'t been caught, and he had said "tell me about your brother Yusuf," they would have been throwing him into the well again with their mouths.',
+        'It is pretty convenient that now that they\'ve been caught and overpowered, what choice do they have but to admit it?',
+        'And what a half-baked apology: they never said "we\'re sorry" or "forgive us." They just said Allah preferred you; we made mistakes. "Oh my God, Allah really did give you preference over us and we\'ve been making a lot of mistakes" — you can hardly call that an apology; "I think you could do a little better."',
+        'As a reader, you don\'t have to give them the benefit of the doubt. And perhaps this is Allah\'s intent: He gave a scenario in which their apology could be sincere — or could be nothing but convenient.'
+      ]},
+      {h:'The Abu Sufyan parallel', badge:'A Real-Life Example', pts:[
+        'This actually happened in the time of the Prophet ﷺ: Abu Sufyan became Muslim once Islam was overpowering. He came to the Prophet ﷺ to negotiate — not to accept Islam — but ended up accepting it.',
+        'We could say, "How politically convenient — now that they\'re going to win, join the party."',
+        'The Quran is teaching a profound real-life lesson — far more in tune with human nature and wisdom than we usually give the Quran credit for.'
+      ]}
+    ]
+  },
+  {
+    title:'Forgiveness Is More Complex Than We Preach',
+    cards:[
+      {h:'What we usually preach vs. what Yusuf models', badge:'Realism', pts:[
+        'In Muslim society we generally preach: just forgive — Allah loves those who forgive. Yes, He does. Yes, He does.',
+        'But some things can be forgiven, and some things are not so easy to forgive.',
+        'When they are not easy, first of all you don\'t have to come out and say "I forgive you."',
+        'You can say: I am not going to shame you anymore. You and I will treat each other properly. Our interaction as people will be dignified; we will be good toward one another; we will honor each other; we will not bring up the past. That is pretty good — we\'re moving forward with a fresh, clean slate.',
+        'But the word "forgiveness" is not part of that equation. The hurt you caused me is still there. I may never love you like I used to, or like a brother should love a brother. I may never be able to trust you because of what happened. I won\'t mistreat you — but that doesn\'t mean it is all good.'
+      ]}
+    ]
+  },
+  {
+    title:'You Don\'t Have to Prove Your Sincerity',
+    cards:[
+      {h:'Sincerity is between them and Allah', badge:'The Power of Our Religion', pts:[
+        'No matter how convenient an apology looks, Yusuf immediately says how he will deal with them: I won\'t shame you — but whether you mean this apology is up to Allah, not to me.',
+        'You don\'t have to convince me your apology is sincere. That is the power of our religion: we don\'t have to convince anyone that we are sincere except Allah.',
+        'You don\'t need a heartfelt apology video, tears in court, or convincing words and arguments. None of that means anything, because whether the apology is genuine can never be known by others.',
+        'If it looks genuine, that doesn\'t mean it is; if it doesn\'t look genuine to you, that doesn\'t mean it isn\'t. Looks can be deceiving.',
+        'Someone may say sorry and an onlooker says, "He didn\'t even cry — that\'s not what sorry looks like." Not to you. You don\'t know how much he cried before or after — maybe he has an eye disorder. When did you set the standard for a sincere apology?',
+        'Human beings aren\'t capable of that. What we can do is see the signs and say: if you want to move on, what\'s happened has happened.'
+      ]},
+      {h:'Not naive, not oversimplified', badge:'The Role of "Al-Yawm"', pts:[
+        'It is interesting that he added "today": what has happened up until now has happened, you won\'t be ashamed about it — but if you want to be up to no good, we\'ll have to revisit this chapter.',
+        'So it is not oversimplistic, not naive. You are not just forgiving with "you forgive me already?" — "No, that\'s not how it works."'
+      ]}
+    ]
+  },
+  {
+    title:'Practical Scenarios',
+    cards:[
+      {h:'A real-life example: theft', badge:'Doors Closed, Doors Open', pts:[
+        'Someone worked for you, stole from you, and you fired them. Now they come and apologize.',
+        'You could say: "I\'ll treat you like a brother. I\'ll respond to your salaam. We can pray together. I\'ll make dua for you and your family — although you will never work for me again."',
+        'That door is closed; other doors remain open. And that is not necessarily forgiveness.',
+        'In other scenarios there is an explanation or apology and you feel the person can be trusted. That is a call you make, and at the end of the day only Allah knows.',
+        'Then you may decide to completely forgive, start with a clean slate, with love and affection all the way — that is up to you; a personal call.'
+      ]},
+      {h:'Don\'t condemn a valid road', badge:'No "Higher Road" Lectures', pts:[
+        'You don\'t get to say, "You need to pick the higher road." Yusuf (AS) is an example of patience, perseverance, trust in Allah and faith. If he chooses a certain road, we do not get to condemn it and say there was a higher road he should have taken — that he should have simply hugged them and said, "I forgive you, bro, I love you so much, it\'s all good."',
+        'Allah did not oversimplify it like that, because it is complicated.',
+        'You are not obligated to clean off all sin — that can only be done by Allah. And that is the last comment: only Allah can do it.'
+      ]}
+    ]
+  },
+  {
+    title:'Scars, Jannah, and What Comes Next',
+    cards:[
+      {h:'The scar remains', badge:'Only Allah Removes It', pts:[
+        'Even if you make amends, hug, eat together and live together — the words said, the hurt caused, the treachery, treason, cheating, foul play, crime and abuse will still leave a scar.',
+        'We are not capable of removing that from ourselves completely. It is just not possible.',
+        'That is why, on the Day of Judgment, when we stand before Allah and He — by His mercy and love alone — grants us forgiveness and Paradise, one of the gifts of Paradise is that He pulls any ill feeling from the hearts of believers.',
+        'Believers are supposed to love one another — yet even believers, family, brothers who prayed together, friends who prayed for and loved each other had some ill feeling in their hearts. It can only be removed when you enter Paradise, where Allah removes that scar from your heart as a gift.'
+      ], quote:{t:'That is realistic. It is not simplistic — and it is unrealistic to expect people to forgive unconditionally, or to not be cautious.', f:'The lesson of ayah 92'}},
+      {h:'Healthy and realistic', badge:'What We Learn from Yusuf', pts:[
+        'Moving forward, not dwelling on the past, not shaming — those are all healthy things we learn from Yusuf (AS).',
+        'But we also learn a reality: he knows how the real world works. He knows what manipulative people are like — he has been around them his whole life. So he is not going to hand over a naive clean slate.',
+        'It will be interesting to see what he does next — it is "pretty boss," "a pretty epic move."'
+      ]},
+      {h:'Coming up', badge:'Preview: Ayah 93', pts:[
+        'That move is in ayah 93 — to be covered tomorrow, inshallah.',
+        'The session ends with a light, informal sign-off (the speaker jokes about needing to wrap up because "Sammy went to sleep").'
+      ]}
+    ]
+  }
+  ]
+}
+];
+
+/* ============================================================
+   RENDER
+   ============================================================ */
+const COLORS = [1,2,3,4,5,6];
+const pad = n => String(n).padStart(2,'0');
+const strip = html => { const d = document.createElement('div'); d.innerHTML = html; return d.textContent; };
+
+function renderPoints(pts){
+  return '<ul class="points">' + pts.map(p => {
+    if(typeof p === 'string') return '<li>' + p + '</li>';
+    const sub = (p.s && p.s.length) ? '<ul>' + p.s.map(x => '<li>' + x + '</li>').join('') + '</ul>' : '';
+    return '<li>' + p.t + sub + '</li>';
+  }).join('') + '</ul>';
+}
+
+const main = document.getElementById('mainContent');
+const tocGroups = document.getElementById('tocGroups');
+const qpList = document.getElementById('qpList');
+const ALL_SECTION_IDS = [];
+let counter = 0;
+
+GROUPS.forEach(g => {
+  let tocHtml = '<div class="nav-group-label">' + g.label + '</div><ul>';
+  g.sections.forEach(s => {
+    counter++;
+    const id = 's-' + pad(counter);
+    const ci = COLORS[(counter - 1) % 6];
+    ALL_SECTION_IDS.push(id);
+    const g_color = 'var(--c-' + ci + ')', g_tint = 'var(--c-' + ci + '-tint)';
+
+    let body = '';
+    (s.ayat || []).forEach(a => {
+      body += '<div class="ayah-block"><span class="ayah-ref">' + a.ref + '</span>' +
+              '<p class="ayah-ar arabic">' + a.ar + '</p><p class="ayah-en">' + a.en + '</p></div>';
+    });
+    s.cards.forEach(c => {
+      body += '<div class="card"><div class="card-top"><h3>' + c.h + '</h3>' +
+              (c.badge ? '<span class="code-badge">' + c.badge + '</span>' : '') + '</div>' +
+              renderPoints(c.pts) +
+              (c.quote ? '<blockquote class="quote" style="margin-left:0;margin-right:0">' + c.quote.t + '<footer>' + c.quote.f + '</footer></blockquote>' : '') +
+              '</div>';
+    });
+
+    const sec = document.createElement('section');
+    sec.className = 'class-section';
+    sec.id = id;
+    sec.setAttribute('style', '--g-color:' + g_color + '; --g-tint:' + g_tint);
+    sec.innerHTML =
+      '<div class="class-head"><span class="idx">' + pad(counter) + '</span><h2>' + s.title + '</h2>' +
+      '<button class="collapse-toggle" data-target="' + id + '" aria-expanded="true" aria-label="Collapse section">' +
+      '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></div>' +
+      '<div class="class-body-outer" id="body-' + id + '"><div class="class-body-inner">' + body + '</div></div>';
+    sec.dataset.search = strip(s.title + ' ' + g.label + ' ' + body).toLowerCase();
+    main.insertBefore(sec, document.getElementById('empty-state'));
+
+    tocHtml += '<li><a href="#' + id + '" style="--g-color:' + g_color + '"><span class="sw"></span>' + s.title + '</a></li>';
+
+    const li = document.createElement('li');
+    li.dataset.target = id;
+    li.innerHTML = '<a href="#' + id + '" style="--qc:' + g_color + '"><span class="qp-idx">' + pad(counter) + '</span>' + s.title + '</a>' +
+      '<span class="qp-toggle" data-target="' + id + '"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>';
+    qpList.appendChild(li);
+  });
+  tocHtml += '</ul>';
+  tocGroups.insertAdjacentHTML('beforeend', tocHtml);
+});
+document.getElementById('tocCount').textContent = ALL_SECTION_IDS.length + ' sections';
+
+/* ============================================================
+   BEHAVIOUR
+   ============================================================ */
+const progress = document.getElementById('progress');
+const toTop = document.getElementById('toTop');
+function updateProgress(){
+  const h = document.documentElement;
+  const max = h.scrollHeight - h.clientHeight;
+  progress.style.width = (max > 0 ? h.scrollTop / max * 100 : 0) + '%';
+  toTop.classList.toggle('show', h.scrollTop > 700);
+}
+document.addEventListener('scroll', updateProgress, {passive:true});
+updateProgress();
+toTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+const tocToggle = document.getElementById('tocToggle');
+const tocPanelOuter = document.getElementById('tocPanelOuter');
+function closeToc(){ tocPanelOuter.classList.remove('open'); tocToggle.setAttribute('aria-expanded','false'); }
+tocToggle.addEventListener('click', () => {
+  const open = tocPanelOuter.classList.toggle('open');
+  tocToggle.setAttribute('aria-expanded', String(open));
+});
+
+const navLinks = document.querySelectorAll('nav.sidebar li a');
+const sectionObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
+    }
+  });
+}, { rootMargin:'-15% 0px -70% 0px', threshold:0 });
+document.querySelectorAll('main section.class-section').forEach(el => sectionObserver.observe(el));
+
+const quickFab = document.getElementById('quickFab');
+const quickPanel = document.getElementById('quickPanel');
+function openQuickPanel(){ quickPanel.classList.add('open'); quickFab.classList.add('open'); quickFab.setAttribute('aria-expanded','true'); }
+function closeQuickPanel(){ quickPanel.classList.remove('open'); quickFab.classList.remove('open'); quickFab.setAttribute('aria-expanded','false'); }
+quickFab.addEventListener('click', () => quickPanel.classList.contains('open') ? closeQuickPanel() : openQuickPanel());
+document.addEventListener('click', e => {
+  if(quickPanel.classList.contains('open') && !quickPanel.contains(e.target) && !quickFab.contains(e.target)) closeQuickPanel();
+});
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeQuickPanel(); });
+quickPanel.querySelectorAll('a').forEach(a => a.addEventListener('click', closeQuickPanel));
+
+function setCollapsed(id, collapsed){
+  const body = document.getElementById('body-' + id);
+  const btn = document.querySelector('.collapse-toggle[data-target="' + id + '"]');
+  const qpItem = document.querySelector('#qpList li[data-target="' + id + '"]');
+  if(body) body.classList.toggle('collapsed', collapsed);
+  if(btn) btn.setAttribute('aria-expanded', String(!collapsed));
+  if(qpItem) qpItem.classList.toggle('is-collapsed', collapsed);
+}
+function isCollapsed(id){ const b = document.getElementById('body-' + id); return b ? b.classList.contains('collapsed') : false; }
+function toggleCollapsed(id){ setCollapsed(id, !isCollapsed(id)); }
+
+document.querySelectorAll('.collapse-toggle').forEach(btn => btn.addEventListener('click', () => toggleCollapsed(btn.dataset.target)));
+document.querySelectorAll('#qpList li').forEach(item => {
+  item.querySelector('.qp-toggle').addEventListener('click', e => { e.stopPropagation(); e.preventDefault(); toggleCollapsed(item.dataset.target); });
+});
+document.getElementById('expandAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, false)));
+document.getElementById('collapseAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, true)));
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', () => {
+    const href = a.getAttribute('href').slice(1);
+    const target = href && document.getElementById(href);
+    if(!target) return;
+    if(target.classList.contains('class-section')) setCollapsed(href, false);
+    if(a.closest('nav.sidebar')) closeToc();
+  });
+});
+
+const searchInput = document.getElementById('searchInput');
+const emptyState = document.getElementById('empty-state');
+searchInput.addEventListener('input', () => {
+  const q = searchInput.value.trim().toLowerCase();
+  let shown = 0;
+  document.querySelectorAll('main section.class-section').forEach(sec => {
+    const match = q === '' || sec.dataset.search.includes(q);
+    sec.style.display = match ? '' : 'none';
+    const link = document.querySelector('nav.sidebar a[href="#' + sec.id + '"]');
+    if(link) link.dataset.hidden = match ? '0' : '1';
+    if(match) shown++;
+  });
+  emptyState.classList.toggle('show', shown === 0);
+});
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

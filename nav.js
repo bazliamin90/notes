@@ -20,7 +20,10 @@
         { href: "part-84.html",              page: "yusuf84",         color: "var(--c-6)", title: "Is His Heart Hopeful or Devastated?", sub: "Sūrah Yūsuf, Āyah 84 · Nouman Ali Khan" },
         { href: "surah-yusuf-85.html",        page: "yusuf85",         color: "var(--c-5)", title: "\"You Will Not Stop Mentioning Yusuf\"", sub: "Sūrah Yūsuf, Āyah 85 · Nouman Ali Khan" },
         { href: "surah-yusuf-86.html",        page: "yusuf86",         color: "var(--c-2)", title: "\"I Only Complain to Allah\"", sub: "Sūrah Yūsuf, Āyah 86 · Nouman Ali Khan" },
-        { href: "surah-yusuf-87.html",        page: "yusuf87",         color: "var(--c-1)", title: "\"Go, Seek Out Yusuf and His Brother\"", sub: "Sūrah Yūsuf, Āyah 87 · Nouman Ali Khan" }
+        { href: "surah-yusuf-87.html",        page: "yusuf87",         color: "var(--c-1)", title: "\"Go, Seek Out Yusuf and His Brother\"", sub: "Sūrah Yūsuf, Āyah 87 · Nouman Ali Khan" },
+        { href: "surah-yusuf-88-89.html",     page: "yusuf8889",       color: "var(--c-3)", title: "\"Did You Know What You Did to Yusuf?\"", sub: "Sūrah Yūsuf, Āyāt 88–89 · Nouman Ali Khan" },
+        { href: "surah-yusuf-90.html",         page: "yusuf90",         color: "var(--c-5)", title: "\"Are You Really Yusuf?\"", sub: "Sūrah Yūsuf, Āyah 90 · Nouman Ali Khan" },
+        { href: "surah-yusuf-91-92.html",      page: "yusuf9192",       color: "var(--c-6)", title: "\"Allah Has Preferred You Over Us\"", sub: "Sūrah Yūsuf, Āyāt 91–92 · Nouman Ali Khan" }
       ]
     },
     {

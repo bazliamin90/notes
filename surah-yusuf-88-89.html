@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>"Did You Know What You Did to Yusuf?" — Surah Yusuf 88–89 | Study Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff; --paper:#fbfbfd; --ink:#14151a; --ink-soft:#5a5d6b; --line:#e7e7ee; --line-soft:#f0f0f5;
+    --c-1:#7c3aed;  --c-1-tint:#f4edff;
+    --c-2:#0284c7;  --c-2-tint:#e8f6ff;
+    --c-3:#ea580c;  --c-3-tint:#fff1e8;
+    --c-4:#db2777;  --c-4-tint:#ffe9f4;
+    --c-5:#059669;  --c-5-tint:#e6faf2;
+    --c-6:#0f766e;  --c-6-tint:#e6f8f6;
+    --accent: var(--c-1); --accent-tint: var(--c-1-tint);
+    --radius:18px;
+    --shadow: 0 1px 2px rgba(20,21,26,.04), 0 12px 32px -16px rgba(20,21,26,.14);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:'IBM Plex Sans', system-ui, sans-serif; -webkit-font-smoothing:antialiased; }
+  ::selection{ background:var(--accent); color:#fff; }
+  h1,h2,h3,h4{ font-family:'Space Grotesk', sans-serif; margin:0; letter-spacing:-.01em; }
+  a{ color:inherit; }
+  p{ margin:0; }
+  .arabic{ font-family:'Amiri', serif; direction:rtl; }
+
+  #progress{
+    position:fixed; top:0; left:0; height:3px; width:0%;
+    background:linear-gradient(90deg, var(--c-1), var(--c-2), var(--c-3), var(--c-4), var(--c-5), var(--c-6));
+    z-index:100; transition:width .1s linear;
+  }
+
+  header.hero{
+    padding:6px 8vw; min-height:46px; display:flex; align-items:center; gap:10px;
+    position:sticky; top:0; z-index:80; border-bottom:1px solid var(--line);
+    background-color:#fff;
+    background-image:
+      radial-gradient(700px 340px at 8% -10%, var(--c-1-tint), transparent 60%),
+      radial-gradient(600px 300px at 95% 0%, var(--c-3-tint), transparent 55%);
+  }
+  /* ---------- burger navigation ---------- */
+  .burger-wrap{ position:relative; display:flex; align-items:center; }
+  .burger-btn{
+    width:34px; height:34px; border-radius:10px; border:1.3px solid var(--line);
+    background:var(--paper); color:var(--ink); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: border-color .15s ease, background .15s ease, color .15s ease;
+  }
+  .burger-btn:hover{ border-color: var(--c-1); }
+  .burger-btn.open{ background: var(--c-1); border-color: var(--c-1); color:#fff; }
+  .burger-btn svg{ transition: opacity .15s ease; }
+  .burger-menu{
+    position:absolute; top:calc(100% + 10px); left:0; width:320px;
+    background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow);
+    padding:8px; opacity:0; transform: translateY(-6px); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease; z-index:120;
+    display:flex; flex-direction:column;
+  }
+  .burger-menu.open{ opacity:1; transform: translateY(0); pointer-events:auto; }
+  .burger-menu-home{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; margin:2px 2px 8px;
+    border-radius:10px; border-bottom:1px solid var(--line-soft);
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-home svg{ flex:none; color:var(--ink-soft); }
+  .burger-menu-home:hover{ background: var(--paper); }
+  .burger-menu-home.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-home.is-current .bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-search{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:10px; padding:8px 10px; margin:2px 2px 8px;
+    background:var(--paper); flex:none;
+  }
+  .burger-menu-search svg{ flex:none; opacity:.5; color:var(--ink-soft); }
+  .burger-menu-search input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13px; width:100%; color:var(--ink);
+  }
+  .burger-menu-list{ max-height:340px; overflow-y:auto; overscroll-behavior:contain; }
+  .burger-menu-list::-webkit-scrollbar{ width:6px; }
+  .burger-menu-list::-webkit-scrollbar-thumb{ background:var(--line); border-radius:10px; }
+  .burger-menu-group + .burger-menu-group{ margin-top:4px; }
+  .burger-menu-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); padding:8px 10px 4px;
+  }
+  .burger-menu-empty{
+    display:none; padding:18px 10px; text-align:center; font-size:12.5px; color:var(--ink-soft);
+  }
+  .burger-menu-item{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; border-radius:10px;
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-item span.bm-title{ display:block; }
+  .burger-menu-item span.bm-sub{ display:block; font-size:11.5px; color:var(--ink-soft); font-weight:400; margin-top:1px; }
+  .burger-menu-item:hover{ background: var(--paper); }
+  .burger-menu-item.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-item.is-current span.bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-dot{ width:9px; height:9px; border-radius:3px; flex:none; margin-top:3px; }
+
+  .ref-bar{
+    background:var(--ink); color:#fff; font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    padding:9px 8vw; display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  }
+  .ref-bar .ref-label{ color:rgba(255,255,255,.55); text-transform:uppercase; letter-spacing:.08em; font-size:10.5px; }
+  .ref-bar .ref-txt{ opacity:.85; }
+
+  .page-title{ padding:30px 8vw 6px; }
+  .page-title .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-soft); margin-bottom:10px; display:block;
+  }
+  .page-title h1{ font-size:clamp(26px,5vw,46px); line-height:1.12; font-weight:700; }
+  .page-title h1 .accent-word{
+    background:linear-gradient(100deg, var(--c-1), var(--c-4) 55%, var(--c-3));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .page-title .sub{ margin-top:14px; max-width:66ch; color:var(--ink-soft); font-size:15px; line-height:1.6; }
+  .page-title .tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+  .page-title .tag{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; border:1.3px solid var(--line);
+    color:var(--ink-soft); font-weight:500; background:var(--paper);
+  }
+
+  .layout{ max-width:1400px; margin:0 auto; }
+  .toc-wrap{ border-bottom:1px solid var(--line); padding:0 8vw; }
+  .toc-toggle{
+    width:100%; display:flex; align-items:center; justify-content:space-between; gap:10px;
+    background:none; border:none; cursor:pointer; padding:16px 0;
+    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px; color:var(--ink);
+  }
+  .toc-toggle:hover{ color:var(--c-1); }
+  .toc-toggle-left{ display:flex; align-items:center; gap:10px; }
+  .toc-toggle-left svg{ color:var(--ink-soft); flex:none; }
+  .toc-chevron{ transition:transform .3s ease; color:var(--ink-soft); flex:none; }
+  .toc-toggle[aria-expanded="true"] .toc-chevron{ transform:rotate(180deg); }
+  .toc-panel-outer{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .35s ease; }
+  .toc-panel-outer.open{ grid-template-rows:1fr; }
+  .toc-panel-inner{ overflow:hidden; min-height:0; }
+
+  nav.sidebar{ display:block; padding:4px 0 22px; }
+  .search-box{
+    display:flex; align-items:center; gap:8px; border:1.5px solid var(--line); border-radius:12px;
+    padding:10px 12px; margin-bottom:18px; background:var(--paper);
+  }
+  .search-box input{ border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif; font-size:13.5px; width:100%; color:var(--ink); }
+  .search-box svg{ flex:none; opacity:.5; }
+  .nav-actions{ display:flex; gap:8px; margin-bottom:18px; }
+  .nav-actions button{
+    flex:1; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    border:1.3px solid var(--line); background:#fff; color:var(--ink-soft);
+    padding:7px 8px; border-radius:9px; cursor:pointer; transition:.15s ease;
+  }
+  .nav-actions button:hover{ border-color:var(--ink); color:var(--ink); }
+  .nav-group-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); margin:18px 0 6px 2px;
+  }
+  .nav-group-label:first-of-type{ margin-top:0; }
+  nav.sidebar ul{ list-style:none; margin:0; padding:0; border-left:2px solid var(--line-soft); }
+  nav.sidebar li a{
+    display:flex; align-items:center; gap:9px; text-decoration:none; font-size:13.5px; color:var(--ink-soft);
+    padding:7px 0 7px 14px; border-left:2px solid transparent; margin-left:-2px;
+    transition:color .15s ease, border-color .15s ease;
+  }
+  nav.sidebar li a .sw{ width:8px; height:8px; border-radius:3px; flex:none; background:var(--g-color); }
+  nav.sidebar li a:hover{ color:var(--ink); }
+  nav.sidebar li a.active{ color:var(--g-color); border-left-color:var(--g-color); font-weight:600; }
+  nav.sidebar li a[data-hidden="1"]{ display:none; }
+
+  main{ min-width:0; padding:0 8vw 140px; }
+  section.class-section{ padding-top:56px; scroll-margin-top:64px; }
+  section.class-section:first-child{ padding-top:44px; }
+  .class-head{
+    display:flex; align-items:baseline; gap:16px; flex-wrap:wrap;
+    padding-bottom:14px; margin-bottom:22px; border-bottom:3px solid var(--g-color); position:relative;
+  }
+  .class-head .idx{
+    font-family:'IBM Plex Mono',monospace; font-size:14px; font-weight:700; color:#fff;
+    background:var(--g-color); padding:5px 10px; border-radius:8px;
+  }
+  .class-head h2{ font-size:clamp(20px,2.4vw,28px); color:var(--ink); }
+  .collapse-toggle{
+    margin-left:auto; width:34px; height:34px; border-radius:9px; border:1.5px solid var(--line);
+    background:#fff; color:var(--g-color); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition:background .15s ease, border-color .15s ease;
+  }
+  .collapse-toggle:hover{ background:var(--g-tint); border-color:var(--g-color); }
+  .collapse-toggle svg{ transition:transform .3s ease; }
+  .collapse-toggle[aria-expanded="false"] svg{ transform:rotate(-90deg); }
+
+  .class-body-outer{ display:grid; grid-template-rows:1fr; transition:grid-template-rows .38s ease; }
+  .class-body-outer.collapsed{ grid-template-rows:0fr; }
+  .class-body-inner{ overflow:hidden; min-height:0; opacity:1; transition:opacity .25s ease .1s; }
+  .class-body-outer.collapsed .class-body-inner{ opacity:0; transition:opacity .18s ease; }
+
+  .card{
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+    padding:28px 30px; margin-bottom:22px; position:relative; overflow:hidden; border-left:5px solid var(--g-color);
+  }
+  .card .card-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; margin-bottom:14px; }
+  .card h3{ font-size:19px; font-weight:600; color:var(--ink); }
+  .code-badge{
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:12px; color:#fff;
+    background:var(--g-color); padding:6px 12px; border-radius:8px;
+  }
+  ul.points{ list-style:none; margin:0; padding:0; }
+  ul.points > li{
+    position:relative; padding:10px 0 10px 34px; font-size:14.8px; line-height:1.65; color:#2b2d36;
+    border-top:1px solid var(--line-soft);
+  }
+  ul.points > li:first-child{ border-top:none; }
+  ul.points > li::before{
+    content:"—"; position:absolute; left:0; top:10px; width:22px; height:22px; border-radius:7px;
+    background:var(--g-tint); color:var(--g-color); font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:13px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  ul.points > li b, ul.points > li strong{ color:var(--g-color); }
+  ul.points ul{ list-style:none; margin:8px 0 0; padding:0; }
+  ul.points ul li{ position:relative; padding:6px 0 6px 22px; font-size:14px; color:var(--ink-soft); }
+  ul.points ul li::before{
+    content:"·"; position:absolute; left:0; top:4px; width:14px; height:14px;
+    color:var(--g-color); font-size:20px; font-weight:700; display:flex; align-items:center; justify-content:center;
+  }
+
+  .ayah-block{ margin:6px 0 18px; padding:20px 22px; border-radius:14px; background:var(--paper); border:1px solid var(--line); }
+  .ayah-block .ayah-ref{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--g-color); font-weight:700; margin-bottom:10px; display:block;
+  }
+  .ayah-block .ayah-ar{ font-size:24px; line-height:2; color:var(--ink); text-align:right; margin-bottom:12px; }
+  .ayah-block .ayah-en{ font-size:14.5px; line-height:1.6; color:var(--ink-soft); font-style:italic; }
+
+  .quote{
+    margin:0 0 22px; padding:16px 18px; border-radius:12px; background:var(--g-tint);
+    font-family:'Space Grotesk',sans-serif; font-size:16px; line-height:1.55; color:#20222a; border-left:3px solid var(--g-color);
+  }
+  .pill-row{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 22px; }
+  .pill-row .pill{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; background:#fff; border:1.3px solid var(--g-color);
+    color:var(--g-color); font-weight:600;
+  }
+
+  #toTop{
+    position:fixed; right:26px; bottom:26px; width:46px; height:46px; border-radius:50%;
+    background:var(--ink); color:#fff; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,.22); opacity:0; pointer-events:none; transition:opacity .25s ease, transform .2s ease; z-index:90;
+  }
+  #toTop.show{ opacity:1; pointer-events:auto; }
+  #toTop:hover{ transform:translateY(-3px); }
+
+  #quickFab{
+    position:fixed; left:26px; bottom:26px; width:52px; height:52px; border-radius:16px;
+    background:linear-gradient(135deg, var(--c-1), var(--c-4)); color:#fff; border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; z-index:95;
+    box-shadow:0 10px 28px -6px rgba(124,58,237,.5); transition:transform .2s ease, border-radius .2s ease;
+  }
+  #quickFab:hover{ transform:translateY(-3px) scale(1.03); }
+  #quickFab.open{ border-radius:50%; }
+  #quickFab svg{ transition:transform .3s ease; }
+  #quickFab.open svg{ transform:rotate(45deg); }
+
+  #quickPanel{
+    position:fixed; left:26px; bottom:90px; width:300px; max-height:60vh; overflow-y:auto;
+    background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow);
+    z-index:94; padding:14px; opacity:0; transform:translateY(10px) scale(.97); pointer-events:none;
+    transition:opacity .2s ease, transform .2s ease;
+  }
+  #quickPanel.open{ opacity:1; transform:translateY(0) scale(1); pointer-events:auto; }
+  #quickPanel .qp-head{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--ink-soft); padding:4px 8px 10px;
+  }
+  #qpList{ list-style:none; margin:0; padding:0; }
+  #qpList li{ display:flex; align-items:center; gap:8px; border-radius:10px; padding:2px; }
+  #qpList li a{
+    flex:1; display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--ink);
+    font-size:13px; padding:8px; border-radius:10px; transition:background .15s ease;
+  }
+  #qpList li a:hover{ background:var(--paper); }
+  .qp-idx{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:700; color:#fff;
+    background:var(--qc, var(--c-1)); padding:2px 6px; border-radius:6px; flex:none;
+  }
+  .qp-toggle{ padding:8px; cursor:pointer; color:var(--ink-soft); opacity:.6; }
+  .qp-toggle:hover{ opacity:1; }
+  #qpList li.is-collapsed .qp-toggle svg{ transform:rotate(-90deg); }
+  #qpList li .qp-toggle svg{ transition:transform .3s ease; }
+
+  footer.page-footer{
+    padding:30px 8vw 60px; color:var(--ink-soft); font-size:12.5px; font-family:'IBM Plex Mono',monospace;
+    border-top:1px solid var(--line); margin-top:30px;
+  }
+  @media (max-width:980px){ main{ padding:0 6vw 120px; } .ayah-block .ayah-ar{ font-size:20px; } .card{ padding:22px 20px; } }
+  @media (max-width:520px){ #quickPanel{ width:calc(100vw - 52px); } }
+  @media (prefers-reduced-motion: reduce){ *{ animation-duration:.001s !important; transition-duration:.001s !important; } html{ scroll-behavior:auto; } }
+</style>
+</head>
+<body data-page="yusuf8889">
+
+<div id="progress"></div>
+
+<header class="hero">
+  <div class="burger-wrap">
+    <button id="navBurger" class="burger-btn" aria-haspopup="true" aria-expanded="false" aria-label="Open navigation menu">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div id="navMenu" class="burger-menu"></div>
+  </div>
+</header>
+
+<div class="ref-bar">
+  <span class="ref-label">Source</span>
+  <a href="https://www.youtube.com/watch?v=GyV0cQbNqy8" target="_blank" rel="noopener" class="ref-txt" style="text-decoration:none; border-bottom:1px solid rgba(255,255,255,.35); padding-bottom:1px;">Nouman Ali Khan</a>
+</div>
+
+<div class="page-title" id="top">
+  <span class="eyebrow">Tafsīr Notes · Sūrah Yūsuf</span>
+  <h1>"Did You <span class="accent-word">Know</span> What You Did to Yusuf and His Brother?" [Ayat 88–89]</h1>
+  <div class="sub">The brothers stand before the Aziz with worthless goods and a plea for charity — every phrase an unintended irony — and Yusuf (AS) finally answers with a single, piercing question. Includes a follow-up on why Yaʿqūb (AS) said "Yusuf and his brother" in Ayah 87.</div>
+  <div class="tag-row">
+    <span class="tag">Ayah 87 follow-up</span>
+    <span class="tag">Ayah 88</span>
+    <span class="tag">Ayah 89</span>
+    <span class="tag">Aziz · Muzjāh · Sadaqa</span>
+    <span class="tag">Jahl</span>
+  </div>
+</div>
+
+<div class="layout">
+  <div class="toc-wrap">
+    <button class="toc-toggle" id="tocToggle" aria-expanded="false" aria-controls="tocPanelOuter">
+      <span class="toc-toggle-left">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        <span>Table of Contents</span>
+      </span>
+      <svg class="toc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="toc-panel-outer" id="tocPanelOuter">
+      <div class="toc-panel-inner">
+        <nav class="sidebar" id="sidebarNav">
+          <div class="search-box">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input id="searchInput" type="text" placeholder="Search sections…">
+          </div>
+          <div class="nav-actions">
+            <button id="expandAll">Expand all</button>
+            <button id="collapseAll">Collapse all</button>
+          </div>
+          <div id="navGroups"></div>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <main id="mainContent"></main>
+</div>
+
+
+<button id="toTop" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<div id="quickPanel">
+  <div class="qp-head">Jump to Section</div>
+  <ul id="qpList"></ul>
+</div>
+
+<button id="quickFab" aria-label="Open quick navigation" aria-expanded="false">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+</button>
+
+<script>
+/* ============================================================
+   CONTENT — groups → sections → blocks
+   block types: ayah | card | quote | pills
+   ============================================================ */
+const GROUPS = [
+{
+  label:"Follow-up from Ayah 87", sections:[
+  { title:"Why “Yusuf and His Brother”?", key:"outstanding question previous ayat binyamin third son look for yusuf first",
+    blocks:[
+    { card:{ h:"An outstanding question from the previous ayat", badge:"A Student's Question", pts:[
+      `A student sent this question; the speaker and the sheikh had discussed it, but it wasn't brought up in the lecture, so it is raised now.`,
+      `In the previous ayat, Yaʿqūb (AS) tells his sons to go look for Yusuf and his brother. The reason he mentions Yusuf <b>first</b> was covered last time.`,
+      `Three sons are missing from that instruction — Yusuf, Binyamin, and the third brother who stayed behind in Egypt — yet only Yusuf and his brother are named.`,
+      `<b>Question 1:</b> why is the third son not mentioned?`,
+      `<b>Question 2:</b> you don't have to “look for” Binyamin — you already know where he is. The idea of searching relates to Yusuf, not Binyamin. So why say “look for Yusuf <i>and his brother</i>”?`
+    ]}},
+    { card:{ h:"Answers for why Binyamin is included", badge:"Two Explanations", pts:[
+      `<b>Answer one:</b> some suggest Yaʿqūb (AS) already felt a hint that the two matters were connected — that looking into Binyamin would somehow bring Yusuf and his brother together, so even while finding out what happened with Binyamin, they would end up finding out what happened with Yusuf.`,
+      `<b>Answer two (seen as more plausible):</b> “seek out Yusuf and seek out your brother” are deliberately paired to demand the <b>same consciousness</b> toward both.`,
+      [`They feel guilty right now that Binyamin has been left behind and are concerned for him.`,`Their concern for Yusuf should have been no different — the same attitude should have applied to both, so the two are coupled together.`]
+    ]}}
+  ]},
+  { title:"Why Not the Third Brother?", key:"third brother stayed egypt whereabouts unbroken gang obvious",
+    blocks:[
+    { card:{ h:"He is not missing", badge:"The Obvious Left Unsaid", pts:[
+      `The third brother is not lost — he <b>stayed back in Egypt on his own</b>, and his whereabouts are no mystery.`,
+      `He was the one who sent the others off, so he presumably told them where he is. He is not someone who needs to be searched for.`,
+      `The brothers also don't need to be told to look for the brother they get along with — they call themselves an <b>unbroken gang</b>, and they will reunite with him anyway.`,
+      `So there is no need to tell them the obvious.`
+    ]}}
+  ]},
+  { title:"The Qur'an Doesn't State the Obvious", key:"quran obvious intellect baby marriage divorce principles storytelling sophistication",
+    blocks:[
+    { card:{ h:"A side note, but an important one", badge:"How the Text Works", pts:[
+      `This is the Qur'an's way in many places: not stating what is obvious. People often assume the Qur'an — or the religion — will spell everything out.`,
+      `In reality it spells out what is <b>not</b> obvious, and for what is obvious, Allah expects us to use the intellect He gave us.`,
+      `Example: the Qur'an has no guidance on how to take care of a baby or feed a child — Allah endowed human beings with the intellect to work that out.`
+    ]}},
+    { card:{ h:"Divorce vs. marriage", badge:"Where the Detail Goes", pts:[
+      `When Allah discusses divorce, He does so <b>exhaustively</b> — because when divorce happens, people don't know what to do and a lot of wrong occurs.`,
+      `He does not say much about marriage itself — no day-to-day instructions on how to carry yourself in it. Basic rights and responsibilities are there, but the day-to-day is left out.`,
+      `Instead there are general principles that apply to any situation: fairness, honesty, transparency, reliance, trust, and fulfillment of responsibility.`,
+      `These belong in any relationship, not just marriage — their nature differs from one relationship to another, but they aren't spelled out specifically because they are obvious.`
+    ]}},
+    { card:{ h:"In storytelling too", badge:"Reading With Sensitivity", pts:[
+      `Even in Qur'anic storytelling, the obvious isn't mentioned.`,
+      `And if something apparently obvious <b>is</b> mentioned, then something not-so-obvious is being highlighted through it.`,
+      `This is the sensitivity and sophistication with which the text of the Qur'an needs to be read.`
+    ]}}
+  ]},
+  { title:"Why Search for Binyamin Too?", key:"hassos investigate detained prison condition how is he slave hard labor",
+    blocks:[
+    { card:{ h:"Knowing where he is ≠ knowing how he is", badge:"The Second Meaning of Search", pts:[
+      `Yusuf is lost — in the possession of strangers, and nobody knows what became of him.`,
+      `Even knowing that Binyamin is in prison, incarcerated or detained, doesn't mean you know how he is doing: the cell he's in, who his cellmates are, whether he is being beaten or tortured.`,
+      `Modern analogy: when someone is arrested, the family wants to know more than the location — which state prison, penitentiary, government building or detention center. They still ask: are they eating well? Are they sick? How are they being treated? How is their mental health? Can I talk to them?`,
+      `Being detained somewhere doesn't mean you have access to them or know they are okay.`,
+      `So the “search” (<i>taḥassus</i>) also means <b>investigating what became of him</b>: fine, he has been held back — but did he become a slave? Is he being used for hard labor? What is his situation now? Go find that out too.`,
+      `That explains including Binyamin; the third brother is left out because that is all too obvious.`
+    ]}}
+  ]}
+]},
+{
+  label:"Setting the Scene", sections:[
+  { title:"Silence, Then Egypt", key:"brothers did not respond silent confession fast forward canaan palace expectation",
+    blocks:[
+    { card:{ h:"The brothers' silence", badge:"A Silent Confession", pts:[
+      `In the previous ayah Yaʿqūb (AS) told them not to lose hope in Allah's mercy — and <b>they didn't respond</b>. They didn't argue back or fight back.`,
+      `It's as if they gave in a little — a silent form of confession. They admitted some wrong and were not going to get annoyed by the mention of Yusuf; they kind of surrendered.`,
+      `Two possible meanings: they internalized some guilt and didn't fight back; or they gave up on the conversation — “fine, fine” — and left.`
+    ]}},
+    { card:{ h:"Fast-forward to the palace", badge:"The Next Scene", pts:[
+      `The Qur'an fast-forwards: they left Canaan, traveled all the way to Egypt, and are again in front of Yusuf, in the palace, in the court.`,
+      `Binyamin and Yusuf have already figured things out between them. The brothers don't see that — they only see Yusuf (AS), and they are about to speak their piece.`
+    ]}},
+    { card:{ h:"What we would expect them to say", badge:"The Expectation", pts:[
+      `Their father sent them to look for any clues about Yusuf and his brother, and told them not to lose hope in Allah's mercy.`,
+      `As obedient, concerned sons, we would expect them to say: <i>Governor, we tried to get our brother back — we offered to put one of us in his place, but you refused, and we lost hope that you'd let us. But our father is begging you.</i>`,
+      `They don't say that. They don't ask for their brother at all, and it doesn't seem they looked for Yusuf either.`
+    ]}}
+  ]},
+  { title:"The Doubtful Letter Narration", key:"letter jacob sent narration not authenticated curse seventh generation prophets do not threaten",
+    blocks:[
+    { card:{ h:"A letter from Yaʿqūb (AS)?", badge:"Not Authenticated", pts:[
+      `Some narrations claim Yaʿqūb (AS) sent a letter with his sons for Yusuf (AS). These are <b>not authenticated</b>, and the speaker is doubtful of them because of the content.`,
+      `The letter reportedly says: I'm his father, I'm an old man, I love him — please give him back to me; and if you don't, your seventh generation will experience death or a curse.`,
+      `A curse inside the letter is the problem: <b>prophets don't speak like that</b>, and prophets don't issue threats along with their duas.`,
+      `It is unbecoming of the character of Yaʿqūb (AS) as depicted in the Qur'an.`,
+      `So all we have is the Qur'an's scene: sons sent to get their brother, standing before Yusuf who knows them while they don't know him. What will they say? “Could you please give us our brother?” — they don't.`
+    ]}}
+  ]}
+]},
+{
+  label:"Ayah 88 — The Brothers' Plea", sections:[
+  { title:"“O Aziz”: The Irony of Power", key:"aziz minister nida tazis dignifying power cannot be questioned irony well",
+    blocks:[
+    { ayah:{ ref:"Verse 88", ar:"فَلَمَّا دَخَلُوا۟ عَلَيْهِ قَالُوا۟ يَـٰٓأَيُّهَا ٱلْعَزِيزُ مَسَّنَا وَأَهْلَنَا ٱلضُّرُّ وَجِئْنَا بِبِضَـٰعَةٍ مُّزْجَىٰةٍ فَأَوْفِ لَنَا ٱلْكَيْلَ وَتَصَدَّقْ عَلَيْنَآ ۖ إِنَّ ٱللَّهَ يَجْزِى ٱلْمُتَصَدِّقِينَ", en:`“So when they entered upon him, they said, ‘O Aziz, adversity has touched us and our family, and we have come with goods poor in quality, but give us full measure and be charitable to us. Indeed, Allah rewards the charitable.’” — Sahih International` }},
+    { card:{ h:"How they address him", badge:"Yā ayyuhal-ʿAzīz", pts:[
+      `When they finally enter into his company they say <i>ya ayyuhal-Aziz</i> — “Aziz” meaning minister or governor. It is a <i>nidāʾ</i> (call) that also carries a sense of <i>taʿẓīm</i>: dignifying, honoring — “noble minister.”`,
+      `There is a duality in the words, a sense of <b>irony</b>. In the etymology of the Arabic language, <i>ʿazīz</i> means someone with power that cannot be questioned — someone who can take a decision and cannot be overruled.`,
+      `That is literally what <b>they</b> had over him: they were acting from a position of unquestionable power, doing whatever they wanted with him, tossing him in a well and choosing among any abuse they liked — while he was in humility and powerlessness.`,
+      `Now, as the story wraps up, they come powerless before the one who was powerless when they were powerful — and call him “the one with power and might, who can take any decision without anybody questioning the consequences.”`,
+      `They don't even know the incredible contrast they are painting with their own mouths.`
+    ]}}
+  ]},
+  { title:"“Adversity Has Touched Us”", key:"massana durr harm poverty famine touched flooded drowning well tears",
+    blocks:[
+    { card:{ h:"Ḍurr — harm born of circumstance", badge:"Massanā wa ahlanā al-ḍurr", pts:[
+      `<i>Ḍurr</i> is one of the Arabic words for harm, associated with poverty, bankruptcy, famine, war and the like — difficulty that comes to you because of your surroundings.`,
+      `They say: this great difficulty because of circumstances has touched us and our family. That is the first thing they say.`,
+      `Irony to note: they say their family has been afflicted by difficulty — yet they were the <b>first ones to bring difficulty</b> to their family, and the one they say it to is the one they created harmful circumstances for.`
+    ]}},
+    { card:{ h:"“Touched” means overrun", badge:"Massa = Overwhelmed", pts:[
+      `<i>Massa</i> literally means “to touch,” but as an Arabic figure of speech it describes someone overrun or overwhelmed by a situation. A literary equivalent: <b>we're flooded with problems</b> — surrounded by water, drowning in it.`,
+      `That language is striking because it is literally what they did: they <b>drowned Yusuf</b> in a well, and they <b>drowned their father in tears</b>. Now they come saying great affliction has touched them.`,
+      `What it could mean practically: times have gotten tougher, minister. We took food from you, but the food has run out and our families are starving. The drought and famine are worse, crime is worse, security is worse — our family is worse off than even the last time we came.`
+    ]}}
+  ]},
+  { title:"Goods Gently Pushed Away", key:"bidaa muzjat tazjiya cow calf winds clouds banana worm silver barter no cash",
+    blocks:[
+    { card:{ h:"Biḍāʿatin muzjāh", badge:"Goods Nobody Wants", pts:[
+      `Second thing they say: we have come with <i>biḍāʿa</i> (sellable goods) that are <i>muzjāh</i>.`,
+      `<i>Tazjiya</i> is used of a cow when the calf is slow to move and the cow nudges it gently with its head to move it along. When the winds gently nudge the clouds, Allah says <i>yuzjī saḥāban</i> — He gently pushes them along. The core meaning is to gently push something aside and move it along.`,
+      `So <i>muzjāh</i> goods are the kind people see and gently push away, saying “no thanks” — like a salesperson pushing a banana where you can see a worm coming out of it; you kindly, without embarrassing the seller, move along and don't buy.`,
+      `They are saying: these are goods that are hard to sell and people just pass by. We know they're no good.`
+    ]}},
+    { card:{ h:"What their situation reveals", badge:"Out of Cash", pts:[
+      `Nobody had cash. Earlier they had paid in silver (small amounts of currency) — which was even placed back in their bags without them knowing.`,
+      `Had they brought wood, copper or other metals or materials to sell, they'd have noticed bags full — but now it seems they have run out of money and have brought actual things to barter.`,
+      `The things they found around the house aren't things people want to buy. They may look like trash to the minister — but that's all they have now.`
+    ]}}
+  ]},
+  { title:"“Fill the Measure for Us”", key:"awfi lana al-kayl fill scale camel donkey pathetic desperate charity tasaddaq",
+    blocks:[
+    { card:{ h:"A pathetic ask", badge:"Fa-awfi lanā al-kayl", pts:[
+      `Then they say: fill the scale (<i>al-kayl</i>) for us. Previously they came with a certain amount of silver or coin and Yusuf would fill a camel or donkey with meal — rice, grain or the like.`,
+      `Now they bring a ripped pillow, an old piece of wood, a stick — this <i>muzjāh</i> stuff nobody wants — and still ask: <b>could you fill the camel anyway?</b>`,
+      `They are in a pretty pathetic, desperate economic state — broken.`,
+      `Then they add <i>wa-taṣaddaq ʿalaynā</i>: and give us charity on top of that. (The word <i>ṣadaqa</i> is unpacked in a later section.)`
+    ]}},
+    { pills:["Unsellable goods","Full load anyway","Charity on top"] }
+  ]},
+  { title:"The Irony of “Goods” and “Full Measure”", key:"irony bidaa yusuf hidden as goods sold cheap bible razi caravan fulfill scale justice",
+    blocks:[
+    { card:{ h:"Yusuf was once “biḍāʿa” too", badge:"Irony #1", pts:[
+      `The epic irony isn't something they are consciously aware of. Long ago, this child was taken out of the well and turned into <i>biḍāʿa</i> — the same word. Those who found him in the well <b>hid him as merchandise</b>, and valued him less than sellable goods, tossing him away.`,
+      `The Biblical version is that they sold him off for cheap. In the Qur'an's version they left him in the well.`,
+      `Imam Razi tries to reconcile the two: they left him in the well, then saw a caravan coming and said “might as well make some money out of it,” and sold him for nothing.`,
+      `Now they come to the brother who ended up being sold like worthless goods — with <i>biḍāʿa</i> — and ask him to buy it from them.`
+    ]}},
+    { card:{ h:"“Fulfill the scale”: the language of justice", badge:"Irony #2", pts:[
+      `<i>Awfi al-kayl</i> is also a figure of speech. In the Qur'an Allah says that whenever you measure, fulfill the scale — an umbrella expression for <b>being fair</b>.`,
+      `It doesn't just mean a full pound of rice or a full kilo of grain. It also means: if you're being paid, do the hours; if you have a contract, fulfill the contract. It is a full-on expression for justice.`,
+      `So “give us exactly what we deserve, in full, don't hold back, lay it on us” — ironic that <b>they</b> are the ones asking for exactly what they deserve.`
+    ]}}
+  ]},
+  { title:"Ṣadaqa and the Root of Truth", key:"sadaqa sidq truth charity spear sword straight unbreakable siddiq yusuf cold winter attack",
+    blocks:[
+    { card:{ h:"Where “ṣadaqa” comes from", badge:"Root: ṣ-d-q", pts:[
+      `Ṣadaqa (charity) comes from the root <i>ṣidq</i>, commonly understood as <b>truth</b> — one of the Arabic words for it, and the antonym of <i>kadhib</i> (lying).`,
+      `Originally it described a <b>straight, hard spear</b> — a good spear is straight and tough. A spear that is perfect and unbreakable is <i>ṣadq</i>; a sword like that is <i>ṣādiq</i>.`,
+      `The same verb is used of wild animals charging straight at prey without veering or looking left and right; of someone who looks straight at you without their eyes deviating; and of someone confronting an enemy without dodging — all on the offensive, not holding back, not sidestepping for defense.`,
+      `In pre-Islamic poetry and other references it was used as a synonym for power and intensity. A truly cold winter — the most intense winter — is called <i>bardun ṣādiq</i>.`
+    ]}},
+    { card:{ h:"Truth as a spear", badge:"Truth Cuts", pts:[
+      `So: straight, tough, unbreakable, powerful, on the attack — this is the word the Arabs use for <b>truth</b>. By the ancient Arabs' definition, truth is offensive: it is straight, it cuts, it attacks.`,
+      `That is why Allah says the truth came and falsehood dissipated; He describes hurling the “spear” of truth against falsehood so that it crushes its skull — graphic imagery of an enemy being killed, describing the clash between truth and falsehood.`,
+      `A person who is <i>ṣiddīq</i> has the best qualities — straight, truthful, honest.`,
+      `Yusuf (AS) was already called <i>ṣiddīq</i> by the released inmate who came back to have the king's dream interpreted. It means a sincere, genuine friend, but also someone committed to the truth <b>no matter what</b> — whose feelings get hurt, whatever trouble it brings, whatever the political or social ramifications. They tell it like it is.`
+    ]}},
+    { card:{ h:"Charity and truthfulness share a root", badge:"Double-Edged", pts:[
+      `<i>Ṣadaqa</i> is linked to the same root. Some try to build a correlation (it may not be one), but giving <i>ṣadaqa</i> is to give something very sincere — charity that isn't given for sincere reasons isn't even considered <i>ṣadaqa</i>.`,
+      `So when they say “give us <i>ṣadaqa</i>,” the same root also says: <b>now tell us the whole truth — reveal the truth to us.</b> A duality embedded very implicitly, not directly.`,
+      `Everything they say is a double-edged sword: one edge is their request, the other points back at them.`
+    ]}}
+  ]},
+  { title:"“Allah Rewards the Charitable”", key:"allah rewards those who give charity irony not charitable brother breathe",
+    blocks:[
+    { card:{ h:"Ironic even at the end", badge:"Inna Allāha yajzī al-mutaṣaddiqīn", pts:[
+      `They finish: certainly Allah compensates and rewards those who give charity.`,
+      `Irony: <b>you weren't very charitable</b> — you couldn't even let your brother breathe — and now you talk about how Allah rewards the charitable.`,
+      `(This thread is picked up again in the closing reflection: charity isn't only money, and oppressive people can still quote God.)`
+    ]}}
+  ]}
+]},
+{
+  label:"Reading Their Silence About Binyamin", sections:[
+  { title:"Why Didn't They Ask for Binyamin?", key:"razi problem dad instructions testing the waters slip in request not genuine",
+    blocks:[
+    { card:{ h:"The problem Imam Razi noticed", badge:"A Break in the Flow", pts:[
+      `There seems to be a break from the previous ayah: their father said to look for Yusuf and his brother. They come to Yusuf and say “we're starving, we didn't bring much, but this is what we've got, could you give us…” — <b>Binyamin never comes up</b>.`,
+      `This led the commentators (<i>mufassirūn</i>) to ask how they could fail to follow their father's instructions.`
+    ]}},
+    { card:{ h:"Two classical answers", badge:"Giving Them Credit", pts:[
+      `<b>Answer one:</b> they probably did follow it — it's obvious they did — but they were also desperate, so the Qur'an didn't mention it. They must have looked for him, and were also desperate for food, charity and economic assistance.`,
+      `<b>Answer two (Imam Razi):</b> they were <b>testing the waters</b>. They would first say: we're starving, our family is in difficulty, this is all we have left, please give us a full load even though our goods are worthless, and be charitable to us on top of that.`,
+      `If they saw him being charitable and in a good mood, they might slip in the request for Binyamin. So, “let's just see how he responds first.”`,
+      `Under this view they were not being genuine in this display; they were gauging where they stood with Yusuf.`
+    ]}}
+  ]},
+  { title:"The Eye-Roll Reading", key:"eye roll dismissed father speaker reading qila it has been said tafsir feed families",
+    blocks:[
+    { card:{ h:"The speaker's own reading", badge:"Not Obligatory to Follow", pts:[
+      `The speaker says his reading doesn't give them as much credit, and stresses you are <b>not obligated</b> to follow it — Allahu aʿlam. These are all possibilities.`,
+      `He floated it to the sheikh, hoping to find it in the tradition, and it is mentioned in tafsir under <i>wa-qīla</i> (“it has been said”). So someone in history shares this thought process — he jokes that he hopes they are “a normal person” and that he read it first.`
+    ]}},
+    { card:{ h:"What the brothers were really thinking", badge:"The Eye-Roll", pts:[
+      `Dad says “go look for Yusuf.” And they do what some kids do: the <b>eye-roll</b> — rolled so hard they could fall out of the socket and roll off like marbles.`,
+      `“Here we go again — one of those Yusuf lectures. Yeah, yeah, of course we will. Didn't we explain that Binyamin has been taken by the governor? Didn't we tell him we begged the governor to let him go and he isn't letting him? Doesn't he understand it's impossible — and now a whole lecture about not losing hope and going to look for Yusuf?”`,
+      `“Yes, dad, of course, of course. That's why we're going. Listen — we've got to feed our families, let's just go. Let's not argue with him anymore; he's not worth the argument.”`,
+      `In other words, they <b>dismissed what their father said</b>. Their only real concern, as on the first trip, was feeding themselves.`,
+      `So they take whatever they can get, and in front of Yusuf they don't make a case for their brother — the only case they make is for food.`
+    ]}}
+  ]},
+  { title:"What Yusuf Hears", key:"yusuf listening abandoned binyamin thief pride unbroken gang wolf humbled",
+    blocks:[
+    { card:{ h:"Two observations, one hurt", badge:"Yusuf (AS) Listening", pts:[
+      `Sitting in front of them, Yusuf (AS) thinks: years ago you abandoned me without a second thought, and now the word “Binyamin” doesn't even leave your mouth.`,
+      `The only thing they ever said about Binyamin was that he is probably a thief; they asked him to hand Binyamin over to them, he said no, and that was it — <b>they gave up on him</b>. Now their hopes lie with food. He doesn't want to bring that up again.`,
+      `<b>Observation one:</b> he can't believe they aren't concerned about anything else.`,
+      `<b>Observation two:</b> he is pretty sure their father didn't send them for this. He knows his father from back in the day and now has an updated account from Binyamin — <i>father wouldn't have sent us for just food; you are ignoring what father said.</i>`
+    ]}},
+    { card:{ h:"The prideful gang, humbled", badge:"A Reversal of Roles", pts:[
+      `These are the same brothers who were bullies, powerful and strong — “who can touch us, we are an unbroken band, a wolf will get him” — that was their pride back then.`,
+      `Now that same prideful group stands before him saying: harm has touched us, we've been beaten down by circumstances, humbled, broken, we have nothing left, here are pathetic things from around our house.`,
+      `“Please be generous and give us a full load — you haven't said whether you will, but even if you do, please give us some extra charity.”`
+    ]}}
+  ]},
+  { title:"The Humiliation of Begging", key:"begging humiliating borrowing chain around neck debt gharimin dignity self respect",
+    blocks:[
+    { card:{ h:"The most humbling place to be", badge:"Begging for Charity", pts:[
+      `They are now begging for charity — for anyone who has worked with their own hands and provided for their family, having to beg for food is the most degrading, humiliating position.`,
+      `Even borrowing money can feel like death to someone with integrity. Once people lose that self-respect, “can I borrow 20 bucks, bro?” is no problem — but for some, borrowing feels like suffocating; they'd rather be hungry.`,
+      `May Allah not put any of us in that position. For those who are in it: Allah describes people in debt as having a <b>chain around their neck</b> — borrowing feels like a choke hold, constantly looming over you and tugging at your neck. You're not free.`,
+      `It is one of the categories of people we have to help — those who are in debt.`
+    ]}}
+  ]},
+  { title:"Time to End the Secret", key:"aziz thief mercy wives kids not deserve confront humbled economically conscience wrong did not seem wrong",
+    blocks:[
+    { card:{ h:"Yusuf sees his position", badge:"The Turning Point", pts:[
+      `Yusuf (AS) is in a position to give more than anyone. He is <i>al-Aziz</i> — and brothers who in the last conversation called him a thief now call him al-Aziz.`,
+      `In the last conversation they dismissed him and his family; now they talk about how their family has been hurt — and he realizes it isn't just them, but their <b>wives and kids</b> who are suffering. Even if they did him wrong, <b>they don't deserve that</b>.`,
+      `So there is no reason to keep the secret anymore: it's time to let them know what's what, and to confront them.`
+    ]}},
+    { card:{ h:"Humbled — but only outwardly", badge:"Humility Test", pts:[
+      `Earlier the lecture noted that Yusuf hoped for signs of humility. There are two readings: every action he took humbled them little by little until he saw they were humble enough to break the secret.`,
+      `The speaker's reading: he tried various things to humble them, but although they were humbled <b>economically</b>, they were not yet humbled in <b>conscience</b>.`,
+      `The wrong did not seem wrong to them; the dismissal of their father's instruction didn't seem like a dismissal; ignoring what they did to their brother didn't seem like a big deal.`,
+      `So what does Yusuf (AS) say? This is Ayah 89.`
+    ]}}
+  ]}
+]},
+{
+  label:"Ayah 89 — Yusuf's Reply", sections:[
+  { title:"“Did You Know What You Did?”", key:"hal alimtum did you know yusuf and his brother layers pain hate rage jealousy knowledge",
+    blocks:[
+    { ayah:{ ref:"Verse 89", ar:"قَالَ هَلْ عَلِمْتُم مَّا فَعَلْتُم بِيُوسُفَ وَأَخِيهِ إِذْ أَنتُمْ جَـٰهِلُونَ", en:`“He said, ‘Do you know what you did with Joseph and his brother, when you were ignorant?’” — Sahih International` }},
+    { card:{ h:"One layer: did you even realize?", badge:"Hal ʿalimtum", pts:[
+      `Literally: “Did you know what you did to Yusuf and his brother when you were <i>jāhilūn</i>?”`,
+      `First layer: did you even realize what you were doing? When someone is consumed by hate, rage, jealousy or the whispers of the devil, it's as if they don't know.`,
+      `Even if they do know — you can know and not know. You can know Allah, the Day of Judgment, the Prophet ﷺ, the Qur'an — know all of it, and step all over the instructions without a second thought, because all of it has been overrun by your <i>jahl</i>.`,
+      `It is also his ironic way of saying that people who act like that <b>do</b> know — “didn't you know?”`,
+      `You can hear the pain in Yusuf's words: he is in a position to do so much to them, and there is so much pent up from so many years. On top of that, his brother came to him and cried out, and Yusuf became the comforting arm for his brother — and now they have abandoned his brother too.`
+    ]}}
+  ]},
+  { title:"Jahl: When Impulse Rules", key:"jahl jahil hilm forbearance composure restraint ignorance opposite knowledge impulse",
+    blocks:[
+    { card:{ h:"What “jahl” really means", badge:"Lack of Restraint", pts:[
+      `<i>Jahl</i> is having no control — outrage, rage and jealousy out of control. It is the opposite of <i>ʿilm</i> (knowledge), hence “ignorance,” and also the opposite of <i>ḥilm</i>.`,
+      `<i>Ḥilm</i> means forbearance: holding yourself back, having composure — being able to think after restraining yourself.`,
+      `When you act in a way that has no restraints, you're called a <i>jāhil</i>: whatever impulse comes, you do it; whatever comes to your mouth, you say; wherever your hands want to go, they go; wherever your eyes want to go, they go.`,
+      `So he is asking: did you know what you did to Yusuf and his brother when you had no control over your impulses and acted so outrageously?`
+    ]}}
+  ]},
+  { title:"No Trauma Contest", key:"trauma contest pain bigger yusuf brother empathy binyamin same abandonment heart redemption",
+    blocks:[
+    { card:{ h:"Yusuf doesn't compete over pain", badge:"The Heart of Yusuf (AS)", pts:[
+      `A separate but important note: when Binyamin came to him and told him what they'd been doing to him, Yusuf (AS) did not say “you call that trauma? Let me tell you trauma — I was thrown in a well, made a slave, put in jail.”`,
+      `There was <b>no trauma contest</b>. Too often when someone shares pain, we say “you call that pain? My pain is bigger — I get 100 points, you get 45.”`,
+      `That wants others to know what we feel at the expense of what they feel — “I don't want to acknowledge what you feel.”`,
+      `You can argue that what Yusuf went through is <b>way worse</b> than what Binyamin went through — yet when Yusuf speaks out, he doesn't speak only for himself.`
+    ]}},
+    { card:{ h:"“Yusuf and his brother” — as one", badge:"Same Abandonment", pts:[
+      `“Did you know what you did with Yusuf <i>and his brother</i>” treats the two as one — as if the crime is the same. It's not the same: they didn't try to kill Binyamin. But one thing <b>is</b> the same — they abandoned both.`,
+      `And do you think that after you left me in the dark and did away with me, the abuses you did to Binyamin were any less? Did you think your sins were over when you were done with me, and that you'd be good afterward — because that's what you told yourselves after you were done with him? “That's what you call being good — how have you been with Binyamin?”`,
+      `This was the time for his redemption — a moment to say “do you know what you did to <i>me</i>.” It could have been about him. It wasn't. It was about him <b>and</b> his brother.`,
+      `This is the genuineness and love of Yusuf (AS): he felt the pain for himself and for his brother, and put them together as one.`
+    ]}}
+  ]},
+  { title:"Names: Yusuf Said, Binyamin Unsaid", key:"names yusuf never told his name thief brother reflection association hated because",
+    blocks:[
+    { card:{ h:"He says “Yusuf” — they never did", badge:"The Name Comes Out", pts:[
+      `“Yusuf” comes out of his mouth — but they never told him his name was Yusuf. They only said he “used to have a brother that stole.” They didn't even dignify him with a name; they threw it out — and he let it be known.`
+    ]}},
+    { card:{ h:"Why not “your two brothers”?", badge:"Yūsuf wa akhīh", pts:[
+      `The expression could have been “do you know what you did to your two brothers?” — but he didn't say that.`,
+      `He names himself but <b>doesn't name Binyamin</b>: “Yusuf and his brother.” Why? Because they never thought of Binyamin by name either.`,
+      `You hurt him because he was <i>my</i> brother. You hated him because of his association to me — every time you saw him, you saw a reflection of me, so you abused him. That's what you did, isn't it?`
+    ]}}
+  ]},
+  { title:"Other Readings, and the “Prophets” Opinion", key:"benefit of the doubt used to be bad reformed prophets opinion casts shade text call out reform",
+    blocks:[
+    { card:{ h:"More meanings of “did you know?”", badge:"ʿAlimtum", pts:[
+      `Some interpret it as “did you remember,” “did you realize,” or “did you come to terms with the fact…”.`,
+      `In this immediate context it also suggests: here you are asking for help, as if harm has touched you — and <b>you have no awareness of the harm you caused</b>. You are very aware that you and those you love are in trouble, but that others you were supposed to love and harmed — the thought doesn't even occur to you.`,
+      `It could also mean “what you did and what you <i>continued</i> to do” — what you did to Yusuf, and what you continued to do to his brother — when you were <i>jāhil</i>.`
+    ]}},
+    { card:{ h:"The benefit-of-the-doubt reading", badge:"“When You Used to Be Bad”", pts:[
+      `Some give the brothers the benefit of the doubt, reading <i>anta jāhilūn</i> as “when you used to be bad — do you know what you did… because I see you're good now, so you're not as bad anymore.” The speaker says it is a valid interpretation and not incorrect, but he is <b>not as convinced</b> by it, since it exonerates them.`,
+      `In classical tafsir there was an opinion, without solid basis, that <b>all the brothers were prophets</b>. No prophet is ever described like this in the Qur'an.`,
+      `Once you hold that opinion, it casts a shade over every interpretation — everything about them in the surah gets a positive spin so the audience won't think prophets are bad. The speaker's view: the text should cast shade on opinion, not opinion on the text.`,
+      `Even on its own terms it makes less sense: if Yusuf saw they had reformed, it wouldn't be the time to say “I see you've changed, but do you know you were really bad?” — bringing up past mistakes doesn't befit a prophet.`,
+      `But when someone hasn't reformed, is still up to no good and oblivious about what they've done, they may need to be called out — very much in line with prophetic teaching.`,
+      `That is why he doesn't believe they were prophets, and believes they are <b>not yet on their way to reform</b>.`
+    ]}}
+  ]},
+  { title:"Humbled by Circumstance ≠ Humbled in Heart", key:"humble arrogance pharaoh billionaire poor meager circumstance heart broken pride",
+    blocks:[
+    { card:{ h:"An important distinction", badge:"Two Kinds of Humbling", pts:[
+      `They have been humbled by circumstance — economically and socially — but <b>humbling the heart to your own sins hasn't happened yet</b>.`,
+      `Someone can live a humble lifestyle — no means, a meager apartment, dirty old clothes — and still have the arrogance of Pharaoh. Pride and arrogance have nothing to do with what you possess.`,
+      `You can be a billionaire and humble — the speaker says he has met such people — or have almost nothing to be proud of and be the most arrogant person walking around.`,
+      `What we learn: they were humbled by circumstance, but that doesn't mean their character was humbled.`,
+      `But now that he sees their pride is at least broken — they come begging for charity — it's time to let them know: “Did you know what you did with Yusuf and his brother?”`
+    ]}}
+  ]},
+  { title:"The Psychology of Confronting an Abuser", key:"confront abused child elderly abuser cane shaking imaginary conversations reasonable response",
+    blocks:[
+    { card:{ h:"Power doesn't erase the tremble", badge:"Confrontation", pts:[
+      `These words hit them like an avalanche — and one can only imagine the tears Yusuf must have held back to say them.`,
+      `Even in a position of power, confronting the one who abused you is hard even when they are no longer in a position to abuse you.`,
+      `Analogy: someone abused as a child by a family member who is now much older — heart attacks, surgeries, on a cane, barely able to stand — while you are an adult, strong, capable and independent. They can't so much as harm you, yet when you stand before them and say “I know what you did — do you know what you did?” you start shaking. You may have the strength to confront them, but part of you is still rattled by what they did.`
+    ]}},
+    { card:{ h:"The imaginary conversations", badge:"In the Abused Mind", pts:[
+      `These conversations happen in the abused mind all the time: <i>Do you know what you did to me? Do you know how much that hurt? Does it ever bother your conscience?</i> People who have been hurt or oppressed have these imaginary conversations with their oppressor — “I just want to know what you have to say.”`,
+      `Some run back to their abuser hoping for a reasonable response, and instead end up abused again, making things worse for themselves.`,
+      `Now, the brothers are not in a position to answer back — they are in the position Yusuf used to be in.`
+    ]}}
+  ]},
+  { title:"The Irony Comes Full Circle", key:"irony full circle aziz mighty full measure goods charity sadaqa smile respect father quote god come to terms next ayah tomorrow",
+    blocks:[
+    { card:{ h:"Their own words, turned around", badge:"Every Phrase Backfires", pts:[
+      `<b>Father and the name:</b> not long ago, when their father mentioned Yusuf's name they got angry and mad. Now they've just called him <i>al-Aziz</i> — mighty minister, respectable authority.`,
+      `<b>“We've been hit by harm and our families…”</b> — while they were the ones who brought harm to their own family.`,
+      `<b>“Give us full measure”</b> — meaning deal with us rightly. Did you deal with Yusuf rightly?`,
+      `<b>“We brought pathetic goods”</b> — you once treated Yusuf as nothing but useless goods, to be gotten rid of.`,
+      `<b>“Give us charity”</b> — is this the <i>ṣadaqa</i> you gave your brother and your father?`
+    ]}},
+    { card:{ h:"“Allah gives those who give charity”", badge:"A Good Lecture — For Themselves", pts:[
+      `“That's a really good lecture — Allah rewards those who give charity. How come you don't hear that for yourself?”`,
+      `Why couldn't you be charitable with even a smile? Why couldn't you be charitable in respect toward your father? Charity is not just about money — <b>smiling in your brother's face is <i>ṣadaqa</i></b>. You couldn't give that to Binyamin or Yusuf. It didn't cost much.`,
+      `Ironically, oppressive people can also quote God, talk about rewards, and say “thank you so much, may Allah reward you.” Yes, Allah does reward — and it's good that you have faith in Allah — but that doesn't take away the need to <b>come to terms with what you did</b>.`,
+      `“I need to hear from you: what do you have to say for yourselves?”`
+    ]}},
+    { card:{ h:"The ground pulled from under them", badge:"Cliffhanger", pts:[
+      `The confrontation has now taken place. The earth is pulled from beneath their feet — as if they weren't already broken by circumstance.`,
+      `Everything their father has been telling them is probably flashing before their eyes and ringing in their ears. What do we do now?`,
+      `In the next ayah, they will take a good look at Yusuf's face — and then the lecture ends with: “I'll tell you tomorrow.”`
+    ]}}
+  ]}
+]}
+];
+
+/* ============================================================
+   RENDER
+   ============================================================ */
+const CHEV = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+const CHEV_S = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+const pad = n => String(n).padStart(2,'0');
+const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+
+// nested-aware version (sub-list belongs to preceding li)
+function renderPointsNested(pts){
+  let html = '<ul class="points">';
+  for(let i=0;i<pts.length;i++){
+    const p = pts[i];
+    if(Array.isArray(p)) continue;
+    html += '<li>' + p;
+    if(Array.isArray(pts[i+1])) html += '<ul>' + pts[i+1].map(x => '<li>' + x + '</li>').join('') + '</ul>';
+    html += '</li>';
+  }
+  return html + '</ul>';
+}
+
+function renderBlock(b){
+  if(b.ayah) return `<div class="ayah-block"><span class="ayah-ref">${b.ayah.ref}</span><p class="ayah-ar arabic">${b.ayah.ar}</p><p class="ayah-en">${b.ayah.en}</p></div>`;
+  if(b.card) return `<div class="card"><div class="card-top"><h3>${b.card.h}</h3><span class="code-badge">${b.card.badge}</span></div>${renderPointsNested(b.card.pts)}</div>`;
+  if(b.quote) return `<div class="quote">${b.quote}</div>`;
+  if(b.pills) return `<div class="pill-row">${b.pills.map(p=>`<span class="pill">${p}</span>`).join('')}</div>`;
+  return '';
+}
+
+const main = document.getElementById('mainContent');
+const navGroups = document.getElementById('navGroups');
+const qpList = document.getElementById('qpList');
+const ALL_SECTION_IDS = [];
+let n = 0;
+
+GROUPS.forEach(g => {
+  let ulHtml = '';
+  g.sections.forEach(s => {
+    n++;
+    const id = 's-' + pad(n), ci = ((n-1) % 6) + 1;
+    ALL_SECTION_IDS.push(id);
+    s.id = id; s.ci = ci;
+    main.insertAdjacentHTML('beforeend', `
+      <section class="class-section" id="${id}" style="--g-color:var(--c-${ci}); --g-tint:var(--c-${ci}-tint);">
+        <div class="class-head">
+          <span class="idx">${pad(n)}</span>
+          <h2>${s.title}</h2>
+          <button class="collapse-toggle" data-target="${id}" aria-expanded="true" aria-label="Collapse section">${CHEV}</button>
+        </div>
+        <div class="class-body-outer" id="body-${id}"><div class="class-body-inner">${s.blocks.map(renderBlock).join('')}</div></div>
+      </section>`);
+    ulHtml += `<li><a href="#${id}" data-key="${esc(s.key)}" style="--g-color:var(--c-${ci})"><span class="sw"></span>${s.title}</a></li>`;
+    qpList.insertAdjacentHTML('beforeend', `<li data-target="${id}"><a href="#${id}" style="--qc:var(--c-${ci})"><span class="qp-idx">${pad(n)}</span>${s.title}</a><span class="qp-toggle" data-target="${id}" aria-label="Toggle section">${CHEV_S}</span></li>`);
+  });
+  navGroups.insertAdjacentHTML('beforeend', `<div class="nav-group-label">${g.label}</div><ul>${ulHtml}</ul>`);
+});
+
+/* ============================================================
+   BEHAVIOR (same as reference page)
+   ============================================================ */
+const progress = document.getElementById('progress');
+const toTop = document.getElementById('toTop');
+function updateProgress(){
+  const h = document.documentElement;
+  const max = h.scrollHeight - h.clientHeight;
+  progress.style.width = (max > 0 ? h.scrollTop / max * 100 : 0) + '%';
+  toTop.classList.toggle('show', h.scrollTop > 700);
+}
+document.addEventListener('scroll', updateProgress, {passive:true});
+updateProgress();
+toTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+const tocToggle = document.getElementById('tocToggle');
+const tocPanelOuter = document.getElementById('tocPanelOuter');
+function closeToc(){ tocPanelOuter.classList.remove('open'); tocToggle.setAttribute('aria-expanded','false'); }
+tocToggle.addEventListener('click', () => {
+  const isOpen = tocPanelOuter.classList.toggle('open');
+  tocToggle.setAttribute('aria-expanded', String(isOpen));
+});
+
+const navLinks = document.querySelectorAll('nav.sidebar li a');
+const sectionObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
+    }
+  });
+}, { rootMargin:'-15% 0px -70% 0px', threshold:0 });
+document.querySelectorAll('main section.class-section').forEach(el => sectionObserver.observe(el));
+
+const quickFab = document.getElementById('quickFab');
+const quickPanel = document.getElementById('quickPanel');
+function openQuickPanel(){ quickPanel.classList.add('open'); quickFab.classList.add('open'); quickFab.setAttribute('aria-expanded','true'); }
+function closeQuickPanel(){ quickPanel.classList.remove('open'); quickFab.classList.remove('open'); quickFab.setAttribute('aria-expanded','false'); }
+quickFab.addEventListener('click', () => quickPanel.classList.contains('open') ? closeQuickPanel() : openQuickPanel());
+document.addEventListener('click', e => {
+  if(quickPanel.classList.contains('open') && !quickPanel.contains(e.target) && !quickFab.contains(e.target)) closeQuickPanel();
+});
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeQuickPanel(); });
+quickPanel.querySelectorAll('a').forEach(a => a.addEventListener('click', closeQuickPanel));
+
+function setCollapsed(id, collapsed){
+  const body = document.getElementById('body-' + id);
+  const btn = document.querySelector('.collapse-toggle[data-target="' + id + '"]');
+  const qpItem = document.querySelector('#qpList li[data-target="' + id + '"]');
+  if(body) body.classList.toggle('collapsed', collapsed);
+  if(btn) btn.setAttribute('aria-expanded', String(!collapsed));
+  if(qpItem) qpItem.classList.toggle('is-collapsed', collapsed);
+}
+function isCollapsed(id){ const b = document.getElementById('body-' + id); return b ? b.classList.contains('collapsed') : false; }
+function toggleCollapsed(id){ setCollapsed(id, !isCollapsed(id)); }
+
+document.querySelectorAll('.collapse-toggle').forEach(btn => btn.addEventListener('click', () => toggleCollapsed(btn.dataset.target)));
+document.querySelectorAll('#qpList li').forEach(item => {
+  item.querySelector('.qp-toggle').addEventListener('click', e => { e.stopPropagation(); e.preventDefault(); toggleCollapsed(item.dataset.target); });
+});
+document.getElementById('expandAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, false)));
+document.getElementById('collapseAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, true)));
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', () => {
+    const href = a.getAttribute('href').slice(1);
+    const target = href && document.getElementById(href);
+    if(!target) return;
+    if(target.classList.contains('class-section')) setCollapsed(href, false);
+    if(a.closest('nav.sidebar')) closeToc();
+  });
+});
+
+const searchInput = document.getElementById('searchInput');
+searchInput.addEventListener('input', () => {
+  const q = searchInput.value.trim().toLowerCase();
+  navLinks.forEach(a => {
+    const key = ((a.dataset.key || '') + ' ' + a.textContent).toLowerCase();
+    const match = q === '' || key.includes(q);
+    a.dataset.hidden = match ? '0' : '1';
+    const section = document.querySelector(a.getAttribute('href'));
+    if(section) section.style.display = match ? '' : 'none';
+  });
+});
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

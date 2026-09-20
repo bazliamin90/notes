@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>“Are You Really Yusuf?” — Surah Yusuf 90 | Study Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --paper:#fbfbfd;
+    --ink:#14151a;
+    --ink-soft:#5a5d6b;
+    --line:#e7e7ee;
+    --line-soft:#f0f0f5;
+
+    --c-1:#7c3aed;  --c-1-tint:#f4edff;   /* violet */
+    --c-2:#0284c7;  --c-2-tint:#e8f6ff;   /* ocean */
+    --c-3:#ea580c;  --c-3-tint:#fff1e8;   /* coral */
+    --c-4:#db2777;  --c-4-tint:#ffe9f4;   /* magenta */
+    --c-5:#059669;  --c-5-tint:#e6faf2;   /* emerald */
+    --c-6:#0f766e;  --c-6-tint:#e6f8f6;   /* teal */
+
+    --accent: var(--c-1);
+    --accent-tint: var(--c-1-tint);
+
+    --radius: 18px;
+    --shadow: 0 1px 2px rgba(20,21,26,.04), 0 12px 32px -16px rgba(20,21,26,.14);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background: var(--accent); color:#fff; }
+
+  h1,h2,h3,h4{ font-family:'Space Grotesk', sans-serif; margin:0; letter-spacing:-.01em; }
+  code, .mono{ font-family:'IBM Plex Mono', monospace; }
+  a{ color:inherit; }
+  p{ margin:0; }
+  .arabic{ font-family:'Amiri', serif; direction:rtl; }
+
+  #progress{
+    position:fixed; top:0; left:0; height:3px; width:0%;
+    background: linear-gradient(90deg, var(--c-1), var(--c-2), var(--c-3), var(--c-4), var(--c-5), var(--c-6));
+    z-index:100; transition: width .1s linear;
+  }
+
+  .ref-bar{
+    background:var(--ink); color:#fff;
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    padding:9px 8vw; display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  }
+  .ref-bar .ref-label{ color:rgba(255,255,255,.55); text-transform:uppercase; letter-spacing:.08em; font-size:10.5px; }
+  .ref-bar .ref-txt{ opacity:.85; }
+
+  header.hero{
+    padding: 6px 8vw;
+    min-height:46px;
+    display:flex; align-items:center; gap:10px;
+    position:sticky; top:0; z-index:80;
+    border-bottom:1px solid var(--line);
+    background-color:#fff;
+    background-image:
+      radial-gradient(700px 340px at 8% -10%, var(--c-1-tint), transparent 60%),
+      radial-gradient(600px 300px at 95% 0%, var(--c-3-tint), transparent 55%);
+  }
+  /* ---------- burger navigation ---------- */
+  .burger-wrap{ position:relative; display:flex; align-items:center; }
+  .burger-btn{
+    width:34px; height:34px; border-radius:10px; border:1.3px solid var(--line);
+    background:var(--paper); color:var(--ink); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: border-color .15s ease, background .15s ease, color .15s ease;
+  }
+  .burger-btn:hover{ border-color: var(--c-1); }
+  .burger-btn.open{ background: var(--c-1); border-color: var(--c-1); color:#fff; }
+  .burger-btn svg{ transition: opacity .15s ease; }
+  .burger-menu{
+    position:absolute; top:calc(100% + 10px); left:0; width:320px;
+    background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow);
+    padding:8px; opacity:0; transform: translateY(-6px); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease; z-index:120;
+    display:flex; flex-direction:column;
+  }
+  .burger-menu.open{ opacity:1; transform: translateY(0); pointer-events:auto; }
+  .burger-menu-home{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; margin:2px 2px 8px;
+    border-radius:10px; border-bottom:1px solid var(--line-soft);
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-home svg{ flex:none; color:var(--ink-soft); }
+  .burger-menu-home:hover{ background: var(--paper); }
+  .burger-menu-home.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-home.is-current .bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-search{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:10px; padding:8px 10px; margin:2px 2px 8px;
+    background:var(--paper); flex:none;
+  }
+  .burger-menu-search svg{ flex:none; opacity:.5; color:var(--ink-soft); }
+  .burger-menu-search input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13px; width:100%; color:var(--ink);
+  }
+  .burger-menu-list{ max-height:340px; overflow-y:auto; overscroll-behavior:contain; }
+  .burger-menu-list::-webkit-scrollbar{ width:6px; }
+  .burger-menu-list::-webkit-scrollbar-thumb{ background:var(--line); border-radius:10px; }
+  .burger-menu-group + .burger-menu-group{ margin-top:4px; }
+  .burger-menu-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); padding:8px 10px 4px;
+  }
+  .burger-menu-empty{
+    display:none; padding:18px 10px; text-align:center; font-size:12.5px; color:var(--ink-soft);
+  }
+  .burger-menu-item{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; border-radius:10px;
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-item span.bm-title{ display:block; }
+  .burger-menu-item span.bm-sub{ display:block; font-size:11.5px; color:var(--ink-soft); font-weight:400; margin-top:1px; }
+  .burger-menu-item:hover{ background: var(--paper); }
+  .burger-menu-item.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-item.is-current span.bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-dot{ width:9px; height:9px; border-radius:3px; flex:none; margin-top:3px; }
+
+
+  .page-title{ padding: 30px 8vw 6px; }
+  .page-title .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-soft); margin-bottom:10px; display:block;
+  }
+  .page-title h1{
+    font-size: clamp(26px, 5vw, 46px);
+    line-height:1.12;
+    font-weight:700;
+  }
+  .page-title h1 .accent-word{
+    background: linear-gradient(100deg, var(--c-1), var(--c-4) 55%, var(--c-3));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .page-title .sub{
+    margin-top:14px; max-width:66ch; color:var(--ink-soft); font-size:15px; line-height:1.6;
+  }
+  .page-title .tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+  .page-title .tag{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; border:1.3px solid var(--line);
+    color:var(--ink-soft); font-weight:500; background:var(--paper);
+  }
+
+  .layout{
+    max-width:1400px; margin:0 auto;
+  }
+  .toc-wrap{
+    border-bottom:1px solid var(--line);
+    padding: 0 8vw;
+  }
+  .toc-toggle{
+    width:100%; display:flex; align-items:center; justify-content:space-between; gap:10px;
+    background:none; border:none; cursor:pointer; padding:16px 0;
+    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px; color:var(--ink);
+  }
+  .toc-toggle:hover{ color:var(--c-1); }
+  .toc-toggle-left{ display:flex; align-items:center; gap:10px; }
+  .toc-toggle-left svg{ color:var(--ink-soft); flex:none; }
+  .toc-count{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft); font-weight:500;
+    background:var(--paper); border:1px solid var(--line); padding:2px 8px; border-radius:100px;
+  }
+  .toc-chevron{ transition: transform .3s ease; color:var(--ink-soft); flex:none; }
+  .toc-toggle[aria-expanded="true"] .toc-chevron{ transform: rotate(180deg); }
+  .toc-panel-outer{ display:grid; grid-template-rows: 0fr; transition: grid-template-rows .35s ease; }
+  .toc-panel-outer.open{ grid-template-rows: 1fr; }
+  .toc-panel-inner{ overflow:hidden; min-height:0; }
+
+  nav.sidebar{ display:block; padding: 4px 0 22px; }
+
+  .search-box{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:12px; padding:10px 12px; margin-bottom:18px;
+    background:var(--paper);
+  }
+  .search-box input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13.5px; width:100%; color:var(--ink);
+  }
+  .search-box svg{ flex:none; opacity:.5; }
+
+  .nav-actions{ display:flex; gap:8px; margin-bottom:18px; }
+  .nav-actions button{
+    flex:1; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    border:1.3px solid var(--line); background:#fff; color:var(--ink-soft);
+    padding:7px 8px; border-radius:9px; cursor:pointer; transition:.15s ease;
+  }
+  .nav-actions button:hover{ border-color:var(--ink); color:var(--ink); }
+
+  .nav-group-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); margin: 18px 0 6px 2px;
+  }
+  .nav-group-label:first-of-type{ margin-top:0; }
+
+  nav.sidebar ul{ list-style:none; margin:0; padding:0; border-left:2px solid var(--line-soft); }
+  nav.sidebar li a{
+    display:flex; align-items:center; gap:9px;
+    text-decoration:none; font-size:13.5px; color:var(--ink-soft);
+    padding:7px 0 7px 14px; border-left:2px solid transparent; margin-left:-2px;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  nav.sidebar li a .sw{ width:8px; height:8px; border-radius:3px; flex:none; background:var(--g-color); }
+  nav.sidebar li a:hover{ color:var(--ink); }
+  nav.sidebar li a.active{ color:var(--g-color); border-left-color: var(--g-color); font-weight:600; }
+  nav.sidebar li a[data-hidden="1"]{ display:none; }
+
+  main{ min-width:0; padding: 0 8vw 140px; }
+
+  section.class-section{ padding-top:56px; scroll-margin-top: 64px; }
+  section.class-section:first-child{ padding-top:44px; }
+
+  .class-head{
+    display:flex; align-items:baseline; gap:16px; flex-wrap:wrap;
+    padding-bottom:14px; margin-bottom:22px; border-bottom:3px solid var(--g-color);
+    position:relative;
+  }
+  .class-head .idx{
+    font-family:'IBM Plex Mono',monospace; font-size:14px; font-weight:700; color:#fff;
+    background:var(--g-color); padding:5px 10px; border-radius:8px;
+  }
+  .class-head h2{ font-size: clamp(20px,2.4vw,28px); color:var(--ink); }
+  .collapse-toggle{
+    margin-left:auto; width:34px; height:34px; border-radius:9px; border:1.5px solid var(--line);
+    background:#fff; color:var(--g-color); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: transform .3s ease, background .15s ease, border-color .15s ease;
+  }
+  .collapse-toggle:hover{ background: var(--g-tint); border-color: var(--g-color); }
+  .collapse-toggle svg{ transition: transform .3s ease; }
+  .collapse-toggle[aria-expanded="false"] svg{ transform: rotate(-90deg); }
+
+  .class-body-outer{ display:grid; grid-template-rows: 0fr; transition: grid-template-rows .38s ease; }
+  .class-body-outer.collapsed{ grid-template-rows: 0fr; }
+  .class-body-outer:not(.collapsed){ grid-template-rows: 1fr; }
+  .class-body-inner{ overflow:hidden; min-height:0; opacity:0; transition: opacity .25s ease .1s; }
+  .class-body-outer.collapsed .class-body-inner{ opacity:0; transition: opacity .18s ease; }
+  .class-body-outer:not(.collapsed) .class-body-inner{ opacity:1; }
+
+  .card{
+    background:#fff; border:1px solid var(--line); border-radius: var(--radius);
+    padding: 28px 30px; margin-bottom: 22px; position:relative; overflow:hidden;
+    border-left: 5px solid var(--g-color);
+  }
+  .card .card-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap;
+    margin-bottom:14px;
+  }
+  .card h3{ font-size:19px; font-weight:600; color:var(--ink); }
+  .card h3 .alt{ font-weight:400; color:var(--ink-soft); font-size:14px; display:block; margin-top:3px;}
+  .code-badge{
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:12px; color:#fff;
+    background: var(--g-color); padding:6px 12px; border-radius:8px; white-space:nowrap;
+  }
+
+  ul.points{ list-style:none; margin:0; padding:0; }
+  ul.points > li{
+    position:relative; padding: 10px 0 10px 34px; font-size:14.8px; line-height:1.65; color:#2b2d36;
+    border-top:1px solid var(--line-soft);
+  }
+  ul.points > li:first-child{ border-top:none; }
+  ul.points > li::before{
+    content:"—";
+    position:absolute; left:0; top:10px; width:22px; height:22px; border-radius:7px;
+    background: var(--g-tint); color:var(--g-color); font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:13px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  ul.points > li b, ul.points > li strong{ color:var(--g-color); }
+  ul.points ul{ list-style:none; margin:8px 0 0; padding:0; }
+  ul.points ul li{
+    position:relative; padding:6px 0 6px 22px; font-size:14px; color:var(--ink-soft); border-top:none;
+  }
+  ul.points ul li::before{
+    content:"·"; position:absolute; left:0; top:4px; width:14px; height:14px; border-radius:0;
+    background:none; color:var(--g-color); font-size:20px; font-weight:700; display:flex; align-items:center; justify-content:center;
+  }
+
+  .ayah-block{
+    margin: 6px 0 18px; padding:20px 22px; border-radius:14px; background:var(--paper);
+    border:1px solid var(--line);
+  }
+  .ayah-block .ayah-ref{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--g-color); font-weight:700; margin-bottom:10px; display:block;
+  }
+  .ayah-block .ayah-ar{
+    font-size:24px; line-height:2; color:var(--ink); text-align:right; margin-bottom:12px;
+  }
+  .ayah-block .ayah-en{
+    font-size:14.5px; line-height:1.6; color:var(--ink-soft); font-style:italic;
+  }
+
+  .quote{
+    margin-top:16px; padding:16px 18px; border-radius:12px; background:var(--g-tint);
+    font-family:'Space Grotesk', sans-serif; font-size:16px; line-height:1.55; color:#20222a;
+    border-left:3px solid var(--g-color);
+  }
+  .quote footer{
+    margin-top:8px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    text-transform:uppercase; color:var(--ink-soft); font-style:normal;
+  }
+
+  .pill-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .pill-row .pill{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; background:#fff; border:1.3px solid var(--g-color);
+    color:var(--g-color); font-weight:600;
+  }
+
+  .lesson-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:6px; }
+  @media (max-width:640px){ .lesson-grid{ grid-template-columns:1fr; } }
+  .lesson-card{
+    border-radius:var(--radius); padding:22px 22px; border:1.3px solid var(--line);
+  }
+  .lesson-card .kicker{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .lesson-card h4{ margin-top:8px; font-size:17px; }
+  .lesson-card p{ margin-top:10px; font-size:14px; line-height:1.6; color:#2b2d36; }
+
+  .num-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:6px; }
+  @media (max-width:760px){ .num-grid{ grid-template-columns:1fr; } }
+  .num-card{
+    border-radius:14px; padding:18px 20px; border:1.3px solid var(--line); background:var(--paper);
+    display:flex; gap:14px; align-items:flex-start;
+  }
+  .num-card .num-badge{
+    flex:none; width:30px; height:30px; border-radius:9px; background:var(--g-color); color:#fff;
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center;
+  }
+  .num-card p{ font-size:14px; line-height:1.6; color:#2b2d36; }
+
+  #toTop{
+    position:fixed; right:26px; bottom:26px; width:46px; height:46px; border-radius:50%;
+    background:var(--ink); color:#fff; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,.22); opacity:0; pointer-events:none; transition: opacity .25s ease, transform .2s ease;
+    z-index:90;
+  }
+  #toTop.show{ opacity:1; pointer-events:auto; }
+  #toTop:hover{ transform: translateY(-3px); }
+
+  #quickFab{
+    position:fixed; left:26px; bottom:26px; width:52px; height:52px; border-radius:16px;
+    background: linear-gradient(135deg, var(--c-1), var(--c-4)); color:#fff; border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; z-index:95;
+    box-shadow:0 10px 28px -6px rgba(124,58,237,.5);
+    transition: transform .2s ease, border-radius .2s ease;
+  }
+  #quickFab:hover{ transform: translateY(-3px) scale(1.03); }
+  #quickFab.open{ border-radius:50%; }
+  #quickFab svg{ transition: transform .3s ease; }
+  #quickFab.open svg{ transform: rotate(45deg); }
+
+  #quickPanel{
+    position:fixed; left:26px; bottom:90px; width:280px; max-height:60vh; overflow-y:auto;
+    background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow);
+    z-index:94; padding:14px; opacity:0; transform: translateY(10px) scale(.97); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  #quickPanel.open{ opacity:1; transform: translateY(0) scale(1); pointer-events:auto; }
+  #quickPanel .qp-head{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--ink-soft); padding:4px 8px 10px;
+  }
+  #qpList{ list-style:none; margin:0; padding:0; }
+  #qpList li{
+    display:flex; align-items:center; gap:8px; border-radius:10px; padding:2px;
+  }
+  #qpList li a{
+    flex:1; display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--ink);
+    font-size:13px; padding:8px; border-radius:10px; transition:background .15s ease;
+  }
+  #qpList li a:hover{ background:var(--paper); }
+  .qp-idx{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:700; color:#fff;
+    background: var(--qc, var(--c-1)); padding:2px 6px; border-radius:6px;
+  }
+  .qp-toggle{ padding:8px; cursor:pointer; color:var(--ink-soft); opacity:.6; }
+  .qp-toggle:hover{ opacity:1; }
+  #qpList li.is-collapsed .qp-toggle svg{ transform: rotate(-90deg); }
+  #qpList li .qp-toggle svg{ transition: transform .3s ease; }
+
+  #empty-state{ display:none; padding:60px 0; text-align:center; color:var(--ink-soft); }
+  #empty-state.show{ display:block; }
+
+  footer.page-footer{
+    padding:30px 8vw 60px; color:var(--ink-soft); font-size:12.5px; font-family:'IBM Plex Mono',monospace;
+    border-top:1px solid var(--line); margin-top:30px;
+  }
+
+  @media (max-width: 980px){
+    main{ padding: 0 6vw 120px; }
+    .ayah-block .ayah-ar{ font-size:20px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001s !important; transition-duration:.001s !important; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body data-page="yusuf90">
+
+<div id="progress"></div>
+
+<header class="hero">
+  <div class="burger-wrap">
+    <button id="navBurger" class="burger-btn" aria-haspopup="true" aria-expanded="false" aria-label="Open navigation menu">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div id="navMenu" class="burger-menu"></div>
+  </div>
+</header>
+
+<div class="ref-bar">
+  <span class="ref-label">Source</span>
+  <a href="https://www.youtube.com/watch?v=Y_SkfvjYxAo" target="_blank" rel="noopener" class="ref-txt" style="text-decoration:none; border-bottom:1px solid rgba(255,255,255,.35); padding-bottom:1px;">Nouman Ali Khan</a>
+</div>
+
+<div class="page-title" id="top">
+  <span class="eyebrow">Tafsīr Notes · Sūrah Yūsuf</span>
+  <h1>“Are You <span class="accent-word">Really</span> Yusuf?” [Ayah 90]</h1>
+  <div class="sub">The reveal: how the brothers realized who stood before them, what “I am Yusuf and this is my brother” meant, why Yusuf chose forgiveness and a one-line sermon on taqwā and ṣabr — and a closing reflection on hope in this life and the next.</div>
+  <div class="tag-row">
+    <span class="tag">Verse 90</span><span class="tag">Innaka la-anta Yusuf</span><span class="tag">Taqwā &amp; Ṣabr</span><span class="tag">Iḥsān</span><span class="tag">Hope &amp; Tawakkul</span>
+  </div>
+</div>
+
+<div class="layout">
+  <div class="toc-wrap">
+    <button class="toc-toggle" id="tocToggle" aria-expanded="false" aria-controls="tocPanelOuter">
+      <span class="toc-toggle-left">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        <span>Table of Contents</span><span class="toc-count">22</span>
+      </span>
+      <svg class="toc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="toc-panel-outer" id="tocPanelOuter"><div class="toc-panel-inner">
+      <nav class="sidebar">
+        <div class="search-box">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input id="searchInput" type="text" placeholder="Search sections…">
+        </div>
+        <div class="nav-actions"><button id="expandAll">Expand all</button><button id="collapseAll">Collapse all</button></div>
+<div class="nav-group-label">The Reveal</div>
+<ul>
+<li><a href="#s-01" data-key="ayah 89 question brothers ignorant well witness nobody breadcrumbs generous binyamin yusuf&#x27;s question: “do you know what you did?”" style="--g-color:var(--c-1)"><span class="sw"></span>Yusuf's Question: “Do You Know What You Did?”</a></li>
+<li><a href="#s-02" data-key="optical illusion squares circle film school shooting background clues seek yusuf father breadcrumbs &amp; optical illusions" style="--g-color:var(--c-2)"><span class="sw"></span>Breadcrumbs &amp; Optical Illusions</a></li>
+<li><a href="#s-03" data-key="ibn ashur throne guards hall clerk motor vehicle office look them in the eye trickle realizations yusuf steps down from the throne" style="--g-color:var(--c-3)"><span class="sw"></span>Yusuf Steps Down From the Throne</a></li>
+<li><a href="#s-04" data-key="innaka la anta yusuf inna izalat al shakk remove doubt taukid really translation awkward statement question “are you really yusuf?” — translating the shock" style="--g-color:var(--c-4)"><span class="sw"></span>“Are You Really Yusuf?” — Translating the Shock</a></li>
+<li><a href="#s-05" data-key="mufassirun smile birthmark crown forehead witnesses none snitched only possibility how did they recognize him?" style="--g-color:var(--c-5)"><span class="sw"></span>How Did They Recognize Him?</a></li>
+</ul>
+<div class="nav-group-label">“I Am Yusuf”</div>
+<ul>
+<li><a href="#s-06" data-key="ana yusuf thief brother stole asara yusufu urdu spanish shoe store junction boulevard pakistani outrageous obnoxious “i am yusuf” — and the “thief” remark" style="--g-color:var(--c-6)"><span class="sw"></span>“I Am Yusuf” — and the “Thief” Remark</a></li>
+<li><a href="#s-07" data-key="aziz minister egypt vip family binyamin mubalagha identity father yaqub shaking brother “and this is my brother”" style="--g-color:var(--c-1)"><span class="sw"></span>“And This Is My Brother”</a></li>
+</ul>
+<div class="nav-group-label">Restraint &amp; Favor</div>
+<ul>
+<li><a href="#s-08" data-key="sabr patience diamond faces out of control restraint power revenge shura forgive eye for an eye two kinds of ṣabr" style="--g-color:var(--c-2)"><span class="sw"></span>Two Kinds of Ṣabr</a></li>
+<li><a href="#s-09" data-key="revenge nine wells payback feel my pain jail slave right to say the revenge he didn&#x27;t take" style="--g-color:var(--c-3)"><span class="sw"></span>The Revenge He Didn't Take</a></li>
+<li><a href="#s-10" data-key="qad manna allah alayna favored both faith dignity reunion relief upper hand israelites over you dignified class “allah has favored both of us” — four meanings" style="--g-color:var(--c-4)"><span class="sw"></span>“Allah Has Favored Both of Us” — Four Meanings</a></li>
+<li><a href="#s-11" data-key="material lens millionaire homeless favor faith prison castle well old woman masjid prophet cried judgment one favor, two very different worlds" style="--g-color:var(--c-5)"><span class="sw"></span>One Favor, Two Very Different Worlds</a></li>
+</ul>
+<div class="nav-group-label">The One-Line Sermon</div>
+<ul>
+<li><a href="#s-12" data-key="pivotal breaking point humbled iron hot strike shaytan enemy veil father taught choosing what they needed to hear" style="--g-color:var(--c-6)"><span class="sw"></span>Choosing What They Needed to Hear</a></li>
+<li><a href="#s-13" data-key="man yattaqi wa yasbir taqwa mindful envy favoritism father prophet shaytan jealousy killing brother where was your taqwa “whoever has taqwā and ṣabr” — unpacked" style="--g-color:var(--c-1)"><span class="sw"></span>“Whoever Has Taqwā and Ṣabr” — Unpacked</a></li>
+<li><a href="#s-14" data-key="present tense conditional future not judged past mistakes new life farm crop seven years leader spiritual economic pulpit a door left open — and the farm analogy" style="--g-color:var(--c-2)"><span class="sw"></span>A Door Left Open — and the Farm Analogy</a></li>
+<li><a href="#s-15" data-key="ayah 88 mutasaddiqin muhsinin positive negative verb charity avoid bad missed out compensation opportunity “rewards” vs. “does not waste”" style="--g-color:var(--c-3)"><span class="sw"></span>“Rewards” vs. “Does Not Waste”</a></li>
+<li><a href="#s-16" data-key="taqwa sabr inside outside explosive fuel flood gates channels axiom gravity fire burns razi zina single taqwā and ṣabr: the two battles" style="--g-color:var(--c-4)"><span class="sw"></span>Taqwā and Ṣabr: The Two Battles</a></li>
+<li><a href="#s-17" data-key="ihsan muhsinin jibril hadith muslim mumin worship allah as if you see him equation iḥsān: taqwā + ṣabr = muḥsin" style="--g-color:var(--c-5)"><span class="sw"></span>Iḥsān: Taqwā + Ṣabr = Muḥsin</a></li>
+<li><a href="#s-18" data-key="did not say lecture ibrahim ishaq yaqub muslim whoever open invitation redemption apology hell anger limits what yusuf did not say" style="--g-color:var(--c-6)"><span class="sw"></span>What Yusuf Did Not Say</a></li>
+</ul>
+<div class="nav-group-label">Hope in This Life &amp; the Next</div>
+<ul>
+<li><a href="#s-19" data-key="surah promise this life afterlife innocent imprisoned killed quran neither exclusively slave creature of hope fatiha guidance salvation guarantee two realities: does goodness pay off in this life?" style="--g-color:var(--c-1)"><span class="sw"></span>Two Realities: Does Goodness Pay Off in This Life?</a></li>
+<li><a href="#s-20" data-key="hope this life children parents marriage cancer guarantee beg humbled different doors evil eye tawakkul trust feelings balance yaʿqūb: hope and trust together" style="--g-color:var(--c-2)"><span class="sw"></span>Yaʿqūb: Hope and Trust Together</a></li>
+<li><a href="#s-21" data-key="hajj kaaba arafah dua good in this world complacent tawakkul injustice math exam tahajjud study extremes balance hajj, two extremes &amp; the balance of the believer" style="--g-color:var(--c-3)"><span class="sw"></span>Hajj, Two Extremes &amp; the Balance of the Believer</a></li>
+<li><a href="#s-22" data-key="relentless fanatical hope psychotic unreasonable optimism impossible well egypt slave jail plan beyond fathom dua brothers hit hard tomorrow relentless hope — and a closing du&#x27;a" style="--g-color:var(--c-4)"><span class="sw"></span>Relentless Hope — and a Closing Du'a</a></li>
+</ul>
+      </nav>
+    </div></div>
+  </div>
+
+  <main>
+
+<section class="class-section" id="s-01" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+  <div class="class-head"><span class="idx">01</span><h2>Yusuf's Question: “Do You Know What You Did?”</h2>
+    <button class="collapse-toggle" data-target="s-01" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></div>
+  <div class="class-body-outer" id="body-s-01"><div class="class-body-inner">
+<div class="ayah-block">
+  <span class="ayah-ref">Verse 89 — the question that leads into our ayah</span>
+  <p class="ayah-ar arabic">قَالَ هَلْ عَلِمْتُم مَّا فَعَلْتُم بِيُوسُفَ وَأَخِيهِ إِذْ أَنتُمْ جَـٰهِلُونَ</p>
+  <p class="ayah-en">“He said, ‘Do you know what you did with Joseph and his brother when you were ignorant?’” — Sahih International</p>
+</div>
+<div class="card">
+  <div class="card-top"><h3>The question itself</h3><span class="code-badge">Yusuf (AS) Speaks Without Revealing Himself</span></div>
+  <ul class="points">
+<li>Yusuf (AS) asked his brothers a question <b>without telling them he was their brother</b>.</li>
+<li>He turned to them and asked whether they knew what they had done to Yusuf and his brother at the time when they were so outrageous — out of control, unable to keep their emotions, rage and hatred in check.</li>
+<li>The speaker asks us to imagine what was going on in their heads as they processed this statement.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>Their racing thoughts</h3><span class="code-badge">How Does He Know?</span></div>
+  <ul class="points">
+<li>“Wait — how does he know who Yusuf is?”</li>
+<li>“How does he know we did anything? Our own father never even found out what we did.”</li>
+<li>“How does he know what we did to his brother all along — and the state we were in when we were doing it?”</li>
+<li>“We didn't quietly kill him or quietly do something with him — we were aggressive toward him, and then we tossed him in a well. How does he know we behaved that way and said those things?”</li>
+<li>There was <b>no other witness</b> — nobody else was there.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>Pieces falling into place</h3><span class="code-badge">The Pattern Emerges</span></div>
+  <ul class="points">
+<li>Hold on — this man was so interested in having them come and explain themselves, and in hearing all about the family.</li>
+<li>He was overwhelmingly generous to them: he <b>doubled their load</b> without telling them and <b>returned their money</b>.</li>
+<li>He was so keen to see Binyamin.</li>
+<li>Now the pieces are starting to be put together.</li>
+  </ul>
+</div>
+  </div></div>
+</section>
+
+<section class="class-section" id="s-02" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+  <div class="class-head"><span class="idx">02</span><h2>Breadcrumbs &amp; Optical Illusions</h2>
+    <button class="collapse-toggle" data-target="s-02" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></div>
+  <div class="class-body-outer" id="body-s-02"><div class="class-body-inner">
+<div class="card">
+  <div class="card-top"><h3>The optical-illusion analogy</h3><span class="code-badge">Squares That Hide a Circle</span></div>
+  <ul class="points">
+<li>There are optical illusions where you look at an image made of a bunch of squares and are told to find the circle.</li>
+<li>At first you see only squares and think there are no circles — but if you look at the pattern a certain way, your eyes refocus and suddenly you see the circle.</li>
+<li>The same image can be seen in two ways depending on where your focus lands.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>The film analogy</h3><span class="code-badge">The Kid in the Background</span></div>
+  <ul class="points">
+<li>Filmmakers sometimes build a film around one story — say, a boy and a girl — and then suddenly something completely unrelated erupts.</li>
+<li>The speaker was told about a movie where a school shooting suddenly happens: a kid goes on a rampage shooting people at a school.</li>
+<li>Going back through the film, you find the clues were always there: in scenes where the main characters talk, in the background the same kid is looking up guns or doing other telling things.</li>
+<li>Your eyes never went to it because you were focused on the main scene, not the background — <b>breadcrumbs that were always there</b>.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>Applying it to the brothers</h3><span class="code-badge">Yusuf Was Right in Their Faces</span></div>
+  <ul class="points">
+<li>Yusuf (AS) was right in front of them from the beginning; they had a few encounters with him.</li>
+<li>They never looked at him from that point of view because they weren't really looking.</li>
+<li>This is another indication that when their father said “go seek out Yusuf and his brother,” <b>seeking Yusuf wasn't really on their minds</b>.</li>
+<li>There were enough clues to land on the conclusion that this was Yusuf — and Yusuf's question, “Do you know what you did?”, was the ultimate breadcrumb.</li>
+  </ul>
+</div>
+  </div></div>
+</section>
+
+<section class="class-section" id="s-03" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+  <div class="class-head"><span class="idx">03</span><h2>Yusuf Steps Down From the Throne</h2>
+    <button class="collapse-toggle" data-target="s-03" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></div>
+  <div class="class-body-outer" id="body-s-03"><div class="class-body-inner">
+<div class="card">
+  <div class="card-top"><h3>Ibn ʿĀshūr's suggestion</h3><span class="code-badge">Setting the Scene</span></div>
+  <ul class="points">
+<li>Ibn ʿĀshūr (rahimahullah) postulates something about the moment the brothers said they had come with goods from home that they couldn't even sell, and asked Yusuf to be charitable to them.</li>
+<li>Yusuf (AS) is up on the throne while they are way down below; there are guards and a giant hall, so they are perhaps 20–30 feet from His Highness.</li>
+<li>It isn't like a clerk's desk at the motor vehicle office, where the clerk sits right across from you — he is in the royal position and they are at the bottom.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>What may have happened next</h3><span class="code-badge">Face to Face</span></div>
+  <ul class="points">
+<li>It seems perhaps that Yusuf (AS) <b>came down from the throne</b>, approached them, looked them in the eye, and asked, “Do you know what you did with Yusuf and his brother when you were ignorant?”</li>
+<li>As his face came closer and they looked at it, realizations hit them <b>trickle by trickle</b>, right in the face.</li>
+<li>That is precisely where the ayah begins.</li>
+  </ul>
+</div>
+  </div></div>
+</section>
+
+<section class="class-section" id="s-04" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+  <div class="class-head"><span class="idx">04</span><h2>“Are You Really Yusuf?” — Translating the Shock</h2>
+    <button class="collapse-toggle" data-target="s-04" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></div>
+  <div class="class-body-outer" id="body-s-04"><div class="class-body-inner">
+<div class="ayah-block">
+  <span class="ayah-ref">Verse 90</span>
+  <p class="ayah-ar arabic">قَالُوٓا۟ أَءِنَّكَ لَأَنتَ يُوسُفُ ۖ قَالَ أَنَا۠ يُوسُفُ وَهَـٰذَآ أَخِى ۖ قَدْ مَنَّ ٱللَّهُ عَلَيْنَآ ۖ إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ</p>
+  <p class="ayah-en">“They said, ‘Are you indeed Joseph?’ He said, ‘I am Joseph, and this is my brother. Allah has certainly favored us. Indeed, he who fears Allah and is patient — then indeed, Allah does not allow to be lost the reward of those who do good.’” — Sahih International</p>
+</div>
+<div class="card">
+  <div class="card-top"><h3>A hard-to-translate line</h3><span class="code-badge">Literal Translations Are Terrible</span></div>
+  <ul class="points">
+<li>“You certainly are Yusuf” doesn't capture it — the feel is closer to “No, no, no — you, for real? You really are Yusuf? Are you really Yusuf?”</li>
+<li>They are in <b>absolute shock</b>.</li>
+<li>The emphasis is doubled: “you” appears twice (the <i>-ka</i> on <i>inna</i> and the pronoun <i>anta</i>).</li>
+<li>There is the emphatic <i>inna</i>, which the speaker translates as “really,” and then the <i>lām</i>, which is yet another “really” — “Oh my God, seriously, you?” — the “seriously” and the “really” each twice.</li>
+<li>Only then do they say the word <b>Yusuf</b> — the shock has hit them.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>Why “really,” not “certainly”</h3><span class="code-badge">The Job of Inna</span></div>
+  <ul class="points">
+<li>Beginner Arabic students are taught to translate <i>inna</i> as “certainly” or “without a doubt” — a word used for <i>tawkīd</i> (emphasis).</li>
+<li>But its most common rhetorical purpose is <b><i>izālat al-shakk</i></b> — <b>removing doubt</b>.</li>
+<li>So a good translation of <i>innaka Yusuf</i> would have to include the word <b>“really,”</b> not “certainly”: “Are you <i>really</i> Yusuf?”</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>Question or statement?</h3><span class="code-badge">Two Readings of the Same Ayah</span></div>
+  <ul class="points">
+<li>Another reading is that it isn't a question at all but an <b>affirmative</b>: “You really are Yusuf.”</li>
+<li>Either way, the shock has hit them — they haven't confirmed it and can't believe what they're seeing, so it comes out as a question.</li>
+<li>Even as a statement it is really “You're Yusuf, right? Are you?”</li>
+<li>The speaker jokes (saying he wouldn't say it in the lecture but can't help himself) how awkward it would have been if they <i>hadn't</i> believed him — if he said “I am Yusuf” and they replied, “Yeah, good one, king, that's pretty good.”</li>
+  </ul>
+</div>
+  </div></div>
+</section>
+
+<section class="class-section" id="s-05" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+  <div class="class-head"><span class="idx">05</span><h2>How Did They Recognize Him?</h2>
+    <button class="collapse-toggle" data-target="s-05" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></div>
+  <div class="class-body-outer" id="body-s-05"><div class="class-body-inner">
+<div class="card">
+  <div class="card-top"><h3>The speaker's own answer</h3><span class="code-badge">The Question Was the Clue</span></div>
+  <ul class="points">
+<li>Scholars of Qur'an tried to analyze how the brothers came to realize this was Yusuf.</li>
+<li>What the speaker began the lecture with: Yusuf (AS) gave them the <b>ultimate breadcrumb</b> by asking what they did with Yusuf and his brother.</li>
+<li>Nobody knew what they did except the only witnesses — Yusuf and the brothers themselves. If all of them were there and none of them snitched, <b>the only possibility left is Yusuf</b>.</li>
+<li>It takes a slow turning of the wheels to process; the train of thought that question triggered made them realize, “Oh my God — it's our brother, the one we threw in the well.”</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>Other explanations found classically</h3><span class="code-badge">Not Taken From the Text</span></div>
+  <ul class="points">
+<li><b>The smile:</b> they recognized his smile and it gave him away.<ul><li>The speaker doesn't necessarily reject it but finds it less convincing.</li><li>This isn't a situation where he'd be smiling.</li><li>He doesn't think Yusuf had much reason to smile around them, so he doubts they'd recognize his smile.</li></ul></li>
+<li><b>The birthmark:</b> he took his crown off and they recognized a birthmark on his forehead.<ul><li>It's possible, but the speaker sees no reason to explain it this way when the text already gives enough reasons.</li><li>The text shows it dawned on them when he posed the question — that question made it all too obvious that he was Yusuf.</li></ul></li>
+  </ul>
+</div>
+  </div></div>
+</section>
+
+<section class="class-section" id="s-06" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+  <div class="class-head"><span class="idx">06</span><h2>“I Am Yusuf” — and the “Thief” Remark</h2>
+    <button class="collapse-toggle" data-target="s-06" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></div>
+  <div class="class-body-outer" id="body-s-06"><div class="class-body-inner">
+<div class="card">
+  <div class="card-top"><h3>Effect on the listener</h3><span class="code-badge">Not Only on the Speaker</span></div>
+  <ul class="points">
+<li>In saying <i>Anā Yusuf</i> (“I am Yusuf”), he confirms the truth.</li>
+<li>We should think not only about the effect on the speaker but about the effect on the <b>listener</b>.</li>
+<li>The audience may be in shock — but moreover, the last time they met this man, they <b>called him a thief</b>.</li>
+<li>These same people who came begging to him had said, “That brother of ours used to have a brother who was a thief too” — meaning Yusuf himself.</li>
+<li>At the time, Yusuf (AS) <b>swallowed the response</b> inside himself (<i>fa-asarrahā Yusufu fī nafsih</i>).</li>
+<li>He could have played them: “Wait, tell me more about this thief brother of yours — what happened to him? I hate thieves.” He didn't let them go on like that.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>A story from the speaker's high school days</h3><span class="code-badge">The Shoe-Store Story</span></div>
+  <ul class="points">
+<li>In high school, he worked in a small New York neighborhood around Junction Boulevard, predominantly Puerto Rican and Dominican, with some Mexicans and others.</li>
+<li>He took Spanish in school and was pretty good, and he worked eight hours a day speaking Spanish after school, selling shoes and clothes — Tommy Hilfiger shirts, Nikes, Jordans, Timberland boots.</li>
+<li>The customer base was mostly Hispanic and they'd actually get mad if you didn't speak Spanish — e.g., someone says “necesito nueve” (I need a size 9), and if you say “sorry, could you say that in English?” they respond, “You live in America — you don't speak Spanish?”</li>
+<li>So he got good at speaking Spanish with colleagues and customers.</li>
+<li>Part of his job was the annoying part — being the guy who walks up and asks, “Can I help you with something?”</li>
+<li>He is, as he puts it, extremely Pakistani. Two Pakistani guys walked in and heard him talking to a friend in Spanish. He ran over and asked if he could help.</li>
+<li>They started <b>cussing him out in Urdu, with a smile</b>, assuming he only spoke Spanish. They said something like “No thanks…” and went off on him.</li>
+<li>He translated back what they'd said, told them he didn't have to help them but they didn't have to curse either. They replied, “We didn't know…oh, brother, brother…” and he said, “It's okay, guys, just get your stuff.”</li>
+<li>The point: you can be outrageous, obnoxious and offensive <b>without knowing who you're offending</b>.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>Back to Yusuf</h3><span class="code-badge">Way Worse Than the Shoe Store</span></div>
+  <ul class="points">
+<li>That is what the brothers did with Yusuf — and far worse.</li>
+<li>They called him a thief to his face and to his brother's, which he knows isn't true.</li>
+<li>And he listened quietly without calling them out.</li>
+  </ul>
+</div>
+  </div></div>
+</section>
+
+<section class="class-section" id="s-07" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+  <div class="class-head"><span class="idx">07</span><h2>“And This Is My Brother”</h2>
+    <button class="collapse-toggle" data-target="s-07" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></div>
+  <div class="class-body-outer" id="body-s-07"><div class="class-body-inner">
+<div class="card">
+  <div class="card-top"><h3>More than “I'm the little brother you threw in a well”</h3><span class="code-badge">Layers of “I Am Yusuf”</span></div>
+  <ul class="points">
+<li>It isn't just “I'm your little brother that you threw in a well.”</li>
+<li>It is: <b>I, the minister of Egypt — the ultimate authority you came begging to, standing before me broken and starving — the ʿAzīz is Yusuf.</b> “I am he and he is me.”</li>
+<li>And “this kid you've been messing with for years, abusing, hating because he was related to me — he's my brother.”</li>
+<li>First, you don't mess with the VIP; and then you don't mess with the VIP's family.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>Why say “this is my brother”?</h3><span class="code-badge">Not an Introduction</span></div>
+  <ul class="points">
+<li>It's not an introduction — they already know Binyamin; they brought him themselves.</li>
+<li>It's as if he's saying: “Now what? Try that stuff again — go ahead, see what you want to do to us now. You've hated both of us your whole lives; here I am in front of you, and this is my brother, whom you hate because you hate me so much. Now what?”</li>
+<li>This confrontation, in just these few words, would send shivers down an abuser's spine and leave them shell-shocked.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>How scholars explain it</h3><span class="code-badge">Different Explanations</span></div>
+  <ul class="points">
+<li><b>The speaker's explanation:</b> he is the brother of the minister of Egypt — so don't ever lay a finger on him again, and think about what you've been doing to him, because he's with me.</li>
+<li><b>Other explanations</b> say it is <i>mubālagha</i> — as if Yusuf went out of his way to make sure they recognized him: “No, it really is me.”<ul><li>The speaker argues he wouldn't need to go out of his way to convince them.</li><li>And a proper introduction attributes yourself to your father — “I am Yusuf, son of Yaʿqūb.” Identity comes from your father, not from who your brother is.</li><li>That would be a far more convincing argument — but it is not what he used: “I am Yusuf and this is my brother.”</li></ul></li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>Inside their heads</h3><span class="code-badge">Shaking</span></div>
+  <ul class="points">
+<li>As they hear this they think: “Is he mad at us? He must be, for what we did to him.”</li>
+<li>And he is probably even angrier over what they've been doing to his brother — that's why he brought him up.</li>
+<li>“The kind of trouble we're in now” — they are probably shaking at this point.</li>
+  </ul>
+</div>
+  </div></div>
+</section>
+
+<section class="class-section" id="s-08" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+  <div class="class-head"><span class="idx">08</span><h2>Two Kinds of Ṣabr</h2>
+    <button class="collapse-toggle" data-target="s-08" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></div>
+  <div class="class-body-outer" id="body-s-08"><div class="class-body-inner">
+<div class="card">
+  <div class="card-top"><h3>Yusuf didn't stop there</h3><span class="code-badge">The Remarkable Character of Yusuf (AS)</span></div>
+  <ul class="points">
+<li>This is where we see the remarkable character of Yusuf (AS).</li>
+<li>The speaker has brought up <b>ṣabr</b> throughout the series: a pivotal concept in our religion with different dimensions — like a diamond with different faces, all of them ṣabr.</li>
+<li>For today's discussion, there are two ways of looking at it.</li>
+  </ul>
+</div>
+<div class="lesson-grid" style="margin-bottom:22px"><div class="lesson-card" style="background:var(--g-tint);border-color:var(--g-color)"><span class="kicker">Type one</span><h4 style="color:var(--g-color)">Ṣabr in what's out of your control</h4><p>Situations where circumstances are beyond you: being thrown in jail, falsely accused and imprisoned without trial; a child tossed in a well; losing a child while your sons won't tell you where he is.</p></div><div class="lesson-card" style="background:var(--g-tint);border-color:var(--g-color)"><span class="kicker">Type two — the harder one</span><h4 style="color:var(--g-color)">Ṣabr as restraint while holding power</h4><p>Having power and control — the power to take revenge, to say and do what you want with nobody to check or put you in your place — and still acting with restraint.</p></div></div>
+<div class="card">
+  <div class="card-top"><h3>Why restraint under power is so hard</h3><span class="code-badge">Why Hold Back?</span></div>
+  <ul class="points">
+<li>You finally get the chance to dish out payback — so why hold back?</li>
+<li>Because you realize that just as there was a situation in which you were powerless, there is an <b>invisible reality before whom you are still powerless — Allah</b>.</li>
+<li>You recognize Allah's power over you even from a position of power, and you hold yourself back from saying or doing what you could.</li>
+<li>You may be the most powerful man in Egypt, but you aren't here because of you — you don't have this power because of you.</li>
+<li>That, too, is ṣabr: putting a check on your tongue, your hands and your ability, even though you have the power to act.</li>
+  </ul>
+</div>
+<div class="ayah-block">
+  <span class="ayah-ref">Sūrat ash-Shūrā 42:43 — the phrase the speaker refers to</span>
+  <p class="ayah-ar arabic">وَلَمَن صَبَرَ وَغَفَرَ إِنَّ ذَٰلِكَ لَمِنْ عَزْمِ ٱلْأُمُورِ</p>
+  <p class="ayah-en">“But whoever is patient and forgives — indeed, that is of the matters [requiring] resolve.” — Sahih International</p>
+</div>
+<div class="card">
+  <div class="card-top"><h3>Restraint with the right to retaliate</h3><span class="code-badge">A Different Level of Ṣabr</span></div>
+  <ul class="points">
+<li>In this passage Allah went out of His way to emphasize this: whoever has ṣabr and, by way of it, forgives — that is truly <b>one of the greatest accomplishments</b>.</li>
+<li>It's a different level of ṣabr because it is in a setting where you have the power to take revenge.</li>
+<li>Allah gave you the right to seek justice when wronged, and payback can be in equal measure.</li>
+<li>The speaker notes that turning the other cheek is an option, but ours isn't only a “turn the other cheek” religion: if I got slapped I can slap you back — “eye for an eye,” as in the old biblical law.</li>
+<li>But Allah adds an incentive: even though you have the right to take justice, if you choose to <b>forgive</b>, that is one of the most incredible accomplishments a person can achieve in life.</li>
+  </ul>
+</div>
+  </div></div>
+</section>
+
+<section class="class-section" id="s-09" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+  <div class="class-head"><span class="idx">09</span><h2>The Revenge He Didn't Take</h2>
+    <button class="collapse-toggle" data-target="s-09" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></div>
+  <div class="class-body-outer" id="body-s-09"><div class="class-body-inner">
+<div class="card">
+  <div class="card-top"><h3>Put yourself in his place</h3><span class="code-badge">What Would You Say?</span></div>
+  <ul class="points">
+<li>If you stop after “I am Yusuf and this is my brother,” imagine it happened to you: your brothers did this to you, you went through the well and everything after, and now they're powerless before you. Now what?</li>
+<li>“You like hitting me? You like throwing me in a well? I made a well just for you — I made ten wells, one for each of you — well, nine. Let's go, let me show you how that feels.”</li>
+<li>The desire to make them feel what you felt: “I need you to feel my pain — what it's like inside a jail, what it's like to be sold as a slave — feel this and this and this. Until I do, I feel justice wasn't served.”</li>
+<li><b>He has the right to say any of it</b> — but he doesn't. He says something else entirely.</li>
+  </ul>
+</div>
+  </div></div>
+</section>
+
+<section class="class-section" id="s-10" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+  <div class="class-head"><span class="idx">10</span><h2>“Allah Has Favored Both of Us” — Four Meanings</h2>
+    <button class="collapse-toggle" data-target="s-10" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></div>
+  <div class="class-body-outer" id="body-s-10"><div class="class-body-inner">
+<div class="quote" style="margin:0 0 22px">“Allah has certainly favored both of us.” — Who is “both of us”? Me and my little brother Binyamin. And what favor does he mean? The speaker lists several possibilities.<footer>Ayah 90</footer></div>
+<div class="num-grid" style="margin-bottom:22px"><div class="num-card"><span class="num-badge">1</span><p><b>We held on to our faith and dignity</b> — whatever situation we found ourselves in, we held on to our faith, and that was Allah's favor on us.</p></div><div class="num-card"><span class="num-badge">2</span><p><b>Allah reunited us</b> after being apart for so long.</p></div><div class="num-card"><span class="num-badge">3</span><p><b>We share a common experience of relief</b> — both of us were overpowered by oppression and Allah brought each of us relief.</p></div><div class="num-card"><span class="num-badge">4</span><p><b>Allah has given us the upper hand</b> over you — finally we're not the little brothers who get beat up; you're the big brothers on your knees.</p></div></div>
+<div class="card">
+  <div class="card-top"><h3>Meaning 1</h3><span class="code-badge">Holding On to Faith — With a Subtle Dig</span></div>
+  <ul class="points">
+<li>No matter what circumstances they found themselves in, they held on to their faith — Allah's favor on both of them.</li>
+<li>There is a subtle dig here: Allah favored <i>us</i> so that we held on to faith and didn't let the devil take over — <b>unlike you</b>.</li>
+<li>The “unlike you” isn't said, but it's said without being said — a very dignified way of saying something to them without actually saying it, even though he has the power to.</li>
+<li>He didn't give them a lecture. “Do you know what you did?” was just for the reveal; now that it's revealed it would be time for the real lecture.</li>
+<li>It's like when you're hurt and say, “I really need to talk to you” and then lay it all out — but he isn't laying it out. He says: Allah has done us a favor.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>Meaning 2</h3><span class="code-badge">Reunion — Focusing on the Good</span></div>
+  <ul class="points">
+<li>The second favor: Allah gave the amazing favor of <b>uniting him with his brother</b> after being apart for so long.</li>
+<li>The brothers stand indicted for what they've done, the charges have been levied — and yet in this moment his mind isn't focused on what they did wrong or on all the wrong of the past.</li>
+<li>His mind is focused on the good Allah has done: “my brother and I are together.”</li>
+<li>Instead of focusing on so many years without seeing his father, so many years without seeing his brother, so many years his brother was abused — he says: <i>Allah has done us a favor; Allah reunited us.</i></li>
+<li>This is the positive mindset of a believer — even when looking at the past.</li>
+<li>He is not blind to the bad — he did just ask, “Do you know what you did with Yusuf and his brother when you were ignorant?” — but when he brings up Allah and the past, he doesn't mention what Allah allowed to happen to him that was bad. He says Allah favored both of them by letting them be reunited.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>Meaning 3</h3><span class="code-badge">A Shared Experience of Relief</span></div>
+  <ul class="points">
+<li>He and his brother have something in common: both found themselves in circumstances out of their control, overpowered by oppression.</li>
+<li>Allah brought Yusuf out of prison, out of a well, out of dark and oppressive situations, giving relief time and again.</li>
+<li>His brother was under the brothers' oppression for so many years, and Allah gave him relief too.</li>
+<li>Both are grateful for the favor of relief — their relief is different, but nonetheless it is relief from Allah to both of them.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>Meaning 4</h3><span class="code-badge">The Upper Hand — Said Without Saying</span></div>
+  <ul class="points">
+<li>More directly, “Allah has favored us” could mean He has favored us <b>over you</b> — finally they have the upper hand; the little brothers who got beat up now see the big brothers on their knees.</li>
+<li>But even if you'd say that in English (“Allah has given us the upper hand over you”), the ayah doesn't use the language of preference.</li>
+<li>He could have said “Allah has favored us over you,” the way Allah says about the Israelites, “I favored you over all other nations.” That isn't the language he used — he only said “Allah has favored us.”</li>
+<li>One could understand “over you,” but that would be too mean to say, even now. He won't poke at his brothers even at this moment.</li>
+<li>They did what they did and deserve to hear it, but he won't bring his moral standards, his manners in speech, or his <b>class</b> down — the moral upper hand with which he speaks will not decline.</li>
+<li>It is implied and they'll think it — in the next ayah (to be covered tomorrow, in shā' Allāh) they will say it themselves: “Allah has given you preference over us.” He didn't say it — which the speaker finds pretty epic.</li>
+  </ul>
+</div>
+  </div></div>
+</section>
+
+<section class="class-section" id="s-11" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+  <div class="class-head"><span class="idx">11</span><h2>One Favor, Two Very Different Worlds</h2>
+    <button class="collapse-toggle" data-target="s-11" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></div>
+  <div class="class-body-outer" id="body-s-11"><div class="class-body-inner">
+<div class="card">
+  <div class="card-top"><h3>Meaning 5 — the most profound to the speaker</h3><span class="code-badge">The King and the Starving Canaanite</span></div>
+  <ul class="points">
+<li>Compare Yusuf and his younger brother Binyamin: Yusuf is, for all practical purposes, the <b>king of Egypt</b> — running the country, al-ʿAzīz, the ultimate authority.</li>
+<li>His brother comes from a starving family and has been beaten up by his older brothers.</li>
+<li>Socially they have nothing in common; economically they are worlds apart; opportunity-wise they are worlds apart; even the food put in front of them daily is worlds apart.</li>
+<li>And yet the king and the starving Canaanite are <b>merged into a single sentence</b> by Yusuf: “Allah has favored both of us.”</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>Not a material measure</h3><span class="code-badge">Seeing Favor Beyond the Material</span></div>
+  <ul class="points">
+<li>With worldly eyes: a millionaire is blessed; a homeless person isn't; the healthy are blessed; the sick aren't.</li>
+<li>Allah favors some with appearance, others less; some with money, some with family — and others are deprived of those things.</li>
+<li>Yet Yusuf's mind and heart have a standard by which he sees Allah's favor as something he and his brother <b>have in common</b> — remarkable, because he doesn't understand Allah's favor in materialistic terms.</li>
+<li>He doesn't see favor only as the kingdom given to him (though that is a favor), nor only as relief after being slandered (also a favor).</li>
+<li>The favor above all favors is the first one: <b>Allah allowed us to hold on to our faith no matter what</b> — no matter what clothes we wore, what kind of house we lived in, whether our surroundings were a well, a prison cell or a castle. The backgrounds changed, but Allah's favor remained.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>Then and now</h3><span class="code-badge">Echoes of the Prison Speech</span></div>
+  <ul class="points">
+<li>It's incredible that these words come out of his mouth while he sits on the throne, in almost identical meaning to what he said in prison: “This is from the favor of Allah upon us and upon the people.”</li>
+<li>He talked about Allah's favor in jail and now about Allah's favor here — and sees no difference between how Allah favored him and how Allah favored his brother, though they are materially worlds apart.</li>
+<li>Allah's favor should not be looked at through a material lens alone — and that lens can be very deceiving. Worldly life is little; it is a means by which people are deceived.</li>
+<li>Someone can have a lot of money and not be favored by Allah; someone can have nothing and be incredibly favored.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>An example</h3><span class="code-badge">The Woman Who Cleaned the Masjid</span></div>
+  <ul class="points">
+<li>There was an old woman whom the Prophet ﷺ used to see cleaning the masjid; nobody knew her name.</li>
+<li>One day she stopped coming; when she passed away, the Prophet ﷺ cried for her.</li>
+<li>On Judgment Day she is wealthier than any billionaire or trillionaire who will ever walk the earth, because she has on her side the <b>tears of Rasūlullāh ﷺ</b>.</li>
+<li>We don't even know her name, but the speaker guarantees she'll be a big celebrity on Judgment Day. Allah favored her.</li>
+  </ul>
+</div>
+  </div></div>
+</section>
+
+<section class="class-section" id="s-12" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+  <div class="class-head"><span class="idx">12</span><h2>Choosing What They Needed to Hear</h2>
+    <button class="collapse-toggle" data-target="s-12" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></div>
+  <div class="class-body-outer" id="body-s-12"><div class="class-body-inner">
+<div class="card">
+  <div class="card-top"><h3>Yusuf's calculation</h3><span class="code-badge">A Life-Changing Moment for Them</span></div>
+  <ul class="points">
+<li>This is the statement he makes to his brothers; the speaker thinks — and agrees — that Yusuf knew this was a <b>pivotal breaking point</b> for them.</li>
+<li>When they realize he is their brother, they will be humbled like never before in their lives, and it is a life-changing moment.</li>
+<li>So he uses this moment to say something that will actually <b>stick with them later</b>.</li>
+<li>The iron is hot — the time to strike. It could be the time to say what he's been wanting to say — but no, it's the time to say <b>what they need to hear</b> to better themselves.</li>
+<li>He will say something from his heart but won't let that override the need to benefit them.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>Remembering his father's lesson</h3><span class="code-badge">They Are Not My Enemy</span></div>
+  <ul class="points">
+<li>He remembers something his father told him long ago: <b>they are not my enemy — Shayṭān is</b>.</li>
+<li>Shayṭān got them to do something; Yusuf recognizes that and tries to pull them out of the wool Shayṭān pulled over their eyes.</li>
+<li>“I want to remove that veil for them.”</li>
+  </ul>
+</div>
+  </div></div>
+</section>
+
+<section class="class-section" id="s-13" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+  <div class="class-head"><span class="idx">13</span><h2>“Whoever Has Taqwā and Ṣabr” — Unpacked</h2>
+    <button class="collapse-toggle" data-target="s-13" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></div>
+  <div class="class-body-outer" id="body-s-13"><div class="class-body-inner">
+<div class="quote" style="margin:0 0 22px">“Indeed, whoever has taqwā and is patient — then indeed, Allah does not allow the reward of those who do good to be lost.”<footer>Ayah 90 · the loaded statement</footer></div>
+<div class="card">
+  <div class="card-top"><h3>Yusuf's own life as evidence</h3><span class="code-badge">A Statement Born of Experience</span></div>
+  <ul class="points">
+<li>It's a very loaded statement, to be taken piece by piece.</li>
+<li>Yusuf (AS) is effectively saying: I have lived a life where there were impulses inside me — impulses that exist inside any human being and could have taken over.</li>
+<li>Something more powerful was inside me: the <b>taqwā of Allah</b>. Because of it I was able to persevere, whatever trouble came my way.</li>
+<li>Once you show taqwā, life gets tough, and when life gets tough you must persevere — and if you do both, my own life is testimony that <b>Allah does not let the reward of those who excel go to waste</b>.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>The unspoken wish</h3><span class="code-badge">“I Wish You Had Taqwā”</span></div>
+  <ul class="points">
+<li>In a sense he's also saying: I wish you had taqwā.</li>
+<li>When they had thoughts about his dad — how lost he is, even though he's a prophet — and thought it unfair that he loved Yusuf more (when Yusuf was just a child), they should have realized these were evil thoughts and that they weren't being mindful of Allah.</li>
+<li>Someone with taqwā can't entertain negative, twisted thoughts like that. Allah says not to wish for the favor Allah has given others over you.</li>
+<li>With taqwā they would have said: whether or not Dad loves us more, what's most important is whether we can stand before Allah. <b>How can we even entertain killing our brother when we have to stand in front of Allah one day?</b> Where was your taqwā?</li>
+<li>Their jealousy and hatred toward a brother because he was given preferential treatment are exactly the feelings of Shayṭān — and Allah had taught them Shayṭān is their enemy, so those feelings come from the enemy.</li>
+<li>Why want to see another person harmed and feel that it benefits you? “That's just Shayṭān. I wish you had taqwā at the time.”</li>
+<li>With taqwā, even with bad feelings, they could have kept them in check, been patient and dealt with them in better ways — that would have been ṣabr.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>The unspoken consequence</h3><span class="code-badge">Paying the Price</span></div>
+  <ul class="points">
+<li>“My brother and I have lived the life of taqwā and ṣabr, and whoever does that, Allah will not waste their compensation.”</li>
+<li>By implication, those who don't will eventually pay for it — and here they are, seeing how they are paying and the position they find themselves in.</li>
+<li>He asks (as the speaker reads it): did I want you in this position? Did I want you embarrassed?</li>
+  </ul>
+</div>
+  </div></div>
+</section>
+
+<section class="class-section" id="s-14" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+  <div class="class-head"><span class="idx">14</span><h2>A Door Left Open — and the Farm Analogy</h2>
+    <button class="collapse-toggle" data-target="s-14" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></div>
+  <div class="class-body-outer" id="body-s-14"><div class="class-body-inner">
+<div class="card">
+  <div class="card-top"><h3>From “because we held on…” to “you can too”</h3><span class="code-badge">Present Tense, Open Invitation</span></div>
+  <ul class="points">
+<li>When Yusuf says “Allah has favored us,” the very next statement points to the reason: <b>because we held on to taqwā</b> and demonstrated it, Allah gave us this upper hand.</li>
+<li>The conditional statement (<i>innahu man yattaqi…</i>) also subtly nudges toward the <b>future</b>: even if you've lived a life without much taqwā or ṣabr, your lives are not over.</li>
+<li>You can still have taqwā and ṣabr, and Allah will not waste your good deeds.</li>
+<li>In other words, Allah does not judge you by your previous mistakes — people may look at you and remember only your past mistakes, but Allah doesn't work that way.</li>
+<li>He is almost motivating his brothers to <b>start a new life</b> without even saying it directly.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>He knows about things not going to waste</h3><span class="code-badge">The Farm and the Spirit</span></div>
+  <ul class="points">
+<li>“Allah will not let that go to waste” — and Yusuf knows about not letting things go to waste: he had an entire country work the farms so the crop wouldn't go to waste.</li>
+<li>He understands that in the material world hard work is not wasted, and equally that in the spiritual world, spiritual hard work is not wasted.</li>
+<li>Just as on the farm you work, get the crop, persevere, have patience, hold the crop back, don't eat too much, and have ṣabr — and then survive the next seven years —</li>
+<li>in your spiritual life you must have <b>taqwā and ṣabr</b>, and with these two you get the reward.</li>
+<li>He understands how both the seen and the unseen worlds work at the same time.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>A complete leader</h3><span class="code-badge">Economic, Political, Social and Spiritual</span></div>
+  <ul class="points">
+<li>He's an economic leader, a political leader, a social leader and a spiritual leader all in one.</li>
+<li>For someone to say this from the pulpit or in a spiritual talk is one thing; for the <b>leader of a nation</b> to say it — and to say it by living that example — is a different level of leadership.</li>
+<li>And he says it to his brothers in this way.</li>
+  </ul>
+</div>
+  </div></div>
+</section>
+
+<section class="class-section" id="s-15" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+  <div class="class-head"><span class="idx">15</span><h2>“Rewards” vs. “Does Not Waste”</h2>
+    <button class="collapse-toggle" data-target="s-15" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></div>
+  <div class="class-body-outer" id="body-s-15"><div class="class-body-inner">
+<div class="card">
+  <div class="card-top"><h3>Two contrasting phrases</h3><span class="code-badge">Ayah 88 vs. Ayah 90</span></div>
+  <ul class="points">
+<li>A couple of ayāt earlier, at the end of ayah 88, the brothers say Allah <b>rewards</b> those who give charity (<i>al-mutaṣaddiqīn</i>).</li>
+<li>Here Yusuf says Allah <b>does not waste</b> the reward of those who do excellently (<i>al-muḥsinīn</i>).</li>
+<li>Practically they mean the same: at the end of the day you'll get what Allah wants to give you.</li>
+<li>One way says Allah will reward and compensate you; the other says Allah will not waste your compensation.</li>
+<li>So why use positive language in one place and negative language in the other? What's the subtle contrast?</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>The subtle contrast</h3><span class="code-badge">Doing Good vs. Holding Back From Bad</span></div>
+  <ul class="points">
+<li>When you give charity you are doing something good — so the <b>positive verb</b> (Allah will compensate) matches the positive act.</li>
+<li>When you fight hard <b>not</b> to do something bad, the ayah uses the negative: Allah won't put your deeds to waste.</li>
+<li>Taqwā matters most when there's a choice to disobey Allah — a magnetic pull toward the wrong thing, in speech, action, whatever the appetite — and the force of taqwā stops you.</li>
+<li>When you hold on to taqwā you deprive yourself of something harām, so you may feel you missed out — on something you could have said, on vengeance you could have taken.</li>
+<li>Ṣabr and taqwā make you feel like you missed something — and Allah says <b>you missed out on nothing</b>: “The compensation you're going to get, I will never let go to waste.”</li>
+<li>You didn't waste any opportunity; you gained one.</li>
+  </ul>
+</div>
+  </div></div>
+</section>
+
+<section class="class-section" id="s-16" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+  <div class="class-head"><span class="idx">16</span><h2>Taqwā and Ṣabr: The Two Battles</h2>
+    <button class="collapse-toggle" data-target="s-16" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></div>
+  <div class="class-body-outer" id="body-s-16"><div class="class-body-inner">
+<div class="lesson-grid" style="margin-bottom:22px"><div class="lesson-card" style="background:var(--g-tint);border-color:var(--g-color)"><span class="kicker">Taqwā</span><h4 style="color:var(--g-color)">Restraint over what's inside you</h4><p>Restraint over the tendencies inside you — impulses, urges, desires, greeds.</p></div><div class="lesson-card" style="background:var(--g-tint);border-color:var(--g-color)"><span class="kicker">Ṣabr</span><h4 style="color:var(--g-color)">Restraint over what's outside you</h4><p>Restraint over situations outside you — what people say to you, what happens to you, the circumstances you face.</p></div></div>
+<div class="card">
+  <div class="card-top"><h3>Explosive fuel</h3><span class="code-badge">What Taqwā Does</span></div>
+  <ul class="points">
+<li>Allah put explosive fuel inside a human being: impulses, urges, desires, greeds that want to be let out and do what they want.</li>
+<li>Taqwā is the <b>greater force</b> that controls them and puts them in check, so they can only be released in ways that please Allah.</li>
+<li>Like floodwaters that want to destroy a city: taqwā comes and puts gates, saying water can only go through this channel, this channel and this channel.</li>
+<li>Through the proper channels, farms are irrigated, people have water to drink and the city is replenished; if you open or destroy the gates, the city floods.</li>
+<li>That is basically our soul: let desires out through halāl avenues and your life is replenished with blessings; without taqwā and letting loose, it destroys you from the inside — <b>a flood on the inside</b>.</li>
+<li>That, in short, is the philosophy of taqwā.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>Outer evil</h3><span class="code-badge">Why Ṣabr Is the Outside Battle</span></div>
+  <ul class="points">
+<li>Things from the outside can make you do wrong or make you lose your faith — holding on to faith while things go badly, with evil coming at you from outside, is when you need ṣabr.</li>
+<li>When your inside calls you to do something wrong and you put that down, that's taqwā.</li>
+<li>If you can't win the battle inside you, you cannot win the battle outside.</li>
+<li>So the sequence: whoever wins the inside battle with taqwā and the outside battle with ṣabr — these are the <b>two battles</b>, the inside and the outside.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>A universal law</h3><span class="code-badge">An Axiom, Not Just a Story</span></div>
+  <ul class="points">
+<li>This phrase is not limited to the story; it is a <b>universal axiom</b> (explained for younger audiences).</li>
+<li>Like the law of gravity, which always applies on planet Earth — acceleration due to gravity is about 9.8 m/s² — or the natural law that fire burns: put paper in front of a fire and it catches fire every time.</li>
+<li>In the same way there are spiritual laws: if you have taqwā and ṣabr, then one thing is sure — Allah considers you among the <b>muḥsinīn</b>.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>Classical readings</h3><span class="code-badge">How Scholars Glossed the Two Words</span></div>
+  <ul class="points">
+<li>One view mentioned: taqwā here means avoiding zinā, and ṣabr means restraining yourself and remaining patient while you stay single.</li>
+<li>Al-Rāzī says taqwā here means avoiding sins, and ṣabr means bearing the hardships people give you.</li>
+  </ul>
+</div>
+  </div></div>
+</section>
+
+<section class="class-section" id="s-17" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+  <div class="class-head"><span class="idx">17</span><h2>Iḥsān: Taqwā + Ṣabr = Muḥsin</h2>
+    <button class="collapse-toggle" data-target="s-17" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></div>
+  <div class="class-body-outer" id="body-s-17"><div class="class-body-inner">
+<div class="card">
+  <div class="card-top"><h3>The highest rank</h3><span class="code-badge">The Hadith of Jibrīl</span></div>
+  <ul class="points">
+<li>This is heavy, so the speaker pauses to help us understand.</li>
+<li>The hadith of Jibrīl teaches that you can be a <b>Muslim</b> (one who surrenders — accepted the faith), a <b>believer</b> (faith in the heart), and above that, a <b>muḥsin</b> — the highest state.</li>
+<li>Iḥsān: worship Allah as if you can see Him, and if you can't, at the very least always recognize that He sees you.</li>
+<li>We want to be among the muḥsinīn — the highest state we can have.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>The equation in the ayah</h3><span class="code-badge">A + B = C</span></div>
+  <ul class="points">
+<li>The ayah doesn't say, “If you have taqwā I will reward you for taqwā, and if you have ṣabr I will reward you for ṣabr.”</li>
+<li>It says: whoever has taqwā <b>and</b> ṣabr — Allah does not waste the reward of the muḥsinīn.</li>
+<li>In other words, when you have both, Allah considers you a muḥsin: taqwā (A) + ṣabr (B) = the highest rank a believer can have.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>Why it matches the Prophet's ﷺ definition</h3><span class="code-badge">Seeing and Being Seen</span></div>
+  <ul class="points">
+<li>Taqwā is you fighting the evil forces inside you — and what helps you fight them is that <b>Allah is watching</b>. It's as if you can see Allah before you see the evil in front of you; it just stops you.</li>
+<li>On the other side is ṣabr: circumstances outside you — difficulty, people's words, trials. You see them as coming from Allah: Allah knows what I'm going through, and Allah does not waste a reward earned by carrying myself right in the circumstance.</li>
+<li>“I will hold on and hold my tongue — not because this person deserves it, but because Allah will give me.” Isn't that ṣabr?</li>
+  </ul>
+</div>
+  </div></div>
+</section>
+
+<section class="class-section" id="s-18" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+  <div class="class-head"><span class="idx">18</span><h2>What Yusuf Did Not Say</h2>
+    <button class="collapse-toggle" data-target="s-18" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></div>
+  <div class="class-body-outer" id="body-s-18"><div class="class-body-inner">
+<div class="card">
+  <div class="card-top"><h3>The lecture he could have given</h3><span class="code-badge">A Prophet's Restraint</span></div>
+  <ul class="points">
+<li>As we wrap up, appreciate what Yusuf (AS) said — and more importantly what he <b>did not</b> say, because a lot could have been said.</li>
+<li>He could have asked: where was your taqwā? Where was your ṣabr? How do you call yourselves Muslim? How do you disgrace the honor of being the privileged children of the Prophet Yaʿqūb, grandchildren of Isḥāq, great-grandchildren of Ibrāhīm? How could you have done this?</li>
+<li>None of it. The speaker is pretty sure nobody can give a better lecture than a prophet — and if someone wants to give a lecture, they give the best ones — yet he takes this really dignified road.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>“Whoever…”</h3><span class="code-badge">Not Even “I Had Taqwā”</span></div>
+  <ul class="points">
+<li>He doesn't even say “I had taqwā, I had ṣabr, and Allah rewarded me.”</li>
+<li>He says <b>“whoever”</b> — as if not talking directly about himself, though he is obviously included. It's an open invitation: anybody is welcome — even you, even now.</li>
+<li>This echoes his words in prison: a favor Allah has given to us and to people — an offer extended to all of humanity that anyone can take advantage of.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>The message behind it</h3><span class="code-badge">“I Still Don't Want You to Burn in Hell”</span></div>
+  <ul class="points">
+<li>No matter what wrong they've done to him, how much hurt it caused him and his brother (he's since been told all about it), and whatever trouble they caused their father —</li>
+<li>“I can be angry with you all I want, and I still don't want you to burn in Hell. <b>My anger has limits; Allah's punishment has no limits.</b>”</li>
+<li>His grudge doesn't make him say “I'll see you on Judgment Day” or “Allah's wrath is on you.”</li>
+<li>At the moment when they expect revenge — or are preparing to be yelled at and to say “sorry, sorry, we're so sorry, we can't believe we did this,” bracing their apologies — he tells them, in effect: <b>“I don't need your apology; I need your redemption.”</b></li>
+<li>And they need it more than he does: this is an invitation back to Allah before anything else.</li>
+  </ul>
+</div>
+  </div></div>
+</section>
+
+<section class="class-section" id="s-19" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+  <div class="class-head"><span class="idx">19</span><h2>Two Realities: Does Goodness Pay Off in This Life?</h2>
+    <button class="collapse-toggle" data-target="s-19" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></div>
+  <div class="class-body-outer" id="body-s-19"><div class="class-body-inner">
+<div class="card">
+  <div class="card-top"><h3>The heavy question</h3><span class="code-badge">Two Apparently Conflicting Outcomes</span></div>
+  <ul class="points">
+<li>The speaker turns to a heavy but important discussion: this surah repeatedly shows that if you are patient and do good, things work out in this life.</li>
+<li>There are two views. When you do good, it doesn't matter whether you're rewarded in this life or not — Allah has recorded it for you and you'll get it in the afterlife anyway. That's true.</li>
+<li>Some people do a lot of good and get nothing in this life; they die, and their reward will only come in the afterlife. Some innocent people are imprisoned or killed and will get Jannah.</li>
+<li>Yet we are also taught that if you do good and excel, Allah will take care of you in this life, as in the story of Yusuf.</li>
+<li>So we're taught both apparently contradicting realities in the Qur'an.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>The Qur'an's claim</h3><span class="code-badge">Know Your Place — You Are a Creature of Hope</span></div>
+  <ul class="points">
+<li>First, the Qur'an does not endorse either view exclusively: it refuses the claim that good will <i>only</i> be rewarded in the afterlife, and it refuses the claim that good will <i>absolutely</i> be rewarded in this life.</li>
+<li>Its claim: <b>you are a slave (ʿabd) — know your place — and you are a creature of hope.</b></li>
+<li>The Qur'an teaches deep philosophical messages through case studies; the case study for someone holding both worlds in front of him — hope for this life and hope for the next — is <b>Yaʿqūb (AS)</b>.</li>
+<li>He is the ultimate example of complete reliance on Allah while remaining hopeful things will work out in this life.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>Not the “it's fine, you'll see him in Jannah” mindset</h3><span class="code-badge">Yaʿqūb Cried</span></div>
+  <ul class="points">
+<li>He doesn't tell himself, “If I lost my child I'll see him in Jannah.” Do you believe in the akhirah? Why are you crying? If he died he's in Jannah; if he's going through trials, Allah will reward him — no big deal.</li>
+<li>The speaker says that's the lecture some people give — “don't worry, it's fine” — but try giving it to Yaʿqūb, who is crying over what's happening in this life while believing in the afterlife.</li>
+<li>Allah is telling us He created us with hopes and aspirations in this world too. He wants us to desire the next life without forgoing this one — and He wants us to <b>beg Him</b>.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>No guarantees — hope and fear together</h3><span class="code-badge">Two Wings of a Bird</span></div>
+  <ul class="points">
+<li>Do we have a guarantee of the akhirah? We don't know where we stand.</li>
+<li>The speaker contrasts this with the claim of guaranteed salvation — Muslims won't say “I've got salvation, I'll be in the VIP section.” We ask Allah for guidance in every prayer (in al-Fātiḥa) because our guidance and salvation are not guaranteed; they come only by Allah's mercy, wisdom and forgiveness.</li>
+<li>So are we supposed to be hopeful while fearful? Yes — you can't be <i>only</i> fearful or <i>only</i> hopeful. It's the same attitude Allah taught us in this world.</li>
+<li>Yaʿqūb (AS) can be deeply sad and completely hopeful in this life at the same time; a believer regarding the afterlife can be utterly afraid and completely hopeful with Allah at the same time.</li>
+<li>These contradictory forces balance each other out — like <b>two wings on a bird</b> — for the afterlife and for this life.</li>
+  </ul>
+</div>
+  </div></div>
+</section>
+
+<section class="class-section" id="s-20" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+  <div class="class-head"><span class="idx">20</span><h2>Yaʿqūb: Hope and Trust Together</h2>
+    <button class="collapse-toggle" data-target="s-20" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></div>
+  <div class="class-body-outer" id="body-s-20"><div class="class-body-inner">
+<div class="card">
+  <div class="card-top"><h3>Hopes for this life</h3><span class="code-badge">What We're Supposed to Hope For</span></div>
+  <ul class="points">
+<li>We are supposed to hope for a better relationship with our children, for things to work out with our parents, in our marriage, or with a friend we've lost touch with.</li>
+<li>We're supposed to hope that financial difficulties will go away, that a diagnosis will be cleared, that cancer will go away — whatever it is.</li>
+<li>At the same time we have fears — and when we hope, we come before Allah <b>not with a guarantee</b>.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>No demand, only a plea</h3><span class="code-badge">Allah Never Said “If I Pray, I'll Remove It”</span></div>
+  <ul class="points">
+<li>Allah never said, “If you pray, I'll remove your cancer.” He said He won't waste your reward — and He might reward you in this life.</li>
+<li>Why think He won't? He didn't guarantee it — but He didn't guarantee that He won't either.</li>
+<li>He wants me to beg, to be humbled.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>The example of Yaʿqūb</h3><span class="code-badge">Different Doors — and Complete Trust</span></div>
+  <ul class="points">
+<li>Yaʿqūb wanted to protect his sons when they went back into Egypt, so he told them to enter from different doors. (Evil eye or not — the speaker says he owes us that lecture — it is concerned with this life and their safety in this life.)</li>
+<li>Immediately after, what does he say? If Allah has another plan, I can't do anything about that — <b>hope in Allah and trust in Allah at the same time</b>.</li>
+<li>The hope can be dictated by my feelings — my hope is that my family is reunited (Yaʿqūb's hope).</li>
+<li>At the same time there's a trust in Allah: if that reunion doesn't happen this month, this year, ten years from now, or never, or three generations from now — <b>I trust Allah more than I trust my feelings</b>.</li>
+<li>Balancing both is the key.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>What goes wrong if the balance is lost</h3><span class="code-badge">Misusing “Have Ṣabr”</span></div>
+  <ul class="points">
+<li>People may be doing wrong to you, and when you speak up they say, “You should have ṣabr — your reward is in the akhirah. Why are you complaining? Believers should be grateful and patient.”</li>
+<li>You should have ṣabr like Yaʿqūb (AS) — and then say “go look for Yusuf”? If someone insists on just accepting what Allah has done, they'd say you don't have to look for anything: “Allah will reunite me on Judgment Day.” <b>That's not Yaʿqūb.</b></li>
+<li>This is why the speaker brought all this up: Yusuf says whoever has taqwā and ṣabr, Allah does not waste the reward of those who do their best — and in his case Allah even gave the reward in this life, and he (and his father) hoped for it. Why shouldn't we hope for better in this life?</li>
+  </ul>
+</div>
+  </div></div>
+</section>
+
+<section class="class-section" id="s-21" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+  <div class="class-head"><span class="idx">21</span><h2>Hajj, Two Extremes &amp; the Balance of the Believer</h2>
+    <button class="collapse-toggle" data-target="s-21" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></div>
+  <div class="class-body-outer" id="body-s-21"><div class="class-body-inner">
+<div class="card">
+  <div class="card-top"><h3>The one place we're supposed to forget this world</h3><span class="code-badge">Even Hajj Has Both</span></div>
+  <ul class="points">
+<li>Hajj: in front of Allah's house, in the harshest climate on earth, walking around the Kaʿba in clothes that mimic the nothingness of Judgment Day.</li>
+<li>Yet as we pass, we ask: “Our Master, give us beautiful, good things in this life and beautiful, good things in the next.” — we ask for this life even there.</li>
+<li>Ḥajj is meant to be a simulation of Judgment Day — a massive gathering of people all at the same level, standing before Allah in the field of ʿArafah — forget this world.</li>
+<li>And yet it is okay — there is no harm on you — if you take things to sell and make money during Ḥajj too.</li>
+<li>Our religion is about balancing the needs and wants of this life and channeling them in a way Allah is pleased with, so you can have the <b>best of both worlds</b>.</li>
+  </ul>
+</div>
+<div class="lesson-grid" style="margin-bottom:22px"><div class="lesson-card" style="background:var(--g-tint);border-color:var(--g-color)"><span class="kicker">Extreme one</span><h4 style="color:var(--g-color)">Only the akhirah</h4><p>If you say “I only want my reward in the akhirah,” you become complacent and paralyzed in this world — unable to stand up for yourself, and more importantly for anyone else. When someone fights for their rights you say “don't worry, you'll get your rights in the akhirah,” and you become a cause of injustice in the name of tawakkul. That's not this religion.</p></div><div class="lesson-card" style="background:var(--g-tint);border-color:var(--g-color)"><span class="kicker">Extreme two</span><h4 style="color:var(--g-color)">Everything right now</h4><p>If you want all rewards here — “I asked Allah for a hundred on my math exam and got an F; I made so much duʿāʾ!” — yes, you prayed tahajjud and made duʿāʾ, but you didn't study. An angel isn't going to fill in your multiple-choice answers. When things don't work out, you start blaming Allah: “what's the point?”</p></div></div>
+<div class="card">
+  <div class="card-top"><h3>The believer's balance</h3><span class="code-badge">Two Ways to Lose It</span></div>
+  <ul class="points">
+<li>The two extremes: one <b>loses faith</b>; the other <b>loses sight</b> that they have a purpose and things to accomplish in this life too.</li>
+<li>We carry both with us — for the akhirah and for this dunyā.</li>
+<li>That is the balance the believer must strike, and it is beautifully struck in this surah.</li>
+  </ul>
+</div>
+  </div></div>
+</section>
+
+<section class="class-section" id="s-22" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+  <div class="class-head"><span class="idx">22</span><h2>Relentless Hope — and a Closing Du'a</h2>
+    <button class="collapse-toggle" data-target="s-22" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button></div>
+  <div class="class-body-outer" id="body-s-22"><div class="class-body-inner">
+<div class="card">
+  <div class="card-top"><h3>What the surah tells us</h3><span class="code-badge">You're Not Crazy to Hope</span></div>
+  <ul class="points">
+<li>People might think you're crazy for believing things will work out — but no, you're not crazy: you're supposed to have hope, and to work toward it by whatever means you can.</li>
+<li>Be <b>relentless, fanatical</b> — even “psychotic” — in the hope you have in Allah; be unreasonable in it: Allah will bring things to light and make things happen for you.</li>
+<li>Don't let worldly limitations define your optimism.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>Humanly impossible</h3><span class="code-badge">How Could It Be?</span></div>
+  <ul class="points">
+<li>It's humanly impossible to imagine that a kid thrown in a well will run Egypt — a foreigner thrown in a well, a slave, a guy in a jail cell.</li>
+<li>If someone in jail said, “I'm going to run this country one day,” people would say, “Yeah, sure, Mr. President.”</li>
+<li>Allah's plan is beyond human fathom — we can't contain it in our imagination or our calculations.</li>
+<li>This is a <b>timeless message of hope</b>: Allah will not let our good deeds go to waste.</li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-top"><h3>Ending the lecture</h3><span class="code-badge">A Du'a and a Look Ahead</span></div>
+  <ul class="points">
+<li>May Allah make us all people of ṣabr and taqwā, overlook our past mistakes, and allow us to come to terms with the wrongs we've done.</li>
+<li>Yusuf's brothers had to get hit <i>real hard</i> before they woke up — the trickle-trickle wasn't working. Some people have to be hit hard before the realization hits them.</li>
+<li>Now that these words have come from Yusuf (AS), confronting them directly with a one-line sermon, the speaker can't wait to see what they have to say <b>tomorrow, in shā' Allāh</b>.</li>
+<li>And, with a laugh: “I gotta go eat.”</li>
+  </ul>
+</div>
+  </div></div>
+</section>
+
+  </main>
+</div>
+
+<button id="toTop" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<div id="quickPanel">
+  <div class="qp-head">Jump to Section</div>
+  <ul id="qpList">
+<li data-target="s-01"><a href="#s-01" style="--qc:var(--c-1)"><span class="qp-idx">01</span>Yusuf's Question: “Do You Know What You Did?”</a><span class="qp-toggle" data-target="s-01"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+<li data-target="s-02"><a href="#s-02" style="--qc:var(--c-2)"><span class="qp-idx">02</span>Breadcrumbs &amp; Optical Illusions</a><span class="qp-toggle" data-target="s-02"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+<li data-target="s-03"><a href="#s-03" style="--qc:var(--c-3)"><span class="qp-idx">03</span>Yusuf Steps Down From the Throne</a><span class="qp-toggle" data-target="s-03"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+<li data-target="s-04"><a href="#s-04" style="--qc:var(--c-4)"><span class="qp-idx">04</span>“Are You Really Yusuf?” — Translating the Shock</a><span class="qp-toggle" data-target="s-04"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+<li data-target="s-05"><a href="#s-05" style="--qc:var(--c-5)"><span class="qp-idx">05</span>How Did They Recognize Him?</a><span class="qp-toggle" data-target="s-05"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+<li data-target="s-06"><a href="#s-06" style="--qc:var(--c-6)"><span class="qp-idx">06</span>“I Am Yusuf” — and the “Thief” Remark</a><span class="qp-toggle" data-target="s-06"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+<li data-target="s-07"><a href="#s-07" style="--qc:var(--c-1)"><span class="qp-idx">07</span>“And This Is My Brother”</a><span class="qp-toggle" data-target="s-07"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+<li data-target="s-08"><a href="#s-08" style="--qc:var(--c-2)"><span class="qp-idx">08</span>Two Kinds of Ṣabr</a><span class="qp-toggle" data-target="s-08"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+<li data-target="s-09"><a href="#s-09" style="--qc:var(--c-3)"><span class="qp-idx">09</span>The Revenge He Didn't Take</a><span class="qp-toggle" data-target="s-09"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+<li data-target="s-10"><a href="#s-10" style="--qc:var(--c-4)"><span class="qp-idx">10</span>“Allah Has Favored Both of Us” — Four Meanings</a><span class="qp-toggle" data-target="s-10"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+<li data-target="s-11"><a href="#s-11" style="--qc:var(--c-5)"><span class="qp-idx">11</span>One Favor, Two Very Different Worlds</a><span class="qp-toggle" data-target="s-11"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+<li data-target="s-12"><a href="#s-12" style="--qc:var(--c-6)"><span class="qp-idx">12</span>Choosing What They Needed to Hear</a><span class="qp-toggle" data-target="s-12"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+<li data-target="s-13"><a href="#s-13" style="--qc:var(--c-1)"><span class="qp-idx">13</span>“Whoever Has Taqwā and Ṣabr” — Unpacked</a><span class="qp-toggle" data-target="s-13"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+<li data-target="s-14"><a href="#s-14" style="--qc:var(--c-2)"><span class="qp-idx">14</span>A Door Left Open — and the Farm Analogy</a><span class="qp-toggle" data-target="s-14"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+<li data-target="s-15"><a href="#s-15" style="--qc:var(--c-3)"><span class="qp-idx">15</span>“Rewards” vs. “Does Not Waste”</a><span class="qp-toggle" data-target="s-15"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+<li data-target="s-16"><a href="#s-16" style="--qc:var(--c-4)"><span class="qp-idx">16</span>Taqwā and Ṣabr: The Two Battles</a><span class="qp-toggle" data-target="s-16"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+<li data-target="s-17"><a href="#s-17" style="--qc:var(--c-5)"><span class="qp-idx">17</span>Iḥsān: Taqwā + Ṣabr = Muḥsin</a><span class="qp-toggle" data-target="s-17"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+<li data-target="s-18"><a href="#s-18" style="--qc:var(--c-6)"><span class="qp-idx">18</span>What Yusuf Did Not Say</a><span class="qp-toggle" data-target="s-18"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+<li data-target="s-19"><a href="#s-19" style="--qc:var(--c-1)"><span class="qp-idx">19</span>Two Realities: Does Goodness Pay Off in This Life?</a><span class="qp-toggle" data-target="s-19"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+<li data-target="s-20"><a href="#s-20" style="--qc:var(--c-2)"><span class="qp-idx">20</span>Yaʿqūb: Hope and Trust Together</a><span class="qp-toggle" data-target="s-20"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+<li data-target="s-21"><a href="#s-21" style="--qc:var(--c-3)"><span class="qp-idx">21</span>Hajj, Two Extremes &amp; the Balance of the Believer</a><span class="qp-toggle" data-target="s-21"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+<li data-target="s-22"><a href="#s-22" style="--qc:var(--c-4)"><span class="qp-idx">22</span>Relentless Hope — and a Closing Du'a</a><span class="qp-toggle" data-target="s-22"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+  </ul>
+</div>
+
+<button id="quickFab" aria-label="Open quick navigation" aria-expanded="false">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+</button>
+
+<script>
+  const heroHeader = document.querySelector('header.hero');
+  function syncHeaderHeight(){
+    const refBar = document.querySelector('.ref-bar');
+    document.documentElement.style.setProperty('--header-h', (heroHeader.offsetHeight + refBar.offsetHeight) + 'px');
+  }
+  syncHeaderHeight();
+  window.addEventListener('resize', syncHeaderHeight);
+
+  const progress = document.getElementById('progress');
+  function updateProgress(){
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    progress.style.width = scrolled + '%';
+    document.getElementById('toTop').classList.toggle('show', h.scrollTop > 700);
+  }
+  document.addEventListener('scroll', updateProgress, {passive:true});
+  updateProgress();
+
+  document.getElementById('toTop').addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+  const tocToggle = document.getElementById('tocToggle');
+  const tocPanelOuter = document.getElementById('tocPanelOuter');
+  function closeToc(){
+    if(!tocPanelOuter) return;
+    tocPanelOuter.classList.remove('open');
+    if(tocToggle) tocToggle.setAttribute('aria-expanded', 'false');
+  }
+  if(tocToggle && tocPanelOuter){
+    tocToggle.addEventListener('click', () => {
+      const isOpen = tocPanelOuter.classList.toggle('open');
+      tocToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+  }
+
+  const navLinks = document.querySelectorAll('nav.sidebar li a');
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const id = entry.target.id;
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  document.querySelectorAll('main section.class-section').forEach(el => { if(el.id) sectionObserver.observe(el); });
+
+  const quickFab = document.getElementById('quickFab');
+  const quickPanel = document.getElementById('quickPanel');
+  function openQuickPanel(){ quickPanel.classList.add('open'); quickFab.classList.add('open'); quickFab.setAttribute('aria-expanded','true'); }
+  function closeQuickPanel(){ quickPanel.classList.remove('open'); quickFab.classList.remove('open'); quickFab.setAttribute('aria-expanded','false'); }
+  quickFab.addEventListener('click', () => { quickPanel.classList.contains('open') ? closeQuickPanel() : openQuickPanel(); });
+  document.addEventListener('click', (e) => {
+    if(quickPanel.classList.contains('open') && !quickPanel.contains(e.target) && !quickFab.contains(e.target)){ closeQuickPanel(); }
+  });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeQuickPanel(); });
+  quickPanel.querySelectorAll('a').forEach(a => { a.addEventListener('click', () => closeQuickPanel()); });
+
+  const ALL_SECTION_IDS = ['s-01', 's-02', 's-03', 's-04', 's-05', 's-06', 's-07', 's-08', 's-09', 's-10', 's-11', 's-12', 's-13', 's-14', 's-15', 's-16', 's-17', 's-18', 's-19', 's-20', 's-21', 's-22'];
+
+  function setCollapsed(id, collapsed){
+    const body = document.getElementById('body-' + id);
+    const btn = document.querySelector('.collapse-toggle[data-target="' + id + '"]');
+    const qpItem = document.querySelector('#qpList li[data-target="' + id + '"]');
+    if(body) body.classList.toggle('collapsed', collapsed);
+    if(btn) btn.setAttribute('aria-expanded', String(!collapsed));
+    if(qpItem) qpItem.classList.toggle('is-collapsed', collapsed);
+  }
+  function isCollapsed(id){
+    const body = document.getElementById('body-' + id);
+    return body ? body.classList.contains('collapsed') : false;
+  }
+  function toggleCollapsed(id){ setCollapsed(id, !isCollapsed(id)); }
+
+  document.querySelectorAll('.collapse-toggle').forEach(btn => {
+    btn.addEventListener('click', () => toggleCollapsed(btn.dataset.target));
+  });
+  document.querySelectorAll('#qpList li').forEach(item => {
+    const id = item.dataset.target;
+    item.querySelector('.qp-toggle').addEventListener('click', (e) => { e.stopPropagation(); e.preventDefault(); toggleCollapsed(id); });
+  });
+
+  document.getElementById('expandAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, false)));
+  document.getElementById('collapseAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, true)));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href').slice(1);
+      if(!href) return;
+      const target = document.getElementById(href);
+      if(!target) return;
+      if(target.classList.contains('class-section')){ setCollapsed(href, false); }
+      if(a.closest('nav.sidebar')){ closeToc(); }
+    });
+  });
+
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', () => {
+    const q = searchInput.value.trim().toLowerCase();
+    navLinks.forEach(a => {
+      const key = (a.dataset.key || a.textContent).toLowerCase();
+      const match = q === '' || key.includes(q);
+      a.dataset.hidden = match ? '0' : '1';
+      const section = document.querySelector(a.getAttribute('href'));
+      if(section){ section.style.display = match ? '' : 'none'; }
+    });
+  });
+
+</script>
+<script src="nav.js"></script>
+</body>
+</html>
