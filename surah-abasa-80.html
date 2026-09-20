@@ -1,0 +1,1847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>He Frowned and Turned Away — Surah ʿAbasa (80) | Study Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>  :root{
+    --bg:#ffffff;
+    --paper:#fbfbfd;
+    --ink:#14151a;
+    --ink-soft:#5a5d6b;
+    --line:#e7e7ee;
+    --line-soft:#f0f0f5;
+
+    --c-1:#7c3aed;  --c-1-tint:#f4edff;   /* violet */
+    --c-2:#0284c7;  --c-2-tint:#e8f6ff;   /* ocean */
+    --c-3:#ea580c;  --c-3-tint:#fff1e8;   /* coral */
+    --c-4:#db2777;  --c-4-tint:#ffe9f4;   /* magenta */
+    --c-5:#059669;  --c-5-tint:#e6faf2;   /* emerald */
+    --c-6:#0f766e;  --c-6-tint:#e6f8f6;   /* teal */
+
+    --accent: var(--c-1);
+    --accent-tint: var(--c-1-tint);
+
+    --radius: 18px;
+    --shadow: 0 1px 2px rgba(20,21,26,.04), 0 12px 32px -16px rgba(20,21,26,.14);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background: var(--accent); color:#fff; }
+
+  h1,h2,h3,h4{ font-family:'Space Grotesk', sans-serif; margin:0; letter-spacing:-.01em; }
+  code, .mono{ font-family:'IBM Plex Mono', monospace; }
+  a{ color:inherit; }
+  p{ margin:0; }
+  .arabic{ font-family:'Amiri', serif; direction:rtl; }
+
+  #progress{
+    position:fixed; top:0; left:0; height:3px; width:0%;
+    background: linear-gradient(90deg, var(--c-1), var(--c-2), var(--c-3), var(--c-4), var(--c-5), var(--c-6));
+    z-index:100; transition: width .1s linear;
+  }
+
+  .ref-bar{
+    background:var(--ink); color:#fff;
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    padding:9px 8vw; display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  }
+  .ref-bar .ref-label{ color:rgba(255,255,255,.55); text-transform:uppercase; letter-spacing:.08em; font-size:10.5px; }
+  .ref-bar .ref-txt{ opacity:.85; }
+
+  header.hero{
+    padding: 6px 8vw;
+    min-height:46px;
+    display:flex; align-items:center; gap:10px;
+    position:sticky; top:0; z-index:80;
+    border-bottom:1px solid var(--line);
+    background-color:#fff;
+    background-image:
+      radial-gradient(700px 340px at 8% -10%, var(--c-1-tint), transparent 60%),
+      radial-gradient(600px 300px at 95% 0%, var(--c-3-tint), transparent 55%);
+  }
+
+  /* ---------- burger navigation ---------- */
+  .burger-wrap{ position:relative; display:flex; align-items:center; }
+  .burger-btn{
+    width:34px; height:34px; border-radius:10px; border:1.3px solid var(--line);
+    background:var(--paper); color:var(--ink); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: border-color .15s ease, background .15s ease, color .15s ease;
+  }
+  .burger-btn:hover{ border-color: var(--c-1); }
+  .burger-btn.open{ background: var(--c-1); border-color: var(--c-1); color:#fff; }
+  .burger-btn svg{ transition: opacity .15s ease; }
+  .burger-menu{
+    position:absolute; top:calc(100% + 10px); left:0; width:320px;
+    background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow);
+    padding:8px; opacity:0; transform: translateY(-6px); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease; z-index:120;
+    display:flex; flex-direction:column;
+  }
+  .burger-menu.open{ opacity:1; transform: translateY(0); pointer-events:auto; }
+  .burger-menu-home{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; margin:2px 2px 8px;
+    border-radius:10px; border-bottom:1px solid var(--line-soft);
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-home svg{ flex:none; color:var(--ink-soft); }
+  .burger-menu-home:hover{ background: var(--paper); }
+  .burger-menu-home.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-home.is-current .bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-search{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:10px; padding:8px 10px; margin:2px 2px 8px;
+    background:var(--paper); flex:none;
+  }
+  .burger-menu-search svg{ flex:none; opacity:.5; color:var(--ink-soft); }
+  .burger-menu-search input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13px; width:100%; color:var(--ink);
+  }
+  .burger-menu-list{ max-height:340px; overflow-y:auto; overscroll-behavior:contain; }
+  .burger-menu-list::-webkit-scrollbar{ width:6px; }
+  .burger-menu-list::-webkit-scrollbar-thumb{ background:var(--line); border-radius:10px; }
+  .burger-menu-group + .burger-menu-group{ margin-top:4px; }
+  .burger-menu-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); padding:8px 10px 4px;
+  }
+  .burger-menu-empty{
+    display:none; padding:18px 10px; text-align:center; font-size:12.5px; color:var(--ink-soft);
+  }
+  .burger-menu-item{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; border-radius:10px;
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-item span.bm-title{ display:block; }
+  .burger-menu-item span.bm-sub{ display:block; font-size:11.5px; color:var(--ink-soft); font-weight:400; margin-top:1px; }
+  .burger-menu-item:hover{ background: var(--paper); }
+  .burger-menu-item.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-item.is-current span.bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-dot{ width:9px; height:9px; border-radius:3px; flex:none; margin-top:3px; }
+
+  .page-title{ padding: 30px 8vw 6px; }
+  .page-title .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-soft); margin-bottom:10px; display:block;
+  }
+  .page-title h1{
+    font-size: clamp(26px, 5vw, 46px);
+    line-height:1.12;
+    font-weight:700;
+  }
+  .page-title h1 .accent-word{
+    background: linear-gradient(100deg, var(--c-1), var(--c-4) 55%, var(--c-3));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .page-title .sub{
+    margin-top:14px; max-width:66ch; color:var(--ink-soft); font-size:15px; line-height:1.6;
+  }
+  .page-title .tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+  .page-title .tag{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; border:1.3px solid var(--line);
+    color:var(--ink-soft); font-weight:500; background:var(--paper);
+  }
+
+  .layout{
+    max-width:1400px; margin:0 auto;
+  }
+  .toc-wrap{
+    border-bottom:1px solid var(--line);
+    padding: 0 8vw;
+  }
+  .toc-toggle{
+    width:100%; display:flex; align-items:center; justify-content:space-between; gap:10px;
+    background:none; border:none; cursor:pointer; padding:16px 0;
+    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px; color:var(--ink);
+  }
+  .toc-toggle:hover{ color:var(--c-1); }
+  .toc-toggle-left{ display:flex; align-items:center; gap:10px; }
+  .toc-toggle-left svg{ color:var(--ink-soft); flex:none; }
+  .toc-count{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft); font-weight:500;
+    background:var(--paper); border:1px solid var(--line); padding:2px 8px; border-radius:100px;
+  }
+  .toc-chevron{ transition: transform .3s ease; color:var(--ink-soft); flex:none; }
+  .toc-toggle[aria-expanded="true"] .toc-chevron{ transform: rotate(180deg); }
+  .toc-panel-outer{ display:grid; grid-template-rows: 0fr; transition: grid-template-rows .35s ease; }
+  .toc-panel-outer.open{ grid-template-rows: 1fr; }
+  .toc-panel-inner{ overflow:hidden; min-height:0; }
+
+  nav.sidebar{ display:block; padding: 4px 0 22px; }
+
+  .search-box{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:12px; padding:10px 12px; margin-bottom:18px;
+    background:var(--paper);
+  }
+  .search-box input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13.5px; width:100%; color:var(--ink);
+  }
+  .search-box svg{ flex:none; opacity:.5; }
+
+  .nav-actions{ display:flex; gap:8px; margin-bottom:18px; }
+  .nav-actions button{
+    flex:1; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    border:1.3px solid var(--line); background:#fff; color:var(--ink-soft);
+    padding:7px 8px; border-radius:9px; cursor:pointer; transition:.15s ease;
+  }
+  .nav-actions button:hover{ border-color:var(--ink); color:var(--ink); }
+
+  .nav-group-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); margin: 18px 0 6px 2px;
+  }
+  .nav-group-label:first-of-type{ margin-top:0; }
+
+  nav.sidebar ul{ list-style:none; margin:0; padding:0; border-left:2px solid var(--line-soft); }
+  nav.sidebar li a{
+    display:flex; align-items:center; gap:9px;
+    text-decoration:none; font-size:13.5px; color:var(--ink-soft);
+    padding:7px 0 7px 14px; border-left:2px solid transparent; margin-left:-2px;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  nav.sidebar li a .sw{ width:8px; height:8px; border-radius:3px; flex:none; background:var(--g-color); }
+  nav.sidebar li a:hover{ color:var(--ink); }
+  nav.sidebar li a.active{ color:var(--g-color); border-left-color: var(--g-color); font-weight:600; }
+  nav.sidebar li a[data-hidden="1"]{ display:none; }
+
+  main{ min-width:0; padding: 0 8vw 140px; }
+
+  section.class-section{ padding-top:56px; scroll-margin-top: 24px; }
+  section.class-section:first-child{ padding-top:44px; }
+
+  .class-head{
+    display:flex; align-items:baseline; gap:16px; flex-wrap:wrap;
+    padding-bottom:14px; margin-bottom:22px; border-bottom:3px solid var(--g-color);
+    position:relative;
+  }
+  .class-head .idx{
+    font-family:'IBM Plex Mono',monospace; font-size:14px; font-weight:700; color:#fff;
+    background:var(--g-color); padding:5px 10px; border-radius:8px;
+  }
+  .class-head h2{ font-size: clamp(20px,2.4vw,28px); color:var(--ink); }
+  .collapse-toggle{
+    margin-left:auto; width:34px; height:34px; border-radius:9px; border:1.5px solid var(--line);
+    background:#fff; color:var(--g-color); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: transform .3s ease, background .15s ease, border-color .15s ease;
+  }
+  .collapse-toggle:hover{ background: var(--g-tint); border-color: var(--g-color); }
+  .collapse-toggle svg{ transition: transform .3s ease; }
+  .collapse-toggle[aria-expanded="false"] svg{ transform: rotate(-90deg); }
+
+  .class-body-outer{ display:grid; grid-template-rows: 0fr; transition: grid-template-rows .38s ease; }
+  .class-body-outer.collapsed{ grid-template-rows: 0fr; }
+  .class-body-outer:not(.collapsed){ grid-template-rows: 1fr; }
+  .class-body-inner{ overflow:hidden; min-height:0; opacity:0; transition: opacity .25s ease .1s; }
+  .class-body-outer.collapsed .class-body-inner{ opacity:0; transition: opacity .18s ease; }
+  .class-body-outer:not(.collapsed) .class-body-inner{ opacity:1; }
+
+  .card{
+    background:#fff; border:1px solid var(--line); border-radius: var(--radius);
+    padding: 28px 30px; margin-bottom: 22px; position:relative; overflow:hidden;
+    border-left: 5px solid var(--g-color);
+  }
+  .card .card-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap;
+    margin-bottom:14px;
+  }
+  .card h3{ font-size:19px; font-weight:600; color:var(--ink); }
+  .card h3 .alt{ font-weight:400; color:var(--ink-soft); font-size:14px; display:block; margin-top:3px;}
+  .code-badge{
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:12px; color:#fff;
+    background: var(--g-color); padding:6px 12px; border-radius:8px; white-space:nowrap;
+  }
+
+  ul.points{ list-style:none; margin:0; padding:0; }
+  ul.points > li{
+    position:relative; padding: 10px 0 10px 34px; font-size:14.8px; line-height:1.65; color:#2b2d36;
+    border-top:1px solid var(--line-soft);
+  }
+  ul.points > li:first-child{ border-top:none; }
+  ul.points > li::before{
+    content:"—";
+    position:absolute; left:0; top:10px; width:22px; height:22px; border-radius:7px;
+    background: var(--g-tint); color:var(--g-color); font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:13px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  ul.points > li b, ul.points > li strong{ color:var(--g-color); }
+  ul.points ul{ list-style:none; margin:8px 0 0; padding:0; }
+  ul.points ul li{
+    position:relative; padding:6px 0 6px 22px; font-size:14px; color:var(--ink-soft); border-top:none;
+  }
+  ul.points ul li::before{
+    content:"·"; position:absolute; left:0; top:4px; width:14px; height:14px; border-radius:0;
+    background:none; color:var(--g-color); font-size:20px; font-weight:700; display:flex; align-items:center; justify-content:center;
+  }
+
+  .ayah-block{
+    margin: 6px 0 18px; padding:20px 22px; border-radius:14px; background:var(--paper);
+    border:1px solid var(--line);
+  }
+  .ayah-block .ayah-ref{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--g-color); font-weight:700; margin-bottom:10px; display:block;
+  }
+  .ayah-block .ayah-ar{
+    font-size:24px; line-height:2; color:var(--ink); text-align:right; margin-bottom:12px;
+  }
+  .ayah-block .ayah-en{
+    font-size:14.5px; line-height:1.6; color:var(--ink-soft); font-style:italic;
+  }
+
+  .quote{
+    margin-top:16px; padding:16px 18px; border-radius:12px; background:var(--g-tint);
+    font-family:'Space Grotesk', sans-serif; font-size:16px; line-height:1.55; color:#20222a;
+    border-left:3px solid var(--g-color);
+  }
+  .quote footer{
+    margin-top:8px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    text-transform:uppercase; color:var(--ink-soft); font-style:normal;
+  }
+
+  .pill-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .pill-row .pill{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; background:#fff; border:1.3px solid var(--g-color);
+    color:var(--g-color); font-weight:600;
+  }
+
+  .lesson-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:6px; }
+  @media (max-width:640px){ .lesson-grid{ grid-template-columns:1fr; } }
+  .lesson-card{
+    border-radius:var(--radius); padding:22px 22px; border:1.3px solid var(--line);
+  }
+  .lesson-card .kicker{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .lesson-card h4{ margin-top:8px; font-size:17px; }
+  .lesson-card p{ margin-top:10px; font-size:14px; line-height:1.6; color:#2b2d36; }
+
+  .num-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:6px; }
+  @media (max-width:760px){ .num-grid{ grid-template-columns:1fr; } }
+  .num-card{
+    border-radius:14px; padding:18px 20px; border:1.3px solid var(--line); background:var(--paper);
+    display:flex; gap:14px; align-items:flex-start;
+  }
+  .num-card .num-badge{
+    flex:none; width:30px; height:30px; border-radius:9px; background:var(--g-color); color:#fff;
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center;
+  }
+  .num-card p{ font-size:14px; line-height:1.6; color:#2b2d36; }
+
+  #toTop{
+    position:fixed; right:26px; bottom:26px; width:46px; height:46px; border-radius:50%;
+    background:var(--ink); color:#fff; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,.22); opacity:0; pointer-events:none; transition: opacity .25s ease, transform .2s ease;
+    z-index:90;
+  }
+  #toTop.show{ opacity:1; pointer-events:auto; }
+  #toTop:hover{ transform: translateY(-3px); }
+
+  #quickFab{
+    position:fixed; left:26px; bottom:26px; width:52px; height:52px; border-radius:16px;
+    background: linear-gradient(135deg, var(--c-1), var(--c-4)); color:#fff; border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; z-index:95;
+    box-shadow:0 10px 28px -6px rgba(124,58,237,.5);
+    transition: transform .2s ease, border-radius .2s ease;
+  }
+  #quickFab:hover{ transform: translateY(-3px) scale(1.03); }
+  #quickFab.open{ border-radius:50%; }
+  #quickFab svg{ transition: transform .3s ease; }
+  #quickFab.open svg{ transform: rotate(45deg); }
+
+  #quickPanel{
+    position:fixed; left:26px; bottom:90px; width:280px; max-height:60vh; overflow-y:auto;
+    background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow);
+    z-index:94; padding:14px; opacity:0; transform: translateY(10px) scale(.97); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  #quickPanel.open{ opacity:1; transform: translateY(0) scale(1); pointer-events:auto; }
+  #quickPanel .qp-head{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--ink-soft); padding:4px 8px 10px;
+  }
+  #qpList{ list-style:none; margin:0; padding:0; }
+  #qpList li{
+    display:flex; align-items:center; gap:8px; border-radius:10px; padding:2px;
+  }
+  #qpList li a{
+    flex:1; display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--ink);
+    font-size:13px; padding:8px; border-radius:10px; transition:background .15s ease;
+  }
+  #qpList li a:hover{ background:var(--paper); }
+  .qp-idx{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:700; color:#fff;
+    background: var(--qc, var(--c-1)); padding:2px 6px; border-radius:6px;
+  }
+  .qp-toggle{ padding:8px; cursor:pointer; color:var(--ink-soft); opacity:.6; }
+  .qp-toggle:hover{ opacity:1; }
+  #qpList li.is-collapsed .qp-toggle svg{ transform: rotate(-90deg); }
+  #qpList li .qp-toggle svg{ transition: transform .3s ease; }
+
+  #empty-state{ display:none; padding:60px 0; text-align:center; color:var(--ink-soft); }
+  #empty-state.show{ display:block; }
+
+  footer.page-footer{
+    padding:30px 8vw 60px; color:var(--ink-soft); font-size:12.5px; font-family:'IBM Plex Mono',monospace;
+    border-top:1px solid var(--line); margin-top:30px;
+  }
+
+  @media (max-width: 980px){
+    main{ padding: 0 6vw 120px; }
+    .ayah-block .ayah-ar{ font-size:20px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001s !important; transition-duration:.001s !important; }
+    html{ scroll-behavior:auto; }
+  }
+
+  .burger-menu{ max-width: calc(100vw - 16vw); }
+  .ayah-block .ayah-ar{ line-height:2.15; }
+  .quote{ font-style:normal; }
+  .quote footer{ display:block; }
+  .card ul.points > li i{ color:inherit; }
+  section.class-section{ scroll-margin-top:60px; }
+  :focus-visible{ outline:2px solid var(--c-1); outline-offset:2px; }
+  @media (max-width:640px){
+    .burger-menu{ width:min(320px, 88vw); max-width:none; }
+    .card{ padding:22px 18px; }
+    #quickPanel{ left:16px; width:min(280px, calc(100vw - 32px)); }
+    #quickFab{ left:16px; bottom:18px; }
+    #toTop{ right:16px; bottom:18px; }
+  }
+</style>
+</head>
+<body data-page="abasa80">
+
+<div id="progress"></div>
+
+<header class="hero">
+  <div class="burger-wrap">
+    <button id="navBurger" class="burger-btn" aria-haspopup="true" aria-expanded="false" aria-label="Open navigation menu">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div id="navMenu" class="burger-menu"></div>
+  </div>
+</header>
+
+<div class="ref-bar">
+  <span class="ref-label">Source</span>
+  <a href="https://www.nakcollection.com/surah-abasaa.html" target="_blank" rel="noopener" class="ref-txt" style="text-decoration:none; border-bottom:1px solid rgba(255,255,255,.35); padding-bottom:1px;">Nouman Ali Khan</a>
+</div>
+
+<div class="page-title" id="top">
+  <span class="eyebrow">Tafsīr Notes · Sūrah ʿAbasa (80)</span>
+  <h1>“He <span class="accent-word">Frowned</span> and Turned Away” [Surah 80]</h1>
+  <div class="sub">A frown that a blind man could not even see — and a whole surah built around it. These notes follow the surah from the scene with Abdullah ibn Umm Maktum, through the reminder and the honoured scrolls, to the origin of man, his food, and the Day when faces are either lit up or covered in dust.</div>
+  <div class="tag-row">
+    <span class="tag">42 Ayat</span>
+    <span class="tag">Istighnaa</span>
+    <span class="tag">Tadhkirah</span>
+    <span class="tag">Link to An-Nazi'at</span>
+  </div>
+</div>
+
+<div class="layout">
+
+  <div class="toc-wrap">
+    <button class="toc-toggle" id="tocToggle" aria-expanded="false" aria-controls="tocPanelOuter">
+      <span class="toc-toggle-left">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        <span>Table of Contents</span>
+        <span class="toc-count">19 sections</span>
+      </span>
+      <svg class="toc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="toc-panel-outer" id="tocPanelOuter">
+      <div class="toc-panel-inner">
+        <nav class="sidebar">
+    <div class="search-box">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="searchInput" type="text" placeholder="Search sections…">
+    </div>
+    <div class="nav-actions">
+      <button id="expandAll">Expand all</button>
+      <button id="collapseAll">Collapse all</button>
+    </div>
+
+    <div class="nav-group-label">Setting the Stage</div>
+    <ul>
+      <li><a href="#s-01" data-key="connection previous surah nazi&#x27;at two types people istighnaa believer disbeliever" style="--g-color:var(--c-1)"><span class="sw"></span>Link to Surah An-Nazi'at (79)</a></li>
+      <li><a href="#s-02" data-key="respect adab messenger hujurat ya muhammad two extremes shirk sunnah ma&#x27;soom golden standard ijma" style="--g-color:var(--c-2)"><span class="sw"></span>Respecting Allah's Messenger ﷺ</a></li>
+    </ul>
+
+    <div class="nav-group-label">The Frown: Ayat 1–16</div>
+    <ul>
+      <li><a href="#s-03" data-key="ayah 1 abasa wa tawalla background quraysh ibn umm maktum blind elite utba abu jahl dawah tableegh" style="--g-color:var(--c-3)"><span class="sw"></span>The Setting: A Blind Man and the Elite</a></li>
+      <li><a href="#s-04" data-key="why revealed ranks standards muslim mu&#x27;min muhsin muttaqi messenger qiblah baqarah 2:144 five reasons" style="--g-color:var(--c-4)"><span class="sw"></span>Why Were These Verses Revealed?</a></li>
+      <li><a href="#s-05" data-key="uboos abasa qalaha basar basal frown anger jalalayn welcome one on whose account allah reproached me subtle watching" style="--g-color:var(--c-5)"><span class="sw"></span>Words for an Angry Face</a></li>
+      <li><a href="#s-06" data-key="companions leadership leader weak believers kahf 18:28 al imran 3:159 mercy ya muhammad third person abasa abasta" style="--g-color:var(--c-6)"><span class="sw"></span>Honouring the Companions</a></li>
+      <li><a href="#s-07" data-key="ayah 2 an jaa&#x27;ahu al a&#x27;maa jaa&#x27;a ataa came rushing enthusiasm blind man" style="--g-color:var(--c-1)"><span class="sw"></span>Why He Turned Away</a></li>
+      <li><a href="#s-08" data-key="ayah 3 4 yudreeka la&#x27;allahu yazzakka tazakka purify musa firaun dhikra tanfa&#x27;ahu yadhakkaru knowledge purpose" style="--g-color:var(--c-2)"><span class="sw"></span>“What Would Make You Know?”</a></li>
+      <li><a href="#s-09" data-key="ayah 5 6 7 istaghna ghina tasadda sadda echo salesman allaa illaa pharaoh humiliate elite upper hand not upon you" style="--g-color:var(--c-3)"><span class="sw"></span>Self-Sufficiency and Turning Back</a></li>
+      <li><a href="#s-10" data-key="ayah 8 9 10 yas&#x27;a yakhshaa khashyah talaha lahw pharaoh opposite directions huwa nazi&#x27;at 79:45 79:26" style="--g-color:var(--c-4)"><span class="sw"></span>Striving, Fearing, Distracted</a></li>
+      <li><a href="#s-11" data-key="ayah 11 12 kallaa tadhkirah tadhkeer fitrah a&#x27;raf 7:172 qaf 50:45 fa man shaa&#x27;a dhakarahu reminder divine" style="--g-color:var(--c-5)"><span class="sw"></span>A Reminder for Those Who Fear</a></li>
+      <li><a href="#s-12" data-key="ayah 13 14 15 16 suhuf mukaramah marfoo&#x27;ah muttaharah lawh mahfooz safarah scribes angels bararah abraar dhillah" style="--g-color:var(--c-6)"><span class="sw"></span>The Honoured Scrolls</a></li>
+    </ul>
+
+    <div class="nav-group-label">Man and His Provision: Ayat 17–32</div>
+    <ul>
+      <li><a href="#s-13" data-key="ayah 17 qutila al insanu maa akfarahu ta&#x27;ajjub greatest sign ayat al kubra pharaoh musa arrogance" style="--g-color:var(--c-1)"><span class="sw"></span>How Amazing Is Man's Denial</a></li>
+      <li><a href="#s-14" data-key="ayah 18 19 20 21 22 nutfah khalaqahu qaddarahu taqdeer sabeel yassarahu aqbarahu qabr anshara ahya ba&#x27;ath nashr resurrection" style="--g-color:var(--c-2)"><span class="sw"></span>From a Drop to a Grave</a></li>
+      <li><a href="#s-15" data-key="ayah 23 kallaa lammaa yaqdi maa amarahu qadaa duty hope" style="--g-color:var(--c-3)"><span class="sw"></span>The Duty Unfulfilled</a></li>
+      <li><a href="#s-16" data-key="ayah 24 25 26 27 28 29 30 31 32 food yandhur ta&#x27;am sabb shaqq anbata habb inab qadb zaytun nakhl hada&#x27;iq ghulb faakihah abb mata&#x27;an an&#x27;am psychology" style="--g-color:var(--c-4)"><span class="sw"></span>Look at Your Food</a></li>
+    </ul>
+
+    <div class="nav-group-label">The Day of the Blast: Ayat 33–42</div>
+    <ul>
+      <li><a href="#s-17" data-key="ayah 33 34 35 36 37 saakhah farra mar&#x27;u rajul muru&#x27;a family mother father spouse children sha&#x27;n yughneeh istighnaa nazi&#x27;at 79:34 79:35" style="--g-color:var(--c-5)"><span class="sw"></span>The Deafening Blast</a></li>
+      <li><a href="#s-18" data-key="ayah 38 39 40 41 42 musfirah dahikah mustabshirah ghabarah qatarah kafarah fajarah faces smile baqarah 2:212 mutaffifin 83:30" style="--g-color:var(--c-6)"><span class="sw"></span>Bright Faces, Dusty Faces</a></li>
+      <li><a href="#s-19" data-key="conclusion beginning ending istighna laughing believers hadith prison of the believer paradise of the disbeliever sahih muslim" style="--g-color:var(--c-1)"><span class="sw"></span>How the Beginning Meets the Ending</a></li>
+    </ul>
+
+  </nav>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <section class="class-section" id="s-01" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">01</span>
+        <h2>Link to Surah An-Nazi'at (79)</h2>
+        <button class="collapse-toggle" data-target="s-01" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-01">
+      <div class="class-body-inner">
+<div class="ayah-block">
+<span class="ayah-ref">An-Nazi'at 79:37–39</span>
+<p class="ayah-ar arabic">فَأَمَّا مَن طَغَىٰ • وَءَاثَرَ ٱلْحَيَوٰةَ ٱلدُّنْيَا • فَإِنَّ ٱلْجَحِيمَ هِىَ ٱلْمَأْوَىٰ</p>
+<p class="ayah-en">"As for him who was rebellious, [who] disbelieved, and preferred the life of this world, then indeed, Hellfire will be [his] refuge."</p>
+</div>
+<div class="ayah-block">
+<span class="ayah-ref">An-Nazi'at 79:40–41</span>
+<p class="ayah-ar arabic">وَأَمَّا مَنْ خَافَ مَقَامَ رَبِّهِۦ وَنَهَى ٱلنَّفْسَ عَنِ ٱلْهَوَىٰ • فَإِنَّ ٱلْجَنَّةَ هِىَ ٱلْمَأْوَىٰ</p>
+<p class="ayah-en">"But as for he who feared the position of his Lord and prevented the soul from [unlawful] inclination, then indeed, Paradise will be [his] refuge."</p>
+</div>
+<div class="card">
+<div class="card-top">
+<h3>Two contrasting people at the end of Nazi'at</h3>
+<span class="code-badge">Previous Surah</span>
+</div>
+<ul class="points">
+<li>Near its close, the previous surah (An-Nazi'at, 79) sets two types of people against each other.</li>
+<li>The first is the one who rebelled, disbelieved and preferred the life of this world — Hellfire is his refuge.</li>
+<li>The second is the one who feared standing before his Lord and held his soul back from unlawful desire — Paradise is his refuge.</li>
+</ul>
+
+</div>
+<div class="card">
+<div class="card-top">
+<h3>The same two people, now on stage</h3>
+<span class="code-badge">Link to Abasa</span>
+</div>
+<ul class="points">
+<li>Surah Abasa also revolves around two types of people.</li>
+<li>The first is the one who doesn't care — the one in <b>istighnaa</b>, who feels he needs nothing.
+</li>
+<li>The second is the one who fears Allah and comes running to the Messenger of Allah.</li>
+<li>Put simply: the disbeliever and the believer.</li>
+<li>The characters described in the previous surah are acted out inside this surah.</li>
+</ul>
+<div class="pill-row"><span class="pill">Istighnaa (self-sufficiency)</span><span class="pill">Khashyah (fear of Allah)</span><span class="pill">Disbeliever vs believer</span></div>
+</div>
+      </div>
+      </div>
+    </section>
+    <section class="class-section" id="s-02" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">02</span>
+        <h2>Respecting Allah's Messenger ﷺ</h2>
+        <button class="collapse-toggle" data-target="s-02" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-02">
+      <div class="class-body-inner">
+<div class="card">
+<div class="card-top">
+<h3>A sensitive topic</h3>
+<span class="code-badge">Introduction</span>
+</div>
+<ul class="points">
+<li>This surah discusses a very sensitive matter, so we must be careful with our words when speaking about Allah's Messenger ﷺ.</li>
+<li>In the Madani Qur'an, Allah criticises the bedouins for talking to the Messenger casually, the way they talk to one another:
+<ul><li>While he was inside his home, they would call out, “Ya Muhammad, come outside to us!”</li><li>They meant no disrespect and simply spoke to him as they did with each other.</li><li>Even so, Allah disliked seeing His Messenger treated without due honour, and revealed the verse below.</li></ul>
+</li>
+</ul>
+
+</div>
+<div class="ayah-block">
+<span class="ayah-ref">Al-Hujurat 49:2 (part)</span>
+<p class="ayah-ar arabic">وَلَا تَجْهَرُوا۟ لَهُۥ بِٱلْقَوْلِ كَجَهْرِ بَعْضِكُمْ لِبَعْضٍ أَن تَحْبَطَ أَعْمَٰلُكُمْ وَأَنتُمْ لَا تَشْعُرُونَ</p>
+<p class="ayah-en">"...nor speak aloud to him in talk as you speak aloud to one another, lest your deeds may be rendered fruitless while you perceive not."</p>
+</div>
+<div class="card">
+<div class="card-top">
+<h3>Honouring him is a matter of faith</h3>
+<span class="code-badge">Al-Hujurat 49:7</span>
+</div>
+<ul class="points">
+<li>The same surah reminds them that the Messenger of Allah is among them.</li>
+<li>If he were to follow their opinions and desires in much of the matter, they would be in trouble.</li>
+<li>But Allah made faith beloved to them and beautified it in their hearts, and made disbelief, wickedness and disobedience hateful to them — these are the rightly guided.</li>
+<li>The passage begins with honouring the Messenger and then mentions <b>Eman</b> (faith) right beside it.</li>
+<li>This shows how important honouring the Messenger is: it is a matter of faith itself.</li>
+</ul>
+
+</div>
+<div class="card">
+<div class="card-top">
+<h3>Two extremes in how Muslims relate to him</h3>
+<span class="code-badge">The Middle Way</span>
+</div>
+<ul class="points">
+<li><b>Extreme one — almost no respect for him or his Sunnah.</b>
+<ul><li>Such people say things like “It's only a hadith,” “It's not in the Qur'an,” or “His job was only to deliver the message; we don't have to follow every small detail he did.”</li></ul>
+</li>
+<li><b>Extreme two — so much love that it nearly (or actually) becomes shirk.</b>
+<ul><li>They may also reinterpret verses that appear critical of the Messenger, giving them meanings that are not true to the Arabic language.</li><li>But Allah describes the Qur'an as being in clear Arabic speech, so you can't say “Allah said this, but He meant something else.”</li></ul>
+</li>
+<li>The right path is the middle way: the way the companions and the salaf (earliest generations) honoured him — following his teachings sincerely, without distortion.</li>
+</ul>
+
+</div>
+<div class="ayah-block">
+<span class="ayah-ref">Ash-Shu'ara 26:195</span>
+<p class="ayah-ar arabic">بِلِسَانٍ عَرَبِىٍّ مُّبِينٍ</p>
+<p class="ayah-en">"[It is] in a clear/clarified Arabic tongue."</p>
+</div>
+<div class="card">
+<div class="card-top">
+<h3>A golden standard we must not cross</h3>
+<span class="code-badge">Ma'soom</span>
+</div>
+<ul class="points">
+<li>The Messenger of Allah is free from sin; he does not disobey Allah or commit sin.</li>
+<li>This is essentially <b>ijma'</b> (consensus among the scholars).</li>
+<li>Allah purified his heart and made it firm; he is the golden standard of human character, so Allah has protected him from sin — he is <b>ma'soom</b>.</li>
+</ul>
+
+</div>
+      </div>
+      </div>
+    </section>
+    <section class="class-section" id="s-03" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">03</span>
+        <h2>The Setting: A Blind Man and the Elite</h2>
+        <button class="collapse-toggle" data-target="s-03" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-03">
+      <div class="class-body-inner">
+<div class="ayah-block">
+<span class="ayah-ref">Abasa 80:1</span>
+<p class="ayah-ar arabic">عَبَسَ وَتَوَلَّىٰٓ</p>
+<p class="ayah-en">"He frowned and turned away." (abasa wa tawal-laa)</p>
+</div>
+<div class="card">
+<div class="card-top">
+<h3>What was happening</h3>
+<span class="code-badge">Background</span>
+</div>
+<ul class="points">
+<li>The Messenger of Allah was giving da'wah to some high-ranking men of Quraysh — some say ʿUtba bin Rabiʿa, Abu Jahl and others.</li>
+<li>These were the high-class elite of Makkah, and they were actually talking with him.</li>
+<li>In other surahs they are mocking him or being sarcastic; this time they seem to be holding a real conversation — so it looked as though da'wah was starting to achieve something.</li>
+<li>Also present was <b>Abdullah ibn Umm Maktum</b>:
+<ul><li>He was the cousin of Khadija (may Allah be pleased with her), blind, and among the earliest Muslims.</li><li>So we must not disrespect him either — he is one of the <b>Sabiqoon</b>, those closest to Allah for accepting Islam so early.</li><li>Blind people often speak loudly to get their point across: they can't see how people react, and may feel this is the best way to gain attention.</li></ul>
+</li>
+<li>He came and said, “O Muhammad, teach me from what Allah has taught you.”</li>
+<li>The Messenger was busy calling these leaders to Islam — it is uncommon for all of them to sit together and engage in discussion with him.</li>
+<li>Since Ibn Umm Maktum didn't hear a clear reply, he thought the Messenger might not have heard him, and so he kept repeating his request.</li>
+</ul>
+
+</div>
+<div class="card">
+<div class="card-top">
+<h3>Why the elite resisted</h3>
+<span class="code-badge">Pride</span>
+</div>
+<ul class="points">
+<li>Throughout history, elites have rejected Islam because of pride.</li>
+<li>Their line of thinking: “Why accept Islam when the poor, weak and oppressed are with you? If we became Muslims we would lose our standing by being alongside such companions.”</li>
+<li>In this scene, as soon as the Quraysh elite saw Ibn Umm Maktum coming close to the Messenger, they would walk away — “we don't want to be seen in the presence of this blind man.”</li>
+</ul>
+
+</div>
+<div class="card">
+<div class="card-top">
+<h3>Da'wah versus tableegh</h3>
+<span class="code-badge">Terminology</span>
+</div>
+<ul class="points">
+<li><b>Da'wah</b> = to invite someone to you.</li>
+<li><b>Tableegh</b> = to get the message out.</li>
+<li>What the Messenger of Allah was doing in this scene was tableegh.</li>
+</ul>
+<div class="pill-row"><span class="pill">Da'wah — invite</span><span class="pill">Tableegh — convey</span></div>
+</div>
+<div class="card">
+<div class="card-top">
+<h3>Did the Messenger actually do anything wrong?</h3>
+<span class="code-badge">Context</span>
+</div>
+<ul class="points">
+<li>The Messenger was getting somewhere in da'wah, so Ibn Umm Maktum — already a believer — could wait and ask again later; a golden opportunity with the elite is not easy to come by.</li>
+<li>From that standpoint, the Messenger did not actually do anything wrong.</li>
+<li>Ibn Umm Maktum is blind and could not see any frown — which is probably why Allah describes the situation with the word <b>al-a'maa</b> (the blind one). If he didn't see a frown, how could he feel insulted?</li>
+<li>Compare this with <b>uff</b>: Allah tells us not to say “uff” to our parents (Al-Isra 17:23) — not even a sound showing displeasure.</li>
+<li>Yet the Messenger never made even a sound of displeasure to the blind man — only a frown that could not be seen.</li>
+</ul>
+
+</div>
+      </div>
+      </div>
+    </section>
+    <section class="class-section" id="s-04" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">04</span>
+        <h2>Why Were These Verses Revealed?</h2>
+        <button class="collapse-toggle" data-target="s-04" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-04">
+      <div class="class-body-inner">
+<div class="card">
+<div class="card-top">
+<h3>Higher rank, higher standard</h3>
+<span class="code-badge">Ranks with Allah</span>
+</div>
+<ul class="points">
+<li>Allah holds people to different standards depending on rank, and the standard rises as one's rank with Him rises:</li>
+<li>The ranks, ascending:
+<ul><li><b>Muslim</b> — one who submits to Allah.</li><li><b>Mu'min</b> — a believer who stayed firm in Iman even after hard trials.</li><li><b>Muhsin / Muttaqi</b> — perfection in Iman; one who fears Allah.</li><li><b>Messenger from Allah</b> — the highest level.</li></ul>
+</li>
+<li>Allah had the highest standard for His best Messenger, and He is very sensitive to even the smallest of the Messenger's actions.</li>
+<li>Example: Allah once saw His Messenger looking up at the sky in sadness (longing for a new qiblah), and responded with the verse below.</li>
+</ul>
+
+</div>
+<div class="ayah-block">
+<span class="ayah-ref">Al-Baqarah 2:144 (part)</span>
+<p class="ayah-ar arabic">قَدْ نَرَىٰ تَقَلُّبَ وَجْهِكَ فِى ٱلسَّمَآءِ ۖ فَلَنُوَلِّيَنَّكَ قِبْلَةً تَرْضَىٰهَا ۚ فَوَلِّ وَجْهَكَ شَطْرَ ٱلْمَسْجِدِ ٱلْحَرَامِ</p>
+<p class="ayah-en">"We have certainly seen the turning of your face, [O Muhammad], toward the heaven, and We will surely turn you to a qiblah with which you will be pleased. So turn your face toward al-Masjid al-Haram."</p>
+</div>
+<div class="card">
+<div class="card-top">
+<h3>Five reasons this can't really be blamed on the Messenger</h3>
+<span class="code-badge">Weighing It Up</span>
+</div>
+<ul class="points">
+<li>Yet consider the situation as a whole:</li>
+</ul>
+<div class="num-grid"><div class="num-card"><span class="num-badge">1</span><p>The blind man interrupted the Messenger's conversation and kept on doing so — so the error was really on his side.</p></div><div class="num-card"><span class="num-badge">2</span><p>The Messenger wanted to give da'wah to a Quraysh noble who would rarely listen; if he accepted, he might influence many others, since when an elite member of society accepts a truth, the masses examine it and accept it more willingly.</p></div><div class="num-card"><span class="num-badge">3</span><p>The blind man persisted even though he had other times to ask — which naturally annoys a listener who is in the middle of an important project with a chance of great success.</p></div><div class="num-card"><span class="num-badge">4</span><p>This led only to a frown and a turning away — which a blind person cannot even notice. Is that really an insult?</p></div><div class="num-card"><span class="num-badge">5</span><p>Even so, Allah revealed verses — to be recited by all people for many centuries — about this scene, to show the high level of expectation He has of His Messenger and his followers: not even a frown at a blind man (Allah is still watching us), and calling the rich and the poor to Islam equally, with no biased precedence.</p></div></div>
+</div>
+      </div>
+      </div>
+    </section>
+    <section class="class-section" id="s-05" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">05</span>
+        <h2>Words for an Angry Face</h2>
+        <button class="collapse-toggle" data-target="s-05" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-05">
+      <div class="class-body-inner">
+<div class="card">
+<div class="card-top">
+<h3>Four Arabic words for an angry expression</h3>
+<span class="code-badge">Vocabulary</span>
+</div>
+<ul class="points">
+<li><b>Uboos</b> (noun; verb: <b>abasa</b>) — a frown: the forehead bulging only because of annoyance.</li>
+<li><b>Qalaha</b> — grinding the teeth out of anger.</li>
+<li><b>Basar</b> — the face becoming ugly from anger (see also Al-Muddaththir 74:22).</li>
+<li><b>Basal</b> — the face made during extreme anger in war and fighting.</li>
+</ul>
+<div class="pill-row"><span class="pill">Uboos / Abasa</span><span class="pill">Qalaha</span><span class="pill">Basar</span><span class="pill">Basal</span></div>
+</div>
+<div class="card">
+<div class="card-top">
+<h3>The very mildest of them</h3>
+<span class="code-badge">Lesson</span>
+</div>
+<ul class="points">
+<li>Only the least possible degree — a <b>frown</b> of slight frustration — appeared on the Messenger's face.</li>
+<li>Yet Allah revealed verses about it, to forbid it and to raise the Messenger's already great character to the next level.</li>
+<li>Afterwards, whenever Ibn Umm Maktum came to him, the Prophet would say to him, “Greetings to the one on whose account my Lord reproached me!” and would spread out his cloak for him.</li>
+<li>We learn that Allah is watching even the smallest things we do, He is aware of the subtleties in our actions, and He will take us to account for them.</li>
+</ul>
+<blockquote class="quote" style="margin-left:0;margin-right:0">Greetings to him on whose account God reproached me!<footer>Tafseer al-Jalalayn on 80:2</footer></blockquote>
+</div>
+      </div>
+      </div>
+    </section>
+    <section class="class-section" id="s-06" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">06</span>
+        <h2>Honouring the Companions</h2>
+        <button class="collapse-toggle" data-target="s-06" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-06">
+      <div class="class-body-inner">
+<div class="card">
+<div class="card-top">
+<h3>Allah honouring the companions of His Messenger</h3>
+<span class="code-badge">Leadership</span>
+</div>
+<ul class="points">
+<li>Allah comments on this situation because His Messenger is a role model in many things — one of them being a leader.</li>
+<li>When people follow a loving leader they stay firm in following him; if he makes them feel unimportant, the group gradually breaks down.</li>
+<li>Another of the weak companions may have seen this scene from a distance and felt that the Messenger was giving more attention to the Quraysh than to the weak believer.</li>
+<li>Allah corrects such doubts by showing that the believing companions are better, more worthy of attention, and better in His sight than the disbelieving elite of Quraysh.</li>
+<li>Scholars' caveat:
+<ul><li>A Muslim may give attention to a non-Muslim who is asking about Islam, in preference to a Muslim who will always have access to Islamic knowledge.</li><li>The reason: the non-Muslim may never return if he is left without answers.</li></ul>
+</li>
+<li>Allah tells His Messenger not to turn his eyes away from the believers (Al-Kahf 18:28).</li>
+</ul>
+
+</div>
+<div class="ayah-block">
+<span class="ayah-ref">Al-Kahf 18:28 (part)</span>
+<p class="ayah-ar arabic">وَلَا تَعْدُ عَيْنَاكَ عَنْهُمْ</p>
+<p class="ayah-en">"...and do not let your eyes pass beyond them..." (i.e. do not turn your eyes away from them)</p>
+</div>
+<div class="ayah-block">
+<span class="ayah-ref">Aal Imran 3:159 (part)</span>
+<p class="ayah-ar arabic">فَبِمَا رَحْمَةٍ مِّنَ ٱللَّهِ لِنتَ لَهُمْ ۖ وَلَوْ كُنتَ فَظًّا غَلِيظَ ٱلْقَلْبِ لَٱنفَضُّوا۟ مِنْ حَوْلِكَ ۖ فَٱعْفُ عَنْهُمْ وَٱسْتَغْفِرْ لَهُمْ وَشَاوِرْهُمْ فِى ٱلْأَمْرِ ۖ فَإِذَا عَزَمْتَ فَتَوَكَّلْ عَلَى ٱللَّهِ</p>
+<p class="ayah-en">"So by mercy from Allah, [O Muhammad], you were lenient with them. And if you had been rude [in speech] and harsh in heart, they would have disbanded from about you. So pardon them and ask forgiveness for them and consult them in the matter. And when you have decided, then rely upon Allah."</p>
+</div>
+<div class="card">
+<div class="card-top">
+<h3>Mercy toward the believers, despite their mistakes</h3>
+<span class="code-badge">Aal Imran 3:159</span>
+</div>
+<ul class="points">
+<li>Allah honours the companions, and commands His Messenger to look after them, be merciful to them and pray for them — even though they err.</li>
+</ul>
+
+</div>
+<div class="card">
+<div class="card-top">
+<h3>Subtle details in how Allah addresses him</h3>
+<span class="code-badge">Adab in Address</span>
+</div>
+<ul class="points">
+<li>Allah never calls His Messenger “Ya Muhammad!” — out of honour for him. Yet Ibn Umm Maktum kept saying “Ya Muhammad.”</li>
+<li>The Messenger did not even want to offend him by saying “Wait.” All he showed was a slight bulge on his forehead in a tense moment — and Allah reveals verses about it in the Qur'an.</li>
+<li>Allah's mercy toward His Messenger also shows in the grammar: it says <b>abasa</b> (“he frowned” — third person), not <b>abasta</b> (“you frowned” — second person).</li>
+<li>In Arabic, the third person implies going easy on someone; reprimanding in the second person is harsh. So Allah is being merciful.</li>
+</ul>
+<div class="pill-row"><span class="pill">Abasa (3rd person) — gentle</span><span class="pill">Abasta (2nd person) — harsh</span></div>
+</div>
+      </div>
+      </div>
+    </section>
+    <section class="class-section" id="s-07" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">07</span>
+        <h2>Why He Turned Away</h2>
+        <button class="collapse-toggle" data-target="s-07" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-07">
+      <div class="class-body-inner">
+<div class="ayah-block">
+<span class="ayah-ref">Abasa 80:2</span>
+<p class="ayah-ar arabic">أَن جَآءَهُ ٱلْأَعْمَىٰٓ</p>
+<p class="ayah-en">"Because there came to him the blind man, [interrupting]." (an jaa'ahu al-a'maa)</p>
+</div>
+<div class="card">
+<div class="card-top">
+<h3>Two words for “to come”</h3>
+<span class="code-badge">Ayah 2</span>
+</div>
+<ul class="points">
+<li><b>Ataa</b> and <b>jaa'a</b> both mean “to come.”</li>
+<li><b>Jaa'a</b> is the heavier word of the two.</li>
+<li>So the blind man came <b>rushing, in enthusiasm</b>.</li>
+</ul>
+<div class="pill-row"><span class="pill">Ataa — came</span><span class="pill">Jaa'a — came rushing</span></div>
+</div>
+      </div>
+      </div>
+    </section>
+    <section class="class-section" id="s-08" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">08</span>
+        <h2>“What Would Make You Know?”</h2>
+        <button class="collapse-toggle" data-target="s-08" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-08">
+      <div class="class-body-inner">
+<div class="ayah-block">
+<span class="ayah-ref">Abasa 80:3–4</span>
+<p class="ayah-ar arabic">وَمَا يُدْرِيكَ لَعَلَّهُۥ يَزَّكَّىٰٓ • أَوْ يَذَّكَّرُ فَتَنفَعَهُ ٱلذِّكْرَىٰٓ</p>
+<p class="ayah-en">"But what would make you perceive, [O Muhammad], that perhaps he might be purified — or be reminded and the remembrance would benefit him?"</p>
+</div>
+<div class="card">
+<div class="card-top">
+<h3>“What tool do you have to know?”</h3>
+<span class="code-badge">Ayah 3</span>
+</div>
+<ul class="points">
+<li><b>Yudreeka</b> (from <i>adraa / yadree</i>, “to know”) asks: what tool do you have to know such information? You have none — you did not know why he had come to you or with what intent.</li>
+<li>Allah has not given His Messenger a licence to judge what is inside someone.</li>
+<li>This surah repeatedly echoes the previous one: Musa went to Pharaoh — knowing he kills, oppresses and calls himself a god — and still asked him a question of hope (79:18).</li>
+</ul>
+
+</div>
+<div class="ayah-block">
+<span class="ayah-ref">An-Nazi'at 79:18</span>
+<p class="ayah-ar arabic">فَقُلْ هَل لَّكَ إِلَىٰٓ أَن تَزَكَّىٰ</p>
+<p class="ayah-en">"And say, 'Would you [be willing to] purify yourself?'"</p>
+</div>
+<div class="card">
+<div class="card-top">
+<h3>Tazakka: purification</h3>
+<span class="code-badge">Ayah 3</span>
+</div>
+<ul class="points">
+<li><b>Zakka</b> means to cleanse oneself, to purify.</li>
+<li>The blind man came to purify and better himself.</li>
+<li>So the aim of seeking knowledge isn't to learn dates, names or timelines; you learn in order to purify yourself and become a better person in Allah's sight.</li>
+<li>The form <b>yazzakkaa</b>:
+<ul><li>Two letters are merged — the perfect form would be <i>yatazakkaa</i>, meaning to be fully purified.</li><li>That form isn't used, because he could not become fully purified in such a short span of time.</li><li><b>Yazzakkaa</b> means he would at least have gained some purification.</li></ul>
+</li>
+</ul>
+<div class="pill-row"><span class="pill">Yazzakkaa — some purification</span><span class="pill">Yatazakkaa — full purification</span></div>
+</div>
+<div class="card">
+<div class="card-top">
+<h3>The reminder that would benefit him</h3>
+<span class="code-badge">Ayah 4</span>
+</div>
+<ul class="points">
+<li><b>Aw yadhdhakkaru</b> — or he would have received some reminder for himself.</li>
+<li><b>Fa tanfa'ahu</b> — and it would have benefited him.</li>
+<li><b>Adh-dhikraa</b> is an intensified (<i>mubalaghah</i>) form of <i>dhikr</i> (remembrance); <i>dhikraa</i> is a powerful reminder.</li>
+<li>The Qur'an itself is a powerful reminder for whoever seeks to benefit from it.</li>
+</ul>
+
+</div>
+      </div>
+      </div>
+    </section>
+    <section class="class-section" id="s-09" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">09</span>
+        <h2>Self-Sufficiency and Turning Back</h2>
+        <button class="collapse-toggle" data-target="s-09" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-09">
+      <div class="class-body-inner">
+<div class="ayah-block">
+<span class="ayah-ref">Abasa 80:5–7</span>
+<p class="ayah-ar arabic">أَمَّا مَنِ ٱسْتَغْنَىٰ • فَأَنتَ لَهُۥ تَصَدَّىٰ • وَمَا عَلَيْكَ أَلَّا يَزَّكَّىٰ</p>
+<p class="ayah-en">"As for he who thinks himself without need, to him you give attention. And not upon you [is any blame] if he will not be purified."</p>
+</div>
+<div class="card">
+<div class="card-top">
+<h3>The one who thinks himself without need</h3>
+<span class="code-badge">Ayah 5 · Istighnaa</span>
+</div>
+<ul class="points">
+<li><b>Ama manistaghna</b> — the one who is heedless and carefree.</li>
+<li><b>Ghinaa</b> means independence from others; being self-enriched.</li>
+<li>The form <b>istighnaa</b> implies the person THINKS he is self-sufficient and has no need of anyone else.</li>
+<li>This refers to the elite of Quraysh whom the Messenger was calling to Islam.</li>
+<li>It also implies that such a person doesn't really want to learn — he only wants a philosophical debate, without any real intention or desire to change.</li>
+<li>The contrast:
+<ul><li>The blind man came to purify himself from his sins and benefit from the Qur'an's reminder.</li><li>The Quraysh elite never intended to change: they only wanted to listen to the message and then pick faults to argue for no purpose.</li></ul>
+</li>
+</ul>
+
+</div>
+<div class="card">
+<div class="card-top">
+<h3>“To him you give attention”</h3>
+<span class="code-badge">Ayah 6 · Tasadda</span>
+</div>
+<ul class="points">
+<li><b>Fa anta lahu tasadda</b> — “then it is you who turns to him.”</li>
+<li><b>Sadda</b> comes from <i>sadyun</i> — an echo: sound hits a wall and keeps bouncing back to your ears. It means to go back to something again and again.</li>
+<li>You went to the disbelievers of Quraysh, this distraction (the blind man) came, and then you returned to them again.</li>
+<li>Note the wording:
+<ul><li>It doesn't just say <i>fa anta tasadda</i>; it says <i>fa anta <b>lahu</b> tasadda</i> (“for him”).</li><li><b>Anta</b> stresses “it is YOU who turns back to them.” Why don't they turn back to you? They have istighnaa — they think they are self-sufficient and don't need to come to you, O Messenger of Allah.</li></ul>
+</li>
+<li>Think of a salesman:
+<ul><li>Imagine a salesman selling a product to someone who doesn't want it. Who looks lesser in others' eyes? The salesman — he is chasing someone who doesn't want to buy.</li><li>Allah does not like His Messenger to be perceived that way; He wants His Messenger to have the upper hand.</li></ul>
+</li>
+<li>So He directs the Messenger to focus on those who want guidance. If the Quraysh elite have heard and still reject it, there's no need to lower yourself by repeatedly running after them.</li>
+<li>Allah does not need them, His Messenger does not need them, and Islam does not need them — so don't look desperate for the guidance of those who have firmly chosen to reject it.</li>
+</ul>
+
+</div>
+<div class="card">
+<div class="card-top">
+<h3>“Not upon you”</h3>
+<span class="code-badge">Ayah 7</span>
+</div>
+<ul class="points">
+<li><b>Wa maa 'alayka allaa yazzakkaa</b> — it is not upon you.</li>
+<li>There is no sin on you if they are not guided.</li>
+<li>Their purification is not your responsibility; it is upon them alone to strive to purify themselves.</li>
+</ul>
+
+</div>
+<div class="card">
+<div class="card-top">
+<h3>Why “allaa” and not “illaa”?</h3>
+<span class="code-badge">Grammar · Humiliating the Elite</span>
+</div>
+<ul class="points">
+<li>Allah humiliates these disbelieving elites by saying <b>allaa</b> instead of the usual <b>illaa</b>.</li>
+<li><b>Illaa</b> would mean: “it is not a sin on you IF they DO NOT purify themselves.”</li>
+<li><b>Allaa</b> is a statement of fact: “it is not upon you [any sin] that they WILL NOT purify themselves.”</li>
+<li>In other words, the people you are calling have no inclination to purify themselves of their evil ways.</li>
+<li>Just as Pharaoh had no inclination to purify himself when Musa asked him — he denied and disobeyed (79:18 and 79:21).</li>
+<li>Pharaoh had <b>ighnaa'</b>: he thought himself rich and free of everyone else. The same trait shows in the disbelieving leaders of Quraysh, and in leaders throughout history.</li>
+</ul>
+
+</div>
+<div class="ayah-block">
+<span class="ayah-ref">An-Nazi'at 79:18 and 79:21</span>
+<p class="ayah-ar arabic">فَقُلْ هَل لَّكَ إِلَىٰٓ أَن تَزَكَّىٰ ... فَكَذَّبَ وَعَصَىٰ</p>
+<p class="ayah-en">"...say to him [Pharaoh], 'Would you [be willing to] purify yourself?' ... But Pharaoh denied and disobeyed."</p>
+</div>
+      </div>
+      </div>
+    </section>
+    <section class="class-section" id="s-10" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">10</span>
+        <h2>Striving, Fearing, Distracted</h2>
+        <button class="collapse-toggle" data-target="s-10" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-10">
+      <div class="class-body-inner">
+<div class="ayah-block">
+<span class="ayah-ref">Abasa 80:8–10</span>
+<p class="ayah-ar arabic">وَأَمَّا مَن جَآءَكَ يَسْعَىٰ • وَهُوَ يَخْشَىٰ • فَأَنتَ عَنْهُ تَلَهَّىٰ</p>
+<p class="ayah-en">"But as for he who came to you striving [for knowledge], while he fears [Allah] — from him you are distracted."</p>
+</div>
+<div class="card">
+<div class="card-top">
+<h3>He came striving</h3>
+<span class="code-badge">Ayah 8 · Yas'aa</span>
+</div>
+<ul class="points">
+<li><b>Wa amma man jaa'aka yas'aa</b> — “but as for the one who came to you striving.”</li>
+<li><b>Yas'aa</b> (also used in Nazi'at 79:22) means walking quickly, but slower than running — the same word family as the <i>sa'ee</i> between Safa and Marwa in Hajj.</li>
+<li>Pharaoh was walking briskly to carry out his evil plans; in this surah the one walking briskly is the blind man, with an intention for good.</li>
+<li>Both are hurrying — in opposite directions.</li>
+</ul>
+
+</div>
+<div class="card">
+<div class="card-top">
+<h3>And he fears</h3>
+<span class="code-badge">Ayah 9 · Yakhshaa</span>
+</div>
+<ul class="points">
+<li><b>Wa huwa yakhshaa</b> — “and he fears (Allah).”</li>
+<li>Mentioning <b>huwa</b> (“he”) singles him out: in this picture, he alone fears Allah, in contrast to the disbelieving leaders of Quraysh.</li>
+<li><b>Khashyah</b> is fear of something greater than yourself.</li>
+</ul>
+
+</div>
+<div class="ayah-block">
+<span class="ayah-ref">An-Nazi'at 79:45</span>
+<p class="ayah-ar arabic">إِنَّمَآ أَنتَ مُنذِرُ مَن يَخْشَىٰهَا</p>
+<p class="ayah-en">"You are only a warner for those who fear it."</p>
+</div>
+<div class="ayah-block">
+<span class="ayah-ref">An-Nazi'at 79:26</span>
+<p class="ayah-ar arabic">إِنَّ فِى ذَٰلِكَ لَعِبْرَةً لِّمَن يَخْشَىٰٓ</p>
+<p class="ayah-en">"Indeed in that is a warning for whoever would fear [Allah]."</p>
+</div>
+<div class="card">
+<div class="card-top">
+<h3>You are distracted from him</h3>
+<span class="code-badge">Ayah 10 · Talaha</span>
+</div>
+<ul class="points">
+<li><b>Fa anta 'anhu talahhaa</b> — “from him you are distracted.”</li>
+<li><b>Talaha</b> (from <i>lahw</i>) means being busy with something when that time could be spent on something more important.</li>
+<li>You are engaged in an activity that is less important than the blind companion Abdullah ibn Umm Maktum.</li>
+<li>You are focusing on people whose hearts Allah has seen: they have no fear, no intention to purify themselves, and think themselves independent of anyone else's guidance.</li>
+</ul>
+
+</div>
+      </div>
+      </div>
+    </section>
+    <section class="class-section" id="s-11" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">11</span>
+        <h2>A Reminder for Those Who Fear</h2>
+        <button class="collapse-toggle" data-target="s-11" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-11">
+      <div class="class-body-inner">
+<div class="ayah-block">
+<span class="ayah-ref">Abasa 80:11–12</span>
+<p class="ayah-ar arabic">كَلَّآ إِنَّهَا تَذْكِرَةٌ • فَمَن شَآءَ ذَكَرَهُۥ</p>
+<p class="ayah-en">"No! Indeed, these verses are a reminder; so whoever wills may remember it."</p>
+</div>
+<div class="card">
+<div class="card-top">
+<h3>“Kallaa” — No!</h3>
+<span class="code-badge">Ayah 11</span>
+</div>
+<ul class="points">
+<li><b>Kallaa</b> means “No! Not at all!” — a scolding (<i>zajr</i>).</li>
+<li>It is directed at the disbelievers: not you — he (the Messenger) doesn't need to waste his time on you.</li>
+<li>And also to the Messenger: No, O Muhammad, they are not worth spending time on. He would rather spend his time on the one who fears and wants to purify himself. No doubt about it.</li>
+</ul>
+
+</div>
+<div class="card">
+<div class="card-top">
+<h3>Degrees of “reminder”</h3>
+<span class="code-badge">Ayah 11 · Tadhkirah</span>
+</div>
+<ul class="points">
+<li><b>Inna-haa tadhkirah</b> — surely this is a reminder; truly, an incredible one.</li>
+<li><b>Dhikraa</b> (explained at ayah 4) — a beneficial reminder, such as the one the Messenger was about to give Ibn Umm Maktum.</li>
+<li><b>Tadhkeer</b> (<i>taf'eel</i> form) — a powerful reminder, but less than tadhkirah.</li>
+<li><b>Tadhkirah</b> (hyperbolic form) — the highest degree of reminder; this Qur'an is a powerfully incredible reminder. It means you can't help but remember it.</li>
+</ul>
+<div class="pill-row"><span class="pill">Dhikraa</span><span class="pill">Tadhkeer</span><span class="pill">Tadhkirah — the highest</span></div>
+</div>
+<div class="card">
+<div class="card-top">
+<h3>How is it a “reminder” if it's newly revealed?</h3>
+<span class="code-badge">Fitrah</span>
+</div>
+<ul class="points">
+<li>Because it appeals to the human <b>fitrah</b> (natural disposition). Allah made us bear witness that He is One and that we should ask Him for help.</li>
+<li>When the message reaches you and any good fitrah remains within you, it will be a light guiding you to the true religion that the soul is originally inclined to.</li>
+</ul>
+
+</div>
+<div class="ayah-block">
+<span class="ayah-ref">Al-A'raf 7:172</span>
+<p class="ayah-ar arabic">وَإِذْ أَخَذَ رَبُّكَ مِنۢ بَنِىٓ ءَادَمَ مِن ظُهُورِهِمْ ذُرِّيَّتَهُمْ وَأَشْهَدَهُمْ عَلَىٰٓ أَنفُسِهِمْ أَلَسْتُ بِرَبِّكُمْ ۖ قَالُوا۟ بَلَىٰ ۛ شَهِدْنَآ ۛ أَن تَقُولُوا۟ يَوْمَ ٱلْقِيَٰمَةِ إِنَّا كُنَّا عَنْ هَٰذَا غَٰفِلِينَ</p>
+<p class="ayah-en">"And [mention] when your Lord took from the children of Adam — from their loins — their descendants and made them testify of themselves, [saying], 'Am I not your Lord?' They said, 'Yes, we have testified.' [This] — lest you should say on the day of Resurrection, 'Indeed, we were of this unaware.'"</p>
+</div>
+<div class="card">
+<div class="card-top">
+<h3>Who benefits — and who doesn't</h3>
+<span class="code-badge">Ayah 11</span>
+</div>
+<ul class="points">
+<li>The ones who benefit are those with even a little fitrah still intact, because the fitrah (from Allah) inclines toward revelation (also from Allah).</li>
+<li>Those who have heard the greatest reminder and still don't benefit from its guidance have no help left: they don't fear, and they don't want to purify themselves. So leave them alone.</li>
+<li>Don't think anything is lacking in your message or in how you conveyed it — this is the greatest and clearest of messages. It is up to them whether they take benefit and internalise it, or reject it.</li>
+<li>This is not a human reminder; it is a divine one from Allah.</li>
+</ul>
+
+</div>
+<div class="ayah-block">
+<span class="ayah-ref">Qaf 50:45 (part)</span>
+<p class="ayah-ar arabic">فَذَكِّرْ بِٱلْقُرْءَانِ مَن يَخَافُ وَعِيدِ</p>
+<p class="ayah-en">"...so remind by the Qur'an whoever fears My threat."</p>
+</div>
+<div class="card">
+<div class="card-top">
+<h3>“So whoever wills may remember it”</h3>
+<span class="code-badge">Ayah 12</span>
+</div>
+<ul class="points">
+<li><b>Fa man shaa'a dhakarahu</b> — whoever wants may take remembrance from it.</li>
+<li>The <b>-hu</b> (masculine “it”) refers to the entire Qur'an.</li>
+<li>Your duty (O Muhammad) is only to convey the message; whether people remember or benefit is up to them.</li>
+</ul>
+
+</div>
+      </div>
+      </div>
+    </section>
+    <section class="class-section" id="s-12" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">12</span>
+        <h2>The Honoured Scrolls</h2>
+        <button class="collapse-toggle" data-target="s-12" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-12">
+      <div class="class-body-inner">
+<div class="ayah-block">
+<span class="ayah-ref">Abasa 80:13–16</span>
+<p class="ayah-ar arabic">فِى صُحُفٍ مُّكَرَّمَةٍ • مَّرْفُوعَةٍ مُّطَهَّرَةٍۭ • بِأَيْدِى سَفَرَةٍ • كِرَامٍۭ بَرَرَةٍ</p>
+<p class="ayah-en">"[It is recorded] in honoured sheets, exalted and purified, [carried] by the hands of messenger-angels, noble and dutiful."</p>
+</div>
+<div class="card">
+<div class="card-top">
+<h3>Honoured sheets</h3>
+<span class="code-badge">Ayah 13 · Suhuf Mukarramah</span>
+</div>
+<ul class="points">
+<li>This reminder is in <b>suhuf</b> — scriptures / sheets / scrolls (<i>saheefah</i>: spread out like paper and written upon).</li>
+<li><b>Mukarramah</b> (from <i>takreem</i>) means honoured.</li>
+<li>The Qur'an is preserved at such a high place in the <b>Lawh al-Mahfooz</b> (the Guarded Tablet with Allah, containing information about everything) — exalted in status and noble.</li>
+<li>So don't be saddened that these people aren't benefiting from its reminder: they are the ones in loss, not this lofty, noble Book guarded so highly with Allah.</li>
+<li>On <b>adh-dhillah</b> (humbleness):
+<ul><li>The feeling of humbleness after exhaustion in da'wah should not be shown to those who reject Islam — only toward fellow Muslim believers.</li><li>We should be gentle and unassuming with Muslims, and show strength, confidence, integrity and self-respect with non-Muslims.</li></ul>
+</li>
+</ul>
+
+</div>
+<div class="card">
+<div class="card-top">
+<h3>Exalted and purified</h3>
+<span class="code-badge">Ayah 14</span>
+</div>
+<ul class="points">
+<li><b>Marfoo'atin</b> — raised, elevated. <b>Muttaharah</b> — purified.</li>
+<li>This describes the scrolls with Allah — the Lawh al-Mahfooz — where revelation is protected.</li>
+<li>The disbelievers are hearing this Makkan Qur'an too. That a human can hear such a secure, high-ranking message is honour enough — and if it has no effect on you, then what will?</li>
+<li>This honours the message and belittles their disbelief.</li>
+<li>Before, they casually rejected it while the Messenger was desperate for them to accept. Now Allah honours the Messenger and the message, while belittling those who reject it.</li>
+</ul>
+
+</div>
+<div class="card">
+<div class="card-top">
+<h3>In the hands of the safarah</h3>
+<span class="code-badge">Ayah 15</span>
+</div>
+<ul class="points">
+<li><b>Bi aydee safarah</b> — in the hands / at the disposal of the <b>safarah</b> (scribes).</li>
+<li><b>Sifr</b> is a book that unveils things.</li>
+<li>The safarah are scribes who take the record from the Lawh al-Mahfooz and unveil it to the Messengers through revelation.</li>
+<li>Some say it refers to the Messenger's own scribes — his companions, who heard the Qur'an from him and wrote it down.</li>
+<li>The majority view is that they are angels, based on the next ayah.</li>
+</ul>
+
+</div>
+<div class="card">
+<div class="card-top">
+<h3>Noble and dutiful</h3>
+<span class="code-badge">Ayah 16 · Kiraam Bararah</span>
+</div>
+<ul class="points">
+<li><b>Bararah</b> is the plural of <b>barr</b> (without an alif in the middle) — extreme goodness; someone extremely good.</li>
+<li><b>Baar</b> (with an alif) describes someone good, but not as good as a barr. Its plural is <b>abraar</b>.</li>
+<li>The more powerful plural of barr is <b>bararah</b>.</li>
+<li>Two kinds of plural:
+<ul><li><b>Bararah</b> — <i>jam'u kathrah</i> (plural of large number).</li><li><b>Abraar</b> — <i>jam'u qillah</i> (plural of small number).</li></ul>
+</li>
+<li>Angels are grouped as bararah and humans as abraar, because there are far more good angels than good humans.</li>
+<li>Angels are entirely righteous, and the most noble and righteous of them are the scribes of the Qur'an.</li>
+<li>This is the same message you (disbelievers) hear — and if you don't benefit from it, you are the ones in loss, not those who are better than you.</li>
+<li>This is Allah's reply to His Messenger, who was constantly in extreme grief over people's disbelief: if they don't want to believe, they are the ones at a loss.</li>
+<li>After giving the message the upper hand, the surah returns to the matter of the human being.</li>
+</ul>
+<div class="pill-row"><span class="pill">Bararah — many (angels)</span><span class="pill">Abraar — few (good humans)</span></div>
+</div>
+      </div>
+      </div>
+    </section>
+    <section class="class-section" id="s-13" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">13</span>
+        <h2>How Amazing Is Man's Denial</h2>
+        <button class="collapse-toggle" data-target="s-13" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-13">
+      <div class="class-body-inner">
+<div class="ayah-block">
+<span class="ayah-ref">Abasa 80:17</span>
+<p class="ayah-ar arabic">قُتِلَ ٱلْإِنسَٰنُ مَآ أَكْفَرَهُۥ</p>
+<p class="ayah-en">"Cursed/destroyed is man; how disbelieving is he!" (qutila al-insaanu maa akfarah)</p>
+</div>
+<div class="card">
+<div class="card-top">
+<h3>A sharp, scolding verse</h3>
+<span class="code-badge">Ayah 17</span>
+</div>
+<ul class="points">
+<li><b>Qutila al-insaan</b> — “may man be destroyed”: very sharp, a scolding critique.</li>
+<li>The verb is passive (<i>fu'ila</i>) and past tense — literally “man was killed.” Man has destroyed himself.</li>
+<li><b>Maa akfarahu</b> uses the style of amazement (<i>usloob at-ta'ajjub</i>): how amazing is his kufr — his ungratefulness and disbelief; how amazing his capacity to deny!</li>
+<li>If the <i>maa</i> were an interrogative (<i>maa al-mawsoolah</i>), it would instead mean “what made him disbelieve?”</li>
+<li>The majority hold the first view: how amazing is man's denial and ungratefulness. Man has destroyed himself through his ungrateful disbelief.</li>
+</ul>
+
+</div>
+<div class="card">
+<div class="card-top">
+<h3>Following Pharaoh's footsteps</h3>
+<span class="code-badge">Link to Nazi'at</span>
+</div>
+<ul class="points">
+<li>In the previous surah we saw how ungrateful a human can become — Pharaoh calling himself a god (79:24).</li>
+<li>Allah gave the worst example of kufr there; in this surah He shows how the worst of mankind follow in his footsteps when the message reaches them.</li>
+</ul>
+
+</div>
+<div class="card">
+<div class="card-top">
+<h3>The greatest sign, in both surahs</h3>
+<span class="code-badge">The Greatest Sign</span>
+</div>
+<ul class="points">
+<li>In Nazi'at, Musa showed Pharaoh <b>the greatest sign</b> (<i>al-ayat al-kubraa</i>, 79:20) — yet he rejected it.</li>
+<li>In Abasa, Prophet Muhammad ﷺ showed the greatest of signs — the honoured, raised and purified Book — yet the ungrateful still rejected it.</li>
+<li>How amazing is the ungratefulness and disbelief of man! After seeing clear proof, people disbelieve only out of arrogance.</li>
+<li>So Allah answers such an attitude with the verses that follow.</li>
+</ul>
+
+</div>
+      </div>
+      </div>
+    </section>
+    <section class="class-section" id="s-14" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">14</span>
+        <h2>From a Drop to a Grave</h2>
+        <button class="collapse-toggle" data-target="s-14" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-14">
+      <div class="class-body-inner">
+<div class="ayah-block">
+<span class="ayah-ref">Abasa 80:18–22</span>
+<p class="ayah-ar arabic">مِنْ أَىِّ شَىْءٍ خَلَقَهُۥ • مِن نُّطْفَةٍ خَلَقَهُۥ فَقَدَّرَهُۥ • ثُمَّ ٱلسَّبِيلَ يَسَّرَهُۥ • ثُمَّ أَمَاتَهُۥ فَأَقْبَرَهُۥ • ثُمَّ إِذَا شَآءَ أَنشَرَهُۥ</p>
+<p class="ayah-en">"From what thing did He create him? From a sperm-drop He created him and destined for him; then He eased the way for him; then He causes his death and provides a grave for him; then when He wills, He will resurrect him."</p>
+</div>
+<div class="card">
+<div class="card-top">
+<h3>Created from a drop, and measured out</h3>
+<span class="code-badge">Ayah 18–19</span>
+</div>
+<ul class="points">
+<li><b>Min ayyi shay'in khalaqahu?</b> — from what thing did He create him?</li>
+<li><b>Min nutfah khalaqahu</b> — from a sperm-drop: a filthy fluid we wash off our clothes in embarrassment.</li>
+<li><b>Fa qaddarahu</b> — from <i>taqdeer</i>: making a projection based on extreme, precise calculation. Its opposite is <i>kharas</i> (a wild guess).</li>
+<li>Everything about you was calculated while you were still a nutfah: what you'll be, how you'll look, who your children will be, when you'll die.</li>
+<li>How amazing that you disbelieve and are ungrateful, when you were planned and designed in such specific detail — and everything you have was calculated for you!</li>
+</ul>
+
+</div>
+<div class="ayah-block">
+<span class="ayah-ref">An-Nazi'at 79:27</span>
+<p class="ayah-ar arabic">ءَأَنتُمْ أَشَدُّ خَلْقًا أَمِ ٱلسَّمَآءُ ۚ بَنَىٰهَا</p>
+<p class="ayah-en">"Are you a more difficult creation, or is the heaven? He constructed it."</p>
+</div>
+<div class="card">
+<div class="card-top">
+<h3>Then He eased the way</h3>
+<span class="code-badge">Ayah 20 · Sabeel</span>
+</div>
+<ul class="points">
+<li><b>Thumma as-sabeela yassarahu</b> — “then He eased the path for him.”</li>
+<li><b>Sabeel</b> means path. One meaning: the passage through which you came out and were born. Look how weak you are, O human — you couldn't even be born on your own.</li>
+<li>Then Allah made the path of life — moving through its different stages — easy for him.</li>
+<li>The path also means the path to guidance being easy: your fitrah inclines you toward the truth of the message, the truthful Messenger, and the clear message with its warnings and glad tidings. Allah made it easy for you to benefit from the message.</li>
+</ul>
+
+</div>
+<div class="card">
+<div class="card-top">
+<h3>Then death and a grave</h3>
+<span class="code-badge">Ayah 21</span>
+</div>
+<ul class="points">
+<li><b>Thumma amaatahu</b> — then Allah caused him (man) to die.</li>
+<li><b>Fa aqbarahu</b> — and He had him placed in a grave.</li>
+<li><b>Qabr</b> means being placed into the earth: whether you are buried, burnt, or eaten by a shark, you end up in the earth.</li>
+<li>You were made from a nutfah, and you will turn into dirt — both things you try to wash off your clothes. That is what you are made from.</li>
+</ul>
+
+</div>
+<div class="card">
+<div class="card-top">
+<h3>Then resurrection, when He wills</h3>
+<span class="code-badge">Ayah 22</span>
+</div>
+<ul class="points">
+<li><b>Thumma idhaa shaa'a ansharahu</b> — “then when He wills, He will resurrect him.”</li>
+<li><b>Shaa'a</b> — when HE wants, not when you want, O human.</li>
+<li>He will bring you back up quickly. We won't pass through gradual stages as in this life; we'll be brought back fully, as we were on earth.</li>
+<li>Three words for resurrection in the Qur'an:
+<ul><li><b>Ahyaa</b> — from dead to alive.</li><li><b>Ba'ath</b> — to raise something and send it forward (He gathers us and sends us forward to where He will judge us).</li><li><b>Nashr</b> — to spread (we are gathered, then spread out in the court of Allah).</li></ul>
+</li>
+</ul>
+<div class="pill-row"><span class="pill">Ahyaa</span><span class="pill">Ba'ath</span><span class="pill">Nashr</span></div>
+</div>
+      </div>
+      </div>
+    </section>
+    <section class="class-section" id="s-15" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">15</span>
+        <h2>The Duty Unfulfilled</h2>
+        <button class="collapse-toggle" data-target="s-15" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-15">
+      <div class="class-body-inner">
+<div class="ayah-block">
+<span class="ayah-ref">Abasa 80:23</span>
+<p class="ayah-ar arabic">كَلَّا لَمَّا يَقْضِ مَآ أَمَرَهُۥ</p>
+<p class="ayah-en">"No! Man has not yet accomplished what He commanded him." (kallaa lammaa yaqdi maa amarah)</p>
+</div>
+<div class="card">
+<div class="card-top">
+<h3>Not yet — but there is hope</h3>
+<span class="code-badge">Ayah 23</span>
+</div>
+<ul class="points">
+<li><b>Kallaa</b> — No, not at all! Man has not fulfilled what he was commanded.</li>
+<li><b>Qadaa</b> means fulfilling a responsibility; once it is done, the responsibility is finished.</li>
+<li>The human being has not fulfilled his duty, even up to now.</li>
+<li>But <b>lammaa</b> means “still not” — which implies that there is still <i>hope</i>.</li>
+<li>After all these reminders, man still hasn't done what was asked of him, but there is still hope for him — a form of positive reinforcement.</li>
+</ul>
+
+</div>
+      </div>
+      </div>
+    </section>
+    <section class="class-section" id="s-16" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">16</span>
+        <h2>Look at Your Food</h2>
+        <button class="collapse-toggle" data-target="s-16" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-16">
+      <div class="class-body-inner">
+<div class="ayah-block">
+<span class="ayah-ref">Abasa 80:24–32</span>
+<p class="ayah-ar arabic">فَلْيَنظُرِ ٱلْإِنسَٰنُ إِلَىٰ طَعَامِهِۦٓ • أَنَّا صَبَبْنَا ٱلْمَآءَ صَبًّا • ثُمَّ شَقَقْنَا ٱلْأَرْضَ شَقًّا • فَأَنۢبَتْنَا فِيهَا حَبًّا • وَعِنَبًا وَقَضْبًا • وَزَيْتُونًا وَنَخْلًا • وَحَدَآئِقَ غُلْبًا • وَفَٰكِهَةً وَأَبًّا • مَّتَٰعًا لَّكُمْ وَلِأَنْعَٰمِكُمْ</p>
+<p class="ayah-en">"Then let mankind look at his food — that We poured down water in torrents, then We broke open the earth, splitting [it with sprouts], and caused to grow within it grain, and grapes and herbage, and olives and palm trees, and gardens of dense shrubbery, and fruit and pasture — [as] enjoyment for you and your grazing livestock."</p>
+</div>
+<div class="card">
+<div class="card-top">
+<h3>Ayah 24: look carefully at your food</h3>
+<span class="code-badge">Ayah 24</span>
+</div>
+<ul class="points">
+<li><b>Fal yandhuril insaanu ilaa ta'aamih</b> — let man look at his food.</li>
+<li><b>Yandhur</b> (from <i>nadhr</i>) means to stare carefully at something in detail — to think about it. It is a reminder to man of his responsibilities.</li>
+<li><b>Ta'aam</b> is food more suited to human beings; <b>akl</b> is any kind of food.</li>
+</ul>
+
+</div>
+<div class="card">
+<div class="card-top">
+<h3>Ayah 25–27: water, splitting, growth</h3>
+<span class="code-badge">Ayah 25–27</span>
+</div>
+<ul class="points">
+<li><b>Annaa sababnaal maa'a sabbaa</b> — We pour down water (from the clouds) plentifully. <i>Sabb</i> is water upon water; also used for buckets of water.</li>
+<li><b>Thumma shaqaqnal arda shaqqaa</b> — then We split the earth open. <i>Shaqq</i> is to rip or cut open something you wouldn't normally think of cutting — rocks, the sky, the earth. People don't normally cut these open, which is what <i>shaqq</i> is used for.</li>
+<li><b>Fa anbatnaa feehaa habbaa</b> — and We caused grain to grow in it. <i>Anbata</i> (from <i>nabaat</i>) is something brought up meticulously and with care — like a child who matures quickly because of the care given to him; the same with plants that are cared for and grow well and quickly.</li>
+<li><b>Habb</b> means all sorts of grain — a staple food.</li>
+</ul>
+
+</div>
+<div class="card">
+<div class="card-top">
+<h3>Ayah 28–31: from staples to luxuries</h3>
+<span class="code-badge">Ayah 28–31</span>
+</div>
+<ul class="points">
+<li><b>Inab</b> — grapes. <b>Qadb</b> — foods that grow under the ground (per the notes: animals eat what is on top of the ground, and we eat what grows beneath).</li>
+<li><b>Zaytoon</b> — olives. <b>Nakhl</b> — dates. The passage moves from basic staples (grain) to luxuries (olives and dates).</li>
+<li><b>Hadaa'iq ghulbaa</b> — <i>hadaa'iq</i> are well-guarded gardens (it is <i>hadaa'iq</i> and not <i>hadaa'ik-an</i> because a word on the pattern <i>hadaa'ik</i> takes no noon / tanween there). <i>Ghulb</i> is the plural of <i>aghlab</i> — lush gardens with lots of thick, full trees whose branches are intertwined.</li>
+<li><b>Faakihah</b> — delicious fruits. In classical Arabic, <i>faqiha</i> means to be overjoyed; when someone eats a delicious fruit, he is overjoyed. The notes add that faakihah linguistically excludes grapes, pomegranates and dates — which is why those may have been mentioned earlier.</li>
+<li><b>Abb</b> — grass, pasture; general vegetation liked by all animals.</li>
+</ul>
+
+</div>
+<div class="ayah-block">
+<span class="ayah-ref">At-Tur 52:18</span>
+<p class="ayah-ar arabic">فَٰكِهِينَ بِمَآ ءَاتَىٰهُمْ رَبُّهُمْ وَوَقَىٰهُمْ رَبُّهُمْ عَذَابَ ٱلْجَحِيمِ</p>
+<p class="ayah-en">"Enjoying what their Lord has given them [in Paradise], and their Lord protected them from the punishment of Hellfire."</p>
+</div>
+<div class="card">
+<div class="card-top">
+<h3>Ayah 32: a subtle order</h3>
+<span class="code-badge">Ayah 32</span>
+</div>
+<ul class="points">
+<li><b>Mataa'an lakum wa li an'aamikum</b> — [as] enjoyment for you and your cattle.</li>
+<li>The Qur'an is extremely subtle: usually when Allah mentions animal food (<i>zar'</i>, crops), He mentions the animals first and us second.</li>
+<li>But here the discussion is about us: it's our human food being described, so we are placed first and the animals second — “for you and your cattle.”</li>
+<li>This is part of the intricate detail of the Qur'an.</li>
+</ul>
+
+</div>
+<div class="card">
+<div class="card-top">
+<h3>The psychology of the passage</h3>
+<span class="code-badge">Psychology</span>
+</div>
+<ul class="points">
+<li>The passage so far uses a sequence designed to incline the human toward Islam:</li>
+</ul>
+<div class="num-grid"><div class="num-card"><span class="num-badge">1</span><p><b>Negative reinforcement</b> (ayah 17): Allah's displeasure at how amazing man's kufr is!</p></div><div class="num-card"><span class="num-badge">2</span><p><b>Something to think about</b> (ayah 23): man has not fulfilled his duty.</p></div><div class="num-card"><span class="num-badge">3</span><p><b>Positive reinforcement</b> (ayah 24): let man look at the food he eats — you should feel gratitude for these blessings.</p></div></div>
+</div>
+      </div>
+      </div>
+    </section>
+    <section class="class-section" id="s-17" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">17</span>
+        <h2>The Deafening Blast</h2>
+        <button class="collapse-toggle" data-target="s-17" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-17">
+      <div class="class-body-inner">
+<div class="ayah-block">
+<span class="ayah-ref">Abasa 80:33</span>
+<p class="ayah-ar arabic">فَإِذَا جَآءَتِ ٱلصَّآخَّةُ</p>
+<p class="ayah-en">"But when there comes the Deafening Blast —" (fa idhaa jaa'atis-saakhkhah)</p>
+</div>
+<div class="ayah-block">
+<span class="ayah-ref">An-Nazi'at 79:34</span>
+<p class="ayah-ar arabic">فَإِذَا جَآءَتِ ٱلطَّآمَّةُ ٱلْكُبْرَىٰ</p>
+<p class="ayah-en">"But when there comes the greatest catastrophe [i.e. the Day of Recompense]..."</p>
+</div>
+<div class="card">
+<div class="card-top">
+<h3>The final warning</h3>
+<span class="code-badge">Ayah 33</span>
+</div>
+<ul class="points">
+<li>In Nazi'at 79:34 the word was <b>taammah</b> — a calamity that surrounds you from every side. (In the notes' example, Pharaoh's arrogance ended with Allah surrounding him with water and drowning him.) That Day's calamity will surround people from all sides.</li>
+<li>In Abasa, the people are those who hear but don't really listen to the message — remember the disbelievers of Quraysh?</li>
+<li><b>Saakhkhah</b> is a deafening noise. You can avoid the message now, but you will not be able to flee from it on that Day.</li>
+</ul>
+
+</div>
+<div class="ayah-block">
+<span class="ayah-ref">Abasa 80:34–36</span>
+<p class="ayah-ar arabic">يَوْمَ يَفِرُّ ٱلْمَرْءُ مِنْ أَخِيهِ • وَأُمِّهِۦ وَأَبِيهِ • وَصَٰحِبَتِهِۦ وَبَنِيهِ</p>
+<p class="ayah-en">"The Day a man will flee from his brother, and his mother and his father, and his wife and his children."</p>
+</div>
+<div class="card">
+<div class="card-top">
+<h3>Ayah 34: fleeing from his brother</h3>
+<span class="code-badge">Ayah 34</span>
+</div>
+<ul class="points">
+<li><b>Yawma yafirrul mar'u min akheehi</b> — the day a man will flee from his brother.</li>
+<li>Words for running: <i>rahaba</i>, <i>abaqa</i>, <i>farra</i>. <b>Farra</b> is running away from something that terrifies you.</li>
+<li>A man can be called <b>rajul</b> or <b>mar'</b>. <i>Rajul</i> relates to bravery and manhood; <b>mar'</b> (as in <i>muru'ah</i>) relates to chivalry and selflessness.</li>
+<li>So even the one who was selfless in this life — who tried to help others in preference to himself — will, on that Day, be careless of others.</li>
+<li>Why would you flee from your family? They're the people you deal with most, so you have more issues with them. You may not have given them their full rights in this life, so you flee before they say you wronged them.</li>
+</ul>
+
+</div>
+<div class="card">
+<div class="card-top">
+<h3>Ayah 35–36: mother, father, spouse, children</h3>
+<span class="code-badge">Ayah 35–36</span>
+</div>
+<ul class="points">
+<li><b>Wa ummihi wa abeehi</b> — his mother and his father: parents might ask their child for his good deeds, because of the care and favours they gave him in this life.</li>
+<li><b>Wa saahibatihi</b> — his companion: the one he shared a bed with and turned to for emotional support. He runs from her.</li>
+<li><b>Wa baneehi</b> — his children: the ones you looked after and spent your money on, thinking they'd always need you. When they need your deeds the most, you flee from them.</li>
+<li>It began with <i>istighnaa</i> (“I don't need anyone, I don't care about them”). But gradually we realise this is serious: a Day when you see the consequences of what you did, and how you dealt with your loved ones affects your outcome.</li>
+</ul>
+
+</div>
+<div class="ayah-block">
+<span class="ayah-ref">An-Nazi'at 79:35</span>
+<p class="ayah-ar arabic">يَوْمَ يَتَذَكَّرُ ٱلْإِنسَٰنُ مَا سَعَىٰ</p>
+<p class="ayah-en">"The Day when man will remember what he strove for."</p>
+</div>
+<div class="card">
+<div class="card-top">
+<h3>Ayah 37: everyone has his own preoccupation</h3>
+<span class="code-badge">Ayah 37 · Sha'n</span>
+</div>
+<ul class="points">
+<li>In Nazi'at 79:35, man will remember his striving and efforts of this life in full; he won't care about anyone except himself.</li>
+<li><b>Li kulli imri'in minhum yawma-idhin sha'nun yughneeh</b> — every person that Day will have a matter to preoccupy him.</li>
+<li><b>Sha'n</b> is a matter or situation so important to you that it keeps you busy. Everyone will have something occupying him: remembering all he did in this life.</li>
+<li><b>Yughneehi</b> (same root as <i>istighnaa</i> earlier) is something so important that it preoccupies you and makes you forget everything else.</li>
+<li>On that Day people will be so engaged in recalling their deeds that they'll have nothing else to think about.</li>
+<li>The full circle: at the start of the surah, the Quraysh leaders were too preoccupied (<i>istaghnaa</i>) to hear the message. On this Day, man is too preoccupied (<i>yughneeh</i>) with what he spent his life on.</li>
+</ul>
+
+</div>
+      </div>
+      </div>
+    </section>
+    <section class="class-section" id="s-18" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">18</span>
+        <h2>Bright Faces, Dusty Faces</h2>
+        <button class="collapse-toggle" data-target="s-18" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-18">
+      <div class="class-body-inner">
+<div class="ayah-block">
+<span class="ayah-ref">Abasa 80:38–42</span>
+<p class="ayah-ar arabic">وُجُوهٌ يَوْمَئِذٍ مُّسْفِرَةٌ • ضَاحِكَةٌ مُّسْتَبْشِرَةٌ • وَوُجُوهٌ يَوْمَئِذٍ عَلَيْهَا غَبَرَةٌ • تَرْهَقُهَا قَتَرَةٌ • أُو۟لَٰٓئِكَ هُمُ ٱلْكَفَرَةُ ٱلْفَجَرَةُ</p>
+<p class="ayah-en">"[Some] faces, that Day, will be bright — laughing, rejoicing at good news. And [other] faces, that Day, will have upon them dust. Blackness will cover them. Those are the disbelievers, the wicked ones."</p>
+</div>
+<div class="card">
+<div class="card-top">
+<h3>Faces that are unveiled</h3>
+<span class="code-badge">Ayah 38 · Musfirah</span>
+</div>
+<ul class="points">
+<li><b>Wujoohun yawma-idhin musfirah</b> — some faces, especially on that Day, will be lit up, as though a smile that was veiled has been unveiled.</li>
+<li><b>Musfirah</b> comes from <i>safara</i>, “to unveil.” Large books are called <i>sifr</i> because they unveil knowledge; an <i>safeer</i> (ambassador) unveils the intent of his king or country; <i>safar</i> (travel) unveils new lands.</li>
+<li>Perhaps such a person lived a hard life, so his smile was veiled in this world.</li>
+<li>The believers' faces are usually veiled in this life — because of the hardship they face from the disbelievers, and because of fear about where they'll end up in the next life. On that Day the smiles will be unveiled: no problem remains, and their worries are gone.</li>
+</ul>
+
+</div>
+<div class="ayah-block">
+<span class="ayah-ref">Al-Baqarah 2:212 (part)</span>
+<p class="ayah-ar arabic">زُيِّنَ لِلَّذِينَ كَفَرُوا۟ ٱلْحَيَوٰةُ ٱلدُّنْيَا وَيَسْخَرُونَ مِنَ ٱلَّذِينَ ءَامَنُوا۟ ۘ وَٱلَّذِينَ ٱتَّقَوْا۟ فَوْقَهُمْ يَوْمَ ٱلْقِيَٰمَةِ</p>
+<p class="ayah-en">"Beautified for those who disbelieve is the life of this world, and they ridicule those who believe. But those who fear Allah are above them on the Day of Resurrection."</p>
+</div>
+<div class="ayah-block">
+<span class="ayah-ref">Al-Mutaffifin 83:30</span>
+<p class="ayah-ar arabic">وَإِذَا مَرُّوا۟ بِهِمْ يَتَغَامَزُونَ</p>
+<p class="ayah-en">"And whenever they passed by them [the believers], they would exchange derisive winks."</p>
+</div>
+<div class="card">
+<div class="card-top">
+<h3>Laughing and rejoicing</h3>
+<span class="code-badge">Ayah 39</span>
+</div>
+<ul class="points">
+<li><b>Daahikatun mustabshirah</b> — laughing, rejoicing at good news.</li>
+<li><b>Dahik</b> is uncontrollable laughter — teeth showing, sound and all; <b>tabassum</b> is a smile.</li>
+<li>In Nazi'at, hearts and eyes were mentioned: hearts that Day will shake with fear and eyes cast down (79:8–9). In Abasa the focus is faces and expressions — laughing and rejoicing.</li>
+<li><b>Istabshirah</b> means being full of delight because of good news that reaches you. <b>Bishr</b> means skin, and also to peel skin (like peeling an orange).</li>
+<li>So the sadness is peeled off their faces, unveiling happiness and joy because of the good news they're given — unveiled, unpeeled, and happy.</li>
+<li>The worldly life looked beautiful to the disbelievers and they mocked the believers (2:212, 83:30).</li>
+</ul>
+
+</div>
+<div class="card">
+<div class="card-top">
+<h3>Faces covered in dust and smoke</h3>
+<span class="code-badge">Ayah 40–41</span>
+</div>
+<ul class="points">
+<li><b>Wa wujoohun yawma-idhin 'alayhaa ghabarah</b> — and other faces, that Day, will have dust upon them.</li>
+<li><b>Ghabarah</b> is dust that flies about, lands on something, and is hard to remove. It isn't literal dust: from sadness and depression their faces become dark and dirty-looking.</li>
+<li>Other Arabic words for dust:
+<ul><li><b>Naq'</b> — a cloud of dust (see Al-'Aadiyat 100:4).</li><li><b>Habaa'</b> — fine dust you only notice in sunrays (floating particles).</li></ul>
+</li>
+<li><b>Tarhaquhaa qatarah</b> — overcast and covered with gloom, darkness and blackness.</li>
+<li><b>Qatarah</b> is black smoke rising from fire, climbing over their faces. The Arabs call a stingy person a <i>qaatir</i>: when he invites you to his house, all you see is the smoke of his oven and nothing else — no food.</li>
+<li>The black smoke will climb over their faces.</li>
+</ul>
+
+</div>
+<div class="card">
+<div class="card-top">
+<h3>The worst deniers and the most wicked</h3>
+<span class="code-badge">Ayah 42</span>
+</div>
+<ul class="points">
+<li><b>Ulaa'ika humul kafaratul fajarah</b> — those are the worst deniers and worst disbelievers.</li>
+<li>This ties back to the ones described earlier — “as for him who thinks himself self-sufficient” (Abasa 80:5) and “as for he who transgressed and preferred the life of this world, Hellfire will be his refuge” (Nazi'at 79:37–39).</li>
+<li><b>Al-fajarah</b> — those who disbelieved in the worst and most violent, rebellious way. <b>Fajr</b> means to tear through (dawn is <i>fajr</i> because sunlight tears through the night sky).</li>
+<li>They sin openly and viciously, all the way in pride — that is fujoor.</li>
+<li>Humiliation of the face is the worst kind of humiliation in the Arabic language, so Allah humiliates them in the worst way because of their fujoor.</li>
+</ul>
+
+</div>
+      </div>
+      </div>
+    </section>
+    <section class="class-section" id="s-19" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">19</span>
+        <h2>How the Beginning Meets the Ending</h2>
+        <button class="collapse-toggle" data-target="s-19" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-19">
+      <div class="class-body-inner">
+<div class="card">
+<div class="card-top">
+<h3>The two characters, reversed</h3>
+<span class="code-badge">Surah Structure</span>
+</div>
+<ul class="points">
+<li>The surah opened with a man in <b>istighnaa</b> — independent and carefree, laughing at the believers in this life.</li>
+<li>It also showed one in need of the truth — fearing Allah and wanting to purify himself.</li>
+<li>Now, on that Day, the carefree one is in fear, dread and worry about what he did.</li>
+<li>And the one who feared this Day now laughs uncontrollably. His purification has paid off, and he has achieved the great success of Paradise.</li>
+</ul>
+
+</div>
+<div class="ayah-block">
+<span class="ayah-ref">Hadith — Sahih Muslim</span>
+<p class="ayah-ar arabic">ٱلدُّنْيَا سِجْنُ ٱلْمُؤْمِنِ وَجَنَّةُ ٱلْكَافِرِ</p>
+<p class="ayah-en">The Messenger of Allah ﷺ said: "The world is a prison for the believer and a paradise for the disbeliever."</p>
+</div>
+      </div>
+      </div>
+    </section>
+
+    <div id="empty-state">No sections match your search.</div>
+  </main>
+</div>
+
+<button id="toTop" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<div id="quickPanel">
+  <div class="qp-head">Jump to Section</div>
+  <ul id="qpList">
+    <li data-target="s-01"><a href="#s-01" style="--qc:var(--c-1)"><span class="qp-idx">01</span>Link to Surah An-Nazi'at (79)</a><span class="qp-toggle" data-target="s-01"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-02"><a href="#s-02" style="--qc:var(--c-2)"><span class="qp-idx">02</span>Respecting Allah's Messenger ﷺ</a><span class="qp-toggle" data-target="s-02"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-03"><a href="#s-03" style="--qc:var(--c-3)"><span class="qp-idx">03</span>The Setting: A Blind Man and the Elite</a><span class="qp-toggle" data-target="s-03"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-04"><a href="#s-04" style="--qc:var(--c-4)"><span class="qp-idx">04</span>Why Were These Verses Revealed?</a><span class="qp-toggle" data-target="s-04"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-05"><a href="#s-05" style="--qc:var(--c-5)"><span class="qp-idx">05</span>Words for an Angry Face</a><span class="qp-toggle" data-target="s-05"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-06"><a href="#s-06" style="--qc:var(--c-6)"><span class="qp-idx">06</span>Honouring the Companions</a><span class="qp-toggle" data-target="s-06"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-07"><a href="#s-07" style="--qc:var(--c-1)"><span class="qp-idx">07</span>Why He Turned Away</a><span class="qp-toggle" data-target="s-07"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-08"><a href="#s-08" style="--qc:var(--c-2)"><span class="qp-idx">08</span>“What Would Make You Know?”</a><span class="qp-toggle" data-target="s-08"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-09"><a href="#s-09" style="--qc:var(--c-3)"><span class="qp-idx">09</span>Self-Sufficiency and Turning Back</a><span class="qp-toggle" data-target="s-09"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-10"><a href="#s-10" style="--qc:var(--c-4)"><span class="qp-idx">10</span>Striving, Fearing, Distracted</a><span class="qp-toggle" data-target="s-10"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-11"><a href="#s-11" style="--qc:var(--c-5)"><span class="qp-idx">11</span>A Reminder for Those Who Fear</a><span class="qp-toggle" data-target="s-11"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-12"><a href="#s-12" style="--qc:var(--c-6)"><span class="qp-idx">12</span>The Honoured Scrolls</a><span class="qp-toggle" data-target="s-12"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-13"><a href="#s-13" style="--qc:var(--c-1)"><span class="qp-idx">13</span>How Amazing Is Man's Denial</a><span class="qp-toggle" data-target="s-13"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-14"><a href="#s-14" style="--qc:var(--c-2)"><span class="qp-idx">14</span>From a Drop to a Grave</a><span class="qp-toggle" data-target="s-14"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-15"><a href="#s-15" style="--qc:var(--c-3)"><span class="qp-idx">15</span>The Duty Unfulfilled</a><span class="qp-toggle" data-target="s-15"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-16"><a href="#s-16" style="--qc:var(--c-4)"><span class="qp-idx">16</span>Look at Your Food</a><span class="qp-toggle" data-target="s-16"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-17"><a href="#s-17" style="--qc:var(--c-5)"><span class="qp-idx">17</span>The Deafening Blast</a><span class="qp-toggle" data-target="s-17"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-18"><a href="#s-18" style="--qc:var(--c-6)"><span class="qp-idx">18</span>Bright Faces, Dusty Faces</a><span class="qp-toggle" data-target="s-18"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+    <li data-target="s-19"><a href="#s-19" style="--qc:var(--c-1)"><span class="qp-idx">19</span>How the Beginning Meets the Ending</a><span class="qp-toggle" data-target="s-19"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></li>
+  </ul>
+</div>
+
+<button id="quickFab" aria-label="Open quick navigation" aria-expanded="false">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+</button>
+
+<script>
+  const progress = document.getElementById('progress');
+  const toTopBtn = document.getElementById('toTop');
+  function updateProgress(){
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    progress.style.width = (max > 0 ? h.scrollTop / max * 100 : 0) + '%';
+    toTopBtn.classList.toggle('show', h.scrollTop > 700);
+  }
+  document.addEventListener('scroll', updateProgress, {passive:true});
+  updateProgress();
+  toTopBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+  /* ---------- table of contents ---------- */
+  const tocToggle = document.getElementById('tocToggle');
+  const tocPanelOuter = document.getElementById('tocPanelOuter');
+  function closeToc(){
+    tocPanelOuter.classList.remove('open');
+    tocToggle.setAttribute('aria-expanded', 'false');
+  }
+  tocToggle.addEventListener('click', () => {
+    const isOpen = tocPanelOuter.classList.toggle('open');
+    tocToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  const navLinks = document.querySelectorAll('nav.sidebar li a');
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const id = entry.target.id;
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  document.querySelectorAll('main section.class-section').forEach(el => { if(el.id) sectionObserver.observe(el); });
+
+  /* ---------- floating quick navigation (lower left) ---------- */
+  const quickFab = document.getElementById('quickFab');
+  const quickPanel = document.getElementById('quickPanel');
+  function openQuickPanel(){ quickPanel.classList.add('open'); quickFab.classList.add('open'); quickFab.setAttribute('aria-expanded','true'); }
+  function closeQuickPanel(){ quickPanel.classList.remove('open'); quickFab.classList.remove('open'); quickFab.setAttribute('aria-expanded','false'); }
+  quickFab.addEventListener('click', () => { quickPanel.classList.contains('open') ? closeQuickPanel() : openQuickPanel(); });
+  document.addEventListener('click', (e) => {
+    if(quickPanel.classList.contains('open') && !quickPanel.contains(e.target) && !quickFab.contains(e.target)) closeQuickPanel();
+  });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape'){ closeQuickPanel(); setMenu(false); } });
+  quickPanel.querySelectorAll('a').forEach(a => a.addEventListener('click', () => closeQuickPanel()));
+
+  /* ---------- collapse / expand ---------- */
+  const ALL_SECTION_IDS = ['s-01','s-02','s-03','s-04','s-05','s-06','s-07','s-08','s-09','s-10','s-11','s-12','s-13','s-14','s-15','s-16','s-17','s-18','s-19'];
+  function setCollapsed(id, collapsed){
+    const body = document.getElementById('body-' + id);
+    const btn = document.querySelector('.collapse-toggle[data-target="' + id + '"]');
+    const qpItem = document.querySelector('#qpList li[data-target="' + id + '"]');
+    if(body) body.classList.toggle('collapsed', collapsed);
+    if(btn) btn.setAttribute('aria-expanded', String(!collapsed));
+    if(qpItem) qpItem.classList.toggle('is-collapsed', collapsed);
+  }
+  function isCollapsed(id){
+    const body = document.getElementById('body-' + id);
+    return body ? body.classList.contains('collapsed') : false;
+  }
+  function toggleCollapsed(id){ setCollapsed(id, !isCollapsed(id)); }
+
+  document.querySelectorAll('.collapse-toggle').forEach(btn => btn.addEventListener('click', () => toggleCollapsed(btn.dataset.target)));
+  document.querySelectorAll('#qpList li').forEach(item => {
+    const id = item.dataset.target;
+    item.querySelector('.qp-toggle').addEventListener('click', (e) => { e.stopPropagation(); e.preventDefault(); toggleCollapsed(id); });
+  });
+  document.getElementById('expandAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, false)));
+  document.getElementById('collapseAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, true)));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href').slice(1);
+      if(!href) return;
+      const target = document.getElementById(href);
+      if(!target) return;
+      if(target.classList.contains('class-section')) setCollapsed(href, false);
+      if(a.closest('nav.sidebar')) closeToc();
+    });
+  });
+
+  /* ---------- search (table of contents) ---------- */
+  const searchInput = document.getElementById('searchInput');
+  const emptyState = document.getElementById('empty-state');
+  searchInput.addEventListener('input', () => {
+    const q = searchInput.value.trim().toLowerCase();
+    let visible = 0;
+    navLinks.forEach(a => {
+      const key = ((a.dataset.key || '') + ' ' + a.textContent).toLowerCase();
+      const match = q === '' || key.includes(q);
+      a.dataset.hidden = match ? '0' : '1';
+      const section = document.querySelector(a.getAttribute('href'));
+      if(section) section.style.display = match ? '' : 'none';
+      if(match) visible++;
+    });
+    emptyState.classList.toggle('show', visible === 0);
+  });
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

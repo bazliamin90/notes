@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sūrah ʿAbasa — Benefits &amp; Lessons | Study Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --paper:#fbfbfd;
+    --ink:#14151a;
+    --ink-soft:#5a5d6b;
+    --line:#e7e7ee;
+    --line-soft:#f0f0f5;
+
+    --c-1:#7c3aed;  --c-1-tint:#f4edff;   /* violet */
+    --c-2:#0284c7;  --c-2-tint:#e8f6ff;   /* ocean */
+    --c-3:#ea580c;  --c-3-tint:#fff1e8;   /* coral */
+    --c-4:#db2777;  --c-4-tint:#ffe9f4;   /* magenta */
+    --c-5:#059669;  --c-5-tint:#e6faf2;   /* emerald */
+    --c-6:#0f766e;  --c-6-tint:#e6f8f6;   /* teal */
+
+    --accent: var(--c-1);
+    --accent-tint: var(--c-1-tint);
+
+    --radius: 18px;
+    --shadow: 0 1px 2px rgba(20,21,26,.04), 0 12px 32px -16px rgba(20,21,26,.14);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background: var(--accent); color:#fff; }
+
+  h1,h2,h3,h4{ font-family:'Space Grotesk', sans-serif; margin:0; letter-spacing:-.01em; }
+  code, .mono{ font-family:'IBM Plex Mono', monospace; }
+  a{ color:inherit; }
+  p{ margin:0; }
+  .arabic{ font-family:'Amiri', serif; direction:rtl; }
+
+  #progress{
+    position:fixed; top:0; left:0; height:3px; width:0%;
+    background: linear-gradient(90deg, var(--c-1), var(--c-2), var(--c-3), var(--c-4), var(--c-5), var(--c-6));
+    z-index:100; transition: width .1s linear;
+  }
+
+  .ref-bar{
+    background:var(--ink); color:#fff;
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    padding:9px 8vw; display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  }
+  .ref-bar .ref-label{ color:rgba(255,255,255,.55); text-transform:uppercase; letter-spacing:.08em; font-size:10.5px; }
+  .ref-bar .ref-txt{ opacity:.85; }
+
+  header.hero{
+    padding: 6px 8vw;
+    min-height:46px;
+    display:flex; align-items:center; gap:10px;
+    position:sticky; top:0; z-index:80;
+    border-bottom:1px solid var(--line);
+    background-color:#fff;
+    background-image:
+      radial-gradient(700px 340px at 8% -10%, var(--c-1-tint), transparent 60%),
+      radial-gradient(600px 300px at 95% 0%, var(--c-3-tint), transparent 55%);
+  }
+  /* ---------- burger navigation ---------- */
+  .burger-wrap{ position:relative; display:flex; align-items:center; }
+  .burger-btn{
+    width:34px; height:34px; border-radius:10px; border:1.3px solid var(--line);
+    background:var(--paper); color:var(--ink); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: border-color .15s ease, background .15s ease, color .15s ease;
+  }
+  .burger-btn:hover{ border-color: var(--c-1); }
+  .burger-btn.open{ background: var(--c-1); border-color: var(--c-1); color:#fff; }
+  .burger-btn svg{ transition: opacity .15s ease; }
+  .burger-menu{
+    position:absolute; top:calc(100% + 10px); left:0; width:320px;
+    background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow);
+    padding:8px; opacity:0; transform: translateY(-6px); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease; z-index:120;
+    display:flex; flex-direction:column;
+  }
+  .burger-menu.open{ opacity:1; transform: translateY(0); pointer-events:auto; }
+  .burger-menu-home{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; margin:2px 2px 8px;
+    border-radius:10px; border-bottom:1px solid var(--line-soft);
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-home svg{ flex:none; color:var(--ink-soft); }
+  .burger-menu-home:hover{ background: var(--paper); }
+  .burger-menu-home.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-home.is-current .bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-search{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:10px; padding:8px 10px; margin:2px 2px 8px;
+    background:var(--paper); flex:none;
+  }
+  .burger-menu-search svg{ flex:none; opacity:.5; color:var(--ink-soft); }
+  .burger-menu-search input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13px; width:100%; color:var(--ink);
+  }
+  .burger-menu-list{ max-height:340px; overflow-y:auto; overscroll-behavior:contain; }
+  .burger-menu-list::-webkit-scrollbar{ width:6px; }
+  .burger-menu-list::-webkit-scrollbar-thumb{ background:var(--line); border-radius:10px; }
+  .burger-menu-group + .burger-menu-group{ margin-top:4px; }
+  .burger-menu-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); padding:8px 10px 4px;
+  }
+  .burger-menu-empty{
+    display:none; padding:18px 10px; text-align:center; font-size:12.5px; color:var(--ink-soft);
+  }
+  .burger-menu-item{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; border-radius:10px;
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-item span.bm-title{ display:block; }
+  .burger-menu-item span.bm-sub{ display:block; font-size:11.5px; color:var(--ink-soft); font-weight:400; margin-top:1px; }
+  .burger-menu-item:hover{ background: var(--paper); }
+  .burger-menu-item.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-item.is-current span.bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-dot{ width:9px; height:9px; border-radius:3px; flex:none; margin-top:3px; }
+
+
+  .page-title{ padding: 30px 8vw 6px; }
+  .page-title .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-soft); margin-bottom:10px; display:block;
+  }
+  .page-title h1{
+    font-size: clamp(26px, 5vw, 46px);
+    line-height:1.12;
+    font-weight:700;
+  }
+  .page-title h1 .accent-word{
+    background: linear-gradient(100deg, var(--c-1), var(--c-4) 55%, var(--c-3));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .page-title .sub{
+    margin-top:14px; max-width:66ch; color:var(--ink-soft); font-size:15px; line-height:1.6;
+  }
+  .page-title .tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+  .page-title .tag{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; border:1.3px solid var(--line);
+    color:var(--ink-soft); font-weight:500; background:var(--paper);
+  }
+
+  .layout{
+    max-width:1400px; margin:0 auto;
+  }
+  .toc-wrap{
+    border-bottom:1px solid var(--line);
+    padding: 0 8vw;
+  }
+  .toc-toggle{
+    width:100%; display:flex; align-items:center; justify-content:space-between; gap:10px;
+    background:none; border:none; cursor:pointer; padding:16px 0;
+    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px; color:var(--ink);
+  }
+  .toc-toggle:hover{ color:var(--c-1); }
+  .toc-toggle-left{ display:flex; align-items:center; gap:10px; }
+  .toc-toggle-left svg{ color:var(--ink-soft); flex:none; }
+  .toc-count{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft); font-weight:500;
+    background:var(--paper); border:1px solid var(--line); padding:2px 8px; border-radius:100px;
+  }
+  .toc-chevron{ transition: transform .3s ease; color:var(--ink-soft); flex:none; }
+  .toc-toggle[aria-expanded="true"] .toc-chevron{ transform: rotate(180deg); }
+  .toc-panel-outer{ display:grid; grid-template-rows: 0fr; transition: grid-template-rows .35s ease; }
+  .toc-panel-outer.open{ grid-template-rows: 1fr; }
+  .toc-panel-inner{ overflow:hidden; min-height:0; }
+
+  nav.sidebar{ display:block; padding: 4px 0 22px; }
+
+  .search-box{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:12px; padding:10px 12px; margin-bottom:18px;
+    background:var(--paper);
+  }
+  .search-box input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13.5px; width:100%; color:var(--ink);
+  }
+  .search-box svg{ flex:none; opacity:.5; }
+
+  .nav-actions{ display:flex; gap:8px; margin-bottom:18px; }
+  .nav-actions button{
+    flex:1; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    border:1.3px solid var(--line); background:#fff; color:var(--ink-soft);
+    padding:7px 8px; border-radius:9px; cursor:pointer; transition:.15s ease;
+  }
+  .nav-actions button:hover{ border-color:var(--ink); color:var(--ink); }
+
+  .nav-group-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); margin: 18px 0 6px 2px;
+  }
+  .nav-group-label:first-of-type{ margin-top:0; }
+
+  nav.sidebar ul{ list-style:none; margin:0; padding:0; border-left:2px solid var(--line-soft); }
+  nav.sidebar li a{
+    display:flex; align-items:center; gap:9px;
+    text-decoration:none; font-size:13.5px; color:var(--ink-soft);
+    padding:7px 0 7px 14px; border-left:2px solid transparent; margin-left:-2px;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  nav.sidebar li a .sw{ width:8px; height:8px; border-radius:3px; flex:none; background:var(--g-color); }
+  nav.sidebar li a:hover{ color:var(--ink); }
+  nav.sidebar li a.active{ color:var(--g-color); border-left-color: var(--g-color); font-weight:600; }
+  nav.sidebar li a[data-hidden="1"]{ display:none; }
+
+  main{ min-width:0; padding: 0 8vw 140px; }
+
+  section.class-section{ padding-top:56px; scroll-margin-top: 24px; }
+  section.class-section:first-child{ padding-top:44px; }
+
+  .class-head{
+    display:flex; align-items:baseline; gap:16px; flex-wrap:wrap;
+    padding-bottom:14px; margin-bottom:22px; border-bottom:3px solid var(--g-color);
+    position:relative;
+  }
+  .class-head .idx{
+    font-family:'IBM Plex Mono',monospace; font-size:14px; font-weight:700; color:#fff;
+    background:var(--g-color); padding:5px 10px; border-radius:8px;
+  }
+  .class-head h2{ font-size: clamp(20px,2.4vw,28px); color:var(--ink); }
+  .collapse-toggle{
+    margin-left:auto; width:34px; height:34px; border-radius:9px; border:1.5px solid var(--line);
+    background:#fff; color:var(--g-color); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: transform .3s ease, background .15s ease, border-color .15s ease;
+  }
+  .collapse-toggle:hover{ background: var(--g-tint); border-color: var(--g-color); }
+  .collapse-toggle svg{ transition: transform .3s ease; }
+  .collapse-toggle[aria-expanded="false"] svg{ transform: rotate(-90deg); }
+
+  .class-body-outer{ display:grid; grid-template-rows: 0fr; transition: grid-template-rows .38s ease; }
+  .class-body-outer.collapsed{ grid-template-rows: 0fr; }
+  .class-body-outer:not(.collapsed){ grid-template-rows: 1fr; }
+  .class-body-inner{ overflow:hidden; min-height:0; opacity:0; transition: opacity .25s ease .1s; }
+  .class-body-outer.collapsed .class-body-inner{ opacity:0; transition: opacity .18s ease; }
+  .class-body-outer:not(.collapsed) .class-body-inner{ opacity:1; }
+
+  .card{
+    background:#fff; border:1px solid var(--line); border-radius: var(--radius);
+    padding: 28px 30px; margin-bottom: 22px; position:relative; overflow:hidden;
+    border-left: 5px solid var(--g-color);
+  }
+  .card .card-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap;
+    margin-bottom:14px;
+  }
+  .card h3{ font-size:19px; font-weight:600; color:var(--ink); }
+  .card h3 .alt{ font-weight:400; color:var(--ink-soft); font-size:14px; display:block; margin-top:3px;}
+  .code-badge{
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:12px; color:#fff;
+    background: var(--g-color); padding:6px 12px; border-radius:8px; white-space:nowrap;
+  }
+
+  ul.points{ list-style:none; margin:0; padding:0; }
+  ul.points > li{
+    position:relative; padding: 10px 0 10px 34px; font-size:14.8px; line-height:1.65; color:#2b2d36;
+    border-top:1px solid var(--line-soft);
+  }
+  ul.points > li:first-child{ border-top:none; }
+  ul.points > li::before{
+    content:"—";
+    position:absolute; left:0; top:10px; width:22px; height:22px; border-radius:7px;
+    background: var(--g-tint); color:var(--g-color); font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:13px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  ul.points > li b, ul.points > li strong{ color:var(--g-color); }
+  ul.points ul{ list-style:none; margin:8px 0 0; padding:0; }
+  ul.points ul li{
+    position:relative; padding:6px 0 6px 22px; font-size:14px; color:var(--ink-soft); border-top:none;
+  }
+  ul.points ul li::before{
+    content:"·"; position:absolute; left:0; top:4px; width:14px; height:14px; border-radius:0;
+    background:none; color:var(--g-color); font-size:20px; font-weight:700; display:flex; align-items:center; justify-content:center;
+  }
+
+  .ayah-block{
+    margin: 6px 0 18px; padding:20px 22px; border-radius:14px; background:var(--paper);
+    border:1px solid var(--line);
+  }
+  .ayah-block .ayah-ref{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--g-color); font-weight:700; margin-bottom:10px; display:block;
+  }
+  .ayah-block .ayah-ar{
+    font-size:24px; line-height:2; color:var(--ink); text-align:right; margin-bottom:12px;
+  }
+  .ayah-block .ayah-en{
+    font-size:14.5px; line-height:1.6; color:var(--ink-soft); font-style:italic;
+  }
+
+  .quote{
+    margin-top:16px; padding:16px 18px; border-radius:12px; background:var(--g-tint);
+    font-family:'Space Grotesk', sans-serif; font-size:16px; line-height:1.55; color:#20222a;
+    border-left:3px solid var(--g-color);
+  }
+  .quote footer{
+    margin-top:8px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    text-transform:uppercase; color:var(--ink-soft); font-style:normal;
+  }
+
+  .pill-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .pill-row .pill{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; background:#fff; border:1.3px solid var(--g-color);
+    color:var(--g-color); font-weight:600;
+  }
+
+  .lesson-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:6px; }
+  @media (max-width:640px){ .lesson-grid{ grid-template-columns:1fr; } }
+  .lesson-card{
+    border-radius:var(--radius); padding:22px 22px; border:1.3px solid var(--line);
+  }
+  .lesson-card .kicker{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .lesson-card h4{ margin-top:8px; font-size:17px; }
+  .lesson-card p{ margin-top:10px; font-size:14px; line-height:1.6; color:#2b2d36; }
+
+  .num-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:6px; }
+  @media (max-width:760px){ .num-grid{ grid-template-columns:1fr; } }
+  .num-card{
+    border-radius:14px; padding:18px 20px; border:1.3px solid var(--line); background:var(--paper);
+    display:flex; gap:14px; align-items:flex-start;
+  }
+  .num-card .num-badge{
+    flex:none; width:30px; height:30px; border-radius:9px; background:var(--g-color); color:#fff;
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center;
+  }
+  .num-card p{ font-size:14px; line-height:1.6; color:#2b2d36; }
+
+  #toTop{
+    position:fixed; right:26px; bottom:26px; width:46px; height:46px; border-radius:50%;
+    background:var(--ink); color:#fff; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,.22); opacity:0; pointer-events:none; transition: opacity .25s ease, transform .2s ease;
+    z-index:90;
+  }
+  #toTop.show{ opacity:1; pointer-events:auto; }
+  #toTop:hover{ transform: translateY(-3px); }
+
+  #quickFab{
+    position:fixed; left:26px; bottom:26px; width:52px; height:52px; border-radius:16px;
+    background: linear-gradient(135deg, var(--c-1), var(--c-4)); color:#fff; border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; z-index:95;
+    box-shadow:0 10px 28px -6px rgba(124,58,237,.5);
+    transition: transform .2s ease, border-radius .2s ease;
+  }
+  #quickFab:hover{ transform: translateY(-3px) scale(1.03); }
+  #quickFab.open{ border-radius:50%; }
+  #quickFab svg{ transition: transform .3s ease; }
+  #quickFab.open svg{ transform: rotate(45deg); }
+
+  #quickPanel{
+    position:fixed; left:26px; bottom:90px; width:280px; max-height:60vh; overflow-y:auto;
+    background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow);
+    z-index:94; padding:14px; opacity:0; transform: translateY(10px) scale(.97); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  #quickPanel.open{ opacity:1; transform: translateY(0) scale(1); pointer-events:auto; }
+  #quickPanel .qp-head{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--ink-soft); padding:4px 8px 10px;
+  }
+  #qpList{ list-style:none; margin:0; padding:0; }
+  #qpList li{
+    display:flex; align-items:center; gap:8px; border-radius:10px; padding:2px;
+  }
+  #qpList li a{
+    flex:1; display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--ink);
+    font-size:13px; padding:8px; border-radius:10px; transition:background .15s ease;
+  }
+  #qpList li a:hover{ background:var(--paper); }
+  .qp-idx{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:700; color:#fff;
+    background: var(--qc, var(--c-1)); padding:2px 6px; border-radius:6px;
+  }
+  .qp-toggle{ padding:8px; cursor:pointer; color:var(--ink-soft); opacity:.6; }
+  .qp-toggle:hover{ opacity:1; }
+  #qpList li.is-collapsed .qp-toggle svg{ transform: rotate(-90deg); }
+  #qpList li .qp-toggle svg{ transition: transform .3s ease; }
+
+  #empty-state{ display:none; padding:60px 0; text-align:center; color:var(--ink-soft); }
+  #empty-state.show{ display:block; }
+
+  footer.page-footer{
+    padding:30px 8vw 60px; color:var(--ink-soft); font-size:12.5px; font-family:'IBM Plex Mono',monospace;
+    border-top:1px solid var(--line); margin-top:30px;
+  }
+
+  @media (max-width: 980px){
+    main{ padding: 0 6vw 120px; }
+    .ayah-block .ayah-ar{ font-size:20px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001s !important; transition-duration:.001s !important; }
+    html{ scroll-behavior:auto; }
+  }
+
+  .note{
+    margin-top:14px; padding:12px 14px; border-radius:12px; background:var(--paper);
+    border:1.3px dashed var(--line); font-size:13px; line-height:1.55; color:var(--ink-soft);
+  }
+  .num-card h4{ font-size:15.5px; margin-bottom:4px; }
+  a:focus-visible, button:focus-visible, input:focus-visible{ outline:2px solid var(--c-1); outline-offset:2px; }
+  .ayah-block .ayah-ar{ font-size:26px; }
+</style>
+</head>
+<body data-page="abasa80yasirqadhi">
+
+<div id="progress"></div>
+
+<header class="hero">
+  <div class="burger-wrap">
+    <button id="navBurger" class="burger-btn" aria-haspopup="true" aria-expanded="false" aria-label="Open navigation menu">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div id="navMenu" class="burger-menu"></div>
+  </div>
+</header>
+
+<div class="ref-bar">
+  <span class="ref-label">Source</span>
+  <a href="https://www.youtube.com/watch?v=htfOwo7o8o4" target="_blank" rel="noopener" class="ref-txt" style="text-decoration:none; border-bottom:1px solid rgba(255,255,255,.35); padding-bottom:1px;">Dr Yasir Qadhi</a>
+</div>
+
+<div class="page-title" id="top">
+  <span class="eyebrow">Tafsīr Notes · Sūrah ʿAbasa</span>
+  <h1>“He Frowned and Turned Away” — Sūrah <span class="accent-word">ʿAbasa</span> [80:1–10]</h1>
+  <div class="sub">Why there is nothing awkward about this story, what the Prophet ﷺ actually wanted, and the lessons it holds: gentle correction, the heart over the body, certain over uncertain gain, conveying rather than converting, and the life of Ibn Umm Maktūm.</div>
+  <div class="tag-row">
+    <span class="tag">Ibn Umm Maktūm</span>
+    <span class="tag">Al-Walīd</span>
+    <span class="tag">Tazkiyah &amp; Tadhkirah</span>
+    <span class="tag">Kibr</span>
+    <span class="tag">Daʿwah</span>
+  </div>
+</div>
+
+<div class="layout">
+
+  <div class="toc-wrap">
+    <button class="toc-toggle" id="tocToggle" aria-expanded="false" aria-controls="tocPanelOuter">
+      <span class="toc-toggle-left">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></svg>
+        <span>Table of Contents</span>
+      </span>
+      <span style="display:flex;align-items:center;gap:10px">
+        <span class="toc-count" id="tocCount"></span>
+        <svg class="toc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </span>
+    </button>
+    <div class="toc-panel-outer" id="tocPanelOuter">
+      <div class="toc-panel-inner">
+        <nav class="sidebar">
+          <div class="search-box">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input id="searchInput" type="text" placeholder="Search sections…" aria-label="Search sections">
+          </div>
+          <div class="nav-actions">
+            <button id="expandAll">Expand all</button>
+            <button id="collapseAll">Collapse all</button>
+          </div>
+          <ul id="tocList"></ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <div id="sections"></div>
+    <div id="empty-state">No sections match your search.</div>
+  </main>
+</div>
+
+<button id="toTop" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<div id="quickPanel">
+  <div class="qp-head">Jump to Section</div>
+  <ul id="qpList"></ul>
+</div>
+
+<button id="quickFab" aria-label="Open quick navigation" aria-expanded="false">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+</button>
+
+<script>
+/* =========================================================
+   CONTENT — Surah ʿAbasa (80) lecture notes
+   Each bullet may be a string or {t:"text", sub:["…","…"]}
+   ========================================================= */
+const SECTIONS = [
+  {
+    title: "Why There Is Nothing Awkward Here",
+    cards: [
+      { h: "The opening reflection", badge: "Before We Begin", pts: [
+        "The speaker recited <b>Sūrah ʿAbasa</b> in the first rakʿah of the prayer today, and everyone is familiar with the story behind it.",
+        "Interestingly, some people find it awkward to mention this story.",
+        "That awkwardness is problematic, because <b>Allah Himself revealed the Sūrah about this story</b> — so we should not feel awkward mentioning the story, or its <i>sabab an-nuzūl</i> (the occasion of revelation).",
+        "Before even beginning, the feeling of awkwardness needs to be removed from our hearts.",
+        "When someone feels awkward, in reality that awkwardness is <b>directed at Allah</b> — we have to be careful here.",
+        "Some have even been heard saying “we shouldn’t talk about Sūrah ʿAbasa,” as though speaking about it were disrespectful."
+      ]},
+      { h: "Who revealed it, and why is it in the Qurʾān?", badge: "The Misconception", pts: [
+        "But who spoke about Sūrah ʿAbasa? Who revealed it? Why is it in the Qurʾān at all?",
+        "Saying “we should not talk about it” amounts to saying that Allah Himself revealed something we should not discuss — which is hugely problematic.",
+        "On the contrary, there is a reason Allah revealed it.",
+        "To be brutally honest: if we understood the real story and the tafsīr of this Sūrah, we would see there is <b>nothing to feel awkward about</b>.",
+        "So the very first thing, even before we begin, is to eliminate this misconception."
+      ]}
+    ]
+  },
+  {
+    title: "The Story in Brief",
+    ayah: { ref: "Sūrah ʿAbasa · 80:1–4",
+      ar: "عَبَسَ وَتَوَلَّىٰٓ ۝ أَن جَآءَهُ ٱلْأَعْمَىٰ ۝ وَمَا يُدْرِيكَ لَعَلَّهُۥ يَزَّكَّىٰٓ ۝ أَوْ يَذَّكَّرُ فَتَنفَعَهُ ٱلذِّكْرَىٰٓ",
+      en: "He frowned and turned away, because the blind man came to him. But what would make you know — perhaps he might be purified, or be reminded, and the reminder would benefit him? (paraphrased translation)" },
+    cards: [
+      { h: "What happened", badge: "The Summary Is Well Known", pts: [
+        "The Prophet ﷺ was speaking with <b>al-Walīd</b>, the father of Khālid — an arrogant chieftain of the Quraysh.",
+        "The Prophet ﷺ felt hopeful that he was close to Islam.",
+        "<b>Ibn Umm Maktūm</b> — the blind companion who was later the muʾadhdhin in Madīnah — heard the voice of the Prophet ﷺ.",
+        "He did not know the Prophet ﷺ was speaking to someone; he only heard the voice, rushed forward, and asked a question because he wanted some information.",
+        "Al-Walīd, the arrogant chieftain, snorted in contempt and basically said: you want me to follow you, and this person is your follower?",
+        "Ibn Umm Maktūm had embraced Islam in the earliest batches of Muslims.",
+        "Al-Walīd walked away, and the Prophet ﷺ felt a big loss for the ummah."
+      ]}
+    ]
+  },
+  {
+    title: "What the Prophet ﷺ Actually Wanted",
+    cards: [
+      { h: "Not a criticism — a lesson in priorities", badge: "The Key Point", pts: [
+        "The Prophet ﷺ was <b>not</b> seeking some business transaction, and not seeking status, honour or power from this non-Muslim.",
+        "He wanted to <b>benefit Islam</b>.",
+        "The whole story is not a criticism of the Prophet ﷺ — it is a teaching moment about the <b>priorities of the one who calls to Islam</b>.",
+        "Once you understand this, there is no awkwardness: it is <i>taʿlīm</i> (teaching) and <i>irshād</i> (guidance) — telling the Prophet ﷺ what is truly beneficial for the ummah.",
+        "The Prophet ﷺ thought that al-Walīd embracing Islam would be more beneficial for the ummah; he was not personally invested and wanted no personal gain.",
+        "When he thought the ummah had not benefited from this, Allah taught him: this is not the right way — the ummah benefits from the likes of Ibn Umm Maktūm."
+      ]},
+      { h: "Quality over quantity", badge: "Why the Sūrah Was Revealed", pts: [
+        "As the Qurʾān says, he frowned and turned his face away — because Ibn Umm Maktūm is blind and was not seeing the Prophet’s ﷺ face.",
+        "When al-Walīd walked away, the Prophet ﷺ felt the ummah had lost; Allah revealed the Sūrah to say: <b>we don’t need the likes of al-Walīd — the ummah shall win with the likes of Ibn Umm Maktūm</b>.",
+        "The Sūrah teaches quality over quantity.",
+        "It teaches that the right followers are more beneficial than the rich, powerful, arrogant rejectors.",
+        "The Prophet ﷺ felt Islam would have benefited from the likes of al-Walīd, and Allah revealed the Sūrah in exactly this context."
+      ]}
+    ]
+  },
+  {
+    title: "The Gentleness of the Language",
+    cards: [
+      { h: "Third person first, direct address second", badge: "Benefit One", pts: [
+        "The language used is <b>so gentle</b> — it is not harsh.",
+        "“He frowned and turned away” is in the <b>third person</b>. Allah did not say “you frowned and you turned away.”",
+        "It is as if a story is being described, rather than the Prophet ﷺ being directly addressed.",
+        "The moment the blind man is mentioned — “when the blind man came to him” — that too is description.",
+        "Only when the <i>tarbiyah</i> (upbringing/training) begins does Allah address the Prophet ﷺ directly: “How do you know, O Messenger of Allah — perhaps he would have purified himself.”",
+        "So: when describing what happened, Allah uses the third person; when teaching, He addresses him directly.",
+        "Read the whole Sūrah again with this point in mind — it is extra, extra soft."
+      ]},
+      { h: "What this teaches us about giving advice", badge: "For All of Us", pts: [
+        "When teaching or even correcting someone, the default is <b>soft language, gentleness and wisdom</b>.",
+        "Here Allah teaches through the Prophet ﷺ — and the goal isn’t just the Prophet ﷺ, it is all of us. That is the real message.",
+        "When you give advice (<i>naṣīḥah</i>), admonish, or correct, use the softest language possible.",
+        "Where possible, avoid first- and second-person phrasing such as “you did this and you did that.”",
+        "Try your best to be generic, as we find in this Sūrah."
+      ]}
+    ]
+  },
+  {
+    title: "Describing a Defect: Context Matters",
+    cards: [
+      { h: "Is it allowed to say “blind” or “lame”?", badge: "Benefit Two", pts: [
+        "When describing someone with a defect — he is blind, he is lame, and so on — <b>context matters</b>.",
+        "The Qurʾān says not to call each other by vulgar nicknames (Sūrah al-Ḥujurāt).",
+        "Yet in this Sūrah Allah says, “when the blind man came to him.” So is it allowed to call someone blind, or lame? The answer depends on context.",
+        "Used as a <b>pure description</b>, without any derogatory sense, it is permissible.",
+        "If you intend to make fun of someone or put them down, the very same word becomes <b>ḥarām</b>.",
+        "This connects to the speaker’s previous lecture on <b>cancel culture</b>: context matters — and the Sūrah shows it.",
+        "You can describe someone as blind or lame in a technical sense without putting him down; using the same word with the intention to mock and belittle is ḥarām."
+      ]}
+    ]
+  },
+  {
+    title: "Praised Three Ways: Allah Looks at Hearts",
+    ayah: { ref: "Sūrah ʿAbasa · 80:5–10",
+      ar: "أَمَّا مَنِ ٱسْتَغْنَىٰ ۝ فَأَنتَ لَهُۥ تَصَدَّىٰ ۝ وَمَا عَلَيْكَ أَلَّا يَزَّكَّىٰ ۝ وَأَمَّا مَن جَآءَكَ يَسْعَىٰ ۝ وَهُوَ يَخْشَىٰ ۝ فَأَنتَ عَنْهُ تَلَهَّىٰ",
+      en: "As for the one who considers himself free of need — you give him your attention; yet you are not to blame if he does not purify himself. But as for the one who came to you striving, while fearing — you are distracted from him. (paraphrased translation)" },
+    cards: [
+      { h: "An outward defect means nothing", badge: "Benefit Three", pts: [
+        "Allah is actually <b>praising</b> Ibn Umm Maktūm: his eyesight may be blind, but his heart wants to come closer to Allah.",
+        "By calling him blind and then praising him in <b>three different ways</b>, Allah shows what mattered:",
+        { t: "The three descriptions:", sub: [
+          "He comes to you rushing.",
+          "He wants to be purified.",
+          "He wants to gain admonition."
+        ]},
+        "Lesson: an outward defect means nothing if the inner soul wants to be purified."
+      ]},
+      { h: "The one who thought he needed nothing", badge: "The Contrast", pts: [
+        "Then Allah mentions the other man: “as for the one who considers himself free of need” — he thought he had everything, and thought he had no need for you.",
+        "So Allah criticised what is <b>inside</b> him.",
+        "This shows a simple fact we all know — the Ḥadīth: <b>Allah does not look at your outer forms nor at your bodies; Allah looks at your hearts and your deeds</b>.",
+        "The Sūrah proves this: Allah said “blind,” and then praised him in three different ways."
+      ]}
+    ]
+  },
+  {
+    title: "Prioritise the Certain Over the Uncertain",
+    cards: [
+      { h: "A principle for daʿwah", badge: "Benefit Four", pts: [
+        "When there is a gain that is <b>certain</b> and a gain that is <b>uncertain</b>, we must prioritise the certain gain over the uncertain one.",
+        "How do we get this from the Sūrah? Ibn Umm Maktūm’s benefit is certain; al-Walīd’s is uncertain — so the certain is prioritised over the uncertain.",
+        "In other words, prioritise the probable over the merely possible.",
+        "We should benefit from this in daʿwah: when we have two different courses of action, prioritise the one with the <b>maximum impact that is certain</b>, and delay the one that is not.",
+      ]}
+    ]
+  },
+  {
+    title: "Tazkiyah vs. Tadhkirah",
+    cards: [
+      { h: "Two kinds of benefit", badge: "Benefit Five", pts: [
+        "A very interesting technical distinction: Allah says he might <i>yazzakkā</i> — <b>or</b> he might <i>yadhdhakkaru</i>.",
+        { t: "Two different things are being mentioned:", sub: [
+          "<b>Tazkiyah</b> — being spiritually purified: raw spirituality that purifies the soul and brings you closer to Allah.",
+          "<b>Tadhkirah</b> — the mind works and some knowledge is gained, and that knowledge might possibly benefit him."
+        ]},
+        "So there are two types of “light bulbs” — two types of benefit.",
+        "When we attend ḥalaqāt, listen to the Qurʾān, or go to Islamic gatherings, sometimes it is just the emotion of being in that gathering, or of listening to the Qurʾān, the spiritual purity we feel — that is tazkiyah.",
+        "Sometimes it is something the person says, or a benefit we learn — that is tadhkirah."
+      ]},
+      { h: "Which of the two is more important?", badge: "Reading the Clause", pts: [
+        "How do we know? Notice that with <i>yazzakkā</i> there is no further clause, while with <i>yadhdhakkaru</i> there is one: “…and the reminder would benefit him.”",
+        "Spirituality is always good — but a spiritual boost is only beneficial if it causes you to become better.",
+        "And knowledge counts only if it actually benefits; knowledge that does not benefit becomes something <b>against</b> you.",
+        "The speaker recalled a talk from many weeks ago on spiritual knowledge versus secular knowledge, and it connects here.",
+        "There are people who don’t believe in God, hold PhDs in quantum physics, and know much more than all of us about their fields — and that knowledge is of no use to them.",
+        "And there are people who know nothing about quantum physics, but the little knowledge they have about this world is worth more than all those PhDs without spirituality.",
+        "Both are beneficial — but what is the goal of knowledge and of tazkiyah? That is the question the Sūrah raises.",
+        "So Allah is saying: your interaction with him might have benefited him spiritually, or he might have learned something that would have benefited him — you see the point: tazkiyah and tadhkirah."
+      ]}
+    ]
+  },
+  {
+    title: "Arrogance: The Worst Crime",
+    cards: [
+      { h: "Kibr and istighnāʾ", badge: "Benefit Six", pts: [
+        "The real and worst crime any person can commit is the crime of <b>arrogance (kibr)</b> — we know this from the Qurʾān and the Sunnah.",
+        "It is the sin of Iblīs.",
+        "Our Prophet ﷺ said that anyone with an atom’s weight of kibr in his heart shall not enter Jannah.",
+        "Kibr is the worst crime because it causes you to commit every other crime.",
+        "If you think you are better than other people, better than the religion, or that you don’t need God — what greater arrogance is there?",
+        "“He thought himself free of need” — <i>I don’t need anything</i> — is the biggest crime in our Sharīʿah.",
+        "This was the crime of Iblīs, the crime of al-Walīd, and the crime of many of the leaders of Quraysh."
+      ]}
+    ]
+  },
+  {
+    title: "Our Job Is to Convey, Not to Convert",
+    cards: [
+      { h: "“What business is it of yours if he isn’t purified?”", badge: "Benefit Seven", pts: [
+        "This is technical — <b>please don’t misinterpret</b>: when we preach Islam, the goal is not to convert; the goal is to <b>convey</b>.",
+        "Allah says, in effect: what business is it of yours if he does not attain tazkiyah?",
+        "Notice He did not say it is your job that he attains tazkiyah. Your job is to convey — to give tadhkirah, give knowledge, deliver the message.",
+        "Whether a person converts is not in my hand, and not something I have to do.",
+        "This is a big issue — if we understand it, our daʿwah actually becomes easier."
+      ]},
+      { h: "Two dangers of making conversion the goal", badge: "Why It Matters", pts: [
+        { t: "<b>First</b> — you become willing to change the message.", sub: [
+          "We have a product we cannot modify; we are salespeople of a product that does not belong to us, and we are not allowed to modify it.",
+          "Wanting to convert someone, you might say “no, that’s not true about Islam” when it is true, or “Muslims don’t believe that” when we do."
+        ]},
+        { t: "<b>Second</b> — you very quickly realise it is a very difficult job.", sub: [
+          "You might lose hope when nobody, or very few people, convert."
+        ]},
+        "When you realise <b>my job is to convey, not to convert</b>, it is not your power — “you do not guide whom you love; Allah guides whomever He pleases.”",
+        "This early Makkan Sūrah is teaching the Prophet ﷺ that his heart should not be attached to a person’s conversion.",
+        "If somebody converts we are happy, but conversion is not necessarily the goal: we preach the message, and whoever does not want to accept — that is upon them, not upon me."
+      ]}
+    ]
+  },
+  {
+    title: "Blindness Evokes Compassion",
+    cards: [
+      { h: "Why Allah mentions that he was blind", badge: "Benefit Eight", pts: [
+        "A commentator (his name is unclear in the transcript) makes an interesting point: by mentioning that he is blind, it is as if Allah is saying — <b>because he had special needs, you should have given him more attention and more love</b>.",
+        "Unlike most cultures of the past, where people with special needs were discarded and shown harshness and contempt, the Qurʾān and Sunnah came with extra emphasis on kindness to those with special needs, and softness to those who need extra care.",
+        "Others point out: O Messenger of Allah, just because he couldn’t see you does not give you the right to scowl and turn away — Allah is watching, and you should have had more compassion <i>because</i> he is blind.",
+        "So by mentioning blindness, it is as if Allah is evoking in us the emotion we should have."
+      ]}
+    ]
+  },
+  {
+    title: "Honoured, Trusted, and Given Office",
+    cards: [
+      { h: "How the Prophet ﷺ honoured him", badge: "Benefit Nine", pts: [
+        "It is said in the classical books that the Prophet ﷺ honoured him immensely and showed him <i>karam</i> (generosity and respect) because these verses came down.",
+        "Because of this, Ibn Umm Maktūm was put in charge of Madīnah — as its leader — <b>every time the Prophet ﷺ left on an expedition</b>: the majority of the time, more than a dozen times, including the Battle of Badr.",
+        "He was also appointed a <b>muʾadhdhin</b> — the official caller to prayer — alongside Bilāl; these were the two muʾadhdhins appointed by the Prophet ﷺ in his lifetime.",
+        "The Prophet ﷺ even preferred Ibn Umm Maktūm, as mentioned in the books of Ḥadīth."
+      ]},
+      { h: "A physical impediment is not a barrier", badge: "The Sharīʿah’s Position", pts: [
+        "In our religion, a physical impediment such as blindness is not considered something that should stop you from doing something useful for the community or being put in charge of something.",
+        "Once upon a time most of the world said: if you are physically unfit you cannot hold office and should not be in positions of power.",
+        "Our Sharīʿah came and said: just because you cannot see does not mean you cannot do other things.",
+        "The Prophet ﷺ put him in charge of the city of Madīnah in his absence multiple times.",
+        "The point: blindness did not stop him from holding office or from being given positions of responsibility — and that is what our Sharīʿah came with."
+      ]}
+    ]
+  },
+  {
+    title: "ʿĀʾishah’s Report: Proof the Qurʾān Is from Allah",
+    cards: [
+      { h: "“If he were to have hidden anything…”", badge: "Benefit Ten", pts: [
+        "It is reported that ʿĀʾishah (RA) said: if the Prophet ﷺ were to have hidden anything, he would have hidden this verse.",
+        "Another report says he would have hidden <i>a</i> verse — so there are two reports from ʿĀʾishah, perhaps said at different times; Allah knows best.",
+        "Why? Because nobody likes to be corrected, or to be told something is not perfect — and here the Higher One comes and guides him to perfection.",
+        "Yet we still recite these verses. And they came in <b>early Makkah</b>, when the Muslim community was small and the Quraysh were powerful.",
+        "These verses instruct the Prophet ﷺ to go even higher in his conduct."
+      ]},
+      { h: "A sign that the Qurʾān is from Allah", badge: "The Argument", pts: [
+        "The speaker honestly does not understand how those who reject the Qurʾān can understand these verses and others like them.",
+        "If you think the author of the Qurʾān is the Prophet ﷺ himself, would he reprimand himself for something like this? Especially in the context of early Makkah, it makes no sense.",
+        "But if it is from Allah, it makes complete sense.",
+        "A number of great scholars — including the famous North African scholar Muḥammad (most likely Ibn ʿĀshūr; the transcript is unclear) — say these verses prove the Qurʾān is from Allah.",
+        "It is impossible that a human mind would do this — reprimand himself, or point out his own area of fault. Why would anybody do that?"
+      ]}
+    ]
+  },
+  {
+    title: "The Beautiful Parallel of the Sūrah",
+    ayah: { ref: "Sūrah ʿAbasa · 80:34–36",
+      ar: "يَوْمَ يَفِرُّ ٱلْمَرْءُ مِنْ أَخِيهِ ۝ وَأُمِّهِۦ وَأَبِيهِ ۝ وَصَٰحِبَتِهِۦ وَبَنِيهِ",
+      en: "On the Day a person will flee from his brother, his mother and his father, his spouse and his children. (paraphrased translation)" },
+    cards: [
+      { h: "Beginning and end mirror each other", badge: "Tanāsub", pts: [
+        "The Sūrah is so beautiful in its parallels (<i>tanāsub</i>) — the eloquence (<i>balāghah</i>) is well known; also look at how it begins and ends, and the motifs that parallel each other.",
+        "First āyah: “he frowned and turned away.” At the end, Allah talks about the <b>real frowning and the real turning away</b> — when you receive your record (ḥisāb) in the wrong hand and find out you are not going to Jannah. That is the real one, and we don’t want that.",
+        "So what do we want? Allah begins in this world, then reminds us: don’t worry — what matters is the next world. Make sure you are smiling, that your face is bright, and that you are not among those whose faces are clouded, murky and scared."
+      ]},
+      { h: "Running towards vs. running away", badge: "Every Motif Answered", pts: [
+        "The blind man <b>rushes towards</b> the Prophet ﷺ for knowledge and good deeds.",
+        "Allah contrasts this with the Day of Judgment: a person with no good deeds will be running <b>away</b> from his brother, his mother and father, his wife and children.",
+        "In this world, run towards knowledge and you will be safe; if you don’t, in the next you will be running away from the people you love — and that will itself be a source of punishment.",
+        "Also: “he thought he had everything” (al-Walīd). Allah contrasts this with the Day of Judgment, when every person who thought he had everything will find everything a problem for him, worried about so many things.",
+        "Notice the contrast: <b>every point Allah mentions at the beginning is contrasted at the end</b> — a beautiful tanāsub."
+      ]}
+    ]
+  },
+  {
+    title: "Ibn Umm Maktūm: A Life Well Lived",
+    cards: [
+      { h: "His piety and his final battle", badge: "Final Points", pts: [
+        "Ibn Umm Maktūm lived a very pious and righteous life.",
+        "Despite being blind, he would still walk to pray in the Masjid of the Prophet ﷺ.",
+        "He was unable to take part in many <i>ghazawāt</i> (expeditions).",
+        "Towards the end of his life, when he heard the Muslims were going to march against the Romans and take on the Roman Empire, he insisted on being in that battle — and he marched with them.",
+        "They asked him what he would do. He said: because I’m blind, <b>I will hold the flag</b>, and I will not be scared of any enemy because I won’t see them — I will be an anchor for the army, so put me in the most strategic location.",
+        "That is exactly what he did: he was placed in that strategic location in the <b>Battle of Qādisiyyah</b> in 15 AH, and he stood there like a brave soldier until death came to him.",
+        "The Muslims were victorious, and he played a seminal role in that victory simply by being the standard-bearer in that strategic location."
+      ], note: "Editor’s note: the lecture says the army was marching against the Romans; Qādisiyyah is generally recorded in the sources as fought against the Sasanian Persians." },
+      { h: "Closing duʿāʾ", badge: "Āmīn", pts: [
+        "May Allah have mercy on Ibn Umm Maktūm.",
+        "May Allah guide us all to the best of manners."
+      ]}
+    ]
+  },
+  {
+    title: "Quick Takeaways",
+    lessons: [
+      ["Don’t be awkward about revelation", "Allah revealed the story of ʿAbasa; it is teaching, not embarrassment."],
+      ["Quality over quantity", "The ummah wins with sincere seekers like Ibn Umm Maktūm, not arrogant elites."],
+      ["Correct softly", "Describe in the third person, address gently, and stay generic when advising."],
+      ["Context makes the word", "Describing a trait is fine; using it to mock is ḥarām."],
+      ["Hearts, not bodies", "Allah looks at hearts and deeds — outward defects mean nothing."],
+      ["Certain before possible", "Prioritise the sure benefit in daʿwah over the uncertain one."],
+      ["Purify and learn", "Tazkiyah and tadhkirah both matter — but only when they benefit you."],
+      ["Convey, don’t convert", "Never modify the message; guidance belongs to Allah."]
+    ]
+  }
+];
+
+/* =========================================================
+   RENDERER
+   ========================================================= */
+const COLORS = [1,2,3,4,5,6];
+const pad = n => String(n).padStart(2,'0');
+const strip = h => h.replace(/<[^>]+>/g,'');
+const CHEV = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+const CHEV_S = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+
+const renderPoint = p => typeof p === 'string'
+  ? `<li>${p}</li>`
+  : `<li>${p.t}<ul>${p.sub.map(s=>`<li>${s}</li>`).join('')}</ul></li>`;
+
+const pointText = p => typeof p === 'string' ? strip(p) : strip(p.t) + ' ' + p.sub.map(strip).join(' ');
+
+function renderSection(s, i){
+  const id = 's-' + pad(i+1), c = COLORS[i % 6];
+  let body = '';
+  if(s.ayah) body += `<div class="ayah-block"><span class="ayah-ref">${s.ayah.ref}</span><p class="ayah-ar arabic">${s.ayah.ar}</p><p class="ayah-en">${s.ayah.en}</p></div>`;
+  (s.cards||[]).forEach(cd => {
+    body += `<div class="card"><div class="card-top"><h3>${cd.h}</h3><span class="code-badge">${cd.badge}</span></div><ul class="points">${cd.pts.map(renderPoint).join('')}</ul>${cd.note?`<div class="note">${cd.note}</div>`:''}</div>`;
+  });
+  if(s.lessons) body += `<div class="num-grid">${s.lessons.map((l,k)=>`<div class="num-card"><span class="num-badge">${k+1}</span><div><h4>${l[0]}</h4><p>${l[1]}</p></div></div>`).join('')}</div>`;
+  return `<section class="class-section" id="${id}" style="--g-color:var(--c-${c}); --g-tint:var(--c-${c}-tint);">
+    <div class="class-head"><span class="idx">${pad(i+1)}</span><h2>${s.title}</h2>
+      <button class="collapse-toggle" data-target="${id}" aria-expanded="true" aria-label="Collapse section">${CHEV}</button></div>
+    <div class="class-body-outer" id="body-${id}"><div class="class-body-inner">${body}</div></div>
+  </section>`;
+}
+
+const searchKey = s => strip([s.title, ...(s.cards||[]).flatMap(c=>[c.h,c.badge,...c.pts.map(pointText)]), ...(s.lessons||[]).flat()].join(' ')).toLowerCase();
+
+document.getElementById('sections').innerHTML = SECTIONS.map(renderSection).join('');
+document.getElementById('tocList').innerHTML = SECTIONS.map((s,i)=>
+  `<li><a href="#s-${pad(i+1)}" data-key="${searchKey(s).replace(/"/g,'&quot;')}" style="--g-color:var(--c-${COLORS[i%6]})"><span class="sw"></span>${s.title}</a></li>`).join('');
+document.getElementById('qpList').innerHTML = SECTIONS.map((s,i)=>
+  `<li data-target="s-${pad(i+1)}"><a href="#s-${pad(i+1)}" style="--qc:var(--c-${COLORS[i%6]})"><span class="qp-idx">${pad(i+1)}</span>${s.title}</a><span class="qp-toggle" data-target="s-${pad(i+1)}">${CHEV_S}</span></li>`).join('');
+document.getElementById('tocCount').textContent = SECTIONS.length + ' sections';
+
+/* =========================================================
+   BEHAVIOUR (progress, top button, FAB, collapse, search)
+   ========================================================= */
+const ALL_IDS = SECTIONS.map((_,i)=>'s-'+pad(i+1));
+const progress = document.getElementById('progress');
+const toTop = document.getElementById('toTop');
+function updateProgress(){
+  const h = document.documentElement;
+  const max = h.scrollHeight - h.clientHeight;
+  progress.style.width = (max > 0 ? h.scrollTop / max * 100 : 0) + '%';
+  toTop.classList.toggle('show', h.scrollTop > 700);
+}
+document.addEventListener('scroll', updateProgress, {passive:true});
+updateProgress();
+toTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+const tocToggle = document.getElementById('tocToggle');
+const tocOuter = document.getElementById('tocPanelOuter');
+function closeToc(){ tocOuter.classList.remove('open'); tocToggle.setAttribute('aria-expanded','false'); }
+tocToggle.addEventListener('click', () => {
+  const open = tocOuter.classList.toggle('open');
+  tocToggle.setAttribute('aria-expanded', String(open));
+});
+
+const navLinks = document.querySelectorAll('nav.sidebar li a');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => { if(en.isIntersecting){
+    navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id));
+  }});
+}, { rootMargin:'-15% 0px -70% 0px', threshold:0 });
+document.querySelectorAll('section.class-section').forEach(el => io.observe(el));
+
+const fab = document.getElementById('quickFab');
+const panel = document.getElementById('quickPanel');
+const openPanel = () => { panel.classList.add('open'); fab.classList.add('open'); fab.setAttribute('aria-expanded','true'); };
+const closePanel = () => { panel.classList.remove('open'); fab.classList.remove('open'); fab.setAttribute('aria-expanded','false'); };
+fab.addEventListener('click', () => panel.classList.contains('open') ? closePanel() : openPanel());
+document.addEventListener('click', e => { if(panel.classList.contains('open') && !panel.contains(e.target) && !fab.contains(e.target)) closePanel(); });
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closePanel(); });
+panel.querySelectorAll('a').forEach(a => a.addEventListener('click', closePanel));
+
+function setCollapsed(id, collapsed){
+  const body = document.getElementById('body-' + id);
+  const btn = document.querySelector('.collapse-toggle[data-target="' + id + '"]');
+  const qp = document.querySelector('#qpList li[data-target="' + id + '"]');
+  body.classList.toggle('collapsed', collapsed);
+  btn.setAttribute('aria-expanded', String(!collapsed));
+  qp.classList.toggle('is-collapsed', collapsed);
+}
+const isCollapsed = id => document.getElementById('body-' + id).classList.contains('collapsed');
+document.querySelectorAll('.collapse-toggle').forEach(b => b.addEventListener('click', () => setCollapsed(b.dataset.target, !isCollapsed(b.dataset.target))));
+document.querySelectorAll('#qpList li').forEach(li => li.querySelector('.qp-toggle').addEventListener('click', e => {
+  e.stopPropagation(); e.preventDefault(); setCollapsed(li.dataset.target, !isCollapsed(li.dataset.target));
+}));
+document.getElementById('expandAll').addEventListener('click', () => ALL_IDS.forEach(id => setCollapsed(id, false)));
+document.getElementById('collapseAll').addEventListener('click', () => ALL_IDS.forEach(id => setCollapsed(id, true)));
+
+document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', () => {
+  const id = a.getAttribute('href').slice(1);
+  if(ALL_IDS.includes(id)) setCollapsed(id, false);
+  if(a.closest('nav.sidebar')) closeToc();
+}));
+
+const searchInput = document.getElementById('searchInput');
+const emptyState = document.getElementById('empty-state');
+searchInput.addEventListener('input', () => {
+  const q = searchInput.value.trim().toLowerCase();
+  let shown = 0;
+  navLinks.forEach(a => {
+    const match = q === '' || a.dataset.key.includes(q);
+    a.dataset.hidden = match ? '0' : '1';
+    document.querySelector(a.getAttribute('href')).style.display = match ? '' : 'none';
+    if(match) shown++;
+  });
+  emptyState.classList.toggle('show', shown === 0);
+});
+
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

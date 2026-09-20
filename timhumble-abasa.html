@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sūrah ʿAbasa (80) — Tafsīr Study Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+
+    --bg:#ffffff; --paper:#fbfbfd; --card:#ffffff; --ink:#14151a; --ink-soft:#5a5d6b; --body:#2b2d36;
+    --line:#e7e7ee; --line-soft:#f0f0f5; --on-ink:#ffffff;
+
+    --c-1:#7c3aed; --c-1-tint:#f4edff;
+    --c-2:#0284c7; --c-2-tint:#e8f6ff;
+    --c-3:#ea580c; --c-3-tint:#fff1e8;
+    --c-4:#db2777; --c-4-tint:#ffe9f4;
+    --c-5:#059669; --c-5-tint:#e6faf2;
+    --c-6:#0f766e; --c-6-tint:#e6f8f6;
+
+    --accent:var(--c-1); --accent-tint:var(--c-1-tint);
+    --radius:18px;
+    --shadow:0 1px 2px rgba(20,21,26,.04), 0 12px 32px -16px rgba(20,21,26,.14);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth; scroll-padding-top:env(safe-area-inset-top,0px);}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:'IBM Plex Sans',system-ui,sans-serif; -webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--accent); color:#fff;}
+  h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif; margin:0; letter-spacing:-.01em;}
+  a{color:inherit;} p{margin:0;}
+  .arabic{font-family:'Amiri',serif; direction:rtl;}
+  em.t{font-style:italic;}
+
+  #progress{position:fixed; top:env(safe-area-inset-top,0px); left:0; height:3px; width:0%;
+    background:linear-gradient(90deg,var(--c-1),var(--c-2),var(--c-3),var(--c-4),var(--c-5),var(--c-6)); z-index:200; transition:width .1s linear;}
+
+  .ref-bar{background:#14151a; color:#fff; font-family:'IBM Plex Mono',monospace; font-size:12.5px;
+    padding:9px 8vw; display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
+  .ref-bar .ref-label{color:rgba(255,255,255,.55); text-transform:uppercase; letter-spacing:.08em; font-size:10.5px;}
+  .ref-bar .ref-txt{opacity:.85;}
+
+  header.hero{
+    padding:6px 8vw; min-height:46px; display:flex; align-items:center; gap:10px;
+    position:sticky; top:env(safe-area-inset-top,0px); z-index:80; border-bottom:1px solid var(--line);
+    background-color:var(--bg);
+    background-image:radial-gradient(700px 340px at 8% -10%,var(--c-1-tint),transparent 60%),radial-gradient(600px 300px at 95% 0%,var(--c-3-tint),transparent 55%);
+  }
+
+  .burger-wrap{ position:relative; display:flex; align-items:center; }
+  .burger-btn{
+    width:34px; height:34px; border-radius:10px; border:1.3px solid var(--line);
+    background:var(--paper); color:var(--ink); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: border-color .15s ease, background .15s ease, color .15s ease;
+  }
+  .burger-btn:hover{ border-color: var(--c-1); }
+  .burger-btn.open{ background: var(--c-1); border-color: var(--c-1); color:#fff; }
+  .burger-btn svg{ transition: opacity .15s ease; }
+  .burger-menu{
+    position:absolute; top:calc(100% + 10px); left:0; width:320px;
+    background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow);
+    padding:8px; opacity:0; transform: translateY(-6px); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease; z-index:120;
+    display:flex; flex-direction:column;
+  }
+  .burger-menu.open{ opacity:1; transform: translateY(0); pointer-events:auto; }
+  .burger-menu-home{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; margin:2px 2px 8px;
+    border-radius:10px; border-bottom:1px solid var(--line-soft);
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-home svg{ flex:none; color:var(--ink-soft); }
+  .burger-menu-home:hover{ background: var(--paper); }
+  .burger-menu-home.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-home.is-current .bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-search{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:10px; padding:8px 10px; margin:2px 2px 8px;
+    background:var(--paper); flex:none;
+  }
+  .burger-menu-search svg{ flex:none; opacity:.5; color:var(--ink-soft); }
+  .burger-menu-search input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13px; width:100%; color:var(--ink);
+  }
+  .burger-menu-list{ max-height:340px; overflow-y:auto; overscroll-behavior:contain; }
+  .burger-menu-list::-webkit-scrollbar{ width:6px; }
+  .burger-menu-list::-webkit-scrollbar-thumb{ background:var(--line); border-radius:10px; }
+  .burger-menu-group + .burger-menu-group{ margin-top:4px; }
+  .burger-menu-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); padding:8px 10px 4px;
+  }
+  .burger-menu-empty{
+    display:none; padding:18px 10px; text-align:center; font-size:12.5px; color:var(--ink-soft);
+  }
+  .burger-menu-item{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; border-radius:10px;
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-item span.bm-title{ display:block; }
+  .burger-menu-item span.bm-sub{ display:block; font-size:11.5px; color:var(--ink-soft); font-weight:400; margin-top:1px; }
+  .burger-menu-item:hover{ background: var(--paper); }
+  .burger-menu-item.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-item.is-current span.bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-dot{ width:9px; height:9px; border-radius:3px; flex:none; margin-top:3px; }
+
+  .page-title{padding:30px 8vw 6px;}
+  .page-title .eyebrow{font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:10px; display:block;}
+  .page-title h1{font-size:clamp(26px,5vw,46px); line-height:1.12; font-weight:700;}
+  .page-title h1 .accent-word{background:linear-gradient(100deg,var(--c-1),var(--c-4) 55%,var(--c-3)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .page-title .sub{margin-top:14px; max-width:68ch; color:var(--ink-soft); font-size:15px; line-height:1.6;}
+  .page-title .tag-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:18px;}
+  .page-title .tag{font-size:12.5px; padding:6px 12px; border-radius:100px; border:1.3px solid var(--line); color:var(--ink-soft); font-weight:500; background:var(--paper);}
+
+  .layout{max-width:1400px; margin:0 auto;}
+  .toc-wrap{border-bottom:1px solid var(--line); padding:0 8vw;}
+  .toc-toggle{width:100%; display:flex; align-items:center; justify-content:space-between; gap:10px; background:none; border:none; cursor:pointer; padding:16px 0;
+    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px; color:var(--ink);}
+  .toc-toggle:hover{color:var(--c-1);}
+  .toc-toggle-left{display:flex; align-items:center; gap:10px;}
+  .toc-toggle-left svg{color:var(--ink-soft); flex:none;}
+  .toc-chevron{transition:transform .3s ease; color:var(--ink-soft); flex:none;}
+  .toc-toggle[aria-expanded="true"] .toc-chevron{transform:rotate(180deg);}
+  .toc-panel-outer{display:grid; grid-template-rows:0fr; transition:grid-template-rows .35s ease;}
+  .toc-panel-outer.open{grid-template-rows:1fr;}
+  .toc-panel-inner{overflow:hidden; min-height:0;}
+  nav.sidebar{display:block; padding:4px 0 22px;}
+  .search-box{display:flex; align-items:center; gap:8px; border:1.5px solid var(--line); border-radius:12px; padding:10px 12px; margin-bottom:18px; background:var(--paper);}
+  .search-box input{border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif; font-size:13.5px; width:100%; color:var(--ink);}
+  .search-box svg{flex:none; opacity:.5; color:var(--ink-soft);}
+  .nav-actions{display:flex; gap:8px; margin-bottom:18px;}
+  .nav-actions button{flex:1; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em; border:1.3px solid var(--line); background:var(--card); color:var(--ink-soft); padding:7px 8px; border-radius:9px; cursor:pointer; transition:.15s ease;}
+  .nav-actions button:hover{border-color:var(--ink); color:var(--ink);}
+  .nav-group-label{font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); margin:18px 0 6px 2px;}
+  .nav-group-label:first-of-type{margin-top:0;}
+  nav.sidebar ul{list-style:none; margin:0; padding:0; border-left:2px solid var(--line-soft);}
+  nav.sidebar li a{display:flex; align-items:center; gap:9px; text-decoration:none; font-size:13.5px; color:var(--ink-soft); padding:7px 0 7px 14px; border-left:2px solid transparent; margin-left:-2px; transition:color .15s ease, border-color .15s ease;}
+  nav.sidebar li a .sw{width:8px; height:8px; border-radius:3px; flex:none; background:var(--g-color);}
+  nav.sidebar li a:hover{color:var(--ink);}
+  nav.sidebar li a.active{color:var(--g-color); border-left-color:var(--g-color); font-weight:600;}
+  nav.sidebar li a[data-hidden="1"]{display:none;}
+
+  main{min-width:0; padding:0 8vw 140px;}
+  section.class-section{padding-top:56px; scroll-margin-top:70px;}
+  section.class-section:first-child{padding-top:44px;}
+  .group-divider{margin:64px 0 -22px; display:flex; align-items:center; gap:14px;}
+  .group-divider:first-child{margin-top:34px;}
+  .group-divider span{font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft); white-space:nowrap;}
+  .group-divider::after{content:""; flex:1; height:1px; background:var(--line);}
+
+  .class-head{display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; padding-bottom:14px; margin-bottom:22px; border-bottom:3px solid var(--g-color);}
+  .class-head .idx{font-family:'IBM Plex Mono',monospace; font-size:14px; font-weight:700; color:#fff; background:var(--g-color); padding:5px 10px; border-radius:8px;}
+  .class-head h2{font-size:clamp(20px,2.4vw,28px); color:var(--ink);}
+  .collapse-toggle{margin-left:auto; width:34px; height:34px; border-radius:9px; border:1.5px solid var(--line); background:var(--card); color:var(--g-color); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .15s ease, border-color .15s ease;}
+  .collapse-toggle:hover{background:var(--g-tint); border-color:var(--g-color);}
+  .collapse-toggle svg{transition:transform .3s ease;}
+  .collapse-toggle[aria-expanded="false"] svg{transform:rotate(-90deg);}
+  .class-body-outer{display:grid; grid-template-rows:1fr; transition:grid-template-rows .38s ease;}
+  .class-body-outer.collapsed{grid-template-rows:0fr;}
+  .class-body-inner{overflow:hidden; min-height:0; opacity:1; transition:opacity .25s ease .1s;}
+  .class-body-outer.collapsed .class-body-inner{opacity:0; transition:opacity .18s ease;}
+
+  .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:28px 30px; margin-bottom:22px; position:relative; overflow:hidden; border-left:5px solid var(--g-color);}
+  .card .card-top{display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; margin-bottom:14px;}
+  .card h3{font-size:19px; font-weight:600; color:var(--ink);}
+  .code-badge{font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:12px; color:#fff; background:var(--g-color); padding:6px 12px; border-radius:8px;}
+
+  ul.points{list-style:none; margin:0; padding:0;}
+  ul.points > li{position:relative; padding:10px 0 10px 34px; font-size:14.8px; line-height:1.65; color:var(--body); border-top:1px solid var(--line-soft);}
+  ul.points > li:first-child{border-top:none;}
+  ul.points > li::before{content:"—"; position:absolute; left:0; top:10px; width:22px; height:22px; border-radius:7px; background:var(--g-tint); color:var(--g-color); font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:13px; display:flex; align-items:center; justify-content:center;}
+  ul.points > li b, ul.points > li strong{color:var(--g-color);}
+  ul.points ul{list-style:none; margin:8px 0 0; padding:0;}
+  ul.points ul li{position:relative; padding:6px 0 6px 22px; font-size:14px; color:var(--ink-soft); line-height:1.6;}
+  ul.points ul li::before{content:"·"; position:absolute; left:0; top:2px; color:var(--g-color); font-size:22px; font-weight:700; line-height:1;}
+
+  .ayah-block{margin:6px 0 22px; padding:20px 22px; border-radius:14px; background:var(--paper); border:1px solid var(--line);}
+  .ayah-block .ayah-ref{font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--g-color); font-weight:700; margin-bottom:10px; display:block;}
+  .ayah-block .ayah-ar{font-size:24px; line-height:2; color:var(--ink); text-align:right; margin-bottom:12px;}
+  .ayah-block .ayah-en{font-size:14.5px; line-height:1.6; color:var(--ink-soft); font-style:italic;}
+
+  .quote{margin:0 0 22px; padding:16px 18px; border-radius:12px; background:var(--g-tint); font-family:'Space Grotesk',sans-serif; font-size:16px; line-height:1.55; color:var(--ink); border-left:3px solid var(--g-color);}
+  .quote small{display:block; margin-top:8px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em; text-transform:uppercase; color:var(--ink-soft);}
+
+  #toTop{position:fixed; right:26px; bottom:calc(26px + env(safe-area-inset-bottom,0px)); width:46px; height:46px; border-radius:50%; background:var(--ink); color:var(--on-ink); border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 24px rgba(0,0,0,.22); opacity:0; pointer-events:none; transition:opacity .25s ease, transform .2s ease; z-index:90;}
+  #toTop.show{opacity:1; pointer-events:auto;}
+  #toTop:hover{transform:translateY(-3px);}
+
+  #quickFab{position:fixed; left:26px; bottom:calc(26px + env(safe-area-inset-bottom,0px)); width:52px; height:52px; border-radius:16px; background:linear-gradient(135deg,#7c3aed,#db2777); color:#fff; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:95; box-shadow:0 10px 28px -6px rgba(124,58,237,.5); transition:transform .2s ease, border-radius .2s ease;}
+  #quickFab:hover{transform:translateY(-3px) scale(1.03);}
+  #quickFab.open{border-radius:50%;}
+  #quickFab svg{transition:transform .3s ease;}
+  #quickFab.open svg{transform:rotate(45deg);}
+  #quickPanel{position:fixed; left:26px; bottom:calc(90px + env(safe-area-inset-bottom,0px)); width:min(300px, calc(100vw - 52px)); max-height:60vh; overflow-y:auto; background:var(--card); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); z-index:94; padding:14px; opacity:0; transform:translateY(10px) scale(.97); pointer-events:none; transition:opacity .2s ease, transform .2s ease;}
+  #quickPanel.open{opacity:1; transform:translateY(0) scale(1); pointer-events:auto;}
+  #quickPanel .qp-head{font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-soft); padding:4px 8px 10px;}
+  #qpList{list-style:none; margin:0; padding:0;}
+  #qpList li{display:flex; align-items:center; gap:8px; border-radius:10px; padding:2px;}
+  #qpList li a{flex:1; display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--ink); font-size:13px; padding:8px; border-radius:10px; transition:background .15s ease;}
+  #qpList li a:hover{background:var(--paper);}
+  .qp-idx{font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:700; color:#fff; background:var(--qc); padding:2px 6px; border-radius:6px; flex:none;}
+  .qp-toggle{padding:8px; cursor:pointer; color:var(--ink-soft); opacity:.6;}
+  .qp-toggle:hover{opacity:1;}
+  #qpList li.is-collapsed .qp-toggle svg{transform:rotate(-90deg);}
+  #qpList li .qp-toggle svg{transition:transform .3s ease;}
+
+  @media (max-width:980px){ main{padding:0 6vw 120px;} .ayah-block .ayah-ar{font-size:20px;} .card{padding:22px 20px;} }
+  @media (prefers-reduced-motion: reduce){ *{animation-duration:.001s !important; transition-duration:.001s !important;} html{scroll-behavior:auto;} }
+</style>
+</head>
+<body data-page="abasa80timhumble">
+
+<div id="progress"></div>
+
+<header class="hero">
+  <div class="burger-wrap">
+    <button id="navBurger" class="burger-btn" aria-haspopup="true" aria-expanded="false" aria-label="Open navigation menu">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div id="navMenu" class="burger-menu"></div>
+  </div>
+</header>
+
+<div class="ref-bar">
+  <span class="ref-label">Source</span>
+  <a href="https://www.youtube.com/watch?v=vuW6TbDK3yM" target="_blank" rel="noopener" class="ref-txt" style="text-decoration:none; border-bottom:1px solid rgba(255,255,255,.35); padding-bottom:1px;">Tim Humble</a>
+</div>
+
+<div class="page-title" id="top">
+  <span class="eyebrow">Tafsīr Notes · Sūrah ʿAbasa</span>
+  <h1>“He <span class="accent-word">Frowned</span> and Turned Away” — Sūrah ʿAbasa</h1>
+  <div class="sub">A rebuke to the Prophet ﷺ over a frown at a blind man becomes a study in the sins of the prophets, the ethics of calling to Allah, how to treat the Qurʾān and those who carry it, and Allah’s proofs of resurrection — from the origin of man, to the food he eats, to the Day when everyone flees from everyone.</div>
+  <div class="tag-row">
+    <span class="tag">Ayāt 1–42</span>
+    <span class="tag">ʿIṣmah of the Prophets</span>
+    <span class="tag">Ethics of Daʿwah</span>
+    <span class="tag">Resurrection</span>
+    <span class="tag">Intercession</span>
+  </div>
+</div>
+
+<div class="layout">
+  <div class="toc-wrap">
+    <button class="toc-toggle" id="tocToggle" aria-expanded="false" aria-controls="tocPanelOuter">
+      <span class="toc-toggle-left">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        <span>Table of Contents</span>
+      </span>
+      <svg class="toc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="toc-panel-outer" id="tocPanelOuter">
+      <div class="toc-panel-inner">
+        <nav class="sidebar" id="tocNav">
+          <div class="search-box">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input id="searchInput" type="text" placeholder="Search sections…">
+          </div>
+          <div class="nav-actions"><button id="expandAll">Expand all</button><button id="collapseAll">Collapse all</button></div>
+          <div id="tocGroups"></div>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <main id="mainContent"></main>
+</div>
+
+<button id="toTop" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<div id="quickPanel">
+  <div class="qp-head">Jump to Section</div>
+  <ul id="qpList"></ul>
+</div>
+
+<button id="quickFab" aria-label="Open quick navigation" aria-expanded="false">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+</button>
+
+<script>
+/* ============================================================
+   CONTENT DATA
+   pts: string | [string, [sub-strings]]
+   ============================================================ */
+const G = (label, sections) => ({label, sections});
+const S = (title, key, cards, extra={}) => ({title, key, cards, ...extra});
+const C = (h, badge, pts) => ({h, badge, pts});
+
+const DATA = [
+
+G("Opening & the Rebuke", [
+
+S("Opening Remarks & the Surah’s Names", "opening names abasa benefits fifty ayat books tafsir rebuke", [
+  C("Starting the session", "A Surah Full of Benefits", [
+    "The class opens with praise of Allah (<em class='t'>alḥamdulillāh</em>) and the remark that this sūrah holds a great many benefits.",
+    "Honestly, from just the first few āyāt one could easily draw around <b>fifty benefits</b> without any difficulty.",
+    "The books of tafsīr contain a lot of benefits on it; the class may not cover all of them, but the aim is to have a good, proper study session.",
+  ]),
+  C("The name of the sūrah", "ʿAbasa", [
+    "The sūrah is most commonly known as <b>Sūrah ʿAbasa</b>.",
+    "It has other names as well, but ʿAbasa is the famous one.",
+    "The sūrah <b>begins with a rebuke</b> to the Prophet ﷺ.",
+    "So the lesson starts with a foundational question: what is the position regarding the <b>sins of the prophets</b>?",
+  ]),
+]),
+
+S("Do the Prophets Sin?", "prophets sin isma lying betrayal major minor christians clarify", [
+  C("Why the question arises", "The Starting Point", [
+    "Here Allah rebukes the Prophet ﷺ for having done something that was not right, and guides him not to repeat it.",
+    "So: do the prophets sin? The answer is divided into a number of categories.",
+  ]),
+  C("Category 1 — lying, breaking trust, betrayal", "Anything Harming the Message", [
+    "This covers anything that would harm the message itself: lying, breaking trust, betrayal.",
+    "<b>No prophet fell into any of these</b> — not the small of them nor the large of them.",
+    "It is not possible for any prophet to fall into anything that would take away from his message, his trustworthiness, or his truthfulness.",
+  ]),
+  C("Category 2 — major sins", "Kabāʾir", [
+    "Prophets do <b>not</b> commit major sins.",
+    "This is in contrast to what the Christians say about some of the prophets — that one was a drunkard, or that one killed a man in order to steal his wife.",
+    "The speaker mentions hearing recently (it was relayed to him) of a Christian preacher who, speaking about how “we’re all flawed,” said that a prophet had a man murdered so he could take his wife.",
+    "The prophets never did anything like that.",
+  ]),
+  C("Category 3 — minor sins", "Lamam / Ṣaghāʾir", [
+    "These are the small, ordinary slips a person can fall into.",
+    "The correct view is that the prophets <b>do not do them deliberately</b>, but that sometimes, accidentally and without intending, they could fall into some minor sin.",
+    "So no prophet ever deliberately sets out to disobey Allah.",
+  ]),
+  C("Category 4 — Allah always clarifies", "No Mistake Left Uncorrected", [
+    "Allah will <b>never leave any mistake of theirs without clarifying it in revelation</b> — even the smallest.",
+    "The reason: so that it is not taken as part of the <em class='t'>sunnah</em> / religion for the rest of us.",
+    ["In summary: they don’t lie, don’t commit major sins, don’t deliberately intend minor sins — but occasionally a prophet may fall unintentionally into something not correct in Allah’s sight, and Allah will always correct it.", []],
+  ]),
+  C("Applying it to this sūrah", "The Prophet’s Intention", [
+    "In this sūrah the Prophet ﷺ did not set out to do something wrong.",
+    "Rather, he wanted goodness and wanted the people to accept Islam.",
+    "But in wanting that, he did something which Allah corrected him on.",
+  ]),
+]),
+
+S("“ʿAbasa wa Tawallā” — A Gentle Correction", "abasa tawalla frown turn away third person gentle correction dawa accusative", [
+  C("The wording", "Ayāt 1–2", [
+    "<b>ʿAbasa</b> means to frown — a facial expression. <b>Tawallā</b> means to turn away — a body movement.",
+    "So he ﷺ frowned <em class='t'>and</em> turned away.",
+  ]),
+  C("The beauty of how Allah corrects him", "Third-Person Address", [
+    "Allah does <b>not</b> say “<em class='t'>you</em> frowned and <em class='t'>you</em> turned away from him.”",
+    "Instead He speaks about the Prophet ﷺ <b>in the third person</b>, as though speaking about someone else.",
+    "This is the gentleness with which Allah corrected the Prophet ﷺ.",
+    "It also leads to the last point about the mistakes of the prophets: Allah always clarifies them (see the previous section).",
+  ]),
+  C("A lesson for correcting others", "Gentleness in Daʿwah", [
+    "When you want to correct someone, it is not always best to do it in an <b>accusative</b> way: “you did this… I heard you say this… and you know what you are…”",
+    "Instead, in daʿwah, consider the excellence of speaking more generally: “some of us have made this mistake… we’re all guilty.”",
+    "Gentle ways of expressing advice make it <b>more likely the person will accept it</b>.",
+    "It is also closer to the excellent standard that Allah requires of you.",
+  ]),
+], {ayah:{ref:"Sūrah ʿAbasa 80:1–2", ar:"عَبَسَ وَتَوَلَّىٰٓ ۝ أَن جَآءَهُ ٱلْأَعْمَىٰ", en:"He frowned and turned away, because the blind man came to him."}}),
+
+S("The Standard Held Upon the Prophet ﷺ", "standard frown blind man ibn umm maktum khadijah cousin rebuke criticizing humble", [
+  C("The smallest, tiniest thing", "A Frown at a Man Who Couldn’t See", [
+    "The Prophet ﷺ did the smallest, tiniest thing: he <b>frowned</b>.",
+    "The man who came to him — the maternal cousin of Khadījah — was <b>blind</b>. He couldn’t even see the frown on the Prophet’s face; it meant nothing to him and he felt nothing.",
+    "Yet the Prophet ﷺ is told not to frown even at a blind man who cannot see. <em class='t'>Subḥān Allāh.</em>",
+  ]),
+  C("Reading the level of rebuke", "Criticism, Not Just Advice", [
+    "Look at the standard Allah requires from the Prophet ﷺ.",
+    "Allah is rebuking here in the sense of <b>criticizing</b> — not “you should do better next time,” but <b>“this is something you did wrong.”</b>",
+    "Even a frown on the face, in the wrong situation, and Allah revealed a whole sūrah about it.",
+  ]),
+  C("What this means for us", "Humility, Not Arrogance", [
+    "None of us has done what Allah told us to do — none of us has fulfilled what He commanded.",
+    "So how can we be arrogant? When we realize we haven’t fulfilled what Allah commanded, we should be <b>humbled, asking forgiveness, sad, and wanting to make a better effort</b>.",
+    "You haven’t done what Allah told you to do; I haven’t done what Allah told me to do. So we should be humbled, sorry and seeking forgiveness — <b>not arrogant and disbelieving</b>.",
+    "(This same point returns at ayah 23 — see section 23.)",
+  ]),
+]),
+
+S("The Context: Who Was There and Why?", "context quraysh leaders wealthy abu jahl narrations dawa compromise sincere preferred uninterested du'at", [
+  C("What happened", "The Occasion of Revelation", [
+    "The Prophet ﷺ was with some of the leaders of Quraysh — the wealthy, senior figures.",
+    "The narrations differ on who exactly they were: some name particular leaders (Abū Jahl is mentioned in some), and in some narrations no one is named — just that they were senior figures among the Quraysh.",
+  ]),
+  C("Why was he sitting with them?", "Not Compromise", [
+    "Was he inclining towards them? Compromising with them? Wanting their money, or a status through them? <b>Never.</b>",
+    "The Prophet ﷺ was with them <b>to tell them about Islam</b>.",
+    "But he saw that these people were, in reality, <b>not interested</b> in what he was saying to them.",
+  ]),
+  C("So what exactly was the problem?", "The Issue Isolated", [
+    "Question: is it therefore not allowed to direct one’s daʿwah to the wealthy and senior people in society? <b>That is not the problem.</b>",
+    "The problem is that <b>someone sincere came</b>, and instead of answering that sincere person, the Prophet ﷺ preferred the one who was clearly <b>not interested</b> in what he had to say.",
+    "This is a lesson for the <em class='t'>duʿāt</em>: the Prophet ﷺ had the highest standard of character, so we are going to fall far short of it in our daʿwah.",
+  ]),
+]),
+
+]),
+
+G("Lessons for Callers & Teachers", [
+
+S("When People Approach You the Wrong Way", "wrong way interrupt salam beggar rude harsh manners answer everyone smile organized begging", [
+  C("The situations", "Wrong Time, Wrong Wording", [
+    "Many times people come to you in daʿwah at the wrong time, or with the wrong kind of wording — a little rude, or they interrupt.",
+    "The speaker says the interruption is his “favourite” example of this kind of criticism.",
+  ]),
+  C("Interrupting a conversation to give salām", "Etiquette", [
+    "It doesn’t matter who — if someone is engaged in conversation with another person, it is <b>not allowed to break in and give salām in the middle</b>.",
+    "The speaker adds this is not a criticism of any individual; they are learning from the āyah that there is a way of approaching a conversation, and a way of responding to the one who approaches you the wrong way.",
+    "Example: speaking to a brother who is asking questions, and another brother comes into the middle, breaks the conversation and gives salām. It is not befitting — it’s among the bad manners people fall into — so one should wait.",
+  ]),
+  C("An example from one of our teachers", "The Wrong Word", [
+    "Someone came to one of our shaykhs and said something in colloquial Arabic — the wrong word — that effectively implied “you have nothing to do, you’re just sitting around bored.”",
+    "The person meant it as: “is it an appropriate time to ask a question?” He didn’t mean to say the shaykh was living his life in boredom; he just said it the wrong way.",
+    "Sometimes people come with the wrong expression and don’t mean it.",
+  ]),
+  C("So how do you respond?", "Don’t Push Them Away", [
+    "The lesson: <b>don’t push them away, don’t rebuke them, don’t speak harsh words.</b>",
+    "Does that mean you must answer everyone? <b>No.</b> You don’t have to answer everybody who asks you a question.",
+    "The principle is general — it covers the beggar and the one who comes seeking knowledge; all of them are “askers.” You needn’t fulfil every request, but you <b>mustn’t discourage them or make them feel bad about themselves</b>. That is the meaning of “don’t drive them away.”",
+    "Don’t say “get out, get away from me.” Rather say: “I don’t have anything to give you right now, may Allah bless you.” <b>Smile at them, say a nice word, don’t rebuke.</b>",
+  ]),
+  C("The beggar who shouldn’t be given to", "A Practical Note", [
+    "Being kind doesn’t mean you must give: sometimes you believe giving to a particular beggar would actually be harmful.",
+    "They may be part of a criminal organization or <b>organized begging</b> — people are even maimed so they look ill, and so on.",
+    "In such cases you may not give, but you still shouldn’t speak to them in a harsh way.",
+  ]),
+  C("The Prophet ﷺ and the standard of character", "Highest Character", [
+    "Of course the Prophet ﷺ never did any of this — all he did was frown, and at a man who couldn’t see him frowning.",
+    "But Allah holds the prophets to a standard of character <b>higher than He holds anyone else</b>: “O Muḥammad ﷺ, you are upon the highest standard of character.”",
+  ]),
+]),
+
+S("Was Ibn Umm Maktūm Already a Muslim?", "ibn umm maktum muslim difference opinion yakhsha frowned", [
+  C("The difference of opinion", "A Question of Status", [
+    "There is a difference of opinion about whether he was a Muslim at the time he came to the Prophet ﷺ (a scholar notes the disagreement).",
+    "It seems that he <b>was</b>, because of Allah’s statement that he was “fearful of Allah” (<em class='t'>wa huwa yakhshā</em>).",
+  ]),
+  C("A possible reason for the Prophet’s frown", "Two Competing Priorities", [
+    "Perhaps this is why the Prophet ﷺ frowned: a man from among the Muslims came to ask about Islam.",
+    "On the other side, the Prophet ﷺ was busy calling people who — he believed — if they accepted Islam, could change the whole situation in Makkah.",
+    "What was problematic was that those leaders were clearly <b>not listening</b> and clearly <b>not interested</b> in what he had to say.",
+  ]),
+]),
+
+S("Don’t Give Knowledge to Those Who Don’t Want It", "uninterested students asleep phones stop lesson affront knowledge respect dawa non muslim", [
+  C("The principle", "Respecting Knowledge", [
+    "From here a principle is established: it is <b>not befitting to give knowledge to people who are not interested in it</b>.",
+    "A rule taken from it: if you see that the majority of your students are asleep, on their phones, or talking to each other, then what is obligatory upon you is to <b>stop the lesson and leave</b>.",
+    "It’s not right to see that someone doesn’t want the knowledge you have and keep giving it to them — it is <b>an affront to knowledge itself</b>; you are actually disrespecting knowledge by giving it to those who don’t want it.",
+  ]),
+  C("An important qualification", "Daʿwah to Non-Muslims", [
+    "In a daʿwah situation you may have to put up with a little more from the person — because they are still not Muslim.",
+    "Similarly in other teaching settings: where people aren’t interested, it’s better to <b>find those who are interested</b> and give the knowledge to them.",
+    "There are many benefits like this in these āyāt.",
+  ]),
+]),
+
+S("Ayāt 3–4: “What Will Make You Know…?”", "yudrika yazzakka yadhakkar tazkiyah purify reminder benefit delayed muslim always needs", [
+  C("Two views on who is meant", "“Laʿallahū yazzakkā”", [
+    "<b>View 1 (the majority):</b> it refers to the blind man — what makes you know that perhaps this man will achieve righteousness and purification through what you teach him, and perhaps the other one will not?",
+    "<b>View 2:</b> it refers to the disbeliever — what makes you know that perhaps he will never take Islam, though you want to purify him with Islam?",
+    "It means: “You, O Muḥammad ﷺ, have no knowledge of whether this person will benefit or not.”",
+  ]),
+  C("Is there proof the blind man was a non-Muslim?", "No", [
+    "There is no evidence in this that he wasn’t a Muslim — <b>a Muslim is always in need of <em class='t'>tazkiyah</em></b> (self-purification).",
+    "So it doesn’t mean the blind man was not a Muslim. He was a Muslim who came — and Allah knows best — to ask for additional guidance.",
+    "A person purifies himself with knowledge and righteous deeds; the reality is that <b>all of us are in need of purifying ourselves</b>.",
+  ]),
+  C("“Aw yadhdhakkaru fa-tanfaʿahu-dh-dhikrā”", "The Benefit of Reminder", [
+    "The believer is always reminded: what makes you know that perhaps the blind man will take a reminder from what you say, and that reminder will benefit him?",
+    "Some scholars add, beyond the obvious meaning, a possible sense of a <b>delayed benefit</b> — after some time, the words you say will benefit him.",
+    "So one view: he will correct himself immediately, or perhaps after some time; or the meaning is that he will remember and change himself based on the reminder you give.",
+    "Related: “remind, for indeed the reminder benefits the believers.”",
+  ]),
+], {ayah:{ref:"Sūrah ʿAbasa 80:3–4", ar:"وَمَا يُدْرِيكَ لَعَلَّهُۥ يَزَّكَّىٰٓ ۝ أَوْ يَذَّكَّرُ فَتَنفَعَهُ ٱلذِّكْرَىٰٓ", en:"But what would make you know? Perhaps he might be purified — or be reminded, so the reminder would benefit him."}}),
+
+S("Ayāt 5–6: Don’t Lean Toward the Wealthy", "istaghna wealthy poor lean dawa nafs status heraclius abu sufyan followers poor teacher paid", [
+  C("Two views on “istaghnā”", "Self-Sufficient or Wealthy", [
+    "“The one who sees himself as being <em class='t'>in no need</em> (<em class='t'>istaghnā</em>)” comes from the idea of seeing oneself as not needy, or seeing oneself as wealthy. Two views:",
+    ["He feels he doesn’t need the knowledge you’re giving him — he is clearly not interested. (The transcript also mentions a variant of this view tied to those who were with the Prophet ﷺ; the wording is unclear.)", []],
+    ["Or he is from the wealthy people.", []],
+    "Hence another benefit: <b>you must never lean toward the wealthy and leave the poor behind.</b>",
+  ]),
+  C("The daʿī’s own psychology", "When It’s Blameworthy — and When It’s Not", [
+    "The <em class='t'>nafs</em> is naturally inclined toward giving daʿwah to the wealthy and people of status and position — going to their majālis and houses, seeing the best cars, thinking “I could spend ten minutes with this person and tell him about Islam.”",
+    "That is <b>not blameworthy</b> if you’re not seeking anything from them — no status, no attempt to please them.",
+    "What <b>is</b> blameworthy: leaving behind the poor and saying “those people I don’t concern myself with”; or always being seen with the people of the dunya and telling yourself it’s for daʿwah, when in reality you want praise, money, status, their happiness, admiration, or to be recognized as equal to them. All of this is <b>very blameworthy</b>.",
+    "As for the Prophet ﷺ, he wanted <b>only Islam</b> from them. Nothing else.",
+  ]),
+  C("The scholars’ principle", "Don’t Favor the Rich at the Expense of the Poor", [
+    "Look at Allah’s wording — “the one who sees himself as wealthy” — now a poor person comes. Many scholars of tafsīr mention that Allah is telling the Prophet ﷺ: <b>don’t deal with the wealthy at the expense of the poor</b>, and don’t give your attention and concern to the wealthy at the expense of the poor.",
+    "Because in reality, which of them is more likely to accept, and more likely to come close to Allah?",
+    "No doubt the majority of the followers of the prophets were poor. The speaker recalls the story of Heraclius speaking with Abū Sufyān, where it was mentioned that the majority of the followers of the prophets are the poor and needy — though Allah also blesses some of the wealthy.",
+    "Imagine a person full of himself because of his wealth being given attention <em class='t'>instead of</em> a poor person, simply because the latter is poor. The scholars’ principle: don’t give attention to people of status, position, authority and wealth in this dunya and then ignore the others. This is <b>not</b> what the Prophet ﷺ did — it’s derived from the meaning of the āyah.",
+    "The Prophet ﷺ was only interested in them accepting Islam, so that everyone in Makkah could be relieved from punishment by Allah’s permission. When he saw that the man didn’t want it, and that Ibn Umm Maktūm had come sincerely wanting guidance, he could not prefer the former over the latter — you give your time and effort to the one who cares.",
+  ]),
+  C("Applying it to a teacher", "The Paying Student vs. the Sincere One", [
+    "A teacher might have a student who pays him or gives him some benefit but isn’t really interested in the knowledge.",
+    "And there is another person who gives nothing but is genuinely interested and wants to learn.",
+    "You <b>can’t give attention to the first and leave the second</b> — you look to who wants the benefit.",
+  ]),
+], {ayah:{ref:"Sūrah ʿAbasa 80:5–6", ar:"أَمَّا مَنِ ٱسْتَغْنَىٰ ۝ فَأَنتَ لَهُۥ تَصَدَّىٰ", en:"As for he who considers himself free of need — to him you give attention."}}),
+
+S("Ayāt 7–10: Your Job Is to Convey", "convey responsibility not held to account known imagined benefit tasadda yas'a yakhsha talahha messengers", [
+  C("The huge benefit here", "The Purpose of Sending Messengers", [
+    "The scholar says this is a huge benefit — and it is the intention behind sending the messengers, and behind those who admonish and remind people.",
+    "If someone comes and shows that he is in need of this knowledge, <b>turning to him is what is obligatory upon you</b>.",
+    "What is <b>not</b> befitting: putting yourself forward and presenting yourself to the wealthy person who is free of need — who behaves as though he doesn’t need it, isn’t asking you, isn’t coming for a fatwā, isn’t interested — and then leaving the one who is more important.",
+  ]),
+  C("“Wa mā ʿalayka allā yazzakkā”", "Not Your Responsibility", [
+    "It is not your responsibility whether that person of status becomes purified or not. <b>Your responsibility is to convey the message.</b>",
+    "Even if he doesn’t correct himself, <b>you will not be held to account</b> for his not correcting himself.",
+    "The wealthy person, if he doesn’t become purified and corrected — it’s not your sin. You gave him the message; he doesn’t want it.",
+    "It is also possible to read the phrase as a question: “what would there be upon you — what blame — if he didn’t purify himself?”",
+  ]),
+  C("A principle drawn from this", "Don’t Trade the Certain for the Imagined", [
+    "<b>Don’t leave something known for something merely imagined</b> — a maybe or a wrong idea.",
+    "Don’t leave a <b>clear benefit</b> for a benefit you only think <em class='t'>might</em> happen — maybe it will, maybe it won’t.",
+    "This applies to the student of knowledge: give the knowledge to the one who is seeking it, who is keen for it and shows he is in need of it.",
+    "As for the one who sees himself as needing nothing — you’re “putting yourself forward” (<em class='t'>tasaddā</em>) and giving him your attention. (The transcript notes two possible meanings of this word.)",
+  ]),
+  C("The one who comes striving", "“Jāʾaka yasʿā wa huwa yakhshā”", [
+    "<em class='t'>Yasʿā</em> doesn’t necessarily mean hurrying — it means <b>exerting effort</b>.",
+    "He is exerting effort and he is <b>fearful of Allah</b>.",
+    "And you are “busy” (<em class='t'>talahhā</em>) — not giving him attention, turning away from him — when he is the one making the effort, the one who wanted to know, the one who fears Allah.",
+    "You can’t become busy with the other one <em class='t'>instead of</em> him.",
+  ]),
+  C("Wider lessons", "For Everyone, Especially Callers", [
+    "The scholars mention many benefits here; only a few were covered.",
+    "These lessons are not only for the Prophet ﷺ but for all of us — especially those involved in daʿwah, warning, admonishing, giving reminders and talks.",
+    "It can also be taken as the <b>etiquette of the one who carries the Qurʾān</b> — how you behave, as someone who carries the Qurʾān in his heart, toward the people who come to ask you. (This is picked up in the next segment.)",
+  ]),
+], {ayah:{ref:"Sūrah ʿAbasa 80:7–10", ar:"وَمَا عَلَيْكَ أَلَّا يَزَّكَّىٰ ۝ وَأَمَّا مَن جَآءَكَ يَسْعَىٰ ۝ وَهُوَ يَخْشَىٰ ۝ فَأَنتَ عَنْهُ تَلَهَّىٰ", en:"And it is not upon you if he does not purify himself. But as for he who came to you striving, while fearing Allah — from him you are distracted."}}),
+
+]),
+
+G("The Reminder & the Noble Pages", [
+
+S("Ayah 11: “Kallā — It Is a Reminder”", "kalla tadhkirah pronoun feminine masculine ayat surah quran nearest mentioned grammar", [
+  C("What does “kallā” mean?", "Not Like That", [
+    "<b>Kallā</b> generally means: “the matter is not like that” — i.e. not like how you did it; it shouldn’t be like that.",
+  ]),
+  C("What does “innahā” (“it is”) refer to?", "The Pronoun Question", [
+    "The first question: what does the pronoun in “<em class='t'>innahā tadhkirah</em>” refer back to? The scholar says this admonition is a reminder; others say it refers to these āyāt; and some say it is the sūrah; and a few say the Qurʾān.",
+    "<b>Why the Qurʾān is the trickiest:</b> in Arabic, pronouns are often used without mentioning what they refer to (“it is a reminder” — without saying what “it” is). The pronoun here is <b>feminine</b>. Āyāt is feminine, <em class='t'>tadhkirah</em> (admonition) is feminine, but <em class='t'>Qurʾān</em> is a masculine word.",
+    "The general rule: a pronoun usually refers to something mentioned recently or nearby — and the Qurʾān hasn’t been mentioned in the sūrah, so that view is less likely.",
+  ]),
+  C("The three views", "Close in Meaning", [
+    "The sūrah is a reminder — this whole sūrah was sent down as a reminder.",
+    "These āyāt now sent down to you, O Muḥammad ﷺ, are a reminder for you and for your ummah after you.",
+    "This admonition — the fact that you were told not to do this, and that it’s not as you did — is now a reminder to you and to those after you.",
+    "These meanings are close to each other. It’s interesting that such differences arise simply because the pronoun doesn’t say exactly what it refers to; generally you go to the closest thing mentioned.",
+    "It is a reminder <b>from Allah</b>, by which He reminds His servants, makes clear what they need, and makes clear the difference between the right way and the wrong way.",
+  ]),
+], {ayah:{ref:"Sūrah ʿAbasa 80:11", ar:"كَلَّآ إِنَّهَا تَذْكِرَةٌ", en:"No! Indeed, it is a reminder."}}),
+
+S("Ayah 12: “Whoever Wills, Let Him Remember”", "fa man sha'a dhakarahu masculine pronoun remember allah revelation not a choice whoever wills believe disbelieve", [
+  C("Another pronoun puzzle", "Now Masculine", [
+    "After the feminine pronoun in ayah 11, ayah 12 uses a <b>masculine</b> pronoun — “dhakarahu” — so again scholars differed over what it refers to.",
+    "The general meaning: whoever wishes, let him be reminded by it, let him act upon it.",
+    "One view: “whoever wills, let him remember <b>Allah</b>.”",
+    "The other view: let him remember <b>what has been sent down</b> — the revelation. This is perhaps the strongest view. Because the earlier pronoun was feminine (the āyāt / the reminder) and this one is masculine, part of the issue is grammatical; hence the pronoun is taken as the revelation.",
+    "Some scholars express it as: he acts upon it, learns a lesson from it, and benefits from it.",
+  ]),
+  C("A shift in audience", "Now for Everyone", [
+    "This is no longer a discussion directed at the Prophet ﷺ — it is for <b>everyone</b>: whoever wishes, let him pay attention, learn the lessons, and apply them.",
+  ]),
+  C("Is this a free choice?", "“Let Him Believe or Disbelieve”", [
+    "This is used as an evidence of the same kind of expression as “whoever wills, let him believe, and whoever wills, let him disbelieve.”",
+    "Allah is <b>not</b> saying “if you want to learn, learn — and if not, it’s okay.”",
+    "It’s like saying “if you want to be a believer, be one; if you don’t want to, don’t” — which doesn’t mean it’s permissible not to believe. You’ll face the consequences — the fire.",
+    "Allah says it as a <b>rebuke</b>: you want to be a disbeliever, that’s your choice, but you will face the consequences.",
+    "So it’s not permission to say “it’s okay if I don’t pay attention.” Whoever wishes to be rewarded and to do what Allah commanded — let him pay attention, learn the lesson and apply it.",
+  ]),
+], {ayah:{ref:"Sūrah ʿAbasa 80:12", ar:"فَمَن شَآءَ ذَكَرَهُۥ", en:"So whoever wills may remember it."}}),
+
+S("Ayāt 13–16: The Noble, Lofty, Pure Pages", "mukarramah marfu'ah mutahharah safarah angels emissaries jibril pages preserved tablet shaytan", [
+  C("The description of the revelation", "Speaking About the Revelation Itself", [
+    "Now Allah speaks about the revelation in a more general way (the stronger view being that the pronoun refers to the revelation).",
+    "This revelation — this Qurʾān, this message sent down to you — is found in <b>noble, honored scriptures / pages</b>.",
+    "The speaker checks an English translation (“venerable pages”) and jokes that it doesn’t really improve things: they are venerated, honored, noble.",
+    "<b>Lofty / high up:</b> the meaning of being high is that the devils cannot reach them. Shayṭān never came down with the Qurʾān, it’s not allowed for him, and he would not be able to. It is high above, and <b>pure</b>.",
+  ]),
+  C("What are these pages?", "Two Understandings", [
+    "The discussion is about what “pages” are being referred to. The author being read mentions one view (the speaker is not certain of the exact wording), and others say the <em class='t'>mukarramah</em> pages are the pages the angels hold.",
+    "It’s not the Qurʾān as we hold it, because the Qurʾān was sent down in stages: first it was sent down (as commonly explained, in one go to the lowest heaven), and then it came down to the Prophet ﷺ in pieces. So these are <b>the pages in the hands of the angels</b>.",
+    "What supports that is Allah’s statement about them being “in the hands of <em class='t'>safarah</em>.”",
+  ]),
+  C("Who are the “safarah”?", "The Emissaries", [
+    "The <em class='t'>safarah</em> are <b>emissaries</b> — <em class='t'>safīr</em> is the one sent to deliver a message, sent with a responsibility, sent to represent, or sent to make things right. (The origin of the word is said to be “making things right between two people.”)",
+    "Allah chooses from the angels and from among men those who will be messengers — like Jibrīl ﷺ.",
+    "So what Jibrīl carries comes from these purified, lofty, noble pages. This is one understanding.",
+  ]),
+  C("A related ayah that is not about the muṣḥaf", "“None Touch It But the Purified”", [
+    "Another possibility raised: the ayah of “no one touches it except the purified” (Sūrat al-Wāqiʿah) — and there is a view that this is the Qurʾān in our hands, but the speaker says that view is very, very weak.",
+    "Neither of these two passages refers to the physical muṣḥaf in our hands. It refers to the Qurʾān, but not the muṣḥaf.",
+  ]),
+], {ayah:{ref:"Sūrah ʿAbasa 80:13–16", ar:"فِى صُحُفٍ مُّكَرَّمَةٍ ۝ مَّرْفُوعَةٍ مُّطَهَّرَةٍ ۝ بِأَيْدِى سَفَرَةٍ ۝ كِرَامٍۭ بَرَرَةٍ", en:"In honored scriptures — exalted and purified — in the hands of messengers, noble and dutiful."}}),
+
+S("What This Teaches About Treating the Muṣḥaf & Its Carriers", "mushaf respect wudu kiram bararah qiyas carriers quran ethics imam paid recitation wealthy shaykh not pray behind", [
+  C("How can these āyāt be evidence about the muṣḥaf?", "An A-Fortiori Argument", [
+    "Since neither passage refers to the muṣḥaf in our hands, how do we argue it is evidence for how we treat the muṣḥaf?",
+    "The speaker describes it as a comparison-style argument (<em class='t'>qiyās</em> — an <em class='t'>a fortiori</em> argument): it’s an <b>indication</b> of how to treat the Qurʾān.",
+    "If the Qurʾān is in the hands of noble angels, an honored scripture, then how should you treat the muṣḥaf in <em class='t'>your</em> hands? You must treat it with respect and nobility — and not touch it without purity.",
+    "This is <b>not</b> because the ayah says so directly — there isn’t strong evidence in the ayah itself — but because of the implication: if this is how the angels treat the scripture given to them, you too are required to treat the muṣḥaf with respect.",
+  ]),
+  C("Who holds the Qurʾān in the heavens?", "Kirām Bararah", [
+    "Look at whom Allah describes: angels He chose as emissaries — <b>karīm</b> (noble, generous) and <b>barr</b> (righteous, full of goodness and barakah), righteous in hearts and deeds.",
+    "What does that tell you about <em class='t'>us</em> — the one who carries the Qurʾān in his heart? That’s how you should be: <b>noble, blessed, righteous in heart and deeds, keeping yourself pure</b> in heart and actions.",
+    "It’s not befitting — <em class='t'>wallāhi</em> — for someone to carry the Qurʾān while being the opposite of that: wicked, ungenerous, ignoble, impure.",
+    "That’s why in the books on the ethics of the people of the Qurʾān, and in books of tafsīr, these āyāt are brought as the proof of how the carrier must behave: noble, kind, seeking purity, righteous in hearts and deeds.",
+  ]),
+  C("A story from our teachers", "“I Don’t Pray Behind Him”", [
+    "When some who carry the Qurʾān behave differently, some of our teachers were heard saying: “I don’t pray behind this person.”",
+    "The reason given: he was earning huge sums from his recitation — he puts himself always before rich people so he can get large payments; every time he comes to recite in the masjid, he takes (for example) $50,000.",
+    "The teacher said he doesn’t pray behind him — because he lacks the “most beautiful” character of the Qurʾān’s carrier. He sees him leaning toward the wealthy, to the person who sees himself as rich and powerful, and always putting himself before that person so as to take huge amounts.",
+    "Even if he then gives the money to the poor or does whatever with it — again, <b>it’s not how the Qurʾān should be treated</b>.",
+  ]),
+  C("The depth of these āyāt", "From a Frown to a Whole Ethic", [
+    "Look at the depth: from a mere frown of the Prophet ﷺ, scholars derived the conduct of those who teach the Qurʾān, the method of the duʿāt, and the way you treat the muṣḥaf.",
+    "Many, many issues were drawn from what was a very small matter that Allah told us about.",
+  ]),
+]),
+
+S("Trust in the Qurʾān & Its Preservation", "trust certainty preserved ruqyah cure jibril most trustworthy chain mushrikin doubt shaytan no access", [
+  C("Certainty in the truth of the Qurʾān", "“High Above”", [
+    "Allah tells you the Qurʾān is high above: falsehood doesn’t come to it from in front or from behind — no way it can be corrupted.",
+    "So you should have <b>complete and total trust and certainty</b> in the truth of the Qurʾān and in what the Prophet ﷺ brought.",
+  ]),
+  C("Ways of showing real belief", "More Than Recitation", [
+    "There are many ways to show your belief in the Qurʾān — not just reciting, reading, memorizing.",
+    "For example: <b>seeking a cure from the Qurʾān</b> when you’re sick — reciting it while asking Allah to cure you through it.",
+    "All of this shows you’re certain this book is high above, that no falsehood can reach it, that it is pure and was sent down from Allah — <b>it is the speech of Allah; it came from Him and will go back to Him</b>.",
+  ]),
+  C("Look at the chain — there is no break", "From Allah to Us", [
+    "Allah spoke the Qurʾān — a speech that was heard in reality.",
+    "It was taken by the most trustworthy of the angels — all angels are trustworthy, but Jibrīl is the best of them.",
+    "He brought it to the most trustworthy of Allah’s creation on earth, the Prophet Muḥammad ﷺ.",
+    "It was then carried to us by the most trustworthy of people, and those who followed them in goodness.",
+  ]),
+  C("Answering the doubters", "Against the Mushrikīn", [
+    "After that come the mushrikīn — whose īmān in the Qurʾān, if it exists at all, is very weak — who want you to doubt the reliability and preservation of the Qurʾān.",
+    "These few small āyāt that we have all memorized prove that this Qurʾān is preserved: you don’t need the long āyāt.",
+    "Allah made it righteous and gave shayṭān no way to reach it. So you must believe in it and accept it.",
+    "And yet — what does mankind do? (This leads to ayah 17.)",
+  ]),
+]),
+
+S("Don’t Force a Single Theme or Connection", "one theme surah munasabat connection takalluf umar don't know dialects tribes ahruf i don't know", [
+  C("Still the theme of resurrection", "Multiple Topics, One Sūrah", [
+    "After all this, Allah presents the proof of this Qurʾān — and there is another angle: it is a <b>proof against those who reject the resurrection</b>, because the topic is still the topic of resurrection.",
+    "Bear in mind: <b>there is no rule that a sūrah has to have one topic</b>.",
+  ]),
+  C("Two areas of over-reaching in tafsīr", "Making It Hard Without Benefit", [
+    "<b>1. Forcing a single theme onto the entire sūrah.</b> For some sūrahs you can say there’s a theme for the whole sūrah; it’s not true for every sūrah. The idea that one <em class='t'>must</em> find one theme can be burdensome — you can actually end up saying things about Allah’s book that are not true.",
+    ["For example, people may try to tie together the speech about the Prophet, the Qurʾān, and the resurrection — saying those leaders didn’t want to listen to the Prophet ﷺ because they didn’t believe in the resurrection, so the topic is one — and they go a very long way to bring it all into one theme. But again, there’s no rule that requires it.", []],
+    "<b>2. Explaining the connection of every sūrah to the previous one and every āyah to the one before.</b> Sometimes the connection is clear and easy; but sometimes people go very far to explain why the sūrah ends here and starts a new topic, or why this letter follows that one. <b>Don’t go beyond what Allah has given you.</b>",
+  ]),
+  C("The example of ʿUmar", "“I Don’t Know”", [
+    "There is beautiful evidence in the story of ʿUmar ؓ: he didn’t know the meaning of a word in the Qurʾān (the word <em class='t'>abb</em> — see section 29), began to explain it, and then stopped. He said to himself, in front of everyone: “No — you’re burdening yourself, saying what you don’t know.”",
+    "Sometimes there are benefits in exploring connections, but sometimes you simply put yourself in a position where you don’t really know what you’re saying.",
+    "If it’s not clear what the connection of one part of the sūrah is to another, or of one sūrah to another — <b>say “I don’t know,”</b> like ʿUmar did about a word from the pulpit, in front of the people. Maybe someone else will come with a good answer. But don’t give long-winded answers that go a long way to bring something Allah didn’t ask you to do.",
+  ]),
+  C("Why the word was unfamiliar to him", "Dialects in the Qurʾān", [
+    "It was just a word that wasn’t familiar in the dialect of Quraysh: the Qurʾān came with the different dialects / modes of the Arabs.",
+    "Words from <b>all the Arab tribes</b> are present in the Qurʾān — the speaker is not talking about the recitations (<em class='t'>qirāʾāt</em>), but about the fact that the Qurʾān contains words from all the tribes.",
+    "The Prophet ﷺ asked for it, in order to <b>open their hearts to Islam</b>: when they saw words used by their own tribe, their hearts opened.",
+    "This is a side-benefit not directly connected to this ayah. Here the point is: Allah mentions the Qurʾān, the blessing, and the proof of the Qurʾān against those who don’t believe — and despite this clear, undisputable proof, how does man behave? He disbelieves.",
+  ]),
+]),
+
+]),
+
+G("Ayāt 17–23: Man’s Origin & Ingratitude", [
+
+S("Ayah 17: “Qutila al-Insān mā Akfarahu”", "qutila insan curse killed ibn abbas akfarahu disbeliever makkan generic human traits", [
+  C("“Qutila” — a supplication against him", "Being Cursed", [
+    "It’s a duʿāʾ against the person (or people). <em class='t'>Qutila</em> literally means “to be killed.”",
+    "The meaning reported from Ibn ʿAbbās and others is: <b>to be cursed</b>.",
+    "What is a curse? When you say “the curse of Allah upon them,” it means being <b>cast out of Allah’s mercy</b>. So it is not literal dying, but being far from the mercy of Allah.",
+  ]),
+  C("Who is “al-insān” here?", "Two Options", [
+    "In the Makkan sūrahs, “insān” generally has two possibilities:",
+    ["Human beings in general — when Allah talks about general traits of mankind (mankind is at a loss, always transgressing…). These are more generic; describing people <em class='t'>before</em> they are rectified by īmān.", []],
+    ["Whenever insān is spoken about in a <em class='t'>negative</em> way in the Makkan sūrahs, it means the <b>disbelievers</b>. So the meaning: “may Allah curse the disbeliever.”", []],
+  ]),
+  C("“Mā akfarahu”", "Two Meanings", [
+    "<b>An exclamation:</b> “how much of a disbeliever he is!” — like saying “how beautiful the stars are.” He is so stubborn in rejecting the truth after it has become clear.",
+    "<b>A rhetorical question:</b> “what is it that made him disbelieve?” — after Allah sent down the Qurʾān with this beautiful description, kept it preserved, brought it via angels, kept it far from the hands of the shayāṭīn: what could there possibly be that made this person a disbeliever?",
+  ]),
+], {ayah:{ref:"Sūrah ʿAbasa 80:17", ar:"قُتِلَ ٱلْإِنسَـٰنُ مَآ أَكْفَرَهُۥ", en:"Destroyed be man — how disbelieving he is!"}}),
+
+S("Ayāt 18–19: “From What Did He Create Him?”", "nutfah drop pride arrogance racism adam dust faqaddarahu qaddara shape decree womb wretched happy", [
+  C("Reminding man of his origin", "Before You Get Arrogant", [
+    "Whenever mankind is arrogant and oppressive, Allah reminds them where they came from — especially in the face of things like <b>racism</b>: before you get arrogant, shout, look down on others or disbelieve in Allah’s commands — where did <em class='t'>you</em> come from?",
+    "Did Allah create you in such a noble way — like angels who came down from the sky surrounded with light? No — <b>from a drop of fluid</b>: something you wash off your clothes; not something beloved, honorable or of high status.",
+    "So how can you have so much pride and arrogance that you dare to disbelieve in Allah?",
+    "This also ties to the hadith about what pride is: rejecting the truth and looking down on others — “what were you created from?”",
+    "And if we look at Adam: all of you are from Adam, and Adam came from dust.",
+  ]),
+  C("“Fa-qaddarahu” — two possible meanings", "Shaped or Decreed", [
+    "<b>Fashioned him:</b> Allah gave you your shape, your form, your look — how tall you will be, and so on.",
+    "<b>Decreed his fate:</b> Allah decreed for you, while you were in your mother’s womb, whether you would be among the people of the Fire or of Paradise — wretched, or eternally happy.",
+    "Allah created you from this insignificant, belittled thing, and then decreed for you.",
+  ]),
+], {ayah:{ref:"Sūrah ʿAbasa 80:18–19", ar:"مِنْ أَىِّ شَىْءٍ خَلَقَهُۥ ۝ مِن نُّطْفَةٍ خَلَقَهُۥ فَقَدَّرَهُۥ", en:"From what thing did He create him? From a sperm-drop He created him, and destined him."}}),
+
+S("Ayah 20: “Then the Path He Made Easy”", "sabil path easy guidance grateful ungrateful birth womb stronger view test dunya deen", [
+  C("The stronger view", "The Path of Guidance", [
+    "The stronger, correct view (mentioned by the scholar): the “path” is the <b>path of guidance</b> — “We have guided him to the path.” We showed him what is right and what is wrong: he will either be a believer or a disbeliever, but the path to īmān has been made easy.",
+    "Allah has not made it difficult for you to <em class='t'>know</em> right from wrong. It might be hard to stick to it, but not hard to know it.",
+    "It’s even wider: all the things of the dīn and the dunya are put in front of you, then Allah tests you whether you’ll follow the right one or the wrong one.",
+    "Evidence: “Indeed We guided him to the path — he is either grateful or ungrateful.” In other words, Allah provides the means to practice the religion and to achieve worldly things, and then man chooses to be grateful to Allah or to be a disbeliever and ungrateful.",
+  ]),
+  C("The other view", "The Birth of the Child", [
+    "The “path” refers to the <b>birth</b> of the child: after mentioning creation from a drop, Allah made the way out of the mother’s womb easy.",
+    "On this reading the three āyāt come in order: created from a drop → born (the exit from the womb made easy) → dies and is buried in the grave.",
+    "But the view that appears stronger is the first — that Allah made it easy for him to know the path.",
+  ]),
+], {ayah:{ref:"Sūrah ʿAbasa 80:20", ar:"ثُمَّ ٱلسَّبِيلَ يَسَّرَهُۥ", en:"Then He made the path easy for him."}}),
+
+S("Ayah 21: Death & Burial as an Honor", "amatahu aqbarahu burial grave honor animals shrouded perfume insignificant control death", [
+  C("“Thumma amātahu fa-aqbarahu”", "Burial Is an Honor", [
+    "Allah causes him to die and <b>honors mankind with a burial</b> — unlike animals, whose dead bodies litter the earth.",
+    "Imagine if we were like that: when a loved one died, you were supposed to take them and throw them in the bin or on the street, and day by day watch other animals eat them.",
+    "It’s an honor from Allah that you are buried and shrouded; people carry your body to the graveyard, perfume it, dig a grave of appropriate size, put earth over you, and pray for you. <b>A blessing</b> from Allah.",
+  ]),
+  C("But also a reminder of insignificance", "What Reason Do You Have to Disbelieve?", [
+    "It also shows how insignificant a person is in Allah’s sight: what reason could you have to disbelieve after Allah created you from something insignificant?",
+    "You’re not so great and big that you have the right to be arrogant.",
+    "Then Allah showed you right and wrong and made it easy — and you chose what is wrong. Then Allah chose for you to die; <b>you had no control over it</b>. Then He blessed you with a grave while the animals are left to be eaten on the earth.",
+  ]),
+], {ayah:{ref:"Sūrah ʿAbasa 80:21", ar:"ثُمَّ أَمَاتَهُۥ فَأَقْبَرَهُۥ", en:"Then He causes him to die and provides a grave for him."}}),
+
+S("Ayah 22: The Resurrection Argument", "nushur resurrection tailbone coccyx recreate chain of questions harder logic", [
+  C("Walking the disbelievers through the stages", "A Chain of Questions", [
+    "Now we come to the key point: the <b>resurrection</b>. See how Allah took the disbelievers through those stages:",
+    "Do you not believe Allah created you from this drop of insignificant fluid?",
+    "Do you not believe Allah made it possible for you to be born?",
+    "Do you not believe Allah showed you what’s right and wrong, and made it easy to see the truth and follow it?",
+    "Do you not believe you died when Allah wanted, not when you chose?",
+    "Do you not believe Allah honored you with a grave and a burial?",
+    "<b>And then — do you not believe Allah can resurrect you again?</b> How does that make sense?",
+  ]),
+  C("The argument from creation", "Nothing Is Hard for Allah", [
+    "How can you not believe Allah will resurrect you to take you to account, when He created you the first time?",
+    "The speaker mentions that a person is re-created from the bone at the base of the spine (he can’t recall the English — the coccyx / tailbone): Allah will recreate you from that.",
+    "Is that harder? Nothing is hard for Allah — but logically, is it harder to create someone from the base of the spine or from a single drop?",
+    "After Allah created you, brought you into life, showed you what to do and caused you to die — you doubt He can bring you back? Allah can do this, and <b>no one shares with Him in it</b>.",
+  ]),
+], {ayah:{ref:"Sūrah ʿAbasa 80:22", ar:"ثُمَّ إِذَا شَآءَ أَنشَرَهُۥ", en:"Then when He wills, He will resurrect him."}}),
+
+S("Ayah 23: “Kallā — He Has Not Yet Fulfilled What He Was Commanded”", "kalla lamma yaqdi not yet fulfilled commanded humility judgment not come recompense arrogance forgiveness", [
+  C("“Kallā” — again a rebuke", "Not As You Think", [
+    "<em class='t'>Kallā</em> is a rebuke: “it’s not as you think” — the disbelievers think differently from the reality.",
+    "The speaker says this is worth pausing on, and takes the view (a main view in tafsīr) that the person <b>has not yet fulfilled what he was commanded to do</b>.",
+  ]),
+  C("View 1: He hasn’t done what Allah commanded", "Two Ways to Read It", [
+    "<b>(a)</b> “Insān” refers to the disbeliever: he hasn’t done what Allah required of him — to accept Islam.",
+    "<b>(b)</b> Many scholars made it general: none of us has done what Allah required of us. This seems to be what is indicated by the wording — he remains negligent despite being commanded.",
+    "The reality is that all of us — none of us has done what Allah told us to do; none of us has fulfilled what He commanded.",
+  ]),
+  C("The takeaway", "Humbled, Not Arrogant", [
+    "So how can we have arrogance? When we realize we haven’t fulfilled what Allah commanded, we should be <b>humbled</b>, <b>asking forgiveness</b>, <b>sad</b>, and <b>wanting to make a better effort</b>.",
+    "You haven’t done yet what Allah told you to do; I haven’t done what Allah told me to do.",
+    "So you should be humbled, sorry and seeking forgiveness — <b>not arrogant and disbelieving</b>.",
+  ]),
+  C("View 2: The judgment has not yet come", "Allah Hasn’t Yet Judged", [
+    "The other view: it refers to <b>Allah</b> — Allah has not yet carried out His decree; the judgment hasn’t yet come about.",
+    "The reward and recompense of the people hasn’t happened yet.",
+    "You’re still waiting — you haven’t been judged; you’re not yet counted among the people of Jannah or Jahannam. Your judgment hasn’t come.",
+    "And yet you show this arrogance towards Allah when your judgment hasn’t even come yet.",
+  ]),
+], {ayah:{ref:"Sūrah ʿAbasa 80:23", ar:"كَلَّا لَمَّا يَقْضِ مَآ أَمَرَهُۥ", en:"No! He has not yet accomplished what He commanded him."}}),
+
+]),
+
+G("Ayāt 24–32: The Blessing of Food", [
+
+S("Blessings as Blessing and as Proof", "blessings two purposes grateful kufr ungrateful worship resurrect", [
+  C("Why Allah reminds us of His blessings", "Two Purposes", [
+    "Allah now commands us to look and think about the various blessings He has given. Blessings in the Qurʾān are usually mentioned for two reasons:",
+    ["<b>First</b> — that you recognize the blessing of Allah upon you. They are mentioned as a blessing: “this is what Allah has given you,” so you should be <b>grateful, not disbelieving</b>.", []],
+    ["<b>Second</b> — that you see them as evidence that Allah can resurrect you and will take you to account.", []],
+    "Remember: the word <em class='t'>kufr</em> itself means <b>ungrateful</b>. So the first point is: be grateful.",
+    "The second: the One who has given you all these blessings is the One deserving of worship, and the One able to resurrect you.",
+  ]),
+]),
+
+S("“Let Man Look at His Food”", "fal yanzur ta'amihi food signs trace phases anna inna full stop semicolon recitation", [
+  C("The instruction", "Ayah 24", [
+    "Allah instructs a person to look and think about <b>the food he eats</b>. Look at the signs of Allah.",
+    "You don’t need to look at the sun, the moon and the stars — just look at the food you eat: where did it come from? Trace it back — it went through many phases.",
+  ]),
+  C("A grammatical note on the recitation", "Full Stop vs. Semicolon", [
+    "There are two recitations of the next word (“that We poured…”). In one, it connects <b>directly</b> to the previous āyah — Allah is saying “let him look,” and directly connecting it.",
+    "In the other, it begins a <b>brand new sentence</b>.",
+    "The speaker says it’s hard to express the difference in English: one is like a <b>full stop</b> and a new sentence; the other is more like a <b>semicolon</b> where the thought continues — “let him look at his food… [and here are the stages].”",
+  ]),
+], {ayah:{ref:"Sūrah ʿAbasa 80:24–25", ar:"فَلْيَنظُرِ ٱلْإِنسَـٰنُ إِلَىٰ طَعَامِهِۦٓ ۝ أَنَّا صَبَبْنَا ٱلْمَآءَ صَبًّا", en:"Then let man look at his food: that We poured down water in torrents."}}),
+
+S("The Stages: Rain, Split Earth, Grains, Greens, Olives, Palms & Gardens", "rain split earth grains habb wheat barley rice grapes qadb greens olives palm gardens ghulb fruit fakihah", [
+  C("Step by step", "Ayāt 25–29", [
+    "<b>“We poured down water in torrents”</b> — imagine what would happen if it didn’t rain: no food. It doesn’t matter whether you’re eating a factory-produced meal — all of it originally has to come from somewhere: no rain, no water, no food.",
+    "<b>“Then We split the earth, splitting”</b> (<em class='t'>shaqq</em> = to split in two) — and out came the vegetation and plants. Even the animals you eat, those animals eat the plants; those plants came from the falling rain.",
+    "<b>“And We caused to grow within it grain”</b> (<em class='t'>ḥabb</em>): all types of seeds and grains — the speaker says yesterday’s discussion included wheat, barley and even rice.",
+    "<b>“And grapes”</b> (<em class='t'>ʿinab</em>).",
+    "<b>“And <em class='t'>qaḍb</em>”</b> — fodder-type greens that animals eat. The speaker checked translations: “greens”; one translator explains it as “the moist green herbal plants that the animals graze on” — probably the best explanation.",
+    "<b>“And olives and palm trees”</b>, and <b>“dense gardens”</b> (<em class='t'>ḥadāʾiq ghulb</em>) — thick orchards.",
+  ]),
+  C("Why these are mentioned", "Benefit & Variety", [
+    "The scholar says Allah mentions these (the grains, the grapes, the green fodder, the olives, the palm) because of the <b>great benefits</b> in them and the many blessings in them — and also for the <b>variety</b>: grains, grapes, animal greens, the olive with all the blessings in that tree.",
+    "Then Allah mentions <b>fruit</b> in general: the gardens dense with all types of fruit — whether figs, grapes, pears, pomegranates, and so on.",
+  ]),
+], {ayah:{ref:"Sūrah ʿAbasa 80:26–31", ar:"ثُمَّ شَقَقْنَا ٱلْأَرْضَ شَقًّا ۝ فَأَنۢبَتْنَا فِيهَا حَبًّا ۝ وَعِنَبًا وَقَضْبًا ۝ وَزَيْتُونًا وَنَخْلًا ۝ وَحَدَآئِقَ غُلْبًا ۝ وَفَـٰكِهَةً وَأَبًّا", en:"Then We split the earth, splitting — and caused to grow within it grain, and grapes and greens, and olive and palm, and gardens of dense growth, and fruit and herbage."}}),
+
+S("The Date Palm — the “Blessed Tree”", "date palm blessed tree best tree ibn umar hadith small senior companions umar proud", [
+  C("The palm tree", "The Example of the Good Tree", [
+    "From the “blessed tree” — the tree Allah used as the example of the good tree, the best of all trees — is the <b>date palm</b>.",
+    "The speaker recalls the hadith of Ibn ʿUmar: the Prophet ﷺ asked which tree it was. Ibn ʿUmar knew the answer but no one else answered; being small, he didn’t want to speak in front of all the senior Ṣaḥābah, and stayed silent.",
+    "ʿUmar later told him that if he had given the answer at the time, ʿUmar would have given him so much (as a reward) — because he would have been so proud of his son for knowing the right answer.",
+    "The answer: the <b>date palm</b>.",
+  ]),
+]),
+
+S("How the Makkans Would Have Felt", "makkah desert nothing grows trading blessings fruits amazed", [
+  C("Imagine hearing this in Makkah", "Ayāt Revealed to Desert People", [
+    "Do you think they’d imagine this ayah coming down upon the people of Makkah? We listen to it and are amazed by the variety of foods — how do you think <em class='t'>they</em> felt?",
+    "They were desert people: <b>nothing grows in Makkah</b> — not even dates really (today there is irrigation, etc.). Makkah was a trading destination.",
+    "And Allah tells them about all these blessings He gives them — fruits, and the rest.",
+  ]),
+]),
+
+S("“Wa-Abbā” — The Word ʿUmar Didn’t Know", "abb umar takalluf fodder herbage hay straw grass qadb dialect miraculous qirat contradiction", [
+  C("The narration (Mālik)", "ʿUmar Stops Himself", [
+    "ʿUmar was reciting and explaining these āyāt. When he came to <em class='t'>abb</em>, he said: “We know what <em class='t'>fākihah</em> (fruit) is — but what is <em class='t'>abb</em>?”",
+    "Then he said to himself (in words like): “By your life, O son of Umm ʿUmar — this is <em class='t'>takalluf</em>”: don’t burden yourself with what you don’t know; don’t try to guess a meaning or extract one; if you don’t know, suffice yourself with not knowing.",
+  ]),
+  C("What does “abb” mean?", "Fodder / Herbage", [
+    "Answer: <em class='t'>abb</em> is the <b>food eaten by animals</b> — what you feed your livestock.",
+    "The speaker searched English translations: nearly all say “fodder”; some say “herbage” or “grass.” “Fodder” is the one in <em class='t'>The Clear Qurʾān</em>; and “fodder” is especially <b>dry hay or straw for cattle</b>.",
+    "Grass isn’t quite right. The speaker likes “herbage.”",
+    "Nuance (Allah knows best): <em class='t'>qaḍb</em> is the <b>moist, fresh green</b> that animals eat, while <em class='t'>abb</em> is what you <b>prepare and dry</b> for them — like hay — for them to eat.",
+  ]),
+  C("A word specific to some tribes", "Dialects & the Miraculous Nature of the Qurʾān", [
+    "This was a word well-known to one group of Arabs but not known to ʿUmar (Quraysh).",
+    "You can collect a whole series of such words from various dialects that appear in the Qurʾān. It’s not a neat scheme where one word is Quraysh’s, another Tamīm’s, another a third tribe’s — rather, throughout the Qurʾān you find words known to some tribes and strange to others.",
+    "The speaker gives another example, of a word that in most usage means “imagining something falsely” but appears with a different sense in one dialect (the details of the example are unclear in the transcript).",
+    "This is part of the <b>miraculous nature of the Qurʾān</b>: it has not a single contradiction; it can be recited in tens upon tens of ways; it contains the different dialects of the Arab tribes — all perfectly consistent.",
+    "Could you write a simple book, then write another version changing the words while keeping the same meaning? The Qurʾān contains all these words known to different tribes; it brought them close to the Qurʾān and attached their hearts to it.",
+  ]),
+  C("The lesson", "Don’t Speak About an Āyah Without Knowledge", [
+    "Obviously there’s a lesson here: <b>you don’t speak about an āyah unless you know what it means</b>.",
+  ]),
+]),
+
+S("Conclusion: “A Provision for You and Your Livestock”", "mata provision livestock grateful worship obey resurrection temporary", [
+  C("Ayah 32", "Matāʿan lakum wa-li-anʿāmikum", [
+    "Allah provided all of this for you: the rain, the grasses, the herbage, the flowers, the dates.",
+    "He didn’t put it on earth for you to happen to come across it — He made it <b>for you and for your animals</b> so your animals can live, and you can ride them, eat them, and so on.",
+    "Would you not be grateful to Allah? Would you not worship Allah alone — since you don’t believe the idols gave you any of these things?",
+    "Would you not then obey Allah? Would you not believe what the Prophet ﷺ told you? Would you not believe in the resurrection?",
+    "It is <b>matāʿ</b> — a temporary provision. Even the word means something given to you temporarily: you’ll have it for a time, but not forever.",
+  ]),
+], {ayah:{ref:"Sūrah ʿAbasa 80:32", ar:"مَّتَـٰعًا لَّكُمْ وَلِأَنْعَـٰمِكُمْ", en:"As provision for you and your livestock."}}),
+
+]),
+
+G("Ayāt 33–42: The Day of the Blast", [
+
+S("The Deafening Blast (Aṣ-Ṣākhkhah)", "sakhkha deafening blast horn panic trumpet earth destroyed second blast deeds", [
+  C("Ayah 33", "Fa-idhā jāʾat aṣ-ṣākhkhah", [
+    "Now Allah addresses them directly with the <em class='t'>ṣākhkhah</em> — the deafening blast (one of the names of the Day of Judgment).",
+    "It is the blast that will deafen those who hear it — the blast that destroys everything on this earth; then there is another blast, and then they will be standing, looking around.",
+    "The scholar says it deafens everyone who hears it, and their hearts will be filled with <b>panic</b> because of the horrors the people will see.",
+    "They will realize how <b>desperately they need their previous deeds</b>.",
+  ]),
+], {ayah:{ref:"Sūrah ʿAbasa 80:33", ar:"فَإِذَا جَآءَتِ ٱلصَّآخَّةُ", en:"But when the deafening blast comes."}}),
+
+S("No One Can Benefit You: Intercession", "shafa'ah intercession permission pleased la ilaha illallah sahabah family hafiz angels", [
+  C("Don’t rely on family", "A Common Hope", [
+    "A person thinking about that Day might think: “perhaps one of my family will intercede for me,” or “perhaps I’ll take some good deeds from people close to me.”",
+    "But one of the fundamental things Allah tells us is that <b>no one can benefit you on that Day</b>.",
+  ]),
+  C("Intercession is real — but conditional", "Only With Allah’s Permission", [
+    "This doesn’t negate <em class='t'>shafāʿah</em>: intercession is true — the Prophet’s ﷺ, the righteous, and the angels.",
+    "But it is <b>only for those whom Allah permits</b>. The person can’t choose. The Prophet ﷺ can’t choose to intercede for whomever he likes; the ḥāfiẓ of the Qurʾān can’t choose to intercede for certain members of his family; the believer can’t choose; the angels can’t choose.",
+    "On that Day intercession is in Allah’s hands alone: He gives permission to whom He wills. The one for whom Allah allows intercession is the one He is <b>pleased with</b> — both the intercessor and the person interceded for.",
+    "Allah is certainly pleased with the Prophet ﷺ. But will He be pleased with <em class='t'>you</em> such that He allows the Prophet ﷺ to intercede for you? Allah is pleased with the righteous believer; but will He be pleased with you to the extent that He allows that righteous person to intercede for you? It’s all in Allah’s hands.",
+    "That’s why, when the Ṣaḥābah asked who is most likely to gain his shafāʿah, the Prophet ﷺ spoke about saying <b>lā ilāha illā Allāh sincerely from the heart</b>.",
+    "Allah will only allow intercession for the one He is pleased with, and He is not pleased for His servants to disbelieve — so He will never allow intercession for a disbeliever, <b>except in specific situations</b>.",
+  ]),
+]),
+
+S("Exceptions? Abū Ṭālib, Ibrāhīm’s Father, the Prophet’s Parents", "abu talib ibrahim father prophet parents mother grave hellfire ankles brain boil least punished", [
+  C("Posing the question to the class", "Can Anyone Intercede for a Disbeliever?", [
+    "The speaker says there are a few situations he can think of (there may be more). He asks the class — a few people answer. Someone mentions the person who never heard of Islam: that’s not intercession — they’ll be tested.",
+    "The “big example” to get out of the way is the <b>Prophet’s greatest shafāʿah</b>, so that the reckoning begins — that’s for everyone, believer and disbeliever.",
+    "The specific ones concerning a disbeliever are discussed below.",
+  ]),
+  C("Abū Ṭālib", "Lightest Punishment — Never Leaves the Fire", [
+    "Does Abū Ṭālib leave the Hellfire? <b>No.</b>",
+    "ʿAbbās said to the Prophet ﷺ: could you not do anything for your uncle? He looked after you, supported you, did everything for you.",
+    "The Prophet ﷺ said he had asked Allah until Allah made Abū Ṭālib the <b>least of the people in punishment</b>: he’ll be in the fire up to his ankles, and his brain will boil. He will think he’s the worst punished of all — when in fact, because of what he did for the Prophet ﷺ, he’s the least punished.",
+    "But he will never go to Jannah.",
+  ]),
+  C("Ibrāhīm’s father", "Not Disgraced in His Father’s Form", [
+    "Not that his father leaves the Fire — that wouldn’t be accepted. Rather, his father is not cast into the Fire <b>in the form of his father</b>: Allah will turn him into a different form and he will be thrown into the Hellfire in that form.",
+    "This is an honor for Ibrāhīm, because Allah promised Ibrāhīm He would not disgrace him on the Day of Resurrection — and what greater disgrace than seeing his own father thrown into the Fire.",
+  ]),
+  C("The Prophet’s ﷺ parents", "“My Father and Your Father Are in the Fire”", [
+    "A man came and asked: “O Messenger of Allah, where is my father?” The Prophet ﷺ said, “Your father is in the Hellfire.” The man went away; the Prophet ﷺ called him back and said: “<b>My father and your father are both in the Hellfire.</b>” — nobody holds anything for anyone else.",
+    "As for his mother: the Prophet ﷺ was forbidden to ask forgiveness for her. He used to visit her grave (she died between Makkah and Madīnah) and said, “I will ask forgiveness for you until Allah prohibits me,” because Allah had not yet prohibited it. Then Allah revealed the āyah (forbidding it).",
+    "The Prophet ﷺ said: I asked Allah’s permission to visit my mother’s grave — He gave me permission; I asked permission to seek forgiveness for her — He did not give me permission.",
+    "So <b>nobody holds in their hands the ability to benefit another on that Day.</b>",
+  ]),
+]),
+
+S("Ayāt 34–37: “A Person Will Flee From His Brother…”", "flee brother mother father wife children preoccupied prophet anaa laha naked barefoot hadith ibn abbas", [
+  C("Fleeing from those closest", "Everyone Preoccupied", [
+    "On that Day a person will flee from his brother, his mother and father — from the best, the closest people to him, those he loves most.",
+    "He will flee from his wife and his children.",
+    "Every one of them will be busy with something that concerns himself, worried about freeing himself from the Fire. They won’t turn to look at anyone else, and they won’t care about their own children, parents or spouses — every single person will be in such terror and worry that they’ll have no concern except for themselves.",
+  ]),
+  C("The virtue of the Prophet Muḥammad ﷺ", "“This Is My Responsibility”", [
+    "When creation is gathered on the plains of the gathering, they go from prophet to prophet asking each to intercede with Allah.",
+    "Every one of them says, “Myself, myself” — even the prophets on that Day are concerned with themselves and worried about their own deeds.",
+    "<b>Except the Prophet Muḥammad ﷺ</b>, who says “this is my responsibility,” and asks Allah for the judgment to begin. Everyone else is busy with themselves.",
+  ]),
+  C("Even stranger", "The Hadith of Ibn ʿAbbās", [
+    "It’s narrated from ʿAbdullāh ibn ʿAbbās that the Prophet ﷺ said: “You will be resurrected barefoot, naked and uncircumcised.”",
+    "A woman (in some narrations, a wife of the Prophet ﷺ) said, in shock: “But the men and women will be naked next to each other — won’t they look at each other?”",
+    "The Prophet ﷺ recited the āyah — <b>each of them will be so preoccupied with the terror of that Day</b> that they won’t look at the bodies of those next to them. Or he said: they will be preoccupied with that which stops them from looking.",
+  ]),
+], {ayah:{ref:"Sūrah ʿAbasa 80:34–37", ar:"يَوْمَ يَفِرُّ ٱلْمَرْءُ مِنْ أَخِيهِ ۝ وَأُمِّهِۦ وَأَبِيهِ ۝ وَصَـٰحِبَتِهِۦ وَبَنِيهِ ۝ لِكُلِّ ٱمْرِئٍ مِّنْهُمْ يَوْمَئِذٍ شَأْنٌ يُغْنِيهِ", en:"On the Day a man will flee from his brother, and his mother and his father, and his wife and his children. For every one of them, that Day, is a matter that will occupy him."}}),
+
+S("Ayāt 38–42: Two Groups, Two Faces", "two groups bright faces musfirah dahikah mustabshirah dust ghabarah qatarah kafarah fajarah dua pardon", [
+  C("Only two groups", "One of the Fundamental Messages", [
+    "Allah describes the two groups the people will split into. This is one of the Qurʾān’s fundamental messages: you cannot be in three groups, or four, or move between them — there are <b>two groups</b>: the people of Jannah and the people of the Hellfire.",
+  ]),
+  C("The people of Jannah", "Beaming Faces", [
+    "Those who are eternally happy — their faces on that Day will be <b>beaming</b>, full of happiness and joy.",
+    "<em class='t'>Ḍāḥikah</em> — smiling, laughing (the word is used for both smiling and laughing).",
+    "<em class='t'>Mustabshirah</em> — in a state of glad tidings, rejoicing.",
+  ]),
+  C("The people of the Fire", "Dust & Darkness", [
+    "Other faces on that Day will be covered with <b>dust</b> (<em class='t'>ghabarah</em>).",
+    "<em class='t'>Qatarah</em> — darkness will overcast them: gloom and darkness will come over their faces; their faces will be doomed, shadowed by darkness.",
+    "They have despaired of all good and know that they’re lost and doomed.",
+  ]),
+  C("Who are they?", "Kafarah Fajarah", [
+    "The people with this description are those who <b>disbelieve in the blessings of Allah</b> and in the āyāt of Allah.",
+    "They <b>race to do what Allah made ḥarām</b>.",
+    "Notice how Allah links, in the same description, <b>disbelieving in Allah’s blessings</b> with <b>wickedness and evil-doing</b>.",
+  ]),
+  C("Closing", "Duʿāʾ", [
+    "We ask Allah to pardon us and keep us safe. <em class='t'>Alḥamdulillāh.</em>",
+  ]),
+], {ayah:{ref:"Sūrah ʿAbasa 80:38–42", ar:"وُجُوهٌ يَوْمَئِذٍ مُّسْفِرَةٌ ۝ ضَاحِكَةٌ مُّسْتَبْشِرَةٌ ۝ وَوُجُوهٌ يَوْمَئِذٍ عَلَيْهَا غَبَرَةٌ ۝ تَرْهَقُهَا قَتَرَةٌ ۝ أُو۟لَـٰٓئِكَ هُمُ ٱلْكَفَرَةُ ٱلْفَجَرَةُ", en:"Some faces that Day will be bright, laughing, rejoicing. And other faces that Day will have dust upon them, covered by darkness. Those are the disbelievers, the wicked."}}),
+
+]),
+
+];
+
+/* ============================================================
+   RENDERING
+   ============================================================ */
+const pad = n => String(n).padStart(2,'0');
+const COLORS = [1,2,3,4,5,6];
+const CHEV = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+const CHEV_S = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+
+const flat = [];
+let counter = 0;
+DATA.forEach((g,gi)=>{ g.sections.forEach(s=>{ counter++; s.n=counter; s.id='s-'+pad(counter); s.c=COLORS[(counter-1)%6]; s.group=g.label; s.gi=gi; flat.push(s); }); });
+const ALL_IDS = flat.map(s=>s.id);
+
+function renderPts(pts){
+  let html='<ul class="points">';
+  pts.forEach(p=>{
+    if(Array.isArray(p)){
+      html+='<li>'+p[0]+(p[1].length?'<ul>'+p[1].map(x=>'<li>'+x+'</li>').join('')+'</ul>':'')+'</li>';
+    } else html+='<li>'+p+'</li>';
+  });
+  return html+'</ul>';
+}
+
+/* Group consecutive sub-bullets: strings that are directly under a lead-in ending with ":" get nested */
+function normalisePts(pts){
+  const out=[]; let lead=null;
+  pts.forEach(p=>{
+    if(Array.isArray(p) && p[1].length===0 && lead){ lead[1].push(p[0]); }
+    else if(Array.isArray(p) && p[1].length===0 && !lead){ out.push([p[0],[]]); lead=out[out.length-1]; lead=null; }
+    else if(typeof p==='string'){
+      const isLead = /:\s*$/.test(p.replace(/<[^>]+>/g,''));
+      out.push([p,[]]);
+      lead = isLead ? out[out.length-1] : null;
+    } else out.push(p);
+  });
+  return out;
+}
+
+const main = document.getElementById('mainContent');
+let mainHTML='', lastGroup=-1;
+flat.forEach(s=>{
+  if(s.gi!==lastGroup){ mainHTML+='<div class="group-divider"><span>'+DATA[s.gi].label+'</span></div>'; lastGroup=s.gi; }
+  mainHTML+='<section class="class-section" id="'+s.id+'" style="--g-color:var(--c-'+s.c+'); --g-tint:var(--c-'+s.c+'-tint);">'
+    +'<div class="class-head"><span class="idx">'+pad(s.n)+'</span><h2>'+s.title+'</h2>'
+    +'<button class="collapse-toggle" data-target="'+s.id+'" aria-expanded="true" aria-label="Collapse section">'+CHEV+'</button></div>'
+    +'<div class="class-body-outer" id="body-'+s.id+'"><div class="class-body-inner">';
+  if(s.ayah){
+    mainHTML+='<div class="ayah-block"><span class="ayah-ref">'+s.ayah.ref+'</span><p class="ayah-ar arabic">'+s.ayah.ar+'</p><p class="ayah-en">'+s.ayah.en+'</p></div>';
+  }
+  s.cards.forEach(c=>{
+    mainHTML+='<div class="card"><div class="card-top"><h3>'+c.h+'</h3><span class="code-badge">'+c.badge+'</span></div>'+renderPts(normalisePts(c.pts))+'</div>';
+  });
+  mainHTML+='</div></div></section>';
+});
+main.innerHTML=mainHTML;
+
+/* TOC */
+let tocHTML='';
+DATA.forEach(g=>{
+  tocHTML+='<div class="nav-group-label">'+g.label+'</div><ul>';
+  g.sections.forEach(s=>{
+    tocHTML+='<li><a href="#'+s.id+'" data-key="'+(s.title+' '+s.key).toLowerCase().replace(/"/g,'')+'" style="--g-color:var(--c-'+s.c+')"><span class="sw"></span>'+s.title+'</a></li>';
+  });
+  tocHTML+='</ul>';
+});
+document.getElementById('tocGroups').innerHTML=tocHTML;
+
+/* Quick panel */
+document.getElementById('qpList').innerHTML = flat.map(s=>
+  '<li data-target="'+s.id+'"><a href="#'+s.id+'" style="--qc:var(--c-'+s.c+')"><span class="qp-idx">'+pad(s.n)+'</span>'+s.title+'</a><span class="qp-toggle" data-target="'+s.id+'">'+CHEV_S+'</span></li>'
+).join('');
+
+
+
+/* ============================================================
+   BEHAVIOUR
+   ============================================================ */
+const progress=document.getElementById('progress'), toTop=document.getElementById('toTop');
+function updateProgress(){
+  const h=document.documentElement, max=h.scrollHeight-h.clientHeight;
+  progress.style.width=(max>0? h.scrollTop/max*100 : 0)+'%';
+  toTop.classList.toggle('show', h.scrollTop>700);
+}
+document.addEventListener('scroll',updateProgress,{passive:true}); updateProgress();
+toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+const tocToggle=document.getElementById('tocToggle'), tocPanelOuter=document.getElementById('tocPanelOuter');
+function closeToc(){ tocPanelOuter.classList.remove('open'); tocToggle.setAttribute('aria-expanded','false'); }
+tocToggle.addEventListener('click',()=>{ const o=tocPanelOuter.classList.toggle('open'); tocToggle.setAttribute('aria-expanded',String(o)); });
+
+const navLinks=document.querySelectorAll('nav.sidebar li a');
+const secObs=new IntersectionObserver(es=>{ es.forEach(en=>{ if(en.isIntersecting){ navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+en.target.id)); } }); },{rootMargin:'-15% 0px -70% 0px',threshold:0});
+document.querySelectorAll('main section.class-section').forEach(el=>secObs.observe(el));
+
+const quickFab=document.getElementById('quickFab'), quickPanel=document.getElementById('quickPanel');
+function openQP(){quickPanel.classList.add('open'); quickFab.classList.add('open'); quickFab.setAttribute('aria-expanded','true');}
+function closeQP(){quickPanel.classList.remove('open'); quickFab.classList.remove('open'); quickFab.setAttribute('aria-expanded','false');}
+quickFab.addEventListener('click',()=>quickPanel.classList.contains('open')?closeQP():openQP());
+document.addEventListener('click',e=>{ if(quickPanel.classList.contains('open') && !quickPanel.contains(e.target) && !quickFab.contains(e.target)) closeQP(); });
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeQP(); });
+quickPanel.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeQP));
+
+function setCollapsed(id,c){
+  const b=document.getElementById('body-'+id), btn=document.querySelector('.collapse-toggle[data-target="'+id+'"]'), qp=document.querySelector('#qpList li[data-target="'+id+'"]');
+  if(b) b.classList.toggle('collapsed',c);
+  if(btn) btn.setAttribute('aria-expanded',String(!c));
+  if(qp) qp.classList.toggle('is-collapsed',c);
+}
+const isCollapsed=id=>{const b=document.getElementById('body-'+id); return b?b.classList.contains('collapsed'):false;};
+const toggleCollapsed=id=>setCollapsed(id,!isCollapsed(id));
+document.querySelectorAll('.collapse-toggle').forEach(b=>b.addEventListener('click',()=>toggleCollapsed(b.dataset.target)));
+document.querySelectorAll('#qpList li').forEach(li=>li.querySelector('.qp-toggle').addEventListener('click',e=>{e.stopPropagation(); e.preventDefault(); toggleCollapsed(li.dataset.target);}));
+document.getElementById('expandAll').addEventListener('click',()=>ALL_IDS.forEach(id=>setCollapsed(id,false)));
+document.getElementById('collapseAll').addEventListener('click',()=>ALL_IDS.forEach(id=>setCollapsed(id,true)));
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',()=>{
+  const id=a.getAttribute('href').slice(1); if(!id) return;
+  const t=document.getElementById(id); if(!t) return;
+  if(t.classList.contains('class-section')) setCollapsed(id,false);
+  if(a.closest('nav.sidebar')) closeToc();
+}));
+
+const searchInput=document.getElementById('searchInput');
+searchInput.addEventListener('input',()=>{
+  const q=searchInput.value.trim().toLowerCase();
+  navLinks.forEach(a=>{
+    const m=q===''||(a.dataset.key||a.textContent).toLowerCase().includes(q);
+    a.dataset.hidden=m?'0':'1';
+    const sec=document.querySelector(a.getAttribute('href')); if(sec) sec.style.display=m?'':'none';
+  });
+});
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

@@ -35,6 +35,14 @@
       ]
     },
     {
+      section: "080. ʿAbasa",
+      items: [
+        { href: "surah-abasa-80.html",   page: "abasa80",           color: "var(--c-3)", title: "\"He Frowned and Turned Away\"", sub: "Sūrah ʿAbasa (80) · Nouman Ali Khan" },
+        { href: "timhumble-abasa.html",  page: "abasa80timhumble",  color: "var(--c-6)", title: "\"He Frowned and Turned Away\"", sub: "Sūrah ʿAbasa (80) · Muhammad Tim Humble" },
+        { href: "yasirqadhi-abasa.html", page: "abasa80yasirqadhi", color: "var(--c-1)", title: "Sūrah ʿAbasa — Benefits &amp; Lessons", sub: "Sūrah ʿAbasa (80) · Dr Yasir Qadhi" }
+      ]
+    },
+    {
       section: "114. An-Nās",
       items: [
         { href: "surah-an-naas.html", page: "annaas", color: "var(--c-5)", title: "Say, I Seek Refuge", sub: "Sūrah An-Nās · Nouman Ali Khan" }
