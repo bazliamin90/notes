@@ -1,0 +1,1655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>"Seek Forgiveness for Us" — Surah Yusuf 97–98 | Study Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --paper:#fbfbfd;
+    --ink:#14151a;
+    --ink-soft:#5a5d6b;
+    --line:#e7e7ee;
+    --line-soft:#f0f0f5;
+
+    --c-1:#7c3aed;  --c-1-tint:#f4edff;   /* violet */
+    --c-2:#0284c7;  --c-2-tint:#e8f6ff;   /* ocean */
+    --c-3:#ea580c;  --c-3-tint:#fff1e8;   /* coral */
+    --c-4:#db2777;  --c-4-tint:#ffe9f4;   /* magenta */
+    --c-5:#059669;  --c-5-tint:#e6faf2;   /* emerald */
+    --c-6:#0f766e;  --c-6-tint:#e6f8f6;   /* teal */
+
+    --accent: var(--c-1);
+    --accent-tint: var(--c-1-tint);
+
+    --radius: 18px;
+    --shadow: 0 1px 2px rgba(20,21,26,.04), 0 12px 32px -16px rgba(20,21,26,.14);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background: var(--accent); color:#fff; }
+
+  h1,h2,h3,h4{ font-family:'Space Grotesk', sans-serif; margin:0; letter-spacing:-.01em; }
+  code, .mono{ font-family:'IBM Plex Mono', monospace; }
+  a{ color:inherit; }
+  p{ margin:0; }
+  .arabic{ font-family:'Amiri', serif; direction:rtl; }
+
+  #progress{
+    position:fixed; top:0; left:0; height:3px; width:0%;
+    background: linear-gradient(90deg, var(--c-1), var(--c-2), var(--c-3), var(--c-4), var(--c-5), var(--c-6));
+    z-index:100; transition: width .1s linear;
+  }
+
+  .ref-bar{
+    background:var(--ink); color:#fff;
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    padding:9px 8vw; display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  }
+  .ref-bar .ref-label{ color:rgba(255,255,255,.55); text-transform:uppercase; letter-spacing:.08em; font-size:10.5px; }
+  .ref-bar .ref-txt{ opacity:.85; }
+
+  header.hero{
+    padding: 6px 8vw;
+    min-height:46px;
+    display:flex; align-items:center; gap:10px;
+    position:sticky; top:0; z-index:80;
+    border-bottom:1px solid var(--line);
+    background-color:#fff;
+    background-image:
+      radial-gradient(700px 340px at 8% -10%, var(--c-1-tint), transparent 60%),
+      radial-gradient(600px 300px at 95% 0%, var(--c-3-tint), transparent 55%);
+  }
+
+  /* ---------- burger navigation ---------- */
+  .burger-wrap{ position:relative; display:flex; align-items:center; }
+  .burger-btn{
+    width:34px; height:34px; border-radius:10px; border:1.3px solid var(--line);
+    background:var(--paper); color:var(--ink); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: border-color .15s ease, background .15s ease, color .15s ease;
+  }
+  .burger-btn:hover{ border-color: var(--c-1); }
+  .burger-btn.open{ background: var(--c-1); border-color: var(--c-1); color:#fff; }
+  .burger-btn svg{ transition: opacity .15s ease; }
+  .burger-menu{
+    position:absolute; top:calc(100% + 10px); left:0; width:320px;
+    background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow);
+    padding:8px; opacity:0; transform: translateY(-6px); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease; z-index:120;
+    display:flex; flex-direction:column;
+  }
+  .burger-menu.open{ opacity:1; transform: translateY(0); pointer-events:auto; }
+  .burger-menu-home{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; margin:2px 2px 8px;
+    border-radius:10px; border-bottom:1px solid var(--line-soft);
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-home svg{ flex:none; color:var(--ink-soft); }
+  .burger-menu-home:hover{ background: var(--paper); }
+  .burger-menu-home.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-home.is-current .bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-search{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:10px; padding:8px 10px; margin:2px 2px 8px;
+    background:var(--paper); flex:none;
+  }
+  .burger-menu-search svg{ flex:none; opacity:.5; color:var(--ink-soft); }
+  .burger-menu-search input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13px; width:100%; color:var(--ink);
+  }
+  .burger-menu-list{ max-height:340px; overflow-y:auto; overscroll-behavior:contain; }
+  .burger-menu-list::-webkit-scrollbar{ width:6px; }
+  .burger-menu-list::-webkit-scrollbar-thumb{ background:var(--line); border-radius:10px; }
+  .burger-menu-group + .burger-menu-group{ margin-top:4px; }
+  .burger-menu-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); padding:8px 10px 4px;
+  }
+  .burger-menu-empty{
+    display:none; padding:18px 10px; text-align:center; font-size:12.5px; color:var(--ink-soft);
+  }
+  .burger-menu-item{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; border-radius:10px;
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-item span.bm-title{ display:block; }
+  .burger-menu-item span.bm-sub{ display:block; font-size:11.5px; color:var(--ink-soft); font-weight:400; margin-top:1px; }
+  .burger-menu-item:hover{ background: var(--paper); }
+  .burger-menu-item.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-item.is-current span.bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-dot{ width:9px; height:9px; border-radius:3px; flex:none; margin-top:3px; }
+
+  .page-title{ padding: 30px 8vw 6px; }
+  .page-title .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-soft); margin-bottom:10px; display:block;
+  }
+  .page-title h1{
+    font-size: clamp(26px, 5vw, 46px);
+    line-height:1.12;
+    font-weight:700;
+  }
+  .page-title h1 .accent-word{
+    background: linear-gradient(100deg, var(--c-1), var(--c-4) 55%, var(--c-3));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .page-title .sub{
+    margin-top:14px; max-width:66ch; color:var(--ink-soft); font-size:15px; line-height:1.6;
+  }
+  .page-title .tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+  .page-title .tag{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; border:1.3px solid var(--line);
+    color:var(--ink-soft); font-weight:500; background:var(--paper);
+  }
+
+  .layout{ max-width:1400px; margin:0 auto; }
+  .toc-wrap{ border-bottom:1px solid var(--line); padding: 0 8vw; }
+  .toc-toggle{
+    width:100%; display:flex; align-items:center; justify-content:space-between; gap:10px;
+    background:none; border:none; cursor:pointer; padding:16px 0;
+    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px; color:var(--ink);
+  }
+  .toc-toggle:hover{ color:var(--c-1); }
+  .toc-toggle-left{ display:flex; align-items:center; gap:10px; }
+  .toc-toggle-left svg{ color:var(--ink-soft); flex:none; }
+  .toc-chevron{ transition: transform .3s ease; color:var(--ink-soft); flex:none; }
+  .toc-toggle[aria-expanded="true"] .toc-chevron{ transform: rotate(180deg); }
+  .toc-panel-outer{ display:grid; grid-template-rows: 0fr; transition: grid-template-rows .35s ease; }
+  .toc-panel-outer.open{ grid-template-rows: 1fr; }
+  .toc-panel-inner{ overflow:hidden; min-height:0; }
+
+  nav.sidebar{ display:block; padding: 4px 0 22px; }
+
+  .search-box{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:12px; padding:10px 12px; margin-bottom:18px;
+    background:var(--paper);
+  }
+  .search-box input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13.5px; width:100%; color:var(--ink);
+  }
+  .search-box svg{ flex:none; opacity:.5; }
+
+  .nav-actions{ display:flex; gap:8px; margin-bottom:18px; }
+  .nav-actions button{
+    flex:1; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    border:1.3px solid var(--line); background:#fff; color:var(--ink-soft);
+    padding:7px 8px; border-radius:9px; cursor:pointer; transition:.15s ease;
+  }
+  .nav-actions button:hover{ border-color:var(--ink); color:var(--ink); }
+
+  .nav-group-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); margin: 18px 0 6px 2px;
+  }
+  .nav-group-label:first-of-type{ margin-top:0; }
+
+  nav.sidebar ul{ list-style:none; margin:0; padding:0; border-left:2px solid var(--line-soft); }
+  nav.sidebar li a{
+    display:flex; align-items:center; gap:9px;
+    text-decoration:none; font-size:13.5px; color:var(--ink-soft);
+    padding:7px 0 7px 14px; border-left:2px solid transparent; margin-left:-2px;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  nav.sidebar li a .sw{ width:8px; height:8px; border-radius:3px; flex:none; background:var(--g-color); }
+  nav.sidebar li a:hover{ color:var(--ink); }
+  nav.sidebar li a.active{ color:var(--g-color); border-left-color: var(--g-color); font-weight:600; }
+  nav.sidebar li a[data-hidden="1"]{ display:none; }
+
+  main{ min-width:0; padding: 0 8vw 140px; }
+
+  section.class-section{ padding-top:56px; scroll-margin-top: 24px; }
+  section.class-section:first-child{ padding-top:44px; }
+
+  .class-head{
+    display:flex; align-items:baseline; gap:16px; flex-wrap:wrap;
+    padding-bottom:14px; margin-bottom:22px; border-bottom:3px solid var(--g-color);
+    position:relative;
+  }
+  .class-head .idx{
+    font-family:'IBM Plex Mono',monospace; font-size:14px; font-weight:700; color:#fff;
+    background:var(--g-color); padding:5px 10px; border-radius:8px;
+  }
+  .class-head h2{ font-size: clamp(20px,2.4vw,28px); color:var(--ink); }
+  .collapse-toggle{
+    margin-left:auto; width:34px; height:34px; border-radius:9px; border:1.5px solid var(--line);
+    background:#fff; color:var(--g-color); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: transform .3s ease, background .15s ease, border-color .15s ease;
+  }
+  .collapse-toggle:hover{ background: var(--g-tint); border-color: var(--g-color); }
+  .collapse-toggle svg{ transition: transform .3s ease; }
+  .collapse-toggle[aria-expanded="false"] svg{ transform: rotate(-90deg); }
+
+  .class-body-outer{ display:grid; grid-template-rows: 0fr; transition: grid-template-rows .38s ease; }
+  .class-body-outer.collapsed{ grid-template-rows: 0fr; }
+  .class-body-outer:not(.collapsed){ grid-template-rows: 1fr; }
+  .class-body-inner{ overflow:hidden; min-height:0; opacity:0; transition: opacity .25s ease .1s; }
+  .class-body-outer.collapsed .class-body-inner{ opacity:0; transition: opacity .18s ease; }
+  .class-body-outer:not(.collapsed) .class-body-inner{ opacity:1; }
+
+  .card{
+    background:#fff; border:1px solid var(--line); border-radius: var(--radius);
+    padding: 28px 30px; margin-bottom: 22px; position:relative; overflow:hidden;
+    border-left: 5px solid var(--g-color);
+  }
+  .card .card-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap;
+    margin-bottom:14px;
+  }
+  .card h3{ font-size:19px; font-weight:600; color:var(--ink); }
+  .code-badge{
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:12px; color:#fff;
+    background: var(--g-color); padding:6px 12px; border-radius:8px; white-space:nowrap;
+  }
+
+  ul.points{ list-style:none; margin:0; padding:0; }
+  ul.points > li{
+    position:relative; padding: 10px 0 10px 34px; font-size:14.8px; line-height:1.65; color:#2b2d36;
+    border-top:1px solid var(--line-soft);
+  }
+  ul.points > li:first-child{ border-top:none; }
+  ul.points > li::before{
+    content:"—";
+    position:absolute; left:0; top:10px; width:22px; height:22px; border-radius:7px;
+    background: var(--g-tint); color:var(--g-color); font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:13px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  ul.points > li b, ul.points > li strong{ color:var(--g-color); }
+  ul.points ul{ list-style:none; margin:8px 0 0; padding:0; }
+  ul.points ul li{
+    position:relative; padding:6px 0 6px 22px; font-size:14px; color:var(--ink-soft); border-top:none;
+  }
+  ul.points ul li::before{
+    content:"·"; position:absolute; left:0; top:4px; width:14px; height:14px;
+    color:var(--g-color); font-size:20px; font-weight:700; display:flex; align-items:center; justify-content:center;
+  }
+
+  .ayah-block{
+    margin: 6px 0 18px; padding:20px 22px; border-radius:14px; background:var(--paper);
+    border:1px solid var(--line);
+  }
+  .ayah-block .ayah-ref{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--g-color); font-weight:700; margin-bottom:10px; display:block;
+  }
+  .ayah-block .ayah-ar{ font-size:24px; line-height:2; color:var(--ink); text-align:right; margin-bottom:12px; }
+  .ayah-block .ayah-en{ font-size:14.5px; line-height:1.6; color:var(--ink-soft); font-style:italic; }
+
+  .quote{
+    margin-top:16px; padding:16px 18px; border-radius:12px; background:var(--g-tint);
+    font-family:'Space Grotesk', sans-serif; font-size:16px; line-height:1.55; color:#20222a;
+    border-left:3px solid var(--g-color);
+  }
+  .quote footer{
+    margin-top:8px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    text-transform:uppercase; color:var(--ink-soft); font-style:normal;
+  }
+
+  .lesson-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin: 6px 0 22px; }
+  @media (max-width:640px){ .lesson-grid{ grid-template-columns:1fr; } }
+  .lesson-card{ border-radius:var(--radius); padding:22px 22px; border:1.3px solid var(--line); background:#fff; }
+  .lesson-card .kicker{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--g-color); font-weight:700;
+  }
+  .lesson-card h4{ margin-top:8px; font-size:17px; }
+  .lesson-card p{ margin-top:10px; font-size:14px; line-height:1.6; color:#2b2d36; }
+  .lesson-card .ar-inline{ font-family:'Amiri',serif; font-size:20px; direction:rtl; display:block; margin-top:8px; color:var(--ink); }
+
+  .num-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin: 6px 0 22px; }
+  @media (max-width:760px){ .num-grid{ grid-template-columns:1fr; } }
+  .num-card{
+    border-radius:14px; padding:18px 20px; border:1.3px solid var(--line); background:var(--paper);
+    display:flex; gap:14px; align-items:flex-start;
+  }
+  .num-card .num-badge{
+    flex:none; width:30px; height:30px; border-radius:9px; background:var(--g-color); color:#fff;
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center;
+  }
+  .num-card p{ font-size:14px; line-height:1.6; color:#2b2d36; }
+  .num-card p b{ color:var(--g-color); }
+
+  #toTop{
+    position:fixed; right:26px; bottom:26px; width:46px; height:46px; border-radius:50%;
+    background:var(--ink); color:#fff; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,.22); opacity:0; pointer-events:none; transition: opacity .25s ease, transform .2s ease;
+    z-index:90;
+  }
+  #toTop.show{ opacity:1; pointer-events:auto; }
+  #toTop:hover{ transform: translateY(-3px); }
+
+  #quickFab{
+    position:fixed; left:26px; bottom:26px; width:52px; height:52px; border-radius:16px;
+    background: linear-gradient(135deg, var(--c-1), var(--c-4)); color:#fff; border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; z-index:95;
+    box-shadow:0 10px 28px -6px rgba(124,58,237,.5);
+    transition: transform .2s ease, border-radius .2s ease;
+  }
+  #quickFab:hover{ transform: translateY(-3px) scale(1.03); }
+  #quickFab.open{ border-radius:50%; }
+  #quickFab svg{ transition: transform .3s ease; }
+  #quickFab.open svg{ transform: rotate(45deg); }
+
+  #quickPanel{
+    position:fixed; left:26px; bottom:90px; width:290px; max-height:60vh; overflow-y:auto;
+    background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow);
+    z-index:94; padding:14px; opacity:0; transform: translateY(10px) scale(.97); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  #quickPanel.open{ opacity:1; transform: translateY(0) scale(1); pointer-events:auto; }
+  #quickPanel .qp-head{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--ink-soft); padding:4px 8px 10px;
+  }
+  #qpList{ list-style:none; margin:0; padding:0; }
+  #qpList li{ display:flex; align-items:center; gap:8px; border-radius:10px; padding:2px; }
+  #qpList li a{
+    flex:1; display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--ink);
+    font-size:13px; padding:8px; border-radius:10px; transition:background .15s ease;
+  }
+  #qpList li a:hover{ background:var(--paper); }
+  .qp-idx{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:700; color:#fff;
+    background: var(--qc, var(--c-1)); padding:2px 6px; border-radius:6px; flex:none;
+  }
+  .qp-toggle{ padding:8px; cursor:pointer; color:var(--ink-soft); opacity:.6; }
+  .qp-toggle:hover{ opacity:1; }
+  #qpList li.is-collapsed .qp-toggle svg{ transform: rotate(-90deg); }
+  #qpList li .qp-toggle svg{ transition: transform .3s ease; }
+
+  footer.page-footer{
+    padding:30px 8vw 60px; color:var(--ink-soft); font-size:12.5px; font-family:'IBM Plex Mono',monospace;
+    border-top:1px solid var(--line); margin-top:30px;
+  }
+
+  @media (max-width: 980px){
+    main{ padding: 0 6vw 120px; }
+    .ayah-block .ayah-ar{ font-size:20px; }
+  }
+  @media (max-width: 560px){
+    .card{ padding: 22px 18px; }
+    #quickPanel{ width: calc(100vw - 52px); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001s !important; transition-duration:.001s !important; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body data-page="yusuf97-98">
+
+<div id="progress"></div>
+
+<header class="hero">
+  <div class="burger-wrap">
+    <button id="navBurger" class="burger-btn" aria-haspopup="true" aria-expanded="false" aria-label="Open navigation menu">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div id="navMenu" class="burger-menu"></div>
+  </div>
+</header>
+
+<div class="ref-bar">
+  <span class="ref-label">Source</span>
+  <a href="https://www.youtube.com/watch?v=KG12GA6fXD4" target="_blank" rel="noopener" class="ref-txt" style="text-decoration:none; border-bottom:1px solid rgba(255,255,255,.35); padding-bottom:1px;">Nouman Ali Khan</a>
+</div>
+
+<div class="page-title" id="top">
+  <span class="eyebrow">Tafsīr Notes · Sūrah Yūsuf</span>
+  <h1>"Seek <span class="accent-word">Forgiveness</span> for Us" [Ayah 97–98]</h1>
+  <div class="sub">After the shirt, the brothers finally confess to their father — and Yaʿqūb answers with a single, puzzling word: "soon." Two opposite readings of the same exchange, argued side by side: one that gives the brothers every benefit of the doubt, and one that refuses to.</div>
+  <div class="tag-row">
+    <span class="tag">Verses 97–98</span>
+    <span class="tag">Dhunūb</span>
+    <span class="tag">Khāṭiʾīn</span>
+    <span class="tag">Sawfa</span>
+    <span class="tag">Forgiveness &amp; Caution</span>
+  </div>
+</div>
+
+<div class="layout">
+
+  <div class="toc-wrap">
+    <button class="toc-toggle" id="tocToggle" aria-expanded="false" aria-controls="tocPanelOuter">
+      <span class="toc-toggle-left">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        <span>Table of Contents</span>
+      </span>
+      <svg class="toc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="toc-panel-outer" id="tocPanelOuter">
+      <div class="toc-panel-inner">
+        <nav class="sidebar">
+    <div class="search-box">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="searchInput" type="text" placeholder="Search sections…">
+    </div>
+    <div class="nav-actions">
+      <button id="expandAll">Expand all</button>
+      <button id="collapseAll">Collapse all</button>
+    </div>
+
+    <div class="nav-group-label">Setting the Scene</div>
+    <ul>
+      <li><a href="#s-01" data-key="context translation shirt confession inna literal" style="--g-color:var(--c-1)"><span class="sw"></span>The Exchange &amp; a Literal Translation</a></li>
+      <li><a href="#s-02" data-key="two readings method prophets brothers benefit of the doubt skeptical wisdom" style="--g-color:var(--c-2)"><span class="sw"></span>Two Opposing Readings — and the Method</a></li>
+    </ul>
+
+    <div class="nav-group-label">Reading 1 — Benefit of the Doubt</div>
+    <ul>
+      <li><a href="#s-03" data-key="dhunub dhanb tail camel nose tribe poetry shame junah guna persian" style="--g-color:var(--c-3)"><span class="sw"></span>"Dhunūb": The Sin That Shames You</a></li>
+      <li><a href="#s-04" data-key="khatiin khati mukhti mistake on purpose no excuses but you know why" style="--g-color:var(--c-4)"><span class="sw"></span>"Khāṭiʾīn": A Confession With No Cushion</a></li>
+      <li><a href="#s-05" data-key="why not ask allah directly intermediary musa sincerity heart dua prison" style="--g-color:var(--c-5)"><span class="sw"></span>Why Not Ask Allah Directly?</a></li>
+      <li><a href="#s-06" data-key="tawbah 103 prophet prayer calm sakan munafiqun hypocrites" style="--g-color:var(--c-6)"><span class="sw"></span>The Weight of a Prophet's Prayer</a></li>
+      <li><a href="#s-07" data-key="nisa 64 messenger asked forgiveness shafaah good word" style="--g-color:var(--c-1)"><span class="sw"></span>"If Only They Had Come to You"</a></li>
+      <li><a href="#s-08" data-key="our sins add-on confession pride broken plan visible overwhelmed" style="--g-color:var(--c-2)"><span class="sw"></span>Why Name "Our Sins"?</a></li>
+      <li><a href="#s-09" data-key="uhud archers hamza ali imran 159 forgive before praying sequence insult prayer" style="--g-color:var(--c-3)"><span class="sw"></span>A Lesson From Uḥud: Forgive, Then Pray</a></li>
+      <li><a href="#s-10" data-key="sawfa soon special hour night continue 20 years flashback trigger" style="--g-color:var(--c-4)"><span class="sw"></span>"Soon": The Generous Interpretations</a></li>
+      <li><a href="#s-11" data-key="alusi two objects from who for what grammar yusuf binyamin ghafara" style="--g-color:var(--c-5)"><span class="sw"></span>Al-Ālūsī: The Missing "From" and "For"</a></li>
+      <li><a href="#s-12" data-key="focus on allah rabbi rizq guarantee innahu huwa ghafur rahim" style="--g-color:var(--c-6)"><span class="sw"></span>Yaʿqūb Turns Their Eyes to Allah</a></li>
+    </ul>
+
+    <div class="nav-group-label">Reading 2 — The Skeptical Eye</div>
+    <ul>
+      <li><a href="#s-13" data-key="pharaoh firaun drowning now tower haman convenient prime minister" style="--g-color:var(--c-1)"><span class="sw"></span>"Now You're Sorry?" — The Pharaoh Parallel</a></li>
+      <li><a href="#s-14" data-key="fear reopen case yusuf insurance policy endorsement egypt" style="--g-color:var(--c-2)"><span class="sw"></span>An Insurance Policy Before Egypt</a></li>
+      <li><a href="#s-15" data-key="no allah mention which sins sayyiat lesser bloody shirt lies" style="--g-color:var(--c-3)"><span class="sw"></span>What They Didn't Say</a></li>
+      <li><a href="#s-16" data-key="sawfa wait and see credibility time to process hurt" style="--g-color:var(--c-4)"><span class="sw"></span>"Soon" as Wait-and-See</a></li>
+      <li><a href="#s-17" data-key="prophets human not superhuman pain marketplace honest ghafur rahim" style="--g-color:var(--c-5)"><span class="sw"></span>Prophets Are Human, Not Superhuman</a></li>
+    </ul>
+
+    <div class="nav-group-label">Conclusion</div>
+    <ul>
+      <li><a href="#s-18" data-key="silence of text not recorded allah forgave them intentional" style="--g-color:var(--c-6)"><span class="sw"></span>The Deliberate Silence of the Text</a></li>
+      <li><a href="#s-19" data-key="timeless lesson caution trust apology business marriage one eye open" style="--g-color:var(--c-1)"><span class="sw"></span>Forgiveness With Caution</a></li>
+      <li><a href="#s-20" data-key="teacher leaning baqarah 133 deathbed know yourself hashr 19 forget allah" style="--g-color:var(--c-2)"><span class="sw"></span>Where the Teacher Leans</a></li>
+      <li><a href="#s-21" data-key="closing heavy lifting series not rushing dua" style="--g-color:var(--c-3)"><span class="sw"></span>Closing &amp; What Lies Ahead</a></li>
+    </ul>
+  </nav>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- 01 -->
+    <section class="class-section" id="s-01" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">01</span>
+        <h2>The Exchange &amp; a Literal Translation</h2>
+        <button class="collapse-toggle" data-target="s-01" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-01"><div class="class-body-inner">
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Verse 97</span>
+          <p class="ayah-ar arabic">قَالُوا۟ يَـٰٓأَبَانَا ٱسْتَغْفِرْ لَنَا ذُنُوبَنَآ إِنَّا كُنَّا خَـٰطِـِٔينَ</p>
+          <p class="ayah-en">"They said, 'O our father, ask for us forgiveness of our sins; indeed, we have been sinners.'" — Sahih International</p>
+        </div>
+        <div class="ayah-block">
+          <span class="ayah-ref">Verse 98</span>
+          <p class="ayah-ar arabic">قَالَ سَوْفَ أَسْتَغْفِرُ لَكُمْ رَبِّىٓ ۖ إِنَّهُۥ هُوَ ٱلْغَفُورُ ٱلرَّحِيمُ</p>
+          <p class="ayah-en">"He said, 'I will ask forgiveness for you from my Lord. Indeed, it is He who is the Forgiving, the Merciful.'" — Sahih International</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Where we are in the story</h3>
+            <span class="code-badge">After the Shirt</span>
+          </div>
+          <ul class="points">
+            <li>The shirt episode has already taken place; now the sons must apologize to their father — or at the very least confront him and admit they were wrong.</li>
+            <li>Ayah 97 is the brothers speaking to Yaʿqūb (AS); ayah 98 is his response — and the two together form a discussion all of their own.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Their words, translated literally</h3>
+            <span class="code-badge">Ayah 97</span>
+          </div>
+          <ul class="points">
+            <li>"O our father, seek forgiveness on our behalf for our sins" — ask forgiveness for us for our mistakes.</li>
+            <li>"We have in fact been the ones making terrible mistakes" — we have been in the wrong; "we were wrong all along" is an acceptable rendering.</li>
+            <li>The word <b>inna</b> signals there is no doubt about it — they are confessing completely that they were in the wrong.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>His response, translated literally</h3>
+            <span class="code-badge">Ayah 98</span>
+          </div>
+          <ul class="points">
+            <li>"Soon" — or "in a short while" — "I will seek forgiveness on your behalf from my Master."</li>
+            <li>"Certainly He is the Ultimately Forgiving, the Always Loving and Caring."</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 02 -->
+    <section class="class-section" id="s-02" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">02</span>
+        <h2>Two Opposing Readings — and the Method</h2>
+        <button class="collapse-toggle" data-target="s-02" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-02"><div class="class-body-inner">
+
+        <div class="lesson-grid">
+          <div class="lesson-card">
+            <span class="kicker">Reading One</span>
+            <h4>Benefit of the doubt</h4>
+            <p>Give the brothers as much benefit of the doubt as possible and read their words as a sincere apology.</p>
+          </div>
+          <div class="lesson-card">
+            <span class="kicker">Reading Two</span>
+            <h4>The skeptical eye</h4>
+            <p>Give them no benefit of the doubt and remain skeptical of their apology and confession.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Why history leaned generous</h3>
+            <span class="code-badge">Were the Brothers Prophets?</span>
+          </div>
+          <ul class="points">
+            <li>Some in Islamic history held that these brothers became prophets. There is no substantiated evidence for this — only narrations of clearly questionable authenticity, which were nonetheless enough for some to accept.</li>
+            <li>Because of that view, whenever a chance arose to "lessen the blow" on the brothers, interpretations of these ayat leaned toward giving them the benefit of the doubt.</li>
+            <li>The teacher and Sahib joked that this series may not be extending the same generosity others historically gave, and is instead looking at the text in a much rawer sense.</li>
+            <li>Still, the text genuinely leaves room to be read both ways.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The plan for this lesson</h3>
+            <span class="code-badge">Argue Both Sides</span>
+          </div>
+          <ul class="points">
+            <li>First, read these ayat as a sincere request for forgiveness with maximum benefit of the doubt; then poke holes in that picture by refusing the benefit of the doubt and reading again.</li>
+            <li>The aim is not to convince listeners of one conclusion over the other.</li>
+            <li>In fact, we have no license to give one set of assumptions priority over the other — and that ambiguity is the very intent of the text.</li>
+            <li>If Allah had wanted to tell us explicitly that they were sincere, the wording would have made it abundantly clear and the question would disappear. Allah did not want us to know, and there is wisdom in our not knowing — to be discussed at the end.</li>
+            <li>Yaʿqūb's (AS) response also plays into both readings.</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 03 -->
+    <section class="class-section" id="s-03" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">03</span>
+        <h2>"Dhunūb": The Sin That Shames You</h2>
+        <button class="collapse-toggle" data-target="s-03" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-03"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Many words, one English "sin"</h3>
+            <span class="code-badge">Lost in Translation</span>
+          </div>
+          <ul class="points">
+            <li><b>Dhunūb</b> is one of the Arabic words for sins — and the Qur'an uses many different words for sin.</li>
+            <li>English translations simplify by using "sin" or "evil deed" over and over, so a reader of a translation never gets to know which Arabic word Allah actually chose.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>From the tail of an animal</h3>
+            <span class="code-badge">Dhanab → Dhanb</span>
+          </div>
+          <ul class="points">
+            <li><b>Dhanb</b> (sin) comes from <b>dhanab</b>, the tail of an animal — the "embarrassing part" of the animal.</li>
+            <li>Tribes and figures in pre-Islamic Arabic literature associated themselves with animals, as many cultures do — calling someone a lion, a hawk, a stallion, an eagle or a tiger, borrowing the majestic qualities of noble animals.</li>
+            <li>A modern form of this is sports teams that aggrandize themselves by naming themselves after animals.</li>
+            <li>Because the camel was such a big deal, one old tribe in its poetry called itself "the nose of the camel" — a literary way of saying everyone else looks up to them, since the camel's nose sits high up.</li>
+            <li>Poets would boast of their own tribes and enemy tribes would roast them back. A rival poet "dissed" this tribe by swapping the nose for the tail — "the tail of the camel, the behind — that's what you really are."</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A sin you're embarrassed by</h3>
+            <span class="code-badge">Shame Built Into the Word</span>
+          </div>
+          <ul class="points">
+            <li>From this usage, "tail" became a popular figurative Arabic word for sin, highlighting the aspect of wrongdoing that makes a person embarrassed and ashamed.</li>
+            <li>Other Arabic words for sin carry other flavors: a sin that is ugly, a sin that causes harm, and so on.</li>
+            <li>Some words for sin arguably entered Arabic from ancient Persian — for example <b>junāḥ</b> in the Qur'an from <b>gunāh</b> in Farsi, a word Urdu speakers also use.</li>
+            <li>So the brothers are not simply saying "sins" — they're saying "our shameful sins, the sins that have embarrassed and humiliated us."</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 04 -->
+    <section class="class-section" id="s-04" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">04</span>
+        <h2>"Khāṭiʾīn": A Confession With No Cushion</h2>
+        <button class="collapse-toggle" data-target="s-04" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-04"><div class="class-body-inner">
+
+        <div class="lesson-grid">
+          <div class="lesson-card">
+            <span class="kicker">Mukhṭiʾ</span>
+            <h4>One who makes a mistake</h4>
+            <p>Someone who errs — over time associated with a mistake that may not have been on purpose.</p>
+          </div>
+          <div class="lesson-card">
+            <span class="kicker">Khāṭiʾ</span>
+            <h4>One who did wrong deliberately</h4>
+            <p>Someone who did something gravely wrong, on purpose. This is the word the brothers use about themselves.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Not "we messed up"</h3>
+            <span class="code-badge">Full Responsibility</span>
+          </div>
+          <ul class="points">
+            <li>Calling themselves <b>khāṭiʾīn</b>, they give themselves no leeway — not "we made a mistake," "it wasn't entirely our fault," or "we slipped up."</li>
+            <li>Saying "I messed up" quietly implies "I failed, but I'm human — there's room for error," which stops short of taking full responsibility.</li>
+            <li><b>Khāṭiʾ</b> is a full-on confession: we were wrong, we did it on purpose, and we acknowledge it without doubt.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>No "but you know why…"</h3>
+            <span class="code-badge">No Qualifiers</span>
+          </div>
+          <ul class="points">
+            <li>People admitting wrong tend to defend themselves even while confessing: "Yes, I said terrible things — but you know why?"</li>
+            <li>That "but" contextualizes and softens the confession: "I'm not saying it's okay, but it's a little understandable… it wasn't <i>that</i> not okay."</li>
+            <li>The brothers add nothing of the sort — no "but we did feel you loved him more," no qualifying, no lessening the blow. They simply confess to their father.</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 05 -->
+    <section class="class-section" id="s-05" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">05</span>
+        <h2>Why Not Ask Allah Directly?</h2>
+        <button class="collapse-toggle" data-target="s-05" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-05"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A conspicuous absence</h3>
+            <span class="code-badge">No "Our Lord, Forgive Us"</span>
+          </div>
+          <ul class="points">
+            <li>The Qur'an does not record the brothers saying "Our Master, forgive us."</li>
+            <li>Contrast Mūsā (AS): when he killed someone by accident, he immediately turned to Allah and asked forgiveness, realizing he had erred and was being tested.</li>
+            <li>People turning to Allah for forgiveness is a recurring theme across the Qur'an — yet here the brothers are shown asking Yaʿqūb (AS) instead.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Our faith has no intermediary</h3>
+            <span class="code-badge">Sincerity Is the Only Condition</span>
+          </div>
+          <ul class="points">
+            <li>In our belief we ask Allah directly; we don't need someone "closer to Allah" to go through, as if our own prayer is worthless.</li>
+            <li>The Qur'anic principle: Allah responds to whoever calls on Him, whenever they call — with no qualification on how righteous, good or bad they are.</li>
+            <li>Someone in the depths of darkness who turns to Allah for a single moment will be heard.</li>
+            <li>The condition is not who you are or what you've done, but the sincerity of your heart at the moment of the duʿāʾ.</li>
+            <li>A great worshipper whose heart and mind were absent during a duʿāʾ — just words — may have made a duʿāʾ of less value.</li>
+            <li>Someone far from the religion, who knows no Arabic or sacred words and may not even verbalize it — lying in a prison cell, or in a gang about to do something — whose heart simply turns to Allah, may have made a duʿāʾ more valuable to Allah because of their heart's state.</li>
+            <li>But there is an additional "add-on" to this understanding that Allah Himself has validated.</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 06 -->
+    <section class="class-section" id="s-06" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">06</span>
+        <h2>The Weight of a Prophet's Prayer</h2>
+        <button class="collapse-toggle" data-target="s-06" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-06"><div class="class-body-inner">
+
+        <div class="ayah-block">
+          <span class="ayah-ref">At-Tawbah 103</span>
+          <p class="ayah-ar arabic">خُذْ مِنْ أَمْوَٰلِهِمْ صَدَقَةً تُطَهِّرُهُمْ وَتُزَكِّيهِم بِهَا وَصَلِّ عَلَيْهِمْ ۖ إِنَّ صَلَوٰتَكَ سَكَنٌ لَّهُمْ ۗ وَٱللَّهُ سَمِيعٌ عَلِيمٌ</p>
+          <p class="ayah-en">"Take from their wealth a charity by which you purify them and cause them increase, and invoke [Allah's blessings] upon them. Indeed, your invocations are reassurance for them. And Allah is Hearing and Knowing." — Sahih International</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Medinan context</h3>
+            <span class="code-badge">A Prophet With Many Roles</span>
+          </div>
+          <ul class="points">
+            <li>The supporting ayat come from the Medinan Qur'an — one from very late, near the very end of revelation — when the Prophet ﷺ was dealing with Muslims constantly.</li>
+            <li>He was single-handedly their head of community, counselor, imam, governor, general, mediator, negotiator, judge in family, social and economic matters — and their Prophet.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>"Your prayer is a source of calm for them"</h3>
+            <span class="code-badge">Sakan</span>
+          </div>
+          <ul class="points">
+            <li>Allah tells him to take charity from their earnings — it cleanses and spiritually purifies them — and to pray upon them, because his prayer gives them a special kind of calm.</li>
+            <li>Even today, how comforting it is to know the Messenger ﷺ made duʿāʾ for this ummah, including those not yet born.</li>
+            <li>Yes, we make duʿāʾ on our own — but a Prophet's duʿāʾ for us is deeply meaningful.</li>
+            <li>With a righteous person we may not know where they stand with Allah — they might fairly say, "I don't even know where I stand." With a Prophet, everyone knows where he stands; Allah listens to him and has a special relationship with him.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A bonus, not a loophole</h3>
+            <span class="code-badge">Allah Is All-Hearing, All-Knowing</span>
+          </div>
+          <ul class="points">
+            <li>The ayah closes with Allah being All-Hearing, All-Knowing: even when people pray themselves, Allah hears them and knows what is in their hearts.</li>
+            <li>A hypocrite can't be prayed for and have it "work." Of the hypocrites Allah says it is the same whether you ask forgiveness for them or not — Allah will not forgive them (al-Munāfiqūn).</li>
+            <li>Those who genuinely seek Allah's forgiveness get the Prophet's prayer as a bonus.</li>
+            <li>Those who keep messing up while counting on the Prophet's prayer to cover them — that is not how it works.</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 07 -->
+    <section class="class-section" id="s-07" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">07</span>
+        <h2>"If Only They Had Come to You"</h2>
+        <button class="collapse-toggle" data-target="s-07" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-07"><div class="class-body-inner">
+
+        <div class="ayah-block">
+          <span class="ayah-ref">An-Nisāʾ 64</span>
+          <p class="ayah-ar arabic">وَمَآ أَرْسَلْنَا مِن رَّسُولٍ إِلَّا لِيُطَاعَ بِإِذْنِ ٱللَّهِ ۚ وَلَوْ أَنَّهُمْ إِذ ظَّلَمُوٓا۟ أَنفُسَهُمْ جَآءُوكَ فَٱسْتَغْفَرُوا۟ ٱللَّهَ وَٱسْتَغْفَرَ لَهُمُ ٱلرَّسُولُ لَوَجَدُوا۟ ٱللَّهَ تَوَّابًا رَّحِيمًا</p>
+          <p class="ayah-en">"And We did not send any messenger except to be obeyed by permission of Allah. And if, when they wronged themselves, they had come to you, [O Muhammad], and asked forgiveness of Allah and the Messenger had asked forgiveness for them, they would have found Allah Accepting of repentance and Merciful." — Sahih International</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The Qur'an validates a Prophet's istighfār</h3>
+            <span class="code-badge">Three Steps</span>
+          </div>
+          <ul class="points">
+            <li>Every messenger was sent to be obeyed by Allah's leave.</li>
+            <li>The ayah follows an incident in Madinah where some people came to the Prophet ﷺ adamant they had done no wrong, though they had (the story itself isn't detailed here).</li>
+            <li>Allah didn't only say "if only they had asked Allah's forgiveness" — He said: if only they had come to you, asked Allah's forgiveness, <b>and</b> the Messenger had asked forgiveness for them too.</li>
+            <li>Then they would have found Allah continually accepting repentance, loving and caring.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Applied to the brothers</h3>
+            <span class="code-badge">"Put In a Good Word"</span>
+          </div>
+          <ul class="points">
+            <li>In the story, Yaʿqūb (AS) is the prophet of the family.</li>
+            <li>On the generous reading, the brothers hope a prophet's duʿāʾ will weigh in their favor given how heavy their sins are — they'll pray themselves, but they need "a little help."</li>
+            <li>It parallels how we hope to qualify for the Prophet's ﷺ intercession (shafāʿah) on Judgment Day.</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 08 -->
+    <section class="class-section" id="s-08" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">08</span>
+        <h2>Why Name "Our Sins"?</h2>
+        <button class="collapse-toggle" data-target="s-08" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-08"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>An unnecessary — and telling — add-on</h3>
+            <span class="code-badge">A Confessional State</span>
+          </div>
+          <ul class="points">
+            <li>They could have simply said "pray for us" or "seek forgiveness for us," just as one can say "make duʿāʾ for me" without specifying what.</li>
+            <li>Adding "our sins" is extra — and it further shows they are in a confessional state before Yaʿqūb (AS).</li>
+            <li>They now openly admit their shameful acts and confront them rather than shying away.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Pride finally broken</h3>
+            <span class="code-badge">Allah's Plan, Now Visible</span>
+          </div>
+          <ul class="points">
+            <li>The miraculous experience of seeing Allah's plan in action, and seeing their wrongs blow up in their faces, may have finally broken their pride and humbled them before Allah.</li>
+            <li>Allah's all-powerful, invisible plan has become all too visible — they now see, and humble themselves before the One they had truly been violating.</li>
+            <li>They wronged their father, Yusuf and Binyamin — but before all of that, they wronged Allah.</li>
+            <li>Sins piled up that others may not even know about — but Allah does — and they feel overwhelmed by their weight, wanting all the help they can get.</li>
+            <li>Implicit in the request: Dad, you can't stay angry with us and also make duʿāʾ for us.</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 09 -->
+    <section class="class-section" id="s-09" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">09</span>
+        <h2>A Lesson From Uḥud: Forgive, Then Pray</h2>
+        <button class="collapse-toggle" data-target="s-09" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-09"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The calamity of Uḥud</h3>
+            <span class="code-badge">From the Sīrah</span>
+          </div>
+          <ul class="points">
+            <li>To build the generous reading as fully as possible, the teacher turns to the Sīrah.</li>
+            <li>At Uḥud, archers were instructed not to leave their position, yet enough of them defied the order in a lapse of judgment that it caused terrible calamity: many Muslims were martyred.</li>
+            <li>The Prophet ﷺ was almost killed and severely injured in three places on his face; an arrow went through and lodged so deeply it took two people to pull it out.</li>
+            <li>He was the one reciting the Qur'an and giving the khuṭbah — for weeks his speech must have been affected, the way we can't talk straight for days after a dental visit or braces.</li>
+            <li>There was no modern medicine, surgery or disinfectant; at home, Fāṭimah (RA) and others made a paste of leaves and mud and plastered his face — his "band-aid."</li>
+            <li>His beloved uncle was killed and his body mutilated: heart pulled out, fingertips, nose and ears cut off — a deplorable, traumatic sight.</li>
+            <li>The customary honor of war was to leave the dead for burial; instead bodies were mutilated, and Abū Sufyān said he didn't agree with it but wouldn't stop it either.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The breaking point</h3>
+            <span class="code-badge">Disobedience After Seeing What They Loved</span>
+          </div>
+          <ul class="points">
+            <li>Allah was fulfilling His promise of victory as the Muslims were overwhelming the enemy — until discipline loosened, they disagreed about the command, and they disobeyed after seeing something they loved.</li>
+            <li>They saw the enemy running for the hills, dropping shields, swords and armor too heavy to flee with — armor worth "a lifetime of savings" — assumed the war was over, and disobeyed the order.</li>
+            <li>Fast forward: the following week in Madinah, those who caused the destruction sit in the same khuṭbah as families of the killed — and the Prophet ﷺ, whose own family was mutilated because of them.</li>
+            <li>Imagine how ashamed and embarrassed they must have felt.</li>
+          </ul>
+        </div>
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Āl ʿImrān 159</span>
+          <p class="ayah-ar arabic">فَبِمَا رَحْمَةٍ مِّنَ ٱللَّهِ لِنتَ لَهُمْ ۖ وَلَوْ كُنتَ فَظًّا غَلِيظَ ٱلْقَلْبِ لَٱنفَضُّوا۟ مِنْ حَوْلِكَ ۖ فَٱعْفُ عَنْهُمْ وَٱسْتَغْفِرْ لَهُمْ</p>
+          <p class="ayah-en">"So by mercy from Allah, [O Muhammad], you were lenient with them. And if you had been rude [in speech] and harsh in heart, they would have disbanded from about you. So pardon them and ask forgiveness for them…" — Sahih International</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The logical sequence</h3>
+            <span class="code-badge">Pardon First, Then Istighfār</span>
+          </div>
+          <ul class="points">
+            <li>Only by a special leniency from Allah was he gentle with them; had he been harsh and hard-hearted, they would have run away.</li>
+            <li>Step one: pardon them. Step two: ask Allah to forgive them. You cannot genuinely make duʿāʾ for someone until you have forgiven them.</li>
+            <li>This means real prayer — not "insult prayers" like "may Allah forgive you… only Allah could forgive you," which are insults disguised as duʿāʾ.</li>
+            <li>When, praying privately for your own needs, you include someone who hurt you, it can only mean you have forgiven them from the bottom of your heart.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>What the brothers are really begging for</h3>
+            <span class="code-badge">That Level of Forgiveness</span>
+          </div>
+          <ul class="points">
+            <li>"Pray for our forgiveness" therefore means: forgive us so deeply that it becomes easy for you to pray for us.</li>
+            <li>"We know the kind of heart you have, and we know the kind of hurt we caused you — but we need that kind of forgiveness. We beg you."</li>
+            <li>"We were absolutely wrong, Dad. No justifications, no rationales, no excuses — just forgive us, just ask for our forgiveness."</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 10 -->
+    <section class="class-section" id="s-10" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">10</span>
+        <h2>"Soon": The Generous Interpretations</h2>
+        <button class="collapse-toggle" data-target="s-10" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-10"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The puzzle of "sawfa"</h3>
+            <span class="code-badge">Why Not Right Away?</span>
+          </div>
+          <ul class="points">
+            <li>"Soon (or very soon) I will ask my Master to forgive you" — also rendered "I will ask my Master's forgiveness on your behalf." "Certainly He is extremely forgiving, always loving and caring."</li>
+            <li>He could have prayed for them the moment they asked. Instead he said "I will" — and this made the mufassirūn curious why Allah tells us he didn't simply say yes.</li>
+          </ul>
+        </div>
+
+        <div class="num-grid">
+          <div class="num-card"><span class="num-badge">1</span><p><b>The special hour.</b> A common classical answer: your sin is so grievous a simple duʿāʾ won't atone for it. I'll find the most special hour of the night, when Allah is closest to His servant and most hearing, on special days of the week, and make a "ceremony" of praying for you. Many mufassirūn leaned toward this view — the teacher is personally skeptical and explains why later.</p></div>
+          <div class="num-card"><span class="num-badge">2</span><p><b>I will continue.</b> Not only am I forgiving you now — I will keep praying for you. Some present narrations that he continued praying for their forgiveness for 20 years afterward.</p></div>
+          <div class="num-card"><span class="num-badge">3</span><p><b>Not yet.</b> I don't believe you yet; you can't do all that and simply say sorry. Your tears and words aren't enough — I need to see that this is sincere, and I won't be taken advantage of again. But know that Allah is the Ultimately Forgiving, Always Loving and Caring. (Developed under the skeptical reading.)</p></div>
+          <div class="num-card"><span class="num-badge">4</span><p><b>Even when the pain returns.</b> A reflection Sahib shared that is worth real contemplation — detailed below.</p></div>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Sahib's reading: the flashback</h3>
+            <span class="code-badge">"Whenever It Hurts Again, I'll Pray Again"</span>
+          </div>
+          <ul class="points">
+            <li>"I can forgive you now — but one day the memory of the pain may come back."</li>
+            <li>Sitting on his bed, a flashback of them bringing the shirt; the ugly words they said; what they did with Binyamin; the times he cried.</li>
+            <li>You can move on from an incident yet its memory returns and hits you as if it just happened.</li>
+            <li>So "I will" means: this pain isn't over for me, and every time it comes back — when it makes me see you differently, as though you just did it — at that very moment I'll ask forgiveness for you again.</li>
+            <li>In fights with loved ones, people bring up hurts from four years ago as if they just happened, even after reconciling — "I thought we were past that." "Well, it still hurts."</li>
+            <li>That is human nature; it doesn't make someone petty or evil or gaslighting. The pain can remain even after reconciliation.</li>
+            <li>The past can also return through something said that mirrors an uglier moment in a different context, and trigger you unexpectedly.</li>
+            <li>Yaʿqūb (AS) commits: whenever bad feelings toward you arise in my heart, I'll erase them by making duʿāʾ for you.</li>
+            <li>A beautiful, magnanimous reading — it acknowledges the nature of forgiveness, that it is not easy, and that it may need to be revisited.</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 11 -->
+    <section class="class-section" id="s-11" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">11</span>
+        <h2>Al-Ālūsī: The Missing "From" and "For"</h2>
+        <button class="collapse-toggle" data-target="s-11" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-11"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A verb that expects two objects</h3>
+            <span class="code-badge">From Whom? For What?</span>
+          </div>
+          <ul class="points">
+            <li>Al-Ālūsī cites some later scholarship stating that the verb "to seek forgiveness" takes two objects.</li>
+            <li>In plain English: "I ask forgiveness" expects two more pieces of information — <b>from whom</b> and <b>for what</b>. "I seek forgiveness <i>from you</i> <i>for eating your cake</i>."</li>
+          </ul>
+        </div>
+
+        <div class="lesson-grid">
+          <div class="lesson-card">
+            <span class="kicker">The brothers</span>
+            <h4>Give the "for," omit the "from"</h4>
+            <span class="ar-inline">ٱسْتَغْفِرْ لَنَا ذُنُوبَنَآ</span>
+            <p>"Seek forgiveness for us — <b>for our sins</b>." They never say from whom; Allah isn't mentioned.</p>
+          </div>
+          <div class="lesson-card">
+            <span class="kicker">Yaʿqūb (AS)</span>
+            <h4>Gives the "from," omits the "for"</h4>
+            <span class="ar-inline">سَوْفَ أَسْتَغْفِرُ لَكُمْ رَبِّىٓ</span>
+            <p>"I will seek forgiveness for you — <b>from my Master</b>." He never mentions their sins.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Why the brothers might skip "from"</h3>
+            <span class="code-badge">Ask Everyone to Forgive Us</span>
+          </div>
+          <ul class="points">
+            <li>A complete exchange would be "Ask Allah to forgive us for our sins" / "I will ask Allah to forgive you for your sins." Instead the two pieces are switched.</li>
+            <li>In Arabic, omitting a detail can imply more than one possibility. So: seek forgiveness from Allah — and ask Yusuf to forgive us, ask Binyamin to forgive us; we've wronged so many people.</li>
+            <li>That's why <b>ghafara</b> needn't be translated only as praying: it is also used for one human forgiving another — the Qur'an speaks of whoever is patient and forgives.</li>
+            <li>Allah, the Creator, has rights, and the creation has rights; they wronged both.</li>
+            <li>Even though Yusuf (AS) said there is no blame on them, they go out of their way to ask: please ask everyone we wronged to forgive us.</li>
+            <li>Forgiving someone doesn't mean the scar is gone, the relationship is what it was, or everything is restored. They want things truly leveled, settled and cleared.</li>
+            <li>Yusuf will listen to his father like no one else. When a father puts his hand on his son's shoulder and says "it's time you forgave your brothers," it carries far more weight — "can you put in a word with them too?"</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 12 -->
+    <section class="class-section" id="s-12" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">12</span>
+        <h2>Yaʿqūb Turns Their Eyes to Allah</h2>
+        <button class="collapse-toggle" data-target="s-12" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-12"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Please Allah, and He handles the rest</h3>
+            <span class="code-badge">A Remarkable Reply</span>
+          </div>
+          <ul class="points">
+            <li>You are worried about so many people — but when you please Allah, Allah makes others pleased with you and removes other problems in your life.</li>
+            <li>When you gain Allah's forgiveness, the doors of His provision (rizq) open.</li>
+            <li>There is even a ḥadīth that when Allah loves people, He places their love and respect in others' hearts.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Why he doesn't mention their sins</h3>
+            <span class="code-badge">Shift the Focus</span>
+          </div>
+          <ul class="points">
+            <li>First, so as not to embarrass them.</li>
+            <li>Second, they already mentioned their sins — "I get it; I won't beat you over the head with it."</li>
+            <li>Third, they are fixated on one detail — how big their sins are. He wants them to focus on the other: how grand Allah is. So he names only "my Master."</li>
+            <li>Once you turn to Allah genuinely, no sin is too big for Him.</li>
+            <li>You can sincerely apologize to a person, but you can't control or guarantee that they will forgive you. Allah has guaranteed that when you turn to Him sincerely, He will forgive — that is His promise. So work toward the guarantee.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>"Rabbī" — my Master</h3>
+            <span class="code-badge">The One Who Nurtured Me</span>
+          </div>
+          <ul class="points">
+            <li><b>Rabbī</b> holds a gem: He is my Master, who nurtured and cared for me all along.</li>
+            <li>While you were hurting me, you were hurting His beloved servant — violating one He loves.</li>
+            <li>Allah is offended on Yaʿqūb's (AS) behalf against them — yet "I will turn to Him, tell Him I forgive them, and beg Him to forgive you."</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>"Innahu huwa…" — go to Him yourselves</h3>
+            <span class="code-badge">Al-Ghafūr ar-Raḥīm</span>
+          </div>
+          <ul class="points">
+            <li>"Certainly He, in fact He, is the one who forgives like no one else — extremely forgiving, always loving and caring."</li>
+            <li>The implication: you should primarily be seeking forgiveness yourselves. You ask me to forgive, but you're forgetting who Allah is.</li>
+            <li>"I'll ask — I'll get to it — but know that Allah is extremely forgiving, so you need to go directly to Him too."</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 13 -->
+    <section class="class-section" id="s-13" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">13</span>
+        <h2>"Now You're Sorry?" — The Pharaoh Parallel</h2>
+        <button class="collapse-toggle" data-target="s-13" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-13"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Turning to the "dark side"</h3>
+            <span class="code-badge">Repentance Only When Overrun</span>
+          </div>
+          <ul class="points">
+            <li>Now the reading that refuses the benefit of the doubt: if you were really that sorry — well, all these years you weren't.</li>
+            <li>Pharaoh wasn't sorry and didn't believe in God. Since Mūsā (AS) went up a mountain to speak to God, Pharaoh told Hāmān to build him a tower so he could climb up and talk to "Moses' God" himself.</li>
+            <li>Only when he was about to drown did he start believing. Once overrun and powerless, suddenly there's repentance.</li>
+          </ul>
+        </div>
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Yūnus 91</span>
+          <p class="ayah-ar arabic">ءَآلْـَٔـٰنَ وَقَدْ عَصَيْتَ قَبْلُ وَكُنتَ مِنَ ٱلْمُفْسِدِينَ</p>
+          <p class="ayah-en">"Now? And you had disobeyed [Him] before and were of the corrupters?" — Sahih International</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The same verse, aimed at the brothers</h3>
+            <span class="code-badge">A Convenient Apology</span>
+          </div>
+          <ul class="points">
+            <li>Not playing devil's advocate, but the "no benefit of the doubt" advocate: you could quote that exact ayah at them.</li>
+            <li>"Oh, now you're sorry — because he's the prime minister of Egypt. If I don't forgive you and tell my son not to, you know what will happen."</li>
+            <li>"What about yelling at me before you left? Calling me crazy, and teaching your kids to call me an insane old man all these years?"</li>
+            <li>"You weren't sorry on any of those days — not last week, not a day ago, not two days ago. Suddenly your eyes opened and you realized you'd been sinning all along? What did you think you were earning — good deeds?"</li>
+            <li>Yaʿqūb (AS) would never talk like this — the point is only that the text could be read this way.</li>
+            <li>"How convenient — now that you're overrun, what choice do you have? When you were still strong, you didn't need my forgiveness. Forget the Ākhirah and dunyā — you just can't mess with me anymore; I'm the prime minister's father."</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 14 -->
+    <section class="class-section" id="s-14" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">14</span>
+        <h2>An Insurance Policy Before Egypt</h2>
+        <button class="collapse-toggle" data-target="s-14" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-14"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>What if the case is reopened?</h3>
+            <span class="code-badge">A Realistic Fear</span>
+          </div>
+          <ul class="points">
+            <li>Yusuf (AS) said no harm would befall them today — but what if he meets Yaʿqūb, Yaʿqūb starts crying, and says: "You may have forgiven them for what they did to you, but I can't forgive what they did to me. I want justice."</li>
+            <li>Yusuf might then say: I can forgive my part, but not my father's; my father has a right to take justice — and he can.</li>
+            <li>Seeing his father's tears could revisit things, and Yusuf might start asking questions.</li>
+            <li>Even though Yusuf calmed them and invited their families, they realistically had every reason to fear him.</li>
+            <li>He never asked the details. They did a lot of messed-up things after he was gone. If Dad opens his mouth, Yusuf might say: "I forgave what you did to me, but I didn't know about all this — let's review the case."</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Duʿāʾ as an endorsement</h3>
+            <span class="code-badge">Safe With Yusuf</span>
+          </div>
+          <ul class="points">
+            <li>So before heading back to Egypt: "Could you just pray for us?" — and act all spiritual.</li>
+            <li>If Yaʿqūb is seen praying for them — or tells Yusuf to forgive them too — they are safe with Yusuf.</li>
+            <li>His duʿāʾ would be an immediate endorsement that he's okay with them, which means Yusuf won't be upset on his father's behalf — an insurance policy.</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 15 -->
+    <section class="class-section" id="s-15" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">15</span>
+        <h2>What They Didn't Say</h2>
+        <button class="collapse-toggle" data-target="s-15" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-15"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Re-reading the words skeptically</h3>
+            <span class="code-badge">No Allah, No Specifics</span>
+          </div>
+          <ul class="points">
+            <li>Even now, they can't bring themselves to mention Allah's name.</li>
+            <li>"Forgive our sins" — which sins exactly? Spell them out.</li>
+            <li>By one linguistic standard, <b>dhunūb</b> can denote lesser sins, while <b>sayyiʾāt</b> is used for major evil deeds — so perhaps they don't even think their deeds were that bad: "just some embarrassing things we did."</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Skipping the confession</h3>
+            <span class="code-badge">Straight to "Make Duʿāʾ"</span>
+          </div>
+          <ul class="points">
+            <li>Instead of confessing — "we were liars, we wronged you, we did this and this" — they went straight to "make duʿāʾ for us."</li>
+            <li>Yaʿqūb (AS) still doesn't know the details. With Yusuf alive, the obvious question is: you brought me a shirt with blood — now tell me what happened. He has every right to ask.</li>
+            <li>Before he can even open his mouth: "Just ask Allah to forgive us." In other words, let it be ancient history; if Allah forgives, who are we to remember? Rehashing it would go badly.</li>
+            <li>"You're a man of God — you should just pray for us."</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 16 -->
+    <section class="class-section" id="s-16" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">16</span>
+        <h2>"Soon" as Wait-and-See</h2>
+        <button class="collapse-toggle" data-target="s-16" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-16"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>"You think I buy it already?"</h3>
+            <span class="code-badge">Show Me Real Change</span>
+          </div>
+          <ul class="points">
+            <li>On this reading, "I will soon seek forgiveness" means: do you think I believe you transformed overnight? I need to see real change.</li>
+            <li>I'll wait and see whether you mean it — whether your prayers change, whether there are tears in your eyes when you know I'm not looking.</li>
+            <li>Human forgiveness and Allah's forgiveness are separate. You can ask Allah right now, and He can forgive immediately.</li>
+            <li>Me praying for you — meaning I've forgiven you, plus praying on top of that — will happen in due time. "I'll forgive you when I'm ready, and I'm not ready, because I don't know where you stand yet."</li>
+            <li>Whether I forgive you matters less than the fact that Allah is all-forgiving and has love and mercy for all His servants — be concerned with that.</li>
+            <li>When someone has lost credibility for that many years, it is entirely understandable not to take their words at face value.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Other related views</h3>
+            <span class="code-badge">Revelation, or Raw Hurt</span>
+          </div>
+          <ul class="points">
+            <li>Some scholars mention that Allah revealed to Yaʿqūb (AS) that He had not yet forgiven them, so he wouldn't ask yet. The teacher doesn't necessarily subscribe to this, but the idea is similar.</li>
+            <li>Why would Allah not have forgiven yet? Because their hearts weren't sincere yet. Allah knows the heart; when it is sincere, He forgives immediately — there is no delay or procrastination in receiving His forgiveness.</li>
+            <li>Another reading of "soon": the hurt is overwhelming. This news makes me revisit the past years, my assumptions about you, and the gravity of the evil you did to me and my children. I need time to process; I can't just sit here and pray "O Allah, forgive them." Give me some time.</li>
+            <li>The Qur'an is remarkably nuanced: it recognizes the spiritual power of forgiving, while also recognizing we are human beings in the end — even prophets.</li>
+            <li>One commentator even mentions that perhaps his anger or hurt kept him from making istighfār immediately.</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 17 -->
+    <section class="class-section" id="s-17" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">17</span>
+        <h2>Prophets Are Human, Not Superhuman</h2>
+        <button class="collapse-toggle" data-target="s-17" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-17"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Why the teacher is wary of the "superhuman" readings</h3>
+            <span class="code-badge">A Disservice to Prophets</span>
+          </div>
+          <ul class="points">
+            <li>Some prefer readings like "he forgave them and will keep praying for them" because they want to paint prophets as almost superhuman.</li>
+            <li>Removing the human element is itself a disservice: if prophets could forgive in impossible circumstances effortlessly, that implies Allah helped them and won't help us — so we can't do what they did.</li>
+            <li>That thinking creates distance between us and the prophets of Allah.</li>
+            <li>A father's pain is a father's pain, even when he is a prophet; a child's suffering is a child's suffering, even when he is a prophet. Their suffering is no different from ours.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Two extremes about prophets</h3>
+            <span class="code-badge">"He Walks in the Marketplace"</span>
+          </div>
+          <ul class="points">
+            <li>Some made prophets into gods, beings of light, or angels.</li>
+            <li>Others mocked: what kind of messenger is this? He walks in the marketplace, goes shopping, eats food like us — what's the big deal?</li>
+            <li>The truth: he is like you in every way, yet committed to Allah, fighting off every evil that comes, and so he becomes a role model for you.</li>
+            <li>With Yaʿqūb (AS) it isn't superhuman patience that prays instantly — he is human, hurt, and needs a little while.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Honest rather than artificial</h3>
+            <span class="code-badge">Ghafūr vs. Raḥīm</span>
+          </div>
+          <ul class="points">
+            <li>He says this openly rather than giving a fake "yeah, yeah, of course I'll pray for you" — the kind of reply people give while thinking "no" inside, just to avoid drama.</li>
+            <li>Instead: "I can't yet — soon." And because he can't forgive immediately, given the hurt they caused to his love, they now appreciate who Allah is.</li>
+            <li>Allah loves more than any human can, and they violated Allah before violating him — yet Allah forgives immediately. He contrasts his inability to forgive instantly with Allah's ability to forgive and love regardless of a person's sins.</li>
+            <li><b>Ghafūr</b>: forgiveness means it is no longer held against you; it's moved on from.</li>
+            <li><b>Raḥīm</b>: love and care on top of that. Forgiving someone doesn't mean you love them or go out of your way to care for them.</li>
+            <li>People forgive the killers of their family members — that doesn't mean dinner together every night or paying their bills. "I forgave you; please don't let me see your face." Allah, though, is both.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Emotional and spiritual at once</h3>
+            <span class="code-badge">A Feature of This Sūrah</span>
+          </div>
+          <ul class="points">
+            <li>One of the most beautiful features of this sūrah: people are portrayed as intensely emotional and intensely spiritual at the same time.</li>
+            <li>As emotional beings we have limits — we aren't infinitely loving, infinitely patient, or infinitely able to withstand abuse.</li>
+            <li>Even a prophet can't hold back his tears, can't hold in crying out for his son, his baby, Yusuf, years later. This acknowledgement is itself very powerful.</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 18 -->
+    <section class="class-section" id="s-18" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">18</span>
+        <h2>The Deliberate Silence of the Text</h2>
+        <button class="collapse-toggle" data-target="s-18" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-18"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Two things the Qur'an never records</h3>
+            <span class="code-badge">Not a Small Detail</span>
+          </div>
+          <ul class="points">
+            <li>On one side, an elaborate picture of the benefit of the doubt; on the other, a convenient apology from people who don't want to end up on the wrong side of Yusuf and Yaʿqūb (AS) — and who didn't mention Allah.</li>
+            <li>Nowhere does the Qur'an record them asking Allah directly for forgiveness.</li>
+            <li>Nor does Allah ever mention in the Qur'an that He forgave them.</li>
+            <li>That is striking, because elsewhere Allah mentions people who ask forgiveness and then that He forgave them.</li>
+            <li>The servant turning to God and God turning to the servant in forgiveness is a fundamental pillar of guidance — the heart of the story of our entire lives, and of history.</li>
+            <li>You can't dismiss it as "understood": it's spelled out for others, so why not here?</li>
+          </ul>
+        </div>
+
+        <div class="quote">
+          The text seems to be telling us there is no way to know what was in their hearts — whether they finally felt connected to Allah and saw the gravity of their sins, or acted out of social and political convenience to save themselves from humiliation.
+          <footer>The Teacher's Take</footer>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 19 -->
+    <section class="class-section" id="s-19" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">19</span>
+        <h2>Forgiveness With Caution</h2>
+        <button class="collapse-toggle" data-target="s-19" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-19"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Why we aren't told</h3>
+            <span class="code-badge">A Timeless Lesson</span>
+          </div>
+          <ul class="points">
+            <li>Human forgiveness has to come with caution.</li>
+            <li>"Soon" can mean: let's wait and see whether this is sincere; if I let my guard down, maybe you'll be up to no good again.</li>
+            <li>It is completely okay not to trust someone's apology — or, even taking it at face value, to take it with a grain of salt, stay cautious and "sleep with one eye open."</li>
+            <li>Our religion doesn't expect us to be naive — "you forgave them, so they're your brother now, it's all okay." It's not.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Real-life examples</h3>
+            <span class="code-badge">Business &amp; Marriage</span>
+          </div>
+          <ul class="points">
+            <li>If someone cheated me in business and I forgave them, I won't do business with them again — or if I did, I'd think about it a thousand times. That doesn't mean I didn't forgive; it means I don't know whether their apology was sincere — that is with Allah.</li>
+            <li>The balance: I don't know, so I give you the benefit of the doubt and pray it's sincere — Allah knows and absolutely forgives — but I take the cautionary road, and I have the right to.</li>
+            <li>This isn't about questioning people or calling them hypocrites; it's about lost credibility.</li>
+            <li>In a marriage, a spouse commits a grievous wrong, apologizes and is forgiven — then again, and again, crying each time, ten times over, now swearing by Allah, "Allah is witness it's true."</li>
+            <li>The tears may be fine, but credibility is gone: "I need to be careful now." "Are you questioning my intentions?" "No — I'm just taking precautions."</li>
+          </ul>
+        </div>
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Yūsuf 92 — a similar spirit</span>
+          <p class="ayah-ar arabic">قَالَ لَا تَثْرِيبَ عَلَيْكُمُ ٱلْيَوْمَ ۖ يَغْفِرُ ٱللَّهُ لَكُمْ ۖ وَهُوَ أَرْحَمُ ٱلرَّٰحِمِينَ</p>
+          <p class="ayah-en">"He said, 'No blame will there be upon you today. Allah will forgive you; and He is the most merciful of the merciful.'" — Sahih International</p>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <h3>Echoing Yusuf's own words</h3>
+            <span class="code-badge">Like Father, Like Son</span>
+          </div>
+          <ul class="points">
+            <li>Yaʿqūb's (AS) answer is almost the same as what Yusuf (AS) told them: no harm or shaming for what happened before, up until today; may Allah forgive you; He is the most loving and caring of all who love and care.</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 20 -->
+    <section class="class-section" id="s-20" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">20</span>
+        <h2>Where the Teacher Leans</h2>
+        <button class="collapse-toggle" data-target="s-20" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-20"><div class="class-body-inner">
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Al-Baqarah 133</span>
+          <p class="ayah-ar arabic">إِذْ قَالَ لِبَنِيهِ مَا تَعْبُدُونَ مِنۢ بَعْدِى قَالُوا۟ نَعْبُدُ إِلَـٰهَكَ وَإِلَـٰهَ ءَابَآئِكَ إِبْرَٰهِـۧمَ وَإِسْمَـٰعِيلَ وَإِسْحَـٰقَ إِلَـٰهًا وَٰحِدًا وَنَحْنُ لَهُۥ مُسْلِمُونَ</p>
+          <p class="ayah-en">"…when he said to his sons, 'What will you worship after me?' They said, 'We will worship your God and the God of your fathers, Abraham and Ishmael and Isaac — one God. And we are Muslims [in submission] to Him.'" — Sahih International</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Inclined toward the benefit of the doubt</h3>
+            <span class="code-badge">The Deathbed Declaration</span>
+          </div>
+          <ul class="points">
+            <li>Personally, the teacher is inclined to give the benefit of the doubt here and wants to be able to say they were genuine.</li>
+            <li>What strengthens this in his heart: on Yaʿqūb's (AS) deathbed, his last question to his children (al-Baqarah) was what they would worship after he was gone.</li>
+            <li>They all answered: your God, the God of your fathers Ibrāhīm, Ismāʿīl and Isḥāq — one God — and we are in surrender to Him.</li>
+            <li>There was no reason to say it then — no social pressure, no showing off, no extra advantage. It was sincere, and the Qur'an records it as sincere.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Buried under their own sins</h3>
+            <span class="code-badge">Too Ashamed to Face Them</span>
+          </div>
+          <ul class="points">
+            <li>Perhaps they did finally find Allah, but were so overwhelmed by the gravity of their sins that they mentioned only their sins.</li>
+            <li>Perhaps they did mean "ask others to forgive us," because they couldn't bring themselves to face Yusuf and apologize — even though he said no harm would come — and it's too embarrassing to face Binyamin now.</li>
+            <li>They had been blind to the wrong they were doing; now they finally see themselves for what they were.</li>
+          </ul>
+        </div>
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Al-Ḥashr 19</span>
+          <p class="ayah-ar arabic">وَلَا تَكُونُوا۟ كَٱلَّذِينَ نَسُوا۟ ٱللَّهَ فَأَنسَىٰهُمْ أَنفُسَهُمْ</p>
+          <p class="ayah-en">"And be not like those who forgot Allah, so He made them forget themselves." — Sahih International</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Know yourself, know your Master</h3>
+            <span class="code-badge">When You Forget Allah</span>
+          </div>
+          <ul class="points">
+            <li>The famous Arabic axiom: whoever knows themselves knows their Master — and its Qur'anic corollary: don't be like those who forgot Allah, so He made them forget themselves.</li>
+            <li>When you're not mindful of Allah, you do things that aren't the real you; when you become conscious of Him again, you look back and ask, "How was that me? How did I do this?"</li>
+            <li>When you forget Allah you become someone else: your justifications and rationale change, and your conscience, guilt and moral compass get "put in a freezer."</li>
+            <li>That happens because the bond with Allah was severed. Perhaps the brothers have now found that bond again, while still buried under the sins that took them away from Him.</li>
+            <li>And Yaʿqūb (AS) is saying: I will seek forgiveness for you — but you must do your part. I'll do it, but Allah is extremely forgiving, all-loving and caring.</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 21 -->
+    <section class="class-section" id="s-21" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">21</span>
+        <h2>Closing &amp; What Lies Ahead</h2>
+        <button class="collapse-toggle" data-target="s-21" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-21"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Nearing the end of the story</h3>
+            <span class="code-badge">Heavy Lifting Ahead</span>
+          </div>
+          <ul class="points">
+            <li>This concludes the discussion of the exchange; the series is now nearing the conclusion of the story.</li>
+            <li>From here it's heavy lifting — the ayat are very loaded, and perhaps not even one ayah can be covered per session after the next one.</li>
+            <li>The series won't be rushed; time will be taken to explore Allah's word this way and share it.</li>
+            <li>Closing duʿāʾ: that you and your families find a renewed sense of love and curiosity for the word of Allah, bringing light into all your lives.</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+  </main>
+</div>
+
+<button id="toTop" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<div id="quickPanel">
+  <div class="qp-head">Jump to Section</div>
+  <ul id="qpList"></ul>
+</div>
+
+<button id="quickFab" aria-label="Open quick navigation" aria-expanded="false">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+</button>
+
+<script>
+  const heroHeader = document.querySelector('header.hero');
+  function syncHeaderHeight(){
+    const refBar = document.querySelector('.ref-bar');
+    document.documentElement.style.setProperty('--header-h', (heroHeader.offsetHeight + refBar.offsetHeight) + 'px');
+  }
+  syncHeaderHeight();
+  window.addEventListener('resize', syncHeaderHeight);
+
+  const progress = document.getElementById('progress');
+  function updateProgress(){
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    progress.style.width = scrolled + '%';
+    document.getElementById('toTop').classList.toggle('show', h.scrollTop > 700);
+  }
+  document.addEventListener('scroll', updateProgress, {passive:true});
+  updateProgress();
+
+  document.getElementById('toTop').addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+  const tocToggle = document.getElementById('tocToggle');
+  const tocPanelOuter = document.getElementById('tocPanelOuter');
+  function closeToc(){
+    tocPanelOuter.classList.remove('open');
+    tocToggle.setAttribute('aria-expanded', 'false');
+  }
+  tocToggle.addEventListener('click', () => {
+    const isOpen = tocPanelOuter.classList.toggle('open');
+    tocToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  /* Build quick-nav list from sections */
+  const sections = Array.from(document.querySelectorAll('main section.class-section'));
+  const ALL_SECTION_IDS = sections.map(s => s.id);
+  const qpList = document.getElementById('qpList');
+  const chevron = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+  sections.forEach(sec => {
+    const idx = sec.querySelector('.class-head .idx').textContent;
+    const title = sec.querySelector('.class-head h2').textContent;
+    const color = sec.style.getPropertyValue('--g-color');
+    const li = document.createElement('li');
+    li.dataset.target = sec.id;
+    const a = document.createElement('a');
+    a.href = '#' + sec.id;
+    a.style.setProperty('--qc', color);
+    a.innerHTML = '<span class="qp-idx">' + idx + '</span>';
+    a.appendChild(document.createTextNode(title));
+    const t = document.createElement('span');
+    t.className = 'qp-toggle';
+    t.dataset.target = sec.id;
+    t.innerHTML = chevron;
+    li.appendChild(a); li.appendChild(t);
+    qpList.appendChild(li);
+  });
+
+  const navLinks = document.querySelectorAll('nav.sidebar li a');
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const id = entry.target.id;
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  sections.forEach(el => sectionObserver.observe(el));
+
+  const quickFab = document.getElementById('quickFab');
+  const quickPanel = document.getElementById('quickPanel');
+  function openQuickPanel(){ quickPanel.classList.add('open'); quickFab.classList.add('open'); quickFab.setAttribute('aria-expanded','true'); }
+  function closeQuickPanel(){ quickPanel.classList.remove('open'); quickFab.classList.remove('open'); quickFab.setAttribute('aria-expanded','false'); }
+  quickFab.addEventListener('click', () => { quickPanel.classList.contains('open') ? closeQuickPanel() : openQuickPanel(); });
+  document.addEventListener('click', (e) => {
+    if(quickPanel.classList.contains('open') && !quickPanel.contains(e.target) && !quickFab.contains(e.target)){ closeQuickPanel(); }
+  });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeQuickPanel(); });
+  quickPanel.querySelectorAll('a').forEach(a => { a.addEventListener('click', () => closeQuickPanel()); });
+
+  function setCollapsed(id, collapsed){
+    const body = document.getElementById('body-' + id);
+    const btn = document.querySelector('.collapse-toggle[data-target="' + id + '"]');
+    const qpItem = document.querySelector('#qpList li[data-target="' + id + '"]');
+    if(body) body.classList.toggle('collapsed', collapsed);
+    if(btn) btn.setAttribute('aria-expanded', String(!collapsed));
+    if(qpItem) qpItem.classList.toggle('is-collapsed', collapsed);
+  }
+  function isCollapsed(id){
+    const body = document.getElementById('body-' + id);
+    return body ? body.classList.contains('collapsed') : false;
+  }
+  function toggleCollapsed(id){ setCollapsed(id, !isCollapsed(id)); }
+
+  document.querySelectorAll('.collapse-toggle').forEach(btn => {
+    btn.addEventListener('click', () => toggleCollapsed(btn.dataset.target));
+  });
+  document.querySelectorAll('#qpList li').forEach(item => {
+    const id = item.dataset.target;
+    item.querySelector('.qp-toggle').addEventListener('click', (e) => { e.stopPropagation(); e.preventDefault(); toggleCollapsed(id); });
+  });
+
+  document.getElementById('expandAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, false)));
+  document.getElementById('collapseAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, true)));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', () => {
+      const href = a.getAttribute('href').slice(1);
+      if(!href) return;
+      const target = document.getElementById(href);
+      if(!target) return;
+      if(target.classList.contains('class-section')){ setCollapsed(href, false); }
+      if(a.closest('nav.sidebar')){ closeToc(); }
+    });
+  });
+
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', () => {
+    const q = searchInput.value.trim().toLowerCase();
+    navLinks.forEach(a => {
+      const key = ((a.dataset.key || '') + ' ' + a.textContent).toLowerCase();
+      const match = q === '' || key.includes(q);
+      a.dataset.hidden = match ? '0' : '1';
+      const section = document.querySelector(a.getAttribute('href'));
+      if(section){ section.style.display = match ? '' : 'none'; }
+    });
+  });
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

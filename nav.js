@@ -25,7 +25,8 @@
         { href: "surah-yusuf-90.html",         page: "yusuf90",         color: "var(--c-5)", title: "\"Are You Really Yusuf?\"", sub: "Sūrah Yūsuf, Āyah 90 · Nouman Ali Khan" },
         { href: "surah-yusuf-91-92.html",      page: "yusuf9192",       color: "var(--c-6)", title: "\"Allah Has Preferred You Over Us\"", sub: "Sūrah Yūsuf, Āyāt 91–92 · Nouman Ali Khan" },
         { href: "surah-yusuf-94-95.html",      page: "yusuf94",         color: "var(--c-2)", title: "\"I Find the Scent of Yusuf\"", sub: "Sūrah Yūsuf, Āyāt 94–95 · Nouman Ali Khan" },
-        { href: "surah-yusuf-96.html",          page: "yusuf96",         color: "var(--c-1)", title: "\"Didn't I Tell You?\"", sub: "Sūrah Yūsuf, Āyah 96 · Nouman Ali Khan" }
+        { href: "surah-yusuf-96.html",          page: "yusuf96",         color: "var(--c-1)", title: "\"Didn't I Tell You?\"", sub: "Sūrah Yūsuf, Āyah 96 · Nouman Ali Khan" },
+        { href: "surah-yusuf-97-98.html",       page: "yusuf97-98",      color: "var(--c-4)", title: "\"Seek Forgiveness for Us\"", sub: "Sūrah Yūsuf, Āyāt 97–98 · Nouman Ali Khan" }
       ]
     },
     {
