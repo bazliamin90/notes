@@ -23,7 +23,9 @@
         { href: "surah-yusuf-87.html",        page: "yusuf87",         color: "var(--c-1)", title: "\"Go, Seek Out Yusuf and His Brother\"", sub: "Sūrah Yūsuf, Āyah 87 · Nouman Ali Khan" },
         { href: "surah-yusuf-88-89.html",     page: "yusuf8889",       color: "var(--c-3)", title: "\"Did You Know What You Did to Yusuf?\"", sub: "Sūrah Yūsuf, Āyāt 88–89 · Nouman Ali Khan" },
         { href: "surah-yusuf-90.html",         page: "yusuf90",         color: "var(--c-5)", title: "\"Are You Really Yusuf?\"", sub: "Sūrah Yūsuf, Āyah 90 · Nouman Ali Khan" },
-        { href: "surah-yusuf-91-92.html",      page: "yusuf9192",       color: "var(--c-6)", title: "\"Allah Has Preferred You Over Us\"", sub: "Sūrah Yūsuf, Āyāt 91–92 · Nouman Ali Khan" }
+        { href: "surah-yusuf-91-92.html",      page: "yusuf9192",       color: "var(--c-6)", title: "\"Allah Has Preferred You Over Us\"", sub: "Sūrah Yūsuf, Āyāt 91–92 · Nouman Ali Khan" },
+        { href: "surah-yusuf-94-95.html",      page: "yusuf94",         color: "var(--c-2)", title: "\"I Find the Scent of Yusuf\"", sub: "Sūrah Yūsuf, Āyāt 94–95 · Nouman Ali Khan" },
+        { href: "surah-yusuf-96.html",          page: "yusuf96",         color: "var(--c-1)", title: "\"Didn't I Tell You?\"", sub: "Sūrah Yūsuf, Āyah 96 · Nouman Ali Khan" }
       ]
     },
     {

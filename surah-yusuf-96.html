@@ -1,0 +1,1848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>"Didn't I Tell You?" — Surah Yusuf 96 | Study Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --paper:#fbfbfd;
+    --ink:#14151a;
+    --ink-soft:#5a5d6b;
+    --line:#e7e7ee;
+    --line-soft:#f0f0f5;
+
+    --c-1:#7c3aed;  --c-1-tint:#f4edff;   /* violet */
+    --c-2:#0284c7;  --c-2-tint:#e8f6ff;   /* ocean */
+    --c-3:#ea580c;  --c-3-tint:#fff1e8;   /* coral */
+    --c-4:#db2777;  --c-4-tint:#ffe9f4;   /* magenta */
+    --c-5:#059669;  --c-5-tint:#e6faf2;   /* emerald */
+    --c-6:#0f766e;  --c-6-tint:#e6f8f6;   /* teal */
+
+    --accent: var(--c-1);
+    --accent-tint: var(--c-1-tint);
+
+    --radius: 18px;
+    --shadow: 0 1px 2px rgba(20,21,26,.04), 0 12px 32px -16px rgba(20,21,26,.14);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background: var(--accent); color:#fff; }
+
+  h1,h2,h3,h4{ font-family:'Space Grotesk', sans-serif; margin:0; letter-spacing:-.01em; }
+  code, .mono{ font-family:'IBM Plex Mono', monospace; }
+  a{ color:inherit; }
+  p{ margin:0; }
+  .arabic{ font-family:'Amiri', serif; direction:rtl; }
+
+  #progress{
+    position:fixed; top:0; left:0; height:3px; width:0%;
+    background: linear-gradient(90deg, var(--c-1), var(--c-2), var(--c-3), var(--c-4), var(--c-5), var(--c-6));
+    z-index:100; transition: width .1s linear;
+  }
+
+  .ref-bar{
+    background:var(--ink); color:#fff;
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    padding:9px 8vw; display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  }
+  .ref-bar .ref-label{ color:rgba(255,255,255,.55); text-transform:uppercase; letter-spacing:.08em; font-size:10.5px; }
+  .ref-bar .ref-txt{ opacity:.85; }
+
+  header.hero{
+    padding: 6px 8vw;
+    min-height:46px;
+    display:flex; align-items:center; gap:10px;
+    position:sticky; top:0; z-index:80;
+    border-bottom:1px solid var(--line);
+    background-color:#fff;
+    background-image:
+      radial-gradient(700px 340px at 8% -10%, var(--c-1-tint), transparent 60%),
+      radial-gradient(600px 300px at 95% 0%, var(--c-3-tint), transparent 55%);
+  }
+
+  /* ---------- burger navigation ---------- */
+  .burger-wrap{ position:relative; display:flex; align-items:center; }
+  .burger-btn{
+    width:34px; height:34px; border-radius:10px; border:1.3px solid var(--line);
+    background:var(--paper); color:var(--ink); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: border-color .15s ease, background .15s ease, color .15s ease;
+  }
+  .burger-btn:hover{ border-color: var(--c-1); }
+  .burger-btn.open{ background: var(--c-1); border-color: var(--c-1); color:#fff; }
+  .burger-btn svg{ transition: opacity .15s ease; }
+  .burger-menu{
+    position:absolute; top:calc(100% + 10px); left:0; width:320px;
+    background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow);
+    padding:8px; opacity:0; transform: translateY(-6px); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease; z-index:120;
+    display:flex; flex-direction:column;
+  }
+  .burger-menu.open{ opacity:1; transform: translateY(0); pointer-events:auto; }
+  .burger-menu-home{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; margin:2px 2px 8px;
+    border-radius:10px; border-bottom:1px solid var(--line-soft);
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-home svg{ flex:none; color:var(--ink-soft); }
+  .burger-menu-home:hover{ background: var(--paper); }
+  .burger-menu-home.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-home.is-current .bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-search{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:10px; padding:8px 10px; margin:2px 2px 8px;
+    background:var(--paper); flex:none;
+  }
+  .burger-menu-search svg{ flex:none; opacity:.5; color:var(--ink-soft); }
+  .burger-menu-search input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13px; width:100%; color:var(--ink);
+  }
+  .burger-menu-list{ max-height:340px; overflow-y:auto; overscroll-behavior:contain; }
+  .burger-menu-list::-webkit-scrollbar{ width:6px; }
+  .burger-menu-list::-webkit-scrollbar-thumb{ background:var(--line); border-radius:10px; }
+  .burger-menu-group + .burger-menu-group{ margin-top:4px; }
+  .burger-menu-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); padding:8px 10px 4px;
+  }
+  .burger-menu-empty{
+    display:none; padding:18px 10px; text-align:center; font-size:12.5px; color:var(--ink-soft);
+  }
+  .burger-menu-item{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; border-radius:10px;
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-item span.bm-title{ display:block; }
+  .burger-menu-item span.bm-sub{ display:block; font-size:11.5px; color:var(--ink-soft); font-weight:400; margin-top:1px; }
+  .burger-menu-item:hover{ background: var(--paper); }
+  .burger-menu-item.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-item.is-current span.bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-dot{ width:9px; height:9px; border-radius:3px; flex:none; margin-top:3px; }
+
+  .page-title{ padding: 30px 8vw 6px; }
+  .page-title .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-soft); margin-bottom:10px; display:block;
+  }
+  .page-title h1{
+    font-size: clamp(26px, 5vw, 46px);
+    line-height:1.12;
+    font-weight:700;
+  }
+  .page-title h1 .accent-word{
+    background: linear-gradient(100deg, var(--c-1), var(--c-4) 55%, var(--c-3));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .page-title .sub{
+    margin-top:14px; max-width:66ch; color:var(--ink-soft); font-size:15px; line-height:1.6;
+  }
+  .page-title .tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+  .page-title .tag{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; border:1.3px solid var(--line);
+    color:var(--ink-soft); font-weight:500; background:var(--paper);
+  }
+
+  .layout{
+    max-width:1400px; margin:0 auto;
+  }
+  .toc-wrap{
+    border-bottom:1px solid var(--line);
+    padding: 0 8vw;
+  }
+  .toc-toggle{
+    width:100%; display:flex; align-items:center; justify-content:space-between; gap:10px;
+    background:none; border:none; cursor:pointer; padding:16px 0;
+    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px; color:var(--ink);
+  }
+  .toc-toggle:hover{ color:var(--c-1); }
+  .toc-toggle-left{ display:flex; align-items:center; gap:10px; }
+  .toc-toggle-left svg{ color:var(--ink-soft); flex:none; }
+  .toc-count{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft); font-weight:500;
+    background:var(--paper); border:1px solid var(--line); padding:2px 8px; border-radius:100px;
+  }
+  .toc-chevron{ transition: transform .3s ease; color:var(--ink-soft); flex:none; }
+  .toc-toggle[aria-expanded="true"] .toc-chevron{ transform: rotate(180deg); }
+  .toc-panel-outer{ display:grid; grid-template-rows: 0fr; transition: grid-template-rows .35s ease; }
+  .toc-panel-outer.open{ grid-template-rows: 1fr; }
+  .toc-panel-inner{ overflow:hidden; min-height:0; }
+
+  nav.sidebar{ display:block; padding: 4px 0 22px; }
+
+  .search-box{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:12px; padding:10px 12px; margin-bottom:18px;
+    background:var(--paper);
+  }
+  .search-box input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13.5px; width:100%; color:var(--ink);
+  }
+  .search-box svg{ flex:none; opacity:.5; }
+
+  .nav-actions{ display:flex; gap:8px; margin-bottom:18px; }
+  .nav-actions button{
+    flex:1; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    border:1.3px solid var(--line); background:#fff; color:var(--ink-soft);
+    padding:7px 8px; border-radius:9px; cursor:pointer; transition:.15s ease;
+  }
+  .nav-actions button:hover{ border-color:var(--ink); color:var(--ink); }
+
+  .nav-group-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); margin: 18px 0 6px 2px;
+  }
+  .nav-group-label:first-of-type{ margin-top:0; }
+
+  nav.sidebar ul{ list-style:none; margin:0; padding:0; border-left:2px solid var(--line-soft); }
+  nav.sidebar li a{
+    display:flex; align-items:center; gap:9px;
+    text-decoration:none; font-size:13.5px; color:var(--ink-soft);
+    padding:7px 0 7px 14px; border-left:2px solid transparent; margin-left:-2px;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  nav.sidebar li a .sw{ width:8px; height:8px; border-radius:3px; flex:none; background:var(--g-color); }
+  nav.sidebar li a:hover{ color:var(--ink); }
+  nav.sidebar li a.active{ color:var(--g-color); border-left-color: var(--g-color); font-weight:600; }
+  nav.sidebar li a[data-hidden="1"]{ display:none; }
+
+  main{ min-width:0; padding: 0 8vw 140px; }
+
+  section.class-section{ padding-top:56px; scroll-margin-top: 24px; }
+  section.class-section:first-child{ padding-top:44px; }
+
+  .class-head{
+    display:flex; align-items:baseline; gap:16px; flex-wrap:wrap;
+    padding-bottom:14px; margin-bottom:22px; border-bottom:3px solid var(--g-color);
+    position:relative;
+  }
+  .class-head .idx{
+    font-family:'IBM Plex Mono',monospace; font-size:14px; font-weight:700; color:#fff;
+    background:var(--g-color); padding:5px 10px; border-radius:8px;
+  }
+  .class-head h2{ font-size: clamp(20px,2.4vw,28px); color:var(--ink); }
+  .collapse-toggle{
+    margin-left:auto; width:34px; height:34px; border-radius:9px; border:1.5px solid var(--line);
+    background:#fff; color:var(--g-color); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: transform .3s ease, background .15s ease, border-color .15s ease;
+  }
+  .collapse-toggle:hover{ background: var(--g-tint); border-color: var(--g-color); }
+  .collapse-toggle svg{ transition: transform .3s ease; }
+  .collapse-toggle[aria-expanded="false"] svg{ transform: rotate(-90deg); }
+
+  .class-body-outer{ display:grid; grid-template-rows: 0fr; transition: grid-template-rows .38s ease; }
+  .class-body-outer.collapsed{ grid-template-rows: 0fr; }
+  .class-body-outer:not(.collapsed){ grid-template-rows: 1fr; }
+  .class-body-inner{ overflow:hidden; min-height:0; opacity:0; transition: opacity .25s ease .1s; }
+  .class-body-outer.collapsed .class-body-inner{ opacity:0; transition: opacity .18s ease; }
+  .class-body-outer:not(.collapsed) .class-body-inner{ opacity:1; }
+
+  .card{
+    background:#fff; border:1px solid var(--line); border-radius: var(--radius);
+    padding: 28px 30px; margin-bottom: 22px; position:relative; overflow:hidden;
+    border-left: 5px solid var(--g-color);
+  }
+  .card .card-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap;
+    margin-bottom:14px;
+  }
+  .card h3{ font-size:19px; font-weight:600; color:var(--ink); }
+  .card h3 .alt{ font-weight:400; color:var(--ink-soft); font-size:14px; display:block; margin-top:3px;}
+  .code-badge{
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:12px; color:#fff;
+    background: var(--g-color); padding:6px 12px; border-radius:8px; white-space:nowrap;
+  }
+
+  ul.points{ list-style:none; margin:0; padding:0; }
+  ul.points > li{
+    position:relative; padding: 10px 0 10px 34px; font-size:14.8px; line-height:1.65; color:#2b2d36;
+    border-top:1px solid var(--line-soft);
+  }
+  ul.points > li:first-child{ border-top:none; }
+  ul.points > li::before{
+    content:"—";
+    position:absolute; left:0; top:10px; width:22px; height:22px; border-radius:7px;
+    background: var(--g-tint); color:var(--g-color); font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:13px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  ul.points > li b, ul.points > li strong{ color:var(--g-color); }
+  ul.points ul{ list-style:none; margin:8px 0 0; padding:0; }
+  ul.points ul li{
+    position:relative; padding:6px 0 6px 22px; font-size:14px; color:var(--ink-soft); border-top:none;
+  }
+  ul.points ul li::before{
+    content:"·"; position:absolute; left:0; top:4px; width:14px; height:14px; border-radius:0;
+    background:none; color:var(--g-color); font-size:20px; font-weight:700; display:flex; align-items:center; justify-content:center;
+  }
+
+  .ayah-block{
+    margin: 6px 0 18px; padding:20px 22px; border-radius:14px; background:var(--paper);
+    border:1px solid var(--line);
+  }
+  .ayah-block .ayah-ref{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--g-color); font-weight:700; margin-bottom:10px; display:block;
+  }
+  .ayah-block .ayah-ar{
+    font-size:24px; line-height:2; color:var(--ink); text-align:right; margin-bottom:12px;
+  }
+  .ayah-block .ayah-en{
+    font-size:14.5px; line-height:1.6; color:var(--ink-soft); font-style:italic;
+  }
+
+  .quote{
+    margin-top:16px; padding:16px 18px; border-radius:12px; background:var(--g-tint);
+    font-family:'Space Grotesk', sans-serif; font-size:16px; line-height:1.55; color:#20222a;
+    border-left:3px solid var(--g-color);
+  }
+  .quote footer{
+    margin-top:8px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    text-transform:uppercase; color:var(--ink-soft); font-style:normal;
+  }
+
+  .pill-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .pill-row .pill{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; background:#fff; border:1.3px solid var(--g-color);
+    color:var(--g-color); font-weight:600;
+  }
+
+  .lesson-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:6px; }
+  @media (max-width:640px){ .lesson-grid{ grid-template-columns:1fr; } }
+  .lesson-card{
+    border-radius:var(--radius); padding:22px 22px; border:1.3px solid var(--line);
+  }
+  .lesson-card .kicker{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .lesson-card h4{ margin-top:8px; font-size:17px; }
+  .lesson-card p{ margin-top:10px; font-size:14px; line-height:1.6; color:#2b2d36; }
+
+  .num-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:6px; }
+  @media (max-width:760px){ .num-grid{ grid-template-columns:1fr; } }
+  .num-card{
+    border-radius:14px; padding:18px 20px; border:1.3px solid var(--line); background:var(--paper);
+    display:flex; gap:14px; align-items:flex-start;
+  }
+  .num-card .num-badge{
+    flex:none; width:30px; height:30px; border-radius:9px; background:var(--g-color); color:#fff;
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center;
+  }
+  .num-card p{ font-size:14px; line-height:1.6; color:#2b2d36; }
+
+  #toTop{
+    position:fixed; right:26px; bottom:26px; width:46px; height:46px; border-radius:50%;
+    background:var(--ink); color:#fff; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,.22); opacity:0; pointer-events:none; transition: opacity .25s ease, transform .2s ease;
+    z-index:90;
+  }
+  #toTop.show{ opacity:1; pointer-events:auto; }
+  #toTop:hover{ transform: translateY(-3px); }
+
+  #quickFab{
+    position:fixed; left:26px; bottom:26px; width:52px; height:52px; border-radius:16px;
+    background: linear-gradient(135deg, var(--c-1), var(--c-4)); color:#fff; border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; z-index:95;
+    box-shadow:0 10px 28px -6px rgba(124,58,237,.5);
+    transition: transform .2s ease, border-radius .2s ease;
+  }
+  #quickFab:hover{ transform: translateY(-3px) scale(1.03); }
+  #quickFab.open{ border-radius:50%; }
+  #quickFab svg{ transition: transform .3s ease; }
+  #quickFab.open svg{ transform: rotate(45deg); }
+
+  #quickPanel{
+    position:fixed; left:26px; bottom:90px; width:280px; max-height:60vh; overflow-y:auto;
+    background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow);
+    z-index:94; padding:14px; opacity:0; transform: translateY(10px) scale(.97); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  #quickPanel.open{ opacity:1; transform: translateY(0) scale(1); pointer-events:auto; }
+  #quickPanel .qp-head{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--ink-soft); padding:4px 8px 10px;
+  }
+  #qpList{ list-style:none; margin:0; padding:0; }
+  #qpList li{
+    display:flex; align-items:center; gap:8px; border-radius:10px; padding:2px;
+  }
+  #qpList li a{
+    flex:1; display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--ink);
+    font-size:13px; padding:8px; border-radius:10px; transition:background .15s ease;
+  }
+  #qpList li a:hover{ background:var(--paper); }
+  .qp-idx{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:700; color:#fff;
+    background: var(--qc, var(--c-1)); padding:2px 6px; border-radius:6px;
+  }
+  .qp-toggle{ padding:8px; cursor:pointer; color:var(--ink-soft); opacity:.6; }
+  .qp-toggle:hover{ opacity:1; }
+  #qpList li.is-collapsed .qp-toggle svg{ transform: rotate(-90deg); }
+  #qpList li .qp-toggle svg{ transition: transform .3s ease; }
+
+  footer.page-footer{
+    padding:30px 8vw 60px; color:var(--ink-soft); font-size:12.5px; font-family:'IBM Plex Mono',monospace;
+    border-top:1px solid var(--line); margin-top:30px;
+  }
+
+  @media (max-width: 980px){
+    main{ padding: 0 6vw 120px; }
+    .ayah-block .ayah-ar{ font-size:20px; }
+  }
+  @media (max-width: 560px){
+    .card{ padding: 22px 18px; }
+    .code-badge{ white-space:normal; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001s !important; transition-duration:.001s !important; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body data-page="yusuf96">
+
+<div id="progress"></div>
+
+<header class="hero">
+  <div class="burger-wrap">
+    <button id="navBurger" class="burger-btn" aria-haspopup="true" aria-expanded="false" aria-label="Open navigation menu">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div id="navMenu" class="burger-menu"></div>
+  </div>
+</header>
+
+<div class="ref-bar">
+  <span class="ref-label">Source</span>
+  <a href="https://www.youtube.com/watch?v=0zaVskgwnqw" target="_blank" rel="noopener" class="ref-txt" style="text-decoration:none; border-bottom:1px solid rgba(255,255,255,.35); padding-bottom:1px;">Nouman Ali Khan</a>
+</div>
+
+<div class="page-title" id="top">
+  <span class="eyebrow">Tafsīr Notes · Sūrah Yūsuf</span>
+  <h1>"Didn't I <span class="accent-word">Tell</span> You?" [Ayah 96]</h1>
+  <div class="sub">The bearer of good news finally arrives, the shirt is cast over Yaʿqūb's face, and his sight returns. Instead of settling scores with the family that mocked him, he says one sentence — "I know from Allah what you do not know" — and turns a moment of vindication into an invitation back to Allah.</div>
+  <div class="tag-row">
+    <span class="tag">Verse 96</span>
+    <span class="tag">Abūhum</span>
+    <span class="tag">al-Bashīr</span>
+    <span class="tag">Patience &amp; Gratitude</span>
+    <span class="tag">The Promise of Allah</span>
+  </div>
+</div>
+
+<div class="layout">
+
+  <div class="toc-wrap">
+    <button class="toc-toggle" id="tocToggle" aria-expanded="false" aria-controls="tocPanelOuter">
+      <span class="toc-toggle-left">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        <span>Table of Contents</span>
+      </span>
+      <svg class="toc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="toc-panel-outer" id="tocPanelOuter">
+      <div class="toc-panel-inner">
+        <nav class="sidebar">
+    <div class="search-box">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="searchInput" type="text" placeholder="Search sections…">
+    </div>
+    <div class="nav-actions">
+      <button id="expandAll">Expand all</button>
+      <button id="collapseAll">Collapse all</button>
+    </div>
+
+    <div class="nav-group-label">Setting the Scene</div>
+    <ul>
+      <li><a href="#s-01" data-key="ayah translation recap taunting grandchildren insane caravan arrives time passing" style="--g-color:var(--c-1)"><span class="sw"></span>The Ayah &amp; the Long Wait</a></li>
+      <li><a href="#s-02" data-key="abuhum their father clan grandchildren honor parents twofold respect" style="--g-color:var(--c-2)"><span class="sw"></span>"Abūhum": Their Father</a></li>
+      <li><a href="#s-03" data-key="family of ibrahim all muslim dysfunction identity upbringing" style="--g-color:var(--c-3)"><span class="sw"></span>A Muslim Family, Still Dysfunctional</a></li>
+      <li><a href="#s-04" data-key="rituals manners beard cap hijab fiqh scholarly bubble lower your voice" style="--g-color:var(--c-4)"><span class="sw"></span>Rituals Kept, Manners Dropped</a></li>
+      <li><a href="#s-05" data-key="seed garden soil analogy maryam al imran ibrahim desert tree" style="--g-color:var(--c-5)"><span class="sw"></span>A Bad Seed in a Perfect Garden</a></li>
+      <li><a href="#s-06" data-key="disrespect culture video games trash talk basketball eye rolling monsters" style="--g-color:var(--c-6)"><span class="sw"></span>Disrespect Culture Comes Home</a></li>
+      <li><a href="#s-07" data-key="premonition wolf dream bloody shirt ilham good news" style="--g-color:var(--c-1)"><span class="sw"></span>A Father Who Senses What's Coming</a></li>
+    </ul>
+
+    <div class="nav-group-label">Trials, Ease &amp; Remembrance</div>
+    <ul>
+      <li><a href="#s-08" data-key="near far scent decades no news trial ease impossible job resume" style="--g-color:var(--c-2)"><span class="sw"></span>When Easy Becomes Impossible — and Vice Versa</a></li>
+      <li><a href="#s-09" data-key="tasbih hardship victory nasr quraysh glorify perfect waves" style="--g-color:var(--c-3)"><span class="sw"></span>Glorify Allah in Hardship and in Victory</a></li>
+      <li><a href="#s-10" data-key="who was he talking to extended family sons egypt" style="--g-color:var(--c-4)"><span class="sw"></span>Who Was in the Room?</a></li>
+    </ul>
+
+    <div class="nav-group-label">Word Study</div>
+    <ul>
+      <li><a href="#s-11" data-key="falamma an zaida grammar ibn ashur omitted verb owned" style="--g-color:var(--c-5)"><span class="sw"></span>"Fa-lammā An": The Extra Word</a></li>
+      <li><a href="#s-12" data-key="bashir classical view yahudha judah suddi shirt of joy" style="--g-color:var(--c-6)"><span class="sw"></span>Who Is al-Bashīr? The Classical View</a></li>
+      <li><a href="#s-13" data-key="skeptical brothers lied confession disingenuous psychology" style="--g-color:var(--c-1)"><span class="sw"></span>Why the Teacher Is Skeptical</a></li>
+      <li><a href="#s-14" data-key="emissary servant caravan procession ertugrul shirt itself witness" style="--g-color:var(--c-2)"><span class="sw"></span>Other Candidates for al-Bashīr</a></li>
+      <li><a href="#s-15" data-key="cast on his face irtadda basira sight restored emotional physical healing" style="--g-color:var(--c-3)"><span class="sw"></span>"He Cast It Over His Face"</a></li>
+    </ul>
+
+    <div class="nav-group-label">What He Said — and Didn't</div>
+    <ul>
+      <li><a href="#s-16" data-key="scene jaw dropped owned officials king's father power" style="--g-color:var(--c-4)"><span class="sw"></span>The Room Turns in His Favor</a></li>
+      <li><a href="#s-17" data-key="what he did not say revenge well shame lies torture" style="--g-color:var(--c-5)"><span class="sw"></span>What He Didn't Say</a></li>
+      <li><a href="#s-18" data-key="heart of a father relief priority faith sons iron hot faces lit" style="--g-color:var(--c-6)"><span class="sw"></span>The Heart of a Father</a></li>
+      <li><a href="#s-19" data-key="didn't i tell you hope dream scent come back to allah" style="--g-color:var(--c-1)"><span class="sw"></span>"Didn't I Tell You?" — Unpacked</a></li>
+      <li><a href="#s-20" data-key="two kinds of knowing heart conviction passive shelf tawbah gift" style="--g-color:var(--c-2)"><span class="sw"></span>Two Kinds of Knowing</a></li>
+    </ul>
+
+    <div class="nav-group-label">Patience &amp; Gratitude</div>
+    <ul>
+      <li><a href="#s-21" data-key="patience yaqub gratitude yusuf nuh sabbar shakur" style="--g-color:var(--c-3)"><span class="sw"></span>Patience Around Yaʿqūb, Gratitude Around Yusuf</a></li>
+      <li><a href="#s-22" data-key="orange juice fridge apple juice gratitude makes patience easy" style="--g-color:var(--c-4)"><span class="sw"></span>The Orange Juice Test</a></li>
+      <li><a href="#s-23" data-key="two prophets one body complementary anchor anthem constant" style="--g-color:var(--c-5)"><span class="sw"></span>Two Prophets, One Spiritual Body</a></li>
+    </ul>
+
+    <div class="nav-group-label">The Shirt &amp; the Promise</div>
+    <ul>
+      <li><a href="#s-24" data-key="shirt not the reunion cotton sign promise dies happy" style="--g-color:var(--c-6)"><span class="sw"></span>The Shirt Is Not the Reunion</a></li>
+      <li><a href="#s-25" data-key="bankrupt man letter million dollars guarantee" style="--g-color:var(--c-1)"><span class="sw"></span>The Bankrupt Man's Letter</a></li>
+      <li><a href="#s-26" data-key="quran shirt scent promise jannah forgiveness steps fajr" style="--g-color:var(--c-2)"><span class="sw"></span>The Qur'an Is Our Shirt</a></li>
+      <li><a href="#s-27" data-key="nothing wasted hardship failure tears control heart dua" style="--g-color:var(--c-3)"><span class="sw"></span>Nothing Is Wasted</a></li>
+    </ul>
+  </nav>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- 01 -->
+    <section class="class-section" id="s-01" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">01</span>
+        <h2>The Ayah &amp; the Long Wait</h2>
+        <button class="collapse-toggle" data-target="s-01" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-01">
+      <div class="class-body-inner">
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Verse 96</span>
+          <p class="ayah-ar arabic">فَلَمَّآ أَن جَآءَ ٱلْبَشِيرُ أَلْقَىٰهُ عَلَىٰ وَجْهِهِۦ فَٱرْتَدَّ بَصِيرًا ۖ قَالَ أَلَمْ أَقُل لَّكُمْ إِنِّىٓ أَعْلَمُ مِنَ ٱللَّهِ مَا لَا تَعْلَمُونَ</p>
+          <p class="ayah-en">"And when the bearer of good tidings arrived, he cast it over his face, and he returned [once again] seeing. He said, 'Did I not tell you that I know from Allah that which you do not know?'" — Sahih International</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The title comes from the ayah itself</h3>
+            <span class="code-badge">"Didn't I Tell You?"</span>
+          </div>
+          <ul class="points">
+            <li>The lesson is titled "Didn't I Tell You" because that phrase is part of the wording of the ayah.</li>
+            <li>The teacher's working translation: when it finally came to pass that the giver of good news — the "congratulator" — arrived, he cast it upon his face, and he was restored to being someone who can see (<b>baṣīr</b>). He said: "Didn't I tell you? Certainly it is I who knows from Allah what you do not know."</li>
+            <li>The shirt doesn't need to be named in this ayah — the listener already knows what is being cast on his face.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Recap: the taunting at home</h3>
+            <span class="code-badge">The Previous Lesson</span>
+          </div>
+          <ul class="points">
+            <li>In the previous lesson, Yaʿqūb (AS) was being taunted and aggravated by his extended family — by some accounts, the conversation was between him and his grandchildren.</li>
+            <li>They effectively called him insane: still committed to his "old confusion," still lost, practically out of his mind.</li>
+            <li>He told them that had they not called him senile, they too might have sensed what he sensed — Allah could have gifted them the same gift — but they couldn't, because they had shut their eyes and senses to the dimension of faith.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>This did not happen in a split second</h3>
+            <span class="code-badge">Weeks of Abuse Before Relief</span>
+          </div>
+          <ul class="points">
+            <li>Days and weeks went by, the abuse continued, and finally the caravan arrived — this ayah describes that arrival.</li>
+            <li>In the Qur'an, scenes progress very quickly from ayah to ayah, so it can feel as if the good news came immediately after the exchange with the grandchildren and daughters-in-law.</li>
+            <li>That is not the case: this describes something that took a long time, and paying close attention to the language makes that clear.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section class="class-section" id="s-02" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">02</span>
+        <h2>"Abūhum": Their Father</h2>
+        <button class="collapse-toggle" data-target="s-02" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-02">
+      <div class="class-body-inner">
+
+        <div class="ayah-block">
+          <span class="ayah-ref">The Outstanding Item from Last Lesson</span>
+          <p class="ayah-ar arabic">وَلَمَّا فَصَلَتِ ٱلْعِيرُ قَالَ أَبُوهُمْ إِنِّى لَأَجِدُ رِيحَ يُوسُفَ ۖ لَوْلَآ أَن تُفَنِّدُونِ</p>
+          <p class="ayah-en">"And when the caravan departed [from Egypt], their father said, 'Indeed, I find the smell of Joseph [and would say that he was alive] if you did not think me weakened in mind.'" — Sahih International (Yusuf 12:94; referred to in the lecture as the previous ayah)</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A deliberate choice of title</h3>
+            <span class="code-badge">Not "Yaʿqūb Said" — "Their Father Said"</span>
+          </div>
+          <ul class="points">
+            <li>In the previous ayah, Allah didn't say "Yaʿqūb said," "Yusuf's father said," or simply "he said" — He said <b>abūhum</b>, "their father said."</li>
+            <li>The way the father is referred to varies throughout the sūrah: Yusuf (AS) said "take this shirt to my father" (<i>abī</i>), and the brothers said "he has a father" (<i>inna lahu aban</i>) — the pronoun keeps shifting.</li>
+            <li>Here Allah chose to describe Yaʿqūb (AS) not only as Yusuf's father but as "their" father.</li>
+            <li>Technically he is the father of all his sons, but they weren't there — they were in Egypt or on their way back — so "their father" expresses that he is the father of the entire clan, the grandchildren included.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Respect owed twice over</h3>
+            <span class="code-badge">Father, and Father's Father</span>
+          </div>
+          <ul class="points">
+            <li>A timeless teaching of this religion — even pre-Qur'anic — is that you must be the best you can be to your parents and direct honor toward your mother and father.</li>
+            <li>By saying <b>abūhum</b>, Allah shows he deserves their respect twofold: not just their father, but their father's father.</li>
+            <li>This sharpens the contrast with how they spoke to him and how accustomed he had become to being insulted (<i>law lā an tufannidūn</i>), even though he is their father.</li>
+            <li>It is as if Allah Himself is offended: how dare they talk to their father that way.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section class="class-section" id="s-03" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">03</span>
+        <h2>A Muslim Family, Still Dysfunctional</h2>
+        <button class="collapse-toggle" data-target="s-03" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-03">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Not a believer-versus-disbeliever conflict</h3>
+            <span class="code-badge">The Family of Ibrahim (AS)</span>
+          </div>
+          <ul class="points">
+            <li>This is very directly the family of Ibrahim (AS) — not a household where one person believes and the rest don't.</li>
+            <li>Everyone in the family is Muslim: they all believe in Ibrahim, they all believe in Islam, they even call on Allah. That is a given.</li>
+            <li>So the dysfunction here is not caused by some being believers and others not — every member is Muslim, and the conflict exists anyway.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Upbringing is not a guarantee</h3>
+            <span class="code-badge">Faith Held in Pieces</span>
+          </div>
+          <ul class="points">
+            <li>Being Muslim, having a good upbringing and environment, even having a good role model in front of you — none of this guarantees that you uphold your faith in Allah or the values the dīn comes with.</li>
+            <li>A Muslim can hold on to some parts of their faith as part of their identity, and let go of other parts as though they have nothing to do with who they are.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 04 -->
+    <section class="class-section" id="s-04" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">04</span>
+        <h2>Rituals Kept, Manners Dropped</h2>
+        <button class="collapse-toggle" data-target="s-04" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-04">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Looking the part</h3>
+            <span class="code-badge">Cap, Beard &amp; Mustache Comments</span>
+          </div>
+          <ul class="points">
+            <li>Someone can pray, do dhikr, and look every bit the sincere believer.</li>
+            <li>The teacher mentions people commenting on his appearance — asking him to wear a cap, grow his beard longer, or trim his mustache shorter — which he finds entertaining rather than offensive.</li>
+            <li>He has studied these matters to some extent for himself; he doesn't discuss such rulings on his public platform because that isn't his area of expertise.</li>
+            <li>He studies the Qur'an to learn it and teach it, but other areas of Islam — like the rituals of Hajj or ʿUmrah before he goes — he studies carefully for his own and his family's benefit.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Small bubbles, big tradition</h3>
+            <span class="code-badge">Historical vs. Contemporary Islam</span>
+          </div>
+          <ul class="points">
+            <li>These are matters with genuine scholarly differences, and such comments often show how little access people have to classical scholarly discourse.</li>
+            <li>People see Islam through the culture around them and can't see outside that bubble.</li>
+            <li>The historical "bubble" of Islam is much bigger; the contemporary bubble is much smaller — being around one group of Muslims makes you think Islam is limited to that.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The other dimensions of the same religion</h3>
+            <span class="code-badge">Where "My Islam Stops"</span>
+          </div>
+          <ul class="points">
+            <li>A person may be very particular about prayers, rituals, appearance, beard length, the kind of pants they wear, or what food they eat.</li>
+            <li>Yet other dimensions of the same religion — respect for parents, patience, lowering one's voice — are treated as if they don't exist.</li>
+            <li>No one raises their voice in a normal conversation; it happens in conflict. So the Qur'anic advice to lower your voice is really advice for conflict situations.</li>
+            <li>A young girl might wear hijab and observe the five prayers and still disrespect her mother and father, still lie, still openly give false testimony.</li>
+            <li>People pick one part of the religion and decide, "that's where my Islam stops — the rest is my own domain." That is a frightening thing.</li>
+            <li>If this could happen in the family of a prophet — who certainly taught the holistic dīn, not just beliefs and rituals while ignoring ethics, morals and manners — it can happen anywhere. He did his job teaching.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 05 -->
+    <section class="class-section" id="s-05" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">05</span>
+        <h2>A Bad Seed in a Perfect Garden</h2>
+        <button class="collapse-toggle" data-target="s-05" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-05">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The teacher's analogy</h3>
+            <span class="code-badge">Drawn from Āl ʿImrān &amp; Maryam's Upbringing</span>
+          </div>
+          <ul class="points">
+            <li>His teacher's example, taken from Āl ʿImrān and the way Maryam was raised: you plant a seed in a garden with the perfect soil — the wrong soil wouldn't nourish it.</li>
+            <li>It gets just the right amount of water, nutrition, rain and sunlight — perfect growing conditions.</li>
+            <li>You plant three or four seeds; some come out beautifully, all receiving the same sun and water — but one seed refuses to take advantage of the nourishment coming its way. Something is wrong with the seed itself.</li>
+            <li>You can be in a good environment, surrounded by the opportunity to correct yourself — in this case, living in a prophet's family, with a prophet as the father figure, from the heritage of Ibrahim (AS).</li>
+            <li>The irony: you can be in the most nurturing garden and still not grow properly.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Ibrahim (AS): a tree in the desert</h3>
+            <span class="code-badge">The Opposite Analogy</span>
+          </div>
+          <ul class="points">
+            <li>Ibrahim (AS) is the reverse: you can be in a desert and grow a perfect plant.</li>
+            <li>He was surrounded by a hostile environment with nothing to nurture faith — everything around him was wrong — yet he became a profound tree of faith surrounded by nothingness.</li>
+            <li>He wanted that tree's seeds to become a garden, so future generations would find it easier to hold onto faith without the hostility he endured.</li>
+            <li>That is what he passed down: sons, grandsons and great-grandsons, all believers, all knowing what their forefather went through, all knowing Allah, having left the ways of shirk and understood prophethood.</li>
+            <li>And yet their manners were no different from someone with no knowledge of Islam — a scary reality.</li>
+            <li>In sharing this, Allah teaches that manners and how we treat one another are among the things most easily forgotten in Muslim family life, even while holding on to Islam.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 06 -->
+    <section class="class-section" id="s-06" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">06</span>
+        <h2>Disrespect Culture Comes Home</h2>
+        <button class="collapse-toggle" data-target="s-06" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-06">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>No regard for elders</h3>
+            <span class="code-badge">A Culture of Self-Aggrandizing</span>
+          </div>
+          <ul class="points">
+            <li>People lose regard for grandparents, fathers and elders in general; younger siblings talk to older siblings as if they're garbage.</li>
+            <li>Kids today are exposed to things even kids five or ten years ago weren't: video games, social media, screen names, foul-mouthing and trash-talking each other.</li>
+            <li>There's a lot of self-aggrandizing — "I'm number one," "I'm going to destroy everyone" — a culture of celebrating your own greatness.</li>
+            <li>Back in the day in basketball, if you made a good shot, others came and gave you a five; the guy who shouted "I'm number one!" was the one nobody wanted to play with because he was obsessed with himself.</li>
+            <li>Now self-absorption has become normal.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Too big to be corrected</h3>
+            <span class="code-badge">"They're Still Turning Into Monsters"</span>
+          </div>
+          <ul class="points">
+            <li>If that culture is allowed to seep in, you become too big for your mother to correct your manners, too big for your older brother to tell you to clean your plate.</li>
+            <li>Online disrespect culture becomes part of a young person's personality, and they bring its language, demeanor and facial expressions — the eye-rolling — into the family.</li>
+            <li>If a child answers a parent with a dismissive "yeah, boy," that is disrespect at its highest — as bad as filthy language. That's not acceptable.</li>
+            <li>This can enter a believing family: they may still pray, still memorize the Qur'an perfectly, and still be turning into monsters. That must be addressed.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 07 -->
+    <section class="class-section" id="s-07" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">07</span>
+        <h2>A Father Who Senses What's Coming</h2>
+        <button class="collapse-toggle" data-target="s-07" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-07">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Another layer to "Abūhum"</h3>
+            <span class="code-badge">Bad News Then, Good News Now</span>
+          </div>
+          <ul class="points">
+            <li>"Their father" may also contrast the past: it was their father who first received the false news, with the scent of fake blood on the shirt.</li>
+            <li>Now it's the same father who knows good is coming — even before anyone presents him the truth.</li>
+            <li>Before the bad happened, he had a premonition: "I fear a wolf may eat him," harm will come to him, I don't want to let him go — the fear came before anything had occurred.</li>
+            <li>That same foreboding made him tell his son early in the story not to share his dream with his brothers.</li>
+            <li>Now it's the opposite — a kind of <b>ilhām</b>, but a positive one: good news hasn't arrived, yet he feels it coming, just as he once felt bad news coming.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 08 -->
+    <section class="class-section" id="s-08" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">08</span>
+        <h2>When Easy Becomes Impossible — and Vice Versa</h2>
+        <button class="collapse-toggle" data-target="s-08" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-08">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>An insight recorded in tafsīr</h3>
+            <span class="code-badge">From "the People of Deeper Meaning"</span>
+          </div>
+          <ul class="points">
+            <li>A comment attributed generally to those who seek deeper meanings in the ayāt (not to one specific scholar), about the previous ayah:</li>
+            <li>Allah brought Yaʿqūb (AS) the scent of Yusuf (AS) from very far away, at the end of a long period of trial.</li>
+            <li>Yet for decades — the comment says eighty years — Allah prevented any news of Yusuf from reaching his father, even though the two lands weren't far apart.</li>
+            <li>So now he senses his son through the wind, yet for all those years no word arrived from a neighboring land.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The nature of trials</h3>
+            <span class="code-badge">Ease Is a Test Too</span>
+          </div>
+          <ul class="points">
+            <li>When Allah is putting someone through a trial, solutions that should be easy become impossible; when Allah wants to bring relief, the most impossible solutions become possible — no science can explain it, yet He opens the door.</li>
+            <li>So someone in a trial asks, "It works out for everybody else — why not for me?"</li>
+            <li>Example: one person has a great résumé, experience, credentials and in-demand skills but can't find a job; another has a blank sheet with just a name and birthday and gets hired in two days — or both are hired and the unqualified one is paid more.</li>
+            <li>For some, Allah creates a path of ease; for others, though every means is present, He wants them to pass through a valley of difficulty before reaching ease.</li>
+            <li>The sūrah teaches this has nothing to do with how close or far you are from Allah: ease is a trial and difficulty is a trial — two different kinds, but trials nonetheless.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 09 -->
+    <section class="class-section" id="s-09" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">09</span>
+        <h2>Glorify Allah in Hardship and in Victory</h2>
+        <button class="collapse-toggle" data-target="s-09" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-09">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>One instruction, two opposite circumstances</h3>
+            <span class="code-badge">Tasbīḥ Before Sunrise &amp; at Victory</span>
+          </div>
+          <ul class="points">
+            <li>The Qur'an teaches the Messenger ﷺ the same attitude in two very different situations.</li>
+            <li>When things were overwhelming — Quraysh insulting him, even resorting to torture — he was told to declare Allah's perfection before the sun rises and before it sets, busying himself with that.</li>
+            <li>The circumstances are imperfect, but Allah is perfect — remind yourself of that and focus on it.</li>
+            <li>Then victory came: Makkah was conquered, enemies subdued, people entering the religion in droves — and he was told (in Sūrat an-Naṣr) to do the very same: glorify Allah with praise.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>What that teaches a believer</h3>
+            <span class="code-badge">Life Comes in Waves</span>
+          </div>
+          <ul class="points">
+            <li>A believer will go through both difficulty and ease, and in both must remember that Allah is perfect.</li>
+            <li>Difficulty is not a time to blame Allah; ease is not a time to take credit — "finally I overcame" — you didn't overcome; Allah brought you out.</li>
+            <li>Ease isn't endless, just as difficulty isn't endless.</li>
+            <li>This life is waves: night and day succeeding each other, storm and calm, life and death — constant change. Neither ease nor difficulty stays permanently.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section class="class-section" id="s-10" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">10</span>
+        <h2>Who Was in the Room?</h2>
+        <button class="collapse-toggle" data-target="s-10" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-10">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Who was insulting him?</h3>
+            <span class="code-badge">Extended Family Who Stayed Behind</span>
+          </div>
+          <ul class="points">
+            <li>To establish the earlier point: when he was being insulted, he was talking to relatives who didn't go to Egypt — the children of his children.</li>
+            <li>Others have said that not all the sons went back to Egypt.</li>
+            <li>The teacher believes Yaʿqūb (AS) sent all of them, which seems the more plausible explanation.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 11 -->
+    <section class="class-section" id="s-11" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">11</span>
+        <h2>"Fa-lammā An": The Extra Word</h2>
+        <button class="collapse-toggle" data-target="s-11" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-11">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Grammar in service of meaning</h3>
+            <span class="code-badge">A Thirst Worth Developing</span>
+          </div>
+          <ul class="points">
+            <li>The teacher encourages a thirst for the relationship between Arabic grammar and syntax and meaning.</li>
+            <li>Grammar seems about as entertaining as a root canal, but once you get into it, it becomes an addiction — a "high" — because you start discovering insights into Allah's word.</li>
+            <li>Translations aren't designed to carry these insights; it isn't the translator's fault — translation simply isn't a mechanism through which these discussions can exist.</li>
+            <li>He mentions he'll be teaching Arabic soon and invites listeners to join.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>What is "an" doing here?</h3>
+            <span class="code-badge">Zāʾidah — An "Add-On"</span>
+          </div>
+          <ul class="points">
+            <li>The ayah could have said simply <i>fa-lammā jāʾa al-bashīr</i>; instead it says <i>fa-lammā <b>an</b> jāʾa</i>.</li>
+            <li>The <b>an</b> is considered <i>zāʾidah</i> — an add-on particle — so translations come out virtually the same ("then when the bearer of good news came") and don't capture it.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Two explanations, one destination</h3>
+            <span class="code-badge">Ibn ʿĀshūr &amp; the Omitted Verb</span>
+          </div>
+          <ul class="points">
+            <li><b>Ibn ʿĀshūr:</b> the <i>an</i> is for emphasis and "materializing" — when, in actual fact, his words were proven true.</li>
+            <li>He had repeatedly said he could sense Yusuf's scent, and the grandchildren said "you're still in your old craziness" — now the truth came out, and they were, in effect, face-palmed and "owned." That realization is captured in the word <i>an</i>.</li>
+            <li><b>Another imam:</b> the <i>an</i> may represent an omitted verb — "when it became apparent / when it so happened / when it actually occurred that the bearer of good news finally came."</li>
+            <li>Both explanations lead to the same place: the word carries the irony of the earlier conversation and the dramatic shift when he really did come.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 12 -->
+    <section class="class-section" id="s-12" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">12</span>
+        <h2>Who Is al-Bashīr? The Classical View</h2>
+        <button class="collapse-toggle" data-target="s-12" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-12">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>One of the brothers: Yahūdhā (Judah)</h3>
+            <span class="code-badge">"Let Me Take the Shirt of Joy"</span>
+          </div>
+          <ul class="points">
+            <li>Classical tafsīr is fairly consistent: the bearer of good news was one of Yusuf's brothers — Yahūdhā (Judah).</li>
+            <li>He is reported to have said: just as I once went with the shirt soaked in blood, I'll be the one to bring him the shirt that tells the truth.</li>
+            <li>According to as-Suddī, he told his brothers: you all know I took him the shirt of grief and calamity — let me now take him the shirt of joy.</li>
+            <li>These narrations fill a gap in the story, since the ayah doesn't say "one of the brothers went" — it only says "the bearer of good news."</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Room for discussion</h3>
+            <span class="code-badge">Not an Iron-Clad Narration</span>
+          </div>
+          <ul class="points">
+            <li>The teacher personally isn't convinced of this view, and not everyone accepts it.</li>
+            <li>It doesn't come from an irrefutable, authentic narration, so it needn't be taken as iron-clad evidence.</li>
+            <li>He's had interesting discussions about this with Sheikh Sahib.</li>
+            <li>The Qur'an's original audience in Makkah weren't all running to Ibn ʿAbbās to ask what it meant — they processed the words as they heard them, so the text must be self-explanatory at some level, or call for contemplation.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 13 -->
+    <section class="class-section" id="s-13" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">13</span>
+        <h2>Why the Teacher Is Skeptical</h2>
+        <button class="collapse-toggle" data-target="s-13" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-13">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A liar as the "bearer of good news"?</h3>
+            <span class="code-badge">Psychology Doesn't Fit</span>
+          </div>
+          <ul class="points">
+            <li>Allah knows best, and perhaps it was a brother — but these men lied to their father's face, then yelled at him for years for suggesting otherwise.</li>
+            <li>It's hard to imagine one of them walking in and Allah calling him the bearer of good news: "Hey Dad, guess what — we've been lying all these years, here's the shirt to prove it, he's alive, you were right, all those insults… but I'm so happy it's all okay now."</li>
+            <li>Putting himself in that position: if he had delivered the false shirt and now had to bring the true one, he wouldn't be a bearer of good news — he'd carry enormous shame and come before his father crying and apologizing before confessing.</li>
+            <li>He'd describe himself first as the bearer of a confession.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Glossing over a crime</h3>
+            <span class="code-badge">"Wolves Aren't That Good at Eating"</span>
+          </div>
+          <ul class="points">
+            <li>It would be disingenuous for someone who committed such a heinous crime to walk in acting as if it never happened — "What do you know, wolves aren't that good at eating!"</li>
+            <li>That's wanting to gloss over the crime and "keep it positive" — you should own up to the wrong you did.</li>
+            <li>For these basic psychological reasons, he struggles to see al-Bashīr as one of the brothers.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 14 -->
+    <section class="class-section" id="s-14" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">14</span>
+        <h2>Other Candidates for al-Bashīr</h2>
+        <button class="collapse-toggle" data-target="s-14" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-14">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Possibility 1: a royal emissary</h3>
+            <span class="code-badge">The King's Announcer</span>
+          </div>
+          <ul class="points">
+            <li>Since they'd been sent with a caravan, perhaps none of the brothers could bring themselves to face their father, so they asked one of Yusuf's royal servants to take the shirt — "that's the house over there."</li>
+            <li>The representative of the kingdom Yusuf (AS) runs comes in: "Excuse me sir, are you Yaʿqūb, father of Yusuf? I come on behalf of your son," gives the good news and hands over the shirt.</li>
+            <li>He'd officially be the bearer of good news — like the king's announcer in movies who rides in, unrolls a scroll and proclaims "Hear ye!" (joking that his audience is "so Islamic" they don't watch movies, being on Facebook).</li>
+            <li>Such an announcer could deliver a warning or good news; when he brings good news, he becomes the <i>bashīr</i>. This is one plausible explanation.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Possibility 2: the caravan itself</h3>
+            <span class="code-badge">A Royal Procession Arrives</span>
+          </div>
+          <ul class="points">
+            <li>This was an official royal caravan from Egypt, the wealthiest nation in the land, heading toward the village.</li>
+            <li>Like in Ertuğrul: when someone approaches the village, people hear the drums, see the flags, come out — "good news or bad news?" — followed by eight minutes of crying.</li>
+            <li>A procession entering a village is a big deal; from afar its colors, celebration and gifts make it look like it bears good news.</li>
+            <li>So the caravan (<i>al-ʿīr</i>) and its procession at large could be "the bearer of good news" — the scent came that close, and how the shirt reached him is omitted and filled in by imagination.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Possibility 3: the shirt itself</h3>
+            <span class="code-badge">Sheikh Sahib's Suggestion — the Favorite</span>
+          </div>
+          <ul class="points">
+            <li>The teacher likes this suggestion most, and there's ironically a witness for it earlier in the sūrah.</li>
+            <li>In the scene where the shirt was torn from behind, a witness testified — and some suggested that witness was the shirt itself.</li>
+            <li>That didn't fit there, because the witness is described as "from her family," and a shirt isn't from her family.</li>
+            <li>Here, though, <i>bashīr</i> fits the shirt well: the actual bearer of the heavenly scent of Yusuf is the shirt — "when the shirt itself arrived."</li>
+          </ul>
+          <div class="pill-row">
+            <span class="pill">One of the brothers</span>
+            <span class="pill">A royal emissary</span>
+            <span class="pill">The caravan at large</span>
+            <span class="pill">The shirt itself</span>
+          </div>
+          <div class="quote">Multiple possibilities remain — Allāhu taʿālā aʿlam. But the choice affects how the rest of the ayah is read, so the lesson proceeds with "the shirt" for now.</div>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 15 -->
+    <section class="class-section" id="s-15" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">15</span>
+        <h2>"He Cast It Over His Face"</h2>
+        <button class="collapse-toggle" data-target="s-15" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-15">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Who placed it depends on who al-Bashīr is</h3>
+            <span class="code-badge">Three Ways to Picture It</span>
+          </div>
+          <ul class="points">
+            <li>If a brother: the brother gently placed it on his face, or handed it to him to do so.</li>
+            <li>If a servant: he placed it on the face of a sick man lying in bed so he could smell it.</li>
+            <li>If the shirt itself was the good news: Yaʿqūb (AS) grabbed it and pressed it to his face — a remarkable scene of a father drowning his face in his son's shirt.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Drowned in his son's shirt</h3>
+            <span class="code-badge">Every Parent Knows This</span>
+          </div>
+          <ul class="points">
+            <li>When a son goes off to college and a mother finds one of his shirts in the closet or laundry — "oh my baby" — that's the feeling. Dads do it too.</li>
+            <li>He had smelled it growing stronger and stronger, and finally the good news itself — the shirt — was here, on his face.</li>
+            <li>The happiness was already there and building, despite his family's negativity, as seen before.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>"Fa-rtadda baṣīrā"</h3>
+            <span class="code-badge">Returned to Seeing</span>
+          </div>
+          <ul class="points">
+            <li><i>Irtadda</i> means returning to a previous state — he went back to being someone who could see; his blindness was undone.</li>
+            <li>Whether he was fully blind or his eyesight had become extremely weak is discussed, but beside the point.</li>
+            <li>The Qur'an shows emotional healing leading miraculously to physical healing.</li>
+            <li>This could be divine intervention — and could also be an insight: if you've wronged someone, make it right; perhaps their physical distress eases when the harm you caused is relieved. Here, the shirt served that purpose.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 16 -->
+    <section class="class-section" id="s-16" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">16</span>
+        <h2>The Room Turns in His Favor</h2>
+        <button class="collapse-toggle" data-target="s-16" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-16">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Jaws on the floor</h3>
+            <span class="code-badge">"You All Got Owned"</span>
+          </div>
+          <ul class="points">
+            <li>He is lost in joy, tears rolling down — perhaps crying "Yusuf, Yusuf, my baby, my boy."</li>
+            <li>By now the sons have arrived, and the extended family who kept calling him crazy are standing there, jaws dropped — like a cartoon where the jaw hits the floor and the tongue rolls out like a carpet.</li>
+            <li>Government officials are there honoring Yaʿqūb, and the family realizes they've been insulting and humiliating the king's father.</li>
+            <li>Their behavior toward him will change instantly: he now has security behind him; he's officially royalty.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>For the first time, he holds the power</h3>
+            <span class="code-badge">No Longer Bedridden &amp; Powerless</span>
+          </div>
+          <ul class="points">
+            <li>He's no longer a powerless, bedridden old man losing his sight and health.</li>
+            <li>For the first time he is in a position to "lay the smack down" and put them in their place — "oh, you're going to get it."</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 17 -->
+    <section class="class-section" id="s-17" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">17</span>
+        <h2>What He Didn't Say</h2>
+        <button class="collapse-toggle" data-target="s-17" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-17">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Every line he could have used</h3>
+            <span class="code-badge">None of This Came Out</span>
+          </div>
+          <ul class="points">
+            <li>Not: "Didn't I tell you Allah would help me against the lies you invented?" — recalling the day they brought the bloody shirt and he called them liars.</li>
+            <li>Not: "You made up this lie, and all these years you were the angry ones, insulting me — you did the shameless act and called <i>me</i> insane. How do you look at yourselves in the mirror?"</li>
+            <li>Not: "Do you realize how much you tortured me, year after year? Not one day did you feel remorse for my tears."</li>
+            <li>Not: "How disgusting is what you've done — you call yourselves my sons? Get lost. Shame on you; shame isn't even the word."</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>"That's what I would say"</h3>
+            <span class="code-badge">The Teacher's Honest Admission</span>
+          </div>
+          <ul class="points">
+            <li>He admits that's what he'd say — and more: find a well, throw them in one at a time, and check back in a week.</li>
+            <li>After the joy, he'd want retribution — to make things right.</li>
+            <li>Even the last time Yaʿqūb (AS) saw them, he mentioned Yusuf and they got angry — that wasn't years ago, it was the last encounter — and still none of this comes out of his mouth.</li>
+            <li>The teacher says he is in shock and awe of Yaʿqūb (AS): what kind of heart Allah gave him, what kind of father he is.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 18 -->
+    <section class="class-section" id="s-18" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">18</span>
+        <h2>The Heart of a Father</h2>
+        <button class="collapse-toggle" data-target="s-18" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-18">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>"Father, father, father"</h3>
+            <span class="code-badge">Allah's Emphasis</span>
+          </div>
+          <ul class="points">
+            <li>He's depicted not only as a man of patience — Allah keeps calling him "father" rather than "Yaʿqūb," emphasizing the character of a parent.</li>
+            <li>It recalls Ibrahim (AS), whose foremost concern was "what about my children?" — their well-being before Allah.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Fully human, and still above it</h3>
+            <span class="code-badge">Kaẓīm — Swallowing the Grief</span>
+          </div>
+          <ul class="points">
+            <li>It's human to be overtaken by grief and unresolved trauma, to lose your eyesight crying over a child whose fate you don't know, to be lost in tragedy when those around you are emotionally abusive.</li>
+            <li>Even a prophet is human; he felt all of this — the sadness and the swallowing of it (<i>fa-huwa kaẓīm</i>) are described.</li>
+            <li>But the moment Allah brought him relief, he didn't focus on what had been done to him.</li>
+            <li>He's grateful to Allah for the relief, and understands it was a trial — carried out by people's hands, but with wisdom from Allah.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Strike while the iron is hot</h3>
+            <span class="code-badge">Save Them, Not Shame Them</span>
+          </div>
+          <ul class="points">
+            <li>Now that Allah has healed his trauma, his priority isn't to vent, let off steam, or release pent-up anger — it is to restore his sons' faith.</li>
+            <li>As angry as they've been, right now they're ashamed of what they did — the iron is hot.</li>
+            <li>He could shame them, humiliate them, throw them out, punish them, or give them the cold shoulder.</li>
+            <li>Or he could do something that might change the rest of their lives, so they stand before Allah with faces lit rather than darkened.</li>
+            <li>The father's real decision: is my frustration with them stronger, or my desire to see them saved before Allah? With remarkable faith, he chooses the latter.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 19 -->
+    <section class="class-section" id="s-19" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">19</span>
+        <h2>"Didn't I Tell You?" — Unpacked</h2>
+        <button class="collapse-toggle" data-target="s-19" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-19">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Everything packed into one sentence</h3>
+            <span class="code-badge">"I Know from Allah What You Don't"</span>
+          </div>
+          <ul class="points">
+            <li>Didn't I tell you not to lose hope in Allah's mercy? I know from Allah what you don't.</li>
+            <li>Didn't I tell you I'd keep hope in Yusuf alive?</li>
+            <li>Didn't I tell you Allah let me hear the dream from Yusuf's own mouth, and I knew it was revelation that would come to pass?</li>
+            <li>Didn't you realize I have a connection to Allah, an optimism and hope in Him, that never let me give up on Yusuf?</li>
+            <li>Allah is the One who sent me the scent — I already knew from Allah, before the shirt ever came.</li>
+            <li>Didn't I tell you to hold on to your faith in Allah the way I do? If you feel ashamed now, maybe you need to come back to Allah and know Him the way I do.</li>
+            <li>This is the time to come back to Allah — not to come and apologize to me.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>What "didn't I tell you" did not mean</h3>
+            <span class="code-badge">Not a Victory Lap</span>
+          </div>
+          <ul class="points">
+            <li>He did not say "Didn't I tell you Yusuf was alive," "Didn't I tell you I was right," or "Didn't I tell you that you were liars."</li>
+            <li>He said: didn't I tell you I know — I've come to experience — something from Allah that you don't.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 20 -->
+    <section class="class-section" id="s-20" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">20</span>
+        <h2>Two Kinds of Knowing</h2>
+        <button class="collapse-toggle" data-target="s-20" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-20">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>They already "knew" — so what don't they know?</h3>
+            <span class="code-badge">Head Knowledge vs. Heart Knowledge</span>
+          </div>
+          <ul class="points">
+            <li>He keeps stressing they're all Muslims: they know Allah and know about Allah.</li>
+            <li>He had already told them what he knew — that Yusuf is alive, that he hoped Allah would reunite them. So how can he say "I know what you don't"?</li>
+            <li>Because there are different kinds of knowing: cognitive knowledge in the head, and knowing in the heart — feeling something to be true.</li>
+            <li>There are levels of conviction: knowledge you feel in your gut, that flows through your veins like lifeblood.</li>
+            <li>And there's passive knowledge sitting on a shelf in a corner of the brain — "yeah, yeah, we're Muslim, Judgment Day, I know."</li>
+            <li>His meaning: I have experienced real knowledge of Allah; you've said His name, prayed, uttered the adhkār, known your forefathers' prophethood — but your heart hasn't known Allah the way mine has, and now it's time it did.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The greatest gift one believer can give another</h3>
+            <span class="code-badge">Inspiring Tawbah</span>
+          </div>
+          <ul class="points">
+            <li>He found the most profound moment not to make them ashamed before him, but ashamed before Allah.</li>
+            <li>The biggest gift a believer can give another is to inspire tawbah — words that don't embarrass you before the speaker, but make you embarrassed to stand before Allah, and move you to apologize to Him and make things right.</li>
+            <li>That is the best gift family, friends, or any Muslims can give each other: reminding one another of tawbah, of hope in Allah, of being bonded to Him, crying to Him, finding joy in Him, believing in the relief He brings.</li>
+            <li>He knows that if they come to know Allah this way, they can make right all their wrongs.</li>
+            <li>His greatness goes beyond the grudge, the pain his children caused, and years of grief — he sets all that aside for something bigger: the legacy of his father Ibrahim (AS), whose ultimate concern was what would become of his children in the end.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 21 -->
+    <section class="class-section" id="s-21" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">21</span>
+        <h2>Patience Around Yaʿqūb, Gratitude Around Yusuf</h2>
+        <button class="collapse-toggle" data-target="s-21" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-21">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A striking contrast</h3>
+            <span class="code-badge">The Two Pillars of the Story</span>
+          </div>
+          <ul class="points">
+            <li>The two primary characters — the role models and pillars of the story — are Yaʿqūb (AS) and Yusuf (AS).</li>
+            <li>Something almost odd about Yaʿqūb (AS): after so much grief and finally relief, there are no words of thanks here — neither explicit nor implied gratitude.</li>
+            <li>What you find instead is a remarkable demonstration of patience.</li>
+            <li>With Yusuf (AS), there's little language centered on his ṣabr, though it was always present — but his gratitude is everywhere: in jail, coming out of jail, in every situation.</li>
+            <li>Patience sticks like glue to Yaʿqūb throughout the story; gratitude sticks to Yusuf.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Both had both</h3>
+            <span class="code-badge">Ṣabbār &amp; Shakūr</span>
+          </div>
+          <ul class="points">
+            <li>In reality, Yaʿqūb is both grateful and patient, and so is Yusuf — those are facts.</li>
+            <li>But Allah chose to surround one character with lessons of patience, even though his gratitude was always there.</li>
+            <li>The Qur'an pairs the qualities: a true slave is one who has tremendous patience (<i>ṣabbār</i>) and is extremely grateful (<i>shakūr</i>).</li>
+            <li>Nūḥ (AS) would seem to be the Qur'an's model of patience — 950 years — yet Allah describes him as "a grateful slave."</li>
+            <li>His patience is obvious; Allah reveals the secret behind it — his gratitude gave him the strength to be patient.</li>
+            <li>Patience and gratitude are two sides of the same coin.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 22 -->
+    <section class="class-section" id="s-22" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">22</span>
+        <h2>The Orange Juice Test</h2>
+        <button class="collapse-toggle" data-target="s-22" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-22">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Making it simple</h3>
+            <span class="code-badge">No Philosophy Needed</span>
+          </div>
+          <ul class="points">
+            <li>You open the fridge wanting orange juice, and it isn't there — "come on, where's the orange juice?" — you've just lost your patience.</li>
+            <li>Or: you don't see orange juice, but you see apple juice or cold water, and you say "alḥamdulillāh, I have something to drink."</li>
+            <li>So many have nothing to drink, and when they do, they drink from a puddle; for some people a fridge is the life of kings — and you have a choice of drinks.</li>
+            <li>The apple in your juice traveled countries, went to a factory where someone pressed it, another factory bottled it, a trucker earned his living delivering it, and you picked it up at the store — Allah made that apple from that tree so it could go down your throat.</li>
+            <li>When you're grateful, the impatience disappears. Gratitude makes patience easy.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 23 -->
+    <section class="class-section" id="s-23" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">23</span>
+        <h2>Two Prophets, One Spiritual Body</h2>
+        <button class="collapse-toggle" data-target="s-23" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-23">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Complementary portraits</h3>
+            <span class="code-badge">A Unique Feature of the Qur'an</span>
+          </div>
+          <ul class="points">
+            <li>One of the most interesting features in this sūrah: Yaʿqūb and Yusuf are like one person — two dimensions of one personality, since a person should be both patient and grateful.</li>
+            <li>Allah highlights patience in Yaʿqūb's character and gratitude in Yusuf's — not because either lacked the other quality.</li>
+            <li>The prophets are so complementary it's as if they are one body — just as the ummah is described as one body, here two prophets form one spiritual body.</li>
+            <li>This may inform the study of other sūrahs and characters: Allah may highlight one trait in someone and its complement in another, and you must look at both together to see the whole picture. It's a beautiful, sophisticated feature.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The anthem of Yaʿqūb (AS)</h3>
+            <span class="code-badge">The Spiritual Anchor of the Household</span>
+          </div>
+          <ul class="points">
+            <li>Choosing to say only "I know from Allah what you don't" — when so many impatient words were available — took enormous ṣabr: overriding all negative feelings to say what would actually benefit his children and grandchildren.</li>
+            <li>It became a lifelong teaching moment for them.</li>
+            <li>The Qur'an records little more from him — one more statement — and then the story stops quoting him, so the few things he says must be of vital importance.</li>
+            <li>"I know from Allah what you don't know" is repeated more than once: it's a theme Allah wants nailed into our hearts — the anthem of Yaʿqūb (AS).</li>
+            <li>It means: I have hope in Allah, find relief in Him, find my strength in Him, am grateful to Him — which makes me strong in patience — in a way you don't realize, and that's okay; I'll try to instill it in you.</li>
+            <li>He said these words when they were shaming him, and he says them again now while they're apologizing — his stance never changes.</li>
+            <li>Everyone else wavers; he is the constant, the pillar, the <i>rajul</i> of the household — its spiritual anchor.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 24 -->
+    <section class="class-section" id="s-24" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">24</span>
+        <h2>The Shirt Is Not the Reunion</h2>
+        <button class="collapse-toggle" data-target="s-24" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-24">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Just a piece of cotton</h3>
+            <span class="code-badge">A Sign, Not the Relief Itself</span>
+          </div>
+          <ul class="points">
+            <li>The shirt is not Yusuf: it's not seeing him, hugging him, kissing his forehead, crying on his shoulder or letting him cry on your chest — that is the actual moment of relief.</li>
+            <li>The shirt is just cotton — not a person, not a family reunion. At most, spiritually, it's a sign from Allah that relief is coming.</li>
+            <li>Imagine Allah took Yaʿqūb's life and the angel of death came before he reached Egypt — would he die sad or happy?</li>
+            <li>He'd die happy: the grief in his heart had already been removed by a shirt, though he never experienced the reunion itself.</li>
+            <li>So there is actual joy, and there is finding comfort in the guaranteed promise of joy.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 25 -->
+    <section class="class-section" id="s-25" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">25</span>
+        <h2>The Bankrupt Man's Letter</h2>
+        <button class="collapse-toggle" data-target="s-25" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-25">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Joy before the payout</h3>
+            <span class="code-badge">"I Know Something You Don't"</span>
+          </div>
+          <ul class="points">
+            <li>A man is completely bankrupt, without food for his next meal, when he receives a letter: next month you'll receive a million dollars from a long-lost uncle — a mansion, lifelong income, all of it.</li>
+            <li>For the next month he's still homeless and has nothing — but he holds this government- and legally-certified letter.</li>
+            <li>Even living on one bite a day, while everyone around him is miserable, he's happy — "why are you so happy?" — "I know something you don't; I have a guarantee of relief coming."</li>
+            <li>He trusts a letter from a government or lawyer; Yaʿqūb's promise came from Allah — so even before it was fulfilled, his heart was full of joy.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 26 -->
+    <section class="class-section" id="s-26" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">26</span>
+        <h2>The Qur'an Is Our Shirt</h2>
+        <button class="collapse-toggle" data-target="s-26" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-26">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The promises believers hold</h3>
+            <span class="code-badge">A Scent That Keeps Giving Relief</span>
+          </div>
+          <ul class="points">
+            <li>Believers have been promised forgiveness and Jannah; that their deeds will be counted; that sincere tawbah will be recognized; that no effort they make will be wasted.</li>
+            <li>In a life surrounded by misery, deprivation and loss, we have Allah's promise and faith in His words.</li>
+            <li>The Qur'an is like the shirt — its scent constantly gives us relief. We're not in Jannah yet and haven't received the forgiveness, but we hold the promise, the way to earn it, and the honor of doing good deeds.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Every step is closer</h3>
+            <span class="code-badge">Like the Caravan Toward Yusuf</span>
+          </div>
+          <ul class="points">
+            <li>Picture the caravan carrying Yaʿqūb to Yusuf: every step of the camel or horse, every tree passed — "I'm getting closer to my son… how much longer?" — each step toward Allah's promise brings more joy.</li>
+            <li>Spiritually, every step taken to serve our Master — every prayer, every day we're honored to pray Fajr — brings us closer to His promise.</li>
+            <li>Every time we took the higher road and didn't backbite, told the truth, earned an honest living instead of lying, walked away from evil, from bad assumptions, from the temptation to say something wrong — each is a step toward Allah's promise.</li>
+            <li>Each step should bring joy, even when others feel you're missing out and ask why you're happy.</li>
+            <li>Because: "I've come to know something about Allah you haven't experienced yet. I'm overjoyed to serve my Rabb, to do what brings me closer to His promised forgiveness — I pray He accepts it, doesn't let it be washed away, and that I may see Him and find the relief He guaranteed."</li>
+            <li>Even if the worldly relief never comes, Allah has already given relief — so I'll leave this world happy, because His promise is always true.</li>
+            <li>There's a worldly relief and hope in worldly relief, and also a spiritual dimension to this phrase that shapes our lives.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 27 -->
+    <section class="class-section" id="s-27" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">27</span>
+        <h2>Nothing Is Wasted</h2>
+        <button class="collapse-toggle" data-target="s-27" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-27">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Catastrophes that become treasures</h3>
+            <span class="code-badge">"The Best Opportunities of My Life"</span>
+          </div>
+          <ul class="points">
+            <li>Some dropped out of school; some lost a business; some saw a marriage fail; some had children run away or siblings who'll never speak to them again — everyone has their own catastrophes.</li>
+            <li>Whatever the hardship, if through it we still obeyed Allah and took a step toward Him, we'll stand before Him and say: those were the best opportunities of my life.</li>
+            <li>What others see as failure and disaster becomes the secret source of joy, because Allah was bringing us closer to Him.</li>
+            <li>Sometimes tears caused by people lead to tears before Allah — and those will be among the most valuable things we bring on Judgment Day.</li>
+            <li>Nothing will be more valuable before Allah than the emotions felt in the heart while worshipping Him; sometimes He puts us through things just so we recognize who our Rabb is and who is truly in control.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>What you can and can't control</h3>
+            <span class="code-badge">The Connection of the Heart</span>
+          </div>
+          <ul class="points">
+            <li>I can't control people — who loves me, who hates me, what they'll do to me. That was always in my Rabb's hands.</li>
+            <li>What I can control is how connected my heart is to Allah.</li>
+            <li>When I steer myself toward Allah — the doors He opens, the relief He brings, the scent He sends my way, the joy He gives.</li>
+          </ul>
+          <div class="quote">May Allah give us a life of joy rooted in the promise He made to us in His Book; make us of those whose hearts find contentment in His words; and let us stand before Him on Judgment Day with His words as a testimony in our favor, not against us.<footer>Closing duʿāʾ</footer></div>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<button id="toTop" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<div id="quickPanel">
+  <div class="qp-head">Jump to Section</div>
+  <ul id="qpList"></ul>
+</div>
+
+<button id="quickFab" aria-label="Open quick navigation" aria-expanded="false">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+</button>
+
+<script>
+  const heroHeader = document.querySelector('header.hero');
+  function syncHeaderHeight(){
+    const refBar = document.querySelector('.ref-bar');
+    document.documentElement.style.setProperty('--header-h', (heroHeader.offsetHeight + refBar.offsetHeight) + 'px');
+  }
+  syncHeaderHeight();
+  window.addEventListener('resize', syncHeaderHeight);
+
+  const progress = document.getElementById('progress');
+  function updateProgress(){
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    progress.style.width = scrolled + '%';
+    document.getElementById('toTop').classList.toggle('show', h.scrollTop > 700);
+  }
+  document.addEventListener('scroll', updateProgress, {passive:true});
+  updateProgress();
+
+  document.getElementById('toTop').addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+  const tocToggle = document.getElementById('tocToggle');
+  const tocPanelOuter = document.getElementById('tocPanelOuter');
+  function closeToc(){
+    if(!tocPanelOuter) return;
+    tocPanelOuter.classList.remove('open');
+    if(tocToggle) tocToggle.setAttribute('aria-expanded', 'false');
+  }
+  if(tocToggle && tocPanelOuter){
+    tocToggle.addEventListener('click', () => {
+      const isOpen = tocPanelOuter.classList.toggle('open');
+      tocToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+  }
+
+  /* ---------- build quick-jump list from sections ---------- */
+  const sections = Array.from(document.querySelectorAll('main section.class-section'));
+  const ALL_SECTION_IDS = sections.map(s => s.id);
+  const qpList = document.getElementById('qpList');
+  const chevronSvg = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+  sections.forEach(sec => {
+    const idx = sec.querySelector('.class-head .idx').textContent;
+    const title = sec.querySelector('.class-head h2').textContent;
+    const color = sec.style.getPropertyValue('--g-color');
+    const li = document.createElement('li');
+    li.dataset.target = sec.id;
+    const a = document.createElement('a');
+    a.href = '#' + sec.id;
+    a.style.setProperty('--qc', color);
+    a.innerHTML = '<span class="qp-idx">' + idx + '</span>';
+    a.appendChild(document.createTextNode(title));
+    const tog = document.createElement('span');
+    tog.className = 'qp-toggle';
+    tog.dataset.target = sec.id;
+    tog.innerHTML = chevronSvg;
+    li.appendChild(a); li.appendChild(tog);
+    qpList.appendChild(li);
+  });
+
+  const navLinks = document.querySelectorAll('nav.sidebar li a');
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const id = entry.target.id;
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  sections.forEach(el => { if(el.id) sectionObserver.observe(el); });
+
+  const quickFab = document.getElementById('quickFab');
+  const quickPanel = document.getElementById('quickPanel');
+  function openQuickPanel(){ quickPanel.classList.add('open'); quickFab.classList.add('open'); quickFab.setAttribute('aria-expanded','true'); }
+  function closeQuickPanel(){ quickPanel.classList.remove('open'); quickFab.classList.remove('open'); quickFab.setAttribute('aria-expanded','false'); }
+  quickFab.addEventListener('click', () => { quickPanel.classList.contains('open') ? closeQuickPanel() : openQuickPanel(); });
+  document.addEventListener('click', (e) => {
+    if(quickPanel.classList.contains('open') && !quickPanel.contains(e.target) && !quickFab.contains(e.target)){ closeQuickPanel(); }
+  });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeQuickPanel(); });
+  quickPanel.querySelectorAll('a').forEach(a => { a.addEventListener('click', () => closeQuickPanel()); });
+
+  function setCollapsed(id, collapsed){
+    const body = document.getElementById('body-' + id);
+    const btn = document.querySelector('.collapse-toggle[data-target="' + id + '"]');
+    const qpItem = document.querySelector('#qpList li[data-target="' + id + '"]');
+    if(body) body.classList.toggle('collapsed', collapsed);
+    if(btn) btn.setAttribute('aria-expanded', String(!collapsed));
+    if(qpItem) qpItem.classList.toggle('is-collapsed', collapsed);
+  }
+  function isCollapsed(id){
+    const body = document.getElementById('body-' + id);
+    return body ? body.classList.contains('collapsed') : false;
+  }
+  function toggleCollapsed(id){ setCollapsed(id, !isCollapsed(id)); }
+
+  document.querySelectorAll('.collapse-toggle').forEach(btn => {
+    btn.addEventListener('click', () => toggleCollapsed(btn.dataset.target));
+  });
+  document.querySelectorAll('#qpList li').forEach(item => {
+    const id = item.dataset.target;
+    item.querySelector('.qp-toggle').addEventListener('click', (e) => { e.stopPropagation(); e.preventDefault(); toggleCollapsed(id); });
+  });
+
+  document.getElementById('expandAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, false)));
+  document.getElementById('collapseAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, true)));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href').slice(1);
+      if(!href) return;
+      const target = document.getElementById(href);
+      if(!target) return;
+      if(target.classList.contains('class-section')){ setCollapsed(href, false); }
+      if(a.closest('nav.sidebar')){ closeToc(); }
+    });
+  });
+
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', () => {
+    const q = searchInput.value.trim().toLowerCase();
+    navLinks.forEach(a => {
+      const key = ((a.dataset.key || '') + ' ' + a.textContent).toLowerCase();
+      const match = q === '' || key.includes(q);
+      a.dataset.hidden = match ? '0' : '1';
+      const section = document.querySelector(a.getAttribute('href'));
+      if(section){ section.style.display = match ? '' : 'none'; }
+    });
+  });
+
+</script>
+<script src="nav.js"></script>
+</body>
+</html>
