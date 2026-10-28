@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>"He Took Both His Parents to Himself" — Surah Yusuf 99 | Study Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --paper:#fbfbfd;
+    --ink:#14151a;
+    --ink-soft:#5a5d6b;
+    --line:#e7e7ee;
+    --line-soft:#f0f0f5;
+
+    --c-1:#7c3aed;  --c-1-tint:#f4edff;   /* violet */
+    --c-2:#0284c7;  --c-2-tint:#e8f6ff;   /* ocean */
+    --c-3:#ea580c;  --c-3-tint:#fff1e8;   /* coral */
+    --c-4:#db2777;  --c-4-tint:#ffe9f4;   /* magenta */
+    --c-5:#059669;  --c-5-tint:#e6faf2;   /* emerald */
+    --c-6:#0f766e;  --c-6-tint:#e6f8f6;   /* teal */
+
+    --accent: var(--c-1);
+    --accent-tint: var(--c-1-tint);
+
+    --radius: 18px;
+    --shadow: 0 1px 2px rgba(20,21,26,.04), 0 12px 32px -16px rgba(20,21,26,.14);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background: var(--accent); color:#fff; }
+
+  h1,h2,h3,h4{ font-family:'Space Grotesk', sans-serif; margin:0; letter-spacing:-.01em; }
+  code, .mono{ font-family:'IBM Plex Mono', monospace; }
+  a{ color:inherit; }
+  p{ margin:0; }
+  .arabic{ font-family:'Amiri', serif; direction:rtl; }
+
+  #progress{
+    position:fixed; top:0; left:0; height:3px; width:0%;
+    background: linear-gradient(90deg, var(--c-1), var(--c-2), var(--c-3), var(--c-4), var(--c-5), var(--c-6));
+    z-index:100; transition: width .1s linear;
+  }
+
+  .ref-bar{
+    background:var(--ink); color:#fff;
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    padding:9px 8vw; display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  }
+  .ref-bar .ref-label{ color:rgba(255,255,255,.55); text-transform:uppercase; letter-spacing:.08em; font-size:10.5px; }
+  .ref-bar .ref-txt{ opacity:.85; }
+
+  header.hero{
+    padding: 6px 8vw;
+    min-height:46px;
+    display:flex; align-items:center; gap:10px;
+    position:sticky; top:0; z-index:80;
+    border-bottom:1px solid var(--line);
+    background-color:#fff;
+    background-image:
+      radial-gradient(700px 340px at 8% -10%, var(--c-1-tint), transparent 60%),
+      radial-gradient(600px 300px at 95% 0%, var(--c-3-tint), transparent 55%);
+  }
+
+  /* ---------- burger navigation ---------- */
+  .burger-wrap{ position:relative; display:flex; align-items:center; }
+  .burger-btn{
+    width:34px; height:34px; border-radius:10px; border:1.3px solid var(--line);
+    background:var(--paper); color:var(--ink); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: border-color .15s ease, background .15s ease, color .15s ease;
+  }
+  .burger-btn:hover{ border-color: var(--c-1); }
+  .burger-btn.open{ background: var(--c-1); border-color: var(--c-1); color:#fff; }
+  .burger-btn svg{ transition: opacity .15s ease; }
+  .burger-menu{
+    position:absolute; top:calc(100% + 10px); left:0; width:320px;
+    background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow);
+    padding:8px; opacity:0; transform: translateY(-6px); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease; z-index:120;
+    display:flex; flex-direction:column;
+  }
+  .burger-menu.open{ opacity:1; transform: translateY(0); pointer-events:auto; }
+  .burger-menu-home{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; margin:2px 2px 8px;
+    border-radius:10px; border-bottom:1px solid var(--line-soft);
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-home svg{ flex:none; color:var(--ink-soft); }
+  .burger-menu-home:hover{ background: var(--paper); }
+  .burger-menu-home.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-home.is-current .bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-search{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:10px; padding:8px 10px; margin:2px 2px 8px;
+    background:var(--paper); flex:none;
+  }
+  .burger-menu-search svg{ flex:none; opacity:.5; color:var(--ink-soft); }
+  .burger-menu-search input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13px; width:100%; color:var(--ink);
+  }
+  .burger-menu-list{ max-height:340px; overflow-y:auto; overscroll-behavior:contain; }
+  .burger-menu-list::-webkit-scrollbar{ width:6px; }
+  .burger-menu-list::-webkit-scrollbar-thumb{ background:var(--line); border-radius:10px; }
+  .burger-menu-group + .burger-menu-group{ margin-top:4px; }
+  .burger-menu-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); padding:8px 10px 4px;
+  }
+  .burger-menu-empty{
+    display:none; padding:18px 10px; text-align:center; font-size:12.5px; color:var(--ink-soft);
+  }
+  .burger-menu-item{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; border-radius:10px;
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-item span.bm-title{ display:block; }
+  .burger-menu-item span.bm-sub{ display:block; font-size:11.5px; color:var(--ink-soft); font-weight:400; margin-top:1px; }
+  .burger-menu-item:hover{ background: var(--paper); }
+  .burger-menu-item.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-item.is-current span.bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-dot{ width:9px; height:9px; border-radius:3px; flex:none; margin-top:3px; }
+
+  .page-title{ padding: 30px 8vw 6px; }
+  .page-title .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-soft); margin-bottom:10px; display:block;
+  }
+  .page-title h1{
+    font-size: clamp(26px, 5vw, 46px);
+    line-height:1.12;
+    font-weight:700;
+  }
+  .page-title h1 .accent-word{
+    background: linear-gradient(100deg, var(--c-1), var(--c-4) 55%, var(--c-3));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .page-title .sub{
+    margin-top:14px; max-width:66ch; color:var(--ink-soft); font-size:15px; line-height:1.6;
+  }
+  .page-title .tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+  .page-title .tag{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; border:1.3px solid var(--line);
+    color:var(--ink-soft); font-weight:500; background:var(--paper);
+  }
+
+  .layout{ max-width:1400px; margin:0 auto; }
+  .toc-wrap{ border-bottom:1px solid var(--line); padding: 0 8vw; }
+  .toc-toggle{
+    width:100%; display:flex; align-items:center; justify-content:space-between; gap:10px;
+    background:none; border:none; cursor:pointer; padding:16px 0;
+    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px; color:var(--ink);
+  }
+  .toc-toggle:hover{ color:var(--c-1); }
+  .toc-toggle-left{ display:flex; align-items:center; gap:10px; }
+  .toc-toggle-left svg{ color:var(--ink-soft); flex:none; }
+  .toc-chevron{ transition: transform .3s ease; color:var(--ink-soft); flex:none; }
+  .toc-toggle[aria-expanded="true"] .toc-chevron{ transform: rotate(180deg); }
+  .toc-panel-outer{ display:grid; grid-template-rows: 0fr; transition: grid-template-rows .35s ease; }
+  .toc-panel-outer.open{ grid-template-rows: 1fr; }
+  .toc-panel-inner{ overflow:hidden; min-height:0; }
+
+  nav.sidebar{ display:block; padding: 4px 0 22px; }
+
+  .search-box{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:12px; padding:10px 12px; margin-bottom:18px;
+    background:var(--paper);
+  }
+  .search-box input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13.5px; width:100%; color:var(--ink);
+  }
+  .search-box svg{ flex:none; opacity:.5; }
+
+  .nav-actions{ display:flex; gap:8px; margin-bottom:18px; }
+  .nav-actions button{
+    flex:1; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    border:1.3px solid var(--line); background:#fff; color:var(--ink-soft);
+    padding:7px 8px; border-radius:9px; cursor:pointer; transition:.15s ease;
+  }
+  .nav-actions button:hover{ border-color:var(--ink); color:var(--ink); }
+
+  .nav-group-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); margin: 18px 0 6px 2px;
+  }
+  .nav-group-label:first-of-type{ margin-top:0; }
+
+  nav.sidebar ul{ list-style:none; margin:0; padding:0; border-left:2px solid var(--line-soft); }
+  nav.sidebar li a{
+    display:flex; align-items:center; gap:9px;
+    text-decoration:none; font-size:13.5px; color:var(--ink-soft);
+    padding:7px 0 7px 14px; border-left:2px solid transparent; margin-left:-2px;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  nav.sidebar li a .sw{ width:8px; height:8px; border-radius:3px; flex:none; background:var(--g-color); }
+  nav.sidebar li a:hover{ color:var(--ink); }
+  nav.sidebar li a.active{ color:var(--g-color); border-left-color: var(--g-color); font-weight:600; }
+  nav.sidebar li a[data-hidden="1"]{ display:none; }
+
+  main{ min-width:0; padding: 0 8vw 140px; }
+
+  section.class-section{ padding-top:56px; scroll-margin-top: 24px; }
+  section.class-section:first-child{ padding-top:44px; }
+
+  .class-head{
+    display:flex; align-items:baseline; gap:16px; flex-wrap:wrap;
+    padding-bottom:14px; margin-bottom:22px; border-bottom:3px solid var(--g-color);
+    position:relative;
+  }
+  .class-head .idx{
+    font-family:'IBM Plex Mono',monospace; font-size:14px; font-weight:700; color:#fff;
+    background:var(--g-color); padding:5px 10px; border-radius:8px;
+  }
+  .class-head h2{ font-size: clamp(20px,2.4vw,28px); color:var(--ink); }
+  .collapse-toggle{
+    margin-left:auto; width:34px; height:34px; border-radius:9px; border:1.5px solid var(--line);
+    background:#fff; color:var(--g-color); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: transform .3s ease, background .15s ease, border-color .15s ease;
+  }
+  .collapse-toggle:hover{ background: var(--g-tint); border-color: var(--g-color); }
+  .collapse-toggle svg{ transition: transform .3s ease; }
+  .collapse-toggle[aria-expanded="false"] svg{ transform: rotate(-90deg); }
+
+  .class-body-outer{ display:grid; grid-template-rows: 0fr; transition: grid-template-rows .38s ease; }
+  .class-body-outer.collapsed{ grid-template-rows: 0fr; }
+  .class-body-outer:not(.collapsed){ grid-template-rows: 1fr; }
+  .class-body-inner{ overflow:hidden; min-height:0; opacity:0; transition: opacity .25s ease .1s; }
+  .class-body-outer.collapsed .class-body-inner{ opacity:0; transition: opacity .18s ease; }
+  .class-body-outer:not(.collapsed) .class-body-inner{ opacity:1; }
+
+  .card{
+    background:#fff; border:1px solid var(--line); border-radius: var(--radius);
+    padding: 28px 30px; margin-bottom: 22px; position:relative; overflow:hidden;
+    border-left: 5px solid var(--g-color);
+  }
+  .card .card-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap;
+    margin-bottom:14px;
+  }
+  .card h3{ font-size:19px; font-weight:600; color:var(--ink); }
+  .code-badge{
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:12px; color:#fff;
+    background: var(--g-color); padding:6px 12px; border-radius:8px; white-space:nowrap;
+  }
+
+  ul.points{ list-style:none; margin:0; padding:0; }
+  ul.points > li{
+    position:relative; padding: 10px 0 10px 34px; font-size:14.8px; line-height:1.65; color:#2b2d36;
+    border-top:1px solid var(--line-soft);
+  }
+  ul.points > li:first-child{ border-top:none; }
+  ul.points > li::before{
+    content:"—";
+    position:absolute; left:0; top:10px; width:22px; height:22px; border-radius:7px;
+    background: var(--g-tint); color:var(--g-color); font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:13px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  ul.points > li b, ul.points > li strong{ color:var(--g-color); }
+  ul.points ul{ list-style:none; margin:8px 0 0; padding:0; }
+  ul.points ul li{
+    position:relative; padding:6px 0 6px 22px; font-size:14px; color:var(--ink-soft); border-top:none;
+  }
+  ul.points ul li::before{
+    content:"·"; position:absolute; left:0; top:4px; width:14px; height:14px;
+    color:var(--g-color); font-size:20px; font-weight:700; display:flex; align-items:center; justify-content:center;
+  }
+
+  .ayah-block{
+    margin: 6px 0 18px; padding:20px 22px; border-radius:14px; background:var(--paper);
+    border:1px solid var(--line);
+  }
+  .ayah-block .ayah-ref{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--g-color); font-weight:700; margin-bottom:10px; display:block;
+  }
+  .ayah-block .ayah-ar{ font-size:24px; line-height:2; color:var(--ink); text-align:right; margin-bottom:12px; }
+  .ayah-block .ayah-en{ font-size:14.5px; line-height:1.6; color:var(--ink-soft); font-style:italic; }
+
+  /* ---------- family tree ---------- */
+  .tree{ margin: 4px 0 6px; }
+  .tree-root{
+    text-align:center; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15px;
+    padding:10px 14px; border-radius:12px; background:var(--g-tint); color:var(--g-color);
+    border:1.3px solid var(--g-color); max-width:380px; margin:0 auto 16px;
+  }
+  .tree-grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; }
+  @media (max-width:860px){ .tree-grid{ grid-template-columns: 1fr 1fr; } }
+  @media (max-width:460px){ .tree-grid{ grid-template-columns: 1fr; } }
+  .mother{
+    border-radius:14px; border:1.3px solid var(--line); background:var(--paper); padding:14px 14px 12px;
+  }
+  .mother.wife{ border-color: var(--g-color); background:#fff; }
+  .mother .m-name{ font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; }
+  .mother .m-role{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--ink-soft); margin-top:3px;
+  }
+  .mother.wife .m-role{ color:var(--g-color); }
+  .mother ul{ list-style:none; margin:10px 0 0; padding:0; }
+  .mother li{ font-size:13.5px; padding:4px 0; border-top:1px dashed var(--line); color:#2b2d36; }
+  .mother li:first-child{ border-top:none; }
+  .mother li .ord{ font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-soft); margin-right:6px; }
+  .mother li.hl{ color:var(--g-color); font-weight:700; }
+  .tree-note{ margin-top:12px; font-size:12.5px; color:var(--ink-soft); line-height:1.55; }
+
+  .quote{
+    margin-top:16px; padding:16px 18px; border-radius:12px; background:var(--g-tint);
+    font-family:'Space Grotesk', sans-serif; font-size:16px; line-height:1.55; color:#20222a;
+    border-left:3px solid var(--g-color);
+  }
+
+  #toTop{
+    position:fixed; right:26px; bottom:26px; width:46px; height:46px; border-radius:50%;
+    background:var(--ink); color:#fff; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,.22); opacity:0; pointer-events:none; transition: opacity .25s ease, transform .2s ease;
+    z-index:90;
+  }
+  #toTop.show{ opacity:1; pointer-events:auto; }
+  #toTop:hover{ transform: translateY(-3px); }
+
+  #quickFab{
+    position:fixed; left:26px; bottom:26px; width:52px; height:52px; border-radius:16px;
+    background: linear-gradient(135deg, var(--c-1), var(--c-4)); color:#fff; border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; z-index:95;
+    box-shadow:0 10px 28px -6px rgba(124,58,237,.5);
+    transition: transform .2s ease, border-radius .2s ease;
+  }
+  #quickFab:hover{ transform: translateY(-3px) scale(1.03); }
+  #quickFab.open{ border-radius:50%; }
+  #quickFab svg{ transition: transform .3s ease; }
+  #quickFab.open svg{ transform: rotate(45deg); }
+
+  #quickPanel{
+    position:fixed; left:26px; bottom:90px; width:290px; max-height:60vh; overflow-y:auto;
+    background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow);
+    z-index:94; padding:14px; opacity:0; transform: translateY(10px) scale(.97); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  #quickPanel.open{ opacity:1; transform: translateY(0) scale(1); pointer-events:auto; }
+  #quickPanel .qp-head{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--ink-soft); padding:4px 8px 10px;
+  }
+  #qpList{ list-style:none; margin:0; padding:0; }
+  #qpList li{ display:flex; align-items:center; gap:8px; border-radius:10px; padding:2px; }
+  #qpList li a{
+    flex:1; display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--ink);
+    font-size:13px; padding:8px; border-radius:10px; transition:background .15s ease;
+  }
+  #qpList li a:hover{ background:var(--paper); }
+  .qp-idx{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:700; color:#fff;
+    background: var(--qc, var(--c-1)); padding:2px 6px; border-radius:6px;
+  }
+  .qp-toggle{ padding:8px; cursor:pointer; color:var(--ink-soft); opacity:.6; }
+  .qp-toggle:hover{ opacity:1; }
+  #qpList li.is-collapsed .qp-toggle svg{ transform: rotate(-90deg); }
+  #qpList li .qp-toggle svg{ transition: transform .3s ease; }
+
+  footer.page-footer{
+    padding:30px 8vw 60px; color:var(--ink-soft); font-size:12.5px; font-family:'IBM Plex Mono',monospace;
+    border-top:1px solid var(--line); margin-top:30px;
+  }
+
+  @media (max-width: 980px){
+    main{ padding: 0 6vw 120px; }
+    .ayah-block .ayah-ar{ font-size:20px; }
+  }
+  @media (max-width: 520px){
+    .card{ padding:22px 18px; }
+    .code-badge{ white-space:normal; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001s !important; transition-duration:.001s !important; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body data-page="yusuf99">
+
+<div id="progress"></div>
+
+<header class="hero">
+  <div class="burger-wrap">
+    <button id="navBurger" class="burger-btn" aria-haspopup="true" aria-expanded="false" aria-label="Open navigation menu">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div id="navMenu" class="burger-menu"></div>
+  </div>
+</header>
+
+<div class="ref-bar">
+  <span class="ref-label">Source</span>
+  <a href="https://www.youtube.com/watch?v=QS1ptiPTSsQ" target="_blank" rel="noopener" class="ref-txt" style="text-decoration:none; border-bottom:1px solid rgba(255,255,255,.35); padding-bottom:1px;">Nouman Ali Khan</a>
+</div>
+
+<div class="page-title" id="top">
+  <span class="eyebrow">Tafsīr Notes · Sūrah Yūsuf</span>
+  <h1>"He Took <span class="accent-word">Both</span> His Parents to Himself" [Ayah 99]</h1>
+  <div class="sub">The family finally enters Yusuf's court. A single dual word — "abawayhi," both his parents — opens a study of the missing mother, the tangled family behind the brothers' jealousy, how Yusuf honoured a woman who may not have been his mother, and what "inshāʾAllāh" truly means.</div>
+  <div class="tag-row">
+    <span class="tag">Verse 99</span>
+    <span class="tag">Āwā</span>
+    <span class="tag">Abawayhi</span>
+    <span class="tag">Āminīn</span>
+    <span class="tag">Inshāʾ Allāh</span>
+    <span class="tag">Family &amp; Shayṭān</span>
+  </div>
+</div>
+
+<div class="layout">
+
+  <div class="toc-wrap">
+    <button class="toc-toggle" id="tocToggle" aria-expanded="false" aria-controls="tocPanelOuter">
+      <span class="toc-toggle-left">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        <span>Table of Contents</span>
+      </span>
+      <svg class="toc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="toc-panel-outer" id="tocPanelOuter">
+      <div class="toc-panel-inner">
+        <nav class="sidebar">
+    <div class="search-box">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="searchInput" type="text" placeholder="Search sections…">
+    </div>
+    <div class="nav-actions">
+      <button id="expandAll">Expand all</button>
+      <button id="collapseAll">Collapse all</button>
+    </div>
+
+    <div class="nav-group-label">The Scene &amp; the Puzzle</div>
+    <ul>
+      <li><a href="#s-01" data-key="setting scene entered court procession pharaoh narrations research" style="--g-color:var(--c-1)"><span class="sw"></span>Setting the Scene</a></li>
+      <li><a href="#s-02" data-key="awa pulled refuge binyamin cave cling comfort verb" style="--g-color:var(--c-2)"><span class="sw"></span>"Āwā": Pulling Into Refuge</a></li>
+      <li><a href="#s-03" data-key="both parents abawayhi mother missing dream sun moon" style="--g-color:var(--c-3)"><span class="sw"></span>The Puzzle of "Both Parents"</a></li>
+      <li><a href="#s-04" data-key="quran formula storytelling omitted guidance musa bible" style="--g-color:var(--c-4)"><span class="sw"></span>The Qur'an's Formula for Stories</a></li>
+    </ul>
+
+    <div class="nav-group-label">Who Is the Mother?</div>
+    <ul>
+      <li><a href="#s-05" data-key="razi classical views rachel revived khala aunt mother fathers ismail grandmother" style="--g-color:var(--c-5)"><span class="sw"></span>Classical Views in Tafsīr</a></li>
+      <li><a href="#s-06" data-key="tabatabai sources mutazili ab walid azar uncle ibrahim father figure" style="--g-color:var(--c-6)"><span class="sw"></span>Open Sources: "Ab" vs "Wālid"</a></li>
+      <li><a href="#s-07" data-key="bible genealogy laban leah rachel bilhah zilpah esau jacob marriage trick" style="--g-color:var(--c-1)"><span class="sw"></span>The Biblical Backstory</a></li>
+      <li><a href="#s-08" data-key="twelve sons family tree reuben simeon levi judah rivalry team" style="--g-color:var(--c-2)"><span class="sw"></span>Twelve Sons, Four Mothers</a></li>
+      <li><a href="#s-09" data-key="why quran left out drama shaytan jealousy spiritual root" style="--g-color:var(--c-3)"><span class="sw"></span>Why the Qur'an Left the Drama Out</a></li>
+      <li><a href="#s-10" data-key="candidates leah bilhah zilpah alive buried feminists matriarchs" style="--g-color:var(--c-4)"><span class="sw"></span>The Candidates</a></li>
+    </ul>
+
+    <div class="nav-group-label">What Yusuf Did</div>
+    <ul>
+      <li><a href="#s-11" data-key="leah possibility honor stepmother shirt shockwave brothers aunt status" style="--g-color:var(--c-5)"><span class="sw"></span>If It Was Leah</a></li>
+      <li><a href="#s-12" data-key="handmaiden servant labels ismail tribes legitimacy" style="--g-color:var(--c-6)"><span class="sw"></span>If It Was a Handmaiden</a></li>
+      <li><a href="#s-13" data-key="dignity respect responsibility guilt by association family watching nervous" style="--g-color:var(--c-1)"><span class="sw"></span>Dignity Before Grudges</a></li>
+    </ul>
+
+    <div class="nav-group-label">"Enter Egypt, Safe"</div>
+    <ul>
+      <li><a href="#s-14" data-key="aminin safe peacefully airport well grudges canaan" style="--g-color:var(--c-2)"><span class="sw"></span>"Āminīn": Safe &amp; at Peace</a></li>
+      <li><a href="#s-15" data-key="inshallah meaning misuse dua optimism will witness" style="--g-color:var(--c-3)"><span class="sw"></span>What "Inshāʾ Allāh" Really Means</a></li>
+      <li><a href="#s-16" data-key="shocking moment brothers wives children safety guaranteed" style="--g-color:var(--c-4)"><span class="sw"></span>A Shocking First Welcome</a></li>
+    </ul>
+
+    <div class="nav-group-label">Lessons</div>
+    <ul>
+      <li><a href="#s-17" data-key="complex families shaytan strategy ummah wombs relatives strangers charity" style="--g-color:var(--c-5)"><span class="sw"></span>Complex Families &amp; Shayṭān's Strategy</a></li>
+      <li><a href="#s-18" data-key="aging parents refuge comfort old age patience non biological" style="--g-color:var(--c-6)"><span class="sw"></span>Becoming Our Parents' Refuge</a></li>
+      <li><a href="#s-19" data-key="where was wife yaqub alone grief helpless control emotions" style="--g-color:var(--c-1)"><span class="sw"></span>Where Was Yaʿqūb's Wife?</a></li>
+      <li><a href="#s-20" data-key="closing dua healing next ayah 100 101" style="--g-color:var(--c-2)"><span class="sw"></span>Closing &amp; What Comes Next</a></li>
+    </ul>
+  </nav>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- 01 -->
+    <section class="class-section" id="s-01" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">01</span>
+        <h2>Setting the Scene</h2>
+        <button class="collapse-toggle" data-target="s-01" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-01">
+      <div class="class-body-inner">
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Verse 99</span>
+          <p class="ayah-ar arabic">فَلَمَّا دَخَلُوا۟ عَلَىٰ يُوسُفَ ءَاوَىٰٓ إِلَيْهِ أَبَوَيْهِ وَقَالَ ٱدْخُلُوا۟ مِصْرَ إِن شَآءَ ٱللَّهُ ءَامِنِينَ</p>
+          <p class="ayah-en">"And when they entered upon Joseph, he took his parents to himself and said, 'Enter Egypt, Allah willing, safe [and secure].'" — Sahih International</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A simple-looking ayah that deserves its own session</h3>
+            <span class="code-badge">Why Ayah 99 Stands Alone</span>
+          </div>
+          <ul class="points">
+            <li>At first glance the ayah seems straightforward, but it carries a subtle detail that opens a conversation deep enough to need a discussion of its own.</li>
+            <li>Extracting what can be learned from it was a real research exercise for the teacher and his study partner — one he describes as rewarding, and an opportunity he is grateful Allah gave them.</li>
+            <li>The goal is to draw as much wisdom and guidance from the Qur'an as possible, for the teacher himself and for the audience.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The family enters Yusuf's court</h3>
+            <span class="code-badge">"When They Entered Upon Yusuf"</span>
+          </div>
+          <ul class="points">
+            <li>The parents have now arrived in Egypt. "Entered upon Yusuf" literally suggests they came into his court — into the presence of the ruler of Egypt.</li>
+            <li>"They" means the whole household: all of Yaʿqūb's sons and their families — wives and children — along with Yaʿqūb (AS) and, apparently, his wife.</li>
+            <li>Narrations describe a grand procession with thousands of soldiers. Yaʿqūb (AS) is reported to have seen Yusuf and asked whether that was the Pharaoh — a title that was not yet a bad word at the time — and was told, no, this is Yusuf.</li>
+            <li>Other narrated details of this moment are set aside so the session can focus on what can be discussed definitively.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section class="class-section" id="s-02" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">02</span>
+        <h2>"Āwā": Pulling Into Refuge</h2>
+        <button class="collapse-toggle" data-target="s-02" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-02">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The same verb, used elsewhere</h3>
+            <span class="code-badge">Binyamin &amp; the Youth of the Cave</span>
+          </div>
+          <ul class="points">
+            <li>The very first thing Yusuf (AS) does is pull both his parents toward himself.</li>
+            <li>This is the same verb used when he pulled Binyamin toward himself to protect him.</li>
+            <li>It is also the verb the Qur'an uses for the young people who took refuge in the cave to protect themselves.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>What the root really means</h3>
+            <span class="code-badge">Clinging for Protection &amp; Comfort</span>
+          </div>
+          <ul class="points">
+            <li>According to the root letters and the dictionaries, the word means to stick or cling to something for protection.</li>
+            <li>Going into a cave because you are too weak to withstand the cold or the wind is this kind of act — attaching yourself to something that shelters you.</li>
+            <li>It also covers clinging to someone because you are sad, or a baby clinging to its mother because it needs comfort.</li>
+            <li>Whenever the weak or needy cling to someone for refuge, comfort, or ease, this is the verb used.</li>
+            <li>Its use here suggests Yusuf (AS) couldn't wait to become the comfort for his father — he had been longing for this moment of giving him refuge, safety, and ease.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section class="class-section" id="s-03" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">03</span>
+        <h2>The Puzzle of "Both Parents"</h2>
+        <button class="collapse-toggle" data-target="s-03" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-03">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Not just Yaʿqūb — both of them</h3>
+            <span class="code-badge">Abawayhi (Dual Form)</span>
+          </div>
+          <ul class="points">
+            <li>The challenge: the ayah doesn't say this only about Yaʿqūb (AS) — it says he pulled in <b>both</b> his parents to give them refuge, safety, and comfort.</li>
+            <li>This is peculiar, because until now the mother has been absent from the story, apart from a passing reference in the dream, where the sun and the moon represent the father and mother.</li>
+            <li>The dual form "abawayn" combines father and mother, so the mother is now being implicitly brought back into the story — which is why the talk is titled the way it is.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Why was the mother missing?</h3>
+            <span class="code-badge">A Question Worth Asking</span>
+          </div>
+          <ul class="points">
+            <li>Losing a child would devastate both parents — arguably the mother even more — so her silence throughout the story stands out.</li>
+            <li>One argument is that Yusuf's biological mother had already passed away.</li>
+            <li>Before going there, though, it helps to understand how the Qur'an tells stories in the first place.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 04 -->
+    <section class="class-section" id="s-04" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">04</span>
+        <h2>The Qur'an's Formula for Stories</h2>
+        <button class="collapse-toggle" data-target="s-04" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-04">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Guidance first, story second</h3>
+            <span class="code-badge">Timeless Value Only</span>
+          </div>
+          <ul class="points">
+            <li>We are used to stories that give every perspective and a full account, so it is fair — given those sensibilities — to ask where the mother is.</li>
+            <li>But the Qur'an's agenda is not, first and foremost, to tell a story. It is to give lessons, guidance, and principles drawn from the parts of a story that Allah considers of timeless value.</li>
+            <li>The story of Yusuf spans decades, yet it is captured in a few pages, not volumes. Allah took the pieces we need for guidance and omitted everything else.</li>
+            <li>The omitted parts aren't unimportant — historically, every day of Yaʿqūb's (AS) life, every minute and every prayer, had value — but only some of it represents guidance for everyone who seeks Allah's guidance until Judgment Day.</li>
+            <li>So the Qur'an doesn't tell you about every character, or everything about any one character; it focuses only on what serves that higher purpose.</li>
+            <li>If a person told you a story and skipped the mother, you'd object — but the Qur'an isn't trying to tell you a story; it is trying to guide you.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>More is missing than is said</h3>
+            <span class="code-badge">The Same Pattern With Musa (AS)</span>
+          </div>
+          <ul class="points">
+            <li>For the same reason, Musa's (AS) father is almost entirely absent from his story, even though he had one.</li>
+            <li>His sibling is also missing at the beginning of that story, while it is his sister who has to go after him by the water — again raising questions the Qur'an chooses not to answer.</li>
+            <li>Allah skips some details because He wants our focus on other things. In Qur'anic storytelling, more is left out than is told — that is the formula.</li>
+            <li>Very little is said, but what is said is extremely valuable and powerful.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Shorter than the Bible, yet saying more</h3>
+            <span class="code-badge">A Remarkable Feature</span>
+          </div>
+          <ul class="points">
+            <li>The Hebrew Bible's account of this same story is exponentially longer than the Qur'an's.</li>
+            <li>One might expect the much shorter Qur'anic version to have less detail — yet the Qur'an addresses things the Bible never touches, things that were not even known to the Israelites.</li>
+            <li>Given this, Allah's choice to say not just that Yusuf pulled in his grief-stricken father, but <b>both</b> parents, is a peculiar addition — and since every word has value, it deserves real attention.</li>
+            <li>The plan: discuss this "both parents" question at length, consider what benefit we gain from hearing it, and only then translate and discuss the rest of the ayah.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 05 -->
+    <section class="class-section" id="s-05" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">05</span>
+        <h2>Classical Views in Tafsīr</h2>
+        <button class="collapse-toggle" data-target="s-05" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-05">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>View one: his biological mother</h3>
+            <span class="code-badge">Imam ar-Rāzī — First Position</span>
+          </div>
+          <ul class="points">
+            <li>Ar-Rāzī reports two views on "both his parents." The first: it means his father and his biological mother.</li>
+            <li>On this view, some argued she was still alive up to that time.</li>
+            <li>Others, having heard from Israelite sources considered reliable that she had already died, said Allah must have brought her back to life in order to fulfil Yusuf's dream, since the ayah mentions both parents.</li>
+            <li>In the biblical account her name is Rachel, and that name is used throughout this discussion.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>View two: his maternal aunt</h3>
+            <span class="code-badge">The Khālah as Mother</span>
+          </div>
+          <ul class="points">
+            <li>The second position in Muslim scholarship: it means his father and his mother's sister (his khālah).</li>
+            <li>His mother died giving birth to Binyamin (Benjamin), his younger brother, and the father then married her sister.</li>
+            <li>Allah calls her one of his parents because she was the one nurturing and caring for both boys after Rachel died, taking the mother's place.</li>
+            <li>In Arabic, whoever plays the role of a mother is also called "mother" — and this is true today as well: if someone raised you, you call her mom even if she isn't your biological mother.</li>
+            <li>Alternatively, in ancient usage an aunt was considered a kind of mother, just as an uncle was considered a kind of father.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Qur'anic evidence that an uncle can be a "father"</h3>
+            <span class="code-badge">"The God of Your Fathers"</span>
+          </div>
+          <ul class="points">
+            <li>Timeline: Ibrāhīm (AS) had Ismāʿīl and Isḥāq (Ishmael and Isaac); Isḥāq had Yaʿqūb (Jacob); Yaʿqūb had twelve sons.</li>
+            <li>When Yaʿqūb (AS) was dying, he asked his sons what they would worship after him. They answered: your God and the God of your fathers — Ibrāhīm, Ismāʿīl, and Isḥāq.</li>
+            <li>Ibrāhīm is Yaʿqūb's grandfather and Isḥāq his father — but Ismāʿīl is his <b>uncle</b>, yet he is included under "your fathers."</li>
+            <li>This is a qarīnah (contextual evidence), in the Qur'an and in the language, that uncles and aunts were sometimes also referred to as father or mother.</li>
+            <li>The same has been claimed about Ibrāhīm's (AS) "father," since the Qur'an uses "abīhi" (his father) for him.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Further comments in the tafsīr literature</h3>
+            <span class="code-badge">Caretaker, Stepmother, Grandmother</span>
+          </div>
+          <ul class="points">
+            <li>It is said that after Yaʿqūb (AS) married her, she in time became Yusuf's caretaker, and was given the status of a mother because she stood in that place by being married to his father.</li>
+            <li>A caretaker can be called a mother even if she isn't the aunt.</li>
+            <li>Another view attributed to an early authority is that it means his father and his grandmother — his mother's mother.</li>
+            <li>These are the various views in Islamic literature; to grasp the matter better, the teacher turns to the genealogy in the Bible.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 06 -->
+    <section class="class-section" id="s-06" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">06</span>
+        <h2>Open Sources: "Ab" vs "Wālid"</h2>
+        <button class="collapse-toggle" data-target="s-06" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-06">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Why the teacher reads widely</h3>
+            <span class="code-badge">Loyalty to the Divine Author</span>
+          </div>
+          <ul class="points">
+            <li>He cites the tafsīr of aṭ-Ṭabāṭabāʾī, acknowledging some may react badly because it is not a Sunni source.</li>
+            <li>He reads Western literature, atheists writing about the Qur'an, Christian literature on the Qur'an — anything, if it contains evidence or reasoning, or if he wants to hear the other side's argument.</li>
+            <li>He holds his own convictions of faith but doesn't discriminate when it comes to seeking information and knowledge.</li>
+            <li>Example: one of the pinnacle works of tafsīr — one anyone serious in the field knows — was written by a Muʿtazilī author whose theological views the teacher doesn't share and considers obscure.</li>
+            <li>Yet that work remains the gold standard for grammatical and rhetorical analysis of the Qur'an; many later scholars who detested his beliefs still took from him on Arabic analysis, and in many cases even plagiarized him.</li>
+            <li>Our loyalty is not to an author but to the Divine Author: we look at what is being said more than who is saying it — just as a judge must weigh the statement itself before considering who made it. That is what true research should be.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Ibrāhīm's prayer for "both parents"</h3>
+            <span class="code-badge">Resolving an Apparent Conflict</span>
+          </div>
+          <ul class="points">
+            <li>Near the end of his life, Ibrāhīm (AS) prays: "My Master, forgive me and forgive both my parents."</li>
+            <li>Yet the Qur'an indicates he was not permitted to keep praying for his father — creating an apparent conflict.</li>
+            <li>Ṭabāṭabāʾī resolves it through word choice: <b>wālid</b> is the biological father, while <b>ab</b> is the one who raised him. This is why many commentators said Āzar was actually his uncle who raised him.</li>
+            <li>"Ab" is the father figure. Sometimes the biological father is also the father figure; other times the biological parent has died or is absent, and an uncle or someone else becomes the father figure.</li>
+            <li>Such a person doesn't become the wālid, but can become the ab — and "abawayhi" in this ayah is from that word, highlighting whoever plays the parental role.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 07 -->
+    <section class="class-section" id="s-07" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">07</span>
+        <h2>The Biblical Backstory</h2>
+        <button class="collapse-toggle" data-target="s-07" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-07">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Laban's household</h3>
+            <span class="code-badge">Two Daughters, Two Handmaidens</span>
+          </div>
+          <ul class="points">
+            <li>Introduced with a smile as a "crazy story" that fans of dramas will enjoy: a man named Laban has four daughters in this telling — Rachel (the youngest), Bilhah, Zilpah, and Leah.</li>
+            <li>Bilhah and Zilpah were considered handmaidens — daughters of a servant woman — and so did not have full status.</li>
+            <li>In that ancient society, as described, when a man had children from a wife and from a servant, the servant's children became servants of the other children. Bilhah and Zilpah thus served Rachel and Leah.</li>
+            <li>The custom: the younger servant serves the younger daughter, and the older servant serves the older daughter.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Jacob and his twin, Esau</h3>
+            <span class="code-badge">The "Evil Twin"</span>
+          </div>
+          <ul class="points">
+            <li>Jacob (Yaʿqūb) has a twin brother in the Bible, Esau — the older, since he was born first.</li>
+            <li>Esau is portrayed as the evil twin: an idol worshipper involved in adultery, fornication, and all sorts of evil.</li>
+            <li>Things become so bad that Esau tries to kill Jacob, who escapes and comes to Laban's town.</li>
+            <li>It had long been expected that the two brothers would marry into Laban's family: the younger son with the younger daughter (Jacob with Rachel), the older son with the older daughter (Esau with Leah).</li>
+            <li>When Leah learns she is meant for Esau — a "thug," a "gangster" — she is distraught, crying constantly and praying for God to change her fate ("like an Indian movie").</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The wedding-night switch</h3>
+            <span class="code-badge">Laban's Deception</span>
+          </div>
+          <ul class="points">
+            <li>Jacob falls deeply in love with Rachel and asks for her hand; Laban agrees. A bride's servant goes with her, so Rachel would keep the younger servant.</li>
+            <li>Laban plays a trick. Because brides were veiled, he puts Leah in Rachel's place, wanting his older daughter married first.</li>
+            <li>Rachel, though she wants to marry Jacob, stays quiet because her father insists: the older daughter has more right; say nothing, we'll talk after it's done.</li>
+            <li>To complete the deception, Laban places the <b>younger</b> servant beside Leah, so Jacob suspects nothing.</li>
+            <li>When the veil comes off, it is Leah — her eyes swollen from all the crying — whereas the Bible describes Rachel as beautiful, the one Jacob truly wanted.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Fourteen years of service</h3>
+            <span class="code-badge">Two Sisters, One Husband</span>
+          </div>
+          <ul class="points">
+            <li>The marriage gift agreed was seven years of work for Laban. Laban's excuse: older daughters really should marry first — and if Jacob still wants Rachel, he can add another seven years, fourteen in total.</li>
+            <li>In Islam, marrying two sisters at once is now ḥarām; the Qur'an forbids it "except what has already passed."</li>
+            <li>This was pre-Torah — early Abrahamic times, generations before the Torah was revealed to Mūsā (AS) — so some of these rules did not yet exist.</li>
+            <li>Within a very short time Jacob was married again, now with two wives, Leah and Rachel, each accompanied by her servant.</li>
+            <li>This brought Leah deep depression: she felt she wasn't the first choice or the one he truly loved — Rachel was younger, more beautiful, and preferred.</li>
+            <li>The Bible describes that, to compensate Leah for her sorrow, God made her the one able to have children, while Rachel could not conceive for a very long time.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 08 -->
+    <section class="class-section" id="s-08" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">08</span>
+        <h2>Twelve Sons, Four Mothers</h2>
+        <button class="collapse-toggle" data-target="s-08" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-08">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The family tree (biblical account)</h3>
+            <span class="code-badge">Order of Births</span>
+          </div>
+          <div class="tree">
+            <div class="tree-root">Yaʿqūb (Jacob)</div>
+            <div class="tree-grid">
+              <div class="mother wife">
+                <div class="m-name">Leah</div>
+                <div class="m-role">Wife · older daughter</div>
+                <ul>
+                  <li><span class="ord">1</span>Reuben</li>
+                  <li><span class="ord">2</span>Simeon</li>
+                  <li><span class="ord">3</span>Levi</li>
+                  <li><span class="ord">4</span>Judah</li>
+                  <li><span class="ord">9</span>Issachar</li>
+                  <li><span class="ord">10</span>Zebulun</li>
+                  <li><span class="ord">+</span>Dinah (daughter)</li>
+                </ul>
+              </div>
+              <div class="mother">
+                <div class="m-name">Bilhah</div>
+                <div class="m-role">Handmaiden · given by Rachel</div>
+                <ul>
+                  <li><span class="ord">5</span>Dan</li>
+                  <li><span class="ord">6</span>Naphtali</li>
+                </ul>
+              </div>
+              <div class="mother">
+                <div class="m-name">Zilpah</div>
+                <div class="m-role">Handmaiden · given by Leah</div>
+                <ul>
+                  <li><span class="ord">7</span>Gad</li>
+                  <li><span class="ord">8</span>Asher</li>
+                </ul>
+              </div>
+              <div class="mother wife">
+                <div class="m-name">Rachel</div>
+                <div class="m-role">Wife · the beloved · died in childbirth</div>
+                <ul>
+                  <li class="hl"><span class="ord">11</span>Yusuf (Joseph)</li>
+                  <li class="hl"><span class="ord">12</span>Binyamin (Benjamin)</li>
+                </ul>
+              </div>
+            </div>
+            <p class="tree-note">Sequence as presented in the lecture. The first ten sons end up on one "side"; only Yusuf and Binyamin are left isolated.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A competition for sons</h3>
+            <span class="code-badge">A Noble Legacy</span>
+          </div>
+          <ul class="points">
+            <li>Leah has four sons in a row: Reuben, Simeon, Levi, and Judah.</li>
+            <li>There is literature describing a spiritual competition between the wives: they knew they were married to a prophet in the noble lineage of Ibrāhīm (AS), and wanted as many sons by him as possible to share in that legacy — a matter of pride for them.</li>
+            <li>Rachel, still unable to conceive, gives her servant Bilhah to Jacob — permitted in those days — promising to raise the children as her own. Bilhah bears Dan and Naphtali.</li>
+            <li>Leah, who had stopped having children in the meantime, grows upset and does the same with her servant Zilpah, who bears Gad and Asher — now eight sons.</li>
+            <li>Leah then has a ninth and tenth son, Issachar and Zebulun, as well as a daughter, Dinah.</li>
+            <li>Said tongue-in-cheek: four women, three with multiple children — surely no room for jealousy about who is the favourite… "it's all good in the hood."</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Leah's one advantage disappears</h3>
+            <span class="code-badge">Yusuf &amp; Binyamin as Reminders</span>
+          </div>
+          <ul class="points">
+            <li>From Leah's perspective, Jacob loved Rachel, and Rachel was younger and more beautiful — but at least Leah had given him the children. Even after Rachel had sons through her servant, Leah had evened the score through hers, so "no disturbance in the force."</li>
+            <li>Then Rachel finally conceives and gives birth to Yusuf, and some time later dies giving birth to Binyamin.</li>
+            <li>The one edge Leah had over Rachel is gone — and the living reminder of that is Yusuf and Binyamin.</li>
+            <li>Consider the psychology: the sons could absorb this inherited rivalry between Leah and Rachel and direct it toward Yusuf and Binyamin. The Qur'an never mentions this rivalry, but the Bible does describe them competing.</li>
+            <li>Bilhah's sons, Dan and Naphtali, once thought they represented Rachel's side of the family — but once Rachel had sons of her own, they joined "team the rest."</li>
+            <li>So the first ten sons got along with one another, and the only ones left isolated were Yusuf and Binyamin.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Why did Yaʿqūb love them more?</h3>
+            <span class="code-badge">Rachel's Remnant vs. Character</span>
+          </div>
+          <ul class="points">
+            <li>The brothers' complaint in the Qur'an — that Yusuf and his brother are more beloved to their father than they are — takes on new meaning in light of this: the woman he loved had died, and they were all that remained of her.</li>
+            <li>But the Qur'an does not say he loved them more because of Rachel. It highlights that he loved Yusuf because of his character.</li>
+            <li>That is a fundamentally different version of the story.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 09 -->
+    <section class="class-section" id="s-09" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">09</span>
+        <h2>Why the Qur'an Left the Drama Out</h2>
+        <button class="collapse-toggle" data-target="s-09" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-09">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The soap-opera trap</h3>
+            <span class="code-badge">"No Wonder They Hated Him"</span>
+          </div>
+          <ul class="points">
+            <li>The Qur'an says none of this backstory — so why not?</li>
+            <li>Once you understand the whole family dynamic, it's like watching a soap opera: "That's why they were jealous… no wonder they hated Yusuf and Binyamin… their mother made them do it." You start building a whole scenario that explains and excuses their behaviour.</li>
+            <li>The Qur'an makes all of that irrelevant — to teach us that it <b>is</b> irrelevant.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The real enemy is Shayṭān</h3>
+            <span class="code-badge">Spiritual Root vs. Family Psychology</span>
+          </div>
+          <ul class="points">
+            <li>The circumstances, the tensions, the rivalries are only a façade. The real cause is that Shayṭān creates jealousy and the urge to rise above or look down on others.</li>
+            <li>Human beings fall into his waswasah (whispering), but Allah does not endorse their actions as justified by their situation.</li>
+            <li>The tension the Qur'an describes is simple: brothers hate their brother. And the cause it names is: the devil got to you.</li>
+            <li>In the Bible, the reason is the family dynamic — a human, psychological explanation. The Qur'an points to the underlying spiritual problem: how the devil manipulates your emotions.</li>
+            <li>By not describing any of this, the Qur'an takes a remarkably higher road — a "mind-blowing" choice.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A note on trusting Jewish genealogy</h3>
+            <span class="code-badge">Lineage vs. Other Claims</span>
+          </div>
+          <ul class="points">
+            <li>The teacher places more confidence in Jewish genealogical records than in other parts of their tradition, because lineage — who fathered whom, who the mother was — is central to their identity as a people.</li>
+            <li>What their tradition says about what the prophets said and did, he takes with more of a grain of salt.</li>
+            <li>Based on that genealogy, Yaʿqūb (AS) had in effect four wives: Rachel has died, and the others all had sons who were no fans of Yusuf (AS).</li>
+            <li>Whatever the details, the drama has been omitted — but we know tension existed.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section class="class-section" id="s-10" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">10</span>
+        <h2>The Candidates</h2>
+        <button class="collapse-toggle" data-target="s-10" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-10">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Possibility one: Leah</h3>
+            <span class="code-badge">Alive in Egypt?</span>
+          </div>
+          <ul class="points">
+            <li>Leah may still have been alive. The Bible records that she was buried in the homeland, but doesn't say when she died.</li>
+            <li>She may have made it to Egypt and died there, with Jacob asking that she be buried in their ancestral home — where he too wished to be buried — and taking her back.</li>
+            <li>There is no mention of her coming to Egypt, only of where she was buried, so one theory is that Leah is the "parent" in this ayah.</li>
+            <li>The person married to your parent becomes, in effect, your parent — owed the same courtesy and respect you owe your parents.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Possibility two: Bilhah or Zilpah</h3>
+            <span class="code-badge">The Forgotten Matriarchs</span>
+          </div>
+          <ul class="points">
+            <li>The other possibility is one of the handmaidens, Zilpah or Bilhah.</li>
+            <li>Jewish feminists today point out that history knows little about Zilpah and Bilhah and that they don't receive the credit they deserve, as Jewish women tend to be forgotten in history.</li>
+            <li>Yet four of the twelve tribes of Israel come from them — because they were servants, little attention was paid to them, though they should be considered matriarchs of Jewish society.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Where that leaves us</h3>
+            <span class="code-badge">Not Rachel</span>
+          </div>
+          <ul class="points">
+            <li>The Qur'an is not explicit about who she is.</li>
+            <li>We can say fairly confidently that it is not Rachel; it is either Leah, the wife, or Bilhah or Zilpah, the servant women.</li>
+            <li>Each possibility carries its own lesson.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 11 -->
+    <section class="class-section" id="s-11" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">11</span>
+        <h2>If It Was Leah</h2>
+        <button class="collapse-toggle" data-target="s-11" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-11">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The mother of six of the ten</h3>
+            <span class="code-badge">Benefit of the Doubt</span>
+          </div>
+          <ul class="points">
+            <li>If it was Leah, she is the mother of Reuben, Simeon, Levi, Judah, Issachar, and Zebulun — six of the ten sons who wronged Yusuf (AS).</li>
+            <li>We don't know whether she, too, was suffering because of her sons' rebellion, or whether deep down she endorsed their feelings.</li>
+            <li>So we won't "throw her under the bus." Just as we'd give the benefit of the doubt to a living person unless there were evidence of wrongdoing, we have no reason to suspect her intentions.</li>
+            <li>The Bible's claim of rivalry is where the teacher is skeptical: he'll accept genealogy, but not character assassination — even though he described the story, he isn't fully convinced it happened exactly that way.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Walking in to see Rachel's son on the throne</h3>
+            <span class="code-badge">"Dad Is My Real Family"</span>
+          </div>
+          <ul class="points">
+            <li>Imagine her emotions walking in to see Rachel's son up on the throne. Surely he'd want to embrace his father — that's his "real" family.</li>
+            <li>After all, he had said "take this shirt of mine to my father," as if to say: my family is Dad; the rest of you belong together.</li>
+            <li>She could easily feel excluded — that she has no place in Yusuf's heart the way Yaʿqūb does.</li>
+            <li>Yusuf (AS) has the presence of heart and mind to know: in this moment I cannot let this woman feel deprived, neglected, or ignored. She sits where my mother once sat; she is my father's wife; I will honour her as I would my own mother.</li>
+            <li>So he pulls both of them in, embraces them, and makes them feel safe — even in his own moment, he is thinking about someone else's feelings.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Honouring the dream's "moon"</h3>
+            <span class="code-badge">No "I Thought It Would Be My Mom"</span>
+          </div>
+          <ul class="points">
+            <li>When Yusuf saw the dream of the eleven stars, the sun, and the moon, perhaps Binyamin had only just been born, or his mother was still alive.</li>
+            <li>He may not have known then that the "moon" who would come back to him would not be his own mother.</li>
+            <li>When the dream is finally fulfilled, he could easily have told his father, "I thought it would be my mom." He does nothing of the sort — he treats her as his own mother.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A shockwave message to the brothers</h3>
+            <span class="code-badge">No Grudge, Equal Honour</span>
+          </div>
+          <ul class="points">
+            <li>The brothers hated Yusuf all along because of who his mother was — he came from a different branch, and that was the whole basis for hating Yusuf and Binyamin.</li>
+            <li>Now they watch their own mother being honoured as though she were his mother. He holds no grudge; he is loving toward her and honours mom and dad exactly the same.</li>
+            <li>It wasn't "hug Dad, and a polite salām to you too." The Qur'an captures this beautifully by calling them both his parents, even though anyone familiar with Jewish history knows she isn't his biological mother.</li>
+            <li>His message to his brothers and his stepmother: you married my father, you're his life partner, your relationship with him is blessed — and I will honour you for the place you hold.</li>
+            <li>The Prophet ﷺ himself said the maternal aunt holds the status of a mother — she must be honoured as you would honour your own mother.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 12 -->
+    <section class="class-section" id="s-12" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">12</span>
+        <h2>If It Was a Handmaiden</h2>
+        <button class="collapse-toggle" data-target="s-12" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-12">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Labels that played no role</h3>
+            <span class="code-badge">Servant, Yet Honoured as Mother</span>
+          </div>
+          <ul class="points">
+            <li>The other possibility: everyone else had passed away and one of the handmaidens, Zilpah or Bilhah, came with the family.</li>
+            <li>Yusuf (AS) pulls her in and honours her, raising her to the place of a parent.</li>
+            <li>This shows that labels like "handmaiden" or "servant" played no role in how people were actually treated.</li>
+            <li>It is also reflected in their sons: Zilpah's and Bilhah's sons are not lesser sons. The Qur'an treats the sons of Leah and the sons of the handmaidens all simply as sons — not second-class.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A side note on Ismāʿīl (AS)</h3>
+            <span class="code-badge">"Then You'd Be Eight Tribes"</span>
+          </div>
+          <ul class="points">
+            <li>The Israelites accept all of Yusuf's brothers as equal brothers and patriarchs of their people.</li>
+            <li>Yet when it comes to Ibrāhīm (AS), the same logic is used to claim Ismāʿīl isn't truly his son.</li>
+            <li>The irony: by that logic, four of their own tribes would be out, and they'd be the "eight tribes of Israel" — "our cousin, it doesn't add up."</li>
+            <li>Why Ismāʿīl is a legitimate, full-fledged son — according not only to the Qur'an but the Bible itself — was discussed in the teacher's series on Sūrah Āl ʿImrān.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 13 -->
+    <section class="class-section" id="s-13" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">13</span>
+        <h2>Dignity Before Grudges</h2>
+        <button class="collapse-toggle" data-target="s-13" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-13">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The first right: dignity</h3>
+            <span class="code-badge">Responsibilities Allah Placed on Us</span>
+          </div>
+          <ul class="points">
+            <li>Allah has placed different people in our lives and made us responsible toward them: siblings, parents, children, spouse, co-workers, employees.</li>
+            <li>Within the family alone, people have different rights over you — and the first right is to be treated with dignity and respect, so that they never feel humiliated.</li>
+            <li>Yusuf (AS) is a living model of this: toward people who had humiliated him, he took the higher road.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>No guilt by association</h3>
+            <span class="code-badge">Doing Right, Not Being Naive</span>
+          </div>
+          <ul class="points">
+            <li>He doesn't make anyone guilty by association — "you're their mother, so I hate you" — none of that.</li>
+            <li>Even if he knew of drama between his mother and her, it's gone; he doesn't bring it into the equation.</li>
+            <li>What others do and how they carry themselves is on them; he will treat people right.</li>
+            <li>This is a recurring theme in the sūrah: Yusuf (AS) treats people well — not naively, but by doing right by them.</li>
+            <li>He won't make her feel ignored for no reason. She has done nothing to him to deserve that; she deserves her place and the benefit of the doubt, and he gives it to her.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The rest of the family, watching</h3>
+            <span class="code-badge">Hearts in Their Throats</span>
+          </div>
+          <ul class="points">
+            <li>Reuben, Simeon, Levi, Judah, Issachar, Zebulun, Gad, Asher, Dan, Naphtali — along with their wives and children — are all watching as both parents are embraced.</li>
+            <li>They're confused: "I thought he'd hug Jacob and give us all a good yelling. He said there's no blame on us… but is he really this nice?"</li>
+            <li>They are likely nervous, because they had been abusive toward Yaʿqūb (AS) — not long ago they were calling him lost and deluded.</li>
+            <li>The whole extended family is now standing in the court of the ruler of Egypt, who has just embraced the father they had been mistreating — their hearts are in their throats.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 14 -->
+    <section class="class-section" id="s-14" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">14</span>
+        <h2>"Āminīn": Safe &amp; at Peace</h2>
+        <button class="collapse-toggle" data-target="s-14" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-14">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Parents first, then everyone else</h3>
+            <span class="code-badge">"Enter Egypt… Safe"</span>
+          </div>
+          <ul class="points">
+            <li>First things first: he honours his parents, embraces them, and makes them feel safe. Once that is done, he turns to the rest.</li>
+            <li>"Enter Egypt, if Allah wills, safe." (The "if Allah wills" is treated separately below.)</li>
+            <li>"Safe" here: it is as if they've just arrived at the airport, the first building they've seen — but anywhere they go in Egypt, their safety is guaranteed by the "prime minister" himself. They may go freely wherever they like.</li>
+            <li>And no one is going to throw them into a well — welcome to Egypt, a place where you shall be safe.</li>
+            <li>The one promising safety is the very one they should fear; he is the one ensuring the safety of the entire country, and he is offering it to them.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Or: enter at peace</h3>
+            <span class="code-badge">Leave the Drama in Canaan</span>
+          </div>
+          <ul class="points">
+            <li>"Āminīn" can also mean "peacefully": come carrying no grudges, without worrying that anything from the past will be held against you — completely settled and at peace.</li>
+            <li>It may also mean: if you carry any drama, leave it behind in Canaan. Let's start over.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 15 -->
+    <section class="class-section" id="s-15" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">15</span>
+        <h2>What "Inshāʾ Allāh" Really Means</h2>
+        <button class="collapse-toggle" data-target="s-15" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-15">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>How we misuse it</h3>
+            <span class="code-badge">Culture vs. Sacred Text</span>
+          </div>
+          <ul class="points">
+            <li>We often use "inshāʾAllāh" when we're not really committed: "See you at seven like you promised?" — "InshāʾAllāh," meaning "I'm not sure, don't hold it against me, and if I'm late we'll blame Allah." That's not how it's meant to be used.</li>
+            <li>In Muslim culture — not the sacred text — it has become an expression of hope and optimism about the future: "I'll graduate, inshāʾAllāh," "I'll pass this exam, inshāʾAllāh."</li>
+            <li>Its original meaning: I hope to accomplish this, but I know it will only happen if Allah wills it — which is different from a prayer.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Why not with duʿāʾ</h3>
+            <span class="code-badge">"Only If He Wants To"?</span>
+          </div>
+          <ul class="points">
+            <li>This is why the Prophet ﷺ advised against saying inshāʾAllāh when making duʿāʾ.</li>
+            <li>Because we associate it with optimism, we innocently say "May Allah grant you Jannah, inshāʾAllāh" — "Yes, inshāʾAllāh."</li>
+            <li>But that literally says "May Allah grant you Jannah, if He wants to" — which is why we don't attach inshāʾAllāh to prayers.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Yusuf's inshāʾAllāh</h3>
+            <span class="code-badge">"I Am a Living Example"</span>
+          </div>
+          <ul class="points">
+            <li>Yusuf (AS) knows better than anyone that even Allah's promises — that Allah had chosen him, would teach him the interpretation of events, and would complete His favour on him, as Yaʿqūb (AS) told him — didn't come with the trials in between spelled out.</li>
+            <li>It all came true eventually, but you have no guarantee of even the next moment.</li>
+            <li>His meaning: "As ruler of Egypt, I tell you you're safe wherever you go — but even I cannot override the Ruler of all rulers. If He wills, your safety could end at your first step outside."</li>
+            <li>"I was safe in my home one day and in the depths of a well the next. I was rotting in prison seemingly forever one day, and running Egypt the next."</li>
+            <li>"When Allah wills something, what we expect can be completely transformed, and I am living proof. So I will never say anything about the future without adding: only if Allah wills."</li>
+            <li>It echoes what Yaʿqūb (AS) told his sons: enter Egypt through different gates — yet I cannot benefit you against Allah's will in any way. In other words, I hope you stay safe, but only if Allah wills.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A second meaning: endorsement and witness</h3>
+            <span class="code-badge">Bringing Allah Into the Instruction</span>
+          </div>
+          <ul class="points">
+            <li>When you give someone an instruction and attach Allah's name to it — "come over, inshāʾAllāh," "let's talk, inshāʾAllāh" — you are, in a sense, expressing a prayer or endorsing it.</li>
+            <li>So inshāʾAllāh can be read as a prayer, or as a declaration that brings Allah into the conversation: with Allah as witness, you are truly safe.</li>
+            <li>"Udkhulū Miṣra inshāʾAllāhu āminīn" is addressed to the rest of the family: settle in Egypt, wherever you are, in safety.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 16 -->
+    <section class="class-section" id="s-16" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">16</span>
+        <h2>A Shocking First Welcome</h2>
+        <button class="collapse-toggle" data-target="s-16" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-16">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>What the wrongdoers saw first</h3>
+            <span class="code-badge">Embrace, Honour, Safety</span>
+          </div>
+          <ul class="points">
+            <li>The brothers, along with their wives and children, had spent years speaking against Binyamin, Yusuf, and their father.</li>
+            <li>Everything they did is now known, and they are standing before the very person they wronged for so long.</li>
+            <li>The first things they see him do: embrace both his parents, treat his non-biological mother as his mother, then turn to them and say: you are safe — I guarantee your safety here.</li>
+            <li>It is a remarkable, shocking moment.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 17 -->
+    <section class="class-section" id="s-17" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">17</span>
+        <h2>Complex Families &amp; Shayṭān's Strategy</h2>
+        <button class="collapse-toggle" data-target="s-17" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-17">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The Qur'an knows families are complicated</h3>
+            <span class="code-badge">"Ain't Nobody's Family Normal"</span>
+          </div>
+          <ul class="points">
+            <li>Through this ayah, the Qur'an addresses complex family situations: a man with multiple wives, children from multiple marriages, some parents alive and some not, stepmothers, adoptive mothers, non-biological mothers, half-brothers and half-sisters, and rivalries handed down from a previous generation.</li>
+            <li>In all of this, Allah describes the tension as coming from Shayṭān.</li>
+            <li>The Qur'an also recognizes complex family dynamics as a normal part of life. We carry an idealized picture of what a family should look like, but families have always been complicated and always will be.</li>
+            <li>"If your extended family is completely normal, let me know — I'd love to meet this exception on planet earth." Everyone has drama and complexity in their family.</li>
+            <li>People wonder why their family is so messed up — why there's a "Reuben" among them, or a Leah-and-Rachel situation. It has always been there, because Shayṭān has always been there.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Destroy the brick, and the building never stands</h3>
+            <span class="code-badge">Attacking the Ummah From Within</span>
+          </div>
+          <ul class="points">
+            <li>Shayṭān is an enemy to Islam who wants to eradicate it from the earth — and one way is to destroy Muslims from within.</li>
+            <li>What better way than to destroy their families and make them hate each other?</li>
+            <li>How will the ummah unite when people who share your last name, or live under the same roof, can't be united?</li>
+            <li>Destroy the brick, and the building is never built — an easy strategy, and it works.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Kind to strangers, hard on our own</h3>
+            <span class="code-badge">Ties of the Womb Come First</span>
+          </div>
+          <ul class="points">
+            <li>It is so much easier to be kind, understanding, and empathetic toward strangers who share their troubles; the only people we can't be patient with, try to understand, or forgive are our own.</li>
+            <li>We say of others, "He's going through a lot, poor guy" — which is why people eagerly give charity to strangers after watching a video and feeling moved (and they should).</li>
+            <li>But when your own uncle asks, the answer is no: "I know everything about him; there's no way I'm helping him." The same happens with siblings, cousins, uncles, and sometimes even parents.</li>
+            <li>This is why relatives of the womb are given priority over others in Allah's Book: take care of those relationships first.</li>
+            <li>The ayah commands: be mindful of Allah, in whose name you ask things of one another, and be mindful of the wombs — all blood relations and every relation that extends from them.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 18 -->
+    <section class="class-section" id="s-18" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">18</span>
+        <h2>Becoming Our Parents' Refuge</h2>
+        <button class="collapse-toggle" data-target="s-18" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-18">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Respect even when not biological</h3>
+            <span class="code-badge">Allah Placed Them There</span>
+          </div>
+          <ul class="points">
+            <li>It is beautiful that children are taught, through Yusuf's example, to respect their parents even when one of them isn't their biological parent.</li>
+            <li>Be respectful even if he's not your biological father, even if she's not your biological mother — they still deserve respect, because Allah placed them in that position.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Roles reverse with age</h3>
+            <span class="code-badge">From Their Arms to Ours</span>
+          </div>
+          <ul class="points">
+            <li>The ayah also teaches that a son or daughter's role in a parent's old age is to provide refuge and comfort.</li>
+            <li>As we age we grow weaker and need comfort — just as we once needed the comfort of our mothers' arms and the protection of our fathers. A time comes when they need our protection and need to feel safe with us.</li>
+            <li>Their backs hurt when they sit, their knees hurt on the stairs; they go from one doctor's appointment to another; they can't stand as long; their eyesight fails; they can't remember things as they used to; their skin wrinkles; they can no longer drive themselves.</li>
+            <li>As this happens they can become crankier and harder to deal with, testing your patience more than ever — with wisecracks they've been perfecting for decades.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Be like Yusuf (AS)</h3>
+            <span class="code-badge">Refuge, Even With a Reason for a Grudge</span>
+          </div>
+          <ul class="points">
+            <li>We are meant to be like Yusuf (AS): he pulled his parents into his refuge — including the one with no biological connection to him.</li>
+            <li>He arguably even had reason to hold a grudge: she may have competed with his mother, her sons made his life hell, and perhaps she did nothing about it.</li>
+            <li>We could make all those arguments — yet again, we give her the benefit of the doubt. Giving it within the family is hard, but he did it.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 19 -->
+    <section class="class-section" id="s-19" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">19</span>
+        <h2>Where Was Yaʿqūb's Wife?</h2>
+        <button class="collapse-toggle" data-target="s-19" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-19">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Married, yet so alone</h3>
+            <span class="code-badge">Two Ways to Read Her Silence</span>
+          </div>
+          <ul class="points">
+            <li>Earlier in the sūrah, Yaʿqūb (AS) appears alone and lonely in his grief — we don't find him turning to his wife, unlike the Prophet ﷺ, who turned to his wife when overwhelmed at Ḥudaybiyah.</li>
+            <li>Since he was married, one would expect the mother's presence during his grief, but the Qur'an leaves it out.</li>
+            <li>One reading: she didn't really care, like the wives of Lūṭ or Nūḥ. The teacher prefers not to take this view.</li>
+            <li>Another reading: she felt helpless — her sons were grown and out of her control.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Some grief cannot be shared</h3>
+            <span class="code-badge">Love Can't Remove Sadness</span>
+          </div>
+          <ul class="points">
+            <li>Assume she was an extremely loving, supportive wife — whether Leah, Zilpah, or Bilhah — caring and concerned for him.</li>
+            <li>Even so, when someone is grieving, it doesn't matter how much you love them: you can't take their sadness away. Just as you cannot truly make someone happy, you cannot erase someone else's sadness — and you aren't responsible to.</li>
+            <li>His grief over Yusuf is his. A spouse might say "I'm here, I love you, why are you still upset?" — "I love you too, thank you, but I'm still devastated about my child." "Why? You have so much to be happy about — you have me." "Yes, I have you, but that pain is still there."</li>
+            <li>Or, without frustration, she may simply feel helpless: "I wish I could take this from you, because when you hurt, I hurt."</li>
+            <li>There must also be acceptance that some parts of our grief are ours alone. No one else can carry them; they can only be taken to Allah.</li>
+            <li>Human support may ease it a little, but cannot remove it — and perhaps that is why she isn't mentioned: Allah may be teaching that sometimes, however supportive and present you are, the situation is beyond your control.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>What we can and cannot control</h3>
+            <span class="code-badge">Acceptance as Strength</span>
+          </div>
+          <ul class="points">
+            <li>Accepting that we don't control every situation, or every emotion our loved ones feel, is a big part of moving on in life and having meaningful relationships.</li>
+            <li>It means understanding that Allah controls the movement of every leaf and the beat of every heart. We can't make someone love or hate something, and we can't make someone happy.</li>
+            <li>What we can do: we can hurt someone with our words — or we can do right by them, be a source of comfort, be kind, and perhaps bring them joy with our words.</li>
+            <li>But ultimately we cannot control or change how another person feels. Sometimes that is between them and Allah; they must find their own relief from Him — just as even Yaʿqūb (AS) had to find his relief with Allah.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Silence or good thoughts</h3>
+            <span class="code-badge">The Teacher's Position</span>
+          </div>
+          <ul class="points">
+            <li>Both researchers were surprised at the end of the story: "He pulled both his parents in — wait, he was married all this time? All those pages, and he was so alone. Where was the missus?"</li>
+            <li>The Qur'an casts no doubt on her goodness; it is completely silent about her.</li>
+            <li>So we should either remain silent, since no hint has been given, or think well of her.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 20 -->
+    <section class="class-section" id="s-20" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">20</span>
+        <h2>Closing &amp; What Comes Next</h2>
+        <button class="collapse-toggle" data-target="s-20" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-20">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A closing duʿāʾ</h3>
+            <span class="code-badge">Healing Through Allah's Words</span>
+          </div>
+          <ul class="points">
+            <li>May Allah give us all healing through His words, ease our situations, and comfort our hearts with the knowledge that He put His most beloved servants through trials like these.</li>
+            <li>Ayat 100 and 101 technically conclude the story — not the sūrah, but the story.</li>
+            <li>Ayah 100 alone is expected to take a couple of days to finish.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<button id="toTop" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<div id="quickPanel">
+  <div class="qp-head">Jump to Section</div>
+  <ul id="qpList"></ul>
+</div>
+
+<button id="quickFab" aria-label="Open quick navigation" aria-expanded="false">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+</button>
+
+<script>
+  const heroHeader = document.querySelector('header.hero');
+  function syncHeaderHeight(){
+    const refBar = document.querySelector('.ref-bar');
+    document.documentElement.style.setProperty('--header-h', (heroHeader.offsetHeight + refBar.offsetHeight) + 'px');
+  }
+  syncHeaderHeight();
+  window.addEventListener('resize', syncHeaderHeight);
+
+  const progress = document.getElementById('progress');
+  function updateProgress(){
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    progress.style.width = scrolled + '%';
+    document.getElementById('toTop').classList.toggle('show', h.scrollTop > 700);
+  }
+  document.addEventListener('scroll', updateProgress, {passive:true});
+  updateProgress();
+
+  document.getElementById('toTop').addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+  const tocToggle = document.getElementById('tocToggle');
+  const tocPanelOuter = document.getElementById('tocPanelOuter');
+  function closeToc(){
+    tocPanelOuter.classList.remove('open');
+    tocToggle.setAttribute('aria-expanded', 'false');
+  }
+  tocToggle.addEventListener('click', () => {
+    const isOpen = tocPanelOuter.classList.toggle('open');
+    tocToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  /* Build quick-nav list from the sections themselves */
+  const sections = Array.from(document.querySelectorAll('main section.class-section'));
+  const ALL_SECTION_IDS = sections.map(s => s.id);
+  const qpList = document.getElementById('qpList');
+  const chevron = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+  sections.forEach(sec => {
+    const idx = sec.querySelector('.idx').textContent;
+    const title = sec.querySelector('h2').textContent;
+    const color = sec.style.getPropertyValue('--g-color');
+    const li = document.createElement('li');
+    li.dataset.target = sec.id;
+    li.innerHTML = '<a href="#' + sec.id + '" style="--qc:' + color + '"><span class="qp-idx">' + idx + '</span></a>' +
+                   '<span class="qp-toggle" data-target="' + sec.id + '">' + chevron + '</span>';
+    li.querySelector('a').appendChild(document.createTextNode(title));
+    qpList.appendChild(li);
+  });
+
+  const navLinks = document.querySelectorAll('nav.sidebar li a');
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const id = entry.target.id;
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  sections.forEach(el => sectionObserver.observe(el));
+
+  const quickFab = document.getElementById('quickFab');
+  const quickPanel = document.getElementById('quickPanel');
+  function openQuickPanel(){ quickPanel.classList.add('open'); quickFab.classList.add('open'); quickFab.setAttribute('aria-expanded','true'); }
+  function closeQuickPanel(){ quickPanel.classList.remove('open'); quickFab.classList.remove('open'); quickFab.setAttribute('aria-expanded','false'); }
+  quickFab.addEventListener('click', () => { quickPanel.classList.contains('open') ? closeQuickPanel() : openQuickPanel(); });
+  document.addEventListener('click', (e) => {
+    if(quickPanel.classList.contains('open') && !quickPanel.contains(e.target) && !quickFab.contains(e.target)){ closeQuickPanel(); }
+  });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeQuickPanel(); });
+  quickPanel.querySelectorAll('a').forEach(a => { a.addEventListener('click', () => closeQuickPanel()); });
+
+  function setCollapsed(id, collapsed){
+    const body = document.getElementById('body-' + id);
+    const btn = document.querySelector('.collapse-toggle[data-target="' + id + '"]');
+    const qpItem = document.querySelector('#qpList li[data-target="' + id + '"]');
+    if(body) body.classList.toggle('collapsed', collapsed);
+    if(btn) btn.setAttribute('aria-expanded', String(!collapsed));
+    if(qpItem) qpItem.classList.toggle('is-collapsed', collapsed);
+  }
+  function isCollapsed(id){
+    const body = document.getElementById('body-' + id);
+    return body ? body.classList.contains('collapsed') : false;
+  }
+  function toggleCollapsed(id){ setCollapsed(id, !isCollapsed(id)); }
+
+  document.querySelectorAll('.collapse-toggle').forEach(btn => {
+    btn.addEventListener('click', () => toggleCollapsed(btn.dataset.target));
+  });
+  document.querySelectorAll('#qpList li').forEach(item => {
+    const id = item.dataset.target;
+    item.querySelector('.qp-toggle').addEventListener('click', (e) => { e.stopPropagation(); e.preventDefault(); toggleCollapsed(id); });
+  });
+
+  document.getElementById('expandAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, false)));
+  document.getElementById('collapseAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, true)));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', () => {
+      const href = a.getAttribute('href').slice(1);
+      if(!href) return;
+      const target = document.getElementById(href);
+      if(!target) return;
+      if(target.classList.contains('class-section')){ setCollapsed(href, false); }
+      if(a.closest('nav.sidebar')){ closeToc(); }
+    });
+  });
+
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', () => {
+    const q = searchInput.value.trim().toLowerCase();
+    navLinks.forEach(a => {
+      const key = ((a.dataset.key || '') + ' ' + a.textContent).toLowerCase();
+      const match = q === '' || key.includes(q);
+      a.dataset.hidden = match ? '0' : '1';
+      const section = document.querySelector(a.getAttribute('href'));
+      if(section){ section.style.display = match ? '' : 'none'; }
+    });
+  });
+</script>
+<script src="nav.js"></script>
+</body>
+</html>
