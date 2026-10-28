@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>"He Raised His Parents Onto the Throne" — Surah Yusuf 100 (Part 1) | Study Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --paper:#fbfbfd;
+    --ink:#14151a;
+    --ink-soft:#5a5d6b;
+    --line:#e7e7ee;
+    --line-soft:#f0f0f5;
+
+    --c-1:#7c3aed;  --c-1-tint:#f4edff;   /* violet */
+    --c-2:#0284c7;  --c-2-tint:#e8f6ff;   /* ocean */
+    --c-3:#ea580c;  --c-3-tint:#fff1e8;   /* coral */
+    --c-4:#db2777;  --c-4-tint:#ffe9f4;   /* magenta */
+    --c-5:#059669;  --c-5-tint:#e6faf2;   /* emerald */
+    --c-6:#0f766e;  --c-6-tint:#e6f8f6;   /* teal */
+
+    --accent: var(--c-1);
+    --accent-tint: var(--c-1-tint);
+
+    --radius: 18px;
+    --shadow: 0 1px 2px rgba(20,21,26,.04), 0 12px 32px -16px rgba(20,21,26,.14);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background: var(--accent); color:#fff; }
+
+  h1,h2,h3,h4{ font-family:'Space Grotesk', sans-serif; margin:0; letter-spacing:-.01em; }
+  code, .mono{ font-family:'IBM Plex Mono', monospace; }
+  a{ color:inherit; }
+  p{ margin:0; }
+  .arabic{ font-family:'Amiri', serif; direction:rtl; }
+
+  #progress{
+    position:fixed; top:0; left:0; height:3px; width:0%;
+    background: linear-gradient(90deg, var(--c-1), var(--c-2), var(--c-3), var(--c-4), var(--c-5), var(--c-6));
+    z-index:100; transition: width .1s linear;
+  }
+
+  .ref-bar{
+    background:var(--ink); color:#fff;
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    padding:9px 8vw; display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  }
+  .ref-bar .ref-label{ color:rgba(255,255,255,.55); text-transform:uppercase; letter-spacing:.08em; font-size:10.5px; }
+  .ref-bar .ref-txt{ opacity:.85; }
+
+  header.hero{
+    padding: 6px 8vw;
+    min-height:46px;
+    display:flex; align-items:center; gap:10px;
+    position:sticky; top:0; z-index:80;
+    border-bottom:1px solid var(--line);
+    background-color:#fff;
+    background-image:
+      radial-gradient(700px 340px at 8% -10%, var(--c-1-tint), transparent 60%),
+      radial-gradient(600px 300px at 95% 0%, var(--c-3-tint), transparent 55%);
+  }
+
+  /* ---------- burger navigation ---------- */
+  .burger-wrap{ position:relative; display:flex; align-items:center; }
+  .burger-btn{
+    width:34px; height:34px; border-radius:10px; border:1.3px solid var(--line);
+    background:var(--paper); color:var(--ink); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: border-color .15s ease, background .15s ease, color .15s ease;
+  }
+  .burger-btn:hover{ border-color: var(--c-1); }
+  .burger-btn.open{ background: var(--c-1); border-color: var(--c-1); color:#fff; }
+  .burger-btn svg{ transition: opacity .15s ease; }
+  .burger-menu{
+    position:absolute; top:calc(100% + 10px); left:0; width:320px;
+    background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow);
+    padding:8px; opacity:0; transform: translateY(-6px); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease; z-index:120;
+    display:flex; flex-direction:column;
+  }
+  .burger-menu.open{ opacity:1; transform: translateY(0); pointer-events:auto; }
+  .burger-menu-home{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; margin:2px 2px 8px;
+    border-radius:10px; border-bottom:1px solid var(--line-soft);
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-home svg{ flex:none; color:var(--ink-soft); }
+  .burger-menu-home:hover{ background: var(--paper); }
+  .burger-menu-home.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-home.is-current .bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-search{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:10px; padding:8px 10px; margin:2px 2px 8px;
+    background:var(--paper); flex:none;
+  }
+  .burger-menu-search svg{ flex:none; opacity:.5; color:var(--ink-soft); }
+  .burger-menu-search input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13px; width:100%; color:var(--ink);
+  }
+  .burger-menu-list{ max-height:340px; overflow-y:auto; overscroll-behavior:contain; }
+  .burger-menu-list::-webkit-scrollbar{ width:6px; }
+  .burger-menu-list::-webkit-scrollbar-thumb{ background:var(--line); border-radius:10px; }
+  .burger-menu-group + .burger-menu-group{ margin-top:4px; }
+  .burger-menu-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); padding:8px 10px 4px;
+  }
+  .burger-menu-empty{
+    display:none; padding:18px 10px; text-align:center; font-size:12.5px; color:var(--ink-soft);
+  }
+  .burger-menu-item{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; border-radius:10px;
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-item span.bm-title{ display:block; }
+  .burger-menu-item span.bm-sub{ display:block; font-size:11.5px; color:var(--ink-soft); font-weight:400; margin-top:1px; }
+  .burger-menu-item:hover{ background: var(--paper); }
+  .burger-menu-item.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-item.is-current span.bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-dot{ width:9px; height:9px; border-radius:3px; flex:none; margin-top:3px; }
+
+  .page-title{ padding: 30px 8vw 6px; }
+  .page-title .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-soft); margin-bottom:10px; display:block;
+  }
+  .page-title h1{
+    font-size: clamp(26px, 5vw, 46px);
+    line-height:1.12;
+    font-weight:700;
+  }
+  .page-title h1 .accent-word{
+    background: linear-gradient(100deg, var(--c-1), var(--c-4) 55%, var(--c-3));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .page-title .sub{
+    margin-top:14px; max-width:66ch; color:var(--ink-soft); font-size:15px; line-height:1.6;
+  }
+  .page-title .tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+  .page-title .tag{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; border:1.3px solid var(--line);
+    color:var(--ink-soft); font-weight:500; background:var(--paper);
+  }
+
+  .layout{
+    max-width:1400px; margin:0 auto;
+  }
+  .toc-wrap{
+    border-bottom:1px solid var(--line);
+    padding: 0 8vw;
+  }
+  .toc-toggle{
+    width:100%; display:flex; align-items:center; justify-content:space-between; gap:10px;
+    background:none; border:none; cursor:pointer; padding:16px 0;
+    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px; color:var(--ink);
+  }
+  .toc-toggle:hover{ color:var(--c-1); }
+  .toc-toggle-left{ display:flex; align-items:center; gap:10px; }
+  .toc-toggle-left svg{ color:var(--ink-soft); flex:none; }
+  .toc-chevron{ transition: transform .3s ease; color:var(--ink-soft); flex:none; }
+  .toc-toggle[aria-expanded="true"] .toc-chevron{ transform: rotate(180deg); }
+  .toc-panel-outer{ display:grid; grid-template-rows: 0fr; transition: grid-template-rows .35s ease; }
+  .toc-panel-outer.open{ grid-template-rows: 1fr; }
+  .toc-panel-inner{ overflow:hidden; min-height:0; }
+
+  nav.sidebar{ display:block; padding: 4px 0 22px; }
+
+  .search-box{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:12px; padding:10px 12px; margin-bottom:18px;
+    background:var(--paper);
+  }
+  .search-box input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13.5px; width:100%; color:var(--ink);
+  }
+  .search-box svg{ flex:none; opacity:.5; }
+
+  .nav-actions{ display:flex; gap:8px; margin-bottom:18px; }
+  .nav-actions button{
+    flex:1; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    border:1.3px solid var(--line); background:#fff; color:var(--ink-soft);
+    padding:7px 8px; border-radius:9px; cursor:pointer; transition:.15s ease;
+  }
+  .nav-actions button:hover{ border-color:var(--ink); color:var(--ink); }
+
+  .nav-group-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); margin: 18px 0 6px 2px;
+  }
+  .nav-group-label:first-of-type{ margin-top:0; }
+
+  nav.sidebar ul{ list-style:none; margin:0; padding:0; border-left:2px solid var(--line-soft); }
+  nav.sidebar li a{
+    display:flex; align-items:center; gap:9px;
+    text-decoration:none; font-size:13.5px; color:var(--ink-soft);
+    padding:7px 0 7px 14px; border-left:2px solid transparent; margin-left:-2px;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  nav.sidebar li a .sw{ width:8px; height:8px; border-radius:3px; flex:none; background:var(--g-color); }
+  nav.sidebar li a:hover{ color:var(--ink); }
+  nav.sidebar li a.active{ color:var(--g-color); border-left-color: var(--g-color); font-weight:600; }
+  nav.sidebar li a[data-hidden="1"]{ display:none; }
+
+  main{ min-width:0; padding: 0 8vw 140px; }
+
+  section.class-section{ padding-top:56px; scroll-margin-top: 24px; }
+  section.class-section:first-child{ padding-top:44px; }
+
+  .class-head{
+    display:flex; align-items:baseline; gap:16px; flex-wrap:wrap;
+    padding-bottom:14px; margin-bottom:22px; border-bottom:3px solid var(--g-color);
+    position:relative;
+  }
+  .class-head .idx{
+    font-family:'IBM Plex Mono',monospace; font-size:14px; font-weight:700; color:#fff;
+    background:var(--g-color); padding:5px 10px; border-radius:8px;
+  }
+  .class-head h2{ font-size: clamp(20px,2.4vw,28px); color:var(--ink); }
+  .collapse-toggle{
+    margin-left:auto; width:34px; height:34px; border-radius:9px; border:1.5px solid var(--line);
+    background:#fff; color:var(--g-color); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: transform .3s ease, background .15s ease, border-color .15s ease;
+  }
+  .collapse-toggle:hover{ background: var(--g-tint); border-color: var(--g-color); }
+  .collapse-toggle svg{ transition: transform .3s ease; }
+  .collapse-toggle[aria-expanded="false"] svg{ transform: rotate(-90deg); }
+
+  .class-body-outer{ display:grid; grid-template-rows: 0fr; transition: grid-template-rows .38s ease; }
+  .class-body-outer.collapsed{ grid-template-rows: 0fr; }
+  .class-body-outer:not(.collapsed){ grid-template-rows: 1fr; }
+  .class-body-inner{ overflow:hidden; min-height:0; opacity:0; transition: opacity .25s ease .1s; }
+  .class-body-outer.collapsed .class-body-inner{ opacity:0; transition: opacity .18s ease; }
+  .class-body-outer:not(.collapsed) .class-body-inner{ opacity:1; }
+
+  .card{
+    background:#fff; border:1px solid var(--line); border-radius: var(--radius);
+    padding: 28px 30px; margin-bottom: 22px; position:relative; overflow:hidden;
+    border-left: 5px solid var(--g-color);
+  }
+  .card .card-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap;
+    margin-bottom:14px;
+  }
+  .card h3{ font-size:19px; font-weight:600; color:var(--ink); }
+  .code-badge{
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:12px; color:#fff;
+    background: var(--g-color); padding:6px 12px; border-radius:8px; white-space:nowrap;
+  }
+  @media (max-width:640px){ .code-badge{ white-space:normal; } .card{ padding:22px 20px; } }
+
+  ul.points{ list-style:none; margin:0; padding:0; }
+  ul.points > li{
+    position:relative; padding: 10px 0 10px 34px; font-size:14.8px; line-height:1.65; color:#2b2d36;
+    border-top:1px solid var(--line-soft);
+  }
+  ul.points > li:first-child{ border-top:none; }
+  ul.points > li::before{
+    content:"—";
+    position:absolute; left:0; top:10px; width:22px; height:22px; border-radius:7px;
+    background: var(--g-tint); color:var(--g-color); font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:13px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  ul.points > li b, ul.points > li strong{ color:var(--g-color); }
+
+  .ayah-block{
+    margin: 6px 0 18px; padding:20px 22px; border-radius:14px; background:var(--paper);
+    border:1px solid var(--line);
+  }
+  .ayah-block .ayah-ref{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--g-color); font-weight:700; margin-bottom:10px; display:block;
+  }
+  .ayah-block .ayah-ar{
+    font-size:24px; line-height:2; color:var(--ink); text-align:right; margin-bottom:12px;
+  }
+  .ayah-block .ayah-en{
+    font-size:14.5px; line-height:1.6; color:var(--ink-soft); font-style:italic;
+  }
+
+  #toTop{
+    position:fixed; right:26px; bottom:26px; width:46px; height:46px; border-radius:50%;
+    background:var(--ink); color:#fff; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,.22); opacity:0; pointer-events:none; transition: opacity .25s ease, transform .2s ease;
+    z-index:90;
+  }
+  #toTop.show{ opacity:1; pointer-events:auto; }
+  #toTop:hover{ transform: translateY(-3px); }
+
+  #quickFab{
+    position:fixed; left:26px; bottom:26px; width:52px; height:52px; border-radius:16px;
+    background: linear-gradient(135deg, var(--c-1), var(--c-4)); color:#fff; border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; z-index:95;
+    box-shadow:0 10px 28px -6px rgba(124,58,237,.5);
+    transition: transform .2s ease, border-radius .2s ease;
+  }
+  #quickFab:hover{ transform: translateY(-3px) scale(1.03); }
+  #quickFab.open{ border-radius:50%; }
+  #quickFab svg{ transition: transform .3s ease; }
+  #quickFab.open svg{ transform: rotate(45deg); }
+
+  #quickPanel{
+    position:fixed; left:26px; bottom:90px; width:280px; max-height:60vh; overflow-y:auto;
+    background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow);
+    z-index:94; padding:14px; opacity:0; transform: translateY(10px) scale(.97); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  #quickPanel.open{ opacity:1; transform: translateY(0) scale(1); pointer-events:auto; }
+  #quickPanel .qp-head{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--ink-soft); padding:4px 8px 10px;
+  }
+  #qpList{ list-style:none; margin:0; padding:0; }
+  #qpList li{ display:flex; align-items:center; gap:8px; border-radius:10px; padding:2px; }
+  #qpList li a{
+    flex:1; display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--ink);
+    font-size:13px; padding:8px; border-radius:10px; transition:background .15s ease;
+  }
+  #qpList li a:hover{ background:var(--paper); }
+  .qp-idx{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:700; color:#fff;
+    background: var(--qc, var(--c-1)); padding:2px 6px; border-radius:6px;
+  }
+  .qp-toggle{ padding:8px; cursor:pointer; color:var(--ink-soft); opacity:.6; }
+  .qp-toggle:hover{ opacity:1; }
+  #qpList li.is-collapsed .qp-toggle svg{ transform: rotate(-90deg); }
+  #qpList li .qp-toggle svg{ transition: transform .3s ease; }
+
+  @media (max-width: 980px){
+    main{ padding: 0 6vw 120px; }
+    .ayah-block .ayah-ar{ font-size:20px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001s !important; transition-duration:.001s !important; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body data-page="yusuf100a">
+
+<div id="progress"></div>
+
+<header class="hero">
+  <div class="burger-wrap">
+    <button id="navBurger" class="burger-btn" aria-haspopup="true" aria-expanded="false" aria-label="Open navigation menu">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div id="navMenu" class="burger-menu"></div>
+  </div>
+</header>
+
+<div class="ref-bar">
+  <span class="ref-label">Source</span>
+  <a href="https://www.youtube.com/watch?v=hF7AGp8kf8g" target="_blank" rel="noopener" class="ref-txt" style="text-decoration:none; border-bottom:1px solid rgba(255,255,255,.35); padding-bottom:1px;">Nouman Ali Khan</a>
+</div>
+
+<div class="page-title" id="top">
+  <span class="eyebrow">Tafsīr Notes · Sūrah Yūsuf</span>
+  <h1>"He Raised His Parents Onto the <span class="accent-word">Throne</span>" [Ayah 100a]</h1>
+  <div class="sub">The family reunion reaches its peak: Yusuf (AS) shelters and honors his parents, the family falls in prostration, and a grown man running a country turns to his father with the same words he spoke as a frightened child — "Yā abati." A study in love, protection and respect for aging parents, Imam ar-Razi's seven readings of the sajdah, and the meaning of a dream "made real."</div>
+  <div class="tag-row">
+    <span class="tag">Verse 100 (Part 1)</span>
+    <span class="tag">Al-ʿArsh</span>
+    <span class="tag">Wings of Humility</span>
+    <span class="tag">Seven Views on the Sajdah</span>
+    <span class="tag">Ḥaqqan</span>
+  </div>
+</div>
+
+<div class="layout">
+
+  <div class="toc-wrap">
+    <button class="toc-toggle" id="tocToggle" aria-expanded="false" aria-controls="tocPanelOuter">
+      <span class="toc-toggle-left">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        <span>Table of Contents</span>
+      </span>
+      <svg class="toc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="toc-panel-outer" id="tocPanelOuter">
+      <div class="toc-panel-inner">
+        <nav class="sidebar">
+    <div class="search-box">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="searchInput" type="text" placeholder="Search sections…">
+    </div>
+    <div class="nav-actions">
+      <button id="expandAll">Expand all</button>
+      <button id="collapseAll">Collapse all</button>
+    </div>
+
+    <div class="nav-group-label">Opening Reflections</div>
+    <ul>
+      <li><a href="#s-01" data-key="take your time quran quality quantity ponder sahabah baqarah ocean drops consistent" style="--g-color:var(--c-1)"><span class="sw"></span>Take Your Time With the Qur'an</a></li>
+      <li><a href="#s-02" data-key="ayah 100 translation throne prostration vision" style="--g-color:var(--c-2)"><span class="sw"></span>The Ayah at a Glance</a></li>
+      <li><a href="#s-03" data-key="bashir shirt scent good news congratulator adjective" style="--g-color:var(--c-3)"><span class="sw"></span>Revisiting "al-Bashīr": The Shirt</a></li>
+    </ul>
+
+    <div class="nav-group-label">Love, Protection &amp; Respect</div>
+    <ul>
+      <li><a href="#s-04" data-key="ayah 99 safety aawa refuge hug enter egypt safely" style="--g-color:var(--c-4)"><span class="sw"></span>Two Gestures of Safety</a></li>
+      <li><a href="#s-05" data-key="raised throne noun pronoun repetition emphasis honor equal aziz" style="--g-color:var(--c-5)"><span class="sw"></span>Raised to the Throne: Why Repeat?</a></li>
+      <li><a href="#s-06" data-key="wings of humility bird nest isra 17 bani israil ten commandments aging parents" style="--g-color:var(--c-6)"><span class="sw"></span>Wings of Humility</a></li>
+      <li><a href="#s-07" data-key="generation gap burden people of the cave new york 1994 world changes" style="--g-color:var(--c-1)"><span class="sw"></span>Keep Them on the Throne</a></li>
+      <li><a href="#s-08" data-key="arsh seat of office oval office supreme court my job senility yasin annoying child" style="--g-color:var(--c-2)"><span class="sw"></span>The Throne Is a Seat of Office</a></li>
+      <li><a href="#s-09" data-key="love protection respect under care children siblings adopted israelite account" style="--g-color:var(--c-3)"><span class="sw"></span>Love, Protection &amp; Respect</a></li>
+    </ul>
+
+    <div class="nav-group-label">The Prostration — Razi's Views</div>
+    <ul>
+      <li><a href="#s-10" data-key="two kinds of sajdah kaaba ibrahim worship miracle awe cricket" style="--g-color:var(--c-4)"><span class="sw"></span>Two Kinds of Sajdah</a></li>
+      <li><a href="#s-11" data-key="view 2 towards him to allah gratitude miracle angels adam" style="--g-color:var(--c-5)"><span class="sw"></span>View 2: Towards Him, To Allah</a></li>
+      <li><a href="#s-12" data-key="view 3 figurative humility poetry mountains horses kharru" style="--g-color:var(--c-6)"><span class="sw"></span>View 3: Figurative Humility</a></li>
+      <li><a href="#s-13" data-key="view 4 only brothers parents on throne dream grammar them stars" style="--g-color:var(--c-1)"><span class="sw"></span>View 4: Only the Brothers?</a></li>
+      <li><a href="#s-14" data-key="parents did prostrate command revelation ibrahim slaughter son" style="--g-color:var(--c-2)"><span class="sw"></span>If the Parents Did Prostrate</a></li>
+      <li><a href="#s-15" data-key="view 5 customary honoring kings bible objection" style="--g-color:var(--c-3)"><span class="sw"></span>View 5: A Custom of Honoring</a></li>
+      <li><a href="#s-16" data-key="view 6 view 7 yaqub leads example pride brothers instructed" style="--g-color:var(--c-4)"><span class="sw"></span>Views 6 &amp; 7: Leading by Example</a></li>
+      <li><a href="#s-17" data-key="view 1 razi preferred because of him lam gratitude allah" style="--g-color:var(--c-5)"><span class="sw"></span>View 1: Razi's Preferred Reading</a></li>
+    </ul>
+
+    <div class="nav-group-label">"Yā Abati" — The Dream Fulfilled</div>
+    <ul>
+      <li><a href="#s-18" data-key="ya abati echo childhood mirror sun moon stars" style="--g-color:var(--c-6)"><span class="sw"></span>An Echo From Childhood</a></li>
+      <li><a href="#s-19" data-key="yaqub interpretation ayah 6 complete favor family of yaqub" style="--g-color:var(--c-1)"><span class="sw"></span>Yaʿqūb's Words Fit Like a Glove</a></li>
+      <li><a href="#s-20" data-key="haqqan made real purpose sidq architect twelve tribes" style="--g-color:var(--c-2)"><span class="sw"></span>"Ḥaqqan": Made Real, Made Purposeful</a></li>
+      <li><a href="#s-21" data-key="preview two victims talk next session" style="--g-color:var(--c-3)"><span class="sw"></span>Preview: Two Victims Talk</a></li>
+    </ul>
+  </nav>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- 01 -->
+    <section class="class-section" id="s-01" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">01</span>
+        <h2>Take Your Time With the Qur'an</h2>
+        <button class="collapse-toggle" data-target="s-01" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-01"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Nearing the finish line — without rushing</h3>
+            <span class="code-badge">Quality, Not Quantity</span>
+          </div>
+          <ul class="points">
+            <li>This ayah deserves a couple of days of discussion so that each part gets at least some of its due — the plan is to work through it over roughly the next week.</li>
+            <li>As the end of the sūrah approaches there is a natural sense of urgency, yet looking over what remains, there is still quite a bit of work left.</li>
+            <li>Two things regular listeners should internalize: it is okay to take your time with the Qur'an, and even a long time spent on a single ayah is time well spent.</li>
+            <li>Allah asks, "Do they not ponder deeply over the Qur'an?" — there is a reason: contemplation brings richness, calms the heart and mind, brings gifts from Allah, and actually heals a person internally.</li>
+            <li>The Qur'an is always about quality, not quantity — there is no rush to learn everything; the ṣaḥābah reportedly took eight years to study al-Baqarah.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Comments as teaching moments</h3>
+            <span class="code-badge">"All You Talk About Is Yusuf"</span>
+          </div>
+          <ul class="points">
+            <li>The teacher has thick skin about social media comments and doesn't take them personally, but treats them as teaching moments — such as someone jokingly saying "there are other sūrahs in the Qur'an."</li>
+            <li>Yes — for now, all he talks about is Sūrah Yūsuf. Al-Baqarah took about two and a half to three years; Āl ʿImrān took about a year and a half, almost two.</li>
+            <li>He studied Sūrah Yūsuf (just study, not presenting) for about six or seven months before lecturing on it.</li>
+            <li>In the "Deeper Look" series, the fastest pace was studying one short sūrah from the end of the Qur'an full-time for a week before giving one comprehensive lecture — sometimes taking even longer — and he still feels he didn't do them justice.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Drops from an endless ocean</h3>
+            <span class="code-badge">A Journey and a Labor of Love</span>
+          </div>
+          <ul class="points">
+            <li>The heart has to be content that we have dived into an endless ocean — even after a lifetime of contemplation, we will walk out with only drops on us, never the whole ocean.</li>
+            <li>Another kind of impatience — "there are so many other things to talk about, why this?" — is answered by asking: is this not also something we should be spending time with?</li>
+            <li>He constantly reminds himself: take your time — this is a journey and a labor of love, and it should be one for the listeners too.</li>
+            <li>Those who missed lectures or just discovered the series shouldn't feel intimidated or "behind" — there is no race, and the best deeds are the consistent ones, even if small.</li>
+            <li>The hoped-for contribution: not a final interpretation, but a stepping stone that inspires Muslims to do their own thinking, reading, questioning and research — some may even become fully engrossed in Qur'anic studies.</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 02 -->
+    <section class="class-section" id="s-02" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">02</span>
+        <h2>The Ayah at a Glance</h2>
+        <button class="collapse-toggle" data-target="s-02" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-02"><div class="class-body-inner">
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Verse 100 · Part discussed in this session</span>
+          <p class="ayah-ar arabic">وَرَفَعَ أَبَوَيْهِ عَلَى ٱلْعَرْشِ وَخَرُّوا۟ لَهُۥ سُجَّدًا ۖ وَقَالَ يَـٰٓأَبَتِ هَـٰذَا تَأْوِيلُ رُءْيَـٰىَ مِن قَبْلُ قَدْ جَعَلَهَا رَبِّى حَقًّا</p>
+          <p class="ayah-en">"And he raised his parents upon the throne, and they bowed to him in prostration. And he said, 'O my father, this is the explanation of my vision of before. My Lord has made it reality.'" — Sahih International</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A surface translation</h3>
+            <span class="code-badge">Starting Point</span>
+          </div>
+          <ul class="points">
+            <li>He elevated both his parents onto the throne, and they all fell before him in prostration — they fell on their faces before him.</li>
+            <li>He said: "My beloved father, this is the interpretation of my vision from so long ago — my Master has certainly made it true."</li>
+            <li>Only this first part of the ayah is covered in this session; each phrase is explored more deeply below.</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 03 -->
+    <section class="class-section" id="s-03" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">03</span>
+        <h2>Revisiting "al-Bashīr": The Shirt</h2>
+        <button class="collapse-toggle" data-target="s-03" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-03"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A colleague's beautiful thought</h3>
+            <span class="code-badge">The Shirt as the Giver of Good News</span>
+          </div>
+          <ul class="points">
+            <li>An outstanding point, unrelated to this ayah, was shared by a colleague and is included in the series because of its beauty.</li>
+            <li>Back when the shirt was placed on Yaʿqūb's (AS) face, one interpretation of "al-bashīr" (the giver of good news, the congratulator) was that it wasn't a person at all, but the shirt itself.</li>
+            <li>The shirt had actually been giving good news for a while: as it drew closer, Yaʿqūb (AS) was already receiving the good news through its scent — so it served as a bashīr before finally becoming the bashīr on his face.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Why the adjective form fits</h3>
+            <span class="code-badge">Mubashshir vs. Bashīr</span>
+          </div>
+          <ul class="points">
+            <li>"Bashīr" is an adjective form, used for something that continues to play a certain role.</li>
+            <li>A mubashshir gives good news on a particular occasion, whereas a bashīr gives good news continuously.</li>
+            <li>Because the "good vibes" had been coming from the shirt for so long, the word bashīr becomes even more fitting — at least one very plausible interpretation.</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 04 -->
+    <section class="class-section" id="s-04" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">04</span>
+        <h2>Two Gestures of Safety</h2>
+        <button class="collapse-toggle" data-target="s-04" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-04"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A connecting point from Ayah 99</h3>
+            <span class="code-badge">Action and Word</span>
+          </div>
+          <ul class="points">
+            <li>When they came in, Yusuf (AS) pulled both his parents into his protection and made them feel secure — then he told the rest, "Enter Egypt, inshāʾAllāh, safe and secure."</li>
+            <li>What wasn't mentioned last time: both actions are about safety — pulling someone into your refuge is an act of safety, and telling someone "enter safely" is also an act of safety.</li>
+            <li>One is a physical gesture — pulling them in and giving refuge without a word — and the other is a verbal offer of safety.</li>
+            <li>He went out of his way to give safety not only by word but by action: a hug, drawing them closer, a special treatment reserved for his parents before the rest.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Parents deserved more</h3>
+            <span class="code-badge">"I Love You" vs. a Hug and "I Love You"</span>
+          </div>
+          <ul class="points">
+            <li>The body language and the verbal language are practically equivalent, yet the parents were given special prominence — they deserved more.</li>
+            <li>Like saying "I love you" to your parents, versus giving them a hug and saying "I love you" — the second is something else entirely.</li>
+            <li>Even though (as discussed in earlier sessions) this was not his biological mother, he went out of his way to address both of them this way.</li>
+            <li>Pulling someone in shows you care for them, love them and want them safe — love and safety are the sentiments he wants them to feel.</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 05 -->
+    <section class="class-section" id="s-05" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">05</span>
+        <h2>Raised to the Throne: Why Repeat?</h2>
+        <button class="collapse-toggle" data-target="s-05" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-05"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>An interesting redundancy</h3>
+            <span class="code-badge">Noun, Not Pronoun</span>
+          </div>
+          <ul class="points">
+            <li>Now the ayah returns to the parents again: he raised them up onto the throne — literally, they got up "on stage," higher than everyone else.</li>
+            <li>Either action alone — pulling them in, or raising them to the throne — could have expressed safety, honor and love, yet Allah mentions both.</li>
+            <li>Arabic normally refers back to a mentioned noun with a pronoun ("he raised the two of them"), which would only have meant the parents just pulled in.</li>
+            <li>Instead of the pronoun, Allah returns to the noun — "he raised <b>his parents</b>" — a divine emphasis on both parents again, highlighting something similar yet different.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>From love and security to honor</h3>
+            <span class="code-badge">"You and I Are Not Separated"</span>
+          </div>
+          <ul class="points">
+            <li>Pulling them in made them feel loved and secure — "I'll take care of you now"; raising them to the throne makes them feel honored, not in an inferior position.</li>
+            <li>One commentator notes he put them on the throne because he did not want to appear separate or distinct from them — anyone on the throne is distinct from the rest of society.</li>
+            <li>The message: this throne means nothing between us. Everyone calls me al-ʿAzīz and looks up to me as a big shot — but not you.</li>
+            <li>It sets a precedent for their relationship: they shouldn't feel intimidated addressing the governor of Egypt — they can talk to him as their son, from the same position.</li>
+            <li>This gesture signals love and the giving of status and respect — first love and protection, now respect.</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 06 -->
+    <section class="class-section" id="s-06" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">06</span>
+        <h2>Wings of Humility</h2>
+        <button class="collapse-toggle" data-target="s-06" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-06"><div class="class-body-inner">
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Al-Isrāʾ 17:24</span>
+          <p class="ayah-ar arabic">وَٱخْفِضْ لَهُمَا جَنَاحَ ٱلذُّلِّ مِنَ ٱلرَّحْمَةِ</p>
+          <p class="ayah-en">"And lower to them the wing of humility out of mercy…" — Sahih International</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>When aging parents feel insecure</h3>
+            <span class="code-badge">The Roles Reverse</span>
+          </div>
+          <ul class="points">
+            <li>This is perhaps a Qur'anic commentary on our relationship with aging parents: as people age they become less capable and less independent, and begin to feel insecure.</li>
+            <li>For years they were the providers, caretakers and protectors; now they need medical care, emotional care — they feel lonely, worry too much, and have anxious, panicky thoughts.</li>
+            <li>The first priority is making them feel secure and physically feel your connection — as they once hugged you, patted you to sleep, and came in the night during thunder saying "I'm here, you're safe."</li>
+            <li>As a child you ran to them whenever you felt unsafe; now they're too old to run to you — so the role must be reversed.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The bird hovering over its nest</h3>
+            <span class="code-badge">Protection With Humility</span>
+          </div>
+          <ul class="points">
+            <li>Allah compares our relationship with older parents to a bird protecting its nest of eggs or chicks that can't yet fly, while a snake or predator approaches.</li>
+            <li>Even if it's no match for the predator, the bird spreads its wings over the nest so that any attack falls on it, shielding what's beneath.</li>
+            <li>Remarkably, this is an image of a parent protecting a child — yet Allah uses it to describe how children should protect their parents.</li>
+            <li>And Allah specifies "the wings of humility": when you protected your kids, you could say "Not in my house — go pick up that plate, clean that room, finish your homework," because you were the parent and it was your house.</li>
+            <li>When the equation flips — it's your house, you pay the bills, the medical expenses, you drive them around — and they annoy you, you don't get to say "this is my house." Wings of humility.</li>
+            <li>Yusuf (AS) shows exactly this: he has the power to display his position, yet he not only hovers his wings over them (the embrace) — those wings carry humility (raising them to the throne).</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A literary tie-in with Banī Isrāʾīl</h3>
+            <span class="code-badge">The Children of Israel Learn From Israel</span>
+          </div>
+          <ul class="points">
+            <li>Sūrah 17's opening concerns the Israelites; it is also called Sūrah Banī Isrāʾīl — the sūrah of the Children of Israel.</li>
+            <li>One scholar held that the passage of ayat 23–40, which includes humility toward parents, is the Qur'an's equivalent of the commandments given to Moses — famously the Ten Commandments.</li>
+            <li>Here we have the original "Israel" — Yaʿqūb (AS) — and his son literally demonstrating this humility toward him.</li>
+            <li>So the Children of Israel know of humility to parents through the example of their forefather Israel, who was shown it by his son Yusuf (AS).</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 07 -->
+    <section class="class-section" id="s-07" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">07</span>
+        <h2>Keep Them on the Throne</h2>
+        <button class="collapse-toggle" data-target="s-07" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-07"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>"As far as I'm concerned, you're on my throne"</h3>
+            <span class="code-badge">Relevance After Independence</span>
+          </div>
+          <ul class="points">
+            <li>When parents feel they are no longer in charge or relevant, it is the child's job to say: you still deserve the same respect and status.</li>
+            <li>You were on my throne when I was in school, when you were driving, when you ran the household as its king — now you're old, can't fully take care of yourself, lost your independence, and you still deserve the throne.</li>
+            <li>This matters because in contemporary society — in many societies around the world — older parents are considered a burden, and they can be very difficult to deal with.</li>
+            <li>Sometimes differences with parents are irreconcilable, and that's understandable for many reasons.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A different universe every 10–20 years</h3>
+            <span class="code-badge">The Generation Gap</span>
+          </div>
+          <ul class="points">
+            <li>The world our parents grew up in is very different from ours, and our children are growing up on an entirely different planet — culturally, economically, socially and psychologically.</li>
+            <li>It's hard enough to relate to people from your own time; it's much harder to relate across generations — Allah created each generation for a different time.</li>
+            <li>The People of the Cave slept for generations; when they emerged, their clothing looked ancient and their currency was different — people could tell they didn't belong.</li>
+            <li>Today you don't need centuries: pluck someone from New York City in 1994 and drop them into 2020 — language, technology, communication, family and social issues have all changed (and learning who's president might give them a heart attack).</li>
+            <li>If someone still in their youth would find the world unrecognizable, imagine the distance between you and your parents' generation — what was normal to them is out the window, so everything feels strange and agitating.</li>
+            <li>There are cultural, social, sociological and psychological reasons for conflict — but the lesson is that you can have those differences while still giving love, protection and honor, so they never feel irrelevant.</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 08 -->
+    <section class="class-section" id="s-08" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">08</span>
+        <h2>The Throne Is a Seat of Office</h2>
+        <button class="collapse-toggle" data-target="s-08" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-08"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>What the ʿarsh actually was</h3>
+            <span class="code-badge">The Oval Office · The Judge's Bench</span>
+          </div>
+          <ul class="points">
+            <li>The ʿarsh is the king's long, elongated couch with comfortable cushions, meant for him to sit and deliberate judgments on governance every day.</li>
+            <li>It's essentially the Oval Office — the desk from which real issues are handled.</li>
+            <li>A closer contemporary example: the Supreme Court judge's bench — only the judge sits there, because that's the job and qualification. However much a judge loves their parents, they can't seat them there and say "you run the court today."</li>
+            <li>So the throne is a place of great responsibility — the highest, most honorable job — not just a casual "special sofa" given to parents visiting your home for the first time; it's the seat of power, where the work is done.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>"Dad, that's my job — stay out of it"</h3>
+            <span class="code-badge">Let Annoyance Take a Back Seat</span>
+          </div>
+          <ul class="points">
+            <li>Today we tell parents, "That's my role, please leave that." Yusuf (AS) won't let his parents rule Egypt, but symbolically he says: my position, however high to the world, won't be used to make you feel irrelevant.</li>
+            <li>We run businesses with new technology, discuss issues that fly over our parents' heads; your mom or dad offers business ideas that made sense in the '70s and you think, "That's not how the world works anymore."</li>
+            <li>That's exactly when to let your annoyance take a back seat: you were far more annoying when you soiled your clothes and they cleaned you up.</li>
+            <li>You were more annoying screaming at the top of your lungs while your mom was trying to listen to a khuṭbah — and instead of punishing you in a corner, she hugged you and cleaned you up. Take a humble pill.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>"We reverse them in creation"</h3>
+            <span class="code-badge">The Weakest, Most Powerless Age</span>
+          </div>
+          <ul class="points">
+            <li>Allah says (Sūrah Yā-Sīn) that whoever is given long life is reversed in creation — the body weakens and becomes less capable, like a baby's.</li>
+            <li>This can also mean senility: they reason less, get agitated more easily, have less emotional control, even throw tantrums like a child — that is natural; Allah made humans like that.</li>
+            <li>It is the age where, after knowing so much, a person comes to know nothing — short-term memory loss, forgetting things, incoherent sentences.</li>
+            <li>That's when we start feeling, "What are they contributing? Just bills to pay and conversations to put up with." No — every ayah of this sūrah is a commentary on how we should carry ourselves.</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 09 -->
+    <section class="class-section" id="s-09" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">09</span>
+        <h2>Love, Protection &amp; Respect</h2>
+        <button class="collapse-toggle" data-target="s-09" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-09"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Starting fresh</h3>
+            <span class="code-badge">Others Don't Dictate Your Conduct</span>
+          </div>
+          <ul class="points">
+            <li>If one accepts the Israelite account, one of these two parents may have caused Yusuf (AS) a lot of drama — but the Qur'an erases all of that.</li>
+            <li>What others do should not dictate how you carry yourself; he starts fresh — a powerful expression of honoring and protecting the ones he loves and is responsible for.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>All three, not one or two</h3>
+            <span class="code-badge">Anyone Under Your Care</span>
+          </div>
+          <ul class="points">
+            <li>The lesson extends beyond parents: whoever we are responsible for deserves our love, protection and respect.</li>
+            <li>Sometimes we give only one or two: "I respect you but can't protect you," or "I love and protect you, but I'm not giving you respect — I pay the bills, so I get to raise my voice; remember who's in charge."</li>
+            <li>Both gestures were brought together here, as if they're two sides of the same coin — the embrace and the throne are both necessary in these relationships.</li>
+            <li>This applies to aging parents, young children, younger siblings, someone you've adopted — anyone in your care. This is the way of this noble prophet, Yusuf (AS).</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 10 -->
+    <section class="class-section" id="s-10" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">10</span>
+        <h2>Two Kinds of Sajdah</h2>
+        <button class="collapse-toggle" data-target="s-10" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-10"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>"They fell before him in prostration"</h3>
+            <span class="code-badge">Imam ar-Rāzī's Seven Possibilities</span>
+          </div>
+          <ul class="points">
+            <li>This is the fulfillment of the opening dream — the stars, the sun and the moon — and the phrase is heavy; "they fell into sajdah before him" is only a shallow translation.</li>
+            <li>Imam ar-Rāzī lists seven possibilities or perspectives on understanding this prostration; he prefers the first.</li>
+            <li>The teacher goes through them, starting from number two and saving number one for last, then offers his own preferred "cocktail" of these opinions.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Towards, not to</h3>
+            <span class="code-badge">The Kaʿbah as Direction</span>
+          </div>
+          <ul class="points">
+            <li>We don't prostrate to the Kaʿbah; we prostrate towards it, while the sajdah is to Allah. Outwardly it looks like prostrating to a stone — a creation — but it's only a direction, never the object of worship.</li>
+            <li>The teacher's own extrapolation: the Qur'an shows sajdah called for in two scenarios. The first is as an act of worship, done towards the House of Allah — especially in the family of Ibrāhīm (AS).</li>
+            <li>Ibrāhīm (AS) raised the foundations of the Kaʿbah with Ismāʿīl (AS), and Allah said it was for those who circle it, stay there in devotion, bow, and fall on their faces — one of its core purposes is for those who want to prostrate to Him.</li>
+            <li>Building it was Ibrāhīm's (AS) final honor after all his trials. He surely taught this to Ismāʿīl, and to his younger son Isḥāq, after the Kaʿbah was already built — not a different religion.</li>
+            <li>In al-Baqarah Allah groups them together, and Yaʿqūb asks his sons what they will worship; they answer "the God of your fathers Ibrāhīm, Ismāʿīl and Isḥāq." So this family knew that worship-sajdah is to Allah alone, towards the Kaʿbah.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The sajdah of awe</h3>
+            <span class="code-badge">Overwhelmed by a Miracle</span>
+          </div>
+          <ul class="points">
+            <li>The second kind: when something overwhelming or miraculous happens through Allah's intervention, a person is so awed by the manifestation of His power that they can't help but fall on their faces.</li>
+            <li>In a Makkan passage (al-Isrāʾ) — before facing the Kaʿbah in sajdah was even established — sincere People of the Book hearing the Qur'an for the first time fall on their faces in prostration.</li>
+            <li>You don't imagine them first asking which way the Kaʿbah is — they simply collapse before God when they come into contact with His miracle; direction becomes irrelevant.</li>
+            <li>A light contemporary example: when the Pakistan cricket team wins a match, half the team falls into sajdah right away without checking the direction — seeing the win as divine intervention.</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 11 -->
+    <section class="class-section" id="s-11" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">11</span>
+        <h2>View 2: Towards Him, To Allah</h2>
+        <button class="collapse-toggle" data-target="s-11" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-11"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Gratitude before a miracle</h3>
+            <span class="code-badge">In His Direction, For Allah</span>
+          </div>
+          <ul class="points">
+            <li>They prostrated in Yusuf's (AS) direction, but to Allah, out of gratitude.</li>
+            <li>There was overwhelming cause for gratitude: Yusuf survived, the family was united, the parents honored, and the whole family made safe in a time of uncertainty, famine and danger.</li>
+            <li>All of it came through Allah's miraculous intervention in Yusuf's life — so they fell in sajdah before what they saw as a miracle; Yusuf is the recipient of the miracle, the direction is incidental.</li>
+            <li>This differs from saying they prostrated to honor him; rather, what happened with him humbled them.</li>
+            <li>The angels' sajdah before Ādam (AS) might be viewed similarly: Ādam was a miraculous creation of Allah, and the sajdah was not worship of Ādam.</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 12 -->
+    <section class="class-section" id="s-12" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">12</span>
+        <h2>View 3: Figurative Humility</h2>
+        <button class="collapse-toggle" data-target="s-12" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-12"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Mountains bowing to horses</h3>
+            <span class="code-badge">A Poetic Expression</span>
+          </div>
+          <ul class="points">
+            <li>Some interpret the sajdah figuratively: the family simply humbled themselves before him.</li>
+            <li>Ancient Arabic poetry describes mountains doing sajdah to the horses trampling over them — meaning the mountains were "humbled" by horses undeterred by their height.</li>
+            <li>The first objection: the ayah doesn't just say "they did sajdah" — it says "kharrū," they fell into prostration, and the falling makes it very literal.</li>
+            <li>Rāzī cites a response pointing to another Qur'anic example that might be read this way — not a very strong argument in the teacher's view, but it is recorded in scholarly tradition as a possibility.</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 13 -->
+    <section class="class-section" id="s-13" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">13</span>
+        <h2>View 4: Only the Brothers?</h2>
+        <button class="collapse-toggle" data-target="s-13" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-13"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>No room for sajdah on the throne</h3>
+            <span class="code-badge">The Parents Were Already Raised</span>
+          </div>
+          <ul class="points">
+            <li>Here things get interesting: the sajdah may not include the parents. He raised them onto the throne, and then "they fell" — but there isn't much room to prostrate up on a throne.</li>
+            <li>In an ancient royal court, people bowing before the king are at the bottom; the king or noble is up above — down below is the place for sajdah.</li>
+            <li>So some propose that the brothers (and perhaps their families) fell into sajdah — still for Allah's sake, in awe of His miracle — while the parents had already been elevated.</li>
+            <li>Objection: the dream had eleven stars, the sun and the moon all prostrating. Rāzī's answer: a dream need not be interpreted entirely literally — the overall idea has been established.</li>
+            <li>The language itself — the parents raised first, then the falling — does create a separation between parents and children.</li>
+            <li>Scholars also note: he has just protected and honored his parents, humbling himself before them — he would have a hard time accepting them humbling themselves before him. (He isn't humbling himself before his brothers, but he certainly is before his parents.)</li>
+          </ul>
+        </div>
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Yūsuf 12:4 · The original dream</span>
+          <p class="ayah-ar arabic">إِنِّى رَأَيْتُ أَحَدَ عَشَرَ كَوْكَبًا وَٱلشَّمْسَ وَٱلْقَمَرَ رَأَيْتُهُمْ لِى سَـٰجِدِينَ</p>
+          <p class="ayah-en">"Indeed, I have seen [in a dream] eleven stars and the sun and the moon; I saw them prostrating to me." — Sahih International</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The teacher's insight on the dream's grammar</h3>
+            <span class="code-badge">Who Does "Them" Refer To?</span>
+          </div>
+          <ul class="points">
+            <li>Discussing this with a colleague, the teacher went back to the dream ayah: "I saw eleven stars, along with the sun and the moon — I saw them prostrating to me."</li>
+            <li>What is not said: "I saw eleven stars, the sun and the moon prostrating before me." What is said: "I saw eleven stars, and the sun and moon too — I saw them doing sajdah to me."</li>
+            <li>The repeated "I saw them" creates a grammatical ambiguity: "them" could be all of them, or it could circle back to just the eleven stars — "I also saw the sun and moon, but coming back to the eleven stars, I saw them prostrating."</li>
+            <li>He personally likes this possibility because it solves the problem of Yusuf (AS) accepting his parents' humbling — while going out of his way to honor them, he'd naturally say "No, not you, Dad."</li>
+            <li>It wouldn't add up for him to be humbled before them and then say, "Dad, this is what it meant." Still, others hold that the parents did prostrate — both are possible and plausible.</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 14 -->
+    <section class="class-section" id="s-14" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">14</span>
+        <h2>If the Parents Did Prostrate</h2>
+        <button class="collapse-toggle" data-target="s-14" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-14"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A command overrides normal feelings</h3>
+            <span class="code-badge">The Precedent of Ibrāhīm (AS)</span>
+          </div>
+          <ul class="points">
+            <li>Those who hold that the parents did prostrate must explain how Yusuf (AS) could accept it, since our religion teaches children to humble themselves before parents, not the reverse.</li>
+            <li>They compare it to Ibrāhīm (AS) being told to slaughter his son: a child has every right to protection, and a parent is the last one who should harm them — yet when Allah commands, you do as you're told, and normal feelings are set aside.</li>
+            <li>Yaʿqūb (AS) knew from the start that Yusuf's dream was revelation — that's why he said Allah would complete His favor on him — and a prophet's dream is a command.</li>
+            <li>So Yaʿqūb now recognizes this is the moment, and he isn't humbling himself in awe of Yusuf — he is obeying Allah's command to fall in sajdah, known from the dream.</li>
+            <li>Yusuf (AS) doesn't stop him because he too understands it as obedience to Allah — that's the reconciliation if the parents are included.</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 15 -->
+    <section class="class-section" id="s-15" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">15</span>
+        <h2>View 5: A Custom of Honoring</h2>
+        <button class="collapse-toggle" data-target="s-15" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-15"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Just how honor was shown back then</h3>
+            <span class="code-badge">Rejected by Rāzī</span>
+          </div>
+          <ul class="points">
+            <li>This view holds that prostration was a normal custom of honoring someone in that era, with nothing to do with worship — understandable in a time of kings; even the Bible has people falling in prostration to honor someone.</li>
+            <li>The objection: if it were simply about honoring, Yusuf (AS) should have prostrated to his father first — the child honors the parent before the parent honors the child.</li>
+            <li>Since we don't see Yusuf do that, it suggests this wasn't the rationale; Rāzī himself mentions this objection.</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 16 -->
+    <section class="class-section" id="s-16" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">16</span>
+        <h2>Views 6 &amp; 7: Leading by Example</h2>
+        <button class="collapse-toggle" data-target="s-16" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-16"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The brothers didn't know the dream</h3>
+            <span class="code-badge">Why Would They Fall Now?</span>
+          </div>
+          <ul class="points">
+            <li>An interesting add-on: if the sajdah was revealed to be done, the brothers still didn't know about the dream — Yaʿqūb had told Yusuf not to tell them. Only the father knew it should happen.</li>
+            <li>The brothers aren't so spiritually inclined that they'd fall into sajdah on their own. In the teacher's view, their moment of ultimate humility was when he said "I am Yusuf, and this is my brother… no blame on you today" — that's when it truly dawned on them.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>View 6: Yaʿqūb goes first</h3>
+            <span class="code-badge">Killing Any Remaining Pride</span>
+          </div>
+          <ul class="points">
+            <li>Yaʿqūb (AS) recognizes Allah has removed all his grief and pain and made Shayṭān's plot to destroy the family fail — so he falls into sajdah, both obeying the command and out of gratitude to Allah for the blessing that is Yusuf.</li>
+            <li>In doing so he sets an example: the sons see him and realize they should fall into sajdah too.</li>
+            <li>Rāzī adds: though socially humbled, the brothers might still harbor agitation and pride — "we have to humble ourselves before him" — at being subdued by the brother they tried to get rid of.</li>
+            <li>By humbling himself first in gratitude to Allah, the father kills that pride and leads them to fall in line — and he went first because he was the only one who knew the sajdah should happen.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>View 7: Allah instructed it</h3>
+            <span class="code-badge">Already Illustrated Above</span>
+          </div>
+          <ul class="points">
+            <li>The seventh possibility — that Allah instructed it and Yusuf (AS) went along — was already explained in the discussion of the parents obeying a revealed command.</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 17 -->
+    <section class="class-section" id="s-17" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">17</span>
+        <h2>View 1: Razi's Preferred Reading</h2>
+        <button class="collapse-toggle" data-target="s-17" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-17"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>"Fell because of him" — prostrating to Allah</h3>
+            <span class="code-badge">A Prostration of Gratitude</span>
+          </div>
+          <ul class="points">
+            <li>Based on a transmitted narration, "they fell lahu" means they fell <b>because of him</b> — because of having found him — and bowed down to Allah.</li>
+            <li>So this was purely a prostration of gratitude; the One prostrated to is Allah, and it happened only because of what Allah did with Yusuf (AS).</li>
+            <li>Evidence: the ayah says he raised his parents onto the throne and then they fell — implying they had already climbed up. Had they been prostrating to Yusuf, they would have done so before going up, since facing him from below would better show humility.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Fitting the original dream</h3>
+            <span class="code-badge">"Because of Me," Not "To Me"</span>
+          </div>
+          <ul class="points">
+            <li>One might object this doesn't match "this is the interpretation of my vision" — eleven stars, the sun and the moon prostrating.</li>
+            <li>But it does: the dream itself would mean "I saw them all prostrating because of me," not "to me" — prostrating to Allah in recognition of the efforts and events that raised Yusuf to his status.</li>
+            <li>Rāzī considers this the only truly right interpretation, because it seems impossible that Yusuf (AS), given his mind and religion, would be content with his father bowing down to him.</li>
+            <li>His father takes precedence over him in the right of parenthood, in age, in knowledge, in religion, and in prophethood — he is the senior prophet.</li>
+            <li>So in this view the father didn't bow to Yusuf; they all prostrated to Allah because of Yusuf. This is Rāzī's number one, the reading he finds most convincing — a beautiful add-on to the discussion.</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 18 -->
+    <section class="class-section" id="s-18" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">18</span>
+        <h2>An Echo From Childhood</h2>
+        <button class="collapse-toggle" data-target="s-18" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-18"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>"Yā abati" — again</h3>
+            <span class="code-badge">Back to Being That Child</span>
+          </div>
+          <ul class="points">
+            <li>With his parents on the throne and the family fallen in awe, Yusuf (AS) says "Yā abati" — my beloved father.</li>
+            <li>The last time we heard that phrase: "My beloved father, I saw eleven stars, the sun and the moon." Years ago it was "I saw," said with fear and anxiety — "I'm not sure what this means."</li>
+            <li>Now, so many years later, the same words echo; it's as if in his mind this grown adult running a country is a child again in the company of his beloved father — the same dream conversation, revisited.</li>
+            <li>"This is the interpretation of my vision from so long ago — Dad, this is what it meant. Oh my God, Dad, this is what it meant!"</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A mirror image of the opening</h3>
+            <span class="code-badge">Story Bookends</span>
+          </div>
+          <ul class="points">
+            <li>The story opened with a moment with the father and is culminating with a moment with the father — it opened with "Yā abati" and is about to close with "Yā abati."</li>
+            <li>The order is reversed: in the dream he saw the eleven stars, then the sun, then the moon; here he first deals with the sun and moon (the parents) and then the eleven stars — a mirror image of the beginning.</li>
+            <li>The full structure and ring composition of the sūrah is a later project in this series, but some things stand out so glaringly they must be mentioned.</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 19 -->
+    <section class="class-section" id="s-19" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">19</span>
+        <h2>Yaʿqūb's Words Fit Like a Glove</h2>
+        <button class="collapse-toggle" data-target="s-19" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-19"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Connecting the dots to Ayah 6</h3>
+            <span class="code-badge">What Yaʿqūb Saw Behind the Dream</span>
+          </div>
+          <ul class="points">
+            <li>Yusuf came to his father asking what the dream meant, and Yaʿqūb said Allah would complete His favor on him — now look not just at the dream, but at what Yaʿqūb saw behind it.</li>
+            <li>"Thus will your Lord choose you" — we've seen Yusuf (AS) selected for special tasks all along.</li>
+            <li>"And teach you the interpretation of all kinds of speech" — we've seen that all along too.</li>
+            <li>"And complete His favor upon you" — piece by piece, every Lego piece, every puzzle piece came closer to completion.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>"…and upon the family of Yaʿqūb"</h3>
+            <span class="code-badge">A Favor for Everyone</span>
+          </div>
+          <ul class="points">
+            <li>The favor would be completed on Yusuf and on the family of Yaʿqūb — his other children, his wife, and their descendants.</li>
+            <li>This "family of Yaʿqūb" is distinct from his forefathers, because the ayah continues: "as He completed it upon your fathers before, Ibrāhīm and Isḥāq."</li>
+            <li>Yaʿqūb (AS) couldn't know the specifics, only the broad terms of Allah's grand plan: the favor isn't just on you but on the entire family of Jacob.</li>
+            <li>Later Yaʿqūb said, "Perhaps Allah will bring them all to me" — and they called him crazy — but he knew from the start the favor was for the whole family and it would all work out.</li>
+            <li>Now Yusuf turns to his father remembering what he said so long ago — a favor not only on me but on everyone.</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 20 -->
+    <section class="class-section" id="s-20" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">20</span>
+        <h2>"Ḥaqqan": Made Real, Made Purposeful</h2>
+        <button class="collapse-toggle" data-target="s-20" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-20"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Allah was making it true all along</h3>
+            <span class="code-badge">The Architect Knows</span>
+          </div>
+          <ul class="points">
+            <li>"My Master has made it ḥaqq" — made it real, true, materialized: Allah took something seen in a dream and turned it into reality.</li>
+            <li>How many years it took — two, three or four decades — doesn't matter; the point is a lifetime of struggle, and Yusuf now views all that tragedy through this one phrase: that was Allah making it real.</li>
+            <li>It's not just that the sajdah right now proves the dream true — Allah was making it true all along.</li>
+            <li>Like looking at a finished building and then back at its construction: during construction you don't know what the final product looks like; the architect tells you where to put each brick. Now the final product stands — exactly what you said so many years ago, Dad.</li>
+            <li>Not only what Yusuf saw, but what his father understood it to mean, has been brought into reality.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Ḥaqq vs. ṣidq</h3>
+            <span class="code-badge">Truth That Carries Purpose</span>
+          </div>
+          <ul class="points">
+            <li>He could have used the root of ṣidq ("truth"), as Allah does for the Prophet's ﷺ dream — "Allah has made true the vision of His Messenger."</li>
+            <li>Instead ḥaqq is used; it differs from ṣidq in several ways, and one highlighted here is that ḥaqq also means <b>purpose</b>.</li>
+            <li>Allah made the dream purposeful: every event happened for a purpose, and the final purpose was good coming to the entire family — humbled before Allah, recognizing Him, and removing Shayṭān from their hearts.</li>
+            <li>It wasn't purposeful only for Yusuf or only for his father — it was purposeful for the whole family, a massive purpose for the people of Egypt, and for generations to come.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The legacy of the twelve tribes</h3>
+            <span class="code-badge">Where Israelite History Begins</span>
+          </div>
+          <ul class="points">
+            <li>This dream is the reason the entire legacy of the Israelites and of prophethood continues — their whole saga happens because these brothers were united, becoming the twelve tribes of Israel.</li>
+            <li>Despite infighting later on, the twelve brothers remain twelve families who stick together through all their trials, and the prophets who come speak to all twelve tribes regardless of which tribe they come from.</li>
+            <li>So all the favor upon the future lineages of Yaʿqūb, Allah continuing the chain of prophethood through their generations — it all started with this dream.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Not information — excitement</h3>
+            <span class="code-badge">"Look How Allah Made It All Real"</span>
+          </div>
+          <ul class="points">
+            <li>The most natural reading is the excitement of someone reminiscing about a moment from childhood — not a flat statement of fact like "By the way, Dad, this is what it meant."</li>
+            <li>Of course his father knows; Yusuf isn't informing him — he is expressing excitement, love, humility and awe at how Allah put all the pieces together, sharing that moment with his father.</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+    <!-- 21 -->
+    <section class="class-section" id="s-21" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">21</span>
+        <h2>Preview: Two Victims Talk</h2>
+        <button class="collapse-toggle" data-target="s-21" aria-expanded="true" aria-label="Collapse section"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="class-body-outer" id="body-s-21"><div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A personal conversation</h3>
+            <span class="code-badge">Coming Next Session</span>
+          </div>
+          <ul class="points">
+            <li>From here comes incredible speech from Yusuf (AS) — and even more remarkably, he is speaking to his father, not to everybody.</li>
+            <li>It can be seen as a personal conversation between two victims.</li>
+            <li>Next session: how do two victims typically talk about what happened to them — and how do these two speak? The two will be compared and contrasted.</li>
+          </ul>
+        </div>
+
+      </div></div>
+    </section>
+
+  </main>
+</div>
+
+<button id="toTop" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<div id="quickPanel">
+  <div class="qp-head">Jump to Section</div>
+  <ul id="qpList"></ul>
+</div>
+
+<button id="quickFab" aria-label="Open quick navigation" aria-expanded="false">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+</button>
+
+<script>
+  const heroHeader = document.querySelector('header.hero');
+  function syncHeaderHeight(){
+    const refBar = document.querySelector('.ref-bar');
+    document.documentElement.style.setProperty('--header-h', (heroHeader.offsetHeight + refBar.offsetHeight) + 'px');
+  }
+  syncHeaderHeight();
+  window.addEventListener('resize', syncHeaderHeight);
+
+  const progress = document.getElementById('progress');
+  function updateProgress(){
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    progress.style.width = scrolled + '%';
+    document.getElementById('toTop').classList.toggle('show', h.scrollTop > 700);
+  }
+  document.addEventListener('scroll', updateProgress, {passive:true});
+  updateProgress();
+
+  document.getElementById('toTop').addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+  const tocToggle = document.getElementById('tocToggle');
+  const tocPanelOuter = document.getElementById('tocPanelOuter');
+  function closeToc(){
+    tocPanelOuter.classList.remove('open');
+    tocToggle.setAttribute('aria-expanded', 'false');
+  }
+  tocToggle.addEventListener('click', () => {
+    const isOpen = tocPanelOuter.classList.toggle('open');
+    tocToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  /* Build the floating quick-nav list from the sections */
+  const sections = Array.from(document.querySelectorAll('main section.class-section'));
+  const ALL_SECTION_IDS = sections.map(s => s.id);
+  const chevron = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+  const qpList = document.getElementById('qpList');
+  sections.forEach(sec => {
+    const idx = sec.querySelector('.idx').textContent;
+    const title = sec.querySelector('.class-head h2').textContent;
+    const color = sec.style.getPropertyValue('--g-color');
+    const li = document.createElement('li');
+    li.dataset.target = sec.id;
+    li.innerHTML = '<a href="#' + sec.id + '" style="--qc:' + color + '"><span class="qp-idx">' + idx + '</span></a><span class="qp-toggle" data-target="' + sec.id + '">' + chevron + '</span>';
+    li.querySelector('a').appendChild(document.createTextNode(title));
+    qpList.appendChild(li);
+  });
+
+  const navLinks = document.querySelectorAll('nav.sidebar li a');
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const id = entry.target.id;
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  sections.forEach(el => sectionObserver.observe(el));
+
+  const quickFab = document.getElementById('quickFab');
+  const quickPanel = document.getElementById('quickPanel');
+  function openQuickPanel(){ quickPanel.classList.add('open'); quickFab.classList.add('open'); quickFab.setAttribute('aria-expanded','true'); }
+  function closeQuickPanel(){ quickPanel.classList.remove('open'); quickFab.classList.remove('open'); quickFab.setAttribute('aria-expanded','false'); }
+  quickFab.addEventListener('click', () => { quickPanel.classList.contains('open') ? closeQuickPanel() : openQuickPanel(); });
+  document.addEventListener('click', (e) => {
+    if(quickPanel.classList.contains('open') && !quickPanel.contains(e.target) && !quickFab.contains(e.target)){ closeQuickPanel(); }
+  });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeQuickPanel(); });
+  quickPanel.querySelectorAll('a').forEach(a => { a.addEventListener('click', () => closeQuickPanel()); });
+
+  function setCollapsed(id, collapsed){
+    const body = document.getElementById('body-' + id);
+    const btn = document.querySelector('.collapse-toggle[data-target="' + id + '"]');
+    const qpItem = document.querySelector('#qpList li[data-target="' + id + '"]');
+    if(body) body.classList.toggle('collapsed', collapsed);
+    if(btn) btn.setAttribute('aria-expanded', String(!collapsed));
+    if(qpItem) qpItem.classList.toggle('is-collapsed', collapsed);
+  }
+  function isCollapsed(id){
+    const body = document.getElementById('body-' + id);
+    return body ? body.classList.contains('collapsed') : false;
+  }
+  function toggleCollapsed(id){ setCollapsed(id, !isCollapsed(id)); }
+
+  document.querySelectorAll('.collapse-toggle').forEach(btn => {
+    btn.addEventListener('click', () => toggleCollapsed(btn.dataset.target));
+  });
+  document.querySelectorAll('#qpList li').forEach(item => {
+    const id = item.dataset.target;
+    item.querySelector('.qp-toggle').addEventListener('click', (e) => { e.stopPropagation(); e.preventDefault(); toggleCollapsed(id); });
+  });
+
+  document.getElementById('expandAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, false)));
+  document.getElementById('collapseAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, true)));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', () => {
+      const href = a.getAttribute('href').slice(1);
+      if(!href) return;
+      const target = document.getElementById(href);
+      if(!target) return;
+      if(target.classList.contains('class-section')){ setCollapsed(href, false); }
+      if(a.closest('nav.sidebar')){ closeToc(); }
+    });
+  });
+
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', () => {
+    const q = searchInput.value.trim().toLowerCase();
+    navLinks.forEach(a => {
+      const key = ((a.dataset.key || '') + ' ' + a.textContent).toLowerCase();
+      const match = q === '' || key.includes(q);
+      a.dataset.hidden = match ? '0' : '1';
+      const section = document.querySelector(a.getAttribute('href'));
+      if(section){ section.style.display = match ? '' : 'none'; }
+    });
+  });
+</script>
+<script src="nav.js"></script>
+</body>
+</html>
