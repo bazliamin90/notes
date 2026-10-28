@@ -29,7 +29,8 @@
         { href: "surah-yusuf-97-98.html",       page: "yusuf97-98",      color: "var(--c-4)", title: "\"Seek Forgiveness for Us\"", sub: "Sūrah Yūsuf, Āyāt 97–98 · Nouman Ali Khan" },
         { href: "surah-yusuf-99.html",          page: "yusuf99",         color: "var(--c-5)", title: "\"He Took Both His Parents to Himself\"", sub: "Sūrah Yūsuf, Āyah 99 · Nouman Ali Khan" },
         { href: "surah-yusuf-100a.html",        page: "yusuf100a",       color: "var(--c-6)", title: "\"He Raised His Parents Onto the Throne\"", sub: "Sūrah Yūsuf, Āyah 100 (Part 1) · Nouman Ali Khan" },
-        { href: "surah-yusuf-100b.html",        page: "yusuf100b",       color: "var(--c-1)", title: "\"My Master Is Subtle in Whatever He Wills\"", sub: "Sūrah Yūsuf, Āyah 100 (Part 2) · Nouman Ali Khan" }
+        { href: "surah-yusuf-100b.html",        page: "yusuf100b",       color: "var(--c-1)", title: "\"My Master Is Subtle in Whatever He Wills\"", sub: "Sūrah Yūsuf, Āyah 100 (Part 2) · Nouman Ali Khan" },
+        { href: "surah-yusuf-101.html",          page: "yusuf101",        color: "var(--c-2)", title: "\"My Master, You Gave Me Some Kingdom\"", sub: "Sūrah Yūsuf, Āyah 101 · Nouman Ali Khan" }
       ]
     },
     {

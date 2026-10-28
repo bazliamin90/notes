@@ -1,0 +1,1798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>"My Master, You Gave Me Some Kingdom" — Surah Yusuf 101 | Study Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --paper:#fbfbfd;
+    --ink:#14151a;
+    --ink-soft:#5a5d6b;
+    --line:#e7e7ee;
+    --line-soft:#f0f0f5;
+
+    --c-1:#7c3aed;  --c-1-tint:#f4edff;   /* violet */
+    --c-2:#0284c7;  --c-2-tint:#e8f6ff;   /* ocean */
+    --c-3:#ea580c;  --c-3-tint:#fff1e8;   /* coral */
+    --c-4:#db2777;  --c-4-tint:#ffe9f4;   /* magenta */
+    --c-5:#059669;  --c-5-tint:#e6faf2;   /* emerald */
+    --c-6:#0f766e;  --c-6-tint:#e6f8f6;   /* teal */
+
+    --accent: var(--c-1);
+    --accent-tint: var(--c-1-tint);
+
+    --radius: 18px;
+    --shadow: 0 1px 2px rgba(20,21,26,.04), 0 12px 32px -16px rgba(20,21,26,.14);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background: var(--accent); color:#fff; }
+
+  h1,h2,h3,h4{ font-family:'Space Grotesk', sans-serif; margin:0; letter-spacing:-.01em; }
+  code, .mono{ font-family:'IBM Plex Mono', monospace; }
+  a{ color:inherit; }
+  p{ margin:0; }
+  .arabic{ font-family:'Amiri', serif; direction:rtl; }
+
+  #progress{
+    position:fixed; top:0; left:0; height:3px; width:0%;
+    background: linear-gradient(90deg, var(--c-1), var(--c-2), var(--c-3), var(--c-4), var(--c-5), var(--c-6));
+    z-index:100; transition: width .1s linear;
+  }
+
+  .ref-bar{
+    background:var(--ink); color:#fff;
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    padding:9px 8vw; display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  }
+  .ref-bar .ref-label{ color:rgba(255,255,255,.55); text-transform:uppercase; letter-spacing:.08em; font-size:10.5px; }
+  .ref-bar .ref-txt{ opacity:.85; }
+
+  header.hero{
+    padding: 6px 8vw;
+    min-height:46px;
+    display:flex; align-items:center; gap:10px;
+    position:sticky; top:0; z-index:80;
+    border-bottom:1px solid var(--line);
+    background-color:#fff;
+    background-image:
+      radial-gradient(700px 340px at 8% -10%, var(--c-1-tint), transparent 60%),
+      radial-gradient(600px 300px at 95% 0%, var(--c-3-tint), transparent 55%);
+  }
+
+  /* ---------- burger navigation ---------- */
+  .burger-wrap{ position:relative; display:flex; align-items:center; }
+  .burger-btn{
+    width:34px; height:34px; border-radius:10px; border:1.3px solid var(--line);
+    background:var(--paper); color:var(--ink); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: border-color .15s ease, background .15s ease, color .15s ease;
+  }
+  .burger-btn:hover{ border-color: var(--c-1); }
+  .burger-btn.open{ background: var(--c-1); border-color: var(--c-1); color:#fff; }
+  .burger-btn svg{ transition: opacity .15s ease; }
+  .burger-menu{
+    position:absolute; top:calc(100% + 10px); left:0; width:320px;
+    background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow);
+    padding:8px; opacity:0; transform: translateY(-6px); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease; z-index:120;
+    display:flex; flex-direction:column;
+  }
+  .burger-menu.open{ opacity:1; transform: translateY(0); pointer-events:auto; }
+  .burger-menu-home{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; margin:2px 2px 8px;
+    border-radius:10px; border-bottom:1px solid var(--line-soft);
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-home svg{ flex:none; color:var(--ink-soft); }
+  .burger-menu-home:hover{ background: var(--paper); }
+  .burger-menu-home.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-home.is-current .bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-search{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:10px; padding:8px 10px; margin:2px 2px 8px;
+    background:var(--paper); flex:none;
+  }
+  .burger-menu-search svg{ flex:none; opacity:.5; color:var(--ink-soft); }
+  .burger-menu-search input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13px; width:100%; color:var(--ink);
+  }
+  .burger-menu-list{ max-height:340px; overflow-y:auto; overscroll-behavior:contain; }
+  .burger-menu-list::-webkit-scrollbar{ width:6px; }
+  .burger-menu-list::-webkit-scrollbar-thumb{ background:var(--line); border-radius:10px; }
+  .burger-menu-group + .burger-menu-group{ margin-top:4px; }
+  .burger-menu-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); padding:8px 10px 4px;
+  }
+  .burger-menu-empty{
+    display:none; padding:18px 10px; text-align:center; font-size:12.5px; color:var(--ink-soft);
+  }
+  .burger-menu-item{
+    display:flex; align-items:center; gap:10px; padding:10px 10px; border-radius:10px;
+    text-decoration:none; color:var(--ink); font-size:13.5px; font-weight:500;
+    transition: background .15s ease;
+  }
+  .burger-menu-item span.bm-title{ display:block; }
+  .burger-menu-item span.bm-sub{ display:block; font-size:11.5px; color:var(--ink-soft); font-weight:400; margin-top:1px; }
+  .burger-menu-item:hover{ background: var(--paper); }
+  .burger-menu-item.is-current{ background: var(--accent-tint); cursor:default; }
+  .burger-menu-item.is-current span.bm-title{ color: var(--accent); font-weight:700; }
+  .burger-menu-dot{ width:9px; height:9px; border-radius:3px; flex:none; margin-top:3px; }
+
+  .page-title{ padding: 30px 8vw 6px; }
+  .page-title .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-soft); margin-bottom:10px; display:block;
+  }
+  .page-title h1{
+    font-size: clamp(26px, 5vw, 46px);
+    line-height:1.12;
+    font-weight:700;
+  }
+  .page-title h1 .accent-word{
+    background: linear-gradient(100deg, var(--c-1), var(--c-4) 55%, var(--c-3));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .page-title .sub{
+    margin-top:14px; max-width:66ch; color:var(--ink-soft); font-size:15px; line-height:1.6;
+  }
+  .page-title .tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+  .page-title .tag{
+    font-size:12.5px; padding:6px 12px; border-radius:100px; border:1.3px solid var(--line);
+    color:var(--ink-soft); font-weight:500; background:var(--paper);
+  }
+
+  .layout{ max-width:1400px; margin:0 auto; }
+  .toc-wrap{ border-bottom:1px solid var(--line); padding: 0 8vw; }
+  .toc-toggle{
+    width:100%; display:flex; align-items:center; justify-content:space-between; gap:10px;
+    background:none; border:none; cursor:pointer; padding:16px 0;
+    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px; color:var(--ink);
+  }
+  .toc-toggle:hover{ color:var(--c-1); }
+  .toc-toggle-left{ display:flex; align-items:center; gap:10px; }
+  .toc-toggle-left svg{ color:var(--ink-soft); flex:none; }
+  .toc-chevron{ transition: transform .3s ease; color:var(--ink-soft); flex:none; }
+  .toc-toggle[aria-expanded="true"] .toc-chevron{ transform: rotate(180deg); }
+  .toc-panel-outer{ display:grid; grid-template-rows: 0fr; transition: grid-template-rows .35s ease; }
+  .toc-panel-outer.open{ grid-template-rows: 1fr; }
+  .toc-panel-inner{ overflow:hidden; min-height:0; }
+
+  nav.sidebar{ display:block; padding: 4px 0 22px; }
+
+  .search-box{
+    display:flex; align-items:center; gap:8px;
+    border:1.5px solid var(--line); border-radius:12px; padding:10px 12px; margin-bottom:18px;
+    background:var(--paper);
+  }
+  .search-box input{
+    border:none; outline:none; background:transparent; font-family:'IBM Plex Sans',sans-serif;
+    font-size:13.5px; width:100%; color:var(--ink);
+  }
+  .search-box svg{ flex:none; opacity:.5; }
+
+  .nav-actions{ display:flex; gap:8px; margin-bottom:18px; }
+  .nav-actions button{
+    flex:1; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+    border:1.3px solid var(--line); background:#fff; color:var(--ink-soft);
+    padding:7px 8px; border-radius:9px; cursor:pointer; transition:.15s ease;
+  }
+  .nav-actions button:hover{ border-color:var(--ink); color:var(--ink); }
+
+  .nav-group-label{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-soft); margin: 18px 0 6px 2px;
+  }
+  .nav-group-label:first-of-type{ margin-top:0; }
+
+  nav.sidebar ul{ list-style:none; margin:0; padding:0; border-left:2px solid var(--line-soft); }
+  nav.sidebar li a{
+    display:flex; align-items:center; gap:9px;
+    text-decoration:none; font-size:13.5px; color:var(--ink-soft);
+    padding:7px 0 7px 14px; border-left:2px solid transparent; margin-left:-2px;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  nav.sidebar li a .sw{ width:8px; height:8px; border-radius:3px; flex:none; background:var(--g-color); }
+  nav.sidebar li a:hover{ color:var(--ink); }
+  nav.sidebar li a.active{ color:var(--g-color); border-left-color: var(--g-color); font-weight:600; }
+  nav.sidebar li a[data-hidden="1"]{ display:none; }
+
+  main{ min-width:0; padding: 0 8vw 140px; }
+
+  section.class-section{ padding-top:56px; scroll-margin-top: 24px; }
+  section.class-section:first-child{ padding-top:44px; }
+
+  .class-head{
+    display:flex; align-items:baseline; gap:16px; flex-wrap:wrap;
+    padding-bottom:14px; margin-bottom:22px; border-bottom:3px solid var(--g-color);
+    position:relative;
+  }
+  .class-head .idx{
+    font-family:'IBM Plex Mono',monospace; font-size:14px; font-weight:700; color:#fff;
+    background:var(--g-color); padding:5px 10px; border-radius:8px;
+  }
+  .class-head h2{ font-size: clamp(20px,2.4vw,28px); color:var(--ink); }
+  .collapse-toggle{
+    margin-left:auto; width:34px; height:34px; border-radius:9px; border:1.5px solid var(--line);
+    background:#fff; color:var(--g-color); cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition: transform .3s ease, background .15s ease, border-color .15s ease;
+  }
+  .collapse-toggle:hover{ background: var(--g-tint); border-color: var(--g-color); }
+  .collapse-toggle svg{ transition: transform .3s ease; }
+  .collapse-toggle[aria-expanded="false"] svg{ transform: rotate(-90deg); }
+
+  .class-body-outer{ display:grid; grid-template-rows: 0fr; transition: grid-template-rows .38s ease; }
+  .class-body-outer.collapsed{ grid-template-rows: 0fr; }
+  .class-body-outer:not(.collapsed){ grid-template-rows: 1fr; }
+  .class-body-inner{ overflow:hidden; min-height:0; opacity:0; transition: opacity .25s ease .1s; }
+  .class-body-outer.collapsed .class-body-inner{ opacity:0; transition: opacity .18s ease; }
+  .class-body-outer:not(.collapsed) .class-body-inner{ opacity:1; }
+
+  .card{
+    background:#fff; border:1px solid var(--line); border-radius: var(--radius);
+    padding: 28px 30px; margin-bottom: 22px; position:relative; overflow:hidden;
+    border-left: 5px solid var(--g-color);
+  }
+  .card .card-top{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap;
+    margin-bottom:14px;
+  }
+  .card h3{ font-size:19px; font-weight:600; color:var(--ink); }
+  .code-badge{
+    font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:12px; color:#fff;
+    background: var(--g-color); padding:6px 12px; border-radius:8px; white-space:nowrap;
+  }
+
+  ul.points{ list-style:none; margin:0; padding:0; }
+  ul.points > li{
+    position:relative; padding: 10px 0 10px 34px; font-size:14.8px; line-height:1.65; color:#2b2d36;
+    border-top:1px solid var(--line-soft);
+  }
+  ul.points > li:first-child{ border-top:none; }
+  ul.points > li::before{
+    content:"—";
+    position:absolute; left:0; top:10px; width:22px; height:22px; border-radius:7px;
+    background: var(--g-tint); color:var(--g-color); font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:13px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  ul.points > li b, ul.points > li strong{ color:var(--g-color); }
+  ul.points ul{ list-style:none; margin:8px 0 0; padding:0; }
+  ul.points ul li{
+    position:relative; padding:6px 0 6px 22px; font-size:14px; color:var(--ink-soft); border-top:none;
+  }
+  ul.points ul li::before{
+    content:"·"; position:absolute; left:0; top:4px; width:14px; height:14px;
+    color:var(--g-color); font-size:20px; font-weight:700; display:flex; align-items:center; justify-content:center;
+  }
+
+  .ayah-block{
+    margin: 6px 0 18px; padding:20px 22px; border-radius:14px; background:var(--paper);
+    border:1px solid var(--line);
+  }
+  .ayah-block .ayah-ref{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--g-color); font-weight:700; margin-bottom:10px; display:block;
+  }
+  .ayah-block .ayah-ar{ font-size:24px; line-height:2; color:var(--ink); text-align:right; margin-bottom:12px; }
+  .ayah-block .ayah-en{ font-size:14.5px; line-height:1.6; color:var(--ink-soft); font-style:italic; }
+
+  .quote{
+    margin-top:16px; padding:16px 18px; border-radius:12px; background:var(--g-tint);
+    font-family:'Space Grotesk', sans-serif; font-size:16px; line-height:1.55; color:#20222a;
+    border-left:3px solid var(--g-color);
+  }
+
+  .phrase-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(210px,1fr)); gap:12px; margin-top:16px; }
+  .phrase{
+    border-radius:14px; padding:14px 16px; border:1.3px solid var(--line); background:var(--paper);
+  }
+  .phrase .arabic{ font-size:20px; display:block; text-align:right; color:var(--g-color); line-height:1.7; }
+  .phrase .ph-en{ font-size:13px; color:#2b2d36; line-height:1.5; margin-top:4px; }
+  .phrase .ph-tag{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); }
+
+  #toTop{
+    position:fixed; right:26px; bottom:26px; width:46px; height:46px; border-radius:50%;
+    background:var(--ink); color:#fff; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,.22); opacity:0; pointer-events:none; transition: opacity .25s ease, transform .2s ease;
+    z-index:90;
+  }
+  #toTop.show{ opacity:1; pointer-events:auto; }
+  #toTop:hover{ transform: translateY(-3px); }
+
+  #quickFab{
+    position:fixed; left:26px; bottom:26px; width:52px; height:52px; border-radius:16px;
+    background: linear-gradient(135deg, var(--c-1), var(--c-4)); color:#fff; border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; z-index:95;
+    box-shadow:0 10px 28px -6px rgba(124,58,237,.5);
+    transition: transform .2s ease, border-radius .2s ease;
+  }
+  #quickFab:hover{ transform: translateY(-3px) scale(1.03); }
+  #quickFab.open{ border-radius:50%; }
+  #quickFab svg{ transition: transform .3s ease; }
+  #quickFab.open svg{ transform: rotate(45deg); }
+
+  #quickPanel{
+    position:fixed; left:26px; bottom:90px; width:290px; max-height:60vh; overflow-y:auto;
+    background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow);
+    z-index:94; padding:14px; opacity:0; transform: translateY(10px) scale(.97); pointer-events:none;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  #quickPanel.open{ opacity:1; transform: translateY(0) scale(1); pointer-events:auto; }
+  #quickPanel .qp-head{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--ink-soft); padding:4px 8px 10px;
+  }
+  #qpList{ list-style:none; margin:0; padding:0; }
+  #qpList li{ display:flex; align-items:center; gap:8px; border-radius:10px; padding:2px; }
+  #qpList li a{
+    flex:1; display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--ink);
+    font-size:13px; padding:8px; border-radius:10px; transition:background .15s ease;
+  }
+  #qpList li a:hover{ background:var(--paper); }
+  .qp-idx{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:700; color:#fff;
+    background: var(--qc, var(--c-1)); padding:2px 6px; border-radius:6px; flex:none;
+  }
+  .qp-toggle{ padding:8px; cursor:pointer; color:var(--ink-soft); opacity:.6; }
+  .qp-toggle:hover{ opacity:1; }
+  #qpList li.is-collapsed .qp-toggle svg{ transform: rotate(-90deg); }
+  #qpList li .qp-toggle svg{ transition: transform .3s ease; }
+
+  @media (max-width: 980px){
+    main{ padding: 0 6vw 120px; }
+    .ayah-block .ayah-ar{ font-size:20px; }
+  }
+  @media (max-width: 560px){
+    .card{ padding:22px 18px; }
+    .code-badge{ white-space:normal; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001s !important; transition-duration:.001s !important; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body data-page="yusuf101">
+
+<div id="progress"></div>
+
+<header class="hero">
+  <div class="burger-wrap">
+    <button id="navBurger" class="burger-btn" aria-haspopup="true" aria-expanded="false" aria-label="Open navigation menu">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div id="navMenu" class="burger-menu"></div>
+  </div>
+</header>
+
+<div class="ref-bar">
+  <span class="ref-label">Source</span>
+  <a href="https://www.youtube.com/watch?v=yQWV9c4h24E" target="_blank" rel="noopener" class="ref-txt" style="text-decoration:none; border-bottom:1px solid rgba(255,255,255,.35); padding-bottom:1px;">Nouman Ali Khan</a>
+</div>
+
+<div class="page-title" id="top">
+  <span class="eyebrow">Tafsīr Notes · Sūrah Yūsuf</span>
+  <h1>"My Master, You Gave Me <span class="accent-word">Some Kingdom</span>" [Ayah 101]</h1>
+  <div class="sub">The final words of Yusuf (AS) in the story — a prayer that turns from talking about Allah to talking to Him. A study of Fāṭir, Walī and Mawlā, the echoes of Ibrahim (AS), and why a man at the height of his power asks only to die in submission and be joined with good people.</div>
+  <div class="tag-row">
+    <span class="tag">Verse 101</span>
+    <span class="tag">Fāṭir</span>
+    <span class="tag">Walī &amp; Mawlā</span>
+    <span class="tag">Tawaffanī Muslimā</span>
+    <span class="tag">Echoes of Ibrahim</span>
+  </div>
+</div>
+
+<div class="layout">
+
+  <div class="toc-wrap">
+    <button class="toc-toggle" id="tocToggle" aria-expanded="false" aria-controls="tocPanelOuter">
+      <span class="toc-toggle-left">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        <span>Table of Contents</span>
+      </span>
+      <svg class="toc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="toc-panel-outer" id="tocPanelOuter">
+      <div class="toc-panel-inner">
+        <nav class="sidebar">
+          <div class="search-box">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input id="searchInput" type="text" placeholder="Search sections…">
+          </div>
+          <div class="nav-actions">
+            <button id="expandAll">Expand all</button>
+            <button id="collapseAll">Collapse all</button>
+          </div>
+
+          <div class="nav-group-label">Setting the Scene</div>
+          <ul>
+            <li><a href="#s-01" data-key="story ends surah continues concluding passage prophet whole biblical" style="--g-color:var(--c-1)"><span class="sw"></span>The Story Ends — the Sūrah Doesn't</a></li>
+            <li><a href="#s-02" data-key="talking about allah to allah rabbi dawah student teacher fatiha" style="--g-color:var(--c-2)"><span class="sw"></span>From Talking About Allah to Talking to Him</a></li>
+          </ul>
+
+          <div class="nav-group-label">Phrase by Phrase — The Reading</div>
+          <ul>
+            <li><a href="#s-03" data-key="mulk kingdom some min tawil ahadith interpretation speech" style="--g-color:var(--c-3)"><span class="sw"></span>"Some Kingdom" &amp; "Some Interpretation"</a></li>
+            <li><a href="#s-04" data-key="razi two directions world heavens physical divine presence" style="--g-color:var(--c-4)"><span class="sw"></span>Ar-Rāzī: Two Directions of Gift</a></li>
+            <li><a href="#s-05" data-key="fatir grammar munada adjective call invoke" style="--g-color:var(--c-5)"><span class="sw"></span>Fāṭir: A Description or a Call?</a></li>
+            <li><a href="#s-06" data-key="fatir ibn abbas bedouins well tooth camel milk mushroom grapes" style="--g-color:var(--c-6)"><span class="sw"></span>Fāṭir: Ibn ʿAbbās and the Two Bedouins</a></li>
+            <li><a href="#s-07" data-key="khaliq badi creation nothing materials table infatarat sky tear" style="--g-color:var(--c-1)"><span class="sw"></span>Khāliq, Badīʿ and Fāṭir</a></li>
+            <li><a href="#s-08" data-key="fatir unexpected ingredients prison slavery maturity universe" style="--g-color:var(--c-2)"><span class="sw"></span>Fāṭir in the Life of Yusuf</a></li>
+            <li><a href="#s-09" data-key="wali root yali saddle cushion friend tawalla turn direction qiblah" style="--g-color:var(--c-3)"><span class="sw"></span>Walī: The One Who Sticks By You</a></li>
+            <li><a href="#s-10" data-key="wali mawla surah muhammad baqarah potential active disbelievers" style="--g-color:var(--c-4)"><span class="sw"></span>Walī vs Mawlā</a></li>
+            <li><a href="#s-11" data-key="tawaffani muslim wish death hadith ibrahim al imran abrar" style="--g-color:var(--c-5)"><span class="sw"></span>"Take Me as a Muslim" — Not a Wish for Death</a></li>
+          </ul>
+
+          <div class="nav-group-label">The Teacher's Reflections</div>
+          <ul>
+            <li><a href="#s-12" data-key="sequence gratitude first who allah is ceo unworthy triumph" style="--g-color:var(--c-6)"><span class="sw"></span>Gratitude First, Request Last</a></li>
+            <li><a href="#s-13" data-key="power interpretation serve opportunity ability good deeds outlive hadith ruya" style="--g-color:var(--c-1)"><span class="sw"></span>Power + Insight = The Chance to Serve</a></li>
+            <li><a href="#s-14" data-key="ibrahim shuara parallel who allah is to me family of ibrahim" style="--g-color:var(--c-2)"><span class="sw"></span>Echoing the Prayer of Ibrahim</a></li>
+            <li><a href="#s-15" data-key="ayah 100 same event two angles prison power shaitan" style="--g-color:var(--c-3)"><span class="sw"></span>Same Events, New Angles</a></li>
+            <li><a href="#s-16" data-key="humility min some power knowledge fake humility" style="--g-color:var(--c-4)"><span class="sw"></span>The Humility of "Min"</a></li>
+            <li><a href="#s-17" data-key="fatir throne egypt sun god politics religion musa cave open faith enemies" style="--g-color:var(--c-5)"><span class="sw"></span>Fāṭir — Declared From the Throne</a></li>
+            <li><a href="#s-18" data-key="unseen seen skies earth dunya akhirah wali constant closeness" style="--g-color:var(--c-6)"><span class="sw"></span>From the Unseen to the Seen and Back</a></li>
+            <li><a href="#s-19" data-key="taken away one last time surrender muslim grave angels" style="--g-color:var(--c-1)"><span class="sw"></span>Taken Away — One Last Time</a></li>
+            <li><a href="#s-20" data-key="join righteous salihin company lonely abandonment phone love" style="--g-color:var(--c-2)"><span class="sw"></span>"Join Me With the Righteous"</a></li>
+            <li><a href="#s-21" data-key="yusuf club jannah everyone story dua closing" style="--g-color:var(--c-3)"><span class="sw"></span>The Yusuf Club in Jannah</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- 01 -->
+    <section class="class-section" id="s-01" data-title="The Story Ends — the Sūrah Doesn't" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">01</span>
+        <h2>The Story Ends — the Sūrah Doesn't</h2>
+        <button class="collapse-toggle" data-target="s-01" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-01">
+      <div class="class-body-inner">
+
+        <div class="ayah-block">
+          <span class="ayah-ref">Verse 101</span>
+          <p class="ayah-ar arabic">۞ رَبِّ قَدْ ءَاتَيْتَنِى مِنَ ٱلْمُلْكِ وَعَلَّمْتَنِى مِن تَأْوِيلِ ٱلْأَحَادِيثِ ۚ فَاطِرَ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ أَنتَ وَلِىِّۦ فِى ٱلدُّنْيَا وَٱلْـَٔاخِرَةِ ۖ تَوَفَّنِى مُسْلِمًا وَأَلْحِقْنِى بِٱلصَّـٰلِحِينَ</p>
+          <p class="ayah-en">"My Lord, You have given me [something] of sovereignty and taught me of the interpretation of dreams. Creator of the heavens and earth, You are my protector in this world and in the Hereafter. Cause me to die a Muslim and join me with the righteous." — Sahih International</p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The last ayah of the storytelling</h3>
+            <span class="code-badge">Ayah 101</span>
+          </div>
+          <ul class="points">
+            <li>As far as the storytelling portion of the sūrah is concerned, ayah 101 is the last ayah of the story.</li>
+            <li>The sūrah itself continues a little longer with one more passage — a concluding passage that addresses the Prophet ﷺ, in which he is taught the concluding lessons.</li>
+            <li>The lesson will cover as much of this ayah as possible, and — as in past sessions — will include some biblical comparisons.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Rethink "the story is the main thing"</h3>
+            <span class="code-badge">The Sūrah as One Whole</span>
+          </div>
+          <ul class="points">
+            <li>We often get programmed into thinking that the most important thing in Sūrah Yūsuf is the story itself — that idea needs rethinking.</li>
+            <li>The sūrah should be seen as an all-encompassing whole: the speech from Allah is not over until the sūrah is over.</li>
+            <li>There is a reason Allah placed those final ayat as part of the sūrah — so even though the story ends here, the sūrah is far from over.</li>
+            <li>There is much to examine in the closing ayat, and Allah, in His wisdom, wants us to inquire into how the way He concludes the sūrah connects with the rest of this remarkable story.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section class="class-section" id="s-02" data-title="From Talking About Allah to Talking to Him" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">02</span>
+        <h2>From Talking About Allah to Talking to Him</h2>
+        <button class="collapse-toggle" data-target="s-02" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-02">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Recap: what he said in ayah 100</h3>
+            <span class="code-badge">Speaking to His Family</span>
+          </div>
+          <ul class="points">
+            <li>In ayah 100, after raising his parents onto the throne and the whole family falling into sajdah, Yusuf (AS) spoke to his father and then to the rest of the family.</li>
+            <li>He said: "My beloved father, this is the interpretation of my vision from long ago — my Master has made it real; it has come true."</li>
+            <li>He added that Allah was good to him and subtle with him when He brought him out of prison, and brought all of them from the outskirts / bedouin areas — even after the devil had caused discord and stirred things up between him and his brothers.</li>
+            <li>He closed by saying his Master is subtle and delicate in whatever He wills, and that He is all-Knowing and all-Wise.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Now he turns to Allah: "Rabbi"</h3>
+            <span class="code-badge">A Shift in Address</span>
+          </div>
+          <ul class="points">
+            <li>The first notable feature of ayah 101 is that it begins with <b>"Rabbi" — "my Master."</b></li>
+            <li>In the previous ayah he was talking to his family <i>about</i> Allah ("this is what Allah did for me, He made this dream come true, He brought me out of jail, He brought all of you"); now he turns and talks <i>to</i> Allah.</li>
+            <li>Even in these transitions of style there is an important lesson.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Don't get stuck in the "preacher zone"</h3>
+            <span class="code-badge">About Him ≠ To Him</span>
+          </div>
+          <ul class="points">
+            <li>We are often in a position to talk to someone we love about Allah — and you can slip into the "dawah zone" or "preacher zone," always talking about Allah but not talking enough <i>to</i> Allah.</li>
+            <li>Talking about Him is not a substitute for talking to Him — you need a genuine, intimate, personal conversation with Allah, not just conversation about Him.</li>
+            <li>This is especially important for students and activists in Islamic studies, learning, sharing and dawah: we are always in learning-and-teaching mode, reading, talking and writing about Him.</li>
+            <li>That work is valuable in itself and has its place — but right alongside it, there must be a corresponding conversation with Allah Himself.</li>
+            <li>The same is true of the audience: when you listen to lectures about Allah, the Qur'an, or the Prophet's ﷺ life, your ears and heart take in discussions <i>about</i> Allah — and that should lead you to talk <i>to</i> Allah, inspired by what you learned.</li>
+            <li>Both the giver and the recipient of sacred knowledge should be learning about Him and also learning to talk to Him.</li>
+            <li>This is actually a fundamental principle of al-Fātiḥah itself: we learn something about Allah, and immediately after that we talk to Him.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section class="class-section" id="s-03" data-title="&quot;Some Kingdom&quot; &amp; &quot;Some Interpretation&quot;" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">03</span>
+        <h2>"Some Kingdom" &amp; "Some Interpretation"</h2>
+        <button class="collapse-toggle" data-target="s-03" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-03">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The two opening phrases</h3>
+            <span class="code-badge">Mulk &amp; Taʾwīl al-Aḥādīth</span>
+          </div>
+          <div class="phrase-grid">
+            <div class="phrase"><span class="ph-tag">Phrase 1</span><span class="arabic">قَدْ ءَاتَيْتَنِى مِنَ ٱلْمُلْكِ</span><p class="ph-en">You have certainly granted me some kingdom / dominion / control.</p></div>
+            <div class="phrase"><span class="ph-tag">Phrase 2</span><span class="arabic">وَعَلَّمْتَنِى مِن تَأْوِيلِ ٱلْأَحَادِيثِ</span><p class="ph-en">And You taught me part of the interpretation of all kinds of speech.</p></div>
+          </div>
+          <ul class="points" style="margin-top:14px;">
+            <li><b>Mulk</b> means dominion and control; it can also mean governance and power.</li>
+            <li><b>Min</b> here means "some" — not all power, but a portion of it, since all power belongs to Allah. "Some portion of power You also granted me in this life."</li>
+            <li>The phrase "taʾwīl al-aḥādīth" is the one to focus on first.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>How the lesson is structured</h3>
+            <span class="code-badge">Reading First, Reflections Last</span>
+          </div>
+          <ul class="points">
+            <li>First, some of what the teacher has read and finds beneficial is shared, phrase by phrase, without connecting the phrases yet.</li>
+            <li>He looked for others who had discussed what connects the phrases of this statement of Yusuf (AS) and did not find much — so towards the end he shares his own compiled thoughts on the ayah, in addition to the reading.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 04 -->
+    <section class="class-section" id="s-04" data-title="Ar-Rāzī: Two Directions of Gift" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">04</span>
+        <h2>Ar-Rāzī: Two Directions of Gift</h2>
+        <button class="collapse-toggle" data-target="s-04" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-04">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Why pair dominion with interpretation?</h3>
+            <span class="code-badge">Ar-Rāzī's Question</span>
+          </div>
+          <ul class="points">
+            <li>Imam ar-Rāzī asks what connects these two things: Allah giving him dominion and control, and Allah teaching him the interpretation of all kinds of speech.</li>
+            <li>He suggests thinking of Yusuf (AS) as someone who benefited from the heavens — the heavenly benefit being knowledge to interpret things in a way only Allah could teach, such as dreams.</li>
+            <li>But when Allah gave him control, He not only empowered him; He enabled him to affect other people in this world.</li>
+            <li>So ar-Rāzī sees it as two-directional (not perfectly clean-cut): Allah gave him gifts with which he could help creation.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Direction one: toward the world</h3>
+            <span class="code-badge">Serving Allah's Creation</span>
+          </div>
+          <ul class="points">
+            <li>His power let him change the water canals, create a reservoir, and store up crops so the nation could survive for several years — that is the power Allah gave him to make change in the world.</li>
+            <li>That is him serving Allah's creation; his focus here is directed toward the world, acknowledging: "I couldn't have helped people the way I did if You hadn't given me the power."</li>
+            <li>This power came through worldly mechanisms — the king made him prime minister in the visible world, while in the unseen world Allah put him in charge.</li>
+            <li>Allah didn't just pluck him out of prison with angels and place him on a throne; worldly mechanisms were in place, and Allah, being Laṭīf, worked subtly through them.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Direction two: toward the heavens</h3>
+            <span class="code-badge">A Direct Divine Link</span>
+          </div>
+          <ul class="points">
+            <li>The interpretation of dreams, by contrast, is a direct link to Allah — heavenly knowledge that can only come from Him, not through the vessel of a king.</li>
+            <li>So Allah sometimes works through the world, giving you things to benefit others with, and at other times helps you directly.</li>
+            <li>Yusuf (AS) is acknowledging both Allah's indirect help in what he accomplished for himself and others, and his direct divine connection — unique to him as a prophet, a gift no other human around him had.</li>
+            <li>His father had acknowledged this at the very beginning of his career: that Allah would teach him the interpretation of all kinds of speech — so the ayah echoes those opening phrases.</li>
+          </ul>
+          <div class="quote">Ar-Rāzī's wording: "You granted me dominion" alludes to his connection with the physical world of bodies; "You taught me interpretation" alludes to his connection to the direct presence of Allah Himself.</div>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 05 -->
+    <section class="class-section" id="s-05" data-title="Fāṭir: A Description or a Call?" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">05</span>
+        <h2>Fāṭir: A Description or a Call?</h2>
+        <button class="collapse-toggle" data-target="s-05" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-05">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Why "Fāṭira" ends in a fatḥah</h3>
+            <span class="code-badge">Two Grammatical Readings</span>
+          </div>
+          <ul class="points">
+            <li>One translation of <span class="arabic">فَاطِرَ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ</span> is "the Creator of the skies and the earth." The grammar is worth seeing first so the translation becomes easy.</li>
+            <li><b>Reason 1 — an adjective:</b> it describes "Rabb." Since "Rabb" here is munādā (being called) and muḍāf, it is manṣūb, so its adjective takes the fatḥah — "my Master, who is the Creator of the skies and the earth," connecting the two phrases.</li>
+            <li><b>Reason 2 — a fresh call:</b> he is calling on Allah again. Then it is not a statement ("He is the Creator…") but an invocation ("O Creator of the skies and the earth!").</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Talking about vs. talking to</h3>
+            <span class="code-badge">"Allah is merciful" vs "O Allah, the Merciful"</span>
+          </div>
+          <ul class="points">
+            <li>Simple English illustration: "Allah is merciful" is a statement <i>about</i> Allah; turning toward the sky and saying "Allah, the Merciful…" is speaking <i>to</i> Allah.</li>
+            <li>The fatḥah makes it munādā, meaning he is addressing Allah — just as he did at the start of the ayah: "My Master, You gave me kingdom… my Master, You taught me…"</li>
+            <li>So it is not an informative statement; he is invoking Allah by that name.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 06 -->
+    <section class="class-section" id="s-06" data-title="Fāṭir: Ibn ʿAbbās and the Two Bedouins" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">06</span>
+        <h2>Fāṭir: Ibn ʿAbbās and the Two Bedouins</h2>
+        <button class="collapse-toggle" data-target="s-06" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-06">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Not simply "Khāliq"</h3>
+            <span class="code-badge">A Deliberate Confusion</span>
+          </div>
+          <ul class="points">
+            <li>Even those with little Arabic know the usual word for creator is <b>Khāliq</b> — but the word here is <b>Fāṭir</b>, which is different.</li>
+            <li>The teacher deliberately translated Fāṭir as "creator" too, to create that confusion (pun intended), then unpack how it differs.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The story of the well</h3>
+            <span class="code-badge">"I Did Its Faṭr"</span>
+          </div>
+          <ul class="points">
+            <li>Ibn ʿAbbās said he did not know what "fāṭir" meant until he saw two bedouins in the desert arguing over a well.</li>
+            <li>One said, "I did its faṭr" — meaning, "I was the one who dug it up first; it's my well."</li>
+            <li>So the word for digging up and initiating the very first dig is "fuṭūr / faṭr."</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The linguists' core meaning</h3>
+            <span class="code-badge">Something Tearing Open, Coming Out</span>
+          </div>
+          <ul class="points">
+            <li>Linguists say the origin of the word relates to something tearing open or coming out — like water bursting out when a well is dug.</li>
+            <li>Other usages from the same root:
+              <ul>
+                <li>A camel's tooth: when the gum is pierced and the first sign of the tooth comes out.</li>
+                <li>Milking a camel: when the first signs of milk start appearing.</li>
+                <li>Pimples / zits that pop out on the faces of boys and girls at a certain age ("that's nasty, but that's the word").</li>
+                <li>A kind of mushroom or fungus that sprouts out of the ground.</li>
+                <li>Grapevines, when the first sprout of the grape pops out and the fruit begins to appear.</li>
+              </ul>
+            </li>
+            <li>The common theme: something coming out in its very first moment.</li>
+            <li>So "Fāṭir of the skies and the earth" means the One who initiated them from their very first moment — the Initiator of their early inception.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 07 -->
+    <section class="class-section" id="s-07" data-title="Khāliq, Badīʿ and Fāṭir" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">07</span>
+        <h2>Khāliq, Badīʿ and Fāṭir</h2>
+        <button class="collapse-toggle" data-target="s-07" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-07">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Three kinds of "creating"</h3>
+            <span class="code-badge">From Materials · From Nothing · In Between</span>
+          </div>
+          <ul class="points">
+            <li>Fāṭir does not necessarily mean "creator from nothing." That meaning belongs to another name of Allah: <b>Badīʿ</b> — the unique, innovative Creator of the skies and the earth.</li>
+            <li>We usually hear "bidʿah" in a negative sense, from the hadith "every newly invented matter…" — meaning something with no basis; but the root can also mean creativity.</li>
+            <li><b>Khalq</b> is creating from existing materials: a building is made from materials that already existed; a painting from paint and a canvas that already existed.</li>
+            <li>Allah says of Adam that He created him from dirt — the ingredient (dirt) already existed and was used to create him. That is khalq.</li>
+            <li><b>Badīʿ</b> suggests there were no ingredients at all — not even conceivable ones — and Allah created from nothing: the "kun fayakūn," "be, and it is" concept.</li>
+            <li><b>Fāṭir</b> sits in between the two.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>An analogy for the "in between"</h3>
+            <span class="code-badge">Wood → Table vs. Dirt → Water</span>
+          </div>
+          <ul class="points">
+            <li>It's easy to picture wood being made into a table or chair: you have the ingredient, the tools, and you know the final product.</li>
+            <li>But sometimes you look at something, see no ingredients and no potential at all — then suddenly there's a finished product, and you never realised it had the potential to produce it.</li>
+            <li>In human making (cooking, building), you have components and a framework in mind that lead to the result.</li>
+            <li>Fāṭir is like digging unsuspecting dirt and it producing water — dirt and water seem to have no direct relationship, yet it happens. Or like a gum, which doesn't look like bone, being pierced by a tooth.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The same root on Judgment Day</h3>
+            <span class="code-badge">The First Tear in the Sky</span>
+          </div>
+          <div class="ayah-block" style="margin-top:0;">
+            <span class="ayah-ref">Al-Infiṭār 82:1</span>
+            <p class="ayah-ar arabic">إِذَا ٱلسَّمَآءُ ٱنفَطَرَتْ</p>
+            <p class="ayah-en">When the sky breaks apart.</p>
+          </div>
+          <ul class="points">
+            <li>The intransitive form of the word is used for Judgment Day: when the sky begins to tear open — the <i>initial</i> tear, before it's even clear that it's the full Day.</li>
+            <li>Another sūrah builds on this with the sky being completely torn open (inshaqqat) — the initial tear, then the full-on tear.</li>
+            <li>When people claim Allah has taken a son, the skies are about to show the first signs of a tear (yatafaṭṭarna) — that is also this "first tear."</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 08 -->
+    <section class="class-section" id="s-08" data-title="Fāṭir in the Life of Yusuf" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">08</span>
+        <h2>Fāṭir in the Life of Yusuf</h2>
+        <button class="collapse-toggle" data-target="s-08" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-08">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Unexpected ingredients, unexpected outcome</h3>
+            <span class="code-badge">Prison → Wisdom · Slavery → Leadership</span>
+          </div>
+          <ul class="points">
+            <li>Sometimes Allah builds a plan — the building blocks of a person — using circumstances you would never expect to produce the result.</li>
+            <li>You wouldn't think years in jail would create a great, wise, spiritual person; you don't associate that environment with that outcome.</li>
+            <li>You don't associate child slavery with running a country — yet those were the ingredients that led to that conclusion.</li>
+            <li>In Yusuf's (AS) case, Allah took certain components and created something completely unexpected out of them — and that is the name he calls on.</li>
+            <li>(This is still the reading of what Fāṭir means — the teacher's own thoughts on it come later.)</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>From humble beginnings to maturity</h3>
+            <span class="code-badge">One Initial Act</span>
+          </div>
+          <ul class="points">
+            <li>Within "Fāṭir" you can see more: the skies and earth weren't only created in their initial phases, but brought to a level of maturity so that life could exist on earth.</li>
+            <li>Planets and galaxies placed where they are, the sun situated where it is — all of it began from one initial "tear," one initial act from Allah.</li>
+            <li>So the call is: "O You who created everything from the most humble beginnings and placed each thing in its right place in the skies and the earth."</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 09 -->
+    <section class="class-section" id="s-09" data-title="Walī: The One Who Sticks By You" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">09</span>
+        <h2>Walī: The One Who Sticks By You</h2>
+        <button class="collapse-toggle" data-target="s-09" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-09">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Two names from one root</h3>
+            <span class="code-badge">Walī &amp; Mawlā</span>
+          </div>
+          <ul class="points">
+            <li>Walī is one of the names of Allah; a similar name from the same Arabic origin is Mawlā — both are used for Allah.</li>
+            <li>The verb (waliya, yalī) has to do with being attached to something and following it closely.</li>
+            <li>Example: "those of the disbelievers who are adjacent to you (yalūnakum)" — those right behind you, following you step by step, not letting you go.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The saddle cushion</h3>
+            <span class="code-badge">"Waliyyah"</span>
+          </div>
+          <ul class="points">
+            <li>Horses and camels have a saddle, but beneath it a little cushion is placed to ease things for the animal — a buffer, then the saddle, then the rider's weight.</li>
+            <li>That underlayer sticks to the camel so closely it almost becomes part of it — and it is also called a <b>waliyyah</b>.</li>
+            <li>From there the word came to mean a friend; someone who means well for you, among neighbours or close family.</li>
+            <li>People who stick to you and offer a layer of protection — a shield, a buffer, always by your side — become your awliyāʾ.</li>
+            <li>(The word also has a fiqh connotation, but the focus here is the linguistic meaning: someone who sticks by you and protects you.)</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Turning toward, turning away</h3>
+            <span class="code-badge">Tawallā · Walli Wajhak</span>
+          </div>
+          <ul class="points">
+            <li>A verb from the same root, <b>tawallā</b>, can mean the opposite: to turn your back on someone. What does sticking to someone have to do with turning away?</li>
+            <li>In its origin, the root also relates to direction toward something — as in the qiblah ayah: "turn your face in the direction of the Sacred Masjid."</li>
+            <li>The same word, flipped, means turning in the opposite direction.</li>
+            <li>Turning toward something and sticking to it is <b>tawallī</b>; turning away and not looking back is also from this root.</li>
+            <li>All of this — focusing on something, facing it, moving toward it — is in the word wilāyah.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>"You are my Walī in this life and the next"</h3>
+            <span class="code-badge">Not "I stuck by You"</span>
+          </div>
+          <ul class="points">
+            <li>"You are the one who stuck by me, the invisible layer of protection, my guardian and protector — in this life and in the next."</li>
+            <li>Remarkably, he isn't telling Allah how <i>he</i> stuck by Allah all along; he's telling Allah how Allah stuck by <i>him</i> — "You've been my protective friend."</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section class="class-section" id="s-10" data-title="Walī vs Mawlā" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">10</span>
+        <h2>Walī vs Mawlā</h2>
+        <button class="collapse-toggle" data-target="s-10" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-10">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Walī: the potential, always there</h3>
+            <span class="code-badge">Faʿīl — an Ism Ṣifah</span>
+          </div>
+          <ul class="points">
+            <li>The teacher's favourite ayah about this word (one he brings up whenever he can — "if you've heard it before, you'll get over it") draws a distinction between walī and mawlā.</li>
+            <li>Walī is on the pattern faʿīl, an ism ṣifah: it conveys potential — not just someone who sticks with you or befriends you, but someone who carries the intention to.</li>
+            <li>Example: "I can be your friend and mean well for you while I'm asleep — I can't act as a friend right now, but in my heart I still am. If you call, I can act."</li>
+            <li>When someone carries the intent and potential, even if it isn't being executed, this pattern fits — the desire to protect, even the acts of protecting, are all there but not necessarily being acted out right now.</li>
+            <li>Another example: describing someone as patient ("clearly not me"). "Abdul Hakim is very patient" — but right now he's in a bad mood because he didn't get dinner. He has the quality; you may or may not see it come out at this moment.</li>
+            <li>So Yusuf (AS) is saying: "You've always been the one I can rely on — the constant friend who is there whenever I need. You don't go away."</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Mawlā: protection in action</h3>
+            <span class="code-badge">"I'll Go Check the Door"</span>
+          </div>
+          <ul class="points">
+            <li>Mawlā is not an ism ṣifah; one thing that clearly comes out of it is protection actually being carried out.</li>
+            <li>If someone is your walī, they mean well for you but may not be present; if the doorbell rings and they say "No, I'll go check," they're being your <b>mawlā</b>.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The contrast between believers and disbelievers</h3>
+            <span class="code-badge">Muḥammad 47:11 · Al-Baqarah</span>
+          </div>
+          <div class="ayah-block" style="margin-top:0;">
+            <span class="ayah-ref">Muḥammad 47:11</span>
+            <p class="ayah-ar arabic">ذَٰلِكَ بِأَنَّ ٱللَّهَ مَوْلَى ٱلَّذِينَ ءَامَنُوا۟ وَأَنَّ ٱلْكَـٰفِرِينَ لَا مَوْلَىٰ لَهُمْ</p>
+            <p class="ayah-en">That is because Allah is the Mawlā of those who believe, and the disbelievers have no mawlā.</p>
+          </div>
+          <ul class="points">
+            <li>In the context of the battle between believers and disbelievers, Allah says He is the Mawlā of the believers, and the disbelievers have no mawlā.</li>
+            <li>Yet in al-Baqarah, Allah says the disbelievers <i>do</i> have awliyāʾ — those who rebel against Him (the ṭāghūt) are their awliyāʾ. They have more than one walī.</li>
+            <li>What they don't have is a mawlā. Whenever Allah is our Walī, He is automatically our Mawlā too: not only does He have the potential to protect and cover us, but every time the moment comes, He executes on it.</li>
+            <li>Disbelievers may have those who want to protect and befriend them — but when the time comes, they have no mawlā whatsoever. "You see the epicness of these two names."</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 11 -->
+    <section class="class-section" id="s-11" data-title="&quot;Take Me as a Muslim&quot; — Not a Wish for Death" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">11</span>
+        <h2>"Take Me as a Muslim" — Not a Wish for Death</h2>
+        <button class="collapse-toggle" data-target="s-11" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-11">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>An opinion the teacher strongly disagrees with</h3>
+            <span class="code-badge">Tawaffanī Muslimā</span>
+          </div>
+          <ul class="points">
+            <li>Towards the end of his prayer he says "take me away as a Muslim" — i.e. give me death as a Muslim.</li>
+            <li>Some interpreted this as him wishing for death immediately, since everything he had to accomplish in life was done. The teacher strongly disagrees.</li>
+            <li>At face value, that reading goes against the famous saying of the Prophet ﷺ that none of you should ever wish for death — he forbade it.</li>
+            <li>That prohibition wasn't something newly invented with the Prophet ﷺ; the Islamic view of life and death goes back to the time of Ibrahim (AS).</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Ibrahim passed every test — and didn't ask to die</h3>
+            <span class="code-badge">"I Will Make You an Imām"</span>
+          </div>
+          <ul class="points">
+            <li>If anyone could say "I've passed all my tests, nothing more to accomplish," it would be Ibrahim (AS) — he was told he had passed his tests and was made an imām for people.</li>
+            <li>He did not ask for death. So it would be counter-intuitive to read Yusuf's (AS) words as a wish to die right now.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A du'ā we make ourselves</h3>
+            <span class="code-badge">Āl ʿImrān: "Take Us With the Righteous"</span>
+          </div>
+          <ul class="points">
+            <li>Allah taught us an almost identical du'ā in Sūrah Āl ʿImrān — "take us among the good people" — and we are definitely not wishing for death when we say it.</li>
+            <li>It means: when our last moments come, we want to be around good people — and when You take us, we want to be counted among them.</li>
+            <li>Not only were we among good people while alive; we want to be counted among them when we die — because you can be surrounded by good people without being good yourself.</li>
+            <li>When you die, Allah may place you in a different company: "Why am I in this group? I thought I was in that one." — "No, your heart was somewhere else."</li>
+            <li>So we want to die such that our heart belongs among the hearts of those who were good.</li>
+            <li>He ends: "join me, fuse me, with the righteous" — take me as a believer, a submitter, someone in subservience to You, and join me with righteous people.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 12 -->
+    <section class="class-section" id="s-12" data-title="Gratitude First, Request Last" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">12</span>
+        <h2>Gratitude First, Request Last</h2>
+        <button class="collapse-toggle" data-target="s-12" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-12">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The sequence of the prayer</h3>
+            <span class="code-badge">Teacher's Observation #1</span>
+          </div>
+          <ul class="points">
+            <li>The last things he does are requests: "give me death as a Muslim" and "join me with the righteous."</li>
+            <li>But his starting point was acknowledging what Allah had given him: "My Master, You gave me kingdom, You taught me…"</li>
+            <li>Allah had put him through a tough life — yet he isn't looking at the trials he went through, but at the gifts Allah gave him. That was his first declaration.</li>
+            <li>There was a way he spoke to his family, a way he spoke to his father, and now a way he speaks to Allah: "I acknowledge that You did this remarkable thing for me" — step one.</li>
+            <li>Step two: he declares that he recognises who Allah is — "You are the Fāṭir of the skies and the earth" — who Allah is to everyone, not just to him.</li>
+            <li>"Let me acknowledge at least some of what You've done for me, verbalise it, then couple it with who You are — before I go further."</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Why put those two together?</h3>
+            <span class="code-badge">"How Could I Be Worthy?"</span>
+          </div>
+          <ul class="points">
+            <li>"Ya Allah, You went out of Your way to give me kingdom; of all Your creation You chose to teach me to interpret speech."</li>
+            <li>"How can I be worthy of such honour when You are the Creator of all the skies and the earth — so much more magnanimous than one insignificant creation of Yours — and yet You went above and beyond to favour me?"</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The CEO analogy</h3>
+            <span class="code-badge">Singled Out From Thousands</span>
+          </div>
+          <ul class="points">
+            <li>Imagine working at a big public or Fortune-500 company with 1,000 or 5,000 employees — national offices, regional offices, smaller offices, managers — and you're way down the hierarchy, not even on the CEO's radar.</li>
+            <li>Then the CEO goes out of their way to message you: "Good job on last week's project, I heard your son's in the hospital, hope he's okay — dinner at my house this Friday."</li>
+            <li>You'd feel daunted at being singled out among thousands — when a human you consider too high treats you specially, you get butterflies.</li>
+            <li>Now consider what Yusuf (AS) acknowledges: "My Rabb, You make plans for entire skies and galaxies — how a seed becomes a tree and a tree the Amazon forest, how the oceans work, the whole earth and its intricate systems — and You took special care to design <i>my</i> life."</li>
+            <li>Especially in giving him the power to do good and teaching him to interpret dreams and speech — an acknowledgement: "I am unworthy, and You went out of Your way to favour me." We don't deserve what Allah gives us.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Said at the moment of his triumph</h3>
+            <span class="code-badge">The Hero Who Rose From the Ashes</span>
+          </div>
+          <ul class="points">
+            <li>Where is he when he says this? He is the VIP of that whole civilisation and neighbouring nations — the most important, most knowledgeable, most powerful person.</li>
+            <li>This is the moment of his triumph over Egypt and over his own family — the moment to celebrate the hero rising from the ashes.</li>
+            <li>And in that moment he describes himself as unworthy, with Allah going out of His way to favour him — because if you count Allah's favours you can't encompass them.</li>
+            <li>His family has fallen into sajdah, his father is reunited with him, those who wronged him are brought to justice — and he says, "No, I didn't do any of that. You gave me some kingdom."</li>
+            <li>His interpretation saved the kingdom of Egypt — and he says, "You taught me interpretation; I didn't come up with that. You gave me the ability."</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 13 -->
+    <section class="class-section" id="s-13" data-title="Power + Insight = The Chance to Serve" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">13</span>
+        <h2>Power + Insight = The Chance to Serve</h2>
+        <button class="collapse-toggle" data-target="s-13" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-13">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Looking back at his whole life</h3>
+            <span class="code-badge">One Without the Other Fails</span>
+          </div>
+          <ul class="points">
+            <li>These two statements look back over his entire life, and he understands something through them.</li>
+            <li>Power without interpretation: he couldn't have solved the nation's problems.</li>
+            <li>Interpretation without power: the nation would still be struggling.</li>
+            <li>Allah gave him everything he needed to do good in this world for others.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The greatest gift: opportunity and ability</h3>
+            <span class="code-badge">Ātaytanī · ʿAllamtanī</span>
+          </div>
+          <ul class="points">
+            <li>"Ātaytanī" (You gave me) is opportunity; "ʿallamtanī" (You taught me) is ability.</li>
+            <li>One of the biggest gifts your Master can give you is the opportunity and the ability to serve Him and do something good — the greatest gift in this life.</li>
+            <li>Of everything that happened to him, he picks the two things he put most to use in serving.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Only service outlives you</h3>
+            <span class="code-badge">Al-Bāqiyāt aṣ-Ṣāliḥāt</span>
+          </div>
+          <ul class="points">
+            <li>He won't outlive the castle he may live in, the food he eats, the clothes, the family, the easier times.</li>
+            <li>A time will come when he must bury his father — the reunion isn't everlasting.</li>
+            <li>What lasts are good deeds: they are better with your Master in reward, and better to put your hopes in.</li>
+            <li>His hopes of reunion and of his troubles ending are already fulfilled — yet he looks back and says the biggest thing You did for me was giving me a chance to do good, and these two things to do good with: the opportunity, and the knowledge to solve problems.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>"Aḥādīth," not just dreams</h3>
+            <span class="code-badge">Ruʾyā vs Ḥadīth</span>
+          </div>
+          <ul class="points">
+            <li>(Covered in an earlier lecture, so only briefly.) When the phrase "taʾwīl al-aḥādīth" first came, many said it means interpretation of dreams.</li>
+            <li>The teacher holds dream interpretation is only one small part of interpreting speech: Yusuf (AS) was insightful in many situations — he understood spoken and unspoken language, all kinds of communication, people's words and what they might mean behind them.</li>
+            <li>In ayah 100 he said "this is the interpretation of my <b>ruʾyā</b> (vision)" — not "my speech." Here he does not say "You taught me interpretation of dreams/visions," but "of all kinds of <b>aḥādīth</b>." A deliberate contrast in his own words.</li>
+            <li>When the king had his dream, he asked his advisors to interpret it using "ruʾyā" — "if you can interpret visions" — a different phrase.</li>
+            <li>So "ḥadīth" has its own place in the sūrah: dreams are one kind of communication, but all other kinds are included — "Ya Allah, You gave me the ability to understand all kinds of speech."</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 14 -->
+    <section class="class-section" id="s-14" data-title="Echoing the Prayer of Ibrahim" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">14</span>
+        <h2>Echoing the Prayer of Ibrahim</h2>
+        <button class="collapse-toggle" data-target="s-14" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-14">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Subtle echoes of his ancestors</h3>
+            <span class="code-badge">Father &amp; Great-Grandfather</span>
+          </div>
+          <ul class="points">
+            <li>Much of what Yusuf (AS) says subtly echoes sometimes his father and sometimes his great-grandfather.</li>
+            <li>In the previous ayah he said Allah is "the Knowing, the Wise" — the very words his father used to him as a child.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Ibrahim leaving his people</h3>
+            <span class="code-badge">Ash-Shuʿarāʾ 26</span>
+          </div>
+          <div class="ayah-block" style="margin-top:0;">
+            <span class="ayah-ref">Ash-Shuʿarāʾ 26:77 &amp; 26:83</span>
+            <p class="ayah-ar arabic">فَإِنَّهُمْ عَدُوٌّ لِّىٓ إِلَّا رَبَّ ٱلْعَـٰلَمِينَ … رَبِّ هَبْ لِى حُكْمًا وَأَلْحِقْنِى بِٱلصَّـٰلِحِينَ</p>
+            <p class="ayah-en">"They are all enemies to me, except the Master of all the worlds … My Master, grant me wisdom and join me with the righteous."</p>
+          </div>
+          <ul class="points">
+            <li>When Ibrahim (AS) abandoned his people because they wouldn't leave idol worship, he said the false gods were all enemies to him — except the Master of all peoples and nations.</li>
+            <li>First he describes <b>who Allah is</b>.</li>
+            <li>Then <b>who Allah is to him</b>: the One who created me and guides me, who feeds me and gives me drink, who cures me when I fall sick, who gives me death and will give me life again, and the One I hope will forgive my mistakes on the Day of Judgment.</li>
+            <li>Then after that declaration: "give me firm wisdom and <b>join me with the righteous</b>."</li>
+            <li>Two generations later, at the culmination of his trial, Yusuf (AS) says the same words, word for word — echoing his forefather Ibrahim.</li>
+            <li>Both prayers share the same structure: who Allah is, and who Allah is to me. "How observant is that — isn't that incredible?"</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>We are the family of Ibrahim</h3>
+            <span class="code-badge">"Congratulations"</span>
+          </div>
+          <ul class="points">
+            <li>In prison, Yusuf (AS) told the inmates this was Allah's favour on his family, his fathers — mentioning Ibrahim (AS) too.</li>
+            <li>We are now the family of Ibrahim — "congratulations." Irish, Scottish, Trinidadian, Indonesian, Bangladeshi, Pakistani — wherever you're from, you're from the family of Ibrahim.</li>
+            <li>So we get to echo the words of our father Ibrahim through the words of his great-grandson — more on this at the end.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 15 -->
+    <section class="class-section" id="s-15" data-title="Same Events, New Angles" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">15</span>
+        <h2>Same Events, New Angles</h2>
+        <button class="collapse-toggle" data-target="s-15" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-15">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Ayah 100 retold as "You gave me power"</h3>
+            <span class="code-badge">Out of Prison = Into Power</span>
+          </div>
+          <ul class="points">
+            <li>In ayah 100 he said Allah was good to him when He brought him out of prison and brought the family from the outskirts — two parts.</li>
+            <li>A way to summarise both is "You gave me power": coming out of prison and rising to power were one and the same episode, connected to each other.</li>
+            <li>So "You gave me kingdom" describes the exact same event — being brought out of prison, which led to power.</li>
+            <li>That shows you can look at the same event in two ways: Allah <b>removed the harm</b> (I was brought out of prison), and Allah <b>added good</b> (He empowered me).</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Remove the bad, add the good</h3>
+            <span class="code-badge">Beyond Zero</span>
+          </div>
+          <ul class="points">
+            <li>What we want from Allah in this life is basically two things: something bad to go away, and something good to come our way.</li>
+            <li>Yusuf (AS) reflected and realised both happened in the same situation: the family came from the bedouin desert / land of Canaan because he had the power, given by Allah, to bring them.</li>
+            <li>Another angle: Allah removed harms — the distance from his family, the prison — and on the other side, gave him power.</li>
+            <li>We should contemplate what Allah has done for us not only as getting rid of a bad situation, but as replacing it with something better — adding a good that didn't exist before.</li>
+            <li>On a chart, removing the negative brings you only to zero — neither negative nor positive. Allah doesn't just remove the negative; He adds the positive. Ease comes along with difficulty.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>What Shayṭān did, reframed</h3>
+            <span class="code-badge">"You Taught Me Interpretation"</span>
+          </div>
+          <ul class="points">
+            <li>In ayah 100 he also said all this happened even after Shayṭān stirred discord between him and his brothers.</li>
+            <li>What Shayṭān did, and what the brothers did as a result, led to the series of unfortunate events that were his life.</li>
+            <li>Looking back: had those events not happened, how could he have learned the interpretation of all kinds of speech?</li>
+            <li>"Taʾwīl al-aḥādīth" is thus looking at what the devil did — and how Allah turned it into an opportunity that couldn't have existed otherwise.</li>
+            <li>The devil and the brothers thought they had succeeded in their plan, but Allah had a bigger plan: to teach him all kinds of speech.</li>
+            <li>He is describing the same events he already mentioned, but from a different angle — "so profoundly beautiful."</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 16 -->
+    <section class="class-section" id="s-16" data-title="The Humility of &quot;Min&quot;" style="--g-color:var(--c-4); --g-tint:var(--c-4-tint);">
+      <div class="class-head">
+        <span class="idx">16</span>
+        <h2>The Humility of "Min"</h2>
+        <button class="collapse-toggle" data-target="s-16" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-16">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>"Some power, some knowledge"</h3>
+            <span class="code-badge">Real Humility, Not Fake</span>
+          </div>
+          <ul class="points">
+            <li>He has more power and more knowledge than anyone around him — considered the most knowledgeable and most powerful — yet he uses "min" both times: You gave me <i>some</i> power, <i>some</i> knowledge.</li>
+            <li>It doesn't matter how impressed or reliant on you people are — he knows they rely on him.</li>
+            <li>He isn't putting on fake humility: if people ask him a question, he won't say "only Allah knows, I don't know" — he'll answer them.</li>
+            <li>But having that power and knowledge, he still acknowledges that it is only granted by Allah, and is only <i>some</i>, because all power always belongs to Allah.</li>
+            <li>Everybody is impressed with Yusuf's power and knowledge — and Yusuf is impressed with the power and knowledge of Allah.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 17 -->
+    <section class="class-section" id="s-17" data-title="Fāṭir — Declared From the Throne" style="--g-color:var(--c-5); --g-tint:var(--c-5-tint);">
+      <div class="class-head">
+        <span class="idx">17</span>
+        <h2>Fāṭir — Declared From the Throne</h2>
+        <button class="collapse-toggle" data-target="s-17" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-17">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Another echo of Ibrahim</h3>
+            <span class="code-badge">Al-Anʿām 6:79</span>
+          </div>
+          <div class="ayah-block" style="margin-top:0;">
+            <span class="ayah-ref">Al-Anʿām 6:79</span>
+            <p class="ayah-ar arabic">إِنِّى وَجَّهْتُ وَجْهِىَ لِلَّذِى فَطَرَ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضَ</p>
+            <p class="ayah-en">"I have turned my face toward the One who initiated the creation of the skies and the earth."</p>
+          </div>
+          <ul class="points">
+            <li>Many thousands of years earlier, Ibrahim (AS) used the very same verb when turning to Allah.</li>
+            <li>The meaning: "You are the One who brought the skies and earth out of nowhere, from invisible, unexpected means — like water from a well, like a child emerging."</li>
+            <li>Ibrahim spoke of "the skies and the earth" because his people believed gods were in the sky — the sun, the moon, Jupiter were gods.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Where Yusuf is sitting</h3>
+            <span class="code-badge">The Egyptian Throne</span>
+          </div>
+          <ul class="points">
+            <li>He's on the Egyptian throne, among people who believe in multiple gods.</li>
+            <li>He was put in this position because of his character — and he publicly declares his character: he takes care of guests, is the best of hosts, gives full measure, is a just ruler. "Check my record" — open transparency.</li>
+            <li>But he is equally transparent about what he believes.</li>
+            <li>Giving a khuṭbah about Allah as Fāṭir in a masjid is one thing; sitting on the throne of Egypt, surrounded by disbelieving officials, calling directly on Allah as Creator of the skies and earth without hesitation is another.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Religion and politics were one</h3>
+            <span class="code-badge">Sun Gods &amp; God-Kings</span>
+          </div>
+          <ul class="points">
+            <li>The teacher admits he hasn't studied enough Egyptology to know whether the Hyksos ruled in Yusuf's time or what their religious beliefs were.</li>
+            <li>But the pharaohs believed they were children of the sun, and believed in the sun as a god — Ra.</li>
+            <li>Mūsā (AS) said "politically incorrect" things to their faces: "My Master is the Master of the east and the west" — an offensive statement to them.</li>
+            <li>In secular societies religion and politics are usually separate (though "nowadays it's getting complicated again"); in ancient kingdoms they were one and the same.</li>
+            <li>Rejecting the king's religion was rejecting the king's constitution; not bowing to his idols was defying the king himself.</li>
+            <li>That's why the young people of the Cave got in trouble: they refused to pay homage to the Greek gods the king believed in — fine with his kingdom, not with his religion.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>"Who is he talking to?"</h3>
+            <span class="code-badge">A Political Statement Too</span>
+          </div>
+          <ul class="points">
+            <li>He knew other religions existed in this kingdom — he raised it in prison: these people don't believe in Allah or the Last Day; "are many gods better, or one God?"</li>
+            <li>So when he turns and says "My Master," the non-Muslim employees, guards and advisors in court wonder: which invisible God is he talking to? "The initiator of all skies and all earth?"</li>
+            <li>The pharaohs eventually believed their ancestor the sun was god of the sky and they were gods of the earth — the later Pharaoh would say, "Is not the kingdom of Egypt mine?"</li>
+            <li>A few generations earlier, Yusuf (AS) declared: "<i>You</i> are the one who gave me kingdom" — also a political statement: "I'm not hiding my Islam."</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Open faith, real risk</h3>
+            <span class="code-badge">Dawah Already Begun</span>
+          </div>
+          <ul class="points">
+            <li>Between the lines: Yusuf (AS) made his faith publicly known and perhaps had already begun softly inviting people — not just his family — to this God.</li>
+            <li>This becomes clearer long after his death, in Mūsā's time: the people would remember the days of Yusuf, when he called them to God and told them he was a prophet — also recorded in the Qur'an.</li>
+            <li>He won't say "this might hurt my career." He is still the minority; they respect him, but can remove him at any moment — politics is politics.</li>
+            <li>The straighter you are, the more vulnerable to attack and the fewer friends you have — there's no honour among thieves; crooked politicians cover for each other.</li>
+            <li>He likely had many enemies in politics and business — so many corrupt practices had to stop — and now he has his own religion, which they could use against him. Yet he declares it openly.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 18 -->
+    <section class="class-section" id="s-18" data-title="From the Unseen to the Seen and Back" style="--g-color:var(--c-6); --g-tint:var(--c-6-tint);">
+      <div class="class-head">
+        <span class="idx">18</span>
+        <h2>From the Unseen to the Seen and Back</h2>
+        <button class="collapse-toggle" data-target="s-18" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-18">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The humility inside "Fāṭir"</h3>
+            <span class="code-badge">Blessings From Trials</span>
+          </div>
+          <ul class="points">
+            <li>"Ya Allah, I'm humbled that the subtle planning You exercised from the universe's first phase to its maturity — and from the human being's origin in dirt to where it has been brought — You exercised in <i>my</i> life."</li>
+            <li>"You created situations out of the most unexpected circumstances, opportunities and skills for me, blessings in the hardest trials — one after another, when no one could have expected it."</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>A movement through the prayer</h3>
+            <span class="code-badge">Skies → Earth → Dunyā → Ākhirah</span>
+          </div>
+          <ul class="points">
+            <li>He can observe the earth, but not the skies — so it's as if he says: "You create in this remarkable, planned way in the unseen world of the skies, and also on the earth I can see." From the unseen down to the seen.</li>
+            <li>Next phrase: "You are my protecting friend in this world" — which corresponds with "earth." The scene continues.</li>
+            <li>"You created this earth, and not only did You create me and this plan, You've been protecting me in it all along."</li>
+            <li>"And in that unseen world, where Your plans are far bigger, when I'm ready to meet it and ascend to the skies, I pray Your protection continues" — the Ākhirah.</li>
+            <li>So it starts in the unseen, comes to the seen, continues in the seen, and returns to the unseen: "You are my Walī in this life and the next."</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The only constant companion</h3>
+            <span class="code-badge">"You Were Always Next to Me"</span>
+          </div>
+          <ul class="points">
+            <li>Nearing the end of his prayer he understands: "I wasn't next to my father as a child, nor my brothers, nor any other human — but You were always next to me. You're always my Walī."</li>
+            <li>"Who stays in my life and who doesn't is out of my control — but I know You will always be there."</li>
+            <li>"You've taught me something more important than anything in this life: I need Your closeness in this life, and even more in the next."</li>
+            <li>"If You went so far out of Your way to plan, show mercy, guide, teach and give me these abilities, You must have a bigger goal for me than this life — Your closeness in the next. You're my Walī; I just know it."</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 19 -->
+    <section class="class-section" id="s-19" data-title="Taken Away — One Last Time" style="--g-color:var(--c-1); --g-tint:var(--c-1-tint);">
+      <div class="class-head">
+        <span class="idx">19</span>
+        <h2>Taken Away — One Last Time</h2>
+        <button class="collapse-toggle" data-target="s-19" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-19">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>No complacency about the Hereafter</h3>
+            <span class="code-badge">Tawaffanī Muslimā</span>
+          </div>
+          <ul class="points">
+            <li>Having mentioned the Ākhirah, he doesn't say "since You're my protector in the afterlife, I needn't worry — it's guaranteed." Instead: "Take me away as a Muslim, in submission."</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Being taken is the theme of his life</h3>
+            <span class="code-badge">Family · Well · House · Prison</span>
+          </div>
+          <ul class="points">
+            <li>He understands his circumstances will change: he was taken from his family, from a well, from his master's house into prison — being taken away is a theme of his life.</li>
+            <li>"Ya Allah, I don't mind being taken away one last time, so long as one condition is met — because every time I was taken, I was still in surrender to You, still Muslim."</li>
+            <li>"It didn't matter what I was taken from or to — I was always surrendered to You."</li>
+            <li>"Even if these adventures are over — I may stay in this house until I die, Allah knows — one day I must leave it for a new house under the dirt."</li>
+            <li>"This time it may not be traders selling me as a slave, guards hauling me to jail, or brothers dragging me to a well — it may be Your angels taking my soul up for questioning."</li>
+            <li>"When that time comes, take me as someone surrendered to You. Let my circumstances be whatever they are, but my heart should remain surrendered."</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>"Muslim" — another echo of Ibrahim</h3>
+            <span class="code-badge">Surrender, Surrender, Surrender</span>
+          </div>
+          <ul class="points">
+            <li>The word "Muslim" echoes Ibrahim's teaching: "Make us both Muslims to You, and from our offspring a nation Muslim to You."</li>
+            <li>When his Master told him "Submit," he said, "I submit to the Master of all the worlds." Muslim, muslim, muslim — surrender, surrender, surrender.</li>
+            <li>"Take me in a state of surrender. I may not want to surrender to any other authority, but to You I want to remain surrendered."</li>
+            <li>Remarkably, Yusuf (AS) is the one the whole nation surrenders to — no human he deals with doesn't, other than the king, and even the king has surrendered much of his power to him.</li>
+            <li>And here he turns to Allah: "Take me in a state of surrender to You — peaceful submission."</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 20 -->
+    <section class="class-section" id="s-20" data-title="&quot;Join Me With the Righteous&quot;" style="--g-color:var(--c-2); --g-tint:var(--c-2-tint);">
+      <div class="class-head">
+        <span class="idx">20</span>
+        <h2>"Join Me With the Righteous"</h2>
+        <button class="collapse-toggle" data-target="s-20" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-20">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Two kinds of joining</h3>
+            <span class="code-badge">Walī ↔ Alḥiqnī</span>
+          </div>
+          <ul class="points">
+            <li>A literary correlation: he called Allah his Walī — from "yalī," to stick to or join something — and now says "alḥiqnī," another word for "join me."</li>
+            <li>"Ya Allah, I need two joinings: one with You, and the other — in the Ākhirah — a permanent joining with good people."</li>
+            <li>In his life, good people came and went; company is temporary, life itself is temporary. "I do want company, I don't want to be alone — but I want to be joined with good people permanently."</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Joining his forefathers</h3>
+            <span class="code-badge">Ibn ʿAbbās</span>
+          </div>
+          <ul class="points">
+            <li>Allah said of Ibrahim that He chose him in this world, and in the afterlife he is among the righteous (ṣāliḥīn).</li>
+            <li>And Ibrahim prayed: "My Master, give me wisdom and join me with the righteous."</li>
+            <li>That's why Ibn ʿAbbās and others said Yusuf (AS) means: join me with my fathers and ancestors, give me their company, let me join their ranks in the afterlife.</li>
+            <li>"Make me good enough to be among them — can I get a membership?"</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>The last word from a lonely life</h3>
+            <span class="code-badge">Al-ʿAnkabūt 29:9</span>
+          </div>
+          <ul class="points">
+            <li>As the story closes, the last thing Allah wants us to know about Yusuf (AS) — who lived much of his life in abandonment, isolation and solitude — is his prayer for the company of good people.</li>
+            <li>A rule: when someone turns toward Allah, they will suffer abandonment by those who can't handle their closeness to Allah.</li>
+            <li>So Allah promises: those who believed and did good deeds, He will certainly enter them among the righteous.</li>
+            <li>After everything, his last word on it all: "I just want to die in obedience to You, and go somewhere I can be among good people forever."</li>
+            <li>That was his description of heaven. He could have said, "Give me death as a Muslim, forgive my sins, enter me into Paradise" — such expressions exist elsewhere in the Qur'an — but he chose "join me with good people."</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Who we keep company with now</h3>
+            <span class="code-badge">"A Person Is With Whom They Love"</span>
+          </div>
+          <ul class="points">
+            <li>Reflect on the value of being among good people, and the Prophet's ﷺ saying that a person will be with the one they love.</li>
+            <li>The company we choose now indicates who and what we love to be around — and will play a major role in the company we have in the end.</li>
+            <li>For much of his life Yusuf (AS) had company he didn't want: no one wants company in jail, in a scheming lady's house, among slave traders.</li>
+            <li>Sometimes circumstances are more powerful than us and we're stuck with company we didn't choose — but other times we do choose our friends and how we spend our time.</li>
+            <li>Today, company can be kept through your device — a virtual connection with someone on the other side of the planet. What kind of connection is it — destroying you or helping you?</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Righteous — not "prophets"</h3>
+            <span class="code-badge">Love for All Good People</span>
+          </div>
+          <ul class="points">
+            <li>He didn't say "join me with the prophets" but "with the righteous." Some say this was out of humility before Allah.</li>
+            <li>"Righteous" is the broadest category: "join me with the prophets" would exclude the rest of his family; he wants all good people.</li>
+            <li>That's the love prophets have: they don't want to be treated as a special category. Their love for people in this world extends to the next — "make me one of them, and let me see other good people too."</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- 21 -->
+    <section class="class-section" id="s-21" data-title="The Yusuf Club in Jannah" style="--g-color:var(--c-3); --g-tint:var(--c-3-tint);">
+      <div class="class-head">
+        <span class="idx">21</span>
+        <h2>The Yusuf Club in Jannah</h2>
+        <button class="collapse-toggle" data-target="s-21" aria-expanded="true" aria-label="Collapse section">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+      <div class="class-body-outer" id="body-s-21">
+      <div class="class-body-inner">
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Billions of versions of his story</h3>
+            <span class="code-badge">The Teacher's Personal Belief</span>
+          </div>
+          <ul class="points">
+            <li>There are billions of permutations of Yusuf's (AS) story every day: somebody is living some portion of his life, going through his trials in some way.</li>
+            <li>All those who pass those trials, turn to Allah and say "tawaffanī muslimā" will be in this "Yusuf membership club" in Jannah, where all the ṣāliḥīn are together.</li>
+            <li>We'll get to meet them and ask, "What's your Yusuf story?" — and share our experiences with fellow believers who went through these trials.</li>
+            <li>This isn't just one individual's story; it's the story of almost every one of us — one or more parts of it apply — and we get to be among them. That's why the wording at the end is actually an invitation.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <h3>Closing du'ā</h3>
+            <span class="code-badge">What We Should Ask For</span>
+          </div>
+          <ul class="points">
+            <li>May Allah give us a correct understanding of His Book, love of His Prophet ﷺ and all His prophets, and loyalty to His word.</li>
+            <li>May that give us the strength of heart to live through the trials of our lives with faith.</li>
+            <li>May Allah take all of us in a state that we are, in fact, Muslim.</li>
+            <li>One outstanding item remained to be read, held over until the next session.</li>
+          </ul>
+        </div>
+
+      </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<button id="toTop" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<div id="quickPanel">
+  <div class="qp-head">Jump to Section</div>
+  <ul id="qpList"></ul>
+</div>
+
+<button id="quickFab" aria-label="Open quick navigation" aria-expanded="false">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+</button>
+
+<script>
+  const heroHeader = document.querySelector('header.hero');
+  function syncHeaderHeight(){
+    const refBar = document.querySelector('.ref-bar');
+    document.documentElement.style.setProperty('--header-h', (heroHeader.offsetHeight + refBar.offsetHeight) + 'px');
+  }
+  syncHeaderHeight();
+  window.addEventListener('resize', syncHeaderHeight);
+
+  const progress = document.getElementById('progress');
+  function updateProgress(){
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    progress.style.width = scrolled + '%';
+    document.getElementById('toTop').classList.toggle('show', h.scrollTop > 700);
+  }
+  document.addEventListener('scroll', updateProgress, {passive:true});
+  updateProgress();
+
+  document.getElementById('toTop').addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+  const tocToggle = document.getElementById('tocToggle');
+  const tocPanelOuter = document.getElementById('tocPanelOuter');
+  function closeToc(){
+    tocPanelOuter.classList.remove('open');
+    tocToggle.setAttribute('aria-expanded', 'false');
+  }
+  tocToggle.addEventListener('click', () => {
+    const isOpen = tocPanelOuter.classList.toggle('open');
+    tocToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  /* ---------- build quick-jump list from sections ---------- */
+  const sections = Array.from(document.querySelectorAll('main section.class-section'));
+  const ALL_SECTION_IDS = sections.map(s => s.id);
+  const qpList = document.getElementById('qpList');
+  const chevron = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+  sections.forEach(sec => {
+    const idx = sec.querySelector('.idx').textContent;
+    const color = sec.style.getPropertyValue('--g-color');
+    const li = document.createElement('li');
+    li.dataset.target = sec.id;
+    const a = document.createElement('a');
+    a.href = '#' + sec.id;
+    a.style.setProperty('--qc', color);
+    a.innerHTML = '<span class="qp-idx">' + idx + '</span>';
+    a.appendChild(document.createTextNode(sec.dataset.title || sec.querySelector('h2').textContent));
+    const t = document.createElement('span');
+    t.className = 'qp-toggle';
+    t.dataset.target = sec.id;
+    t.innerHTML = chevron;
+    li.appendChild(a); li.appendChild(t);
+    qpList.appendChild(li);
+  });
+
+  const navLinks = document.querySelectorAll('nav.sidebar li a');
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const id = entry.target.id;
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  sections.forEach(el => sectionObserver.observe(el));
+
+  const quickFab = document.getElementById('quickFab');
+  const quickPanel = document.getElementById('quickPanel');
+  function openQuickPanel(){ quickPanel.classList.add('open'); quickFab.classList.add('open'); quickFab.setAttribute('aria-expanded','true'); }
+  function closeQuickPanel(){ quickPanel.classList.remove('open'); quickFab.classList.remove('open'); quickFab.setAttribute('aria-expanded','false'); }
+  quickFab.addEventListener('click', () => { quickPanel.classList.contains('open') ? closeQuickPanel() : openQuickPanel(); });
+  document.addEventListener('click', (e) => {
+    if(quickPanel.classList.contains('open') && !quickPanel.contains(e.target) && !quickFab.contains(e.target)){ closeQuickPanel(); }
+  });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeQuickPanel(); });
+  quickPanel.querySelectorAll('a').forEach(a => { a.addEventListener('click', () => closeQuickPanel()); });
+
+  function setCollapsed(id, collapsed){
+    const body = document.getElementById('body-' + id);
+    const btn = document.querySelector('.collapse-toggle[data-target="' + id + '"]');
+    const qpItem = document.querySelector('#qpList li[data-target="' + id + '"]');
+    if(body) body.classList.toggle('collapsed', collapsed);
+    if(btn) btn.setAttribute('aria-expanded', String(!collapsed));
+    if(qpItem) qpItem.classList.toggle('is-collapsed', collapsed);
+  }
+  function isCollapsed(id){
+    const body = document.getElementById('body-' + id);
+    return body ? body.classList.contains('collapsed') : false;
+  }
+  function toggleCollapsed(id){ setCollapsed(id, !isCollapsed(id)); }
+
+  document.querySelectorAll('.collapse-toggle').forEach(btn => {
+    btn.addEventListener('click', () => toggleCollapsed(btn.dataset.target));
+  });
+  document.querySelectorAll('#qpList li').forEach(item => {
+    const id = item.dataset.target;
+    item.querySelector('.qp-toggle').addEventListener('click', (e) => { e.stopPropagation(); e.preventDefault(); toggleCollapsed(id); });
+  });
+
+  document.getElementById('expandAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, false)));
+  document.getElementById('collapseAll').addEventListener('click', () => ALL_SECTION_IDS.forEach(id => setCollapsed(id, true)));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', () => {
+      const href = a.getAttribute('href').slice(1);
+      if(!href) return;
+      const target = document.getElementById(href);
+      if(!target) return;
+      if(target.classList.contains('class-section')){ setCollapsed(href, false); }
+      if(a.closest('nav.sidebar')){ closeToc(); }
+    });
+  });
+
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', () => {
+    const q = searchInput.value.trim().toLowerCase();
+    navLinks.forEach(a => {
+      const key = ((a.dataset.key || '') + ' ' + a.textContent).toLowerCase();
+      const match = q === '' || key.includes(q);
+      a.dataset.hidden = match ? '0' : '1';
+      const section = document.querySelector(a.getAttribute('href'));
+      if(section){ section.style.display = match ? '' : 'none'; }
+    });
+  });
+</script>
+<script src="nav.js"></script>
+</body>
+</html>
